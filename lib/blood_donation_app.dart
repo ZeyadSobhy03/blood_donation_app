@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:flutter/material.dart';
 
 class BloodDonationApp extends StatelessWidget {
@@ -6,7 +7,9 @@ class BloodDonationApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: RouteManger.router,
+      initialRoute: RouteManger.onboarding,
     );
   }
 }
