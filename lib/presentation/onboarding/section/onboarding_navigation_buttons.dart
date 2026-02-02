@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
+import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,6 +25,7 @@ class OnboardingNavigationButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalization = AppLocalizations.of(context)!;
     final width = MediaQuery.of(context).size.width;
     final isWide = width > 700;
     return Padding(
@@ -49,7 +51,9 @@ class OnboardingNavigationButtons extends StatelessWidget {
 
                   onPressed: isFirst ? onDone : onBack,
                   child: CustomText(
-                    text: isFirst ? 'Skip' : 'Back',
+                    text: isFirst
+                        ? appLocalization.button_skip
+                        : appLocalization.button_back,
                     textStyle: TextStyle(
                       fontSize: FontSize.s14,
                       color: ColorManger.black,
@@ -69,7 +73,9 @@ class OnboardingNavigationButtons extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 12.h),
                   onPressed: onNext,
                   child: CustomText(
-                    text: isLast ? 'Get Started' : 'Next',
+                    text: isLast
+                        ? appLocalization.button_get_started
+                        : appLocalization.button_next,
                     textStyle: TextStyle(
                       fontSize: FontSize.s14,
                       color: ColorManger.pureWhite,

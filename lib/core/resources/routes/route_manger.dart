@@ -1,16 +1,21 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
 import 'package:flutter/material.dart';
 
 class RouteManger {
   static const String onboarding = '/onboarding';
+  static const String chooseRole = '/chooseRole';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
       case onboarding:
         return MaterialPageRoute(builder: (context) => OnboardingPages());
+
+      case chooseRole:
+        return MaterialPageRoute(builder: (context) => ChooseRole());
       default:
         return MaterialPageRoute(
           builder: (context) {

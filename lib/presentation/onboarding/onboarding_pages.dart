@@ -1,38 +1,40 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/presentation/onboarding/model/onboarding_model.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class OnboardingPages extends StatelessWidget {
   const OnboardingPages({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final appLocalization = AppLocalizations.of(context)!;
+
     return OnboardingPage(
       pages: [
         OnboardingModel(
           backgroundColor: ColorManger.softPinkishWhite,
           icon: Icons.favorite_border,
           iconColor: ColorManger.brightRed,
-          title: 'Welcome to LifeLink',
+          title: appLocalization.onboarding_1_title,
           titleTextStyle: TextStyle(
             fontSize: FontSize.s18,
             fontWeight: FontWeightManager.semiBold,
             color: ColorManger.black,
           ),
-          subTitle: 'Smart Blood Donation App',
+          subTitle: appLocalization.onboarding_1_subTitle,
           subTitleTextStyle: TextStyle(
             fontSize: FontSize.s14,
             fontWeight: FontWeightManager.regular,
             color: ColorManger.slateGrey,
           ),
           description: [
-            OnboardingItem(
-              text:
-                  'Connecting donors with those in need, saving lives one donation at a time.',
-            ),
+            OnboardingItem(text: appLocalization.onboarding_1_desc_1),
           ],
           descriptionStyle: TextStyle(
             fontSize: FontSize.s14,
@@ -45,13 +47,13 @@ class OnboardingPages extends StatelessWidget {
           backgroundColor: ColorManger.pureWhite,
           icon: Icons.access_time_rounded,
           iconColor: ColorManger.slateGrey,
-          title: 'The Problem',
+          title: appLocalization.onboarding_2_title,
           titleTextStyle: TextStyle(
             fontSize: FontSize.s18,
             fontWeight: FontWeightManager.semiBold,
             color: ColorManger.black,
           ),
-          subTitle: 'Current Challenges',
+          subTitle: appLocalization.onboarding_2_subTitle,
           subTitleTextStyle: TextStyle(
             fontSize: FontSize.s14,
             fontWeight: FontWeightManager.regular,
@@ -59,7 +61,7 @@ class OnboardingPages extends StatelessWidget {
           ),
           description: [
             OnboardingItem(
-              text: 'Difficulty finding donors quickly in emergencies',
+              text: appLocalization.onboarding_2_desc_1,
               prefixWidget: Container(
                 height: 12.h,
                 width: 12.w,
@@ -70,7 +72,7 @@ class OnboardingPages extends StatelessWidget {
               ),
             ),
             OnboardingItem(
-              text: 'No centralized donor database',
+              text: appLocalization.onboarding_2_desc_2,
               prefixWidget: Container(
                 height: 12.h,
                 width: 12.w,
@@ -81,7 +83,7 @@ class OnboardingPages extends StatelessWidget {
               ),
             ),
             OnboardingItem(
-              text: 'Lack of motivation for repeat donations',
+              text: appLocalization.onboarding_2_desc_3,
               prefixWidget: Container(
                 height: 12.h,
                 width: 12.w,
@@ -103,13 +105,13 @@ class OnboardingPages extends StatelessWidget {
           backgroundColor: ColorManger.lightBlueGrey,
           icon: Icons.people,
           iconColor: ColorManger.royalBlue,
-          title: 'The Problem',
+          title: appLocalization.onboarding_3_title,
           titleTextStyle: TextStyle(
             fontSize: FontSize.s18,
             fontWeight: FontWeightManager.semiBold,
             color: ColorManger.black,
           ),
-          subTitle: 'Current Challenges',
+          subTitle: appLocalization.onboarding_3_subTitle,
           subTitleTextStyle: TextStyle(
             fontSize: FontSize.s14,
             fontWeight: FontWeightManager.regular,
@@ -117,21 +119,21 @@ class OnboardingPages extends StatelessWidget {
           ),
           description: [
             OnboardingItem(
-              text: 'Fast GPS-based donor matching',
+              text: appLocalization.onboarding_3_desc_1,
               prefixWidget: Icon(
                 Icons.location_on_outlined,
                 color: ColorManger.royalBlue,
               ),
             ),
             OnboardingItem(
-              text: 'Instant emergency notifications',
+              text: appLocalization.onboarding_3_desc_2,
               prefixWidget: Icon(
                 Icons.notifications_none,
                 color: ColorManger.royalBlue,
               ),
             ),
             OnboardingItem(
-              text: 'Rewards system for donors',
+              text: appLocalization.onboarding_3_desc_3,
               prefixWidget: Icon(
                 Icons.military_tech,
                 color: ColorManger.royalBlue,
@@ -149,23 +151,20 @@ class OnboardingPages extends StatelessWidget {
           backgroundColor: ColorManger.softPinkishWhite,
           icon: Icons.favorite_border,
           iconColor: ColorManger.brightRed,
-          title: 'Make a Difference',
+          title: appLocalization.onboarding_4_title,
           titleTextStyle: TextStyle(
             fontSize: FontSize.s18,
             fontWeight: FontWeightManager.semiBold,
             color: ColorManger.black,
           ),
-          subTitle: 'Join Our Community',
+          subTitle: appLocalization.onboarding_4_subTitle,
           subTitleTextStyle: TextStyle(
             fontSize: FontSize.s14,
             fontWeight: FontWeightManager.regular,
             color: ColorManger.slateGrey,
           ),
           description: [
-            OnboardingItem(
-              text:
-                  'Every donation can save up to 3 lives. Be a hero in your community.',
-            ),
+            OnboardingItem(text: appLocalization.onboarding_4_desc_1),
           ],
           descriptionStyle: TextStyle(
             fontSize: FontSize.s14,
@@ -175,7 +174,9 @@ class OnboardingPages extends StatelessWidget {
           ),
         ),
       ],
-      onDone: () {},
+      onDone: () {
+        Navigator.pushNamed(context, RouteManger.chooseRole);
+      },
     );
   }
 }
