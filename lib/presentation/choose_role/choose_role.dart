@@ -14,55 +14,133 @@ class ChooseRole extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
 
+
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(height: 20.h),
-                  TitleRole(
-                    roleTitle: appLocalization.choose_role_title,
-                    roleSubTitle: appLocalization.choose_role_subTitle,
-                  ),
-                  SizedBox(height: 8.h,),
-                  RoleCard(
-                    icon: Icons.favorite_border_outlined,
-                    borderColor: ColorManger.brightRed.withValues(alpha: 0.2),
-                    iconColor: ColorManger.brightRed,
-                    cardTitle: appLocalization.role_blood_donor_title,
-                    cardDesc: appLocalization.role_blood_donor_desc,
-                    text: appLocalization.role_blood_donor_button,
-                    onPressed: (){},
-                  ),
-                  RoleCard(
-                    icon: Icons.local_hospital,
-                    borderColor: ColorManger.royalBlue.withValues(alpha: 0.2),
-                    iconColor: ColorManger.royalBlue,
-                    cardTitle: appLocalization.role_hospital_title,
-                    cardDesc: appLocalization.role_hospital_desc,
-                    text: appLocalization.role_hospital_button,
-                    onPressed: (){},
-                  ),
-                  RoleCard(
-                    borderColor: ColorManger.green.withValues(alpha: 0.2),
-                    icon: Icons.admin_panel_settings,
-                    iconColor: ColorManger.green,
-                    cardTitle: appLocalization.role_admin_title,
-                    cardDesc: appLocalization.role_admin_desc,
-                    text: appLocalization.role_admin_button,
-                    onPressed: (){},
-                  ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final isWide = constraints.maxWidth >= 700;
 
-                ],
+          if(!isWide){
+            return SingleChildScrollView(
+              child: SafeArea(
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+
+                      children: [
+                        SizedBox(height: 20.h),
+                        TitleRole(
+                          roleTitle: appLocalization.choose_role_title,
+                          roleSubTitle: appLocalization.choose_role_subTitle,
+                        ),
+                        SizedBox(height: 8.h),
+                        RoleCard(
+                          icon: Icons.favorite_border_outlined,
+                          borderColor: ColorManger.brightRed.withValues(
+                            alpha: 0.2,
+                          ),
+                          iconColor: ColorManger.brightRed,
+                          cardTitle: appLocalization.role_blood_donor_title,
+                          cardDesc: appLocalization.role_blood_donor_desc,
+                          text: appLocalization.role_blood_donor_button,
+                          onPressed: () {},
+                        ),
+                        RoleCard(
+                          icon: Icons.local_hospital,
+                          borderColor: ColorManger.royalBlue.withValues(
+                            alpha: 0.2,
+                          ),
+                          iconColor: ColorManger.royalBlue,
+                          cardTitle: appLocalization.role_hospital_title,
+                          cardDesc: appLocalization.role_hospital_desc,
+                          text: appLocalization.role_hospital_button,
+                          onPressed: () {},
+                        ),
+                        RoleCard(
+                          borderColor: ColorManger.green.withValues(alpha: 0.2),
+                          icon: Icons.admin_panel_settings,
+                          iconColor: ColorManger.green,
+                          cardTitle: appLocalization.role_admin_title,
+                          cardDesc: appLocalization.role_admin_desc,
+                          text: appLocalization.role_admin_button,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }
+          return SingleChildScrollView(
+            child: SafeArea(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+
+                    children: [
+                      SizedBox(height: 20.h),
+                      TitleRole(
+                        roleTitle: appLocalization.choose_role_title,
+                        roleSubTitle: appLocalization.choose_role_subTitle,
+                      ),
+                      SizedBox(height: 8.h),
+
+                      Row(
+                        children: [
+                          Expanded(
+                            child: RoleCard(
+                              icon: Icons.favorite_border_outlined,
+                              borderColor: ColorManger.brightRed.withValues(
+                                alpha: 0.2,
+                              ),
+                              iconColor: ColorManger.brightRed,
+                              cardTitle: appLocalization.role_blood_donor_title,
+                              cardDesc: appLocalization.role_blood_donor_desc,
+                              text: appLocalization.role_blood_donor_button,
+                              onPressed: () {},
+                            ),
+                          ),
+                          Expanded(
+                            child: RoleCard(
+                              icon: Icons.local_hospital,
+                              borderColor: ColorManger.royalBlue.withValues(
+                                alpha: 0.2,
+                              ),
+                              iconColor: ColorManger.royalBlue,
+                              cardTitle: appLocalization.role_hospital_title,
+                              cardDesc: appLocalization.role_hospital_desc,
+                              text: appLocalization.role_hospital_button,
+                              onPressed: () {},
+                            ),
+                          ),
+                        ],
+                      ),
+
+
+                      RoleCard(
+                        borderColor: ColorManger.green.withValues(alpha: 0.2),
+                        icon: Icons.admin_panel_settings,
+                        iconColor: ColorManger.green,
+                        cardTitle: appLocalization.role_admin_title,
+                        cardDesc: appLocalization.role_admin_desc,
+                        text: appLocalization.role_admin_button,
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
+          );
+
+
+        },
       ),
     );
   }

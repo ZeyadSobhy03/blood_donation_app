@@ -46,7 +46,7 @@ class RoleCard extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(icon, color: iconColor, size: 28.sp),
+                Icon(icon, color: iconColor, size: 28),
                 SizedBox(width: 12.w),
                 Expanded(
                   child: Column(
@@ -60,7 +60,7 @@ class RoleCard extends StatelessWidget {
                           fontWeight: FontWeightManager.semiBold,
                         ),
                       ),
-                      SizedBox(height: 6.h),
+                      SizedBox(height: 6),
                       CustomText(
                         text: cardDesc,
                         textStyle: TextStyle(
@@ -75,22 +75,29 @@ class RoleCard extends StatelessWidget {
               ],
             ),
             SizedBox(height: 32.h),
-            CustomElevatedButton(
-              onPressed: onPressed,
-              backgroundColor: iconColor,
-              elevation: 2,
-              foregroundColor: ColorManger.pureWhite,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              padding: EdgeInsets.symmetric(vertical: 12.h),
-              child: Center(
-                child: CustomText(
-                  text: text,
-                  textStyle: TextStyle(
-                    fontSize: FontSize.s14,
-                    color: ColorManger.pureWhite,
-                    fontWeight: FontWeightManager.medium,
+            Center(
+              child: IntrinsicWidth(
+                child: CustomElevatedButton(
+                  onPressed: onPressed,
+                  backgroundColor: iconColor,
+                  elevation: 2,
+                  foregroundColor: ColorManger.pureWhite,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 24.w,
+                    vertical: 10.h,
+                  ),
+                  child: Center(
+                    child: CustomText(
+                      text: text,
+                      textStyle: TextStyle(
+                        fontSize: FontSize.s14,
+                        color: ColorManger.pureWhite,
+                        fontWeight: FontWeightManager.medium,
+                      ),
+                    ),
                   ),
                 ),
               ),
