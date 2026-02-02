@@ -28,7 +28,6 @@ class RoleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
 
     return Card(
       color: ColorManger.pureWhite,
