@@ -1,4 +1,5 @@
-import 'dart:ui';
+
+import 'package:flutter/material.dart';
 
 class ColorManger {
   static const Color brightRed = Color(0xFFFF3B3B);
@@ -17,5 +18,6 @@ class ColorManger {
   static const Color royalBlue = Color(0xFF2563EB);
   static const Color skyBlue = Color(0xFF3B82F6);
   static const Color lightGreyBorder = Color(0xFFE2E8F0);
-    static const Color green = Color(0xFF00C853);
+  static const Color green = Color(0xFF00C853);
+  static const Color transparent = Colors.transparent;
 }

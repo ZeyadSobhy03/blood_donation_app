@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -6,6 +7,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorManger.pureWhite,
 
     );
   }
