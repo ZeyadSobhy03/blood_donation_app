@@ -106,4 +106,305 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get role_admin_button => 'استمر كمسؤول';
+
+  @override
+  String get reviewConfirmTitle => 'مراجعة وتأكيد';
+
+  @override
+  String get reviewConfirmSubtitle => 'من فضلك راجع تفاصيل موعد التبرع';
+
+  @override
+  String get beforeYouDonate => 'قبل التبرع';
+
+  @override
+  String get donationTipEat => 'تناول وجبة صحية قبل التبرع';
+
+  @override
+  String get donationTipWater => 'اشرب كمية كافية من الماء';
+
+  @override
+  String get donationTipId => 'أحضر بطاقة هوية سارية';
+
+  @override
+  String get donationTipSleep => 'احصل على قسط كافٍ من النوم';
+
+  @override
+  String get confirmAppointment => 'تأكيد الموعد';
+
+  @override
+  String get chooseLocationTitle => 'اختر الموقع';
+
+  @override
+  String get chooseLocationSubtitle => 'أين تود التبرع؟';
+
+  @override
+  String get selectDateTimeTitle => 'اختيار التاريخ والوقت';
+
+  @override
+  String get selectDateTimeSubtitle => 'متى تود التبرع؟';
+
+  @override
+  String get selectDateLabel => 'اختر التاريخ';
+
+  @override
+  String get selectTimeLabel => 'اختر الوقت';
+
+  @override
+  String get donationTypeLabel => 'نوع التبرع';
+
+  @override
+  String get datePlaceholder => 'يوم / شهر / سنة';
+
+  @override
+  String get continueStep => 'متابعة';
+
+  @override
+  String get confirmDetailsTitle => 'تأكيد البيانات';
+
+  @override
+  String get confirmDetailsSubtitle => 'من فضلك تأكد من صحة بياناتك';
+
+  @override
+  String get firstNameLabel => 'الاسم الأول';
+
+  @override
+  String get lastNameLabel => 'اسم العائلة';
+
+  @override
+  String get phoneNumberLabel => 'رقم الهاتف';
+
+  @override
+  String get emailAddressLabel => 'البريد الإلكتروني';
+
+  @override
+  String get firstNameHint => 'زياد';
+
+  @override
+  String get lastNameHint => 'صبحي';
+
+  @override
+  String get phoneHint => '01XXXXXXXXX';
+
+  @override
+  String get emailHint => 'ziyad@gmail.com';
+
+  @override
+  String get appointmentConfirmedTitle => 'تم تأكيد الموعد!';
+
+  @override
+  String get appointmentConfirmedSubtitle => 'تم جدولة موعد التبرع بنجاح';
+
+  @override
+  String get whatsNextTitle => 'ماذا بعد؟';
+
+  @override
+  String get nextStepEmail => 'ستصلك رسالة تأكيد عبر البريد الإلكتروني';
+
+  @override
+  String get nextStepReminder => 'سنرسل لك تذكيرًا قبل الموعد بـ 24 ساعة';
+
+  @override
+  String get nextStepId => 'أحضر بطاقة هوية سارية يوم التبرع';
+
+  @override
+  String get backToHome => 'العودة للرئيسية';
+
+  @override
+  String get addToCalendar => 'إضافة إلى التقويم';
+
+  @override
+  String get scheduleDonationTitle => 'جدولة التبرع';
+
+  @override
+  String scheduleStepCounter(Object current, Object total) {
+    return 'الخطوة $current من $total';
+  }
+
+  @override
+  String get locationLabel => 'المكان';
+
+  @override
+  String get whenLabel => 'الوقت';
+
+  @override
+  String get chooseBloodType => 'اختر نوع الدم';
+
+  @override
+  String get wholeBlood => 'دم كامل';
+
+  @override
+  String get plasma => 'بلازما';
+
+  @override
+  String get platelets => 'صفائح دموية';
+
+  @override
+  String get doubleRedCells => 'خلايا حمراء مزدوجة';
+
+  @override
+  String get noteMessage =>
+      'ملاحظة: المواعيد عادة متاحة قبل 24-48 ساعة. الزيارات المباشرة مرحب بها خلال ساعات العمل.';
+
+  @override
+  String get location => 'الموقع';
+
+  @override
+  String get dateTime => 'التاريخ والوقت';
+
+  @override
+  String get donationType => 'نوع التبرع';
+
+  @override
+  String get contactInfo => 'معلومات الاتصال';
+
+  @override
+  String get notSelected => 'غير محدد';
+
+  @override
+  String get noEmail => 'لا يوجد بريد إلكتروني';
+
+  @override
+  String get noPhone => 'لا يوجد رقم هاتف';
+
+  @override
+  String get chooseTimeSlot => 'اختر توقيت التبرع';
+
+  @override
+  String get confirmResponse => 'تأكيد الاستجابة';
+
+  @override
+  String get emergencyRequestQuestion =>
+      'هل أنت متاح للرد على هذا الطلب الطارئ للتبرع بالدم؟';
+
+  @override
+  String get acceptButton => 'موافق - أستطيع المساعدة';
+
+  @override
+  String get declineButton => 'رفض - غير متاح';
+
+  @override
+  String get donationStatus => 'حالة التبرع';
+
+  @override
+  String get nextDonationReady => 'التبرع القادم: جاهز الآن';
+
+  @override
+  String get donor => 'متبرع';
+
+  @override
+  String get whatHappensNext => 'ما سيحدث بعد ذلك:';
+
+  @override
+  String get hospitalNotified => 'سيتم إخطار المستشفى بردك';
+
+  @override
+  String get directionsAndContact => 'ستتلقى الإرشادات وتفاصيل الاتصال';
+
+  @override
+  String get arriveOnTime => 'يرجى الوصول في الوقت المقدر';
+
+  @override
+  String get urgentRequests => 'الطلبات العاجلة';
+
+  @override
+  String get active => 'نشطة';
+
+  @override
+  String get donateNow => 'تبرع الآن';
+
+  @override
+  String get respond => 'الرد';
+
+  @override
+  String welcomeBack(Object name) {
+    return 'مرحبًا بك مجددًا، $name!';
+  }
+
+  @override
+  String get readyToSaveLives => 'هل أنت مستعد لإنقاذ الأرواح اليوم؟';
+
+  @override
+  String get eligibleToDonate => 'مؤهل للتبرع';
+
+  @override
+  String get donations => 'التبرعات';
+
+  @override
+  String get points => 'النقاط';
+
+  @override
+  String get livesSaved => 'الأرواح المنقذة';
+
+  @override
+  String get requestDetails => 'تفاصيل الطلب';
+
+  @override
+  String get posted => 'تاريخ النشر';
+
+  @override
+  String get patientType => 'نوع المريض';
+
+  @override
+  String get contact => 'رقم الاتصال';
+
+  @override
+  String get iCanHelpRespondNow => 'أستطيع المساعدة - الرد الآن';
+
+  @override
+  String get notAvailable => 'غير متاح';
+
+  @override
+  String get whyYourResponseMatters => 'لماذا ردك مهم';
+
+  @override
+  String get responseMattersDescription =>
+      'فصيلة دمك تطابق هذا الطلب العاجل. استجابتك السريعة قد تنقذ حياة. يحتاج المريض إلى 3 وحدات دم O+ لعملية طارئة.';
+
+  @override
+  String get bloodTypeNeeded => 'فصيلة الدم المطلوبة';
+
+  @override
+  String get urgentRequestActive => 'طلب عاجل نشط';
+
+  @override
+  String get unitsNeeded => 'عدد الوحدات المطلوبة';
+
+  @override
+  String get distance => 'المسافة';
+
+  @override
+  String get openInMap => 'افتح في الخريطة';
+
+  @override
+  String get mapView => 'عرض الخريطة';
+
+  @override
+  String get emergencyRequest => 'طلب عاجل';
+
+  @override
+  String get criticalRequest => 'طلب حرج';
+
+  @override
+  String get emergency => 'عاجل';
+
+  @override
+  String get critical => 'حرج';
+
+  @override
+  String get units => 'وحدات';
+
+  @override
+  String get home => 'الرئيسية';
+
+  @override
+  String get find => 'بحث';
+
+  @override
+  String get donate => 'تبرع';
+
+  @override
+  String get rewards => 'المكافآت';
+
+  @override
+  String get profile => 'الملف الشخصي';
 }

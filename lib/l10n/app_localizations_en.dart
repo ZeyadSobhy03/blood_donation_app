@@ -106,4 +106,307 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get role_admin_button => 'Continue as Admin';
+
+  @override
+  String get reviewConfirmTitle => 'Review & Confirm';
+
+  @override
+  String get reviewConfirmSubtitle => 'Please review your appointment details';
+
+  @override
+  String get beforeYouDonate => 'Before You Donate';
+
+  @override
+  String get donationTipEat => 'Eat a healthy meal before donation';
+
+  @override
+  String get donationTipWater => 'Drink plenty of water';
+
+  @override
+  String get donationTipId => 'Bring a valid ID';
+
+  @override
+  String get donationTipSleep => 'Get a good night\'s sleep';
+
+  @override
+  String get confirmAppointment => 'Confirm appointment';
+
+  @override
+  String get chooseLocationTitle => 'Choose Location';
+
+  @override
+  String get chooseLocationSubtitle => 'Where would you like to donate?';
+
+  @override
+  String get selectDateTimeTitle => 'Select Date & Time';
+
+  @override
+  String get selectDateTimeSubtitle => 'When would you like to donate?';
+
+  @override
+  String get selectDateLabel => 'Select Date';
+
+  @override
+  String get selectTimeLabel => 'Select Time';
+
+  @override
+  String get donationTypeLabel => 'Donation Type';
+
+  @override
+  String get datePlaceholder => 'mm/dd/yyyy';
+
+  @override
+  String get continueStep => 'Continue';
+
+  @override
+  String get confirmDetailsTitle => 'Confirm Your Details';
+
+  @override
+  String get confirmDetailsSubtitle => 'Please verify your information';
+
+  @override
+  String get firstNameLabel => 'First Name';
+
+  @override
+  String get lastNameLabel => 'Last Name';
+
+  @override
+  String get phoneNumberLabel => 'Phone Number';
+
+  @override
+  String get emailAddressLabel => 'Email Address';
+
+  @override
+  String get firstNameHint => 'Ziyad';
+
+  @override
+  String get lastNameHint => 'Sobhy';
+
+  @override
+  String get phoneHint => '01XXXXXXXXX';
+
+  @override
+  String get emailHint => 'ziyad@gmail.com';
+
+  @override
+  String get appointmentConfirmedTitle => 'Appointment Confirmed!';
+
+  @override
+  String get appointmentConfirmedSubtitle =>
+      'Your donation appointment has been successfully scheduled';
+
+  @override
+  String get whatsNextTitle => 'What\'s Next:';
+
+  @override
+  String get nextStepEmail => 'You\'ll receive a confirmation email';
+
+  @override
+  String get nextStepReminder => 'We\'ll send you a reminder 24 hours before';
+
+  @override
+  String get nextStepId => 'Bring a valid ID on the day of donation';
+
+  @override
+  String get backToHome => 'Back to Home';
+
+  @override
+  String get addToCalendar => 'Add to calendar';
+
+  @override
+  String get scheduleDonationTitle => 'Schedule Donation';
+
+  @override
+  String scheduleStepCounter(Object current, Object total) {
+    return 'Step $current of $total';
+  }
+
+  @override
+  String get locationLabel => 'Location';
+
+  @override
+  String get whenLabel => 'When';
+
+  @override
+  String get chooseBloodType => 'Choose a Blood Type';
+
+  @override
+  String get wholeBlood => 'Whole Blood';
+
+  @override
+  String get plasma => 'Plasma';
+
+  @override
+  String get platelets => 'Platelets';
+
+  @override
+  String get doubleRedCells => 'Double Red Cells';
+
+  @override
+  String get noteMessage =>
+      'Note: Appointments are typically available 24-48 hours in advance. Walk-ins are welcome during business hours.';
+
+  @override
+  String get location => 'Location';
+
+  @override
+  String get dateTime => 'Date & Time';
+
+  @override
+  String get donationType => 'Donation Type';
+
+  @override
+  String get contactInfo => 'Contact Information';
+
+  @override
+  String get notSelected => 'Not selected';
+
+  @override
+  String get noEmail => 'no email';
+
+  @override
+  String get noPhone => 'no phone';
+
+  @override
+  String get chooseTimeSlot => 'Choose a time slot';
+
+  @override
+  String get confirmResponse => 'Confirm Response';
+
+  @override
+  String get emergencyRequestQuestion =>
+      'Are you available to respond to this emergency blood request?';
+
+  @override
+  String get acceptButton => 'Accept - I Can Help';
+
+  @override
+  String get declineButton => 'Decline - Not Available';
+
+  @override
+  String get donationStatus => 'Donation Status';
+
+  @override
+  String get nextDonationReady => 'Next donation: Ready now';
+
+  @override
+  String get donor => 'Donor';
+
+  @override
+  String get whatHappensNext => 'What happens next:';
+
+  @override
+  String get hospitalNotified => 'Hospital will be notified of your response';
+
+  @override
+  String get directionsAndContact =>
+      'You\'ll receive directions and contact details';
+
+  @override
+  String get arriveOnTime => 'Please arrive within the estimated time';
+
+  @override
+  String get urgentRequests => 'Urgent Requests';
+
+  @override
+  String get active => 'Active';
+
+  @override
+  String get donateNow => 'Donate Now';
+
+  @override
+  String get respond => 'Respond';
+
+  @override
+  String welcomeBack(Object name) {
+    return 'Welcome back, $name!';
+  }
+
+  @override
+  String get readyToSaveLives => 'Ready to save lives today?';
+
+  @override
+  String get eligibleToDonate => 'Eligible to donate';
+
+  @override
+  String get donations => 'Donations';
+
+  @override
+  String get points => 'Points';
+
+  @override
+  String get livesSaved => 'Lives Saved';
+
+  @override
+  String get requestDetails => 'Request Details';
+
+  @override
+  String get posted => 'Posted';
+
+  @override
+  String get patientType => 'Patient Type';
+
+  @override
+  String get contact => 'Contact';
+
+  @override
+  String get iCanHelpRespondNow => 'I Can Help - Respond Now';
+
+  @override
+  String get notAvailable => 'Not Available';
+
+  @override
+  String get whyYourResponseMatters => 'Why Your Response Matters';
+
+  @override
+  String get responseMattersDescription =>
+      'Your blood type matches this urgent request. Your quick response could save a life. The patient needs 3 units of O+ blood for emergency surgery.';
+
+  @override
+  String get bloodTypeNeeded => 'Blood Type Needed';
+
+  @override
+  String get urgentRequestActive => 'Urgent Request Active';
+
+  @override
+  String get unitsNeeded => 'Units Needed';
+
+  @override
+  String get distance => 'Distance';
+
+  @override
+  String get openInMap => 'Open in Map';
+
+  @override
+  String get mapView => 'Map View';
+
+  @override
+  String get emergencyRequest => 'Emergency Request';
+
+  @override
+  String get criticalRequest => 'Critical Request';
+
+  @override
+  String get emergency => 'EMERGENCY';
+
+  @override
+  String get critical => 'CRITICAL';
+
+  @override
+  String get units => 'units';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get find => 'Find';
+
+  @override
+  String get donate => 'Donate';
+
+  @override
+  String get rewards => 'Rewards';
+
+  @override
+  String get profile => 'Profile';
 }

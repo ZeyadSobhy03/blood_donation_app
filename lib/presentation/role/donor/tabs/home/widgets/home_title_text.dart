@@ -5,8 +5,8 @@ import '../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../core/widgets/custom_text.dart';
 
-class UpperTitle extends StatelessWidget {
-  const UpperTitle({super.key, required this.title, required this.subTitle});
+class HomeTitleText extends StatelessWidget {
+  const HomeTitleText({super.key, required this.title, required this.subTitle});
 
   final String title;
   final String subTitle;

@@ -5,6 +5,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/home/home.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/profile.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/rewards.dart';
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -18,12 +19,14 @@ class _MainLayoutState extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
+
     List<Widget> tabs = [Home(), Find(), Donate(), Rewards(), Profile()];
+
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
       body: tabs[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-
         selectedItemColor: ColorManger.brightRed,
         unselectedItemColor: ColorManger.slateGrey,
         currentIndex: currentIndex,
@@ -37,18 +40,24 @@ class _MainLayoutState extends State<MainLayout> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
-            label: 'Home',
+            label: appLocalizations.home,
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Find'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: appLocalizations.find,
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border_outlined),
-            label: 'Donate',
+            label: appLocalizations.donate,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.military_tech),
-            label: 'Rewards',
+            label: appLocalizations.rewards,
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: appLocalizations.profile,
+          ),
         ],
       ),
     );

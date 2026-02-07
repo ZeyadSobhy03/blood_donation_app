@@ -4,6 +4,8 @@ import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
+
 class DonationStatusCard extends StatelessWidget {
   const DonationStatusCard({super.key, required this.donationStatus, required this.bloodType});
   final String donationStatus;
@@ -24,7 +26,7 @@ class DonationStatusCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomText(
-                  text: 'Donation Status',
+                  text:AppLocalizations.of(context)!.donationStatus,
                   textStyle: TextStyle(
                     fontSize: FontSize.s18,
                     fontWeight: FontWeightManager.bold,
@@ -59,7 +61,7 @@ class DonationStatusCard extends StatelessWidget {
                 SizedBox(height: 6.h),
 
                 CustomText(
-                  text: 'Next donation: Ready now',
+                  text: AppLocalizations.of(context)!.nextDonationReady,
                   textStyle: TextStyle(
                     color: ColorManger.pureWhite,
                     fontSize: FontSize.s14,
@@ -96,7 +98,7 @@ class DonationStatusCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: CustomText(
-                    text: '$bloodType Donor',
+                    text: '$bloodType ${AppLocalizations.of(context)!.donor}',
                     textStyle: TextStyle(
                       color: ColorManger.brightRed,
                       fontSize: FontSize.s14,
