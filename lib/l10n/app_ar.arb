@@ -140,9 +140,11 @@
   "find": "بحث",
   "donate": "تبرع",
   "rewards": "المكافآت",
-  "profile": "الملف الشخصي"
-
-
+  "profile": "الملف الشخصي",
+  "notifications_title": "الإشعارات",
+  "notifications_unread": "{unreadCount} غير مقروء",
+  "mark_all_as_read": "تعليم الكل كمقروء",
+  "respond_now": "رد الآن"
 
 
 }

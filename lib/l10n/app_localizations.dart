@@ -871,6 +871,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
+
+  /// No description provided for @notifications_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications_title;
+
+  /// No description provided for @notifications_unread.
+  ///
+  /// In en, this message translates to:
+  /// **'{unreadCount} unread'**
+  String notifications_unread(Object unreadCount);
+
+  /// No description provided for @mark_all_as_read.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark All as Read'**
+  String get mark_all_as_read;
+
+  /// No description provided for @respond_now.
+  ///
+  /// In en, this message translates to:
+  /// **'Respond Now'**
+  String get respond_now;
 }
 
 class _AppLocalizationsDelegate

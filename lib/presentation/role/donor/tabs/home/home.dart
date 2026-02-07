@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appLocalizations= AppLocalizations.of(context)!;
+    final appLocalizations = AppLocalizations.of(context)!;
     final List<UrgentRequestModel> dummyUrgentRequests = [
       UrgentRequestModel(
         id: '1',
@@ -99,7 +99,7 @@ class Home extends StatelessWidget {
         contactNumber: '+20 122 555 7788',
       ),
     ];
-    final List<RecentActivityModel> dummyRecentActivity=[
+    final List<RecentActivityModel> dummyRecentActivity = [
       RecentActivityModel(
         points: '+200',
         title: 'Blood donated successfully',
@@ -136,7 +136,9 @@ class Home extends StatelessWidget {
                       subTitle: appLocalizations.readyToSaveLives,
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, RouteManger.notifications);
+                      },
                       icon: Icon(
                         Icons.notifications,
                         color: ColorManger.brightRed,
@@ -187,11 +189,8 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, RouteManger.scheduleDonation);
                   },
                 ),
-                SizedBox(height: 8.h,),
-                RecentActivitySection(
-                  activities: dummyRecentActivity,
-                )
-
+                SizedBox(height: 8.h),
+                RecentActivitySection(activities: dummyRecentActivity),
               ],
             ),
           ),

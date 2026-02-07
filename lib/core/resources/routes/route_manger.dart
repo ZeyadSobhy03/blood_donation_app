@@ -5,6 +5,7 @@ import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/schedule_donation.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/main_layout.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/notifications.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/request_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,8 @@ class RouteManger {
   static const String chooseRole = '/chooseRole';
   static const String donorMainLayout = '/donorMainLayout';
   static const String requestScreen = '/requestScreen';
-  static const String scheduleDonation='/scheduleDonation';
+  static const String scheduleDonation = '/scheduleDonation';
+  static const String notifications = '/notifications';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -26,9 +28,11 @@ class RouteManger {
       case donorMainLayout:
         return MaterialPageRoute(builder: (context) => MainLayout());
 
+      case notifications:
+        return MaterialPageRoute(builder: (context) => Notifications());
 
       case scheduleDonation:
-        return MaterialPageRoute(builder: (context) => ScheduleDonation(),);
+        return MaterialPageRoute(builder: (context) => ScheduleDonation());
 
       case requestScreen:
         return MaterialPageRoute(

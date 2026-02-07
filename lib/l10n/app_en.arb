@@ -145,9 +145,11 @@
   "find": "Find",
   "donate": "Donate",
   "rewards": "Rewards",
-  "profile": "Profile"
-
-
+  "profile": "Profile",
+  "notifications_title": "Notifications",
+  "notifications_unread": "{unreadCount} unread",
+  "mark_all_as_read": "Mark All as Read",
+  "respond_now": "Respond Now"
 
 
 }

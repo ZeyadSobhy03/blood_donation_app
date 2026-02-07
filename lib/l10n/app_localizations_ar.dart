@@ -407,4 +407,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get profile => 'الملف الشخصي';
+
+  @override
+  String get notifications_title => 'الإشعارات';
+
+  @override
+  String notifications_unread(Object unreadCount) {
+    return '$unreadCount غير مقروء';
+  }
+
+  @override
+  String get mark_all_as_read => 'تعليم الكل كمقروء';
+
+  @override
+  String get respond_now => 'رد الآن';
 }
