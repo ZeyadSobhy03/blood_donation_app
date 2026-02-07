@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/section/recent_activity_section.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/widgets/home_custom_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/widgets/home_navigation_button.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/section/donation_status_section.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../l10n/app_localizations.dart';
+import 'model/recent_activity.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -97,6 +99,26 @@ class Home extends StatelessWidget {
         contactNumber: '+20 122 555 7788',
       ),
     ];
+    final List<RecentActivityModel> dummyRecentActivity=[
+      RecentActivityModel(
+        points: '+200',
+        title: 'Blood donated successfully',
+        subTitle: 'City Hospital • 3 days ago',
+        color: ColorManger.green,
+      ),
+      RecentActivityModel(
+        points: '+100',
+        title: 'Profile updated',
+        subTitle: '2 days ago',
+        color: ColorManger.skyBlue,
+      ),
+      RecentActivityModel(
+        points: '+50',
+        title: 'Completed survey',
+        subTitle: '1 day ago',
+        color: ColorManger.gold,
+      ),
+    ];
 
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
@@ -165,6 +187,11 @@ class Home extends StatelessWidget {
                     Navigator.pushNamed(context, RouteManger.scheduleDonation);
                   },
                 ),
+                SizedBox(height: 8.h,),
+                RecentActivitySection(
+                  activities: dummyRecentActivity,
+                )
+
               ],
             ),
           ),
