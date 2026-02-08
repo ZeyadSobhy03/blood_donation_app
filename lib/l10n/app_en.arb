@@ -149,7 +149,29 @@
   "notifications_title": "Notifications",
   "notifications_unread": "{unreadCount} unread",
   "mark_all_as_read": "Mark All as Read",
-  "respond_now": "Respond Now"
+  "respond_now": "Respond Now",
+  "findHospitals": "Find Hospitals",
+  "searchHint": "Search by name or location..",
+  "hospitalsNearby": "{count} hospitals nearby",
+  "hospitalsFound": "{count} Hospitals Found",
+  "sortByDistance": "Sort By Distance",
+  "contactHospital": "Contact Hospital",
+  "callNow": "Call Now",
+  "sendMessage": "Send Message",
+  "cancel": "cancel",
+  "donationMessage": "Hello, I want to donate blood",
+  "available": "Available",
+  "distanceKm": "{distance} km",
+  "urgentNeeds": "{count} urgent needs",
+  "hospitalType": "Type: {type}",
+  "navigateToHospital": "Navigate to Hospital",
+  "distanceAway": "{distance} km away",
+  "openInGoogleMap": "Open in Google Map",
+  "openInAppleMap": "Open in Apple Map",
+  "navigate": "Navigate"
+
+
+
 
 
 }

@@ -895,6 +895,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Respond Now'**
   String get respond_now;
+
+  /// No description provided for @findHospitals.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Hospitals'**
+  String get findHospitals;
+
+  /// No description provided for @searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search by name or location..'**
+  String get searchHint;
+
+  /// No description provided for @hospitalsNearby.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hospitals nearby'**
+  String hospitalsNearby(Object count);
+
+  /// No description provided for @hospitalsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Hospitals Found'**
+  String hospitalsFound(Object count);
+
+  /// No description provided for @sortByDistance.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort By Distance'**
+  String get sortByDistance;
+
+  /// No description provided for @contactHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Hospital'**
+  String get contactHospital;
+
+  /// No description provided for @callNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Now'**
+  String get callNow;
+
+  /// No description provided for @sendMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Message'**
+  String get sendMessage;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'cancel'**
+  String get cancel;
+
+  /// No description provided for @donationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, I want to donate blood'**
+  String get donationMessage;
+
+  /// No description provided for @available.
+  ///
+  /// In en, this message translates to:
+  /// **'Available'**
+  String get available;
+
+  /// No description provided for @distanceKm.
+  ///
+  /// In en, this message translates to:
+  /// **'{distance} km'**
+  String distanceKm(Object distance);
+
+  /// No description provided for @urgentNeeds.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} urgent needs'**
+  String urgentNeeds(Object count);
+
+  /// No description provided for @hospitalType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type: {type}'**
+  String hospitalType(Object type);
+
+  /// No description provided for @navigateToHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigate to Hospital'**
+  String get navigateToHospital;
+
+  /// No description provided for @distanceAway.
+  ///
+  /// In en, this message translates to:
+  /// **'{distance} km away'**
+  String distanceAway(Object distance);
+
+  /// No description provided for @openInGoogleMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in Google Map'**
+  String get openInGoogleMap;
+
+  /// No description provided for @openInAppleMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in Apple Map'**
+  String get openInAppleMap;
+
+  /// No description provided for @navigate.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigate'**
+  String get navigate;
 }
 
 class _AppLocalizationsDelegate

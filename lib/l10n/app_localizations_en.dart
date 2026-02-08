@@ -423,4 +423,73 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get respond_now => 'Respond Now';
+
+  @override
+  String get findHospitals => 'Find Hospitals';
+
+  @override
+  String get searchHint => 'Search by name or location..';
+
+  @override
+  String hospitalsNearby(Object count) {
+    return '$count hospitals nearby';
+  }
+
+  @override
+  String hospitalsFound(Object count) {
+    return '$count Hospitals Found';
+  }
+
+  @override
+  String get sortByDistance => 'Sort By Distance';
+
+  @override
+  String get contactHospital => 'Contact Hospital';
+
+  @override
+  String get callNow => 'Call Now';
+
+  @override
+  String get sendMessage => 'Send Message';
+
+  @override
+  String get cancel => 'cancel';
+
+  @override
+  String get donationMessage => 'Hello, I want to donate blood';
+
+  @override
+  String get available => 'Available';
+
+  @override
+  String distanceKm(Object distance) {
+    return '$distance km';
+  }
+
+  @override
+  String urgentNeeds(Object count) {
+    return '$count urgent needs';
+  }
+
+  @override
+  String hospitalType(Object type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String get navigateToHospital => 'Navigate to Hospital';
+
+  @override
+  String distanceAway(Object distance) {
+    return '$distance km away';
+  }
+
+  @override
+  String get openInGoogleMap => 'Open in Google Map';
+
+  @override
+  String get openInAppleMap => 'Open in Apple Map';
+
+  @override
+  String get navigate => 'Navigate';
 }

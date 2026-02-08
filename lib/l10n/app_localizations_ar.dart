@@ -421,4 +421,73 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get respond_now => 'رد الآن';
+
+  @override
+  String get findHospitals => 'ابحث عن المستشفيات';
+
+  @override
+  String get searchHint => 'ابحث بالاسم أو الموقع..';
+
+  @override
+  String hospitalsNearby(Object count) {
+    return '$count مستشفى بالقرب منك';
+  }
+
+  @override
+  String hospitalsFound(Object count) {
+    return '$count مستشفى تم العثور عليها';
+  }
+
+  @override
+  String get sortByDistance => 'ترتيب حسب المسافة';
+
+  @override
+  String get contactHospital => 'اتصل بالمستشفى';
+
+  @override
+  String get callNow => 'اتصل الآن';
+
+  @override
+  String get sendMessage => 'أرسل رسالة';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get donationMessage => 'مرحباً، أريد التبرع بالدم';
+
+  @override
+  String get available => 'متاح';
+
+  @override
+  String distanceKm(Object distance) {
+    return '$distance كم';
+  }
+
+  @override
+  String urgentNeeds(Object count) {
+    return '$count احتياجات عاجلة';
+  }
+
+  @override
+  String hospitalType(Object type) {
+    return 'النوع: $type';
+  }
+
+  @override
+  String get navigateToHospital => 'انتقل إلى المستشفى';
+
+  @override
+  String distanceAway(Object distance) {
+    return 'يبعد $distance كم';
+  }
+
+  @override
+  String get openInGoogleMap => 'افتح في خرائط جوجل';
+
+  @override
+  String get openInAppleMap => 'افتح في خرائط أبل';
+
+  @override
+  String get navigate => 'انتقال';
 }

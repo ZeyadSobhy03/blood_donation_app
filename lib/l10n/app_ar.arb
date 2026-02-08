@@ -144,7 +144,27 @@
   "notifications_title": "الإشعارات",
   "notifications_unread": "{unreadCount} غير مقروء",
   "mark_all_as_read": "تعليم الكل كمقروء",
-  "respond_now": "رد الآن"
+  "respond_now": "رد الآن",
+  "findHospitals": "ابحث عن المستشفيات",
+  "searchHint": "ابحث بالاسم أو الموقع..",
+  "hospitalsNearby": "{count} مستشفى بالقرب منك",
+  "hospitalsFound": "{count} مستشفى تم العثور عليها",
+  "sortByDistance": "ترتيب حسب المسافة",
+  "contactHospital": "اتصل بالمستشفى",
+  "callNow": "اتصل الآن",
+  "sendMessage": "أرسل رسالة",
+  "cancel": "إلغاء",
+  "donationMessage": "مرحباً، أريد التبرع بالدم",
+  "available": "متاح",
+  "distanceKm": "{distance} كم",
+  "urgentNeeds": "{count} احتياجات عاجلة",
+  "hospitalType": "النوع: {type}",
+  "navigateToHospital": "انتقل إلى المستشفى",
+  "distanceAway": "يبعد {distance} كم",
+  "openInGoogleMap": "افتح في خرائط جوجل",
+  "openInAppleMap": "افتح في خرائط أبل",
+  "navigate": "انتقال"
+
 
 
 }
