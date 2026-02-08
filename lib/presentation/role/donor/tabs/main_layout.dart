@@ -21,12 +21,13 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
 
-    List<Widget> tabs = [Home(), Find(), Donate(), Rewards(), Profile()];
+    List<Widget> tabs = [Home(), FindHospital(), Donate(), Rewards(), Profile()];
 
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
       body: tabs[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+
         selectedItemColor: ColorManger.brightRed,
         unselectedItemColor: ColorManger.slateGrey,
         currentIndex: currentIndex,

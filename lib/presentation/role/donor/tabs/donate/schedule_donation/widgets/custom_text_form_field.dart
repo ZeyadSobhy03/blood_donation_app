@@ -9,7 +9,7 @@ class CustomTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.textEditingController,
     this.validator,
-    this.hintText, this.keyboardType,
+    this.hintText, this.keyboardType, this.suffixIcon,
   });
 
   final Widget? prefixIcon;
@@ -17,10 +17,12 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final String? hintText;
   final TextInputType? keyboardType;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+
       keyboardType:keyboardType ,
       controller: textEditingController,
       validator: validator,
@@ -30,6 +32,8 @@ class CustomTextFormField extends StatelessWidget {
         fontSize: FontSize.s14
       ),
       decoration: InputDecoration(
+
+        suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: TextStyle(
           color: ColorManger.grey600,
@@ -40,8 +44,8 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: ColorManger.lightGrey,
 
         contentPadding: EdgeInsets.symmetric(
-          horizontal: 12.w,
-          vertical: 14.h,
+          horizontal: 6.w,
+          vertical: 8.h,
         ),
 
         prefixIcon: prefixIcon,

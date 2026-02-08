@@ -1,8 +1,6 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
-import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/core/widgets/custom_drop_down_button_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../l10n/app_localizations.dart';
 
@@ -45,44 +43,10 @@ class _TimeSlotPickerState extends State<TimeSlotPicker> {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
 
-    return DropdownButtonFormField<String>(
-      style: TextStyle(
-        color: ColorManger.black
-      ),
+    return CustomDropDownButtonFormField(items: timeSlots, hintText:  appLocalizations.chooseTimeSlot,
+
+    prefixIcon:Icon(widget.icon, color: ColorManger.slateGrey),
       initialValue: selectedTime,
-      isExpanded: true,
-      icon: Icon(Icons.keyboard_arrow_down, color: ColorManger.slateGrey,size: 20,),
-
-      decoration: InputDecoration(
-
-        filled: true,
-        fillColor: ColorManger.lightGrey,
-
-        prefixIcon: Icon(widget.icon, color: ColorManger.slateGrey),
-
-        hintText: appLocalizations.chooseTimeSlot,
-
-        hintStyle: TextStyle(
-          color: ColorManger.grey600,
-          fontSize: FontSize.s14,
-        ),
-
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide.none,
-        ),
-        contentPadding: EdgeInsets.symmetric(vertical: 14.h,horizontal: 12),
-      ),
-
-      items: timeSlots
-          .map(
-            (time) => DropdownMenuItem<String>(
-          value: time,
-          child: CustomText(text: time),
-        ),
-      )
-          .toList(),
-
       onChanged: (value) {
         setState(() {
           selectedTime = value;
@@ -92,5 +56,6 @@ class _TimeSlotPickerState extends State<TimeSlotPicker> {
     );
   }
 }
+
 
 

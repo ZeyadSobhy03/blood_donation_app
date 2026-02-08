@@ -1,9 +1,6 @@
-import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/widgets/custom_drop_down_button_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../core/resources/fonts/font_manger.dart';
-import '../../../../../../../core/widgets/custom_text.dart';
 import '../../../../../../../l10n/app_localizations.dart';
 
 class DonationTypePicker extends StatefulWidget {
@@ -40,63 +37,17 @@ class _DonationTypePickerState extends State<DonationTypePicker> {
       appLocalizations.doubleRedCells,
     ];
 
-    return DropdownButtonFormField<String>(
-      isDense: true,
+    return CustomDropDownButtonFormField(items: donationSlots, hintText: appLocalizations.chooseBloodType,
+     onChanged: (value) {
+      setState(() {
+        selectTypeBlood = value;
+      });
+      widget.onChanged(value!);
+    },
       initialValue: selectTypeBlood,
-
-      isExpanded: true,
-      icon: Icon(
-        Icons.keyboard_arrow_down,
-        color: ColorManger.slateGrey,
-      ),
-
-      decoration: InputDecoration(
-
-        filled: true,
-        fillColor: ColorManger.lightGrey,
-
-        hintText: appLocalizations.chooseBloodType,
-        hintStyle: TextStyle(
-          color: ColorManger.grey600,
-          fontSize: FontSize.s14,
-          fontWeight: FontWeightManager.regular,
-        ),
-
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide.none,
-        ),
-
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: 4.w,
-          vertical: 12.h,
-        ),
-      ),
-
-      items: donationSlots
-          .map(
-            (type) => DropdownMenuItem<String>(
-          value: type,
-          child: CustomText(
-            text: type,
-            textStyle: TextStyle(
-              color: ColorManger.black,
-              fontSize: FontSize.s16,
-              fontWeight: FontWeightManager.regular,
-            ),
-          ),
-        ),
-      )
-          .toList(),
-
-      onChanged: (value) {
-        setState(() {
-          selectTypeBlood = value;
-        });
-        widget.onChanged(value!);
-      },
     );
   }
 }
+
 
 
