@@ -46,7 +46,7 @@ class RequestCard extends StatelessWidget {
         color: backgroundColor,
 
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(12),
           side: BorderSide(color: borderColor, width: width),
         ),
 
@@ -74,7 +74,7 @@ class RequestCard extends StatelessWidget {
                       Icon(
                         Icons.location_on_outlined,
                         color: ColorManger.slateGrey,
-                        size: 18.sp,
+                        size: 18,
                       ),
                       SizedBox(width: 4.w),
                       CustomText(
@@ -93,7 +93,7 @@ class RequestCard extends StatelessWidget {
                       Icon(
                         Icons.access_time,
                         color: ColorManger.slateGrey,
-                        size: 18.sp,
+                        size: 18,
                       ),
                       SizedBox(width: 4.w),
                       CustomText(
@@ -112,7 +112,7 @@ class RequestCard extends StatelessWidget {
               isButtonExist
                   ? CustomElevatedButton(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.r),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       elevation: 3,
                       backgroundColor: buttonBackgroundColor,

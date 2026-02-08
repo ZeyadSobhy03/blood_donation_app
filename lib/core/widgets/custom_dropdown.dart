@@ -1,7 +1,6 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomDropdown extends StatelessWidget {
   const CustomDropdown({super.key, required this.icon, required this.text});
@@ -19,7 +18,7 @@ class CustomDropdown extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(icon, size: 20.sp, color: ColorManger.slateGrey),
+          Icon(icon, size: 20, color: ColorManger.slateGrey),
           const SizedBox(width: 10),
           CustomText(
             text: text,

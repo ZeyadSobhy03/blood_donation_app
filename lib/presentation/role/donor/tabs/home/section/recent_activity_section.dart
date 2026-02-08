@@ -17,7 +17,7 @@ class RecentActivitySection extends StatelessWidget {
     return Card(
       elevation: 6,
       color: ColorManger.pureWhite,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
         child: Column(

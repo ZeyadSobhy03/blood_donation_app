@@ -58,7 +58,7 @@ class RequestDetailsSection extends StatelessWidget {
   _buildInfoRow(String title, String subTitle, IconData icon) {
     return Row(
       children: [
-        Icon(icon, color: ColorManger.slateGrey, size: 22.sp),
+        Icon(icon, color: ColorManger.slateGrey, size: 22),
         SizedBox(width: 8.w),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

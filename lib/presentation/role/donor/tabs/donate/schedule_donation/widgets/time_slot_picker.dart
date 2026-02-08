@@ -9,11 +9,13 @@ import '../../../../../../../l10n/app_localizations.dart';
 class TimeSlotPicker extends StatefulWidget {
   final ValueChanged<String> onChanged;
   final String? selectedValue;
+  final IconData icon;
 
   const TimeSlotPicker({
     super.key,
     required this.onChanged,
     this.selectedValue,
+    required this.icon,
   });
 
   @override
@@ -43,57 +45,52 @@ class _TimeSlotPickerState extends State<TimeSlotPicker> {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
 
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.h),
-      decoration: BoxDecoration(
-        color: ColorManger.lightGrey,
-        borderRadius: BorderRadius.circular(8),
+    return DropdownButtonFormField<String>(
+      style: TextStyle(
+        color: ColorManger.black
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton<String>(
-            borderRadius: BorderRadius.circular(16),
-            value: selectedTime,
-            isExpanded: true,
-            icon: Icon(Icons.keyboard_arrow_down, color: ColorManger.slateGrey),
-            hint: Row(
-              children: [
-                Icon(Icons.access_time, color: ColorManger.grey600, size: 18),
-                SizedBox(width: 8.w),
-                CustomText(
-                  text: appLocalizations.chooseTimeSlot,
-                  textStyle: TextStyle(
-                    color: ColorManger.grey600,
-                    fontSize: FontSize.s14,
-                    fontWeight: FontWeightManager.regular,
-                  ),
-                ),
-              ],
-            ),
-            items: timeSlots.map((time) {
-              return DropdownMenuItem<String>(
-                value: time,
-                child: CustomText(
-                  text: time,
-                  textStyle: TextStyle(
-                    color: ColorManger.black,
-                    fontSize: FontSize.s16,
-                    fontWeight: FontWeightManager.regular,
-                  ),
-                ),
-              );
-            }).toList(),
-            onChanged: (value) {
-              setState(() {
-                selectedTime = value;
-                widget.onChanged(value!);
-              });
-            },
-          ),
+      initialValue: selectedTime,
+      isExpanded: true,
+      icon: Icon(Icons.keyboard_arrow_down, color: ColorManger.slateGrey,size: 20,),
+
+      decoration: InputDecoration(
+
+        filled: true,
+        fillColor: ColorManger.lightGrey,
+
+        prefixIcon: Icon(widget.icon, color: ColorManger.slateGrey),
+
+        hintText: appLocalizations.chooseTimeSlot,
+
+        hintStyle: TextStyle(
+          color: ColorManger.grey600,
+          fontSize: FontSize.s14,
         ),
+
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide.none,
+        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 14.h,horizontal: 12),
       ),
+
+      items: timeSlots
+          .map(
+            (time) => DropdownMenuItem<String>(
+          value: time,
+          child: CustomText(text: time),
+        ),
+      )
+          .toList(),
+
+      onChanged: (value) {
+        setState(() {
+          selectedTime = value;
+        });
+        widget.onChanged(value!);
+      },
     );
   }
 }
+
 

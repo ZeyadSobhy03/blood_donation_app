@@ -27,50 +27,66 @@ class RequestNavigationButtons extends StatelessWidget {
     return  Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        CustomElevatedButton(
-          backgroundColor: ColorManger.brightRed,
-          elevation: 3,
-          foregroundColor: ColorManger.pureWhite,
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 12, vertical: 12),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+        LayoutBuilder(builder: (context, constraints) {
+          return ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: constraints.maxWidth,
+              minHeight: 50,
+            ),
+            child: CustomElevatedButton(
+              backgroundColor: ColorManger.brightRed,
+              elevation: 3,
+              foregroundColor: ColorManger.pureWhite,
+              padding: EdgeInsetsGeometry.symmetric(horizontal: 12, vertical: 12),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
 
-          onPressed: accept,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.favorite_border, color: ColorManger.pureWhite),
-              SizedBox(width: 4.w),
-              CustomText(
-                text: appLocalization.iCanHelpRespondNow,
-                textStyle: TextStyle(
-                  fontSize: FontSize.s16,
-                  fontWeight: FontWeightManager.bold,
-                  color: ColorManger.pureWhite,
-                  height: 1.4,
-                ),
+              onPressed: accept,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.favorite_border, color: ColorManger.pureWhite),
+                  SizedBox(width: 4.w),
+                  CustomText(
+                    text: appLocalization.iCanHelpRespondNow,
+                    textStyle: TextStyle(
+                      fontSize: FontSize.s16,
+                      fontWeight: FontWeightManager.bold,
+                      color: ColorManger.pureWhite,
+                      height: 1.4,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },),
         SizedBox(height: 4.h,),
-        CustomElevatedButton(
-            backgroundColor: ColorManger.pureWhite,
-            foregroundColor: ColorManger.black,
-            padding: EdgeInsetsGeometry.symmetric(horizontal: 12, vertical: 12),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
-            elevation: 3,
+        LayoutBuilder(builder: (context, constraints) {
+          return ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: constraints.maxWidth,
+              minHeight: 50,
+            ),
+            child: CustomElevatedButton(
+                backgroundColor: ColorManger.pureWhite,
+                foregroundColor: ColorManger.black,
+                padding: EdgeInsetsGeometry.symmetric(horizontal: 12, vertical: 12),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+                elevation: 3,
 
-            onPressed: cancel,
-            child:  CustomText(
-              text: appLocalization.notAvailable,
-              textStyle: TextStyle(
-                fontSize: FontSize.s16,
-                fontWeight: FontWeightManager.bold,
-                color: ColorManger.black,
-                height: 1.4,
-              ),
-            )
-        ),
+                onPressed: cancel,
+                child:  CustomText(
+                  text: appLocalization.notAvailable,
+                  textStyle: TextStyle(
+                    fontSize: FontSize.s16,
+                    fontWeight: FontWeightManager.bold,
+                    color: ColorManger.black,
+                    height: 1.4,
+                  ),
+                )
+            ),
+          );
+        },)
       ],
     );
 

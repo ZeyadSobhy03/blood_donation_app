@@ -65,7 +65,7 @@ class HospitalInfoCard extends StatelessWidget {
       children: [
         Icon(
           Icons.local_hospital,
-          size: 26.sp,
+          size: 26.sp.clamp(20,40),
           color: iconColor,
         ),
         SizedBox(width: 8.w),
@@ -86,7 +86,7 @@ class HospitalInfoCard extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.location_on_outlined,
-                    size: 18.sp,
+                    size: 18.sp.clamp(20,30),
                     color: ColorManger.slateGrey,
                   ),
                   SizedBox(width: 4.w),
@@ -125,7 +125,7 @@ class HospitalInfoCard extends StatelessWidget {
             angle: -0.785,
             child: Icon(
               Icons.send_rounded,
-              size: 18.sp,
+              size: 18.sp.clamp(20, 30),
               color: ColorManger.black,
             ),
           ),

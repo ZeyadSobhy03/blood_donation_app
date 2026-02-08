@@ -1,10 +1,12 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/bottom_sheet/confirm_response_bottom_sheet.dart';
 
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/widgets/mark_all_as_read_button.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/widgets/notification_request.dart';
 
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/widgets/title.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/model/urgent_request.dart';
 import 'package:flutter/material.dart';
 
 import 'model/notification.dart';
@@ -14,7 +16,7 @@ class Notifications extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appLocalization=AppLocalizations.of(context)!;
+    final appLocalization = AppLocalizations.of(context)!;
     // dummy data
     final List<NotificationModel> dummyNotifications = [
       NotificationModel(
@@ -24,6 +26,19 @@ class Notifications extends StatelessWidget {
         time: '5 min ago',
         type: 'emergency',
         isRead: false,
+        urgentRequest: UrgentRequestModel(
+          id: 'UR1',
+          title: 'Emergency Blood Request',
+          location: 'City Hospital, Nasr City',
+          time: '5 min ago',
+          isEmergency: true,
+          bloodType: 'O+',
+          unitsNeeded: 2,
+          hospitalName: 'City Hospital',
+          hospitalDistance: '2.3 km',
+          patientType: 'Accident',
+          contactNumber: '+201000000000',
+        ),
       ),
       NotificationModel(
         id: '2',
@@ -41,7 +56,24 @@ class Notifications extends StatelessWidget {
         type: 'reward',
         isRead: false,
       ),
+      NotificationModel(
+        id: '4',
+        title: 'Blood Donation Event',
+        subTitle: 'Join us tomorrow at Central Hospital for a donation drive',
+        time: '1 day ago',
+        type: 'info',
+        isRead: false,
+      ),
+      NotificationModel(
+        id: '5',
+        title: 'Achievement Unlocked',
+        subTitle: 'You have donated blood 5 times! Keep it up!',
+        time: '3 days ago',
+        type: 'achievement',
+        isRead: true,
+      ),
     ];
+
 
     final unreadCount = dummyNotifications
         .where((notification) => !notification.isRead)
@@ -104,13 +136,17 @@ class Notifications extends StatelessWidget {
             icon: icon,
             iconColor: iconColor,
             notification: notification,
-            onPressed: () {},
+            onPressed: () => showConfirmResponseBottomSheet(context, notification.urgentRequest!),
           );
         },
       ),
-      bottomNavigationBar: MarkAllAsReadButton(
-        text: appLocalization.mark_all_as_read,
-        onPressed: () {},
+      bottomNavigationBar: LayoutBuilder(
+        builder: (context, constraints) {
+          return MarkAllAsReadButton(
+            text: appLocalization.mark_all_as_read,
+            onPressed: () {},
+          );
+        },
       ),
     );
   }

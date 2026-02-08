@@ -20,40 +20,44 @@ class HomeCustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 6,
-      color: ColorManger.pureWhite,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadiusGeometry.circular(12.r),
-      ),
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(icon, color: iconColor, size: 30.sp),
-              SizedBox(height: 8.h),
-              CustomText(
-                text: '$number',
-                textStyle: TextStyle(
-                  fontWeight: FontWeightManager.regular,
-                  height: 1.4,
-                  fontSize: FontSize.s16,
-                  color: ColorManger.black,
+    double screenWidth = MediaQuery.of(context).size.width;
+    return SizedBox(
+      width:  screenWidth * 0.25,
+      child: Card(
+        elevation: 6,
+        color: ColorManger.pureWhite,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(12),
+        ),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(icon, color: iconColor, size: 30),
+                SizedBox(height: 8.h),
+                CustomText(
+                  text: '$number',
+                  textStyle: TextStyle(
+                    fontWeight: FontWeightManager.regular,
+                    height: 1.4,
+                    fontSize: FontSize.s16,
+                    color: ColorManger.black,
+                  ),
                 ),
-              ),
-              SizedBox(height: 8.h),
-              CustomText(
-                text: text,
-                textStyle: TextStyle(
-                  fontSize: FontSize.s14,
-                  fontWeight: FontWeightManager.regular,
-                  color: ColorManger.slateGrey,
+                SizedBox(height: 8.h),
+                CustomText(
+                  text: text,
+                  textStyle: TextStyle(
+                    fontSize: FontSize.s14,
+                    fontWeight: FontWeightManager.regular,
+                    color: ColorManger.slateGrey,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -88,6 +88,8 @@ class _DateTimeStepState extends State<DateTimeStep> {
                   ),
                   InputLabel(label: appLocalization.selectTimeLabel),
                   TimeSlotPicker(
+                    icon: Icons.access_time,
+
                     selectedValue: selectedTime,
                     onChanged: (value) {
                       context.read<DonationScheduleCubit>().setTimeSlot(value);

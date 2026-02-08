@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,13 +27,13 @@ class CustomTextFormField extends StatelessWidget {
       cursorColor: ColorManger.black,
       style: TextStyle(
         color: ColorManger.black,
-        fontSize: 14.sp,
+        fontSize: FontSize.s14
       ),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(
           color: ColorManger.grey600,
-          fontSize: 13.sp,
+          fontSize:FontSize.s13,
         ),
 
         filled: true,

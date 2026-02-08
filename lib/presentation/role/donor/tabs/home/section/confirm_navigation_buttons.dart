@@ -59,7 +59,7 @@ class ConfirmNavigationButtons extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.cancel_outlined, color: ColorManger.pureWhite),
+              Icon(Icons.cancel_outlined, color: ColorManger.black),
               SizedBox(width: 4.w),
               CustomText(
                 text: AppLocalizations.of(context)!.declineButton,

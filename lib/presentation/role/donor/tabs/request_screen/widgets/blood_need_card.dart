@@ -29,7 +29,7 @@ class BloodNeedCard extends StatelessWidget {
           color: ColorManger.pureWhite.withValues(alpha: 0.12),
           borderRadius: BorderRadius.circular(14.r),
         ),
-        padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 20.w),
+        padding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
         child: Column(
           children: [
             Icon(

@@ -13,15 +13,26 @@ class NavigationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  CustomElevatedButton(
-      elevation: 4,
-      backgroundColor: nextStep==null? ColorManger.lightRed: backgroundColor,
-      shape: RoundedRectangleBorder(
+    return  LayoutBuilder(builder: (context, constraints) {
+
+      return  ConstrainedBox(
+        constraints: BoxConstraints(
+          minWidth: constraints.maxWidth,
+          minHeight: 50,
+        ),
+        child: CustomElevatedButton(
+        elevation: 4,
+        backgroundColor: nextStep==null? ColorManger.lightRed: backgroundColor,
+        shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
-      ),
-      onPressed: nextStep,
-      foregroundColor: foregroundColor,
-      child: CustomText(text: text),
+        ),
+        onPressed: nextStep,
+        foregroundColor: foregroundColor,
+        child: CustomText(text: text),
+        ),
+      );
+    }
+     ,
     );
   }
 }
