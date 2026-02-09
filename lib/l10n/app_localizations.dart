@@ -1009,6 +1009,396 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Navigate'**
   String get navigate;
+
+  /// No description provided for @donor_login_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Access'**
+  String get donor_login_title;
+
+  /// No description provided for @donor_login_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'LifeLink Blood Donation'**
+  String get donor_login_subtitle;
+
+  /// No description provided for @donor_login_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Login to Your Account'**
+  String get donor_login_card_title;
+
+  /// No description provided for @donor_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Address'**
+  String get donor_email;
+
+  /// No description provided for @donor_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get donor_password;
+
+  /// No description provided for @donor_forget_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get donor_forget_password;
+
+  /// No description provided for @donor_login_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get donor_login_button;
+
+  /// No description provided for @donor_dont_have_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get donor_dont_have_account;
+
+  /// No description provided for @donor_register_now.
+  ///
+  /// In en, this message translates to:
+  /// **'Register Now'**
+  String get donor_register_now;
+
+  /// No description provided for @donor_register_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Donor Account'**
+  String get donor_register_title;
+
+  /// No description provided for @full_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get full_name;
+
+  /// No description provided for @phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phone_number;
+
+  /// No description provided for @donor_blood_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Type'**
+  String get donor_blood_type;
+
+  /// No description provided for @donor_select_blood_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Select blood type'**
+  String get donor_select_blood_type;
+
+  /// No description provided for @donor_location.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get donor_location;
+
+  /// No description provided for @city_state.
+  ///
+  /// In en, this message translates to:
+  /// **'City, State'**
+  String get city_state;
+
+  /// No description provided for @confirm_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirm_password;
+
+  /// No description provided for @already_have_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have Account?'**
+  String get already_have_account;
+
+  /// No description provided for @donor_forget_password_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Reset Password'**
+  String get donor_forget_password_title;
+
+  /// No description provided for @donor_forget_password_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email address and we\'ll send you a link to reset your password.'**
+  String get donor_forget_password_text;
+
+  /// No description provided for @donor_send_reset_link.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Reset Link'**
+  String get donor_send_reset_link;
+
+  /// No description provided for @donor_back_to_login.
+  ///
+  /// In en, this message translates to:
+  /// **'Back To Login'**
+  String get donor_back_to_login;
+
+  /// No description provided for @please_enter_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Email'**
+  String get please_enter_email;
+
+  /// No description provided for @please_enter_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Password'**
+  String get please_enter_password;
+
+  /// No description provided for @please_enter_fullname.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Full Name'**
+  String get please_enter_fullname;
+
+  /// No description provided for @please_enter_phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Phone Number'**
+  String get please_enter_phone;
+
+  /// No description provided for @please_confirm_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Confirm Password'**
+  String get please_confirm_password;
+
+  /// No description provided for @please_enter_location.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Location'**
+  String get please_enter_location;
+
+  /// No description provided for @please_enter_hospital_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Hospital ID'**
+  String get please_enter_hospital_id;
+
+  /// No description provided for @please_enter_official_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Official Email Address'**
+  String get please_enter_official_email;
+
+  /// No description provided for @please_enter_secure_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Secure Password'**
+  String get please_enter_secure_password;
+
+  /// No description provided for @please_enter_admin_access_key.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Admin Access Key'**
+  String get please_enter_admin_access_key;
+
+  /// No description provided for @please_enter_admin_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Administrator Email'**
+  String get please_enter_admin_email;
+
+  /// No description provided for @hospital_portal.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital/Patient Portal'**
+  String get hospital_portal;
+
+  /// No description provided for @authorized_access_only.
+  ///
+  /// In en, this message translates to:
+  /// **'Authorized Access Only'**
+  String get authorized_access_only;
+
+  /// No description provided for @secure_login.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure Login'**
+  String get secure_login;
+
+  /// No description provided for @hospital_patient_authentication.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital/Patient Authentication'**
+  String get hospital_patient_authentication;
+
+  /// No description provided for @hospital_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital ID'**
+  String get hospital_id;
+
+  /// No description provided for @official_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Official Email Address'**
+  String get official_email;
+
+  /// No description provided for @secure_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure Password'**
+  String get secure_password;
+
+  /// No description provided for @new_hospital_patient.
+  ///
+  /// In en, this message translates to:
+  /// **'New Hospital or Patient?'**
+  String get new_hospital_patient;
+
+  /// No description provided for @hospital_contact_text_1.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact our Administration Team at: '**
+  String get hospital_contact_text_1;
+
+  /// No description provided for @hospital_contact_text_2.
+  ///
+  /// In en, this message translates to:
+  /// **' to register your facility or request access'**
+  String get hospital_contact_text_2;
+
+  /// No description provided for @admin_portal.
+  ///
+  /// In en, this message translates to:
+  /// **'Administrator Portal'**
+  String get admin_portal;
+
+  /// No description provided for @system_management_access.
+  ///
+  /// In en, this message translates to:
+  /// **'System Management Access'**
+  String get system_management_access;
+
+  /// No description provided for @restricted_access_area.
+  ///
+  /// In en, this message translates to:
+  /// **'Restricted Access Area'**
+  String get restricted_access_area;
+
+  /// No description provided for @admin_authentication.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Authentication'**
+  String get admin_authentication;
+
+  /// No description provided for @admin_access_key.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Access Key'**
+  String get admin_access_key;
+
+  /// No description provided for @admin_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Administrator Email'**
+  String get admin_email;
+
+  /// No description provided for @secure_admin_login.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure Admin Login'**
+  String get secure_admin_login;
+
+  /// No description provided for @security_notice.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Notice:'**
+  String get security_notice;
+
+  /// No description provided for @security_notice_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'All admin login attempts are logged and monitored. Unauthorized access attempts will be reported to system security.'**
+  String get security_notice_desc;
+
+  /// No description provided for @need_access.
+  ///
+  /// In en, this message translates to:
+  /// **'Need Access?'**
+  String get need_access;
+
+  /// No description provided for @contact_system_admin.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact the System Administrator at:'**
+  String get contact_system_admin;
+
+  /// No description provided for @emailIsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Email is required'**
+  String get emailIsRequired;
+
+  /// No description provided for @enterValidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email'**
+  String get enterValidEmail;
+
+  /// No description provided for @passwordIsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is required'**
+  String get passwordIsRequired;
+
+  /// No description provided for @enterValidPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid password'**
+  String get enterValidPassword;
+
+  /// No description provided for @phoneIsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number is required'**
+  String get phoneIsRequired;
+
+  /// No description provided for @enterValidPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid Egyptian phone number'**
+  String get enterValidPhone;
+
+  /// No description provided for @fieldIsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get fieldIsRequired;
+
+  /// No description provided for @enterValidName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid name'**
+  String get enterValidName;
+
+  /// No description provided for @locationIsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Location is required'**
+  String get locationIsRequired;
+
+  /// No description provided for @enterValidLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid location'**
+  String get enterValidLocation;
+
+  /// No description provided for @passwordsDoNotMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwordsDoNotMatch;
 }
 
 class _AppLocalizationsDelegate

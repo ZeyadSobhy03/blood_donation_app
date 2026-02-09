@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/presentation/choose_role/section/role_card.dart';
 
 import 'package:blood_donation_app/presentation/choose_role/section/role_title.dart';
@@ -14,14 +15,13 @@ class ChooseRole extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
 
-
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
       body: LayoutBuilder(
         builder: (context, constraints) {
           final isWide = constraints.maxWidth >= 700;
 
-          if(!isWide){
+          if (!isWide) {
             return SingleChildScrollView(
               child: SafeArea(
                 child: Center(
@@ -46,7 +46,12 @@ class ChooseRole extends StatelessWidget {
                           cardTitle: appLocalization.role_blood_donor_title,
                           cardDesc: appLocalization.role_blood_donor_desc,
                           text: appLocalization.role_blood_donor_button,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              RouteManger.donorLogin,
+                            );
+                          },
                         ),
                         RoleCard(
                           icon: Icons.local_hospital,
@@ -57,7 +62,12 @@ class ChooseRole extends StatelessWidget {
                           cardTitle: appLocalization.role_hospital_title,
                           cardDesc: appLocalization.role_hospital_desc,
                           text: appLocalization.role_hospital_button,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              RouteManger.hospitalAuth,
+                            );
+                          },
                         ),
                         RoleCard(
                           borderColor: ColorManger.green.withValues(alpha: 0.2),
@@ -66,7 +76,9 @@ class ChooseRole extends StatelessWidget {
                           cardTitle: appLocalization.role_admin_title,
                           cardDesc: appLocalization.role_admin_desc,
                           text: appLocalization.role_admin_button,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, RouteManger.adminAuth);
+                          },
                         ),
                       ],
                     ),
@@ -122,7 +134,6 @@ class ChooseRole extends StatelessWidget {
                         ],
                       ),
 
-
                       RoleCard(
                         borderColor: ColorManger.green.withValues(alpha: 0.2),
                         icon: Icons.admin_panel_settings,
@@ -138,8 +149,6 @@ class ChooseRole extends StatelessWidget {
               ),
             ),
           );
-
-
         },
       ),
     );

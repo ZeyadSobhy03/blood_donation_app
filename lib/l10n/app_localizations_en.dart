@@ -492,4 +492,204 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get navigate => 'Navigate';
+
+  @override
+  String get donor_login_title => 'Donor Access';
+
+  @override
+  String get donor_login_subtitle => 'LifeLink Blood Donation';
+
+  @override
+  String get donor_login_card_title => 'Login to Your Account';
+
+  @override
+  String get donor_email => 'Email Address';
+
+  @override
+  String get donor_password => 'Password';
+
+  @override
+  String get donor_forget_password => 'Forgot Password?';
+
+  @override
+  String get donor_login_button => 'Login';
+
+  @override
+  String get donor_dont_have_account => 'Don\'t have an account?';
+
+  @override
+  String get donor_register_now => 'Register Now';
+
+  @override
+  String get donor_register_title => 'Create Donor Account';
+
+  @override
+  String get full_name => 'Full Name';
+
+  @override
+  String get phone_number => 'Phone Number';
+
+  @override
+  String get donor_blood_type => 'Blood Type';
+
+  @override
+  String get donor_select_blood_type => 'Select blood type';
+
+  @override
+  String get donor_location => 'Location';
+
+  @override
+  String get city_state => 'City, State';
+
+  @override
+  String get confirm_password => 'Confirm Password';
+
+  @override
+  String get already_have_account => 'Already have Account?';
+
+  @override
+  String get donor_forget_password_title => 'Donor Reset Password';
+
+  @override
+  String get donor_forget_password_text =>
+      'Enter your email address and we\'ll send you a link to reset your password.';
+
+  @override
+  String get donor_send_reset_link => 'Send Reset Link';
+
+  @override
+  String get donor_back_to_login => 'Back To Login';
+
+  @override
+  String get please_enter_email => 'Please Enter Email';
+
+  @override
+  String get please_enter_password => 'Please Enter Password';
+
+  @override
+  String get please_enter_fullname => 'Please Enter Full Name';
+
+  @override
+  String get please_enter_phone => 'Please Enter Phone Number';
+
+  @override
+  String get please_confirm_password => 'Please Confirm Password';
+
+  @override
+  String get please_enter_location => 'Please Enter Location';
+
+  @override
+  String get please_enter_hospital_id => 'Please Enter Hospital ID';
+
+  @override
+  String get please_enter_official_email =>
+      'Please Enter Official Email Address';
+
+  @override
+  String get please_enter_secure_password => 'Please Enter Secure Password';
+
+  @override
+  String get please_enter_admin_access_key => 'Please Enter Admin Access Key';
+
+  @override
+  String get please_enter_admin_email => 'Please Enter Administrator Email';
+
+  @override
+  String get hospital_portal => 'Hospital/Patient Portal';
+
+  @override
+  String get authorized_access_only => 'Authorized Access Only';
+
+  @override
+  String get secure_login => 'Secure Login';
+
+  @override
+  String get hospital_patient_authentication =>
+      'Hospital/Patient Authentication';
+
+  @override
+  String get hospital_id => 'Hospital ID';
+
+  @override
+  String get official_email => 'Official Email Address';
+
+  @override
+  String get secure_password => 'Secure Password';
+
+  @override
+  String get new_hospital_patient => 'New Hospital or Patient?';
+
+  @override
+  String get hospital_contact_text_1 => 'Contact our Administration Team at: ';
+
+  @override
+  String get hospital_contact_text_2 =>
+      ' to register your facility or request access';
+
+  @override
+  String get admin_portal => 'Administrator Portal';
+
+  @override
+  String get system_management_access => 'System Management Access';
+
+  @override
+  String get restricted_access_area => 'Restricted Access Area';
+
+  @override
+  String get admin_authentication => 'Admin Authentication';
+
+  @override
+  String get admin_access_key => 'Admin Access Key';
+
+  @override
+  String get admin_email => 'Administrator Email';
+
+  @override
+  String get secure_admin_login => 'Secure Admin Login';
+
+  @override
+  String get security_notice => 'Security Notice:';
+
+  @override
+  String get security_notice_desc =>
+      'All admin login attempts are logged and monitored. Unauthorized access attempts will be reported to system security.';
+
+  @override
+  String get need_access => 'Need Access?';
+
+  @override
+  String get contact_system_admin => 'Contact the System Administrator at:';
+
+  @override
+  String get emailIsRequired => 'Email is required';
+
+  @override
+  String get enterValidEmail => 'Enter a valid email';
+
+  @override
+  String get passwordIsRequired => 'Password is required';
+
+  @override
+  String get enterValidPassword => 'Enter a valid password';
+
+  @override
+  String get phoneIsRequired => 'Phone number is required';
+
+  @override
+  String get enterValidPhone => 'Enter a valid Egyptian phone number';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
+
+  @override
+  String get enterValidName => 'Enter a valid name';
+
+  @override
+  String get locationIsRequired => 'Location is required';
+
+  @override
+  String get enterValidLocation => 'Enter a valid location';
+
+  @override
+  String get passwordsDoNotMatch => 'Passwords do not match';
 }

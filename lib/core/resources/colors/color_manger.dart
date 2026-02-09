@@ -30,4 +30,13 @@ class ColorManger {
   static const Color goldBorder = Color(0xFFFBE8A6);
   static const Color textGold = Color(0xFFB38600);
   static const Color bulletBrown = Color(0xFF8B5E3C);
+
+  static const Color veryLightBlue = Color(0xFFF0F9FF);
+  static const Color accentBlue = Color(0xFFE0F2FE);
+
+  static const Color mintyLightGreen = Color(0xFFF0FDF4);
+  static const Color textFormFieldGrey = Color(0xFFF3F4F6);
+  static const Color lightYellow = Color(0xFFFFFBEB);
+  static const Color yellow = Color(0xFFFCD34D);
+  static const Color darkOrange = Color(0xFFB45309);
 }

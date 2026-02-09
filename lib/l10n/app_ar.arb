@@ -163,7 +163,84 @@
   "distanceAway": "يبعد {distance} كم",
   "openInGoogleMap": "افتح في خرائط جوجل",
   "openInAppleMap": "افتح في خرائط أبل",
-  "navigate": "انتقال"
+  "navigate": "انتقال",
+
+  "donor_login_title": "تسجيل دخول المتبرع",
+  "donor_login_subtitle": "تطبيق التبرع بالدم من LifeLink",
+  "donor_login_card_title": "سجل الدخول لحسابك",
+  "donor_email": "البريد الإلكتروني",
+  "donor_password": "كلمة المرور",
+  "donor_forget_password": "نسيت كلمة المرور؟",
+  "donor_login_button": "تسجيل الدخول",
+  "donor_dont_have_account": "ليس لديك حساب؟",
+  "donor_register_now": "أنشئ حساب",
+
+
+  "donor_register_title": "إنشاء حساب لمتبرع",
+  "full_name": "الاسم الكامل",
+  "phone_number": "الهاتف",
+  "donor_blood_type": "فصيلة الدم",
+  "donor_select_blood_type": "يرجى اختيار فصيلة الدم",
+  "donor_location": "الموقع",
+  "city_state": "المدينة، المحافظة",
+  "confirm_password": "تأكيد كلمة المرور",
+  "already_have_account": "بالفعل لديك حساب؟",
+
+
+  "donor_forget_password_title": "تغيير كلمة المرور",
+  "donor_forget_password_text": "أدخل بريدك الإلكتروني وسوف يصلك رابط تغيير كلمة المرور",
+  "donor_send_reset_link": "إرسال رابط التغيير",
+  "donor_back_to_login": "العودة لتسجيل الدخول",
+
+
+  "please_enter_email": "الرجاء إدخال البريد الإلكتروني",
+  "please_enter_password": "الرجاء إدخال كلمة المرور",
+  "please_enter_fullname": "الرجاء إدخال الاسم الكامل",
+  "please_enter_phone": "الرجاء إدخال رقم الهاتف",
+  "please_confirm_password": "الرجاء تأكيد كلمة المرور",
+  "please_enter_location": "الرجاء إدخال الموقع",
+  "please_enter_hospital_id": "الرجاء إدخال معرف المستشفى",
+  "please_enter_official_email": "الرجاء إدخال البريد الإلكتروني الرسمي",
+  "please_enter_secure_password": "الرجاء إدخال كلمة المرور الآمنة",
+  "please_enter_admin_access_key": "الرجاء إدخال مفتاح دخول المسؤول",
+  "please_enter_admin_email": "الرجاء إدخال البريد الإلكتروني للمسؤول",
+
+
+  "hospital_portal": "دخول المستشفى/المريض",
+  "authorized_access_only": "الدخول للمصرح لهم فقط",
+  "secure_login": "الدخول الآمن",
+  "hospital_patient_authentication": "مصادقة المستشفى/المريض",
+  "hospital_id": "معرف المستشفى",
+  "official_email": "البريد الإلكتروني الرسمي",
+  "secure_password": "كلمة المرور الآمنة",
+  "new_hospital_patient": "مستشفى/مريض جديد؟",
+  "hospital_contact_text_1": " تواصل مع فريقنا الإداري عبر البريد الإلكتروني",
+  "hospital_contact_text_2": "لكي تسجل مؤسستك أو تطلب الدخول ",
+
+
+  "admin_portal": "دخول المسؤول",
+  "system_management_access": "منطقة دخول إدارة النظام",
+  "restricted_access_area": "منطقة محظورة لغير المسؤولين",
+  "admin_authentication": "مصادقة المسؤول",
+  "admin_access_key": "مفتاح دخول المسؤول",
+  "admin_email": "البريد الإلكتروني للمسؤول",
+  "secure_admin_login": "الدخول الآمن للمسؤول",
+  "security_notice": ":ملحوظة أمنية",
+  "security_notice_desc": "جميع عمليات دخول المسؤولين مراقبة ومسجلة، أي محاولة غير مشروعة للدخول سيتم تبليغها لأمن النظام.",
+  "need_access": "تحتاج للدخول؟",
+  "contact_system_admin": "تواصل مع مدير النظام عبر البريد الإلكتروني :",
+  "emailIsRequired": "البريد الإلكتروني مطلوب",
+  "enterValidEmail": "أدخل بريد إلكتروني صالح",
+  "passwordIsRequired": "كلمة المرور مطلوبة",
+  "enterValidPassword": "أدخل كلمة مرور صحيحة",
+  "phoneIsRequired": "رقم الهاتف مطلوب",
+  "enterValidPhone": "أدخل رقم هاتف مصري صالح",
+  "fieldIsRequired": "هذه الخانة مطلوبة",
+  "enterValidName": "أدخل اسم صالح",
+  "locationIsRequired": "المكان مطلوب",
+  "enterValidLocation": "أدخل مكان صالح",
+  "passwordsDoNotMatch": "كلمات المرور غير متطابقة"
+
 
 
 

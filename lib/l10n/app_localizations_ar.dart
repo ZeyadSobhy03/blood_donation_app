@@ -490,4 +490,205 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get navigate => 'انتقال';
+
+  @override
+  String get donor_login_title => 'تسجيل دخول المتبرع';
+
+  @override
+  String get donor_login_subtitle => 'تطبيق التبرع بالدم من LifeLink';
+
+  @override
+  String get donor_login_card_title => 'سجل الدخول لحسابك';
+
+  @override
+  String get donor_email => 'البريد الإلكتروني';
+
+  @override
+  String get donor_password => 'كلمة المرور';
+
+  @override
+  String get donor_forget_password => 'نسيت كلمة المرور؟';
+
+  @override
+  String get donor_login_button => 'تسجيل الدخول';
+
+  @override
+  String get donor_dont_have_account => 'ليس لديك حساب؟';
+
+  @override
+  String get donor_register_now => 'أنشئ حساب';
+
+  @override
+  String get donor_register_title => 'إنشاء حساب لمتبرع';
+
+  @override
+  String get full_name => 'الاسم الكامل';
+
+  @override
+  String get phone_number => 'الهاتف';
+
+  @override
+  String get donor_blood_type => 'فصيلة الدم';
+
+  @override
+  String get donor_select_blood_type => 'يرجى اختيار فصيلة الدم';
+
+  @override
+  String get donor_location => 'الموقع';
+
+  @override
+  String get city_state => 'المدينة، المحافظة';
+
+  @override
+  String get confirm_password => 'تأكيد كلمة المرور';
+
+  @override
+  String get already_have_account => 'بالفعل لديك حساب؟';
+
+  @override
+  String get donor_forget_password_title => 'تغيير كلمة المرور';
+
+  @override
+  String get donor_forget_password_text =>
+      'أدخل بريدك الإلكتروني وسوف يصلك رابط تغيير كلمة المرور';
+
+  @override
+  String get donor_send_reset_link => 'إرسال رابط التغيير';
+
+  @override
+  String get donor_back_to_login => 'العودة لتسجيل الدخول';
+
+  @override
+  String get please_enter_email => 'الرجاء إدخال البريد الإلكتروني';
+
+  @override
+  String get please_enter_password => 'الرجاء إدخال كلمة المرور';
+
+  @override
+  String get please_enter_fullname => 'الرجاء إدخال الاسم الكامل';
+
+  @override
+  String get please_enter_phone => 'الرجاء إدخال رقم الهاتف';
+
+  @override
+  String get please_confirm_password => 'الرجاء تأكيد كلمة المرور';
+
+  @override
+  String get please_enter_location => 'الرجاء إدخال الموقع';
+
+  @override
+  String get please_enter_hospital_id => 'الرجاء إدخال معرف المستشفى';
+
+  @override
+  String get please_enter_official_email =>
+      'الرجاء إدخال البريد الإلكتروني الرسمي';
+
+  @override
+  String get please_enter_secure_password => 'الرجاء إدخال كلمة المرور الآمنة';
+
+  @override
+  String get please_enter_admin_access_key => 'الرجاء إدخال مفتاح دخول المسؤول';
+
+  @override
+  String get please_enter_admin_email =>
+      'الرجاء إدخال البريد الإلكتروني للمسؤول';
+
+  @override
+  String get hospital_portal => 'دخول المستشفى/المريض';
+
+  @override
+  String get authorized_access_only => 'الدخول للمصرح لهم فقط';
+
+  @override
+  String get secure_login => 'الدخول الآمن';
+
+  @override
+  String get hospital_patient_authentication => 'مصادقة المستشفى/المريض';
+
+  @override
+  String get hospital_id => 'معرف المستشفى';
+
+  @override
+  String get official_email => 'البريد الإلكتروني الرسمي';
+
+  @override
+  String get secure_password => 'كلمة المرور الآمنة';
+
+  @override
+  String get new_hospital_patient => 'مستشفى/مريض جديد؟';
+
+  @override
+  String get hospital_contact_text_1 =>
+      ' تواصل مع فريقنا الإداري عبر البريد الإلكتروني';
+
+  @override
+  String get hospital_contact_text_2 => 'لكي تسجل مؤسستك أو تطلب الدخول ';
+
+  @override
+  String get admin_portal => 'دخول المسؤول';
+
+  @override
+  String get system_management_access => 'منطقة دخول إدارة النظام';
+
+  @override
+  String get restricted_access_area => 'منطقة محظورة لغير المسؤولين';
+
+  @override
+  String get admin_authentication => 'مصادقة المسؤول';
+
+  @override
+  String get admin_access_key => 'مفتاح دخول المسؤول';
+
+  @override
+  String get admin_email => 'البريد الإلكتروني للمسؤول';
+
+  @override
+  String get secure_admin_login => 'الدخول الآمن للمسؤول';
+
+  @override
+  String get security_notice => ':ملحوظة أمنية';
+
+  @override
+  String get security_notice_desc =>
+      'جميع عمليات دخول المسؤولين مراقبة ومسجلة، أي محاولة غير مشروعة للدخول سيتم تبليغها لأمن النظام.';
+
+  @override
+  String get need_access => 'تحتاج للدخول؟';
+
+  @override
+  String get contact_system_admin =>
+      'تواصل مع مدير النظام عبر البريد الإلكتروني :';
+
+  @override
+  String get emailIsRequired => 'البريد الإلكتروني مطلوب';
+
+  @override
+  String get enterValidEmail => 'أدخل بريد إلكتروني صالح';
+
+  @override
+  String get passwordIsRequired => 'كلمة المرور مطلوبة';
+
+  @override
+  String get enterValidPassword => 'أدخل كلمة مرور صحيحة';
+
+  @override
+  String get phoneIsRequired => 'رقم الهاتف مطلوب';
+
+  @override
+  String get enterValidPhone => 'أدخل رقم هاتف مصري صالح';
+
+  @override
+  String get fieldIsRequired => 'هذه الخانة مطلوبة';
+
+  @override
+  String get enterValidName => 'أدخل اسم صالح';
+
+  @override
+  String get locationIsRequired => 'المكان مطلوب';
+
+  @override
+  String get enterValidLocation => 'أدخل مكان صالح';
+
+  @override
+  String get passwordsDoNotMatch => 'كلمات المرور غير متطابقة';
 }
