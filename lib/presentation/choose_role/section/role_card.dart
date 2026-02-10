@@ -74,8 +74,12 @@ class RoleCard extends StatelessWidget {
               ],
             ),
             SizedBox(height: 32.h),
-            Center(
-              child: IntrinsicWidth(
+            LayoutBuilder(builder: (context, constraints) {
+              return  ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: constraints.maxWidth,
+                  minHeight: 50,
+                ),
                 child: CustomElevatedButton(
                   onPressed: onPressed,
                   backgroundColor: iconColor,
@@ -99,8 +103,8 @@ class RoleCard extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-            ),
+              );
+            },),
           ],
         ),
       ),

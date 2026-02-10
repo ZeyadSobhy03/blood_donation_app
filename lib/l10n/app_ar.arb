@@ -239,7 +239,62 @@
   "enterValidName": "أدخل اسم صالح",
   "locationIsRequired": "المكان مطلوب",
   "enterValidLocation": "أدخل مكان صالح",
-  "passwordsDoNotMatch": "كلمات المرور غير متطابقة"
+  "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+  "readyToDonateTitle": "استعد للتبرع",
+  "readyToDonateSubtitle": "كل تبرع يمكن أن ينقذ حتى 3 أرواح",
+
+
+  "donationTip1": "احصل على نوم كافٍ (7-8 ساعات)",
+  "donationTip2": "تناول وجبة صحية قبل التبرع بـ 2-3 ساعات",
+  "donationTip3": "اشرب كمية كافية من الماء (3-4 أكواب)",
+  "donationTip4": "تجنب الأطعمة الدسمة قبل التبرع",
+  "donationTip5": "أحضر بطاقة هوية سارية",
+  "donationTip6": "ارتدِ ملابس مريحة",
+
+  "scheduleDonation": "جدولة التبرع",
+  "confirmed": "مؤكد",
+  "pending": "قيد الانتظار",
+
+  "reschedule": "إعادة الجدولة",
+
+  "appointmentCancelled": "تم إلغاء الموعد",
+
+  "rescheduleAppointmentTitle": "إعادة جدولة الموعد",
+  "rescheduleAppointmentMessage": "هل ترغب في إعادة جدولة موعد التبرع الخاص بك؟",
+
+  "chooseNewDateTime": "اختيار تاريخ ووقت جديد",
+  "cancelDonation": "إلغاء التبرع",
+  "upcomingAppointments": "المواعيد القادمة",
+  "eligibleTitle": "أنت مؤهل للتبرع",
+  "eligibleDescription": "أنت تستوفي جميع شروط الأهلية للتبرع بالدم.",
+  "faqQuestion1": "هل التبرع بالدم مؤلم؟",
+  "faqAnswer1": "لا، التبرع بالدم عملية غير مؤلمة.",
+
+  "faqQuestion2": "كم تستغرق عملية التبرع؟",
+  "faqAnswer2": "تستغرق عملية التبرع عادة من 30 إلى 45 دقيقة.",
+
+  "faqQuestion3": "متى يمكنني التبرع مرة أخرى؟",
+  "faqAnswer3": "يمكنك التبرع مرة أخرى بعد 8 أسابيع.",
+
+  "faqQuestion4": "ماذا أفعل إذا شعرت بدوار أثناء التبرع؟",
+  "faqAnswer4": "إذا شعرت بدوار، أخبر الطاقم فورًا.",
+  "whatToExpect": "ما الذي يمكن توقعه",
+
+  "instructionStep1Title": "التسجيل والفحص الصحي",
+  "instructionStep1Subtitle": "مراجعة سريعة للتاريخ الطبي وقياس العلامات الحيوية",
+
+  "instructionStep2Title": "عملية التبرع",
+  "instructionStep2Subtitle": "الجلوس بشكل مريح أثناء التبرع (30-45 دقيقة)",
+
+  "instructionStep3Title": "الراحة والمرطبات",
+  "instructionStep3Subtitle": "الاسترخاء مع الوجبات الخفيفة والمشروبات قبل المغادرة",
+  "eligibilityRequirementsTitle": "شروط التبرع",
+  "reqAge": "العمر: من 18 إلى 65 سنة",
+  "reqWeight": "الوزن لا يقل عن 50 كجم",
+  "reqLastDonation": "مرور 3 أشهر على آخر تبرع",
+  "reqNoIllness": "لا يوجد مرض حديث",
+  "reqNoTattoos": "لا يوجد وشم أو ثقب حديث"
+
 
 
 

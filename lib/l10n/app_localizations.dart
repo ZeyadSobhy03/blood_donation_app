@@ -1399,6 +1399,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Passwords do not match'**
   String get passwordsDoNotMatch;
+
+  /// No description provided for @readyToDonateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to Donate'**
+  String get readyToDonateTitle;
+
+  /// No description provided for @readyToDonateSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Every donation can save up to 3 lives'**
+  String get readyToDonateSubtitle;
+
+  /// No description provided for @donationTip1.
+  ///
+  /// In en, this message translates to:
+  /// **'Get a good night\'s sleep (7-8 hours)'**
+  String get donationTip1;
+
+  /// No description provided for @donationTip2.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat a healthy meal 2-3 hours before'**
+  String get donationTip2;
+
+  /// No description provided for @donationTip3.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink plenty of water (3-4 glasses)'**
+  String get donationTip3;
+
+  /// No description provided for @donationTip4.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid fatty foods before donation'**
+  String get donationTip4;
+
+  /// No description provided for @donationTip5.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring a valid photo ID'**
+  String get donationTip5;
+
+  /// No description provided for @donationTip6.
+  ///
+  /// In en, this message translates to:
+  /// **'Wear comfortable clothing'**
+  String get donationTip6;
+
+  /// No description provided for @scheduleDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule Donation'**
+  String get scheduleDonation;
+
+  /// No description provided for @confirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed'**
+  String get confirmed;
+
+  /// No description provided for @pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get pending;
+
+  /// No description provided for @reschedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Reschedule'**
+  String get reschedule;
+
+  /// No description provided for @appointmentCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment cancelled'**
+  String get appointmentCancelled;
+
+  /// No description provided for @rescheduleAppointmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reschedule Appointment'**
+  String get rescheduleAppointmentTitle;
+
+  /// No description provided for @rescheduleAppointmentMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Would you like to reschedule your donation appointment?'**
+  String get rescheduleAppointmentMessage;
+
+  /// No description provided for @chooseNewDateTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose New Date & Time'**
+  String get chooseNewDateTime;
+
+  /// No description provided for @cancelDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel Donation'**
+  String get cancelDonation;
+
+  /// No description provided for @upcomingAppointments.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Appointments'**
+  String get upcomingAppointments;
+
+  /// No description provided for @eligibleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re Eligible to Donate'**
+  String get eligibleTitle;
+
+  /// No description provided for @eligibleDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'You meet all eligibility requirements for blood donation.'**
+  String get eligibleDescription;
+
+  /// No description provided for @faqQuestion1.
+  ///
+  /// In en, this message translates to:
+  /// **'Does donating blood hurt?'**
+  String get faqQuestion1;
+
+  /// No description provided for @faqAnswer1.
+  ///
+  /// In en, this message translates to:
+  /// **'No, donating blood is a painless process.'**
+  String get faqAnswer1;
+
+  /// No description provided for @faqQuestion2.
+  ///
+  /// In en, this message translates to:
+  /// **'How long does the donation process take?'**
+  String get faqQuestion2;
+
+  /// No description provided for @faqAnswer2.
+  ///
+  /// In en, this message translates to:
+  /// **'The donation process typically takes about 30-45 minutes.'**
+  String get faqAnswer2;
+
+  /// No description provided for @faqQuestion3.
+  ///
+  /// In en, this message translates to:
+  /// **'When can I donate again?'**
+  String get faqQuestion3;
+
+  /// No description provided for @faqAnswer3.
+  ///
+  /// In en, this message translates to:
+  /// **'You can donate again after 8 weeks.'**
+  String get faqAnswer3;
+
+  /// No description provided for @faqQuestion4.
+  ///
+  /// In en, this message translates to:
+  /// **'What if I feel faint during donation?'**
+  String get faqQuestion4;
+
+  /// No description provided for @faqAnswer4.
+  ///
+  /// In en, this message translates to:
+  /// **'If you feel faint, let the staff know immediately.'**
+  String get faqAnswer4;
+
+  /// No description provided for @whatToExpect.
+  ///
+  /// In en, this message translates to:
+  /// **'What to Expect'**
+  String get whatToExpect;
+
+  /// No description provided for @instructionStep1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration & Health Check'**
+  String get instructionStep1Title;
+
+  /// No description provided for @instructionStep1Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick medical history and vital signs check'**
+  String get instructionStep1Subtitle;
+
+  /// No description provided for @instructionStep2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Process'**
+  String get instructionStep2Title;
+
+  /// No description provided for @instructionStep2Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Comfortable seating while you donate (30-45 min)'**
+  String get instructionStep2Subtitle;
+
+  /// No description provided for @instructionStep3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest & Refreshments'**
+  String get instructionStep3Title;
+
+  /// No description provided for @instructionStep3Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Relax with snacks and drinks before you go'**
+  String get instructionStep3Subtitle;
+
+  /// No description provided for @eligibilityRequirementsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Eligibility Requirements'**
+  String get eligibilityRequirementsTitle;
+
+  /// No description provided for @reqAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Age: 18–65'**
+  String get reqAge;
+
+  /// No description provided for @reqWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum weight 50 kg'**
+  String get reqWeight;
+
+  /// No description provided for @reqLastDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 3 months since last donation'**
+  String get reqLastDonation;
+
+  /// No description provided for @reqNoIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'No recent illness'**
+  String get reqNoIllness;
+
+  /// No description provided for @reqNoTattoos.
+  ///
+  /// In en, this message translates to:
+  /// **'No recent tattoos or piercings'**
+  String get reqNoTattoos;
 }
 
 class _AppLocalizationsDelegate

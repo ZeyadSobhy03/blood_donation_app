@@ -1,3 +1,4 @@
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/presentation/choose_role/section/role_card.dart';
@@ -46,12 +47,7 @@ class ChooseRole extends StatelessWidget {
                           cardTitle: appLocalization.role_blood_donor_title,
                           cardDesc: appLocalization.role_blood_donor_desc,
                           text: appLocalization.role_blood_donor_button,
-                          onPressed: () {
-                            Navigator.pushNamed(
-                              context,
-                              RouteManger.donorLogin,
-                            );
-                          },
+                          onPressed: ()=>Navigator.pushNamed(context, RouteManger.donorLogin),
                         ),
                         RoleCard(
                           icon: Icons.local_hospital,
@@ -62,12 +58,7 @@ class ChooseRole extends StatelessWidget {
                           cardTitle: appLocalization.role_hospital_title,
                           cardDesc: appLocalization.role_hospital_desc,
                           text: appLocalization.role_hospital_button,
-                          onPressed: () {
-                            Navigator.pushNamed(
-                              context,
-                              RouteManger.hospitalAuth,
-                            );
-                          },
+                          onPressed: ()=>Navigator.pushNamed(context, RouteManger.hospitalAuth),
                         ),
                         RoleCard(
                           borderColor: ColorManger.green.withValues(alpha: 0.2),
@@ -76,9 +67,7 @@ class ChooseRole extends StatelessWidget {
                           cardTitle: appLocalization.role_admin_title,
                           cardDesc: appLocalization.role_admin_desc,
                           text: appLocalization.role_admin_button,
-                          onPressed: () {
-                            Navigator.pushNamed(context, RouteManger.adminAuth);
-                          },
+                          onPressed: ()=>Navigator.pushNamed(context, RouteManger.adminAuth),
                         ),
                       ],
                     ),
@@ -100,6 +89,7 @@ class ChooseRole extends StatelessWidget {
                       TitleRole(
                         roleTitle: appLocalization.choose_role_title,
                         roleSubTitle: appLocalization.choose_role_subTitle,
+
                       ),
                       SizedBox(height: 8.h),
 
@@ -115,7 +105,7 @@ class ChooseRole extends StatelessWidget {
                               cardTitle: appLocalization.role_blood_donor_title,
                               cardDesc: appLocalization.role_blood_donor_desc,
                               text: appLocalization.role_blood_donor_button,
-                              onPressed: () {},
+                              onPressed: ()=>Navigator.pushNamed(context, RouteManger.donorLogin),
                             ),
                           ),
                           Expanded(
@@ -128,7 +118,7 @@ class ChooseRole extends StatelessWidget {
                               cardTitle: appLocalization.role_hospital_title,
                               cardDesc: appLocalization.role_hospital_desc,
                               text: appLocalization.role_hospital_button,
-                              onPressed: () {},
+                              onPressed: ()=>Navigator.pushNamed(context, RouteManger.hospitalAuth),
                             ),
                           ),
                         ],
@@ -141,7 +131,7 @@ class ChooseRole extends StatelessWidget {
                         cardTitle: appLocalization.role_admin_title,
                         cardDesc: appLocalization.role_admin_desc,
                         text: appLocalization.role_admin_button,
-                        onPressed: () {},
+                        onPressed: ()=>Navigator.pushNamed(context, RouteManger.adminAuth),
                       ),
                     ],
                   ),

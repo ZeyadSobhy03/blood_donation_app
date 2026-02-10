@@ -10,6 +10,7 @@ class InfoRow extends StatelessWidget {
   final IconData icon;
   final String text;
 
+
   @override
   Widget build(BuildContext context) {
     return  Row(

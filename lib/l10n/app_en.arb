@@ -241,7 +241,62 @@
   "enterValidName": "Enter a valid name",
   "locationIsRequired": "Location is required",
   "enterValidLocation": "Enter a valid location",
-  "passwordsDoNotMatch": "Passwords do not match"
+  "passwordsDoNotMatch": "Passwords do not match",
+  "readyToDonateTitle": "Ready to Donate",
+  "readyToDonateSubtitle": "Every donation can save up to 3 lives",
+
+
+  "donationTip1": "Get a good night's sleep (7-8 hours)",
+  "donationTip2": "Eat a healthy meal 2-3 hours before",
+  "donationTip3": "Drink plenty of water (3-4 glasses)",
+  "donationTip4": "Avoid fatty foods before donation",
+  "donationTip5": "Bring a valid photo ID",
+  "donationTip6": "Wear comfortable clothing",
+
+  "scheduleDonation": "Schedule Donation",
+  "confirmed": "Confirmed",
+  "pending": "Pending",
+
+  "reschedule": "Reschedule",
+
+  "appointmentCancelled": "Appointment cancelled",
+
+  "rescheduleAppointmentTitle": "Reschedule Appointment",
+  "rescheduleAppointmentMessage": "Would you like to reschedule your donation appointment?",
+  "chooseNewDateTime": "Choose New Date & Time",
+  "cancelDonation": "Cancel Donation",
+  "upcomingAppointments": "Upcoming Appointments",
+  "eligibleTitle": "You're Eligible to Donate",
+  "eligibleDescription": "You meet all eligibility requirements for blood donation.",
+  "faqQuestion1": "Does donating blood hurt?",
+  "faqAnswer1": "No, donating blood is a painless process.",
+
+  "faqQuestion2": "How long does the donation process take?",
+  "faqAnswer2": "The donation process typically takes about 30-45 minutes.",
+
+  "faqQuestion3": "When can I donate again?",
+  "faqAnswer3": "You can donate again after 8 weeks.",
+
+  "faqQuestion4": "What if I feel faint during donation?",
+  "faqAnswer4": "If you feel faint, let the staff know immediately.",
+  "whatToExpect": "What to Expect",
+
+  "instructionStep1Title": "Registration & Health Check",
+  "instructionStep1Subtitle": "Quick medical history and vital signs check",
+
+  "instructionStep2Title": "Donation Process",
+  "instructionStep2Subtitle": "Comfortable seating while you donate (30-45 min)",
+
+  "instructionStep3Title": "Rest & Refreshments",
+  "instructionStep3Subtitle": "Relax with snacks and drinks before you go",
+  "eligibilityRequirementsTitle": "Eligibility Requirements",
+  "reqAge": "Age: 18–65",
+  "reqWeight": "Minimum weight 50 kg",
+  "reqLastDonation": "At least 3 months since last donation",
+  "reqNoIllness": "No recent illness",
+  "reqNoTattoos": "No recent tattoos or piercings"
+
+
 
 
 

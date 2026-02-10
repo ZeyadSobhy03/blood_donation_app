@@ -691,4 +691,132 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get passwordsDoNotMatch => 'كلمات المرور غير متطابقة';
+
+  @override
+  String get readyToDonateTitle => 'استعد للتبرع';
+
+  @override
+  String get readyToDonateSubtitle => 'كل تبرع يمكن أن ينقذ حتى 3 أرواح';
+
+  @override
+  String get donationTip1 => 'احصل على نوم كافٍ (7-8 ساعات)';
+
+  @override
+  String get donationTip2 => 'تناول وجبة صحية قبل التبرع بـ 2-3 ساعات';
+
+  @override
+  String get donationTip3 => 'اشرب كمية كافية من الماء (3-4 أكواب)';
+
+  @override
+  String get donationTip4 => 'تجنب الأطعمة الدسمة قبل التبرع';
+
+  @override
+  String get donationTip5 => 'أحضر بطاقة هوية سارية';
+
+  @override
+  String get donationTip6 => 'ارتدِ ملابس مريحة';
+
+  @override
+  String get scheduleDonation => 'جدولة التبرع';
+
+  @override
+  String get confirmed => 'مؤكد';
+
+  @override
+  String get pending => 'قيد الانتظار';
+
+  @override
+  String get reschedule => 'إعادة الجدولة';
+
+  @override
+  String get appointmentCancelled => 'تم إلغاء الموعد';
+
+  @override
+  String get rescheduleAppointmentTitle => 'إعادة جدولة الموعد';
+
+  @override
+  String get rescheduleAppointmentMessage =>
+      'هل ترغب في إعادة جدولة موعد التبرع الخاص بك؟';
+
+  @override
+  String get chooseNewDateTime => 'اختيار تاريخ ووقت جديد';
+
+  @override
+  String get cancelDonation => 'إلغاء التبرع';
+
+  @override
+  String get upcomingAppointments => 'المواعيد القادمة';
+
+  @override
+  String get eligibleTitle => 'أنت مؤهل للتبرع';
+
+  @override
+  String get eligibleDescription =>
+      'أنت تستوفي جميع شروط الأهلية للتبرع بالدم.';
+
+  @override
+  String get faqQuestion1 => 'هل التبرع بالدم مؤلم؟';
+
+  @override
+  String get faqAnswer1 => 'لا، التبرع بالدم عملية غير مؤلمة.';
+
+  @override
+  String get faqQuestion2 => 'كم تستغرق عملية التبرع؟';
+
+  @override
+  String get faqAnswer2 => 'تستغرق عملية التبرع عادة من 30 إلى 45 دقيقة.';
+
+  @override
+  String get faqQuestion3 => 'متى يمكنني التبرع مرة أخرى؟';
+
+  @override
+  String get faqAnswer3 => 'يمكنك التبرع مرة أخرى بعد 8 أسابيع.';
+
+  @override
+  String get faqQuestion4 => 'ماذا أفعل إذا شعرت بدوار أثناء التبرع؟';
+
+  @override
+  String get faqAnswer4 => 'إذا شعرت بدوار، أخبر الطاقم فورًا.';
+
+  @override
+  String get whatToExpect => 'ما الذي يمكن توقعه';
+
+  @override
+  String get instructionStep1Title => 'التسجيل والفحص الصحي';
+
+  @override
+  String get instructionStep1Subtitle =>
+      'مراجعة سريعة للتاريخ الطبي وقياس العلامات الحيوية';
+
+  @override
+  String get instructionStep2Title => 'عملية التبرع';
+
+  @override
+  String get instructionStep2Subtitle =>
+      'الجلوس بشكل مريح أثناء التبرع (30-45 دقيقة)';
+
+  @override
+  String get instructionStep3Title => 'الراحة والمرطبات';
+
+  @override
+  String get instructionStep3Subtitle =>
+      'الاسترخاء مع الوجبات الخفيفة والمشروبات قبل المغادرة';
+
+  @override
+  String get eligibilityRequirementsTitle => 'شروط التبرع';
+
+  @override
+  String get reqAge => 'العمر: من 18 إلى 65 سنة';
+
+  @override
+  String get reqWeight => 'الوزن لا يقل عن 50 كجم';
+
+  @override
+  String get reqLastDonation => 'مرور 3 أشهر على آخر تبرع';
+
+  @override
+  String get reqNoIllness => 'لا يوجد مرض حديث';
+
+  @override
+  String get reqNoTattoos => 'لا يوجد وشم أو ثقب حديث';
 }

@@ -692,4 +692,133 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordsDoNotMatch => 'Passwords do not match';
+
+  @override
+  String get readyToDonateTitle => 'Ready to Donate';
+
+  @override
+  String get readyToDonateSubtitle => 'Every donation can save up to 3 lives';
+
+  @override
+  String get donationTip1 => 'Get a good night\'s sleep (7-8 hours)';
+
+  @override
+  String get donationTip2 => 'Eat a healthy meal 2-3 hours before';
+
+  @override
+  String get donationTip3 => 'Drink plenty of water (3-4 glasses)';
+
+  @override
+  String get donationTip4 => 'Avoid fatty foods before donation';
+
+  @override
+  String get donationTip5 => 'Bring a valid photo ID';
+
+  @override
+  String get donationTip6 => 'Wear comfortable clothing';
+
+  @override
+  String get scheduleDonation => 'Schedule Donation';
+
+  @override
+  String get confirmed => 'Confirmed';
+
+  @override
+  String get pending => 'Pending';
+
+  @override
+  String get reschedule => 'Reschedule';
+
+  @override
+  String get appointmentCancelled => 'Appointment cancelled';
+
+  @override
+  String get rescheduleAppointmentTitle => 'Reschedule Appointment';
+
+  @override
+  String get rescheduleAppointmentMessage =>
+      'Would you like to reschedule your donation appointment?';
+
+  @override
+  String get chooseNewDateTime => 'Choose New Date & Time';
+
+  @override
+  String get cancelDonation => 'Cancel Donation';
+
+  @override
+  String get upcomingAppointments => 'Upcoming Appointments';
+
+  @override
+  String get eligibleTitle => 'You\'re Eligible to Donate';
+
+  @override
+  String get eligibleDescription =>
+      'You meet all eligibility requirements for blood donation.';
+
+  @override
+  String get faqQuestion1 => 'Does donating blood hurt?';
+
+  @override
+  String get faqAnswer1 => 'No, donating blood is a painless process.';
+
+  @override
+  String get faqQuestion2 => 'How long does the donation process take?';
+
+  @override
+  String get faqAnswer2 =>
+      'The donation process typically takes about 30-45 minutes.';
+
+  @override
+  String get faqQuestion3 => 'When can I donate again?';
+
+  @override
+  String get faqAnswer3 => 'You can donate again after 8 weeks.';
+
+  @override
+  String get faqQuestion4 => 'What if I feel faint during donation?';
+
+  @override
+  String get faqAnswer4 => 'If you feel faint, let the staff know immediately.';
+
+  @override
+  String get whatToExpect => 'What to Expect';
+
+  @override
+  String get instructionStep1Title => 'Registration & Health Check';
+
+  @override
+  String get instructionStep1Subtitle =>
+      'Quick medical history and vital signs check';
+
+  @override
+  String get instructionStep2Title => 'Donation Process';
+
+  @override
+  String get instructionStep2Subtitle =>
+      'Comfortable seating while you donate (30-45 min)';
+
+  @override
+  String get instructionStep3Title => 'Rest & Refreshments';
+
+  @override
+  String get instructionStep3Subtitle =>
+      'Relax with snacks and drinks before you go';
+
+  @override
+  String get eligibilityRequirementsTitle => 'Eligibility Requirements';
+
+  @override
+  String get reqAge => 'Age: 18–65';
+
+  @override
+  String get reqWeight => 'Minimum weight 50 kg';
+
+  @override
+  String get reqLastDonation => 'At least 3 months since last donation';
+
+  @override
+  String get reqNoIllness => 'No recent illness';
+
+  @override
+  String get reqNoTattoos => 'No recent tattoos or piercings';
 }

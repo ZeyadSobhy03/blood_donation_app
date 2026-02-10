@@ -13,6 +13,8 @@ class DonationCard extends StatelessWidget {
     this.borderColor,
     this.textColor,
     this.bulletColor,
+    this.needIcon = false,
+    this.icon,
   });
 
   final String title;
@@ -22,6 +24,10 @@ class DonationCard extends StatelessWidget {
   final Color? borderColor;
   final Color? textColor;
   final Color? bulletColor;
+  final bool needIcon;
+
+  final IconData? icon;
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +46,28 @@ class DonationCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomText(
-              text: title,
-              textStyle: TextStyle(
-                color: textColor ?? ColorManger.textGold,
-                fontSize: FontSize.s18,
-                fontWeight: FontWeightManager.bold,
-              ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                needIcon
+                    ? Icon(icon, color: textColor ?? cardColor, )
+                    : SizedBox(),
+                SizedBox(width: 8),
+                CustomText(
+                  text: title,
+                  textStyle: TextStyle(
+                    color: textColor ?? ColorManger.textGold,
+                    fontSize: FontSize.s18,
+                    fontWeight: FontWeightManager.bold,
+                  ),
+                ),
+              ],
             ),
+
             SizedBox(height: 20.h),
 
             ...items.map(
-                  (item) => _buildListItem(
+              (item) => _buildListItem(
                 item,
                 textColor ?? ColorManger.textGold,
                 bulletColor ?? ColorManger.bulletBrown,
@@ -67,23 +83,21 @@ class DonationCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CustomText(
             text: '• ',
             textStyle: TextStyle(
               color: bulletColor,
-              fontSize: FontSize.s16,
+              fontSize: FontSize.s22,
               fontWeight: FontWeightManager.bold,
             ),
           ),
           Expanded(
             child: CustomText(
               text: text,
-              textStyle: TextStyle(
-                color: textColor,
-                fontSize: FontSize.s16,
-              ),
+              textStyle: TextStyle(color: textColor, fontSize: FontSize.s14),
             ),
           ),
         ],
@@ -91,4 +105,3 @@ class DonationCard extends StatelessWidget {
     );
   }
 }
-
