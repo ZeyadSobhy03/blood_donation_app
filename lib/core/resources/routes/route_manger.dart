@@ -14,6 +14,7 @@ import '../../../presentation/authentication/donor_authentication/donor_forget_p
 import '../../../presentation/authentication/donor_authentication/donor_login.dart';
 import '../../../presentation/authentication/donor_authentication/donor_register.dart';
 import '../../../presentation/authentication/hospital_authentication/hospital_authentication.dart';
+import '../../../presentation/splash_screen/splash_screen.dart';
 
 class RouteManger {
   static const String onboarding = '/onboarding';
@@ -27,9 +28,12 @@ class RouteManger {
   static const String donorForgetPassword = '/donorForgetPassword';
   static const String hospitalAuth = '/hospitalAuthentication';
   static const String adminAuth = '/adminAuthentication';
+  static const String splashScreen = '/splashScreen';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
+      case splashScreen:
+        return MaterialPageRoute(builder: (context) => SplashScreen());
       case onboarding:
         return MaterialPageRoute(builder: (context) => OnboardingPages());
 

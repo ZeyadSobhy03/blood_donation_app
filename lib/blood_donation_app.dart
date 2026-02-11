@@ -22,7 +22,7 @@ class BloodDonationApp extends StatelessWidget {
 
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteManger.router,
-        initialRoute: RouteManger.chooseRole,
+        initialRoute: RouteManger.splashScreen,
       ),
     );
   }
