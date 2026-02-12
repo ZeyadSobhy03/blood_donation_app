@@ -14,6 +14,7 @@ import '../../../presentation/authentication/donor_authentication/donor_forget_p
 import '../../../presentation/authentication/donor_authentication/donor_login.dart';
 import '../../../presentation/authentication/donor_authentication/donor_register.dart';
 import '../../../presentation/authentication/hospital_authentication/hospital_authentication.dart';
+import '../../../presentation/maps/maps.dart';
 import '../../../presentation/splash_screen/splash_screen.dart';
 
 class RouteManger {
@@ -29,6 +30,7 @@ class RouteManger {
   static const String hospitalAuth = '/hospitalAuthentication';
   static const String adminAuth = '/adminAuthentication';
   static const String splashScreen = '/splashScreen';
+  static const String mapScreen = '/mapScreen';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -36,6 +38,12 @@ class RouteManger {
         return MaterialPageRoute(builder: (context) => SplashScreen());
       case onboarding:
         return MaterialPageRoute(builder: (context) => OnboardingPages());
+
+      case mapScreen:
+        return MaterialPageRoute(
+          builder: (context) => MapScreen(),
+          settings: settings,
+        );
 
       case chooseRole:
         return MaterialPageRoute(builder: (context) => ChooseRole());
@@ -49,7 +57,6 @@ class RouteManger {
       case scheduleDonation:
         return MaterialPageRoute(builder: (context) => ScheduleDonation());
 
-
       case donorLogin:
         return MaterialPageRoute(builder: (context) => DonorLogin());
 
@@ -60,10 +67,12 @@ class RouteManger {
         return MaterialPageRoute(builder: (context) => DonorForgetPassword());
 
       case hospitalAuth:
-        return MaterialPageRoute(builder: (context) => HospitalAuthentication());
+        return MaterialPageRoute(
+          builder: (context) => HospitalAuthentication(),
+        );
 
       case adminAuth:
-        return MaterialPageRoute(builder: (context) => AdminAuthentication()) ;
+        return MaterialPageRoute(builder: (context) => AdminAuthentication());
 
       case requestScreen:
         return MaterialPageRoute(

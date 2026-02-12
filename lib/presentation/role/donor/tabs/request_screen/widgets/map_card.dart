@@ -7,26 +7,30 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../l10n/app_localizations.dart';
 
 class MapCard extends StatelessWidget {
-  const MapCard({super.key, required this.hospitalName});
+  const MapCard({super.key, required this.hospitalName, this.onTap});
 
   final String hospitalName;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
 
-    return Card(
-      color: ColorManger.lightGrey,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-      elevation: 6,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-        child: Column(
-          children: [
-            _buildInfoRow(context),
-            SizedBox(height: 8.h),
-            _buildInfoColum(context),
-            SizedBox(height: 16.h),
-          ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        color: ColorManger.lightGrey,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+        elevation: 6,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+          child: Column(
+            children: [
+              _buildInfoRow(context),
+              SizedBox(height: 8.h),
+              _buildInfoColum(context),
+              SizedBox(height: 16.h),
+            ],
+          ),
         ),
       ),
     );

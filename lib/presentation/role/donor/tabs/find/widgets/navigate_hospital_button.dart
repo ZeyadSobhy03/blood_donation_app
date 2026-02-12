@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/l10n/app_localizations.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/find/model/hospital_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,16 +8,46 @@ import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/find/bottom_sheet/custom_model_sheet.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NavigateHospitalButton extends StatelessWidget {
   const NavigateHospitalButton({
-    super.key,
-    required this.hospitalName,
-    required this.distanceKm,
+    super.key, required this.hospitalRequestModel,
+
   });
 
-  final String hospitalName;
-  final double distanceKm;
+  final HospitalRequestModel hospitalRequestModel;
+
+  Future<void> _openDirectionsGoogle() async {
+    final lat = hospitalRequestModel.location.latitude;
+    final lng = hospitalRequestModel.location.longitude;
+
+    final Uri googleMapsUrl = Uri.parse(
+      'https://www.google.com/maps/dir/?api=1&destination=$lat,$lng&travelmode=driving',
+    );
+
+    if (await canLaunchUrl(googleMapsUrl)) {
+      await launchUrl(googleMapsUrl, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch Maps';
+    }
+  }
+  Future<void> _openDirectionsApple() async {
+    final lat = hospitalRequestModel.location.latitude;
+    final lng = hospitalRequestModel.location.longitude;
+
+    final Uri appleMapsUrl = Uri.parse(
+      'https://maps.apple.com/?q=$lat,$lng',
+    );
+
+    if (await canLaunchUrl(appleMapsUrl)) {
+      await launchUrl(appleMapsUrl, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch Maps';
+    }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +62,10 @@ class NavigateHospitalButton extends StatelessWidget {
         backgroundColor: ColorManger.pureWhite,
         foregroundColor: ColorManger.black,
         onPressed: () => showModelSheet(
-          primaryButtonPressed: () {},
-          secondaryButtonPressed: () {},
+          primaryButtonPressed: () => _openDirectionsGoogle(),
+          secondaryButtonPressed: () => _openDirectionsApple(),
 
-          text: hospitalName,
+          text: hospitalRequestModel.hospitalName,
 
           buttonBackgroundColor: ColorManger.skyBlue,
           context: context,
@@ -45,7 +76,7 @@ class NavigateHospitalButton extends StatelessWidget {
             color: ColorManger.skyBlue,
           ),
           subTitleWidget: CustomText(
-            text: appLocalization.distanceAway(distanceKm.toStringAsFixed(1)),
+            text: appLocalization.distanceAway(hospitalRequestModel.distanceKm.toStringAsFixed(1)),
             textStyle: TextStyle(
               color: ColorManger.slateGrey,
               fontSize: FontSize.s14,

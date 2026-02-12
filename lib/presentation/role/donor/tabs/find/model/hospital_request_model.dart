@@ -1,3 +1,5 @@
+import '../../../../../../core/resources/models/coordinates.dart';
+
 class HospitalRequestModel {
   final String id;
   final String hospitalName;
@@ -10,8 +12,7 @@ class HospitalRequestModel {
   final double distanceKm;
   final int urgentNeedsCount;
 
-  final double latitude;
-  final double longitude;
+  final Coordinates location;
 
   const HospitalRequestModel({
     required this.id,
@@ -22,7 +23,6 @@ class HospitalRequestModel {
     required this.isAvailable,
     required this.distanceKm,
     required this.urgentNeedsCount,
-    required this.latitude,
-    required this.longitude,
+    required this.location,
   });
 }

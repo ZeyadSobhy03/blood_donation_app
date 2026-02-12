@@ -9,6 +9,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/wi
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/model/urgent_request.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/resources/models/coordinates.dart';
 import 'model/notification.dart';
 
 class Notifications extends StatelessWidget {
@@ -27,6 +28,9 @@ class Notifications extends StatelessWidget {
         type: 'emergency',
         isRead: false,
         urgentRequest: UrgentRequestModel(
+          createdAt: DateTime.now(),
+          locationHospital: Coordinates(latitude: 30.0444, longitude: 31.2357),
+
           id: 'UR1',
           title: 'Emergency Blood Request',
           location: 'City Hospital, Nasr City',

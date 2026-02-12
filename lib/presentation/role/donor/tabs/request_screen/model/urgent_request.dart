@@ -1,3 +1,5 @@
+import 'package:blood_donation_app/core/resources/models/coordinates.dart';
+
 class UrgentRequestModel {
   final String id;
 
@@ -7,6 +9,8 @@ class UrgentRequestModel {
   final bool isEmergency;
   final String bloodType;
   final int unitsNeeded;
+  final Coordinates locationHospital;
+  final DateTime createdAt;
 
   /// Hospital
   final String hospitalName;
@@ -28,5 +32,7 @@ class UrgentRequestModel {
     required this.hospitalDistance,
     required this.bloodType,
     required this.id,
+    required this.locationHospital,
+    required this.createdAt,
   });
 }

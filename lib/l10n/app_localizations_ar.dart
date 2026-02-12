@@ -819,4 +819,53 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get reqNoTattoos => 'لا يوجد وشم أو ثقب حديث';
+
+  @override
+  String minutesAgo(Object count) {
+    return 'منذ $count دقيقة';
+  }
+
+  @override
+  String hoursAgo(Object count) {
+    return 'منذ $count ساعة';
+  }
+
+  @override
+  String daysAgo(Object count) {
+    return 'منذ $count يوم';
+  }
+
+  @override
+  String get gettingDistance => 'جارٍ حساب المسافة...';
+
+  @override
+  String get km => 'كم';
+
+  @override
+  String kmAway(Object distance) {
+    return 'يبعد $distance كم';
+  }
+
+  @override
+  String get hospitalLocation => 'موقع المستشفى';
+
+  @override
+  String get loadingMap => 'جاري تحميل الخريطة...';
+
+  @override
+  String get oopsError => 'حدث خطأ ما';
+
+  @override
+  String get goBack => 'العودة';
+
+  @override
+  String get bloodDonationCenter => 'مركز التبرع بالدم';
+
+  @override
+  String get directions => 'الاتجاهات';
+
+  @override
+  String shareMessage(Object lat, Object link, Object lng) {
+    return '🩸 لايف لينك - مركز التبرع بالدم\n\n📍 الموقع:\n$lat ، $lng\n\n🗺 عرض على خرائط جوجل:\n$link\n\nكن بطلاً... تبرع بالدم وأنقذ حياة ❤️';
+  }
 }

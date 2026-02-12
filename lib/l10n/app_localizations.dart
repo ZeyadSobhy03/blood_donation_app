@@ -1645,6 +1645,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No recent tattoos or piercings'**
   String get reqNoTattoos;
+
+  /// No description provided for @minutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min ago'**
+  String minutesAgo(Object count);
+
+  /// No description provided for @hoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} h ago'**
+  String hoursAgo(Object count);
+
+  /// No description provided for @daysAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} d ago'**
+  String daysAgo(Object count);
+
+  /// No description provided for @gettingDistance.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting distance...'**
+  String get gettingDistance;
+
+  /// No description provided for @km.
+  ///
+  /// In en, this message translates to:
+  /// **'km'**
+  String get km;
+
+  /// No description provided for @kmAway.
+  ///
+  /// In en, this message translates to:
+  /// **'{distance} km away'**
+  String kmAway(Object distance);
+
+  /// No description provided for @hospitalLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Location'**
+  String get hospitalLocation;
+
+  /// No description provided for @loadingMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading map...'**
+  String get loadingMap;
+
+  /// No description provided for @oopsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Oops! Something went wrong'**
+  String get oopsError;
+
+  /// No description provided for @goBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Back'**
+  String get goBack;
+
+  /// No description provided for @bloodDonationCenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation Center'**
+  String get bloodDonationCenter;
+
+  /// No description provided for @directions.
+  ///
+  /// In en, this message translates to:
+  /// **'Directions'**
+  String get directions;
+
+  /// No description provided for @shareMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'🩸 LifeLink - Blood Donation Center\n\n📍 Location:\n{lat}, {lng}\n\n🗺 View on Google Maps:\n{link}\n\nBe a hero. Donate blood. Save lives ❤️'**
+  String shareMessage(Object lat, Object link, Object lng);
 }
 
 class _AppLocalizationsDelegate

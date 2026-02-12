@@ -821,4 +821,53 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reqNoTattoos => 'No recent tattoos or piercings';
+
+  @override
+  String minutesAgo(Object count) {
+    return '$count min ago';
+  }
+
+  @override
+  String hoursAgo(Object count) {
+    return '$count h ago';
+  }
+
+  @override
+  String daysAgo(Object count) {
+    return '$count d ago';
+  }
+
+  @override
+  String get gettingDistance => 'Getting distance...';
+
+  @override
+  String get km => 'km';
+
+  @override
+  String kmAway(Object distance) {
+    return '$distance km away';
+  }
+
+  @override
+  String get hospitalLocation => 'Hospital Location';
+
+  @override
+  String get loadingMap => 'Loading map...';
+
+  @override
+  String get oopsError => 'Oops! Something went wrong';
+
+  @override
+  String get goBack => 'Go Back';
+
+  @override
+  String get bloodDonationCenter => 'Blood Donation Center';
+
+  @override
+  String get directions => 'Directions';
+
+  @override
+  String shareMessage(Object lat, Object link, Object lng) {
+    return '🩸 LifeLink - Blood Donation Center\n\n📍 Location:\n$lat, $lng\n\n🗺 View on Google Maps:\n$link\n\nBe a hero. Donate blood. Save lives ❤️';
+  }
 }

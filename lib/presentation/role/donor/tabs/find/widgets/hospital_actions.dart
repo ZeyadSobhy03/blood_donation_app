@@ -23,8 +23,8 @@ class HospitalActions extends StatelessWidget {
         ),
         Expanded(
           child: NavigateHospitalButton(
-            hospitalName: hospitalRequestModel.hospitalName,
-            distanceKm: hospitalRequestModel.distanceKm,
+            hospitalRequestModel: hospitalRequestModel,
+
           ),
         ),
       ],

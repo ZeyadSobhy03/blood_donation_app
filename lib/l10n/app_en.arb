@@ -294,7 +294,44 @@
   "reqWeight": "Minimum weight 50 kg",
   "reqLastDonation": "At least 3 months since last donation",
   "reqNoIllness": "No recent illness",
-  "reqNoTattoos": "No recent tattoos or piercings"
+  "reqNoTattoos": "No recent tattoos or piercings",
+  "minutesAgo": "{count} min ago",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+
+  "hoursAgo": "{count} h ago",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+
+  "daysAgo": "{count} d ago",
+  "@daysAgo": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+
+  "gettingDistance": "Getting distance...",
+  "km": "km",
+  "kmAway": "{distance} km away",
+  "@kmAway": {
+    "placeholders": {
+      "distance": {}
+    }
+  },
+  "hospitalLocation": "Hospital Location",
+  "loadingMap": "Loading map...",
+  "oopsError": "Oops! Something went wrong",
+  "goBack": "Go Back",
+  "bloodDonationCenter": "Blood Donation Center",
+  "directions": "Directions",
+  "shareMessage": "🩸 LifeLink - Blood Donation Center\n\n📍 Location:\n{lat}, {lng}\n\n🗺 View on Google Maps:\n{link}\n\nBe a hero. Donate blood. Save lives ❤️"
+
 
 
 

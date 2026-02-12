@@ -10,6 +10,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/m
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/resources/models/coordinates.dart';
 import '../../../../../l10n/app_localizations.dart';
 import 'model/recent_activity.dart';
 
@@ -21,6 +22,7 @@ class Home extends StatelessWidget {
     final appLocalizations = AppLocalizations.of(context)!;
     final List<UrgentRequestModel> dummyUrgentRequests = [
       UrgentRequestModel(
+        createdAt: DateTime.now().subtract(const Duration(hours: 1)),
         id: '1',
         title: 'Emergency: O+ needed',
         time: '10 min ago',
@@ -32,8 +34,10 @@ class Home extends StatelessWidget {
         location: '2.3 km away',
         patientType: 'Emergency Surgery',
         contactNumber: '+20 100 123 4567',
+        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
       ),
       UrgentRequestModel(
+        createdAt: DateTime.now().subtract(const Duration(hours: 2)),
         id: '2',
         title: 'Critical: A- needed',
         time: '25 min ago',
@@ -45,8 +49,11 @@ class Home extends StatelessWidget {
         location: '4.8 km away',
         patientType: 'ICU Patient',
         contactNumber: '+20 111 987 6543',
+        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
       ),
       UrgentRequestModel(
+        createdAt: DateTime.now().subtract(const Duration(hours: 4)),
+
         id: '3',
         title: 'Emergency: B+ needed',
         time: '1 hour ago',
@@ -58,8 +65,11 @@ class Home extends StatelessWidget {
         location: '6.1 km away',
         patientType: 'Accident Case',
         contactNumber: '+20 122 555 7788',
+        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
+
       ),
       UrgentRequestModel(
+        createdAt: DateTime.now().subtract(const Duration(hours: 1)),
         id: '3',
         title: 'Emergency: B+ needed',
         time: '1 hour ago',
@@ -71,8 +81,11 @@ class Home extends StatelessWidget {
         location: '6.1 km away',
         patientType: 'Accident Case',
         contactNumber: '+20 122 555 7788',
+        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
+
       ),
       UrgentRequestModel(
+        createdAt: DateTime.now().subtract(const Duration(hours: 3)),
         id: '3',
         title: 'Emergency: B+ needed',
         time: '1 hour ago',
@@ -84,8 +97,12 @@ class Home extends StatelessWidget {
         location: '6.1 km away',
         patientType: 'Accident Case',
         contactNumber: '+20 122 555 7788',
+        // 30.36730355719704, 30.505864178391217
+        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
+
       ),
       UrgentRequestModel(
+        createdAt: DateTime.now().subtract(const Duration(hours: 2)),
         id: '3',
         title: 'Emergency: B+ needed',
         time: '1 hour ago',
@@ -97,6 +114,8 @@ class Home extends StatelessWidget {
         location: '6.1 km away',
         patientType: 'Accident Case',
         contactNumber: '+20 122 555 7788',
+        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
+
       ),
     ];
     final List<RecentActivityModel> dummyRecentActivity = [

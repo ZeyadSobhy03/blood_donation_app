@@ -6,7 +6,10 @@ import UIKit
   override func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+
   ) -> Bool {
+      GMSServices.provideAPIKey("AIzaSyDp50RyhwpMW1FlB7wfIL7JZ8ERveoUdc0")
+
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

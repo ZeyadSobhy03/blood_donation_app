@@ -9,6 +9,8 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/find/widgets/cus
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/resources/models/coordinates.dart';
+import '../../../../../core/resources/routes/route_manger.dart';
 import '../request_screen/widgets/map_card.dart';
 import 'model/hospital_request_model.dart';
 
@@ -66,8 +68,7 @@ class _FindHospitalState extends State<FindHospital> {
       isAvailable: true,
       distanceKm: 1.2,
       urgentNeedsCount: 2,
-      latitude: 30.0444,
-      longitude: 31.2357,
+      location:  Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
     ),
     HospitalRequestModel(
       id: '2',
@@ -78,8 +79,7 @@ class _FindHospitalState extends State<FindHospital> {
       isAvailable: true,
       distanceKm: 3.5,
       urgentNeedsCount: 1,
-      latitude: 30.0500,
-      longitude: 31.2333,
+      location:  Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
     ),
     HospitalRequestModel(
       id: '3',
@@ -90,8 +90,7 @@ class _FindHospitalState extends State<FindHospital> {
       isAvailable: false,
       distanceKm: 5.0,
       urgentNeedsCount: 4,
-      latitude: 30.0600,
-      longitude: 31.2400,
+      location:  Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
     ),
     HospitalRequestModel(
       id: '4',
@@ -102,8 +101,7 @@ class _FindHospitalState extends State<FindHospital> {
       isAvailable: true,
       distanceKm: 0.8,
       urgentNeedsCount: 3,
-      latitude: 30.0420,
-      longitude: 31.2300,
+      location:  Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
     ),
   ];
 
@@ -155,6 +153,9 @@ class _FindHospitalState extends State<FindHospital> {
                       )
                     : SizedBox(height: 12.h),
                 MapCard(
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteManger.mapScreen,arguments: filteredHospitals.first.location);
+                  },
                   hospitalName: appLocalization.hospitalsNearby(
                     filteredHospitals.length,
                   ),

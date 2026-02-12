@@ -6,20 +6,45 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/home/bottom_shee
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/widgets/request_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/model/urgent_request.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../core/cubits/map_cubit.dart';
 import '../../../../../../l10n/app_localizations.dart';
 
-
-class UrgentRequestsSection extends StatelessWidget {
+class UrgentRequestsSection extends StatefulWidget {
   const UrgentRequestsSection({super.key, required this.requests});
 
   final List<UrgentRequestModel> requests;
 
   @override
+  State<UrgentRequestsSection> createState() => _UrgentRequestsSectionState();
+}
+
+class _UrgentRequestsSectionState extends State<UrgentRequestsSection> {
+  late MapCubit mapCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    mapCubit = context.read<MapCubit>();
+  }
+  String formatTimeAgo(DateTime dateTime) {
+    final difference = DateTime.now().difference(dateTime);
+
+    if (difference.inMinutes < 60) {
+      return AppLocalizations.of(context)!.minutesAgo(difference.inMinutes);
+    } else if (difference.inHours < 24) {
+      return AppLocalizations.of(context)!.hoursAgo(difference.inHours);
+    } else if (difference.inDays < 7) {
+      return AppLocalizations.of(context)!.daysAgo(difference.inDays);
+    } else {
+      return '${dateTime.day}/${dateTime.month}/${dateTime.year}';
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-
-
     return Card(
       color: ColorManger.pureWhite,
       shape: RoundedRectangleBorder(
@@ -43,7 +68,7 @@ class UrgentRequestsSection extends StatelessWidget {
                 ),
                 SizedBox(width: 4.w),
                 CustomText(
-                  text:  AppLocalizations.of(context)!.urgentRequests,
+                  text: AppLocalizations.of(context)!.urgentRequests,
                   textStyle: TextStyle(
                     color: ColorManger.brightRed,
                     fontSize: FontSize.s16,
@@ -64,7 +89,8 @@ class UrgentRequestsSection extends StatelessWidget {
                         vertical: 6,
                       ),
                       child: CustomText(
-                        text:'${requests.length} ${AppLocalizations.of(context)!.active}',
+                        text:
+                            '${widget.requests.length} ${AppLocalizations.of(context)!.active}',
                         textStyle: TextStyle(
                           color: ColorManger.pureWhite,
                           fontWeight: FontWeightManager.regular,
@@ -80,52 +106,71 @@ class UrgentRequestsSection extends StatelessWidget {
             ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: requests.length,
+              itemCount: widget.requests.length,
               itemBuilder: (context, index) {
-                final request = requests[index];
-                return RequestCard(
-                  isButtonExist: true,
-                  width: 1,
-                  borderColor: ColorManger.transparent,
-                  widget: Container(
-                    height: 6.h,
-                    width: 6.h,
-                    decoration: BoxDecoration(
-                      color: request.isEmergency
+                final request = widget.requests[index];
+                return BlocBuilder<MapCubit, MapState>(
+                  builder: (context, state) {
+                    double? distanceKm;
+
+                    if (state is MapLoaded) {
+                      final hospitalLat = request.locationHospital.latitude;
+                      final hospitalLng = request.locationHospital.longitude;
+                      distanceKm = mapCubit.calculateDistance(
+                        state.latitude,
+                        state.longitude,
+                        hospitalLat,
+                        hospitalLng,
+                      );
+                      distanceKm = distanceKm / 1000;
+                    }
+                    return RequestCard(
+                      isButtonExist: true,
+                      width: 1,
+                      borderColor: ColorManger.transparent,
+                      widget: Container(
+                        height: 6.h,
+                        width: 6.h,
+                        decoration: BoxDecoration(
+                          color: request.isEmergency
+                              ? ColorManger.brightRed
+                              : ColorManger.orange,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          RouteManger.requestScreen,
+                          arguments: request,
+                        );
+                      },
+                      backgroundColor: request.isEmergency
+                          ? ColorManger.lightRed
+                          : ColorManger.lightOrange,
+                      dotColor: request.isEmergency
                           ? ColorManger.brightRed
                           : ColorManger.orange,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      RouteManger.requestScreen,
-                      arguments: request,
+                      title: widget.requests[index].title,
+                      location: distanceKm != null
+                          ? AppLocalizations.of(context)!.kmAway(distanceKm.toStringAsFixed(1))
+                          : AppLocalizations.of(context)!.gettingDistance,
+                      time: formatTimeAgo(widget.requests[index].createdAt),
+                      buttonBackgroundColor: widget.requests[index].isEmergency
+                          ? ColorManger.brightRed
+                          : ColorManger.orange,
+                      onPressed: () => showConfirmResponseBottomSheet(
+                        context,
+                        widget.requests[index],
+                      ),
                     );
                   },
-                  backgroundColor: request.isEmergency
-                      ? ColorManger.lightRed
-                      : ColorManger.lightOrange,
-                  dotColor: request.isEmergency
-                      ? ColorManger.brightRed
-                      : ColorManger.orange,
-                  title: requests[index].title,
-                  location: requests[index].location,
-                  time: requests[index].time,
-                  buttonBackgroundColor: requests[index].isEmergency
-                      ? ColorManger.brightRed
-                      : ColorManger.orange,
-                  onPressed: () => showConfirmResponseBottomSheet(context, requests[index]),
                 );
               },
             ),
-
           ],
         ),
       ),
     );
   }
-
-
 }
