@@ -98,6 +98,8 @@ class _DateTimeStepState extends State<DateTimeStep> {
                   InputLabel(label: appLocalization.donationTypeLabel),
                   DonationTypePicker(
                     selectedValue: selectedDonationType,
+                    prefixIcon: Icon(Icons.bloodtype, color: ColorManger.slateGrey),
+
 
                     onChanged: (value) {
                       context.read<DonationScheduleCubit>().setDonationType(

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "560687465611",
+    "project_id": "lifelink-3bb82",
+    "storage_bucket": "lifelink-3bb82.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560687465611:android:9ca8584666d662f9e3c08e",
+        "android_client_info": {
+          "package_name": "com.example.blood_donation_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2p7KWTBl-QkgY_roo4T7ji8pT8NNP1MQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

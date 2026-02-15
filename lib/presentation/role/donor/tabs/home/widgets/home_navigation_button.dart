@@ -7,13 +7,13 @@ import '../../../../../../l10n/app_localizations.dart';
 
 class HomeNavigationButton extends StatelessWidget {
   const HomeNavigationButton({super.key, this.onPressed});
+
   final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-
         return ConstrainedBox(
           constraints: BoxConstraints(
             minWidth: constraints.maxWidth,
@@ -24,7 +24,7 @@ class HomeNavigationButton extends StatelessWidget {
               borderRadius: BorderRadiusGeometry.circular(12),
             ),
             elevation: 4,
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             backgroundColor: ColorManger.brightRed,
             onPressed: onPressed,
             foregroundColor: ColorManger.pureWhite,
@@ -36,7 +36,7 @@ class HomeNavigationButton extends StatelessWidget {
                   color: ColorManger.pureWhite,
                   size: 18,
                 ),
-                CustomText(text: AppLocalizations.of(context)!.donateNow)
+                CustomText(text: AppLocalizations.of(context)!.donateNow),
               ],
             ),
           ),

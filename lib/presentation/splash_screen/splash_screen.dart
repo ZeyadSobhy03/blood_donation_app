@@ -87,7 +87,7 @@ class _SplashScreenState extends State<SplashScreen>
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(width: 60.w),
+              SizedBox(width: 60),
 
               SlideTransition(
                 position: _logoSlideAnimation,
@@ -95,14 +95,14 @@ class _SplashScreenState extends State<SplashScreen>
                   opacity: _logoFadeAnimation,
                   child: Image.asset(
                     AssetsManger.icon,
-                    width: 220.w,
-                    height: 180.h,
+                    width: 220,
+                    height: 180,
                     fit: BoxFit.contain,
                   ),
                 ),
               ),
               Transform.translate(
-                offset: Offset(-115.w, 0),
+                offset: Offset(-115, 0),
                 child: ClipRect(
                   child: FadeTransition(
                     opacity: _textFadeAnimation,

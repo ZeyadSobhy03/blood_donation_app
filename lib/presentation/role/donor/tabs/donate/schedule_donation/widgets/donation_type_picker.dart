@@ -6,11 +6,13 @@ import '../../../../../../../l10n/app_localizations.dart';
 class DonationTypePicker extends StatefulWidget {
   final ValueChanged<String> onChanged;
   final String? selectedValue;
+  final Widget? prefixIcon;
 
   const DonationTypePicker({
     super.key,
     required this.onChanged,
     this.selectedValue,
+    this.prefixIcon,
   });
 
   @override
@@ -19,6 +21,7 @@ class DonationTypePicker extends StatefulWidget {
 
 class _DonationTypePickerState extends State<DonationTypePicker> {
   String? selectTypeBlood;
+
 
   @override
   void initState() {
@@ -35,9 +38,11 @@ class _DonationTypePickerState extends State<DonationTypePicker> {
       appLocalizations.plasma,
       appLocalizations.platelets,
       appLocalizations.doubleRedCells,
+
     ];
 
     return CustomDropDownButtonFormField(items: donationSlots, hintText: appLocalizations.chooseBloodType,
+     prefixIcon: widget.prefixIcon,
      onChanged: (value) {
       setState(() {
         selectTypeBlood = value;
