@@ -41,4 +41,21 @@ class ColorManger {
   static const Color darkOrange = Color(0xFFB45309);
   static const Color lightGreen=Color(0xFFEFFFF4);
   static const Color grey800 = Color(0xFF4B5563);
+  static const Color lightGreenBorder = Color(0xFFEFFFF4);
+  static const Color darkBlue = Color(0xFF1A1A2E);
+  static const Color warningBg = Color(0xFFFFF8E1);
+  static const Color warningBorder = Color(0xFFFFE082);
+  static const Color warningAccent = Color(0xFFF9A825);
+  static const Color warningText = Color(0xFF6D4C00);
+  static const Color primaryRed = Color(0xFFE53935);
+  static const Color primaryRedDark = Color(0xFFB71C1C);
+  static const Color infoIconBackground = Color(0xFFE3F2FD);
+  static const Color successColor = Color(0xFF43A047);
+  static const Color successBackground = Color(0xFFE8F5E9);
+  static const Color warningIcon = Color(0xFFFB8C00);
+  static const Color warningBackground = Color(0xFFFFF3E0);
+  static const Color errorLightBackground=Color(0xFFFFEBEE);
+
+
+
 }

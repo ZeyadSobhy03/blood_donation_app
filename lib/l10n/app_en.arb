@@ -330,16 +330,66 @@
   "goBack": "Go Back",
   "bloodDonationCenter": "Blood Donation Center",
   "directions": "Directions",
-  "shareMessage": "🩸 LifeLink - Blood Donation Center\n\n📍 Location:\n{lat}, {lng}\n\n🗺 View on Google Maps:\n{link}\n\nBe a hero. Donate blood. Save lives ❤️"
+  "shareMessage": "🩸 LifeLink - Blood Donation Center\n\n📍 Location:\n{lat}, {lng}\n\n🗺 View on Google Maps:\n{link}\n\nBe a hero. Donate blood. Save lives ❤️",
+  "protectYourAccount": "Protect Your Account",
+  "twoFactorDescription": "Add an extra layer of security by enabling two-factor authentication.",
+  "twoFactorSecurityInfo": "Enabling 2FA significantly reduces the risk of unauthorized access, even if your password is compromised.",
+  "smsVerification": "SMS Verification",
+  "smsVerificationDescription": "Receive a code via text message",
 
+  "authenticatorApp": "Authenticator App",
+  "authenticatorAppDescription": "Use Google Authenticator or Authy",
 
-
-
-
-
-
-
-
-
-
+  "emailVerification": "Email Verification",
+  "emailVerificationDescription": "Receive a code via email",
+  "setupTitle": "Set Up",
+  "twoFactorAuthTitle": "Two-Factor Authentication",
+  "verificationMethods": "Verification Methods",
+  "infoBoxText": "Enabling 2FA significantly reduces the risk of unauthorized access, even if your password is compromised.",
+  "smsVerificationTitle": "SMS Verification",
+  "smsVerificationSubtitle": "Receive a code via text message",
+  "authAppTitle": "Authenticator App",
+  "authAppSubtitle": "Use Google Authenticator or Authy",
+  "emailVerificationTitle": "Email Verification",
+  "emailVerificationSubtitle": "Receive a code via email",
+  "setupTitleSms": "Set Up SMS Verification",
+  "setupTitleApp": "Set Up Authenticator App",
+  "setupTitleEmail": "Set Up Email Verification",
+  "setupDescSms": "A 6-digit code will be sent to your registered phone number each time you log in.",
+  "setupDescApp": "Use an authenticator app like Google Authenticator or Authy to generate time-based codes.",
+  "setupDescEmail": "A verification link or code will be sent to your registered email address.",
+  "donationHistory": "Donation History",
+  "viewAll": "View All",
+  "blood": "Blood",
+  "completed": "Completed",
+  "passwordAndSecurity": "Password & Security",
+  "changePassword": "Change Password",
+  "twoFactorAuthentication": "Two Factor Authentication",
+  "personalInformation": "Personal Information",
+  "phone": "Phone",
+  "email": "Email",
+  "fullName": "Full Name",
+  "bloodType": "Blood Type",
+  "settings": "Settings",
+  "pushNotifications": "Push Notifications",
+  "pushNotificationsDesc": "Receive notifications for requests",
+  "emergencyAlerts": "Emergency Alerts",
+  "emergencyAlertsDesc": "Urgent blood requests nearby",
+  "privacyAndSecurity": "Privacy & Security",
+  "helpAndSupport": "Help & Support",
+  "accountSettings": "Account Settings",
+  "changePasswordDescription": "Enter your current password and a new password to update your account.",
+  "currentPassword": "Current Password",
+  "newPassword": "New Password",
+  "confirmPassword": "Confirm Password",
+  "donorLabel": "{bloodType} Donor",
+  "@donorLabel": {
+    "description": "Shows blood type followed by 'Donor'",
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "total": "Total",
+  "earned": "Earned",
+  "totalDonations": "total donations"
 }

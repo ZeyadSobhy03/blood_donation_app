@@ -329,11 +329,68 @@
   "goBack": "العودة",
   "bloodDonationCenter": "مركز التبرع بالدم",
   "directions": "الاتجاهات",
-  "shareMessage": "🩸 لايف لينك - مركز التبرع بالدم\n\n📍 الموقع:\n{lat} ، {lng}\n\n🗺 عرض على خرائط جوجل:\n{link}\n\nكن بطلاً... تبرع بالدم وأنقذ حياة ❤️"
+  "shareMessage": "🩸 لايف لينك - مركز التبرع بالدم\n\n📍 الموقع:\n{lat} ، {lng}\n\n🗺 عرض على خرائط جوجل:\n{link}\n\nكن بطلاً... تبرع بالدم وأنقذ حياة ❤️",
+  "protectYourAccount": "حماية حسابك",
+  "twoFactorDescription": "أضف طبقة أمان إضافية عن طريق تفعيل المصادقة الثنائية.",
+  "twoFactorSecurityInfo": "تفعيل المصادقة الثنائية يقلل بشكل كبير من خطر الوصول غير المصرح به، حتى في حال اختراق كلمة المرور.",
+  "smsVerification": "التحقق عبر الرسائل القصيرة",
+  "smsVerificationDescription": "استقبل رمز تحقق عبر رسالة نصية",
 
+  "authenticatorApp": "تطبيق المصادقة",
+  "authenticatorAppDescription": "استخدم تطبيق Google Authenticator أو Authy",
 
+  "emailVerification": "التحقق عبر البريد الإلكتروني",
+  "emailVerificationDescription": "استقبل رمز تحقق عبر البريد الإلكتروني",
+  "setupTitle": "إعداد",
+  "verificationMethods": "طرق التحقق",
+  "twoFactorAuthTitle": "المصادقة الثنائية",
+  "infoBoxText": "تفعيل المصادقة الثنائية يقلل بشكل كبير من خطر الوصول غير المصرح به، حتى لو تم اختراق كلمة المرور.",
+  "smsVerificationTitle": "التحقق عبر الرسائل القصيرة",
+  "smsVerificationSubtitle": "استلم رمز عبر رسالة نصية",
+  "authAppTitle": "تطبيق المصادقة",
+  "authAppSubtitle": "استخدم Google Authenticator أو Authy",
+  "emailVerificationTitle": "التحقق عبر البريد الإلكتروني",
+  "emailVerificationSubtitle": "استلم رمز عبر البريد الإلكتروني",
+  "setupTitleSms": "إعداد التحقق عبر الرسائل القصيرة",
+  "setupTitleApp": "إعداد تطبيق المصادقة",
+  "setupTitleEmail": "إعداد التحقق عبر البريد الإلكتروني",
+  "setupDescSms": "سيتم إرسال رمز مكون من 6 أرقام إلى رقم هاتفك المسجل عند كل تسجيل دخول.",
+  "setupDescApp": "استخدم تطبيق مصادقة مثل Google Authenticator أو Authy لإنشاء رموز مؤقتة.",
+  "setupDescEmail": "سيتم إرسال رابط أو رمز التحقق إلى بريدك الإلكتروني المسجل.",
+  "donationHistory": "تاريخ التبرعات",
+  "viewAll": "عرض الكل",
+  "blood": "دم",
+  "completed": "مكتمل",
+  "passwordAndSecurity": "كلمة المرور والأمان",
+  "changePassword": "تغيير كلمة المرور",
+  "twoFactorAuthentication": "التحقق بخطوتين",
+  "personalInformation": "المعلومات الشخصية",
+  "phone": "الهاتف",
+  "email": "البريد الإلكتروني",
+  "fullName": "الاسم الكامل",
+  "bloodType": "فصيلة الدم",
+  "settings": "الإعدادات",
+  "pushNotifications": "الإشعارات الفورية",
+  "pushNotificationsDesc": "استقبال الإشعارات للطلبات",
+  "emergencyAlerts": "تنبيهات الطوارئ",
+  "emergencyAlertsDesc": "طلبات الدم العاجلة بالقرب منك",
+  "privacyAndSecurity": "الخصوصية والأمان",
+  "helpAndSupport": "المساعدة والدعم",
+  "accountSettings": "إعدادات الحساب",
+  "changePasswordDescription": "أدخل كلمة المرور الحالية وكلمة مرور جديدة لتحديث حسابك.",
+  "currentPassword": "كلمة المرور الحالية",
+  "newPassword": "كلمة المرور الجديدة",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "donorLabel": "متبرع بفصيلة {bloodType}",
+  "@donorLabel": {
+    "description": "Shows blood type followed by 'Donor' in Arabic",
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "total": "الإجمالي",
 
-
-
+  "earned": "المكتسبة",
+  "totalDonations": "إجمالي التبرعات"
 
 }

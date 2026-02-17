@@ -868,4 +868,174 @@ class AppLocalizationsAr extends AppLocalizations {
   String shareMessage(Object lat, Object link, Object lng) {
     return '🩸 لايف لينك - مركز التبرع بالدم\n\n📍 الموقع:\n$lat ، $lng\n\n🗺 عرض على خرائط جوجل:\n$link\n\nكن بطلاً... تبرع بالدم وأنقذ حياة ❤️';
   }
+
+  @override
+  String get protectYourAccount => 'حماية حسابك';
+
+  @override
+  String get twoFactorDescription =>
+      'أضف طبقة أمان إضافية عن طريق تفعيل المصادقة الثنائية.';
+
+  @override
+  String get twoFactorSecurityInfo =>
+      'تفعيل المصادقة الثنائية يقلل بشكل كبير من خطر الوصول غير المصرح به، حتى في حال اختراق كلمة المرور.';
+
+  @override
+  String get smsVerification => 'التحقق عبر الرسائل القصيرة';
+
+  @override
+  String get smsVerificationDescription => 'استقبل رمز تحقق عبر رسالة نصية';
+
+  @override
+  String get authenticatorApp => 'تطبيق المصادقة';
+
+  @override
+  String get authenticatorAppDescription =>
+      'استخدم تطبيق Google Authenticator أو Authy';
+
+  @override
+  String get emailVerification => 'التحقق عبر البريد الإلكتروني';
+
+  @override
+  String get emailVerificationDescription =>
+      'استقبل رمز تحقق عبر البريد الإلكتروني';
+
+  @override
+  String get setupTitle => 'إعداد';
+
+  @override
+  String get twoFactorAuthTitle => 'المصادقة الثنائية';
+
+  @override
+  String get verificationMethods => 'طرق التحقق';
+
+  @override
+  String get infoBoxText =>
+      'تفعيل المصادقة الثنائية يقلل بشكل كبير من خطر الوصول غير المصرح به، حتى لو تم اختراق كلمة المرور.';
+
+  @override
+  String get smsVerificationTitle => 'التحقق عبر الرسائل القصيرة';
+
+  @override
+  String get smsVerificationSubtitle => 'استلم رمز عبر رسالة نصية';
+
+  @override
+  String get authAppTitle => 'تطبيق المصادقة';
+
+  @override
+  String get authAppSubtitle => 'استخدم Google Authenticator أو Authy';
+
+  @override
+  String get emailVerificationTitle => 'التحقق عبر البريد الإلكتروني';
+
+  @override
+  String get emailVerificationSubtitle => 'استلم رمز عبر البريد الإلكتروني';
+
+  @override
+  String get setupTitleSms => 'إعداد التحقق عبر الرسائل القصيرة';
+
+  @override
+  String get setupTitleApp => 'إعداد تطبيق المصادقة';
+
+  @override
+  String get setupTitleEmail => 'إعداد التحقق عبر البريد الإلكتروني';
+
+  @override
+  String get setupDescSms =>
+      'سيتم إرسال رمز مكون من 6 أرقام إلى رقم هاتفك المسجل عند كل تسجيل دخول.';
+
+  @override
+  String get setupDescApp =>
+      'استخدم تطبيق مصادقة مثل Google Authenticator أو Authy لإنشاء رموز مؤقتة.';
+
+  @override
+  String get setupDescEmail =>
+      'سيتم إرسال رابط أو رمز التحقق إلى بريدك الإلكتروني المسجل.';
+
+  @override
+  String get donationHistory => 'تاريخ التبرعات';
+
+  @override
+  String get viewAll => 'عرض الكل';
+
+  @override
+  String get blood => 'دم';
+
+  @override
+  String get completed => 'مكتمل';
+
+  @override
+  String get passwordAndSecurity => 'كلمة المرور والأمان';
+
+  @override
+  String get changePassword => 'تغيير كلمة المرور';
+
+  @override
+  String get twoFactorAuthentication => 'التحقق بخطوتين';
+
+  @override
+  String get personalInformation => 'المعلومات الشخصية';
+
+  @override
+  String get phone => 'الهاتف';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get fullName => 'الاسم الكامل';
+
+  @override
+  String get bloodType => 'فصيلة الدم';
+
+  @override
+  String get settings => 'الإعدادات';
+
+  @override
+  String get pushNotifications => 'الإشعارات الفورية';
+
+  @override
+  String get pushNotificationsDesc => 'استقبال الإشعارات للطلبات';
+
+  @override
+  String get emergencyAlerts => 'تنبيهات الطوارئ';
+
+  @override
+  String get emergencyAlertsDesc => 'طلبات الدم العاجلة بالقرب منك';
+
+  @override
+  String get privacyAndSecurity => 'الخصوصية والأمان';
+
+  @override
+  String get helpAndSupport => 'المساعدة والدعم';
+
+  @override
+  String get accountSettings => 'إعدادات الحساب';
+
+  @override
+  String get changePasswordDescription =>
+      'أدخل كلمة المرور الحالية وكلمة مرور جديدة لتحديث حسابك.';
+
+  @override
+  String get currentPassword => 'كلمة المرور الحالية';
+
+  @override
+  String get newPassword => 'كلمة المرور الجديدة';
+
+  @override
+  String get confirmPassword => 'تأكيد كلمة المرور';
+
+  @override
+  String donorLabel(Object bloodType) {
+    return 'متبرع بفصيلة $bloodType';
+  }
+
+  @override
+  String get total => 'الإجمالي';
+
+  @override
+  String get earned => 'المكتسبة';
+
+  @override
+  String get totalDonations => 'إجمالي التبرعات';
 }

@@ -10,13 +10,17 @@ class HomeCustomCard extends StatelessWidget {
     required this.number,
     required this.icon,
     required this.text,
-    required this.iconColor,
+    required this.iconColor, required this.backgroundColor, this.borderColor, required this.textColor, required this.elevation,
   });
 
   final int number;
   final IconData icon;
   final String text;
   final Color iconColor;
+  final Color backgroundColor;
+  final Color? borderColor;
+  final Color textColor;
+  final double elevation;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +28,8 @@ class HomeCustomCard extends StatelessWidget {
     return SizedBox(
       width:  screenWidth * 0.25,
       child: Card(
-        elevation: 6,
-        color: ColorManger.pureWhite,
+        elevation: elevation,
+        color: backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(12),
         ),
@@ -44,7 +48,7 @@ class HomeCustomCard extends StatelessWidget {
                     fontWeight: FontWeightManager.regular,
                     height: 1.4,
                     fontSize: FontSize.s16,
-                    color: ColorManger.black,
+                    color: textColor,
                   ),
                 ),
                 SizedBox(height: 8.h),
@@ -53,7 +57,7 @@ class HomeCustomCard extends StatelessWidget {
                   textStyle: TextStyle(
                     fontSize: FontSize.s14,
                     fontWeight: FontWeightManager.regular,
-                    color: ColorManger.slateGrey,
+                    color: textColor,
                   ),
                 ),
               ],

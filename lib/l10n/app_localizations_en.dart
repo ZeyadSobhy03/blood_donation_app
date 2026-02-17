@@ -870,4 +870,172 @@ class AppLocalizationsEn extends AppLocalizations {
   String shareMessage(Object lat, Object link, Object lng) {
     return '🩸 LifeLink - Blood Donation Center\n\n📍 Location:\n$lat, $lng\n\n🗺 View on Google Maps:\n$link\n\nBe a hero. Donate blood. Save lives ❤️';
   }
+
+  @override
+  String get protectYourAccount => 'Protect Your Account';
+
+  @override
+  String get twoFactorDescription =>
+      'Add an extra layer of security by enabling two-factor authentication.';
+
+  @override
+  String get twoFactorSecurityInfo =>
+      'Enabling 2FA significantly reduces the risk of unauthorized access, even if your password is compromised.';
+
+  @override
+  String get smsVerification => 'SMS Verification';
+
+  @override
+  String get smsVerificationDescription => 'Receive a code via text message';
+
+  @override
+  String get authenticatorApp => 'Authenticator App';
+
+  @override
+  String get authenticatorAppDescription => 'Use Google Authenticator or Authy';
+
+  @override
+  String get emailVerification => 'Email Verification';
+
+  @override
+  String get emailVerificationDescription => 'Receive a code via email';
+
+  @override
+  String get setupTitle => 'Set Up';
+
+  @override
+  String get twoFactorAuthTitle => 'Two-Factor Authentication';
+
+  @override
+  String get verificationMethods => 'Verification Methods';
+
+  @override
+  String get infoBoxText =>
+      'Enabling 2FA significantly reduces the risk of unauthorized access, even if your password is compromised.';
+
+  @override
+  String get smsVerificationTitle => 'SMS Verification';
+
+  @override
+  String get smsVerificationSubtitle => 'Receive a code via text message';
+
+  @override
+  String get authAppTitle => 'Authenticator App';
+
+  @override
+  String get authAppSubtitle => 'Use Google Authenticator or Authy';
+
+  @override
+  String get emailVerificationTitle => 'Email Verification';
+
+  @override
+  String get emailVerificationSubtitle => 'Receive a code via email';
+
+  @override
+  String get setupTitleSms => 'Set Up SMS Verification';
+
+  @override
+  String get setupTitleApp => 'Set Up Authenticator App';
+
+  @override
+  String get setupTitleEmail => 'Set Up Email Verification';
+
+  @override
+  String get setupDescSms =>
+      'A 6-digit code will be sent to your registered phone number each time you log in.';
+
+  @override
+  String get setupDescApp =>
+      'Use an authenticator app like Google Authenticator or Authy to generate time-based codes.';
+
+  @override
+  String get setupDescEmail =>
+      'A verification link or code will be sent to your registered email address.';
+
+  @override
+  String get donationHistory => 'Donation History';
+
+  @override
+  String get viewAll => 'View All';
+
+  @override
+  String get blood => 'Blood';
+
+  @override
+  String get completed => 'Completed';
+
+  @override
+  String get passwordAndSecurity => 'Password & Security';
+
+  @override
+  String get changePassword => 'Change Password';
+
+  @override
+  String get twoFactorAuthentication => 'Two Factor Authentication';
+
+  @override
+  String get personalInformation => 'Personal Information';
+
+  @override
+  String get phone => 'Phone';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get bloodType => 'Blood Type';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get pushNotifications => 'Push Notifications';
+
+  @override
+  String get pushNotificationsDesc => 'Receive notifications for requests';
+
+  @override
+  String get emergencyAlerts => 'Emergency Alerts';
+
+  @override
+  String get emergencyAlertsDesc => 'Urgent blood requests nearby';
+
+  @override
+  String get privacyAndSecurity => 'Privacy & Security';
+
+  @override
+  String get helpAndSupport => 'Help & Support';
+
+  @override
+  String get accountSettings => 'Account Settings';
+
+  @override
+  String get changePasswordDescription =>
+      'Enter your current password and a new password to update your account.';
+
+  @override
+  String get currentPassword => 'Current Password';
+
+  @override
+  String get newPassword => 'New Password';
+
+  @override
+  String get confirmPassword => 'Confirm Password';
+
+  @override
+  String donorLabel(Object bloodType) {
+    return '$bloodType Donor';
+  }
+
+  @override
+  String get total => 'Total';
+
+  @override
+  String get earned => 'Earned';
+
+  @override
+  String get totalDonations => 'total donations';
 }

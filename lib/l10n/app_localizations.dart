@@ -1723,6 +1723,324 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'🩸 LifeLink - Blood Donation Center\n\n📍 Location:\n{lat}, {lng}\n\n🗺 View on Google Maps:\n{link}\n\nBe a hero. Donate blood. Save lives ❤️'**
   String shareMessage(Object lat, Object link, Object lng);
+
+  /// No description provided for @protectYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Protect Your Account'**
+  String get protectYourAccount;
+
+  /// No description provided for @twoFactorDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an extra layer of security by enabling two-factor authentication.'**
+  String get twoFactorDescription;
+
+  /// No description provided for @twoFactorSecurityInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Enabling 2FA significantly reduces the risk of unauthorized access, even if your password is compromised.'**
+  String get twoFactorSecurityInfo;
+
+  /// No description provided for @smsVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS Verification'**
+  String get smsVerification;
+
+  /// No description provided for @smsVerificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a code via text message'**
+  String get smsVerificationDescription;
+
+  /// No description provided for @authenticatorApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Authenticator App'**
+  String get authenticatorApp;
+
+  /// No description provided for @authenticatorAppDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Google Authenticator or Authy'**
+  String get authenticatorAppDescription;
+
+  /// No description provided for @emailVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Verification'**
+  String get emailVerification;
+
+  /// No description provided for @emailVerificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a code via email'**
+  String get emailVerificationDescription;
+
+  /// No description provided for @setupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Up'**
+  String get setupTitle;
+
+  /// No description provided for @twoFactorAuthTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Two-Factor Authentication'**
+  String get twoFactorAuthTitle;
+
+  /// No description provided for @verificationMethods.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Methods'**
+  String get verificationMethods;
+
+  /// No description provided for @infoBoxText.
+  ///
+  /// In en, this message translates to:
+  /// **'Enabling 2FA significantly reduces the risk of unauthorized access, even if your password is compromised.'**
+  String get infoBoxText;
+
+  /// No description provided for @smsVerificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS Verification'**
+  String get smsVerificationTitle;
+
+  /// No description provided for @smsVerificationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a code via text message'**
+  String get smsVerificationSubtitle;
+
+  /// No description provided for @authAppTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Authenticator App'**
+  String get authAppTitle;
+
+  /// No description provided for @authAppSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Google Authenticator or Authy'**
+  String get authAppSubtitle;
+
+  /// No description provided for @emailVerificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Verification'**
+  String get emailVerificationTitle;
+
+  /// No description provided for @emailVerificationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a code via email'**
+  String get emailVerificationSubtitle;
+
+  /// No description provided for @setupTitleSms.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Up SMS Verification'**
+  String get setupTitleSms;
+
+  /// No description provided for @setupTitleApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Up Authenticator App'**
+  String get setupTitleApp;
+
+  /// No description provided for @setupTitleEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Up Email Verification'**
+  String get setupTitleEmail;
+
+  /// No description provided for @setupDescSms.
+  ///
+  /// In en, this message translates to:
+  /// **'A 6-digit code will be sent to your registered phone number each time you log in.'**
+  String get setupDescSms;
+
+  /// No description provided for @setupDescApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Use an authenticator app like Google Authenticator or Authy to generate time-based codes.'**
+  String get setupDescApp;
+
+  /// No description provided for @setupDescEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'A verification link or code will be sent to your registered email address.'**
+  String get setupDescEmail;
+
+  /// No description provided for @donationHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation History'**
+  String get donationHistory;
+
+  /// No description provided for @viewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View All'**
+  String get viewAll;
+
+  /// No description provided for @blood.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood'**
+  String get blood;
+
+  /// No description provided for @completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completed;
+
+  /// No description provided for @passwordAndSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Password & Security'**
+  String get passwordAndSecurity;
+
+  /// No description provided for @changePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get changePassword;
+
+  /// No description provided for @twoFactorAuthentication.
+  ///
+  /// In en, this message translates to:
+  /// **'Two Factor Authentication'**
+  String get twoFactorAuthentication;
+
+  /// No description provided for @personalInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Information'**
+  String get personalInformation;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phone;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @bloodType.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Type'**
+  String get bloodType;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @pushNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Push Notifications'**
+  String get pushNotifications;
+
+  /// No description provided for @pushNotificationsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive notifications for requests'**
+  String get pushNotificationsDesc;
+
+  /// No description provided for @emergencyAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Alerts'**
+  String get emergencyAlerts;
+
+  /// No description provided for @emergencyAlertsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent blood requests nearby'**
+  String get emergencyAlertsDesc;
+
+  /// No description provided for @privacyAndSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & Security'**
+  String get privacyAndSecurity;
+
+  /// No description provided for @helpAndSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get helpAndSupport;
+
+  /// No description provided for @accountSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Settings'**
+  String get accountSettings;
+
+  /// No description provided for @changePasswordDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your current password and a new password to update your account.'**
+  String get changePasswordDescription;
+
+  /// No description provided for @currentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Password'**
+  String get currentPassword;
+
+  /// No description provided for @newPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get newPassword;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// Shows blood type followed by 'Donor'
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} Donor'**
+  String donorLabel(Object bloodType);
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @earned.
+  ///
+  /// In en, this message translates to:
+  /// **'Earned'**
+  String get earned;
+
+  /// No description provided for @totalDonations.
+  ///
+  /// In en, this message translates to:
+  /// **'total donations'**
+  String get totalDonations;
 }
 
 class _AppLocalizationsDelegate

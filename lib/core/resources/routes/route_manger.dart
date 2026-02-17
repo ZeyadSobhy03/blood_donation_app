@@ -6,6 +6,8 @@ import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/schedule_donation.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/main_layout.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/notifications.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/privacy_and_security/privacy_and_security.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/two_factor_authentication/screen/two_factor_authentication_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/request_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +17,7 @@ import '../../../presentation/authentication/donor_authentication/donor_login.da
 import '../../../presentation/authentication/donor_authentication/donor_register.dart';
 import '../../../presentation/authentication/hospital_authentication/hospital_authentication.dart';
 import '../../../presentation/maps/maps.dart';
+import '../../../presentation/role/donor/tabs/donation_history/donation_history.dart';
 import '../../../presentation/splash_screen/splash_screen.dart';
 
 class RouteManger {
@@ -31,6 +34,9 @@ class RouteManger {
   static const String adminAuth = '/adminAuthentication';
   static const String splashScreen = '/splashScreen';
   static const String mapScreen = '/mapScreen';
+  static const String donationHistory = '/donationHistory';
+  static const String privacyAndSecurity = '/privacyAndSecurity';
+  static const String twoFactorAuthentication = '/twoFactorAuthentication';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -38,6 +44,17 @@ class RouteManger {
         return MaterialPageRoute(builder: (context) => SplashScreen());
       case onboarding:
         return MaterialPageRoute(builder: (context) => OnboardingPages());
+
+      case donationHistory:
+        return MaterialPageRoute(builder: (context) => DonationHistory());
+
+      case privacyAndSecurity:
+        return MaterialPageRoute(builder: (context) => PrivacyAndSecurity());
+
+      case twoFactorAuthentication:
+        return MaterialPageRoute(
+          builder: (context) => TwoFactorAuthenticationScreen(),
+        );
 
       case mapScreen:
         return MaterialPageRoute(
