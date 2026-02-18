@@ -330,7 +330,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get donations => 'التبرعات';
 
   @override
-  String get points => 'النقاط';
+  String get points => 'نقاط';
 
   @override
   String get livesSaved => 'الأرواح المنقذة';
@@ -691,4 +691,159 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get passwordsDoNotMatch => 'كلمات المرور غير متطابقة';
+
+  @override
+  String get rewards_and_achievements => 'المكافآت والإنجازات';
+
+  @override
+  String get your_points => 'نقاطك';
+
+  @override
+  String get next_reward => 'المكافأة التالية';
+
+  @override
+  String get points_to_go => 'نقاط متبقية للوصول';
+
+  @override
+  String get badges => 'الإنجازات';
+
+  @override
+  String get success => 'نجاح';
+
+  @override
+  String get rewards_redeemed => 'تمت المطالبة بالمكافأة';
+
+  @override
+  String get you_have_successfully_redeemed =>
+      'لقد تمت عملية المطالبة بالمكافأة بنجاح';
+
+  @override
+  String get close => 'إغلاق';
+
+  @override
+  String get redeem_reward => 'المطالبة بالمكافأة';
+
+  @override
+  String get are_you_sure_you_want_to_redeem =>
+      'هل أنت متأكد انك تريد المطالبة بهذه المكافأة؟';
+
+  @override
+  String get redeem => 'المطالبة';
+
+  @override
+  String get badge_unlocked => 'تم تحقيقه';
+
+  @override
+  String get completed => 'تم إكماله';
+
+  @override
+  String get not_enough_points => 'ليس لديك نقاط كافية للمطالبة بهذه المكافأة';
+
+  @override
+  String get redeem_points => 'استبدال النقاط';
+
+  @override
+  String get coffee_voucher => 'قسيمة قهوة';
+
+  @override
+  String get movie_tickets => 'تذاكر فيلم';
+
+  @override
+  String get restaurant_gift_card => 'كارت هدية من مطعم';
+
+  @override
+  String get health_check_up => 'فحص الصحة';
+
+  @override
+  String get premium_badge => 'شارة المستخدم المميز';
+
+  @override
+  String get gym_membership => 'عضوية مركز تدريب رياضي';
+
+  @override
+  String get soon => 'قريبا';
+
+  @override
+  String get points_history => 'سجل النقاط';
+
+  @override
+  String get blood_donation => 'تبرع بالدم';
+
+  @override
+  String get days_ago => 'منذ 3 أيام';
+
+  @override
+  String get emergency_response => 'إجابة حالة طارئة';
+
+  @override
+  String get week_1_ago => 'منذ أسبوع';
+
+  @override
+  String get profile_completion => 'إكمال الملف الشخصي';
+
+  @override
+  String get weeks_2_ago => 'منذ أسبوعين';
+
+  @override
+  String get referral_bonus => 'مكافأة الإرشاد';
+
+  @override
+  String get weeks_3_ago => 'منذ 3 أسابيع';
+
+  @override
+  String get how_to_earn_points => 'كيف تجمع النقاط؟';
+
+  @override
+  String get donate_blood_points => 'التبرع بالدم: 200 نقطة';
+
+  @override
+  String get emergency_response_points => 'إجابة حالة طارئة: 100 نقطة';
+
+  @override
+  String get refer_to_friends_points => 'إرشاد صديق لاستخدام التطبيق: 150 نقطة';
+
+  @override
+  String get complete_profile_points => 'إكمال الملف الشخصي: 50 نقطة';
+
+  @override
+  String get total => 'الإجمالي';
+
+  @override
+  String get your_badges => 'إنجازاتك';
+
+  @override
+  String get first_timer => 'التبرع الأول';
+
+  @override
+  String get completed_first_donation => 'أكملت أول تبرع لك';
+
+  @override
+  String get regular_donor => 'متبرع عادي';
+
+  @override
+  String get donated_5_times => 'تبرعت 5 مرات';
+
+  @override
+  String get life_saver => 'منقذ حياة';
+
+  @override
+  String get donated_10_times => 'تبرعت 10 مرات';
+
+  @override
+  String get hero => 'بطل';
+
+  @override
+  String get donated_20_times => 'تبرعت 20 مرة';
+
+  @override
+  String get legend => 'أسطوري';
+
+  @override
+  String get donated_50_times => 'تبرعت 50 مرة';
+
+  @override
+  String get emergency_responder => 'مجيب الطوارئ';
+
+  @override
+  String get responded_to_10_emergencies => 'أجبت على 10 حالات طارئة';
 }

@@ -719,7 +719,7 @@ abstract class AppLocalizations {
   /// No description provided for @points.
   ///
   /// In en, this message translates to:
-  /// **'Points'**
+  /// **'pts'**
   String get points;
 
   /// No description provided for @livesSaved.
@@ -947,7 +947,7 @@ abstract class AppLocalizations {
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
-  /// **'cancel'**
+  /// **'Cancel'**
   String get cancel;
 
   /// No description provided for @donationMessage.
@@ -1399,6 +1399,312 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Passwords do not match'**
   String get passwordsDoNotMatch;
+
+  /// No description provided for @rewards_and_achievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards & Achievements'**
+  String get rewards_and_achievements;
+
+  /// No description provided for @your_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Points'**
+  String get your_points;
+
+  /// No description provided for @next_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Reward'**
+  String get next_reward;
+
+  /// No description provided for @points_to_go.
+  ///
+  /// In en, this message translates to:
+  /// **'pts to go'**
+  String get points_to_go;
+
+  /// No description provided for @badges.
+  ///
+  /// In en, this message translates to:
+  /// **'Badges'**
+  String get badges;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
+  /// No description provided for @rewards_redeemed.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards Redeemed'**
+  String get rewards_redeemed;
+
+  /// No description provided for @you_have_successfully_redeemed.
+  ///
+  /// In en, this message translates to:
+  /// **'You have successfully redeemed your reward'**
+  String get you_have_successfully_redeemed;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @redeem_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'Redeem Reward'**
+  String get redeem_reward;
+
+  /// No description provided for @are_you_sure_you_want_to_redeem.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to redeem this reward?'**
+  String get are_you_sure_you_want_to_redeem;
+
+  /// No description provided for @redeem.
+  ///
+  /// In en, this message translates to:
+  /// **'Redeem'**
+  String get redeem;
+
+  /// No description provided for @badge_unlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked'**
+  String get badge_unlocked;
+
+  /// No description provided for @completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completed;
+
+  /// No description provided for @not_enough_points.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t have enough points to redeem this reward'**
+  String get not_enough_points;
+
+  /// No description provided for @redeem_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Redeem Points'**
+  String get redeem_points;
+
+  /// No description provided for @coffee_voucher.
+  ///
+  /// In en, this message translates to:
+  /// **'Coffee Voucher'**
+  String get coffee_voucher;
+
+  /// No description provided for @movie_tickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Movie Tickets'**
+  String get movie_tickets;
+
+  /// No description provided for @restaurant_gift_card.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurant Gift Card'**
+  String get restaurant_gift_card;
+
+  /// No description provided for @health_check_up.
+  ///
+  /// In en, this message translates to:
+  /// **'Health Check-Up'**
+  String get health_check_up;
+
+  /// No description provided for @premium_badge.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Badge'**
+  String get premium_badge;
+
+  /// No description provided for @gym_membership.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym Membership'**
+  String get gym_membership;
+
+  /// No description provided for @soon.
+  ///
+  /// In en, this message translates to:
+  /// **'Soon'**
+  String get soon;
+
+  /// No description provided for @points_history.
+  ///
+  /// In en, this message translates to:
+  /// **'Points History'**
+  String get points_history;
+
+  /// No description provided for @blood_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation'**
+  String get blood_donation;
+
+  /// No description provided for @days_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'3 days ago'**
+  String get days_ago;
+
+  /// No description provided for @emergency_response.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Response'**
+  String get emergency_response;
+
+  /// No description provided for @week_1_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'1 week ago'**
+  String get week_1_ago;
+
+  /// No description provided for @profile_completion.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Completion'**
+  String get profile_completion;
+
+  /// No description provided for @weeks_2_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'2 weeks ago'**
+  String get weeks_2_ago;
+
+  /// No description provided for @referral_bonus.
+  ///
+  /// In en, this message translates to:
+  /// **'Referral Bonus'**
+  String get referral_bonus;
+
+  /// No description provided for @weeks_3_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'3 weeks ago'**
+  String get weeks_3_ago;
+
+  /// No description provided for @how_to_earn_points.
+  ///
+  /// In en, this message translates to:
+  /// **'How To Earn Points?'**
+  String get how_to_earn_points;
+
+  /// No description provided for @donate_blood_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation: 200 pts'**
+  String get donate_blood_points;
+
+  /// No description provided for @emergency_response_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Response: 100 pts'**
+  String get emergency_response_points;
+
+  /// No description provided for @refer_to_friends_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Refer a Friend: 150 pts'**
+  String get refer_to_friends_points;
+
+  /// No description provided for @complete_profile_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Profile: 50 pts'**
+  String get complete_profile_points;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @your_badges.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Badges'**
+  String get your_badges;
+
+  /// No description provided for @first_timer.
+  ///
+  /// In en, this message translates to:
+  /// **'First Timer'**
+  String get first_timer;
+
+  /// No description provided for @completed_first_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed your first donation'**
+  String get completed_first_donation;
+
+  /// No description provided for @regular_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Regular Donor'**
+  String get regular_donor;
+
+  /// No description provided for @donated_5_times.
+  ///
+  /// In en, this message translates to:
+  /// **'Donated 5 times'**
+  String get donated_5_times;
+
+  /// No description provided for @life_saver.
+  ///
+  /// In en, this message translates to:
+  /// **'Life Saver'**
+  String get life_saver;
+
+  /// No description provided for @donated_10_times.
+  ///
+  /// In en, this message translates to:
+  /// **'Donated 10 times'**
+  String get donated_10_times;
+
+  /// No description provided for @hero.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero'**
+  String get hero;
+
+  /// No description provided for @donated_20_times.
+  ///
+  /// In en, this message translates to:
+  /// **'Donated 20 times'**
+  String get donated_20_times;
+
+  /// No description provided for @legend.
+  ///
+  /// In en, this message translates to:
+  /// **'Legend'**
+  String get legend;
+
+  /// No description provided for @donated_50_times.
+  ///
+  /// In en, this message translates to:
+  /// **'Donated 50 times'**
+  String get donated_50_times;
+
+  /// No description provided for @emergency_responder.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Responder'**
+  String get emergency_responder;
+
+  /// No description provided for @responded_to_10_emergencies.
+  ///
+  /// In en, this message translates to:
+  /// **'Responded to 10 Emergencies'**
+  String get responded_to_10_emergencies;
 }
 
 class _AppLocalizationsDelegate

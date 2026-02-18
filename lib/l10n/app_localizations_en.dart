@@ -332,7 +332,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get donations => 'Donations';
 
   @override
-  String get points => 'Points';
+  String get points => 'pts';
 
   @override
   String get livesSaved => 'Lives Saved';
@@ -453,7 +453,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sendMessage => 'Send Message';
 
   @override
-  String get cancel => 'cancel';
+  String get cancel => 'Cancel';
 
   @override
   String get donationMessage => 'Hello, I want to donate blood';
@@ -692,4 +692,160 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordsDoNotMatch => 'Passwords do not match';
+
+  @override
+  String get rewards_and_achievements => 'Rewards & Achievements';
+
+  @override
+  String get your_points => 'Your Points';
+
+  @override
+  String get next_reward => 'Next Reward';
+
+  @override
+  String get points_to_go => 'pts to go';
+
+  @override
+  String get badges => 'Badges';
+
+  @override
+  String get success => 'Success';
+
+  @override
+  String get rewards_redeemed => 'Rewards Redeemed';
+
+  @override
+  String get you_have_successfully_redeemed =>
+      'You have successfully redeemed your reward';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get redeem_reward => 'Redeem Reward';
+
+  @override
+  String get are_you_sure_you_want_to_redeem =>
+      'Are you sure you want to redeem this reward?';
+
+  @override
+  String get redeem => 'Redeem';
+
+  @override
+  String get badge_unlocked => 'Unlocked';
+
+  @override
+  String get completed => 'Completed';
+
+  @override
+  String get not_enough_points =>
+      'You don\'t have enough points to redeem this reward';
+
+  @override
+  String get redeem_points => 'Redeem Points';
+
+  @override
+  String get coffee_voucher => 'Coffee Voucher';
+
+  @override
+  String get movie_tickets => 'Movie Tickets';
+
+  @override
+  String get restaurant_gift_card => 'Restaurant Gift Card';
+
+  @override
+  String get health_check_up => 'Health Check-Up';
+
+  @override
+  String get premium_badge => 'Premium Badge';
+
+  @override
+  String get gym_membership => 'Gym Membership';
+
+  @override
+  String get soon => 'Soon';
+
+  @override
+  String get points_history => 'Points History';
+
+  @override
+  String get blood_donation => 'Blood Donation';
+
+  @override
+  String get days_ago => '3 days ago';
+
+  @override
+  String get emergency_response => 'Emergency Response';
+
+  @override
+  String get week_1_ago => '1 week ago';
+
+  @override
+  String get profile_completion => 'Profile Completion';
+
+  @override
+  String get weeks_2_ago => '2 weeks ago';
+
+  @override
+  String get referral_bonus => 'Referral Bonus';
+
+  @override
+  String get weeks_3_ago => '3 weeks ago';
+
+  @override
+  String get how_to_earn_points => 'How To Earn Points?';
+
+  @override
+  String get donate_blood_points => 'Blood Donation: 200 pts';
+
+  @override
+  String get emergency_response_points => 'Emergency Response: 100 pts';
+
+  @override
+  String get refer_to_friends_points => 'Refer a Friend: 150 pts';
+
+  @override
+  String get complete_profile_points => 'Complete Profile: 50 pts';
+
+  @override
+  String get total => 'Total';
+
+  @override
+  String get your_badges => 'Your Badges';
+
+  @override
+  String get first_timer => 'First Timer';
+
+  @override
+  String get completed_first_donation => 'Completed your first donation';
+
+  @override
+  String get regular_donor => 'Regular Donor';
+
+  @override
+  String get donated_5_times => 'Donated 5 times';
+
+  @override
+  String get life_saver => 'Life Saver';
+
+  @override
+  String get donated_10_times => 'Donated 10 times';
+
+  @override
+  String get hero => 'Hero';
+
+  @override
+  String get donated_20_times => 'Donated 20 times';
+
+  @override
+  String get legend => 'Legend';
+
+  @override
+  String get donated_50_times => 'Donated 50 times';
+
+  @override
+  String get emergency_responder => 'Emergency Responder';
+
+  @override
+  String get responded_to_10_emergencies => 'Responded to 10 Emergencies';
 }
