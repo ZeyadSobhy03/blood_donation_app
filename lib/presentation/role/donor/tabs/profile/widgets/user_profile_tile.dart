@@ -63,7 +63,7 @@ class UserProfileTile extends StatelessWidget {
                 SizedBox(height: 4.h),
                 ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxWidth: 80.w,
+                    maxWidth: 120.w,
 
 
                   ),

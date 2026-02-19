@@ -33,7 +33,7 @@ class SettingsTile extends StatelessWidget {
       title: CustomText(
         text: title,
         textStyle: TextStyle(
-          fontWeight: FontWeightManager.bold,
+          fontWeight: FontWeightManager.semiBold,
           fontSize: FontSize.s16,
         ),
       ),
