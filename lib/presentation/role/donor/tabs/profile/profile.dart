@@ -1,7 +1,10 @@
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/widgets/home_stats_row.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/app_footer.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/donation_history_card.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/log_out_button.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/personal_information_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/setting.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/thanks_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/widgets/user_profile_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -21,8 +24,11 @@ class Profile extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFFE53935), Color(0xFFB71C1C)],
+                  gradient: LinearGradient(
+                    colors: [
+                      ColorManger.primaryRed,
+                      ColorManger.primaryRedDark,
+                    ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -43,7 +49,6 @@ class Profile extends StatelessWidget {
                       borderColor: ColorManger.pureWhite.withAlpha(0x33),
                       elevation: 0,
                     ),
-
                   ],
                 ),
               ),
@@ -51,13 +56,15 @@ class Profile extends StatelessWidget {
               PersonalInformationCard(),
               SizedBox(height: 16),
               DonationHistoryCard(),
-              SizedBox(height: 16,),
+              SizedBox(height: 16),
               Setting(),
-              SizedBox(height: 16,),
-
-
-
-
+              SizedBox(height: 16),
+              ThanksCard(donationsCount: 5, livesSaved: 36),
+              SizedBox(height: 16),
+              LogOutButton(),
+              SizedBox(height: 16),
+              AppFooter(),
+              SizedBox(height: 16),
             ],
           ),
         ),

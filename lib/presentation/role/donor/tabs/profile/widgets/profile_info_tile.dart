@@ -24,7 +24,7 @@ class ProfileInfoTile extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: ColorManger.lightGrey,
+            color: ColorManger.slateGrey.withValues(alpha: 0.8),
             size: 22,
           ),
           const SizedBox(width: 16),

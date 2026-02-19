@@ -18,7 +18,12 @@ class PersonalInformationCard extends StatelessWidget {
         color: ColorManger.pureWhite,
 
         elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12),
+
+            side: BorderSide(
+              color: ColorManger.pureWhite.withValues(alpha: 0.4),
+              width: 1,)
+        ),
         child: Padding(
           padding: EdgeInsetsGeometry.symmetric(horizontal: 12, vertical: 12),
           child: Column(

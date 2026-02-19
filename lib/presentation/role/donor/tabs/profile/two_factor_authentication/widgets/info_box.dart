@@ -12,7 +12,7 @@ class InfoBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
     return Container(
-      padding: EdgeInsets.all(14.w),
+      padding: EdgeInsets.all(14.w.clamp(12, 16)),
       decoration: BoxDecoration(
         color: ColorManger.warningBg,
         borderRadius: BorderRadius.circular(12.r),
@@ -24,7 +24,7 @@ class InfoBox extends StatelessWidget {
           Icon(
             Icons.info_outline_rounded,
             color: ColorManger.warningAccent,
-            size: 18.sp,
+            size: 18,
           ),
           SizedBox(width: 10.w),
           Expanded(

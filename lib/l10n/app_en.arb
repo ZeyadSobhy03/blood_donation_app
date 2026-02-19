@@ -1,21 +1,17 @@
 {
-
   "onboarding_1_title": "Welcome to LifeLink",
   "onboarding_1_subTitle": "Smart Blood Donation App",
   "onboarding_1_desc_1": "Connecting donors with those in need, saving lives one donation at a time.",
-
   "onboarding_2_title": "The Problem",
   "onboarding_2_subTitle": "Current Challenges",
   "onboarding_2_desc_1": "Difficulty finding donors quickly in emergencies",
   "onboarding_2_desc_2": "No centralized donor database",
   "onboarding_2_desc_3": "Lack of motivation for repeat donations",
-
   "onboarding_3_title": "The Solution",
   "onboarding_3_subTitle": "Our Features",
   "onboarding_3_desc_1": "Fast GPS-based donor matching",
   "onboarding_3_desc_2": "Instant emergency notifications",
   "onboarding_3_desc_3": "Rewards system for donors",
-
   "onboarding_4_title": "Make a Difference",
   "onboarding_4_subTitle": "Join Our Community",
   "onboarding_4_desc_1": "Every donation can save up to 3 lives. Be a hero in your community.",
@@ -25,62 +21,48 @@
   "button_get_started": "Get Started",
   "choose_role_title": "Choose Your Role",
   "choose_role_subTitle": "How would you like to use LifeLink?",
-
   "role_blood_donor_title": "Blood Donor",
   "role_blood_donor_desc": "Register as a donor, track donations, earn rewards",
   "role_blood_donor_button": "Continue as Blood Donor",
-
   "role_hospital_title": "Hospital/Patient",
   "role_hospital_desc": "Request blood, find nearby donors, manage requests",
   "role_hospital_button": "Continue as Hospital/Patient",
-
   "role_admin_title": "Admin",
   "role_admin_desc": "Manage users, monitor donations, oversee the system",
   "role_admin_button": "Continue as Admin",
   "reviewConfirmTitle": "Review & Confirm",
   "reviewConfirmSubtitle": "Please review your appointment details",
-
   "beforeYouDonate": "Before You Donate",
-
   "donationTipEat": "Eat a healthy meal before donation",
   "donationTipWater": "Drink plenty of water",
   "donationTipId": "Bring a valid ID",
   "donationTipSleep": "Get a good night's sleep",
-
   "confirmAppointment": "Confirm appointment",
   "chooseLocationTitle": "Choose Location",
   "chooseLocationSubtitle": "Where would you like to donate?",
   "selectDateTimeTitle": "Select Date & Time",
   "selectDateTimeSubtitle": "When would you like to donate?",
-
   "selectDateLabel": "Select Date",
   "selectTimeLabel": "Select Time",
   "donationTypeLabel": "Donation Type",
-
   "datePlaceholder": "mm/dd/yyyy",
-
   "continueStep": "Continue",
   "confirmDetailsTitle": "Confirm Your Details",
   "confirmDetailsSubtitle": "Please verify your information",
-
   "firstNameLabel": "First Name",
   "lastNameLabel": "Last Name",
   "phoneNumberLabel": "Phone Number",
   "emailAddressLabel": "Email Address",
-
   "firstNameHint": "Ziyad",
   "lastNameHint": "Sobhy",
   "phoneHint": "01XXXXXXXXX",
   "emailHint": "ziyad@gmail.com",
   "appointmentConfirmedTitle": "Appointment Confirmed!",
   "appointmentConfirmedSubtitle": "Your donation appointment has been successfully scheduled",
-
   "whatsNextTitle": "What's Next:",
-
   "nextStepEmail": "You'll receive a confirmation email",
   "nextStepReminder": "We'll send you a reminder 24 hours before",
   "nextStepId": "Bring a valid ID on the day of donation",
-
   "backToHome": "Back to Home",
   "addToCalendar": "Add to calendar",
   "scheduleDonationTitle": "Schedule Donation",
@@ -178,7 +160,6 @@
   "donor_login_button": "Login",
   "donor_dont_have_account": "Don't have an account?",
   "donor_register_now": "Register Now",
-
   "donor_register_title": "Create Donor Account",
   "full_name": "Full Name",
   "phone_number": "Phone Number",
@@ -188,14 +169,10 @@
   "city_state": "City, State",
   "confirm_password": "Confirm Password",
   "already_have_account": "Already have Account?",
-
-
   "donor_forget_password_title": "Donor Reset Password",
   "donor_forget_password_text": "Enter your email address and we'll send you a link to reset your password.",
   "donor_send_reset_link": "Send Reset Link",
   "donor_back_to_login": "Back To Login",
-
-
   "please_enter_email": "Please Enter Email",
   "please_enter_password": "Please Enter Password",
   "please_enter_fullname": "Please Enter Full Name",
@@ -207,7 +184,6 @@
   "please_enter_secure_password": "Please Enter Secure Password",
   "please_enter_admin_access_key": "Please Enter Admin Access Key",
   "please_enter_admin_email": "Please Enter Administrator Email",
-
   "hospital_portal": "Hospital/Patient Portal",
   "authorized_access_only": "Authorized Access Only",
   "secure_login": "Secure Login",
@@ -218,8 +194,6 @@
   "new_hospital_patient": "New Hospital or Patient?",
   "hospital_contact_text_1": "Contact our Administration Team at: ",
   "hospital_contact_text_2": " to register your facility or request access",
-
-
   "admin_portal": "Administrator Portal",
   "system_management_access": "System Management Access",
   "restricted_access_area": "Restricted Access Area",
@@ -244,23 +218,17 @@
   "passwordsDoNotMatch": "Passwords do not match",
   "readyToDonateTitle": "Ready to Donate",
   "readyToDonateSubtitle": "Every donation can save up to 3 lives",
-
-
   "donationTip1": "Get a good night's sleep (7-8 hours)",
   "donationTip2": "Eat a healthy meal 2-3 hours before",
   "donationTip3": "Drink plenty of water (3-4 glasses)",
   "donationTip4": "Avoid fatty foods before donation",
   "donationTip5": "Bring a valid photo ID",
   "donationTip6": "Wear comfortable clothing",
-
   "scheduleDonation": "Schedule Donation",
   "confirmed": "Confirmed",
   "pending": "Pending",
-
   "reschedule": "Reschedule",
-
   "appointmentCancelled": "Appointment cancelled",
-
   "rescheduleAppointmentTitle": "Reschedule Appointment",
   "rescheduleAppointmentMessage": "Would you like to reschedule your donation appointment?",
   "chooseNewDateTime": "Choose New Date & Time",
@@ -270,23 +238,17 @@
   "eligibleDescription": "You meet all eligibility requirements for blood donation.",
   "faqQuestion1": "Does donating blood hurt?",
   "faqAnswer1": "No, donating blood is a painless process.",
-
   "faqQuestion2": "How long does the donation process take?",
   "faqAnswer2": "The donation process typically takes about 30-45 minutes.",
-
   "faqQuestion3": "When can I donate again?",
   "faqAnswer3": "You can donate again after 8 weeks.",
-
   "faqQuestion4": "What if I feel faint during donation?",
   "faqAnswer4": "If you feel faint, let the staff know immediately.",
   "whatToExpect": "What to Expect",
-
   "instructionStep1Title": "Registration & Health Check",
   "instructionStep1Subtitle": "Quick medical history and vital signs check",
-
   "instructionStep2Title": "Donation Process",
   "instructionStep2Subtitle": "Comfortable seating while you donate (30-45 min)",
-
   "instructionStep3Title": "Rest & Refreshments",
   "instructionStep3Subtitle": "Relax with snacks and drinks before you go",
   "eligibilityRequirementsTitle": "Eligibility Requirements",
@@ -301,21 +263,18 @@
       "count": {}
     }
   },
-
   "hoursAgo": "{count} h ago",
   "@hoursAgo": {
     "placeholders": {
       "count": {}
     }
   },
-
   "daysAgo": "{count} d ago",
   "@daysAgo": {
     "placeholders": {
       "count": {}
     }
   },
-
   "gettingDistance": "Getting distance...",
   "km": "km",
   "kmAway": "{distance} km away",
@@ -336,10 +295,8 @@
   "twoFactorSecurityInfo": "Enabling 2FA significantly reduces the risk of unauthorized access, even if your password is compromised.",
   "smsVerification": "SMS Verification",
   "smsVerificationDescription": "Receive a code via text message",
-
   "authenticatorApp": "Authenticator App",
   "authenticatorAppDescription": "Use Google Authenticator or Authy",
-
   "emailVerification": "Email Verification",
   "emailVerificationDescription": "Receive a code via email",
   "setupTitle": "Set Up",
@@ -391,5 +348,60 @@
   },
   "total": "Total",
   "earned": "Earned",
-  "totalDonations": "total donations"
+  "totalDonations": "total donations",
+  "pdfViewer": "PDF Viewer",
+  "loadingPdf": "Loading PDF...",
+  "pageOf": "Page {current} of {total}",
+  "@pageOf": {
+    "placeholders": {
+      "current": {},
+      "total": {}
+    }
+  },
+  "helpSubtitle": "We're here to help",
+  "getHelp": "Get Help",
+  "contactSupport": "Contact Support",
+  "chatSupport": "Chat with our support team",
+  "emailUs": "Email Us",
+  "documentation": "Documentation",
+  "userGuides": "User guides and tutorials",
+  "emailBodyRequestDocumentation": "I would like to request documentation on how to donate blood.",
+  "documentationRequestSubject": "Documentation Request",
+  "whatsappHelpMessage": "Hello, I need assistance",
+  "popularTopicsTitle": "Popular Topics",
+  "topicDonateBlood": "How to donate blood?",
+  "topicEligibility": "Eligibility requirements",
+  "topicEarnPoints": "How to earn points?",
+  "topicEmergencies": "Responding to emergencies",
+  "aboutTitle": "About LifeLink",
+  "aboutVersion": "Version",
+  "aboutLastUpdated": "Last Updated",
+  "faqTitle": "Frequently Asked Questions",
+  "faqHowToDonate": "How do I donate blood?",
+  "faqHowToDonateAnswer": "To donate blood, find a nearby donation center through the app, schedule an appointment, and make sure you meet the eligibility requirements. Stay hydrated and eat a healthy meal before donating.",
+  "faqEligibility": "What are the eligibility requirements?",
+  "faqEligibilityAnswer": "You must be at least 17 years old, weigh at least 50 kg, be in good general health, and not have donated blood in the last 56 days. Certain medical conditions or medications may affect eligibility.",
+  "faqEarnPoints": "How do I earn reward points?",
+  "faqEarnPointsAnswer": "You earn points each time you donate blood, refer a friend, complete your profile, or respond to emergency requests. Points can be redeemed for rewards in the app.",
+  "faqDonationFrequency": "How often can I donate blood?",
+  "faqDonationFrequencyAnswer": "Whole blood can be donated every 56 days (8 weeks). Platelets can be donated every 7 days, up to 24 times per year. Plasma can be donated every 28 days.",
+  "faqBeforeDonation": "What should I do before donating?",
+  "faqBeforeDonationAnswer": "Drink plenty of water, eat a healthy meal, avoid fatty foods, get a good night's sleep, and wear comfortable clothing with sleeves that can be rolled up easily.",
+  "faqEmergencyResponse": "How do I respond to emergency requests?",
+  "faqEmergencyResponseAnswer": "When an emergency request matches your blood type, you will receive a push notification. Tap on it to view the details and confirm your availability to donate.",
+  "faqChangeBloodType": "How do I change my blood type?",
+  "faqChangeBloodTypeAnswer": "Go to your profile settings and tap on \"Edit Profile\". You can update your blood type there. Make sure to verify with your actual medical records.",
+  "editProfile": "Edit Profile",
+  "editProfileDescription": "Make changes to your profile here. Click save when you're done.",
+  "name": "Name",
+  "saving": "Saving...",
+  "weight": "Weight",
+  "weightKg": "Weight (kg)",
+  "age": "Age",
+  "gender": "Gender",
+  "save": "Save",
+  "thanksHero": "Thank You for Being a Hero! 🎉",
+  "thanksHeroDesc": "Your {donationsCount} donations have helped save approximately {livesSaved} lives. Every donation makes a difference!",
+  "logout": "Logout"
+
 }

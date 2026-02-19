@@ -14,7 +14,7 @@ class HeaderBanner extends StatelessWidget {
     final appLocalization = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [ColorManger.primaryRedDark, ColorManger.primaryRed],
@@ -33,7 +33,7 @@ class HeaderBanner extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(12.w),
+            padding: EdgeInsets.all(12.w.clamp(8, 12)),
             decoration: BoxDecoration(
               color: ColorManger.pureWhite.withValues(alpha: 0.18),
               shape: BoxShape.circle,
@@ -41,7 +41,7 @@ class HeaderBanner extends StatelessWidget {
             child: Icon(
               Icons.shield_outlined,
               color: ColorManger.pureWhite,
-              size: 28.sp,
+              size: 28,
             ),
           ),
           SizedBox(width: 16.w),

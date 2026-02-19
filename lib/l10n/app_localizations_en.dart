@@ -1038,4 +1038,161 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get totalDonations => 'total donations';
+
+  @override
+  String get pdfViewer => 'PDF Viewer';
+
+  @override
+  String get loadingPdf => 'Loading PDF...';
+
+  @override
+  String pageOf(Object current, Object total) {
+    return 'Page $current of $total';
+  }
+
+  @override
+  String get helpSubtitle => 'We\'re here to help';
+
+  @override
+  String get getHelp => 'Get Help';
+
+  @override
+  String get contactSupport => 'Contact Support';
+
+  @override
+  String get chatSupport => 'Chat with our support team';
+
+  @override
+  String get emailUs => 'Email Us';
+
+  @override
+  String get documentation => 'Documentation';
+
+  @override
+  String get userGuides => 'User guides and tutorials';
+
+  @override
+  String get emailBodyRequestDocumentation =>
+      'I would like to request documentation on how to donate blood.';
+
+  @override
+  String get documentationRequestSubject => 'Documentation Request';
+
+  @override
+  String get whatsappHelpMessage => 'Hello, I need assistance';
+
+  @override
+  String get popularTopicsTitle => 'Popular Topics';
+
+  @override
+  String get topicDonateBlood => 'How to donate blood?';
+
+  @override
+  String get topicEligibility => 'Eligibility requirements';
+
+  @override
+  String get topicEarnPoints => 'How to earn points?';
+
+  @override
+  String get topicEmergencies => 'Responding to emergencies';
+
+  @override
+  String get aboutTitle => 'About LifeLink';
+
+  @override
+  String get aboutVersion => 'Version';
+
+  @override
+  String get aboutLastUpdated => 'Last Updated';
+
+  @override
+  String get faqTitle => 'Frequently Asked Questions';
+
+  @override
+  String get faqHowToDonate => 'How do I donate blood?';
+
+  @override
+  String get faqHowToDonateAnswer =>
+      'To donate blood, find a nearby donation center through the app, schedule an appointment, and make sure you meet the eligibility requirements. Stay hydrated and eat a healthy meal before donating.';
+
+  @override
+  String get faqEligibility => 'What are the eligibility requirements?';
+
+  @override
+  String get faqEligibilityAnswer =>
+      'You must be at least 17 years old, weigh at least 50 kg, be in good general health, and not have donated blood in the last 56 days. Certain medical conditions or medications may affect eligibility.';
+
+  @override
+  String get faqEarnPoints => 'How do I earn reward points?';
+
+  @override
+  String get faqEarnPointsAnswer =>
+      'You earn points each time you donate blood, refer a friend, complete your profile, or respond to emergency requests. Points can be redeemed for rewards in the app.';
+
+  @override
+  String get faqDonationFrequency => 'How often can I donate blood?';
+
+  @override
+  String get faqDonationFrequencyAnswer =>
+      'Whole blood can be donated every 56 days (8 weeks). Platelets can be donated every 7 days, up to 24 times per year. Plasma can be donated every 28 days.';
+
+  @override
+  String get faqBeforeDonation => 'What should I do before donating?';
+
+  @override
+  String get faqBeforeDonationAnswer =>
+      'Drink plenty of water, eat a healthy meal, avoid fatty foods, get a good night\'s sleep, and wear comfortable clothing with sleeves that can be rolled up easily.';
+
+  @override
+  String get faqEmergencyResponse => 'How do I respond to emergency requests?';
+
+  @override
+  String get faqEmergencyResponseAnswer =>
+      'When an emergency request matches your blood type, you will receive a push notification. Tap on it to view the details and confirm your availability to donate.';
+
+  @override
+  String get faqChangeBloodType => 'How do I change my blood type?';
+
+  @override
+  String get faqChangeBloodTypeAnswer =>
+      'Go to your profile settings and tap on \"Edit Profile\". You can update your blood type there. Make sure to verify with your actual medical records.';
+
+  @override
+  String get editProfile => 'Edit Profile';
+
+  @override
+  String get editProfileDescription =>
+      'Make changes to your profile here. Click save when you\'re done.';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get saving => 'Saving...';
+
+  @override
+  String get weight => 'Weight';
+
+  @override
+  String get weightKg => 'Weight (kg)';
+
+  @override
+  String get age => 'Age';
+
+  @override
+  String get gender => 'Gender';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get thanksHero => 'Thank You for Being a Hero! 🎉';
+
+  @override
+  String thanksHeroDesc(Object donationsCount, Object livesSaved) {
+    return 'Your $donationsCount donations have helped save approximately $livesSaved lives. Every donation makes a difference!';
+  }
+
+  @override
+  String get logout => 'Logout';
 }

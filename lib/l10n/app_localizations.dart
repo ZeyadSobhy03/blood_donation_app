@@ -2041,6 +2041,294 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'total donations'**
   String get totalDonations;
+
+  /// No description provided for @pdfViewer.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF Viewer'**
+  String get pdfViewer;
+
+  /// No description provided for @loadingPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading PDF...'**
+  String get loadingPdf;
+
+  /// No description provided for @pageOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Page {current} of {total}'**
+  String pageOf(Object current, Object total);
+
+  /// No description provided for @helpSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'re here to help'**
+  String get helpSubtitle;
+
+  /// No description provided for @getHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Help'**
+  String get getHelp;
+
+  /// No description provided for @contactSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Support'**
+  String get contactSupport;
+
+  /// No description provided for @chatSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat with our support team'**
+  String get chatSupport;
+
+  /// No description provided for @emailUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Us'**
+  String get emailUs;
+
+  /// No description provided for @documentation.
+  ///
+  /// In en, this message translates to:
+  /// **'Documentation'**
+  String get documentation;
+
+  /// No description provided for @userGuides.
+  ///
+  /// In en, this message translates to:
+  /// **'User guides and tutorials'**
+  String get userGuides;
+
+  /// No description provided for @emailBodyRequestDocumentation.
+  ///
+  /// In en, this message translates to:
+  /// **'I would like to request documentation on how to donate blood.'**
+  String get emailBodyRequestDocumentation;
+
+  /// No description provided for @documentationRequestSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Documentation Request'**
+  String get documentationRequestSubject;
+
+  /// No description provided for @whatsappHelpMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, I need assistance'**
+  String get whatsappHelpMessage;
+
+  /// No description provided for @popularTopicsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular Topics'**
+  String get popularTopicsTitle;
+
+  /// No description provided for @topicDonateBlood.
+  ///
+  /// In en, this message translates to:
+  /// **'How to donate blood?'**
+  String get topicDonateBlood;
+
+  /// No description provided for @topicEligibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Eligibility requirements'**
+  String get topicEligibility;
+
+  /// No description provided for @topicEarnPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'How to earn points?'**
+  String get topicEarnPoints;
+
+  /// No description provided for @topicEmergencies.
+  ///
+  /// In en, this message translates to:
+  /// **'Responding to emergencies'**
+  String get topicEmergencies;
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About LifeLink'**
+  String get aboutTitle;
+
+  /// No description provided for @aboutVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get aboutVersion;
+
+  /// No description provided for @aboutLastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Updated'**
+  String get aboutLastUpdated;
+
+  /// No description provided for @faqTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently Asked Questions'**
+  String get faqTitle;
+
+  /// No description provided for @faqHowToDonate.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I donate blood?'**
+  String get faqHowToDonate;
+
+  /// No description provided for @faqHowToDonateAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'To donate blood, find a nearby donation center through the app, schedule an appointment, and make sure you meet the eligibility requirements. Stay hydrated and eat a healthy meal before donating.'**
+  String get faqHowToDonateAnswer;
+
+  /// No description provided for @faqEligibility.
+  ///
+  /// In en, this message translates to:
+  /// **'What are the eligibility requirements?'**
+  String get faqEligibility;
+
+  /// No description provided for @faqEligibilityAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'You must be at least 17 years old, weigh at least 50 kg, be in good general health, and not have donated blood in the last 56 days. Certain medical conditions or medications may affect eligibility.'**
+  String get faqEligibilityAnswer;
+
+  /// No description provided for @faqEarnPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I earn reward points?'**
+  String get faqEarnPoints;
+
+  /// No description provided for @faqEarnPointsAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'You earn points each time you donate blood, refer a friend, complete your profile, or respond to emergency requests. Points can be redeemed for rewards in the app.'**
+  String get faqEarnPointsAnswer;
+
+  /// No description provided for @faqDonationFrequency.
+  ///
+  /// In en, this message translates to:
+  /// **'How often can I donate blood?'**
+  String get faqDonationFrequency;
+
+  /// No description provided for @faqDonationFrequencyAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Whole blood can be donated every 56 days (8 weeks). Platelets can be donated every 7 days, up to 24 times per year. Plasma can be donated every 28 days.'**
+  String get faqDonationFrequencyAnswer;
+
+  /// No description provided for @faqBeforeDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'What should I do before donating?'**
+  String get faqBeforeDonation;
+
+  /// No description provided for @faqBeforeDonationAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink plenty of water, eat a healthy meal, avoid fatty foods, get a good night\'s sleep, and wear comfortable clothing with sleeves that can be rolled up easily.'**
+  String get faqBeforeDonationAnswer;
+
+  /// No description provided for @faqEmergencyResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I respond to emergency requests?'**
+  String get faqEmergencyResponse;
+
+  /// No description provided for @faqEmergencyResponseAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'When an emergency request matches your blood type, you will receive a push notification. Tap on it to view the details and confirm your availability to donate.'**
+  String get faqEmergencyResponseAnswer;
+
+  /// No description provided for @faqChangeBloodType.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I change my blood type?'**
+  String get faqChangeBloodType;
+
+  /// No description provided for @faqChangeBloodTypeAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to your profile settings and tap on \"Edit Profile\". You can update your blood type there. Make sure to verify with your actual medical records.'**
+  String get faqChangeBloodTypeAnswer;
+
+  /// No description provided for @editProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get editProfile;
+
+  /// No description provided for @editProfileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Make changes to your profile here. Click save when you\'re done.'**
+  String get editProfileDescription;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @saving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving...'**
+  String get saving;
+
+  /// No description provided for @weight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get weight;
+
+  /// No description provided for @weightKg.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight (kg)'**
+  String get weightKg;
+
+  /// No description provided for @age.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get age;
+
+  /// No description provided for @gender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get gender;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @thanksHero.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank You for Being a Hero! 🎉'**
+  String get thanksHero;
+
+  /// No description provided for @thanksHeroDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Your {donationsCount} donations have helped save approximately {livesSaved} lives. Every donation makes a difference!'**
+  String thanksHeroDesc(Object donationsCount, Object livesSaved);
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate

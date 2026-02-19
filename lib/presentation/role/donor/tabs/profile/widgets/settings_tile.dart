@@ -47,7 +47,13 @@ class SettingsTile extends StatelessWidget {
               ),
             ),
       trailing: isSwitch
-          ? Switch(value: switchValue, onChanged: onSwitchChanged)
+          ? Switch(value: switchValue, onChanged: onSwitchChanged,
+
+        activeThumbColor: ColorManger.pureWhite,
+        activeTrackColor: ColorManger.darkBlue,
+        inactiveThumbColor: ColorManger.grey300,
+        inactiveTrackColor: ColorManger.pureWhite,
+      )
           : Icon(
               Icons.arrow_forward_ios,
               size: 16,

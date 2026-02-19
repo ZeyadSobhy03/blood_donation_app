@@ -1038,4 +1038,161 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get totalDonations => 'إجمالي التبرعات';
+
+  @override
+  String get pdfViewer => 'عارض الملفات';
+
+  @override
+  String get loadingPdf => 'جارٍ تحميل الملف...';
+
+  @override
+  String pageOf(Object current, Object total) {
+    return 'الصفحة $current من $total';
+  }
+
+  @override
+  String get helpSubtitle => 'نحن هنا لمساعدتك';
+
+  @override
+  String get getHelp => 'الحصول على المساعدة';
+
+  @override
+  String get contactSupport => 'تواصل مع الدعم';
+
+  @override
+  String get chatSupport => 'تحدث مع فريق الدعم';
+
+  @override
+  String get emailUs => 'راسلنا عبر البريد';
+
+  @override
+  String get documentation => 'التوثيق';
+
+  @override
+  String get userGuides => 'أدلة المستخدم والدروس';
+
+  @override
+  String get emailBodyRequestDocumentation =>
+      'أود طلب التوثيق حول كيفية التبرع بالدم.';
+
+  @override
+  String get documentationRequestSubject => 'طلب التوثيق';
+
+  @override
+  String get whatsappHelpMessage => 'مرحبًا، أحتاج إلى المساعدة';
+
+  @override
+  String get popularTopicsTitle => 'المواضيع الشائعة';
+
+  @override
+  String get topicDonateBlood => 'كيفية التبرع بالدم؟';
+
+  @override
+  String get topicEligibility => 'متطلبات الأهلية';
+
+  @override
+  String get topicEarnPoints => 'كيفية كسب النقاط؟';
+
+  @override
+  String get topicEmergencies => 'الاستجابة للطوارئ';
+
+  @override
+  String get aboutTitle => 'حول LifeLink';
+
+  @override
+  String get aboutVersion => 'الإصدار';
+
+  @override
+  String get aboutLastUpdated => 'آخر تحديث';
+
+  @override
+  String get faqTitle => 'الأسئلة الشائعة';
+
+  @override
+  String get faqHowToDonate => 'كيف يمكنني التبرع بالدم؟';
+
+  @override
+  String get faqHowToDonateAnswer =>
+      'للتبرع بالدم، ابحث عن مركز تبرع قريب من خلال التطبيق، حدد موعدًا، وتأكد من استيفاء متطلبات الأهلية. اشرب الكثير من الماء وتناول وجبة صحية قبل التبرع.';
+
+  @override
+  String get faqEligibility => 'ما هي متطلبات الأهلية؟';
+
+  @override
+  String get faqEligibilityAnswer =>
+      'يجب أن يكون عمرك 17 سنة على الأقل، ووزنك 50 كجم على الأقل، وأن تكون بصحة عامة جيدة، وألا تكون قد تبرعت بالدم في آخر 56 يومًا. بعض الحالات الطبية أو الأدوية قد تؤثر على الأهلية.';
+
+  @override
+  String get faqEarnPoints => 'كيف أكسب نقاط المكافأة؟';
+
+  @override
+  String get faqEarnPointsAnswer =>
+      'تحصل على نقاط في كل مرة تتبرع فيها بالدم، أو تحيل صديقًا، أو تكمل ملفك الشخصي، أو تستجيب لطلبات الطوارئ. يمكن استبدال النقاط بمكافآت في التطبيق.';
+
+  @override
+  String get faqDonationFrequency => 'كم مرة يمكنني التبرع بالدم؟';
+
+  @override
+  String get faqDonationFrequencyAnswer =>
+      'يمكن التبرع بالدم الكامل كل 56 يومًا (8 أسابيع). يمكن التبرع بالصفائح كل 7 أيام، حتى 24 مرة في السنة. يمكن التبرع بالبلازما كل 28 يومًا.';
+
+  @override
+  String get faqBeforeDonation => 'ماذا يجب أن أفعل قبل التبرع؟';
+
+  @override
+  String get faqBeforeDonationAnswer =>
+      'اشرب الكثير من الماء، وتناول وجبة صحية، وتجنب الأطعمة الدهنية، واحصل على نوم جيد، وارتدِ ملابس مريحة ذات أكمام قابلة للطي بسهولة.';
+
+  @override
+  String get faqEmergencyResponse => 'كيف أستجيب لطلبات الطوارئ؟';
+
+  @override
+  String get faqEmergencyResponseAnswer =>
+      'عندما يتطابق طلب الطوارئ مع فصيلة دمك، ستتلقى إشعارًا. اضغط عليه لعرض التفاصيل وتأكيد توافرك للتبرع.';
+
+  @override
+  String get faqChangeBloodType => 'كيف أغير فصيلة دمي؟';
+
+  @override
+  String get faqChangeBloodTypeAnswer =>
+      'اذهب إلى إعدادات الملف الشخصي واضغط على \"تعديل الملف الشخصي\". يمكنك تحديث فصيلة دمك هناك. تأكد من التحقق من سجلاتك الطبية الفعلية.';
+
+  @override
+  String get editProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get editProfileDescription =>
+      'قم بإجراء التعديلات على ملفك الشخصي هنا. اضغط حفظ عند الانتهاء.';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get saving => 'جارٍ الحفظ...';
+
+  @override
+  String get weight => 'الوزن';
+
+  @override
+  String get weightKg => 'الوزن (كجم)';
+
+  @override
+  String get age => 'العمر';
+
+  @override
+  String get gender => 'النوع';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
+  String get thanksHero => 'شكرًا لكونك بطلًا! 🎉';
+
+  @override
+  String thanksHeroDesc(Object donationsCount, Object livesSaved) {
+    return 'تبرعاتك الـ $donationsCount ساعدت في إنقاذ حوالي $livesSaved حياة. كل تبرع يحدث فرقًا!';
+  }
+
+  @override
+  String get logout => 'تسجيل الخروج';
 }

@@ -45,12 +45,30 @@ class CustomDropDownButtonFormField extends StatelessWidget {
         ),
 
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
         ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: BorderSide(
+            color: ColorManger.grey300,
+          ),
+        ),
 
-        contentPadding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: BorderSide(
+            color: ColorManger.black54,
+            width: 1.5,
+          ),
+        ),
+
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 6.w,
+          vertical: 8.h,
+        ),
       ),
+
 
       items: items
           .map(

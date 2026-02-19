@@ -29,13 +29,13 @@ class TwoFAMethodTile extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
       leading: Container(
-        width: 42.w,
-        height: 42.h,
+        width: 42,
+        height: 42,
         decoration: BoxDecoration(
           color: iconBg,
           borderRadius: BorderRadius.circular(10.r),
         ),
-        child: Icon(icon, color: iconColor, size: 20.sp),
+        child: Icon(icon, color: iconColor, size: 20),
       ),
       title: Row(
         children: [
@@ -63,10 +63,11 @@ class TwoFAMethodTile extends StatelessWidget {
       ),
       trailing: Switch.adaptive(value: value, onChanged: onChanged,
 
-      activeThumbColor: ColorManger.primaryRedDark,
-        activeTrackColor: ColorManger.brightRed,
-        inactiveThumbColor: ColorManger.black,
-        inactiveTrackColor: ColorManger.lightGrey,
+
+        activeThumbColor: ColorManger.pureWhite,
+        activeTrackColor: ColorManger.darkBlue,
+        inactiveThumbColor: ColorManger.grey300,
+        inactiveTrackColor: ColorManger.pureWhite,
       ),
     );
   }
