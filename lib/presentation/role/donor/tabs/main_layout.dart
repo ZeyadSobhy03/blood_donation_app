@@ -3,7 +3,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/donate/donate.da
 import 'package:blood_donation_app/presentation/role/donor/tabs/find/find.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/home.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/profile.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/rewards.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/rewards_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../../l10n/app_localizations.dart';
 
@@ -21,7 +21,7 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
 
-    List<Widget> tabs = [Home(), FindHospital(), Donate(), Rewards(), Profile()];
+    List<Widget> tabs = [Home(), FindHospital(), Donate(), RewardsScreen(), Profile()];
 
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
