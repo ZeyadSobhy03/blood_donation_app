@@ -330,7 +330,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get donations => 'التبرعات';
 
   @override
-  String get points => 'نقاط';
+  String get points => 'النقاط';
 
   @override
   String get livesSaved => 'الأرواح المنقذة';
@@ -691,4 +691,657 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get passwordsDoNotMatch => 'كلمات المرور غير متطابقة';
+
+  @override
+  String get readyToDonateTitle => 'استعد للتبرع';
+
+  @override
+  String get readyToDonateSubtitle => 'كل تبرع يمكن أن ينقذ حتى 3 أرواح';
+
+  @override
+  String get donationTip1 => 'احصل على نوم كافٍ (7-8 ساعات)';
+
+  @override
+  String get donationTip2 => 'تناول وجبة صحية قبل التبرع بـ 2-3 ساعات';
+
+  @override
+  String get donationTip3 => 'اشرب كمية كافية من الماء (3-4 أكواب)';
+
+  @override
+  String get donationTip4 => 'تجنب الأطعمة الدسمة قبل التبرع';
+
+  @override
+  String get donationTip5 => 'أحضر بطاقة هوية سارية';
+
+  @override
+  String get donationTip6 => 'ارتدِ ملابس مريحة';
+
+  @override
+  String get scheduleDonation => 'جدولة التبرع';
+
+  @override
+  String get confirmed => 'مؤكد';
+
+  @override
+  String get pending => 'قيد الانتظار';
+
+  @override
+  String get reschedule => 'إعادة الجدولة';
+
+  @override
+  String get appointmentCancelled => 'تم إلغاء الموعد';
+
+  @override
+  String get rescheduleAppointmentTitle => 'إعادة جدولة الموعد';
+
+  @override
+  String get rescheduleAppointmentMessage =>
+      'هل ترغب في إعادة جدولة موعد التبرع الخاص بك؟';
+
+  @override
+  String get chooseNewDateTime => 'اختيار تاريخ ووقت جديد';
+
+  @override
+  String get cancelDonation => 'إلغاء التبرع';
+
+  @override
+  String get upcomingAppointments => 'المواعيد القادمة';
+
+  @override
+  String get eligibleTitle => 'أنت مؤهل للتبرع';
+
+  @override
+  String get eligibleDescription =>
+      'أنت تستوفي جميع شروط الأهلية للتبرع بالدم.';
+
+  @override
+  String get faqQuestion1 => 'هل التبرع بالدم مؤلم؟';
+
+  @override
+  String get faqAnswer1 => 'لا، التبرع بالدم عملية غير مؤلمة.';
+
+  @override
+  String get faqQuestion2 => 'كم تستغرق عملية التبرع؟';
+
+  @override
+  String get faqAnswer2 => 'تستغرق عملية التبرع عادة من 30 إلى 45 دقيقة.';
+
+  @override
+  String get faqQuestion3 => 'متى يمكنني التبرع مرة أخرى؟';
+
+  @override
+  String get faqAnswer3 => 'يمكنك التبرع مرة أخرى بعد 8 أسابيع.';
+
+  @override
+  String get faqQuestion4 => 'ماذا أفعل إذا شعرت بدوار أثناء التبرع؟';
+
+  @override
+  String get faqAnswer4 => 'إذا شعرت بدوار، أخبر الطاقم فورًا.';
+
+  @override
+  String get whatToExpect => 'ما الذي يمكن توقعه';
+
+  @override
+  String get instructionStep1Title => 'التسجيل والفحص الصحي';
+
+  @override
+  String get instructionStep1Subtitle =>
+      'مراجعة سريعة للتاريخ الطبي وقياس العلامات الحيوية';
+
+  @override
+  String get instructionStep2Title => 'عملية التبرع';
+
+  @override
+  String get instructionStep2Subtitle =>
+      'الجلوس بشكل مريح أثناء التبرع (30-45 دقيقة)';
+
+  @override
+  String get instructionStep3Title => 'الراحة والمرطبات';
+
+  @override
+  String get instructionStep3Subtitle =>
+      'الاسترخاء مع الوجبات الخفيفة والمشروبات قبل المغادرة';
+
+  @override
+  String get eligibilityRequirementsTitle => 'شروط التبرع';
+
+  @override
+  String get reqAge => 'العمر: من 18 إلى 65 سنة';
+
+  @override
+  String get reqWeight => 'الوزن لا يقل عن 50 كجم';
+
+  @override
+  String get reqLastDonation => 'مرور 3 أشهر على آخر تبرع';
+
+  @override
+  String get reqNoIllness => 'لا يوجد مرض حديث';
+
+  @override
+  String get reqNoTattoos => 'لا يوجد وشم أو ثقب حديث';
+
+  @override
+  String minutesAgo(Object count) {
+    return 'منذ $count دقيقة';
+  }
+
+  @override
+  String hoursAgo(Object count) {
+    return 'منذ $count ساعة';
+  }
+
+  @override
+  String daysAgo(Object count) {
+    return 'منذ $count يوم';
+  }
+
+  @override
+  String get gettingDistance => 'جارٍ حساب المسافة...';
+
+  @override
+  String get km => 'كم';
+
+  @override
+  String kmAway(Object distance) {
+    return 'يبعد $distance كم';
+  }
+
+  @override
+  String get hospitalLocation => 'موقع المستشفى';
+
+  @override
+  String get loadingMap => 'جاري تحميل الخريطة...';
+
+  @override
+  String get oopsError => 'حدث خطأ ما';
+
+  @override
+  String get goBack => 'العودة';
+
+  @override
+  String get bloodDonationCenter => 'مركز التبرع بالدم';
+
+  @override
+  String get directions => 'الاتجاهات';
+
+  @override
+  String shareMessage(Object lat, Object link, Object lng) {
+    return '🩸 لايف لينك - مركز التبرع بالدم\n\n📍 الموقع:\n$lat ، $lng\n\n🗺 عرض على خرائط جوجل:\n$link\n\nكن بطلاً... تبرع بالدم وأنقذ حياة ❤️';
+  }
+
+  @override
+  String get protectYourAccount => 'حماية حسابك';
+
+  @override
+  String get twoFactorDescription =>
+      'أضف طبقة أمان إضافية عن طريق تفعيل المصادقة الثنائية.';
+
+  @override
+  String get twoFactorSecurityInfo =>
+      'تفعيل المصادقة الثنائية يقلل بشكل كبير من خطر الوصول غير المصرح به، حتى في حال اختراق كلمة المرور.';
+
+  @override
+  String get smsVerification => 'التحقق عبر الرسائل القصيرة';
+
+  @override
+  String get smsVerificationDescription => 'استقبل رمز تحقق عبر رسالة نصية';
+
+  @override
+  String get authenticatorApp => 'تطبيق المصادقة';
+
+  @override
+  String get authenticatorAppDescription =>
+      'استخدم تطبيق Google Authenticator أو Authy';
+
+  @override
+  String get emailVerification => 'التحقق عبر البريد الإلكتروني';
+
+  @override
+  String get emailVerificationDescription =>
+      'استقبل رمز تحقق عبر البريد الإلكتروني';
+
+  @override
+  String get setupTitle => 'إعداد';
+
+  @override
+  String get twoFactorAuthTitle => 'المصادقة الثنائية';
+
+  @override
+  String get verificationMethods => 'طرق التحقق';
+
+  @override
+  String get infoBoxText =>
+      'تفعيل المصادقة الثنائية يقلل بشكل كبير من خطر الوصول غير المصرح به، حتى لو تم اختراق كلمة المرور.';
+
+  @override
+  String get smsVerificationTitle => 'التحقق عبر الرسائل القصيرة';
+
+  @override
+  String get smsVerificationSubtitle => 'استلم رمز عبر رسالة نصية';
+
+  @override
+  String get authAppTitle => 'تطبيق المصادقة';
+
+  @override
+  String get authAppSubtitle => 'استخدم Google Authenticator أو Authy';
+
+  @override
+  String get emailVerificationTitle => 'التحقق عبر البريد الإلكتروني';
+
+  @override
+  String get emailVerificationSubtitle => 'استلم رمز عبر البريد الإلكتروني';
+
+  @override
+  String get setupTitleSms => 'إعداد التحقق عبر الرسائل القصيرة';
+
+  @override
+  String get setupTitleApp => 'إعداد تطبيق المصادقة';
+
+  @override
+  String get setupTitleEmail => 'إعداد التحقق عبر البريد الإلكتروني';
+
+  @override
+  String get setupDescSms =>
+      'سيتم إرسال رمز مكون من 6 أرقام إلى رقم هاتفك المسجل عند كل تسجيل دخول.';
+
+  @override
+  String get setupDescApp =>
+      'استخدم تطبيق مصادقة مثل Google Authenticator أو Authy لإنشاء رموز مؤقتة.';
+
+  @override
+  String get setupDescEmail =>
+      'سيتم إرسال رابط أو رمز التحقق إلى بريدك الإلكتروني المسجل.';
+
+  @override
+  String get donationHistory => 'تاريخ التبرعات';
+
+  @override
+  String get viewAll => 'عرض الكل';
+
+  @override
+  String get blood => 'دم';
+
+  @override
+  String get completed => 'مكتمل';
+
+  @override
+  String get passwordAndSecurity => 'كلمة المرور والأمان';
+
+  @override
+  String get changePassword => 'تغيير كلمة المرور';
+
+  @override
+  String get twoFactorAuthentication => 'التحقق بخطوتين';
+
+  @override
+  String get personalInformation => 'المعلومات الشخصية';
+
+  @override
+  String get phone => 'الهاتف';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get fullName => 'الاسم الكامل';
+
+  @override
+  String get bloodType => 'فصيلة الدم';
+
+  @override
+  String get settings => 'الإعدادات';
+
+  @override
+  String get pushNotifications => 'الإشعارات الفورية';
+
+  @override
+  String get pushNotificationsDesc => 'استقبال الإشعارات للطلبات';
+
+  @override
+  String get emergencyAlerts => 'تنبيهات الطوارئ';
+
+  @override
+  String get emergencyAlertsDesc => 'طلبات الدم العاجلة بالقرب منك';
+
+  @override
+  String get privacyAndSecurity => 'الخصوصية والأمان';
+
+  @override
+  String get helpAndSupport => 'المساعدة والدعم';
+
+  @override
+  String get accountSettings => 'إعدادات الحساب';
+
+  @override
+  String get changePasswordDescription =>
+      'أدخل كلمة المرور الحالية وكلمة مرور جديدة لتحديث حسابك.';
+
+  @override
+  String get currentPassword => 'كلمة المرور الحالية';
+
+  @override
+  String get newPassword => 'كلمة المرور الجديدة';
+
+  @override
+  String get confirmPassword => 'تأكيد كلمة المرور';
+
+  @override
+  String donorLabel(Object bloodType) {
+    return 'متبرع بفصيلة $bloodType';
+  }
+
+  @override
+  String get total => 'الإجمالي';
+
+  @override
+  String get earned => 'المكتسبة';
+
+  @override
+  String get totalDonations => 'إجمالي التبرعات';
+
+  @override
+  String get pdfViewer => 'عارض الملفات';
+
+  @override
+  String get loadingPdf => 'جارٍ تحميل الملف...';
+
+  @override
+  String pageOf(Object current, Object total) {
+    return 'الصفحة $current من $total';
+  }
+
+  @override
+  String get helpSubtitle => 'نحن هنا لمساعدتك';
+
+  @override
+  String get getHelp => 'الحصول على المساعدة';
+
+  @override
+  String get contactSupport => 'تواصل مع الدعم';
+
+  @override
+  String get chatSupport => 'تحدث مع فريق الدعم';
+
+  @override
+  String get emailUs => 'راسلنا عبر البريد';
+
+  @override
+  String get documentation => 'التوثيق';
+
+  @override
+  String get userGuides => 'أدلة المستخدم والدروس';
+
+  @override
+  String get emailBodyRequestDocumentation =>
+      'أود طلب التوثيق حول كيفية التبرع بالدم.';
+
+  @override
+  String get documentationRequestSubject => 'طلب التوثيق';
+
+  @override
+  String get whatsappHelpMessage => 'مرحبًا، أحتاج إلى المساعدة';
+
+  @override
+  String get popularTopicsTitle => 'المواضيع الشائعة';
+
+  @override
+  String get topicDonateBlood => 'كيفية التبرع بالدم؟';
+
+  @override
+  String get topicEligibility => 'متطلبات الأهلية';
+
+  @override
+  String get topicEarnPoints => 'كيفية كسب النقاط؟';
+
+  @override
+  String get topicEmergencies => 'الاستجابة للطوارئ';
+
+  @override
+  String get aboutTitle => 'حول LifeLink';
+
+  @override
+  String get aboutVersion => 'الإصدار';
+
+  @override
+  String get aboutLastUpdated => 'آخر تحديث';
+
+  @override
+  String get faqTitle => 'الأسئلة الشائعة';
+
+  @override
+  String get faqHowToDonate => 'كيف يمكنني التبرع بالدم؟';
+
+  @override
+  String get faqHowToDonateAnswer =>
+      'للتبرع بالدم، ابحث عن مركز تبرع قريب من خلال التطبيق، حدد موعدًا، وتأكد من استيفاء متطلبات الأهلية. اشرب الكثير من الماء وتناول وجبة صحية قبل التبرع.';
+
+  @override
+  String get faqEligibility => 'ما هي متطلبات الأهلية؟';
+
+  @override
+  String get faqEligibilityAnswer =>
+      'يجب أن يكون عمرك 17 سنة على الأقل، ووزنك 50 كجم على الأقل، وأن تكون بصحة عامة جيدة، وألا تكون قد تبرعت بالدم في آخر 56 يومًا. بعض الحالات الطبية أو الأدوية قد تؤثر على الأهلية.';
+
+  @override
+  String get faqEarnPoints => 'كيف أكسب نقاط المكافأة؟';
+
+  @override
+  String get faqEarnPointsAnswer =>
+      'تحصل على نقاط في كل مرة تتبرع فيها بالدم، أو تحيل صديقًا، أو تكمل ملفك الشخصي، أو تستجيب لطلبات الطوارئ. يمكن استبدال النقاط بمكافآت في التطبيق.';
+
+  @override
+  String get faqDonationFrequency => 'كم مرة يمكنني التبرع بالدم؟';
+
+  @override
+  String get faqDonationFrequencyAnswer =>
+      'يمكن التبرع بالدم الكامل كل 56 يومًا (8 أسابيع). يمكن التبرع بالصفائح كل 7 أيام، حتى 24 مرة في السنة. يمكن التبرع بالبلازما كل 28 يومًا.';
+
+  @override
+  String get faqBeforeDonation => 'ماذا يجب أن أفعل قبل التبرع؟';
+
+  @override
+  String get faqBeforeDonationAnswer =>
+      'اشرب الكثير من الماء، وتناول وجبة صحية، وتجنب الأطعمة الدهنية، واحصل على نوم جيد، وارتدِ ملابس مريحة ذات أكمام قابلة للطي بسهولة.';
+
+  @override
+  String get faqEmergencyResponse => 'كيف أستجيب لطلبات الطوارئ؟';
+
+  @override
+  String get faqEmergencyResponseAnswer =>
+      'عندما يتطابق طلب الطوارئ مع فصيلة دمك، ستتلقى إشعارًا. اضغط عليه لعرض التفاصيل وتأكيد توافرك للتبرع.';
+
+  @override
+  String get faqChangeBloodType => 'كيف أغير فصيلة دمي؟';
+
+  @override
+  String get faqChangeBloodTypeAnswer =>
+      'اذهب إلى إعدادات الملف الشخصي واضغط على \"تعديل الملف الشخصي\". يمكنك تحديث فصيلة دمك هناك. تأكد من التحقق من سجلاتك الطبية الفعلية.';
+
+  @override
+  String get editProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get editProfileDescription =>
+      'قم بإجراء التعديلات على ملفك الشخصي هنا. اضغط حفظ عند الانتهاء.';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get saving => 'جارٍ الحفظ...';
+
+  @override
+  String get weight => 'الوزن';
+
+  @override
+  String get weightKg => 'الوزن (كجم)';
+
+  @override
+  String get age => 'العمر';
+
+  @override
+  String get gender => 'النوع';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
+  String get thanksHero => 'شكرًا لكونك بطلًا! 🎉';
+
+  @override
+  String thanksHeroDesc(Object donationsCount, Object livesSaved) {
+    return 'تبرعاتك الـ $donationsCount ساعدت في إنقاذ حوالي $livesSaved حياة. كل تبرع يحدث فرقًا!';
+  }
+
+  @override
+  String get logout => 'تسجيل الخروج';
+
+  @override
+  String get rewards_and_achievements => 'المكافآت والإنجازات';
+
+  @override
+  String get your_points => 'نقاطك';
+
+  @override
+  String get next_reward => 'المكافأة التالية';
+
+  @override
+  String get points_to_go => 'نقاط متبقية للوصول';
+
+  @override
+  String get badges => 'الإنجازات';
+
+  @override
+  String get success => 'نجاح';
+
+  @override
+  String get rewards_redeemed => 'تمت المطالبة بالمكافأة';
+
+  @override
+  String get you_have_successfully_redeemed =>
+      'لقد تمت عملية المطالبة بالمكافأة بنجاح';
+
+  @override
+  String get close => 'إغلاق';
+
+  @override
+  String get redeem_reward => 'المطالبة بالمكافأة';
+
+  @override
+  String get are_you_sure_you_want_to_redeem =>
+      'هل أنت متأكد انك تريد المطالبة بهذه المكافأة؟';
+
+  @override
+  String get redeem => 'المطالبة';
+
+  @override
+  String get badge_unlocked => 'تم تحقيقه';
+
+  @override
+  String get not_enough_points => 'ليس لديك نقاط كافية للمطالبة بهذه المكافأة';
+
+  @override
+  String get redeem_points => 'استبدال النقاط';
+
+  @override
+  String get coffee_voucher => 'قسيمة قهوة';
+
+  @override
+  String get movie_tickets => 'تذاكر فيلم';
+
+  @override
+  String get restaurant_gift_card => 'كارت هدية من مطعم';
+
+  @override
+  String get health_check_up => 'فحص الصحة';
+
+  @override
+  String get premium_badge => 'شارة المستخدم المميز';
+
+  @override
+  String get gym_membership => 'عضوية مركز تدريب رياضي';
+
+  @override
+  String get soon => 'قريبا';
+
+  @override
+  String get points_history => 'سجل النقاط';
+
+  @override
+  String get blood_donation => 'تبرع بالدم';
+
+  @override
+  String get days_ago => 'منذ 3 أيام';
+
+  @override
+  String get emergency_response => 'إجابة حالة طارئة';
+
+  @override
+  String get week_1_ago => 'منذ أسبوع';
+
+  @override
+  String get profile_completion => 'إكمال الملف الشخصي';
+
+  @override
+  String get weeks_2_ago => 'منذ أسبوعين';
+
+  @override
+  String get referral_bonus => 'مكافأة الإرشاد';
+
+  @override
+  String get weeks_3_ago => 'منذ 3 أسابيع';
+
+  @override
+  String get how_to_earn_points => 'كيف تجمع النقاط؟';
+
+  @override
+  String get donate_blood_points => 'التبرع بالدم: 200 نقطة';
+
+  @override
+  String get emergency_response_points => 'إجابة حالة طارئة: 100 نقطة';
+
+  @override
+  String get refer_to_friends_points => 'إرشاد صديق لاستخدام التطبيق: 150 نقطة';
+
+  @override
+  String get complete_profile_points => 'إكمال الملف الشخصي: 50 نقطة';
+
+  @override
+  String get your_badges => 'إنجازاتك';
+
+  @override
+  String get first_timer => 'التبرع الأول';
+
+  @override
+  String get completed_first_donation => 'أكملت أول تبرع لك';
+
+  @override
+  String get regular_donor => 'متبرع عادي';
+
+  @override
+  String get donated_5_times => 'تبرعت 5 مرات';
+
+  @override
+  String get life_saver => 'منقذ حياة';
+
+  @override
+  String get donated_10_times => 'تبرعت 10 مرات';
+
+  @override
+  String get hero => 'بطل';
+
+  @override
+  String get donated_20_times => 'تبرعت 20 مرة';
+
+  @override
+  String get legend => 'أسطوري';
+
+  @override
+  String get donated_50_times => 'تبرعت 50 مرة';
+
+  @override
+  String get emergency_responder => 'مجيب الطوارئ';
+
+  @override
+  String get responded_to_10_emergencies => 'أجبت على 10 حالات طارئة';
 }

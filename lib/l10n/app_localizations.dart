@@ -719,7 +719,7 @@ abstract class AppLocalizations {
   /// No description provided for @points.
   ///
   /// In en, this message translates to:
-  /// **'pts'**
+  /// **'Points'**
   String get points;
 
   /// No description provided for @livesSaved.
@@ -947,7 +947,7 @@ abstract class AppLocalizations {
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
-  /// **'Cancel'**
+  /// **'cancel'**
   String get cancel;
 
   /// No description provided for @donationMessage.
@@ -1399,6 +1399,1230 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Passwords do not match'**
   String get passwordsDoNotMatch;
+
+  /// No description provided for @readyToDonateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to Donate'**
+  String get readyToDonateTitle;
+
+  /// No description provided for @readyToDonateSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Every donation can save up to 3 lives'**
+  String get readyToDonateSubtitle;
+
+  /// No description provided for @donationTip1.
+  ///
+  /// In en, this message translates to:
+  /// **'Get a good night\'s sleep (7-8 hours)'**
+  String get donationTip1;
+
+  /// No description provided for @donationTip2.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat a healthy meal 2-3 hours before'**
+  String get donationTip2;
+
+  /// No description provided for @donationTip3.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink plenty of water (3-4 glasses)'**
+  String get donationTip3;
+
+  /// No description provided for @donationTip4.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid fatty foods before donation'**
+  String get donationTip4;
+
+  /// No description provided for @donationTip5.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring a valid photo ID'**
+  String get donationTip5;
+
+  /// No description provided for @donationTip6.
+  ///
+  /// In en, this message translates to:
+  /// **'Wear comfortable clothing'**
+  String get donationTip6;
+
+  /// No description provided for @scheduleDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule Donation'**
+  String get scheduleDonation;
+
+  /// No description provided for @confirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed'**
+  String get confirmed;
+
+  /// No description provided for @pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get pending;
+
+  /// No description provided for @reschedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Reschedule'**
+  String get reschedule;
+
+  /// No description provided for @appointmentCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment cancelled'**
+  String get appointmentCancelled;
+
+  /// No description provided for @rescheduleAppointmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reschedule Appointment'**
+  String get rescheduleAppointmentTitle;
+
+  /// No description provided for @rescheduleAppointmentMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Would you like to reschedule your donation appointment?'**
+  String get rescheduleAppointmentMessage;
+
+  /// No description provided for @chooseNewDateTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose New Date & Time'**
+  String get chooseNewDateTime;
+
+  /// No description provided for @cancelDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel Donation'**
+  String get cancelDonation;
+
+  /// No description provided for @upcomingAppointments.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Appointments'**
+  String get upcomingAppointments;
+
+  /// No description provided for @eligibleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re Eligible to Donate'**
+  String get eligibleTitle;
+
+  /// No description provided for @eligibleDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'You meet all eligibility requirements for blood donation.'**
+  String get eligibleDescription;
+
+  /// No description provided for @faqQuestion1.
+  ///
+  /// In en, this message translates to:
+  /// **'Does donating blood hurt?'**
+  String get faqQuestion1;
+
+  /// No description provided for @faqAnswer1.
+  ///
+  /// In en, this message translates to:
+  /// **'No, donating blood is a painless process.'**
+  String get faqAnswer1;
+
+  /// No description provided for @faqQuestion2.
+  ///
+  /// In en, this message translates to:
+  /// **'How long does the donation process take?'**
+  String get faqQuestion2;
+
+  /// No description provided for @faqAnswer2.
+  ///
+  /// In en, this message translates to:
+  /// **'The donation process typically takes about 30-45 minutes.'**
+  String get faqAnswer2;
+
+  /// No description provided for @faqQuestion3.
+  ///
+  /// In en, this message translates to:
+  /// **'When can I donate again?'**
+  String get faqQuestion3;
+
+  /// No description provided for @faqAnswer3.
+  ///
+  /// In en, this message translates to:
+  /// **'You can donate again after 8 weeks.'**
+  String get faqAnswer3;
+
+  /// No description provided for @faqQuestion4.
+  ///
+  /// In en, this message translates to:
+  /// **'What if I feel faint during donation?'**
+  String get faqQuestion4;
+
+  /// No description provided for @faqAnswer4.
+  ///
+  /// In en, this message translates to:
+  /// **'If you feel faint, let the staff know immediately.'**
+  String get faqAnswer4;
+
+  /// No description provided for @whatToExpect.
+  ///
+  /// In en, this message translates to:
+  /// **'What to Expect'**
+  String get whatToExpect;
+
+  /// No description provided for @instructionStep1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration & Health Check'**
+  String get instructionStep1Title;
+
+  /// No description provided for @instructionStep1Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick medical history and vital signs check'**
+  String get instructionStep1Subtitle;
+
+  /// No description provided for @instructionStep2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Process'**
+  String get instructionStep2Title;
+
+  /// No description provided for @instructionStep2Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Comfortable seating while you donate (30-45 min)'**
+  String get instructionStep2Subtitle;
+
+  /// No description provided for @instructionStep3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest & Refreshments'**
+  String get instructionStep3Title;
+
+  /// No description provided for @instructionStep3Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Relax with snacks and drinks before you go'**
+  String get instructionStep3Subtitle;
+
+  /// No description provided for @eligibilityRequirementsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Eligibility Requirements'**
+  String get eligibilityRequirementsTitle;
+
+  /// No description provided for @reqAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Age: 18–65'**
+  String get reqAge;
+
+  /// No description provided for @reqWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum weight 50 kg'**
+  String get reqWeight;
+
+  /// No description provided for @reqLastDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 3 months since last donation'**
+  String get reqLastDonation;
+
+  /// No description provided for @reqNoIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'No recent illness'**
+  String get reqNoIllness;
+
+  /// No description provided for @reqNoTattoos.
+  ///
+  /// In en, this message translates to:
+  /// **'No recent tattoos or piercings'**
+  String get reqNoTattoos;
+
+  /// No description provided for @minutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min ago'**
+  String minutesAgo(Object count);
+
+  /// No description provided for @hoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} h ago'**
+  String hoursAgo(Object count);
+
+  /// No description provided for @daysAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} d ago'**
+  String daysAgo(Object count);
+
+  /// No description provided for @gettingDistance.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting distance...'**
+  String get gettingDistance;
+
+  /// No description provided for @km.
+  ///
+  /// In en, this message translates to:
+  /// **'km'**
+  String get km;
+
+  /// No description provided for @kmAway.
+  ///
+  /// In en, this message translates to:
+  /// **'{distance} km away'**
+  String kmAway(Object distance);
+
+  /// No description provided for @hospitalLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Location'**
+  String get hospitalLocation;
+
+  /// No description provided for @loadingMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading map...'**
+  String get loadingMap;
+
+  /// No description provided for @oopsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Oops! Something went wrong'**
+  String get oopsError;
+
+  /// No description provided for @goBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Back'**
+  String get goBack;
+
+  /// No description provided for @bloodDonationCenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation Center'**
+  String get bloodDonationCenter;
+
+  /// No description provided for @directions.
+  ///
+  /// In en, this message translates to:
+  /// **'Directions'**
+  String get directions;
+
+  /// No description provided for @shareMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'🩸 LifeLink - Blood Donation Center\n\n📍 Location:\n{lat}, {lng}\n\n🗺 View on Google Maps:\n{link}\n\nBe a hero. Donate blood. Save lives ❤️'**
+  String shareMessage(Object lat, Object link, Object lng);
+
+  /// No description provided for @protectYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Protect Your Account'**
+  String get protectYourAccount;
+
+  /// No description provided for @twoFactorDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an extra layer of security by enabling two-factor authentication.'**
+  String get twoFactorDescription;
+
+  /// No description provided for @twoFactorSecurityInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Enabling 2FA significantly reduces the risk of unauthorized access, even if your password is compromised.'**
+  String get twoFactorSecurityInfo;
+
+  /// No description provided for @smsVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS Verification'**
+  String get smsVerification;
+
+  /// No description provided for @smsVerificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a code via text message'**
+  String get smsVerificationDescription;
+
+  /// No description provided for @authenticatorApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Authenticator App'**
+  String get authenticatorApp;
+
+  /// No description provided for @authenticatorAppDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Google Authenticator or Authy'**
+  String get authenticatorAppDescription;
+
+  /// No description provided for @emailVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Verification'**
+  String get emailVerification;
+
+  /// No description provided for @emailVerificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a code via email'**
+  String get emailVerificationDescription;
+
+  /// No description provided for @setupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Up'**
+  String get setupTitle;
+
+  /// No description provided for @twoFactorAuthTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Two-Factor Authentication'**
+  String get twoFactorAuthTitle;
+
+  /// No description provided for @verificationMethods.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Methods'**
+  String get verificationMethods;
+
+  /// No description provided for @infoBoxText.
+  ///
+  /// In en, this message translates to:
+  /// **'Enabling 2FA significantly reduces the risk of unauthorized access, even if your password is compromised.'**
+  String get infoBoxText;
+
+  /// No description provided for @smsVerificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS Verification'**
+  String get smsVerificationTitle;
+
+  /// No description provided for @smsVerificationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a code via text message'**
+  String get smsVerificationSubtitle;
+
+  /// No description provided for @authAppTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Authenticator App'**
+  String get authAppTitle;
+
+  /// No description provided for @authAppSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Google Authenticator or Authy'**
+  String get authAppSubtitle;
+
+  /// No description provided for @emailVerificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Verification'**
+  String get emailVerificationTitle;
+
+  /// No description provided for @emailVerificationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a code via email'**
+  String get emailVerificationSubtitle;
+
+  /// No description provided for @setupTitleSms.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Up SMS Verification'**
+  String get setupTitleSms;
+
+  /// No description provided for @setupTitleApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Up Authenticator App'**
+  String get setupTitleApp;
+
+  /// No description provided for @setupTitleEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Up Email Verification'**
+  String get setupTitleEmail;
+
+  /// No description provided for @setupDescSms.
+  ///
+  /// In en, this message translates to:
+  /// **'A 6-digit code will be sent to your registered phone number each time you log in.'**
+  String get setupDescSms;
+
+  /// No description provided for @setupDescApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Use an authenticator app like Google Authenticator or Authy to generate time-based codes.'**
+  String get setupDescApp;
+
+  /// No description provided for @setupDescEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'A verification link or code will be sent to your registered email address.'**
+  String get setupDescEmail;
+
+  /// No description provided for @donationHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation History'**
+  String get donationHistory;
+
+  /// No description provided for @viewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View All'**
+  String get viewAll;
+
+  /// No description provided for @blood.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood'**
+  String get blood;
+
+  /// No description provided for @completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completed;
+
+  /// No description provided for @passwordAndSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Password & Security'**
+  String get passwordAndSecurity;
+
+  /// No description provided for @changePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get changePassword;
+
+  /// No description provided for @twoFactorAuthentication.
+  ///
+  /// In en, this message translates to:
+  /// **'Two Factor Authentication'**
+  String get twoFactorAuthentication;
+
+  /// No description provided for @personalInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Information'**
+  String get personalInformation;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phone;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @bloodType.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Type'**
+  String get bloodType;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @pushNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Push Notifications'**
+  String get pushNotifications;
+
+  /// No description provided for @pushNotificationsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive notifications for requests'**
+  String get pushNotificationsDesc;
+
+  /// No description provided for @emergencyAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Alerts'**
+  String get emergencyAlerts;
+
+  /// No description provided for @emergencyAlertsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent blood requests nearby'**
+  String get emergencyAlertsDesc;
+
+  /// No description provided for @privacyAndSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & Security'**
+  String get privacyAndSecurity;
+
+  /// No description provided for @helpAndSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get helpAndSupport;
+
+  /// No description provided for @accountSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Settings'**
+  String get accountSettings;
+
+  /// No description provided for @changePasswordDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your current password and a new password to update your account.'**
+  String get changePasswordDescription;
+
+  /// No description provided for @currentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Password'**
+  String get currentPassword;
+
+  /// No description provided for @newPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get newPassword;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// Shows blood type followed by 'Donor'
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} Donor'**
+  String donorLabel(Object bloodType);
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @earned.
+  ///
+  /// In en, this message translates to:
+  /// **'Earned'**
+  String get earned;
+
+  /// No description provided for @totalDonations.
+  ///
+  /// In en, this message translates to:
+  /// **'total donations'**
+  String get totalDonations;
+
+  /// No description provided for @pdfViewer.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF Viewer'**
+  String get pdfViewer;
+
+  /// No description provided for @loadingPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading PDF...'**
+  String get loadingPdf;
+
+  /// No description provided for @pageOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Page {current} of {total}'**
+  String pageOf(Object current, Object total);
+
+  /// No description provided for @helpSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'re here to help'**
+  String get helpSubtitle;
+
+  /// No description provided for @getHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Help'**
+  String get getHelp;
+
+  /// No description provided for @contactSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Support'**
+  String get contactSupport;
+
+  /// No description provided for @chatSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat with our support team'**
+  String get chatSupport;
+
+  /// No description provided for @emailUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Us'**
+  String get emailUs;
+
+  /// No description provided for @documentation.
+  ///
+  /// In en, this message translates to:
+  /// **'Documentation'**
+  String get documentation;
+
+  /// No description provided for @userGuides.
+  ///
+  /// In en, this message translates to:
+  /// **'User guides and tutorials'**
+  String get userGuides;
+
+  /// No description provided for @emailBodyRequestDocumentation.
+  ///
+  /// In en, this message translates to:
+  /// **'I would like to request documentation on how to donate blood.'**
+  String get emailBodyRequestDocumentation;
+
+  /// No description provided for @documentationRequestSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Documentation Request'**
+  String get documentationRequestSubject;
+
+  /// No description provided for @whatsappHelpMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, I need assistance'**
+  String get whatsappHelpMessage;
+
+  /// No description provided for @popularTopicsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular Topics'**
+  String get popularTopicsTitle;
+
+  /// No description provided for @topicDonateBlood.
+  ///
+  /// In en, this message translates to:
+  /// **'How to donate blood?'**
+  String get topicDonateBlood;
+
+  /// No description provided for @topicEligibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Eligibility requirements'**
+  String get topicEligibility;
+
+  /// No description provided for @topicEarnPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'How to earn points?'**
+  String get topicEarnPoints;
+
+  /// No description provided for @topicEmergencies.
+  ///
+  /// In en, this message translates to:
+  /// **'Responding to emergencies'**
+  String get topicEmergencies;
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About LifeLink'**
+  String get aboutTitle;
+
+  /// No description provided for @aboutVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get aboutVersion;
+
+  /// No description provided for @aboutLastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Updated'**
+  String get aboutLastUpdated;
+
+  /// No description provided for @faqTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently Asked Questions'**
+  String get faqTitle;
+
+  /// No description provided for @faqHowToDonate.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I donate blood?'**
+  String get faqHowToDonate;
+
+  /// No description provided for @faqHowToDonateAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'To donate blood, find a nearby donation center through the app, schedule an appointment, and make sure you meet the eligibility requirements. Stay hydrated and eat a healthy meal before donating.'**
+  String get faqHowToDonateAnswer;
+
+  /// No description provided for @faqEligibility.
+  ///
+  /// In en, this message translates to:
+  /// **'What are the eligibility requirements?'**
+  String get faqEligibility;
+
+  /// No description provided for @faqEligibilityAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'You must be at least 17 years old, weigh at least 50 kg, be in good general health, and not have donated blood in the last 56 days. Certain medical conditions or medications may affect eligibility.'**
+  String get faqEligibilityAnswer;
+
+  /// No description provided for @faqEarnPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I earn reward points?'**
+  String get faqEarnPoints;
+
+  /// No description provided for @faqEarnPointsAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'You earn points each time you donate blood, refer a friend, complete your profile, or respond to emergency requests. Points can be redeemed for rewards in the app.'**
+  String get faqEarnPointsAnswer;
+
+  /// No description provided for @faqDonationFrequency.
+  ///
+  /// In en, this message translates to:
+  /// **'How often can I donate blood?'**
+  String get faqDonationFrequency;
+
+  /// No description provided for @faqDonationFrequencyAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Whole blood can be donated every 56 days (8 weeks). Platelets can be donated every 7 days, up to 24 times per year. Plasma can be donated every 28 days.'**
+  String get faqDonationFrequencyAnswer;
+
+  /// No description provided for @faqBeforeDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'What should I do before donating?'**
+  String get faqBeforeDonation;
+
+  /// No description provided for @faqBeforeDonationAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink plenty of water, eat a healthy meal, avoid fatty foods, get a good night\'s sleep, and wear comfortable clothing with sleeves that can be rolled up easily.'**
+  String get faqBeforeDonationAnswer;
+
+  /// No description provided for @faqEmergencyResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I respond to emergency requests?'**
+  String get faqEmergencyResponse;
+
+  /// No description provided for @faqEmergencyResponseAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'When an emergency request matches your blood type, you will receive a push notification. Tap on it to view the details and confirm your availability to donate.'**
+  String get faqEmergencyResponseAnswer;
+
+  /// No description provided for @faqChangeBloodType.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I change my blood type?'**
+  String get faqChangeBloodType;
+
+  /// No description provided for @faqChangeBloodTypeAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to your profile settings and tap on \"Edit Profile\". You can update your blood type there. Make sure to verify with your actual medical records.'**
+  String get faqChangeBloodTypeAnswer;
+
+  /// No description provided for @editProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get editProfile;
+
+  /// No description provided for @editProfileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Make changes to your profile here. Click save when you\'re done.'**
+  String get editProfileDescription;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @saving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving...'**
+  String get saving;
+
+  /// No description provided for @weight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get weight;
+
+  /// No description provided for @weightKg.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight (kg)'**
+  String get weightKg;
+
+  /// No description provided for @age.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get age;
+
+  /// No description provided for @gender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get gender;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @thanksHero.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank You for Being a Hero! 🎉'**
+  String get thanksHero;
+
+  /// No description provided for @thanksHeroDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Your {donationsCount} donations have helped save approximately {livesSaved} lives. Every donation makes a difference!'**
+  String thanksHeroDesc(Object donationsCount, Object livesSaved);
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
+
+  /// No description provided for @rewards_and_achievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards & Achievements'**
+  String get rewards_and_achievements;
+
+  /// No description provided for @your_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Points'**
+  String get your_points;
+
+  /// No description provided for @next_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Reward'**
+  String get next_reward;
+
+  /// No description provided for @points_to_go.
+  ///
+  /// In en, this message translates to:
+  /// **'pts to go'**
+  String get points_to_go;
+
+  /// No description provided for @badges.
+  ///
+  /// In en, this message translates to:
+  /// **'Badges'**
+  String get badges;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
+  /// No description provided for @rewards_redeemed.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards Redeemed'**
+  String get rewards_redeemed;
+
+  /// No description provided for @you_have_successfully_redeemed.
+  ///
+  /// In en, this message translates to:
+  /// **'You have successfully redeemed your reward'**
+  String get you_have_successfully_redeemed;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @redeem_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'Redeem Reward'**
+  String get redeem_reward;
+
+  /// No description provided for @are_you_sure_you_want_to_redeem.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to redeem this reward?'**
+  String get are_you_sure_you_want_to_redeem;
+
+  /// No description provided for @redeem.
+  ///
+  /// In en, this message translates to:
+  /// **'Redeem'**
+  String get redeem;
+
+  /// No description provided for @badge_unlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked'**
+  String get badge_unlocked;
+
+  /// No description provided for @not_enough_points.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t have enough points to redeem this reward'**
+  String get not_enough_points;
+
+  /// No description provided for @redeem_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Redeem Points'**
+  String get redeem_points;
+
+  /// No description provided for @coffee_voucher.
+  ///
+  /// In en, this message translates to:
+  /// **'Coffee Voucher'**
+  String get coffee_voucher;
+
+  /// No description provided for @movie_tickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Movie Tickets'**
+  String get movie_tickets;
+
+  /// No description provided for @restaurant_gift_card.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurant Gift Card'**
+  String get restaurant_gift_card;
+
+  /// No description provided for @health_check_up.
+  ///
+  /// In en, this message translates to:
+  /// **'Health Check-Up'**
+  String get health_check_up;
+
+  /// No description provided for @premium_badge.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Badge'**
+  String get premium_badge;
+
+  /// No description provided for @gym_membership.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym Membership'**
+  String get gym_membership;
+
+  /// No description provided for @soon.
+  ///
+  /// In en, this message translates to:
+  /// **'Soon'**
+  String get soon;
+
+  /// No description provided for @points_history.
+  ///
+  /// In en, this message translates to:
+  /// **'Points History'**
+  String get points_history;
+
+  /// No description provided for @blood_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation'**
+  String get blood_donation;
+
+  /// No description provided for @days_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'3 days ago'**
+  String get days_ago;
+
+  /// No description provided for @emergency_response.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Response'**
+  String get emergency_response;
+
+  /// No description provided for @week_1_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'1 week ago'**
+  String get week_1_ago;
+
+  /// No description provided for @profile_completion.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Completion'**
+  String get profile_completion;
+
+  /// No description provided for @weeks_2_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'2 weeks ago'**
+  String get weeks_2_ago;
+
+  /// No description provided for @referral_bonus.
+  ///
+  /// In en, this message translates to:
+  /// **'Referral Bonus'**
+  String get referral_bonus;
+
+  /// No description provided for @weeks_3_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'3 weeks ago'**
+  String get weeks_3_ago;
+
+  /// No description provided for @how_to_earn_points.
+  ///
+  /// In en, this message translates to:
+  /// **'How To Earn Points?'**
+  String get how_to_earn_points;
+
+  /// No description provided for @donate_blood_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation: 200 pts'**
+  String get donate_blood_points;
+
+  /// No description provided for @emergency_response_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Response: 100 pts'**
+  String get emergency_response_points;
+
+  /// No description provided for @refer_to_friends_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Refer a Friend: 150 pts'**
+  String get refer_to_friends_points;
+
+  /// No description provided for @complete_profile_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Profile: 50 pts'**
+  String get complete_profile_points;
+
+  /// No description provided for @your_badges.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Badges'**
+  String get your_badges;
+
+  /// No description provided for @first_timer.
+  ///
+  /// In en, this message translates to:
+  /// **'First Timer'**
+  String get first_timer;
+
+  /// No description provided for @completed_first_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed your first donation'**
+  String get completed_first_donation;
+
+  /// No description provided for @regular_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Regular Donor'**
+  String get regular_donor;
+
+  /// No description provided for @donated_5_times.
+  ///
+  /// In en, this message translates to:
+  /// **'Donated 5 times'**
+  String get donated_5_times;
+
+  /// No description provided for @life_saver.
+  ///
+  /// In en, this message translates to:
+  /// **'Life Saver'**
+  String get life_saver;
+
+  /// No description provided for @donated_10_times.
+  ///
+  /// In en, this message translates to:
+  /// **'Donated 10 times'**
+  String get donated_10_times;
+
+  /// No description provided for @hero.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero'**
+  String get hero;
+
+  /// No description provided for @donated_20_times.
+  ///
+  /// In en, this message translates to:
+  /// **'Donated 20 times'**
+  String get donated_20_times;
+
+  /// No description provided for @legend.
+  ///
+  /// In en, this message translates to:
+  /// **'Legend'**
+  String get legend;
+
+  /// No description provided for @donated_50_times.
+  ///
+  /// In en, this message translates to:
+  /// **'Donated 50 times'**
+  String get donated_50_times;
+
+  /// No description provided for @emergency_responder.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Responder'**
+  String get emergency_responder;
+
+  /// No description provided for @responded_to_10_emergencies.
+  ///
+  /// In en, this message translates to:
+  /// **'Responded to 10 Emergencies'**
+  String get responded_to_10_emergencies;
 }
 
 class _AppLocalizationsDelegate
