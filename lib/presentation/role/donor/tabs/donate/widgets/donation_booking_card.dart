@@ -8,7 +8,7 @@ import 'package:intl/intl.dart' as intl;
 
 import '../../../../../../core/resources/routes/route_manger.dart';
 import '../../../../../../l10n/app_localizations.dart';
-import '../../find/widgets/info_row.dart';
+import '../../find_hospital/widgets/info_row.dart';
 import '../schedule_donation/model/donation_booking_card.dart';
 
 class DonationBookingCard extends StatelessWidget {

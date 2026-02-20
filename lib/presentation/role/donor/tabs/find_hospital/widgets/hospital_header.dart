@@ -1,10 +1,10 @@
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/widgets/hospital_icon.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/widgets/hospital_info.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../../core/resources/colors/color_manger.dart';
 import '../model/hospital_request_model.dart';
+import 'hospital_icon.dart';
+import 'hospital_info.dart';
 
 
 class HospitalHeader extends StatelessWidget {

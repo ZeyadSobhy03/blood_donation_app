@@ -2,7 +2,8 @@ import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/widgets/info_row.dart';
+import 'info_row.dart';
+
 
 class HospitalExtraInfo extends StatelessWidget {
   const HospitalExtraInfo({

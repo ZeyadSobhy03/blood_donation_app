@@ -452,7 +452,9 @@
   "legend": "Legend",
   "donated_50_times": "Donated 50 times",
   "emergency_responder":"Emergency Responder",
-  "responded_to_10_emergencies": "Responded to 10 Emergencies"
+  "responded_to_10_emergencies": "Responded to 10 Emergencies",
+  "history": "History",
+  "request": "Request"
 
 
 

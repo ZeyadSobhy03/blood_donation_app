@@ -4,7 +4,7 @@ import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/schedule_donation.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/main_layout.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donor_main_layout.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/notifications.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/help_and_support/screen/pdf_viewer_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/privacy_and_security/privacy_and_security.dart';
@@ -20,6 +20,7 @@ import '../../../presentation/authentication/hospital_authentication/hospital_au
 import '../../../presentation/maps/maps.dart';
 import '../../../presentation/role/donor/tabs/donation_history/donation_history.dart';
 import '../../../presentation/role/donor/tabs/profile/help_and_support/screen/help_and_support_screen.dart';
+import '../../../presentation/role/hospital/tabs/hospital_main_layout.dart';
 import '../../../presentation/splash_screen/splash_screen.dart';
 
 class RouteManger {
@@ -42,6 +43,7 @@ class RouteManger {
 
   static const String helpAndSupport = '/helpAndSupport';
   static const String pdfViewer = '/pdfViewer';
+  static const String hospitalMainLayout = '/hospitalMainLayout';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -76,6 +78,9 @@ class RouteManger {
 
       case chooseRole:
         return MaterialPageRoute(builder: (context) => ChooseRole());
+
+      case hospitalMainLayout:
+        return MaterialPageRoute(builder: (context) => HospitalMainLayout());
 
       case donorMainLayout:
         return MaterialPageRoute(builder: (context) => MainLayout());

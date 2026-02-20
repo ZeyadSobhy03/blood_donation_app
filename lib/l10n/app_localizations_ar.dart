@@ -1344,4 +1344,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get responded_to_10_emergencies => 'أجبت على 10 حالات طارئة';
+
+  @override
+  String get history => 'التاريخ';
+
+  @override
+  String get request => 'الطلب';
 }

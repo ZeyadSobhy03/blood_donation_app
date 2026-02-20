@@ -1,9 +1,10 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/model/hospital_request_model.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/widgets/hospital_actions.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/widgets/hospital_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../model/hospital_request_model.dart';
+import '../widgets/hospital_actions.dart';
+import '../widgets/hospital_header.dart';
 
 class HospitalCard extends StatelessWidget {
   const HospitalCard({super.key, required this.hospitalRequestModel});

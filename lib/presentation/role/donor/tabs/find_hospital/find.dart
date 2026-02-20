@@ -3,9 +3,9 @@ import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/section/blood_filter.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/section/hospital_card.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/widgets/custom_hospital_button.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/find_hospital/section/blood_filter.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/find_hospital/section/hospital_card.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/find_hospital/widgets/custom_hospital_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

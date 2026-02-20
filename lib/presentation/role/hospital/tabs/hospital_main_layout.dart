@@ -1,34 +1,39 @@
-import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/donate.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/find/find.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/home/home.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/profile/profile.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/rewards_screen.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/find_donor.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/history/history.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/home/home.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/profile.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/request/request.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/resources/colors/color_manger.dart';
 import '../../../../l10n/app_localizations.dart';
 
-class MainLayout extends StatefulWidget {
-  const MainLayout({super.key});
+class HospitalMainLayout extends StatefulWidget {
+  const HospitalMainLayout({super.key});
 
   @override
-  State<MainLayout> createState() => _MainLayoutState();
+  State<HospitalMainLayout> createState() => _HospitalMainLayoutState();
 }
 
-class _MainLayoutState extends State<MainLayout> {
+class _HospitalMainLayoutState extends State<HospitalMainLayout> {
   int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
-
-    List<Widget> tabs = [Home(), FindHospital(), Donate(), RewardsScreen(), Profile()];
-
-    return Scaffold(
+    final List<Widget> tabs = [
+      Home(),
+      FindDonor(),
+      Request(),
+      History(),
+      Profile(),
+    ];
+    return  Scaffold(
       backgroundColor: ColorManger.pureWhite,
       body: tabs[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
 
-        selectedItemColor: ColorManger.brightRed,
+        selectedItemColor: ColorManger.royalBlue,
         unselectedItemColor: ColorManger.slateGrey,
         currentIndex: currentIndex,
         onTap: (index) {
@@ -49,11 +54,11 @@ class _MainLayoutState extends State<MainLayout> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border_outlined),
-            label: appLocalizations.donate,
+            label: appLocalizations.request,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.military_tech),
-            label: appLocalizations.rewards,
+            icon: Icon(Icons.assignment_outlined),
+            label: appLocalizations.history,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),

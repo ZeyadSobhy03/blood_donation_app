@@ -2623,6 +2623,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Responded to 10 Emergencies'**
   String get responded_to_10_emergencies;
+
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @request.
+  ///
+  /// In en, this message translates to:
+  /// **'Request'**
+  String get request;
 }
 
 class _AppLocalizationsDelegate

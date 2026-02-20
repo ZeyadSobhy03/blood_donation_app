@@ -504,7 +504,9 @@
   "legend": "أسطوري",
   "donated_50_times": "تبرعت 50 مرة",
   "emergency_responder":"مجيب الطوارئ",
-  "responded_to_10_emergencies": "أجبت على 10 حالات طارئة"
+  "responded_to_10_emergencies": "أجبت على 10 حالات طارئة",
+  "history": "التاريخ",
+  "request": "الطلب"
 
 
 
