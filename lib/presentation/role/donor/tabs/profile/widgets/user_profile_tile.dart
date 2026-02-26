@@ -63,7 +63,7 @@ class UserProfileTile extends StatelessWidget {
                 SizedBox(height: 4.h),
                 ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxWidth: 120.w,
+                    maxWidth: 150.w,
 
 
                   ),
@@ -97,14 +97,14 @@ class UserProfileTile extends StatelessWidget {
                 context: context,
                 builder: (context) {
                   return EditProfileDialog(
-                    initialName: 'Sarah Johnson',
-                    initialEmail: 'sarah.j@email.com',
-                    initialPhone: '+1 (555) 123-4567',
-                    initialLocation: 'San Francisco, CA',
+                    initialName: 'Ziyad Sobhy',
+                    initialEmail: 'Ziyad.Sobhy@email.com',
+                    initialPhone: '+201141935341',
+                    initialLocation: 'Cairo, Egypt',
                     initialBloodType: 'O+',
                     initialWeight: '65',
                     initialAge: '28',
-                    initialGender: 'Female',
+                    initialGender: 'Male',
                   );
                 },
               );

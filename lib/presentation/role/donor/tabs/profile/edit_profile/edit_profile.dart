@@ -1,5 +1,4 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-
 import 'package:blood_donation_app/core/widgets/loading_container.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/edit_profile/section/edit_body.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/edit_profile/section/edit_header.dart';
@@ -41,17 +40,10 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
   late TextEditingController _weightController;
   late TextEditingController _ageController;
 
-  String _selectedGender = 'Female';
-  final List<String> _genders = ['Male', 'Female', 'Other'];
+  late String _selectedGender;
+
   final List<String> _bloodTypes = [
-    'A+',
-    'A-',
-    'B+',
-    'B-',
-    'O+',
-    'O-',
-    'AB+',
-    'AB-',
+    'A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-',
   ];
 
   bool _isLoading = false;
@@ -83,8 +75,6 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
 
   Future<void> _handleSave() async {
     setState(() => _isLoading = true);
-
-    // Simulate API call
     await Future.delayed(const Duration(milliseconds: 1200));
 
     if (mounted) {
@@ -96,7 +86,7 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
         'bloodType': _bloodTypeController.text,
         'weight': _weightController.text,
         'age': _ageController.text,
-        'gender': _selectedGender,
+        'gender': _selectedGender, // English value
       });
     }
   }
@@ -105,11 +95,11 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       child: LayoutBuilder(
         builder: (context, constraints) {
           return ConstrainedBox(
-            constraints: BoxConstraints(
+            constraints: const BoxConstraints(
               minWidth: 300,
               maxWidth: 400,
               maxHeight: 600,
@@ -127,9 +117,7 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          // Header
                           EditHeader(),
-
                           EditBody(
                             nameController: _nameController,
                             emailController: _emailController,
@@ -138,12 +126,12 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
                             bloodTypeController: _bloodTypeController,
                             weightController: _weightController,
                             ageController: _ageController,
-                            selectedGender: _selectedGender,
+                            selectedGender: _selectedGender, // English
                             bloodTypes: _bloodTypes,
-                            genders: _genders,
+                            onGenderChanged: (value) {
+                              setState(() => _selectedGender = value); // English
+                            },
                           ),
-
-                          // Buttons
                           EditNavigation(
                             isLoading: _isLoading,
                             handelSave: _handleSave,
@@ -152,8 +140,6 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
                       ),
                     ),
                   ),
-
-                  // Loading Overlay
                   if (_isLoading) LoadingContainer(),
                 ],
               ),

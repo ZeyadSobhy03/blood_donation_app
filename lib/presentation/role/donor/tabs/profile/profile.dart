@@ -36,8 +36,8 @@ class Profile extends StatelessWidget {
                 child: Column(
                   children: [
                     UserProfileTile(
-                      name: 'John Doe',
-                      email: 'john.doe@example.com',
+                      name: 'Ziyad sobhy',
+                      email: 'ziyad@gmail.com',
                       bloodType: 'A+',
                     ),
                     HomeStatsRow(

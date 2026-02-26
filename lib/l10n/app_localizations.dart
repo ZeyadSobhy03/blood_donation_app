@@ -2635,6 +2635,348 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Request'**
   String get request;
+
+  /// No description provided for @blood_request_dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Request Dashboard'**
+  String get blood_request_dashboard;
+
+  /// No description provided for @active_requests.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Requests'**
+  String get active_requests;
+
+  /// No description provided for @responses_today.
+  ///
+  /// In en, this message translates to:
+  /// **'Responses Today'**
+  String get responses_today;
+
+  /// No description provided for @emergency_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Request'**
+  String get emergency_request;
+
+  /// No description provided for @emergency_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Need blood urgently? Send immediate alerts to nearby donors.'**
+  String get emergency_description;
+
+  /// No description provided for @create_emergency_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Emergency Request'**
+  String get create_emergency_request;
+
+  /// No description provided for @emergency_blood_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Blood Request'**
+  String get emergency_blood_request;
+
+  /// No description provided for @emergency_blood_request_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter details for the emergency blood request.'**
+  String get emergency_blood_request_desc;
+
+  /// No description provided for @blood_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Type'**
+  String get blood_type;
+
+  /// No description provided for @select_blood_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Blood Type'**
+  String get select_blood_type;
+
+  /// No description provided for @units_needed.
+  ///
+  /// In en, this message translates to:
+  /// **'Units Needed'**
+  String get units_needed;
+
+  /// No description provided for @enter_units_needed.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter number of units needed'**
+  String get enter_units_needed;
+
+  /// No description provided for @urgency.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgency'**
+  String get urgency;
+
+  /// No description provided for @select_urgency.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Urgency Level'**
+  String get select_urgency;
+
+  /// No description provided for @submit_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Request'**
+  String get submit_request;
+
+  /// No description provided for @urgency_low.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get urgency_low;
+
+  /// No description provided for @urgency_medium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get urgency_medium;
+
+  /// No description provided for @urgency_high.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get urgency_high;
+
+  /// No description provided for @recent_activity.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Activity'**
+  String get recent_activity;
+
+  /// No description provided for @privacy_Security.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & Security'**
+  String get privacy_Security;
+
+  /// No description provided for @mange_your_privacy_settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your privacy settings'**
+  String get mange_your_privacy_settings;
+
+  /// No description provided for @all_blood_type.
+  ///
+  /// In en, this message translates to:
+  /// **'All Blood Types'**
+  String get all_blood_type;
+
+  /// No description provided for @clear_filters.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Filters'**
+  String get clear_filters;
+
+  /// No description provided for @female.
+  ///
+  /// In en, this message translates to:
+  /// **'Female'**
+  String get female;
+
+  /// No description provided for @male.
+  ///
+  /// In en, this message translates to:
+  /// **'Male'**
+  String get male;
+
+  /// No description provided for @view_details.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get view_details;
+
+  /// No description provided for @contact_donors.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Donors'**
+  String get contact_donors;
+
+  /// No description provided for @responses.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} responses'**
+  String responses(Object count);
+
+  /// No description provided for @hours_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hours ago'**
+  String hours_ago(Object count);
+
+  /// No description provided for @unit_needed.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} units needed'**
+  String unit_needed(Object count);
+
+  /// No description provided for @time_left.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hours left'**
+  String time_left(Object count);
+
+  /// No description provided for @time_left_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Time Left'**
+  String get time_left_label;
+
+  /// No description provided for @response.
+  ///
+  /// In en, this message translates to:
+  /// **'Response'**
+  String get response;
+
+  /// No description provided for @donors_have_responded.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} donors have responded'**
+  String donors_have_responded(Object count);
+
+  /// No description provided for @units_needed_count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} units needed'**
+  String units_needed_count(Object count);
+
+  /// No description provided for @request_details.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Details'**
+  String get request_details;
+
+  /// No description provided for @request_details_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Details of the emergency blood request'**
+  String get request_details_desc;
+
+  /// No description provided for @contact_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Donor'**
+  String get contact_donor;
+
+  /// No description provided for @contact_donor_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Available donors matching your blood request'**
+  String get contact_donor_desc;
+
+  /// No description provided for @request_for.
+  ///
+  /// In en, this message translates to:
+  /// **'Request for'**
+  String get request_for;
+
+  /// No description provided for @message.
+  ///
+  /// In en, this message translates to:
+  /// **'Message'**
+  String get message;
+
+  /// No description provided for @hospital_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, I am representing a hospital in need of blood and I would like to discuss how you can help.'**
+  String get hospital_message;
+
+  /// No description provided for @available_donors.
+  ///
+  /// In en, this message translates to:
+  /// **'Available Donors({count})'**
+  String available_donors(Object count);
+
+  /// No description provided for @nearby_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearby Donors (5km radius)'**
+  String get nearby_donor;
+
+  /// No description provided for @change_location.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Location'**
+  String get change_location;
+
+  /// No description provided for @change_location_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your new location:'**
+  String get change_location_desc;
+
+  /// No description provided for @address.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
+
+  /// No description provided for @city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// No description provided for @state.
+  ///
+  /// In en, this message translates to:
+  /// **'State'**
+  String get state;
+
+  /// No description provided for @zip_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Zip Code'**
+  String get zip_code;
+
+  /// No description provided for @enter_address.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your address'**
+  String get enter_address;
+
+  /// No description provided for @enter_city.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your city'**
+  String get enter_city;
+
+  /// No description provided for @enter_state.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your state'**
+  String get enter_state;
+
+  /// No description provided for @enter_zip_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your zip code'**
+  String get enter_zip_code;
+
+  /// No description provided for @donor_available.
+  ///
+  /// In en, this message translates to:
+  /// **'{distance} km away'**
+  String donor_available(Object distance);
+
+  /// No description provided for @donors.
+  ///
+  /// In en, this message translates to:
+  /// **'donors'**
+  String get donors;
+
+  /// No description provided for @complete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get complete;
 }
 
 class _AppLocalizationsDelegate

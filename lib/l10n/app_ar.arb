@@ -24,58 +24,45 @@
   "role_blood_donor_title": "متبرع بالدم",
   "role_blood_donor_desc": "سجل كمتبرع، تتبع التبرعات، واحصل على مكافآت",
   "role_blood_donor_button": "استمر كمتبرع بالدم",
-
   "role_hospital_title": "مستشفى / مريض",
   "role_hospital_desc": "اطلب الدم، اعثر على المتبرعين القريبين، إدارة الطلبات",
   "role_hospital_button": "استمر كمستشفى / مريض",
-
   "role_admin_title": "المسؤول",
   "role_admin_desc": "إدارة المستخدمين، متابعة التبرعات، الإشراف على النظام",
   "role_admin_button": "استمر كمسؤول",
   "reviewConfirmTitle": "مراجعة وتأكيد",
   "reviewConfirmSubtitle": "من فضلك راجع تفاصيل موعد التبرع",
-
   "beforeYouDonate": "قبل التبرع",
-
   "donationTipEat": "تناول وجبة صحية قبل التبرع",
   "donationTipWater": "اشرب كمية كافية من الماء",
   "donationTipId": "أحضر بطاقة هوية سارية",
   "donationTipSleep": "احصل على قسط كافٍ من النوم",
-
   "confirmAppointment": "تأكيد الموعد",
   "chooseLocationTitle": "اختر الموقع",
   "chooseLocationSubtitle": "أين تود التبرع؟",
   "selectDateTimeTitle": "اختيار التاريخ والوقت",
   "selectDateTimeSubtitle": "متى تود التبرع؟",
-
   "selectDateLabel": "اختر التاريخ",
   "selectTimeLabel": "اختر الوقت",
   "donationTypeLabel": "نوع التبرع",
-
   "datePlaceholder": "يوم / شهر / سنة",
-
   "continueStep": "متابعة",
   "confirmDetailsTitle": "تأكيد البيانات",
   "confirmDetailsSubtitle": "من فضلك تأكد من صحة بياناتك",
-
   "firstNameLabel": "الاسم الأول",
   "lastNameLabel": "اسم العائلة",
   "phoneNumberLabel": "رقم الهاتف",
   "emailAddressLabel": "البريد الإلكتروني",
-
   "firstNameHint": "زياد",
   "lastNameHint": "صبحي",
   "phoneHint": "01XXXXXXXXX",
   "emailHint": "ziyad@gmail.com",
   "appointmentConfirmedTitle": "تم تأكيد الموعد!",
   "appointmentConfirmedSubtitle": "تم جدولة موعد التبرع بنجاح",
-
   "whatsNextTitle": "ماذا بعد؟",
-
   "nextStepEmail": "ستصلك رسالة تأكيد عبر البريد الإلكتروني",
   "nextStepReminder": "سنرسل لك تذكيرًا قبل الموعد بـ 24 ساعة",
   "nextStepId": "أحضر بطاقة هوية سارية يوم التبرع",
-
   "backToHome": "العودة للرئيسية",
   "addToCalendar": "إضافة إلى التقويم",
   "scheduleDonationTitle": "جدولة التبرع",
@@ -164,7 +151,6 @@
   "openInGoogleMap": "افتح في خرائط جوجل",
   "openInAppleMap": "افتح في خرائط أبل",
   "navigate": "انتقال",
-
   "donor_login_title": "تسجيل دخول المتبرع",
   "donor_login_subtitle": "تطبيق التبرع بالدم من LifeLink",
   "donor_login_card_title": "سجل الدخول لحسابك",
@@ -174,8 +160,6 @@
   "donor_login_button": "تسجيل الدخول",
   "donor_dont_have_account": "ليس لديك حساب؟",
   "donor_register_now": "أنشئ حساب",
-
-
   "donor_register_title": "إنشاء حساب لمتبرع",
   "full_name": "الاسم الكامل",
   "phone_number": "الهاتف",
@@ -185,14 +169,10 @@
   "city_state": "المدينة، المحافظة",
   "confirm_password": "تأكيد كلمة المرور",
   "already_have_account": "بالفعل لديك حساب؟",
-
-
   "donor_forget_password_title": "تغيير كلمة المرور",
   "donor_forget_password_text": "أدخل بريدك الإلكتروني وسوف يصلك رابط تغيير كلمة المرور",
   "donor_send_reset_link": "إرسال رابط التغيير",
   "donor_back_to_login": "العودة لتسجيل الدخول",
-
-
   "please_enter_email": "الرجاء إدخال البريد الإلكتروني",
   "please_enter_password": "الرجاء إدخال كلمة المرور",
   "please_enter_fullname": "الرجاء إدخال الاسم الكامل",
@@ -204,8 +184,6 @@
   "please_enter_secure_password": "الرجاء إدخال كلمة المرور الآمنة",
   "please_enter_admin_access_key": "الرجاء إدخال مفتاح دخول المسؤول",
   "please_enter_admin_email": "الرجاء إدخال البريد الإلكتروني للمسؤول",
-
-
   "hospital_portal": "دخول المستشفى/المريض",
   "authorized_access_only": "الدخول للمصرح لهم فقط",
   "secure_login": "الدخول الآمن",
@@ -216,8 +194,6 @@
   "new_hospital_patient": "مستشفى/مريض جديد؟",
   "hospital_contact_text_1": " تواصل مع فريقنا الإداري عبر البريد الإلكتروني",
   "hospital_contact_text_2": "لكي تسجل مؤسستك أو تطلب الدخول ",
-
-
   "admin_portal": "دخول المسؤول",
   "system_management_access": "منطقة دخول إدارة النظام",
   "restricted_access_area": "منطقة محظورة لغير المسؤولين",
@@ -242,26 +218,19 @@
   "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
   "readyToDonateTitle": "استعد للتبرع",
   "readyToDonateSubtitle": "كل تبرع يمكن أن ينقذ حتى 3 أرواح",
-
-
   "donationTip1": "احصل على نوم كافٍ (7-8 ساعات)",
   "donationTip2": "تناول وجبة صحية قبل التبرع بـ 2-3 ساعات",
   "donationTip3": "اشرب كمية كافية من الماء (3-4 أكواب)",
   "donationTip4": "تجنب الأطعمة الدسمة قبل التبرع",
   "donationTip5": "أحضر بطاقة هوية سارية",
   "donationTip6": "ارتدِ ملابس مريحة",
-
   "scheduleDonation": "جدولة التبرع",
   "confirmed": "مؤكد",
   "pending": "قيد الانتظار",
-
   "reschedule": "إعادة الجدولة",
-
   "appointmentCancelled": "تم إلغاء الموعد",
-
   "rescheduleAppointmentTitle": "إعادة جدولة الموعد",
   "rescheduleAppointmentMessage": "هل ترغب في إعادة جدولة موعد التبرع الخاص بك؟",
-
   "chooseNewDateTime": "اختيار تاريخ ووقت جديد",
   "cancelDonation": "إلغاء التبرع",
   "upcomingAppointments": "المواعيد القادمة",
@@ -269,23 +238,17 @@
   "eligibleDescription": "أنت تستوفي جميع شروط الأهلية للتبرع بالدم.",
   "faqQuestion1": "هل التبرع بالدم مؤلم؟",
   "faqAnswer1": "لا، التبرع بالدم عملية غير مؤلمة.",
-
   "faqQuestion2": "كم تستغرق عملية التبرع؟",
   "faqAnswer2": "تستغرق عملية التبرع عادة من 30 إلى 45 دقيقة.",
-
   "faqQuestion3": "متى يمكنني التبرع مرة أخرى؟",
   "faqAnswer3": "يمكنك التبرع مرة أخرى بعد 8 أسابيع.",
-
   "faqQuestion4": "ماذا أفعل إذا شعرت بدوار أثناء التبرع؟",
   "faqAnswer4": "إذا شعرت بدوار، أخبر الطاقم فورًا.",
   "whatToExpect": "ما الذي يمكن توقعه",
-
   "instructionStep1Title": "التسجيل والفحص الصحي",
   "instructionStep1Subtitle": "مراجعة سريعة للتاريخ الطبي وقياس العلامات الحيوية",
-
   "instructionStep2Title": "عملية التبرع",
   "instructionStep2Subtitle": "الجلوس بشكل مريح أثناء التبرع (30-45 دقيقة)",
-
   "instructionStep3Title": "الراحة والمرطبات",
   "instructionStep3Subtitle": "الاسترخاء مع الوجبات الخفيفة والمشروبات قبل المغادرة",
   "eligibilityRequirementsTitle": "شروط التبرع",
@@ -300,21 +263,18 @@
       "count": {}
     }
   },
-
   "hoursAgo": "منذ {count} ساعة",
   "@hoursAgo": {
     "placeholders": {
       "count": {}
     }
   },
-
   "daysAgo": "منذ {count} يوم",
   "@daysAgo": {
     "placeholders": {
       "count": {}
     }
   },
-
   "gettingDistance": "جارٍ حساب المسافة...",
   "km": "كم",
   "kmAway": "يبعد {distance} كم",
@@ -335,10 +295,8 @@
   "twoFactorSecurityInfo": "تفعيل المصادقة الثنائية يقلل بشكل كبير من خطر الوصول غير المصرح به، حتى في حال اختراق كلمة المرور.",
   "smsVerification": "التحقق عبر الرسائل القصيرة",
   "smsVerificationDescription": "استقبل رمز تحقق عبر رسالة نصية",
-
   "authenticatorApp": "تطبيق المصادقة",
   "authenticatorAppDescription": "استخدم تطبيق Google Authenticator أو Authy",
-
   "emailVerification": "التحقق عبر البريد الإلكتروني",
   "emailVerificationDescription": "استقبل رمز تحقق عبر البريد الإلكتروني",
   "setupTitle": "إعداد",
@@ -389,7 +347,6 @@
     }
   },
   "total": "الإجمالي",
-
   "earned": "المكتسبة",
   "totalDonations": "إجمالي التبرعات",
   "pdfViewer": "عارض الملفات",
@@ -419,26 +376,19 @@
   "aboutTitle": "حول LifeLink",
   "aboutVersion": "الإصدار",
   "aboutLastUpdated": "آخر تحديث",
-
   "faqTitle": "الأسئلة الشائعة",
   "faqHowToDonate": "كيف يمكنني التبرع بالدم؟",
   "faqHowToDonateAnswer": "للتبرع بالدم، ابحث عن مركز تبرع قريب من خلال التطبيق، حدد موعدًا، وتأكد من استيفاء متطلبات الأهلية. اشرب الكثير من الماء وتناول وجبة صحية قبل التبرع.",
-
   "faqEligibility": "ما هي متطلبات الأهلية؟",
   "faqEligibilityAnswer": "يجب أن يكون عمرك 17 سنة على الأقل، ووزنك 50 كجم على الأقل، وأن تكون بصحة عامة جيدة، وألا تكون قد تبرعت بالدم في آخر 56 يومًا. بعض الحالات الطبية أو الأدوية قد تؤثر على الأهلية.",
-
   "faqEarnPoints": "كيف أكسب نقاط المكافأة؟",
   "faqEarnPointsAnswer": "تحصل على نقاط في كل مرة تتبرع فيها بالدم، أو تحيل صديقًا، أو تكمل ملفك الشخصي، أو تستجيب لطلبات الطوارئ. يمكن استبدال النقاط بمكافآت في التطبيق.",
-
   "faqDonationFrequency": "كم مرة يمكنني التبرع بالدم؟",
   "faqDonationFrequencyAnswer": "يمكن التبرع بالدم الكامل كل 56 يومًا (8 أسابيع). يمكن التبرع بالصفائح كل 7 أيام، حتى 24 مرة في السنة. يمكن التبرع بالبلازما كل 28 يومًا.",
-
   "faqBeforeDonation": "ماذا يجب أن أفعل قبل التبرع؟",
   "faqBeforeDonationAnswer": "اشرب الكثير من الماء، وتناول وجبة صحية، وتجنب الأطعمة الدهنية، واحصل على نوم جيد، وارتدِ ملابس مريحة ذات أكمام قابلة للطي بسهولة.",
-
   "faqEmergencyResponse": "كيف أستجيب لطلبات الطوارئ؟",
   "faqEmergencyResponseAnswer": "عندما يتطابق طلب الطوارئ مع فصيلة دمك، ستتلقى إشعارًا. اضغط عليه لعرض التفاصيل وتأكيد توافرك للتبرع.",
-
   "faqChangeBloodType": "كيف أغير فصيلة دمي؟",
   "faqChangeBloodTypeAnswer": "اذهب إلى إعدادات الملف الشخصي واضغط على \"تعديل الملف الشخصي\". يمكنك تحديث فصيلة دمك هناك. تأكد من التحقق من سجلاتك الطبية الفعلية.",
   "editProfile": "تعديل الملف الشخصي",
@@ -446,7 +396,6 @@
   "name": "الاسم",
   "saving": "جارٍ الحفظ...",
   "save": "حفظ",
-
   "weight": "الوزن",
   "weightKg": "الوزن (كجم)",
   "age": "العمر",
@@ -454,7 +403,6 @@
   "thanksHero": "شكرًا لكونك بطلًا! 🎉",
   "thanksHeroDesc": "تبرعاتك الـ {donationsCount} ساعدت في إنقاذ حوالي {livesSaved} حياة. كل تبرع يحدث فرقًا!",
   "logout": "تسجيل الخروج",
-
   "rewards_and_achievements": "المكافآت والإنجازات",
   "your_points": "نقاطك",
   "next_reward": "المكافأة التالية",
@@ -491,7 +439,6 @@
   "emergency_response_points": "إجابة حالة طارئة: 100 نقطة",
   "refer_to_friends_points": "إرشاد صديق لاستخدام التطبيق: 150 نقطة",
   "complete_profile_points": "إكمال الملف الشخصي: 50 نقطة",
-
   "your_badges": "إنجازاتك",
   "first_timer": "التبرع الأول",
   "completed_first_donation": "أكملت أول تبرع لك",
@@ -503,11 +450,65 @@
   "donated_20_times": "تبرعت 20 مرة",
   "legend": "أسطوري",
   "donated_50_times": "تبرعت 50 مرة",
-  "emergency_responder":"مجيب الطوارئ",
+  "emergency_responder": "مجيب الطوارئ",
   "responded_to_10_emergencies": "أجبت على 10 حالات طارئة",
   "history": "التاريخ",
-  "request": "الطلب"
-
-
-
+  "request": "الطلب",
+  "blood_request_dashboard": "لوحة طلبات الدم",
+  "active_requests": "الطلبات النشطة",
+  "responses_today": "الردود اليوم",
+  "emergency_request": "طلب طارئ",
+  "emergency_description": "هل تحتاج إلى دم بشكل عاجل؟ أرسل تنبيهات فورية للمتبرعين القريبين.",
+  "create_emergency_request": "إنشاء طلب طارئ",
+  "emergency_blood_request": "طلب دم طارئ",
+  "emergency_blood_request_desc": "أدخل تفاصيل طلب الدم الطارئ.",
+  "blood_type": "فصيلة الدم",
+  "select_blood_type": "اختر فصيلة الدم",
+  "units_needed": "عدد الوحدات المطلوبة",
+  "enter_units_needed": "أدخل عدد الوحدات المطلوبة",
+  "urgency": "درجة الاستعجال",
+  "select_urgency": "اختر درجة الاستعجال",
+  "submit_request": "إرسال الطلب",
+  "urgency_low": "منخفض",
+  "urgency_medium": "متوسط",
+  "urgency_high": "عالي",
+  "recent_activity": "النشاط الأخير",
+  "privacy_Security": "الخصوصية والأمان",
+  "mange_your_privacy_settings": "إدارة إعدادات الخصوصية الخاصة بك",
+  "all_blood_type": "جميع فصائل الدم",
+  "clear_filters": "مسح الفلاتر",
+  "female": "أنثى",
+  "male": "ذكر",
+  "contact_donors": "تواصل مع المتبرعين",
+  "view_details": "عرض التفاصيل",
+  "responses": "{count} استجابات",
+  "hours_ago": "منذ {count} ساعة",
+  "unit_needed": "{count} وحدة مطلوبة",
+  "time_left": "{count} ساعة متبقية",
+  "time_left_label": "الوقت المتبقي",
+  "donors_have_responded": "{count} متبرع قد استجاب",
+  "response": "استجابة",
+  "units_needed_count": "{count} وحدة مطلوبة",
+  "request_details": "تفاصيل الطلب",
+  "request_details_desc": "معلومات مفصلة حول طلب الدم الطارئ هذا.",
+  "contact_donor": "تواصل مع المتبرع",
+  "contact_donor_desc": "تواصل مباشرة مع المتبرعين الذين استجابوا لطلبك.",
+  "request_for": "طلب ل",
+  "message": "مراسله",
+  "hospital_message": "مرحبًا، أنا أمثل مستشفى بحاجة إلى دم وأود مناقشة كيف يمكنك المساعدة.",
+  "available_donors": "{count} متبرع متاح",
+  "change_location": "تغيير الموقع",
+  "change_location_desc": "أدخل موقعك الجديد",
+  "nearby_donor": "متبرعين بالقرب منك (نطاق 5 كم)",
+  "address": "العنوان",
+  "city": "المدينة",
+  "state": "المحافظة",
+  "zip_code": "الرمز البريدي",
+  "enter_address": "أدخل العنوان",
+  "enter_city": "أدخل المدينة",
+  "enter_state": "أدخل المحافظة",
+  "enter_zip_code": "أدخل الرمز البريدي",
+  "donor_available": "{distance} كم بعيد",
+  "donors": "متبرع",
+  "complete": "مكتمل"
 }

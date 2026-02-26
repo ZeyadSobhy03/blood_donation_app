@@ -5,6 +5,7 @@ import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
 import '../widgets/custom_hospital_button.dart';
 
 class BloodFilter extends StatefulWidget {
@@ -26,6 +27,7 @@ class _BloodFilterState extends State<BloodFilter> {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalization = AppLocalizations.of(context)!;
     List<String> donationTypes = [
       'A+',
       'A-',
@@ -40,7 +42,7 @@ class _BloodFilterState extends State<BloodFilter> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         CustomText(
-          text: 'Blood Type',
+          text: appLocalization.bloodType,
           textStyle: TextStyle(
             fontSize: FontSize.s14,
             fontWeight: FontWeightManager.regular,
@@ -50,7 +52,7 @@ class _BloodFilterState extends State<BloodFilter> {
         SizedBox(height: 4.h),
         CustomDropDownButtonFormField(
           items: donationTypes,
-          hintText: 'All Blood Type',
+          hintText: appLocalization.all_blood_type,
           initialValue: selectDonationType,
           onChanged: (value) {
             setState(() {
@@ -68,7 +70,7 @@ class _BloodFilterState extends State<BloodFilter> {
             widget.onClear();
           },
           widget: CustomText(
-            text: 'Clear Filter',
+            text: appLocalization.clear_filters,
             textStyle: TextStyle(
               color: ColorManger.black,
               fontWeight: FontWeightManager.regular,

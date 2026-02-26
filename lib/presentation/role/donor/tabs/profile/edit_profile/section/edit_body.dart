@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../core/widgets/custom_drop_down_button_form_field.dart';
 import '../../../../../../../l10n/app_localizations.dart';
@@ -18,7 +17,7 @@ class EditBody extends StatefulWidget {
     required this.ageController,
     required this.selectedGender,
     required this.bloodTypes,
-    required this.genders,
+    required this.onGenderChanged,
   });
 
   final TextEditingController nameController;
@@ -31,40 +30,40 @@ class EditBody extends StatefulWidget {
 
   final String selectedGender;
   final List<String> bloodTypes;
-  final List<String> genders;
+  final ValueChanged<String> onGenderChanged;
 
   @override
   State<EditBody> createState() => _EditBodyState();
 }
 
 class _EditBodyState extends State<EditBody> {
-
-  late String _selectedGender;
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedGender = widget.selectedGender;
-  }
-
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
+
+    final String localizedGender =
+    widget.selectedGender.toLowerCase() == 'male'
+        ? appLocalizations.male
+        : appLocalizations.female;
+
+    final List<String> localizedGenders = [
+      appLocalizations.male,
+      appLocalizations.female,
+    ];
+
     return SingleChildScrollView(
       child: SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(24, 12, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             ProfileRow(
-              label:appLocalizations.name,
+              label: appLocalizations.name,
               widget: CustomTextFormField(
                 hintText: appLocalizations.name,
                 textEditingController: widget.nameController,
               ),
             ),
-
             ProfileRow(
               label: appLocalizations.email,
               widget: CustomTextFormField(
@@ -73,7 +72,6 @@ class _EditBodyState extends State<EditBody> {
                 keyboardType: TextInputType.emailAddress,
               ),
             ),
-
             ProfileRow(
               label: appLocalizations.phone,
               widget: CustomTextFormField(
@@ -82,7 +80,6 @@ class _EditBodyState extends State<EditBody> {
                 keyboardType: TextInputType.phone,
               ),
             ),
-
             ProfileRow(
               label: appLocalizations.location,
               widget: CustomTextFormField(
@@ -90,7 +87,6 @@ class _EditBodyState extends State<EditBody> {
                 textEditingController: widget.locationController,
               ),
             ),
-
             ProfileRow(
               label: appLocalizations.bloodType,
               widget: CustomDropDownButtonFormField(
@@ -106,7 +102,6 @@ class _EditBodyState extends State<EditBody> {
                 },
               ),
             ),
-
             ProfileRow(
               label: appLocalizations.weight,
               widget: CustomTextFormField(
@@ -115,7 +110,6 @@ class _EditBodyState extends State<EditBody> {
                 keyboardType: TextInputType.number,
               ),
             ),
-
             ProfileRow(
               label: appLocalizations.age,
               widget: CustomTextFormField(
@@ -124,17 +118,17 @@ class _EditBodyState extends State<EditBody> {
                 keyboardType: TextInputType.number,
               ),
             ),
-
             ProfileRow(
               label: appLocalizations.gender,
               widget: CustomDropDownButtonFormField(
                 hintText: appLocalizations.gender,
-                initialValue: _selectedGender,
-                items: widget.genders,
+                initialValue: localizedGender,   // localized للعرض
+                items: localizedGenders,          // localized للعرض
                 onChanged: (value) {
-                  setState(() {
-                    _selectedGender = value ?? '';
-                  });
+                  // حول لـ English قبل ما ترجعه للـ parent
+                  final englishValue =
+                  value == appLocalizations.male ? 'Male' : 'Female';
+                  widget.onGenderChanged(englishValue);
                 },
               ),
             ),

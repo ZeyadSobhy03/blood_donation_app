@@ -25,6 +25,10 @@ class _FindHospitalState extends State<FindHospital> {
   late List<HospitalRequestModel> filteredHospitals;
   bool isSortedByDistance = false;
   bool isAscending = true;
+   String _searchQuery = '';
+  final TextEditingController _searchController = TextEditingController();
+  String? _selectedBloodType;
+
 
   void sortByDistance() {
     filteredHospitals.sort((a, b) {
@@ -38,16 +42,29 @@ class _FindHospitalState extends State<FindHospital> {
     });
   }
 
-  void filterByBloodType(String? bloodType) {
-    if (bloodType == null) {
-      filteredHospitals = hospitals;
-    } else {
-      filteredHospitals = hospitals
-          .where((hospital) => hospital.bloodTypes == bloodType)
-          .toList();
-    }
+  void _applyFilters() {
+    filteredHospitals = hospitals.where((hospital) {
+      final matchesName = hospital.hospitalName
+          .toLowerCase()
+          .contains(_searchQuery.toLowerCase());
+      final matchesBlood = _selectedBloodType == null ||
+          hospital.bloodTypes == _selectedBloodType;
+      return matchesName && matchesBlood;
+    }).toList();
     setState(() {});
   }
+
+  void filterByBloodType(String? bloodType) {
+    _selectedBloodType = bloodType;
+    _applyFilters();
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
 
   bool showFilter = false;
 
@@ -127,6 +144,12 @@ class _FindHospitalState extends State<FindHospital> {
                 ),
                 SizedBox(height: 6.h),
                 CustomTextFormField(
+                  onChanged: (value){
+                    _searchQuery = value;
+                    _applyFilters();
+
+                  },
+
                   prefixIcon: Icon(Icons.search, color: ColorManger.slateGrey),
                   hintText: appLocalization.searchHint,
                   suffixIcon: IconButton(

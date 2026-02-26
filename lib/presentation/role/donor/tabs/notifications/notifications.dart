@@ -108,49 +108,53 @@ class Notifications extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: dummyNotifications.length,
-        itemBuilder: (context, index) {
-          final notification = dummyNotifications[index];
-          IconData icon;
-          Color iconColor;
-
-          switch (notification.type) {
-            case 'reward':
-              icon = Icons.workspace_premium;
-              iconColor = ColorManger.gold;
-              break;
-            case 'info':
-              icon = Icons.access_time;
-              iconColor = ColorManger.skyBlue;
-              break;
-            case 'achievement':
-              icon = Icons.emoji_events;
-              iconColor = ColorManger.brightRed;
-              break;
-            case 'emergency':
-            default:
-              icon = Icons.error_outline;
-              iconColor = ColorManger.brightRed;
-          }
-
-          return NotificationRequest(
-            bloodRequest: notification.type == 'emergency',
-            isEmergency: notification.type == 'emergency',
-            icon: icon,
-            iconColor: iconColor,
-            notification: notification,
-            onPressed: () => showConfirmResponseBottomSheet(context, notification.urgentRequest!),
-          );
-        },
+      body: SafeArea(
+        child: ListView.builder(
+          itemCount: dummyNotifications.length,
+          itemBuilder: (context, index) {
+            final notification = dummyNotifications[index];
+            IconData icon;
+            Color iconColor;
+        
+            switch (notification.type) {
+              case 'reward':
+                icon = Icons.workspace_premium;
+                iconColor = ColorManger.gold;
+                break;
+              case 'info':
+                icon = Icons.access_time;
+                iconColor = ColorManger.skyBlue;
+                break;
+              case 'achievement':
+                icon = Icons.emoji_events;
+                iconColor = ColorManger.brightRed;
+                break;
+              case 'emergency':
+              default:
+                icon = Icons.error_outline;
+                iconColor = ColorManger.brightRed;
+            }
+        
+            return NotificationRequest(
+              bloodRequest: notification.type == 'emergency',
+              isEmergency: notification.type == 'emergency',
+              icon: icon,
+              iconColor: iconColor,
+              notification: notification,
+              onPressed: () => showConfirmResponseBottomSheet(context, notification.urgentRequest!),
+            );
+          },
+        ),
       ),
-      bottomNavigationBar: LayoutBuilder(
-        builder: (context, constraints) {
-          return MarkAllAsReadButton(
-            text: appLocalization.mark_all_as_read,
-            onPressed: () {},
-          );
-        },
+      bottomNavigationBar: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return MarkAllAsReadButton(
+              text: appLocalization.mark_all_as_read,
+              onPressed: () {},
+            );
+          },
+        ),
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/home/widgets/rec
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
 import '../model/recent_activity.dart';
 
 class RecentActivitySection extends StatelessWidget {
@@ -14,6 +15,7 @@ class RecentActivitySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
     return Card(
       elevation: 6,
       color: ColorManger.pureWhite,
@@ -24,7 +26,7 @@ class RecentActivitySection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomText(
-              text: 'Recent Activity',
+              text: appLocalizations.recent_activity,
               textStyle: TextStyle(
                 fontWeight: FontWeightManager.regular,
                 fontSize: FontSize.s16,

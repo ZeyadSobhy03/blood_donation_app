@@ -47,7 +47,7 @@ class PersonalInformationCard extends StatelessWidget {
               ProfileInfoTile(
                 icon: Icons.email,
                 label: appLocalizations.email,
-                value: 'john.doe@example.com',
+                value: 'ziyad@gmailcom',
               ),
               SizedBox(height: 16),
               ProfileInfoTile(
@@ -59,7 +59,7 @@ class PersonalInformationCard extends StatelessWidget {
               ProfileInfoTile(
                 icon: Icons.person,
                 label: appLocalizations.fullName,
-                value: 'John Doe',
+                value: 'Ziyad Sobhy',
               ),
               SizedBox(height: 16),
               ProfileInfoTile(

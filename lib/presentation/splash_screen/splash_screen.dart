@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/resources/assets_manger/assets_manger.dart';
 import '../../core/resources/colors/color_manger.dart';
 import '../../core/resources/fonts/font_manger.dart';
@@ -82,45 +81,48 @@ class _SplashScreenState extends State<SplashScreen>
       body: Center(
         child: FittedBox(
           fit: BoxFit.contain,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(width: 60),
-
-              SlideTransition(
-                position: _logoSlideAnimation,
-                child: FadeTransition(
-                  opacity: _logoFadeAnimation,
-                  child: Image.asset(
-                    AssetsManger.icon,
-                    width: 220,
-                    height: 180,
-                    fit: BoxFit.contain,
+          child: Directionality(
+            textDirection: TextDirection.ltr,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(width: 60),
+            
+                SlideTransition(
+                  position: _logoSlideAnimation,
+                  child: FadeTransition(
+                    opacity: _logoFadeAnimation,
+                    child: Image.asset(
+                      AssetsManger.icon,
+                      width: 220,
+                      height: 180,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
-              ),
-              Transform.translate(
-                offset: Offset(-115, 0),
-                child: ClipRect(
-                  child: FadeTransition(
-                    opacity: _textFadeAnimation,
-                    child: SlideTransition(
-                      position: _textSlideAnimation,
-                      child: CustomText(
-                        text: 'LifeLink',
-                        textStyle: TextStyle(
-                          fontSize: FontSize.s32,
-                          fontWeight: FontWeightManager.extraBold,
-                          color: ColorManger.black,
+                Transform.translate(
+                  offset: Offset(-115, 0),
+                  child: ClipRect(
+                    child: FadeTransition(
+                      opacity: _textFadeAnimation,
+                      child: SlideTransition(
+                        position: _textSlideAnimation,
+                        child: CustomText(
+                          text: 'LifeLink',
+                          textStyle: TextStyle(
+                            fontSize: FontSize.s32,
+                            fontWeight: FontWeightManager.extraBold,
+                            color: ColorManger.black,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

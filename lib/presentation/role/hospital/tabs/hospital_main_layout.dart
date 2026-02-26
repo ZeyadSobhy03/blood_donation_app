@@ -28,11 +28,10 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout> {
       History(),
       Profile(),
     ];
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: ColorManger.pureWhite,
       body: tabs[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-
         selectedItemColor: ColorManger.royalBlue,
         unselectedItemColor: ColorManger.slateGrey,
         currentIndex: currentIndex,

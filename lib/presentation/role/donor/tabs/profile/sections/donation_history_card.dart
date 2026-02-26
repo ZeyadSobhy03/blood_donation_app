@@ -29,7 +29,7 @@ class DonationHistoryCard extends StatelessWidget {
         donationType: 'Plasma',
         hospitalName: 'XYZ Hospital',
         date: '2023-07-10',
-        status: 'Pending',
+        status: appLocation.completed,
       ),
     ];
     return Padding(

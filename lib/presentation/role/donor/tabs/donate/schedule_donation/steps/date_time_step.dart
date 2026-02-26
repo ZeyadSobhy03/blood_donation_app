@@ -40,6 +40,25 @@ class _DateTimeStepState extends State<DateTimeStep> {
       firstDate: DateTime.now(),
       initialDate: selectedDate ?? DateTime.now(),
       lastDate: DateTime.now().add(Duration(days: 365)),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: ColorScheme.light(
+              primary: ColorManger.brightRed,
+              onPrimary: ColorManger.pureWhite,
+              surface: ColorManger.pureWhite,
+              onSurface: ColorManger.black,
+            ),
+            dialogTheme: DialogThemeData(
+              backgroundColor: ColorManger.pureWhite,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ),
+          ),
+          child: child!,
+        );
+      },
     );
 
     if (picked != null && mounted) {

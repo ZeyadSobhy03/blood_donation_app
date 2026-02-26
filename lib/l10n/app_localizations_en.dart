@@ -1351,4 +1351,195 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get request => 'Request';
+
+  @override
+  String get blood_request_dashboard => 'Blood Request Dashboard';
+
+  @override
+  String get active_requests => 'Active Requests';
+
+  @override
+  String get responses_today => 'Responses Today';
+
+  @override
+  String get emergency_request => 'Emergency Request';
+
+  @override
+  String get emergency_description =>
+      'Need blood urgently? Send immediate alerts to nearby donors.';
+
+  @override
+  String get create_emergency_request => 'Create Emergency Request';
+
+  @override
+  String get emergency_blood_request => 'Emergency Blood Request';
+
+  @override
+  String get emergency_blood_request_desc =>
+      'Enter details for the emergency blood request.';
+
+  @override
+  String get blood_type => 'Blood Type';
+
+  @override
+  String get select_blood_type => 'Select Blood Type';
+
+  @override
+  String get units_needed => 'Units Needed';
+
+  @override
+  String get enter_units_needed => 'Enter number of units needed';
+
+  @override
+  String get urgency => 'Urgency';
+
+  @override
+  String get select_urgency => 'Select Urgency Level';
+
+  @override
+  String get submit_request => 'Submit Request';
+
+  @override
+  String get urgency_low => 'Low';
+
+  @override
+  String get urgency_medium => 'Medium';
+
+  @override
+  String get urgency_high => 'High';
+
+  @override
+  String get recent_activity => 'Recent Activity';
+
+  @override
+  String get privacy_Security => 'Privacy & Security';
+
+  @override
+  String get mange_your_privacy_settings => 'Manage your privacy settings';
+
+  @override
+  String get all_blood_type => 'All Blood Types';
+
+  @override
+  String get clear_filters => 'Clear Filters';
+
+  @override
+  String get female => 'Female';
+
+  @override
+  String get male => 'Male';
+
+  @override
+  String get view_details => 'View Details';
+
+  @override
+  String get contact_donors => 'Contact Donors';
+
+  @override
+  String responses(Object count) {
+    return '$count responses';
+  }
+
+  @override
+  String hours_ago(Object count) {
+    return '$count hours ago';
+  }
+
+  @override
+  String unit_needed(Object count) {
+    return '$count units needed';
+  }
+
+  @override
+  String time_left(Object count) {
+    return '$count hours left';
+  }
+
+  @override
+  String get time_left_label => 'Time Left';
+
+  @override
+  String get response => 'Response';
+
+  @override
+  String donors_have_responded(Object count) {
+    return '$count donors have responded';
+  }
+
+  @override
+  String units_needed_count(Object count) {
+    return '$count units needed';
+  }
+
+  @override
+  String get request_details => 'Request Details';
+
+  @override
+  String get request_details_desc => 'Details of the emergency blood request';
+
+  @override
+  String get contact_donor => 'Contact Donor';
+
+  @override
+  String get contact_donor_desc =>
+      'Available donors matching your blood request';
+
+  @override
+  String get request_for => 'Request for';
+
+  @override
+  String get message => 'Message';
+
+  @override
+  String get hospital_message =>
+      'Hello, I am representing a hospital in need of blood and I would like to discuss how you can help.';
+
+  @override
+  String available_donors(Object count) {
+    return 'Available Donors($count)';
+  }
+
+  @override
+  String get nearby_donor => 'Nearby Donors (5km radius)';
+
+  @override
+  String get change_location => 'Change Location';
+
+  @override
+  String get change_location_desc => 'Enter your new location:';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get city => 'City';
+
+  @override
+  String get state => 'State';
+
+  @override
+  String get zip_code => 'Zip Code';
+
+  @override
+  String get enter_address => 'Enter your address';
+
+  @override
+  String get enter_city => 'Enter your city';
+
+  @override
+  String get enter_state => 'Enter your state';
+
+  @override
+  String get enter_zip_code => 'Enter your zip code';
+
+  @override
+  String donor_available(Object distance) {
+    return '$distance km away';
+  }
+
+  @override
+  String get donors => 'donors';
+
+  @override
+  String get complete => 'Complete';
 }

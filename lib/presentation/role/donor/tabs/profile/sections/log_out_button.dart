@@ -14,7 +14,7 @@ class LogOutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: 50.h, maxWidth: double.infinity),
+      constraints: BoxConstraints(maxHeight: 70.h, maxWidth: double.infinity),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: CustomElevatedButton(
@@ -34,6 +34,7 @@ class LogOutButton extends StatelessWidget {
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Icon(Icons.logout, color: ColorManger.brightRed),
               SizedBox(width: 8),

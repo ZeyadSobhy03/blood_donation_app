@@ -3,11 +3,14 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/donate/widgets/t
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/password_and_security_card.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
+
 class PrivacyAndSecurity extends StatelessWidget {
   const PrivacyAndSecurity({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final appLocalization = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         actionsPadding: EdgeInsets.zero,
@@ -20,8 +23,8 @@ class PrivacyAndSecurity extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
         ),
         title: TitleColum(
-          title: 'Privacy & Security',
-          subTitle: 'Manage your privacy settings',
+          title: appLocalization.privacy_Security,
+          subTitle: appLocalization.mange_your_privacy_settings,
         ),
       ),
       backgroundColor: ColorManger.pureWhite,

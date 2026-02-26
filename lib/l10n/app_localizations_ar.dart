@@ -1350,4 +1350,194 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get request => 'الطلب';
+
+  @override
+  String get blood_request_dashboard => 'لوحة طلبات الدم';
+
+  @override
+  String get active_requests => 'الطلبات النشطة';
+
+  @override
+  String get responses_today => 'الردود اليوم';
+
+  @override
+  String get emergency_request => 'طلب طارئ';
+
+  @override
+  String get emergency_description =>
+      'هل تحتاج إلى دم بشكل عاجل؟ أرسل تنبيهات فورية للمتبرعين القريبين.';
+
+  @override
+  String get create_emergency_request => 'إنشاء طلب طارئ';
+
+  @override
+  String get emergency_blood_request => 'طلب دم طارئ';
+
+  @override
+  String get emergency_blood_request_desc => 'أدخل تفاصيل طلب الدم الطارئ.';
+
+  @override
+  String get blood_type => 'فصيلة الدم';
+
+  @override
+  String get select_blood_type => 'اختر فصيلة الدم';
+
+  @override
+  String get units_needed => 'عدد الوحدات المطلوبة';
+
+  @override
+  String get enter_units_needed => 'أدخل عدد الوحدات المطلوبة';
+
+  @override
+  String get urgency => 'درجة الاستعجال';
+
+  @override
+  String get select_urgency => 'اختر درجة الاستعجال';
+
+  @override
+  String get submit_request => 'إرسال الطلب';
+
+  @override
+  String get urgency_low => 'منخفض';
+
+  @override
+  String get urgency_medium => 'متوسط';
+
+  @override
+  String get urgency_high => 'عالي';
+
+  @override
+  String get recent_activity => 'النشاط الأخير';
+
+  @override
+  String get privacy_Security => 'الخصوصية والأمان';
+
+  @override
+  String get mange_your_privacy_settings => 'إدارة إعدادات الخصوصية الخاصة بك';
+
+  @override
+  String get all_blood_type => 'جميع فصائل الدم';
+
+  @override
+  String get clear_filters => 'مسح الفلاتر';
+
+  @override
+  String get female => 'أنثى';
+
+  @override
+  String get male => 'ذكر';
+
+  @override
+  String get view_details => 'عرض التفاصيل';
+
+  @override
+  String get contact_donors => 'تواصل مع المتبرعين';
+
+  @override
+  String responses(Object count) {
+    return '$count استجابات';
+  }
+
+  @override
+  String hours_ago(Object count) {
+    return 'منذ $count ساعة';
+  }
+
+  @override
+  String unit_needed(Object count) {
+    return '$count وحدة مطلوبة';
+  }
+
+  @override
+  String time_left(Object count) {
+    return '$count ساعة متبقية';
+  }
+
+  @override
+  String get time_left_label => 'الوقت المتبقي';
+
+  @override
+  String get response => 'استجابة';
+
+  @override
+  String donors_have_responded(Object count) {
+    return '$count متبرع قد استجاب';
+  }
+
+  @override
+  String units_needed_count(Object count) {
+    return '$count وحدة مطلوبة';
+  }
+
+  @override
+  String get request_details => 'تفاصيل الطلب';
+
+  @override
+  String get request_details_desc => 'معلومات مفصلة حول طلب الدم الطارئ هذا.';
+
+  @override
+  String get contact_donor => 'تواصل مع المتبرع';
+
+  @override
+  String get contact_donor_desc =>
+      'تواصل مباشرة مع المتبرعين الذين استجابوا لطلبك.';
+
+  @override
+  String get request_for => 'طلب ل';
+
+  @override
+  String get message => 'مراسله';
+
+  @override
+  String get hospital_message =>
+      'مرحبًا، أنا أمثل مستشفى بحاجة إلى دم وأود مناقشة كيف يمكنك المساعدة.';
+
+  @override
+  String available_donors(Object count) {
+    return '$count متبرع متاح';
+  }
+
+  @override
+  String get nearby_donor => 'متبرعين بالقرب منك (نطاق 5 كم)';
+
+  @override
+  String get change_location => 'تغيير الموقع';
+
+  @override
+  String get change_location_desc => 'أدخل موقعك الجديد';
+
+  @override
+  String get address => 'العنوان';
+
+  @override
+  String get city => 'المدينة';
+
+  @override
+  String get state => 'المحافظة';
+
+  @override
+  String get zip_code => 'الرمز البريدي';
+
+  @override
+  String get enter_address => 'أدخل العنوان';
+
+  @override
+  String get enter_city => 'أدخل المدينة';
+
+  @override
+  String get enter_state => 'أدخل المحافظة';
+
+  @override
+  String get enter_zip_code => 'أدخل الرمز البريدي';
+
+  @override
+  String donor_available(Object distance) {
+    return '$distance كم بعيد';
+  }
+
+  @override
+  String get donors => 'متبرع';
+
+  @override
+  String get complete => 'مكتمل';
 }
