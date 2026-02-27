@@ -20,7 +20,6 @@ class DonorTile extends StatelessWidget {
     final appLocalizations = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-
       children: [
         Container(
           decoration: BoxDecoration(

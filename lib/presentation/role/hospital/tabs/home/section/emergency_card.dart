@@ -19,7 +19,7 @@ class EmergencyCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       elevation: 4,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -27,10 +27,10 @@ class EmergencyCard extends StatelessWidget {
               children: [
                 Icon(
                   Icons.warning_amber_outlined,
-                  size: 28.sp,
+                  size: 28.sp.clamp(24, 32),
                   color: ColorManger.pureWhite,
                 ),
-                SizedBox(width: 12.w),
+                SizedBox(width: 12),
                 CustomText(
                   text: appLocalizations.emergency_request,
                   textStyle: TextStyle(
