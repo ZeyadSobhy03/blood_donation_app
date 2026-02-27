@@ -22,84 +22,108 @@ class ActiveRequestsCard extends StatelessWidget {
       elevation: 6,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: ColorManger.brightRed, width: 1),
       ),
       color: ColorManger.pureWhite,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Stack(
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      CustomBadge(
-                        text: appLocalizations.critical,
-                        backgroundColor: ColorManger.brightRed,
-                        fontColor: ColorManger.pureWhite,
-                        borderColor: ColorManger.brightRed,
-                      ),
-                      SizedBox(width: 4.w),
-                      CustomBadge(
-                        text: 'O+',
-                        backgroundColor: ColorManger.pureWhite,
-                        fontColor: ColorManger.black,
-                        borderColor: ColorManger.lightGrey,
-                      ),
-                      Spacer(),
-                      ConfirmedColum(confirmed: 1),
+            Positioned(
+              left: 0,
+              top: 0,
+              bottom: 0,
+              child: Container(
+                width: 4,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      ColorManger.brightRed,
+                      ColorManger.brightRed.withValues(alpha: 0.3),
                     ],
                   ),
-                  SizedBox(height: 8.h),
-                  CustomText(
-                    text: appLocalizations.unit_needed(3),
-                    textStyle: TextStyle(
-                      color: ColorManger.black,
-                      fontSize: FontSize.s14,
-                      height: 1.4,
-                      fontWeight: FontWeightManager.regular,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            CustomBadge(
+                              text: appLocalizations.critical,
+                              backgroundColor: ColorManger.brightRed,
+                              fontColor: ColorManger.pureWhite,
+                              borderColor: ColorManger.brightRed,
+                            ),
+                            SizedBox(width: 4.w),
+                            CustomBadge(
+                              text: 'O+',
+                              backgroundColor: ColorManger.pureWhite,
+                              fontColor: ColorManger.black,
+                              borderColor: ColorManger.lightGrey,
+                            ),
+                            Spacer(),
+                            ConfirmedColum(confirmed: 1),
+                          ],
+                        ),
+                        SizedBox(height: 8.h),
+                        CustomText(
+                          text: appLocalizations.unit_needed(3),
+                          textStyle: TextStyle(
+                            color: ColorManger.black,
+                            fontSize: FontSize.s14,
+                            height: 1.4,
+                            fontWeight: FontWeightManager.regular,
+                          ),
+                        ),
+                        SizedBox(height: 8.h),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            RequestMetaInfo(
+                              icon: Icons.access_time,
+                              label: appLocalizations.hours_ago(2),
+                            ),
+                            SizedBox(width: 16.w),
+                            RequestMetaInfo(
+                              icon: Icons.person_outline,
+                              label: appLocalizations.responses(5),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 16.h),
+                        ActiveRequestNavigationButtons(
+                          onContactDonorsPressed: () {
+                            // Handle contact donors action
+                            showDialog(
+                              context: context,
+                              builder: (context) => ContactDonorDialog(),
+                            );
+                          },
+                          onViewDetailPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) => ViewDetailDialog(),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 8.h),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      RequestMetaInfo(
-                        icon: Icons.access_time,
-                        label: appLocalizations.hours_ago(2),
-                      ),
-                      SizedBox(width: 16.w),
-                      RequestMetaInfo(
-                        icon: Icons.person_outline,
-                        label: appLocalizations.responses(5),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 16.h),
-                  ActiveRequestNavigationButtons(
-                    onContactDonorsPressed: () {
-                      // Handle contact donors action
-                      showDialog(
-                        context: context,
-                        builder: (context) => ContactDonorDialog(),
-                      );
-                    },
-                    onViewDetailPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => ViewDetailDialog(),
-                      );
-                    },
-                  ),
+
                 ],
               ),
             ),
-
           ],
         ),
       ),

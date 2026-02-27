@@ -510,5 +510,16 @@
   "enter_zip_code": "أدخل الرمز البريدي",
   "donor_available": "{distance} كم بعيد",
   "donors": "متبرع",
-  "complete": "مكتمل"
+  "complete": "مكتمل",
+  "find_donors": "البحث عن المتبرعين",
+  "inactive": "غير نشط",
+  "call": "اتصل",
+  "emergency_whatsapp_message": "مرحبًا {name}، يوجد حالة طارئة تحتاج إلى فصيلة {bloodType}. هل يمكنك المساعدة؟",
+  "note": "ملاحظة",
+
+  "note_dec": "يرجى مراعاة وقت المتبرع ومدى توفره عند التواصل معه.",
+  "send_request": "إرسال الطلب",
+  "donors_found": "{count} متبرع تم العثور عليه",
+
+  "find_donors_dec": "ابحث عن المتبرعين المتاحين."
 }

@@ -514,16 +514,14 @@
   "enter_zip_code": "Enter your zip code",
   "donor_available": "{distance} km away",
   "donors": "donors",
-  "complete": "Complete"
-
-
-
-
-
-
-
-
-
-
-
+  "complete": "Complete",
+  "find_donors": "Find Donors",
+  "find_donors_dec": "Search for available blood donors",
+  "inactive": "Inactive",
+  "call": "Call",
+  "emergency_whatsapp_message": "Hello {name}, there is an emergency case that needs blood type {bloodType}. Can you help?",
+  "note": "Note",
+  "note_dec": "Please be respectful of donor's time and availability when reaching out.",
+  "send_request": "Send Request",
+  "donors_found": "{count} Donors found"
 }

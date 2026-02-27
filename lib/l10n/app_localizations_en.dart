@@ -1542,4 +1542,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get complete => 'Complete';
+
+  @override
+  String get find_donors => 'Find Donors';
+
+  @override
+  String get find_donors_dec => 'Search for available blood donors';
+
+  @override
+  String get inactive => 'Inactive';
+
+  @override
+  String get call => 'Call';
+
+  @override
+  String emergency_whatsapp_message(Object bloodType, Object name) {
+    return 'Hello $name, there is an emergency case that needs blood type $bloodType. Can you help?';
+  }
+
+  @override
+  String get note => 'Note';
+
+  @override
+  String get note_dec =>
+      'Please be respectful of donor\'s time and availability when reaching out.';
+
+  @override
+  String get send_request => 'Send Request';
+
+  @override
+  String donors_found(Object count) {
+    return '$count Donors found';
+  }
 }

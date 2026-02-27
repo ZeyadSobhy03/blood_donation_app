@@ -27,16 +27,17 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
     _iconControllers = List.generate(
       5,
-          (i) => AnimationController(
+      (i) => AnimationController(
         vsync: this,
         duration: const Duration(milliseconds: 200),
       ),
     );
 
     _iconScales = _iconControllers.map((controller) {
-      return Tween<double>(begin: 1.0, end: 1.3).animate(
-        CurvedAnimation(parent: controller, curve: Curves.elasticOut),
-      );
+      return Tween<double>(
+        begin: 1.0,
+        end: 1.3,
+      ).animate(CurvedAnimation(parent: controller, curve: Curves.elasticOut));
     }).toList();
 
     // Animate first icon on start
@@ -83,8 +84,16 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
     final navItems = [
       (Icons.home_rounded, Icons.home_outlined, appLocalizations.home),
       (Icons.search_rounded, Icons.search_outlined, appLocalizations.find),
-      (Icons.favorite_rounded, Icons.favorite_border_outlined, appLocalizations.donate),
-      (Icons.military_tech_rounded, Icons.military_tech_outlined, appLocalizations.rewards),
+      (
+        Icons.favorite_rounded,
+        Icons.favorite_border_outlined,
+        appLocalizations.donate,
+      ),
+      (
+        Icons.military_tech_rounded,
+        Icons.military_tech_outlined,
+        appLocalizations.rewards,
+      ),
       (Icons.person_rounded, Icons.person_outlined, appLocalizations.profile),
     ];
 

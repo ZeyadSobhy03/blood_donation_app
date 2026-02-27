@@ -15,55 +15,183 @@ class HospitalMainLayout extends StatefulWidget {
   State<HospitalMainLayout> createState() => _HospitalMainLayoutState();
 }
 
-class _HospitalMainLayoutState extends State<HospitalMainLayout> {
+class _HospitalMainLayoutState extends State<HospitalMainLayout>
+    with TickerProviderStateMixin {
   int currentIndex = 0;
+  final PageController _pageController = PageController();
+
+  late List<AnimationController> _iconControllers;
+  late List<Animation<double>> _iconScales;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _iconControllers = List.generate(
+      5,
+          (i) => AnimationController(
+        vsync: this,
+        duration: const Duration(milliseconds: 200),
+      ),
+    );
+
+    _iconScales = _iconControllers.map((controller) {
+      return Tween<double>(
+        begin: 1.0,
+        end: 1.25,
+      ).animate(
+        CurvedAnimation(parent: controller, curve: Curves.elasticOut),
+      );
+    }).toList();
+
+    _iconControllers[0].forward();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    for (var c in _iconControllers) {
+      c.dispose();
+    }
+    super.dispose();
+  }
+
+  void _onTabTapped(int index) {
+    _iconControllers[currentIndex].reverse();
+    _iconControllers[index].forward();
+
+    setState(() => currentIndex = index);
+
+    _pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 350),
+      curve: Curves.fastEaseInToSlowEaseOut,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
-    final List<Widget> tabs = [
-      Home(),
-      FindDonor(),
-      Request(),
-      History(),
-      Profile(),
+
+    final tabs = [
+      const Home(),
+      const FindDonor(),
+      const Request(),
+      const History(),
+      const Profile(),
     ];
+
+    final navItems = [
+      (Icons.home_rounded, Icons.home_outlined, appLocalizations.home),
+      (Icons.search_rounded, Icons.search_outlined, appLocalizations.find),
+      (
+      Icons.favorite_rounded,
+      Icons.favorite_border_outlined,
+      appLocalizations.request,
+      ),
+      (
+      Icons.assignment_rounded,
+      Icons.assignment_outlined,
+      appLocalizations.history,
+      ),
+      (Icons.person_rounded, Icons.person_outlined, appLocalizations.profile),
+    ];
+
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
-      body: tabs[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: ColorManger.royalBlue,
-        unselectedItemColor: ColorManger.slateGrey,
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
+
+      body: PageView(
+        controller: _pageController,
+        physics: const BouncingScrollPhysics(),
+        onPageChanged: (index) {
+          _iconControllers[currentIndex].reverse();
+          _iconControllers[index].forward();
+          setState(() => currentIndex = index);
         },
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: ColorManger.pureWhite,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: appLocalizations.home,
+        children: tabs,
+      ),
+
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: ColorManger.pureWhite,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.08),
+              blurRadius: 20,
+              offset: const Offset(0, -5),
+            ),
+          ],
+        ),
+        child: SafeArea(
+          child: SizedBox(
+            height: 65,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(navItems.length, (index) {
+                final isSelected = currentIndex == index;
+                final item = navItems[index];
+
+                return GestureDetector(
+                  onTap: () => _onTabTapped(index),
+                  behavior: HitTestBehavior.opaque,
+                  child: SizedBox(
+                    width: 65,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ScaleTransition(
+                          scale: _iconScales[index],
+                          child: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 200),
+                            transitionBuilder: (child, animation) =>
+                                ScaleTransition(
+                                    scale: animation, child: child),
+                            child: Icon(
+                              isSelected ? item.$1 : item.$2,
+                              key: ValueKey(isSelected),
+                              color: isSelected
+                                  ? ColorManger.royalBlue
+                                  : ColorManger.slateGrey,
+                              size: 26,
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 4),
+
+                        AnimatedDefaultTextStyle(
+                          duration: const Duration(milliseconds: 200),
+                          style: TextStyle(
+                            fontSize: isSelected ? 11 : 10,
+                            fontWeight: isSelected
+                                ? FontWeight.w600
+                                : FontWeight.w400,
+                            color: isSelected
+                                ? ColorManger.royalBlue
+                                : ColorManger.slateGrey,
+                          ),
+                          child: Text(item.$3),
+                        ),
+
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 250),
+                          curve: Curves.easeOut,
+                          margin: const EdgeInsets.only(top: 4),
+                          height: 3,
+                          width: isSelected ? 20 : 0,
+                          decoration: BoxDecoration(
+                            color: ColorManger.royalBlue,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: appLocalizations.find,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined),
-            label: appLocalizations.request,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment_outlined),
-            label: appLocalizations.history,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: appLocalizations.profile,
-          ),
-        ],
+        ),
       ),
     );
   }

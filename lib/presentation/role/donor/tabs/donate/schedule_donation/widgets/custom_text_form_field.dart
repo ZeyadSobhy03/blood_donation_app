@@ -9,7 +9,10 @@ class CustomTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.textEditingController,
     this.validator,
-    this.hintText, this.keyboardType, this.suffixIcon, this.onChanged,
+    this.hintText,
+    this.keyboardType,
+    this.suffixIcon,
+    this.onChanged,
   });
 
   final Widget? prefixIcon;
@@ -22,32 +25,29 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return TextFormField(
-onChanged:onChanged ,
-      keyboardType:keyboardType ,
+      onFieldSubmitted: (_) {
+        FocusScope.of(context).unfocus();
+      },
+      onChanged: onChanged,
+      keyboardType: keyboardType,
       controller: textEditingController,
       validator: validator,
       cursorColor: ColorManger.black,
-      style: TextStyle(
-        color: ColorManger.black,
-        fontSize: FontSize.s14
-      ),
+      style: TextStyle(color: ColorManger.black, fontSize: FontSize.s14),
       decoration: InputDecoration(
-
         suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: TextStyle(
           color: ColorManger.grey600,
-          fontSize:FontSize.s13,
+          fontSize: FontSize.s13,
         ),
 
         filled: true,
         fillColor: ColorManger.textFormFieldGrey,
 
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: 6.w,
-          vertical: 8.h,
-        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 8.h),
 
         prefixIcon: prefixIcon,
         iconColor: ColorManger.grey600,
@@ -59,35 +59,24 @@ onChanged:onChanged ,
 
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(
-            color: ColorManger.grey300,
-          ),
+          borderSide: BorderSide(color: ColorManger.grey300),
         ),
 
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(
-            color: ColorManger.black54,
-            width: 1.5,
-          ),
+          borderSide: BorderSide(color: ColorManger.black54, width: 1.5),
         ),
 
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(
-            color: ColorManger.brightRed,
-          ),
+          borderSide: BorderSide(color: ColorManger.brightRed),
         ),
 
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(
-            color: ColorManger.brightRed,
-            width: 1.5,
-          ),
+          borderSide: BorderSide(color: ColorManger.brightRed, width: 1.5),
         ),
       ),
     );
   }
 }
-

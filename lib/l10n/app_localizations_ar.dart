@@ -1540,4 +1540,35 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get complete => 'مكتمل';
+
+  @override
+  String get find_donors => 'البحث عن المتبرعين';
+
+  @override
+  String get find_donors_dec => 'ابحث عن المتبرعين المتاحين.';
+
+  @override
+  String get inactive => 'غير نشط';
+
+  @override
+  String get call => 'اتصل';
+
+  @override
+  String emergency_whatsapp_message(Object bloodType, Object name) {
+    return 'مرحبًا $name، يوجد حالة طارئة تحتاج إلى فصيلة $bloodType. هل يمكنك المساعدة؟';
+  }
+
+  @override
+  String get note => 'ملاحظة';
+
+  @override
+  String get note_dec => 'يرجى مراعاة وقت المتبرع ومدى توفره عند التواصل معه.';
+
+  @override
+  String get send_request => 'إرسال الطلب';
+
+  @override
+  String donors_found(Object count) {
+    return '$count متبرع تم العثور عليه';
+  }
 }

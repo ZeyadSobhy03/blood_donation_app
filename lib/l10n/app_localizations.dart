@@ -2977,6 +2977,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Complete'**
   String get complete;
+
+  /// No description provided for @find_donors.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Donors'**
+  String get find_donors;
+
+  /// No description provided for @find_donors_dec.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for available blood donors'**
+  String get find_donors_dec;
+
+  /// No description provided for @inactive.
+  ///
+  /// In en, this message translates to:
+  /// **'Inactive'**
+  String get inactive;
+
+  /// No description provided for @call.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get call;
+
+  /// No description provided for @emergency_whatsapp_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {name}, there is an emergency case that needs blood type {bloodType}. Can you help?'**
+  String emergency_whatsapp_message(Object bloodType, Object name);
+
+  /// No description provided for @note.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get note;
+
+  /// No description provided for @note_dec.
+  ///
+  /// In en, this message translates to:
+  /// **'Please be respectful of donor\'s time and availability when reaching out.'**
+  String get note_dec;
+
+  /// No description provided for @send_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Request'**
+  String get send_request;
+
+  /// No description provided for @donors_found.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Donors found'**
+  String donors_found(Object count);
 }
 
 class _AppLocalizationsDelegate
