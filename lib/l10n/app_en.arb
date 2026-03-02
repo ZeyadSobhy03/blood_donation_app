@@ -403,7 +403,6 @@
   "thanksHero": "Thank You for Being a Hero! 🎉",
   "thanksHeroDesc": "Your {donationsCount} donations have helped save approximately {livesSaved} lives. Every donation makes a difference!",
   "logout": "Logout",
-
   "rewards_and_achievements": "Rewards & Achievements",
   "your_points": "Your Points",
   "next_reward": "Next Reward",
@@ -451,7 +450,7 @@
   "donated_20_times": "Donated 20 times",
   "legend": "Legend",
   "donated_50_times": "Donated 50 times",
-  "emergency_responder":"Emergency Responder",
+  "emergency_responder": "Emergency Responder",
   "responded_to_10_emergencies": "Responded to 10 Emergencies",
   "history": "History",
   "request": "Request",
@@ -470,7 +469,6 @@
   "urgency": "Urgency",
   "select_urgency": "Select Urgency Level",
   "submit_request": "Submit Request",
-
   "urgency_low": "Low",
   "urgency_medium": "Medium",
   "urgency_high": "High",
@@ -483,8 +481,6 @@
   "male": "Male",
   "view_details": "View Details",
   "contact_donors": "Contact Donors",
-
-
   "responses": "{count} responses",
   "hours_ago": "{count} hours ago",
   "unit_needed": "{count} units needed",
@@ -523,5 +519,11 @@
   "note": "Note",
   "note_dec": "Please be respectful of donor's time and availability when reaching out.",
   "send_request": "Send Request",
-  "donors_found": "{count} Donors found"
+  "donors_found": "{count} Donors found",
+  "create_request": "Blood Request",
+  "create_request_dec": "Create a new blood donation request",
+  "alerts_message": "This will send immediate alerts to all nearby donors matching your blood type requirement. Use only for critical emergencies.",
+  "patient_details": "Patient Details",
+  "enter_patient_details": "Enter details about the patient in need of blood",
+  "blood_type_needed": "Blood Type Needed"
 }

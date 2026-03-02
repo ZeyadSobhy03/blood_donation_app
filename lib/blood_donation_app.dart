@@ -6,15 +6,22 @@ import 'l10n/app_localizations.dart';
 
 
 
+
 class BloodDonationApp extends StatelessWidget {
   const BloodDonationApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
 
+
+
+
+
       designSize: const Size(360, 690),
       minTextAdapt: true,
+
       splitScreenMode: true,
       builder: (context, child) => MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,

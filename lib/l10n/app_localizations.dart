@@ -3031,6 +3031,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} Donors found'**
   String donors_found(Object count);
+
+  /// No description provided for @create_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Request'**
+  String get create_request;
+
+  /// No description provided for @create_request_dec.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a new blood donation request'**
+  String get create_request_dec;
+
+  /// No description provided for @alerts_message.
+  ///
+  /// In en, this message translates to:
+  /// **'This will send immediate alerts to all nearby donors matching your blood type requirement. Use only for critical emergencies.'**
+  String get alerts_message;
+
+  /// No description provided for @patient_details.
+  ///
+  /// In en, this message translates to:
+  /// **'Patient Details'**
+  String get patient_details;
+
+  /// No description provided for @enter_patient_details.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter details about the patient in need of blood'**
+  String get enter_patient_details;
+
+  /// No description provided for @blood_type_needed.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Type Needed'**
+  String get blood_type_needed;
 }
 
 class _AppLocalizationsDelegate

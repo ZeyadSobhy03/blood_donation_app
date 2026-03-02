@@ -1571,4 +1571,23 @@ class AppLocalizationsAr extends AppLocalizations {
   String donors_found(Object count) {
     return '$count متبرع تم العثور عليه';
   }
+
+  @override
+  String get create_request => 'إنشاء طلب';
+
+  @override
+  String get create_request_dec => 'إنشاء طلب تبرع بالدم جديد';
+
+  @override
+  String get alerts_message =>
+      'سيتم إرسال تنبيهات فورية إلى جميع المتبرعين القريبين المطابقين لفصيلة الدم المطلوبة. يُستخدم هذا الخيار فقط في الحالات الطارئة الحرجة.';
+
+  @override
+  String get patient_details => 'تفاصيل المريض';
+
+  @override
+  String get enter_patient_details => 'أدخل تفاصيل المريض';
+
+  @override
+  String get blood_type_needed => 'فصيلة الدم المطلوبة للتبرع';
 }

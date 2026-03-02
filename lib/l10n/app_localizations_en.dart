@@ -1574,4 +1574,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String donors_found(Object count) {
     return '$count Donors found';
   }
+
+  @override
+  String get create_request => 'Blood Request';
+
+  @override
+  String get create_request_dec => 'Create a new blood donation request';
+
+  @override
+  String get alerts_message =>
+      'This will send immediate alerts to all nearby donors matching your blood type requirement. Use only for critical emergencies.';
+
+  @override
+  String get patient_details => 'Patient Details';
+
+  @override
+  String get enter_patient_details =>
+      'Enter details about the patient in need of blood';
+
+  @override
+  String get blood_type_needed => 'Blood Type Needed';
 }
