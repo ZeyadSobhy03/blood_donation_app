@@ -525,5 +525,10 @@
   "alerts_message": "This will send immediate alerts to all nearby donors matching your blood type requirement. Use only for critical emergencies.",
   "patient_details": "Patient Details",
   "enter_patient_details": "Enter details about the patient in need of blood",
-  "blood_type_needed": "Blood Type Needed"
+  "blood_type_needed": "Blood Type Needed",
+  "confirm_donation": "Confirm Donation",
+
+  "generate_donation_qr": "Generate Donation QR",
+  "qr_valid_message": "This QR code is valid for 5 minutes and can only be used once"
+
 }

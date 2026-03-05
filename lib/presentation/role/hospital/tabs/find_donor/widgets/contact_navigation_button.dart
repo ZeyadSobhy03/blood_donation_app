@@ -7,14 +7,14 @@ import '../../../../../../core/widgets/custom_text.dart';
 import '../../../../../../l10n/app_localizations.dart';
 
 class ContactNavigationButton extends StatelessWidget {
-  const ContactNavigationButton({super.key, required this.onSendRequest});
-  final VoidCallback onSendRequest ;
+  const ContactNavigationButton({super.key, required this.confirmDonation});
+
+  final VoidCallback confirmDonation;
 
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
-    return  Row(
-
+    return Row(
       children: [
         Expanded(
           flex: 1,
@@ -37,27 +37,36 @@ class ContactNavigationButton extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: 12),
+       const SizedBox(width: 4),
 
         Expanded(
           flex: 2,
           child: CustomElevatedButton(
-            onPressed: onSendRequest,
+            onPressed: confirmDonation,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
-              side: BorderSide(color: ColorManger.royalBlue, width: 1),
+              side: BorderSide(color: ColorManger.lightGreen, width: 1),
             ),
-            backgroundColor: ColorManger.royalBlue,
+            backgroundColor: ColorManger.green,
             foregroundColor: ColorManger.pureWhite,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: CustomText(
-              text: appLocalization.send_request,
-              textStyle: TextStyle(
-
-                color: ColorManger.pureWhite,
-                fontSize: FontSize.s13,
-                fontWeight: FontWeightManager.medium,
-              ),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.qr_code_scanner,
+                  size: 16,
+                  color: ColorManger.pureWhite,
+                ),
+                const SizedBox(width: 4),
+                CustomText(
+                  text: appLocalization.confirm_donation,
+                  textStyle: TextStyle(
+                    color: ColorManger.pureWhite,
+                    fontSize: FontSize.s12,
+                    fontWeight: FontWeightManager.medium,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

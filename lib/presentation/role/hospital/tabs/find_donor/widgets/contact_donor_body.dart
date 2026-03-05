@@ -1,5 +1,5 @@
-
 import 'package:blood_donation_app/core/resources/models/donor.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/section/confirm_donation_dialog.dart';
 
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/widgets/contact_navigation_button.dart';
 
@@ -108,7 +108,18 @@ class ContactDonorBody extends StatelessWidget {
         SizedBox(height: 8),
         NoteCard(),
         SizedBox(height: 16),
-        ContactNavigationButton(onSendRequest: (){}),
+        ContactNavigationButton(
+          confirmDonation: () {
+            showDialog(
+
+
+              context: context,
+              builder: (context) {
+                return ConfirmDonationDialog();
+              },
+            );
+          },
+        ),
       ],
     );
   }

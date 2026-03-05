@@ -3067,6 +3067,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Blood Type Needed'**
   String get blood_type_needed;
+
+  /// No description provided for @confirm_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Donation'**
+  String get confirm_donation;
+
+  /// No description provided for @generate_donation_qr.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate Donation QR'**
+  String get generate_donation_qr;
+
+  /// No description provided for @qr_valid_message.
+  ///
+  /// In en, this message translates to:
+  /// **'This QR code is valid for 5 minutes and can only be used once'**
+  String get qr_valid_message;
 }
 
 class _AppLocalizationsDelegate

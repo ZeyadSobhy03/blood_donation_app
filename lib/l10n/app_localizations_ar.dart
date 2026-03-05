@@ -1590,4 +1590,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get blood_type_needed => 'فصيلة الدم المطلوبة للتبرع';
+
+  @override
+  String get confirm_donation => 'تأكيد التبرع';
+
+  @override
+  String get generate_donation_qr => 'إنشاء رمز QR للتبرع';
+
+  @override
+  String get qr_valid_message =>
+      'رمز QR صالح لمدة 5 دقائق ويمكن استخدامه مرة واحدة فقط';
 }

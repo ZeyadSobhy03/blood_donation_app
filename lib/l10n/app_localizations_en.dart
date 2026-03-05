@@ -1594,4 +1594,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get blood_type_needed => 'Blood Type Needed';
+
+  @override
+  String get confirm_donation => 'Confirm Donation';
+
+  @override
+  String get generate_donation_qr => 'Generate Donation QR';
+
+  @override
+  String get qr_valid_message =>
+      'This QR code is valid for 5 minutes and can only be used once';
 }
