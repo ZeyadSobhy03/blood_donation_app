@@ -18,32 +18,36 @@ class ContactDonorDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
     return Dialog(
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       backgroundColor: ColorManger.pureWhite,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CustomText(
-                  text: appLocalization.contact_donor,
-                  textStyle: TextStyle(
-                    color: ColorManger.black,
-                    fontSize: FontSize.s16,
-                    fontWeight: FontWeightManager.semiBold,
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.95,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CustomText(
+                    text: appLocalization.contact_donor,
+                    textStyle: TextStyle(
+                      color: ColorManger.black,
+                      fontSize: FontSize.s16,
+                      fontWeight: FontWeightManager.semiBold,
+                    ),
                   ),
-                ),
-                SizedBox(height: 16.h),
-                ContactDonorHeader(name: donor.name, bloodType: donor.bloodType, location: donor.location),
-                SizedBox(height: 20.h),
-                ContactDonorBody(
-                  donor: donor,
-                ),
-            
-              ],
+                  SizedBox(height: 16.h),
+                  ContactDonorHeader(name: donor.name, bloodType: donor.bloodType, location: donor.location),
+                  SizedBox(height: 20.h),
+                  ContactDonorBody(
+                    donor: donor,
+                  ),
+
+                ],
+              ),
             ),
           ),
         ),

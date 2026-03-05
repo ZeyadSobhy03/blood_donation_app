@@ -1600,4 +1600,10 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get qr_valid_message =>
       'رمز QR صالح لمدة 5 دقائق ويمكن استخدامه مرة واحدة فقط';
+
+  @override
+  String get time_remaining => 'الوقت المتبقي';
+
+  @override
+  String get qr_expiry_warning => 'يمكن استخدام رمز QR هذا مرة واحدة فقط';
 }

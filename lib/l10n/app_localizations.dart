@@ -3085,6 +3085,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This QR code is valid for 5 minutes and can only be used once'**
   String get qr_valid_message;
+
+  /// No description provided for @time_remaining.
+  ///
+  /// In en, this message translates to:
+  /// **'Time Remaining'**
+  String get time_remaining;
+
+  /// No description provided for @qr_expiry_warning.
+  ///
+  /// In en, this message translates to:
+  /// **'This QR code can only be used once'**
+  String get qr_expiry_warning;
 }
 
 class _AppLocalizationsDelegate

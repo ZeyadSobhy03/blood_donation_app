@@ -111,11 +111,9 @@ class ContactDonorBody extends StatelessWidget {
         ContactNavigationButton(
           confirmDonation: () {
             showDialog(
-
-
               context: context,
               builder: (context) {
-                return ConfirmDonationDialog();
+                return ConfirmDonationDialog(donor: donor);
               },
             );
           },

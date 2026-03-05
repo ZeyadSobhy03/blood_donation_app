@@ -1604,4 +1604,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get qr_valid_message =>
       'This QR code is valid for 5 minutes and can only be used once';
+
+  @override
+  String get time_remaining => 'Time Remaining';
+
+  @override
+  String get qr_expiry_warning => 'This QR code can only be used once';
 }

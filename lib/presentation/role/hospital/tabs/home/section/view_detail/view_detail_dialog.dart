@@ -13,32 +13,36 @@ class ViewDetailDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
     return Dialog(
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
       backgroundColor: ColorManger.pureWhite,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              RequestHeader(
-                title: appLocalizations.request_details,
-                subtitle: appLocalizations.request_details_desc,
-              ),
-              SizedBox(height: 16.h),
-              RequestDetailBody(
-                bloodType: 'O+',
-                unitsNeeded: 3,
-                urgency: 'Critical',
-                timeLeft: 2,
-                responseCount: 5,
-                confirmedCount: 12,
-              ),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.95,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RequestHeader(
+                  title: appLocalizations.request_details,
+                  subtitle: appLocalizations.request_details_desc,
+                ),
+                SizedBox(height: 16.h),
+                RequestDetailBody(
+                  bloodType: 'O+',
+                  unitsNeeded: 3,
+                  urgency: 'Critical',
+                  timeLeft: 2,
+                  responseCount: 5,
+                  confirmedCount: 12,
+                ),
 
-              SizedBox(height: 10.h),
-            ],
+                SizedBox(height: 10.h),
+              ],
+            ),
           ),
         ),
       ),

@@ -129,58 +129,62 @@ class ContactDonorDialog extends StatelessWidget {
     ];
     final appLocalizations = AppLocalizations.of(context)!;
     return Dialog(
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       backgroundColor: ColorManger.pureWhite,
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              RequestHeader(
-                title: appLocalizations.contact_donor,
-                subtitle: appLocalizations.contact_donor_desc,
-              ),
-              SizedBox(height: 16.h),
-              RequestInfo(bloodType: 'A-', unitsNeeded: 2, urgency: 'High'),
-              SizedBox(height: 16.h),
-              CustomLabel(
-                text: appLocalizations.available_donors(donors.length),
-              ),
-              SizedBox(height: 8.h),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: donors.length,
-                itemBuilder: (context, index) {
-                  final donor = donors[index];
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.95,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                RequestHeader(
+                  title: appLocalizations.contact_donor,
+                  subtitle: appLocalizations.contact_donor_desc,
+                ),
+                SizedBox(height: 16.h),
+                RequestInfo(bloodType: 'A-', unitsNeeded: 2, urgency: 'High'),
+                SizedBox(height: 16.h),
+                CustomLabel(
+                  text: appLocalizations.available_donors(donors.length),
+                ),
+                SizedBox(height: 8.h),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: donors.length,
+                  itemBuilder: (context, index) {
+                    final donor = donors[index];
 
-                  return AvailableDonorCard(donors: donor);
-                },
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  CustomElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    backgroundColor: ColorManger.pureWhite,
-                    foregroundColor: ColorManger.black,
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      side: BorderSide(
-                        color: ColorManger.lightGrey.withValues(alpha: 0.5),
+                    return AvailableDonorCard(donors: donor);
+                  },
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    CustomElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      backgroundColor: ColorManger.pureWhite,
+                      foregroundColor: ColorManger.black,
+                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        side: BorderSide(
+                          color: ColorManger.lightGrey.withValues(alpha: 0.5),
+                        ),
                       ),
+                      child: CustomText(text: appLocalizations.close),
                     ),
-                    child: CustomText(text: appLocalizations.close),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

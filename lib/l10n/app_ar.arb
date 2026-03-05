@@ -516,7 +516,6 @@
   "call": "اتصل",
   "emergency_whatsapp_message": "مرحبًا {name}، يوجد حالة طارئة تحتاج إلى فصيلة {bloodType}. هل يمكنك المساعدة؟",
   "note": "ملاحظة",
-
   "note_dec": "يرجى مراعاة وقت المتبرع ومدى توفره عند التواصل معه.",
   "send_request": "إرسال الطلب",
   "donors_found": "{count} متبرع تم العثور عليه",
@@ -529,7 +528,8 @@
   "enter_patient_details": "أدخل تفاصيل المريض",
   "confirm_donation": "تأكيد التبرع",
   "generate_donation_qr": "إنشاء رمز QR للتبرع",
-  "qr_valid_message": "رمز QR صالح لمدة 5 دقائق ويمكن استخدامه مرة واحدة فقط"
-
+  "qr_valid_message": "رمز QR صالح لمدة 5 دقائق ويمكن استخدامه مرة واحدة فقط",
+  "time_remaining": "الوقت المتبقي",
+  "qr_expiry_warning": "يمكن استخدام رمز QR هذا مرة واحدة فقط"
 
 }

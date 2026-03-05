@@ -13,28 +13,32 @@ class RequestDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
     return Dialog(
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       backgroundColor: ColorManger.pureWhite,
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            RequestHeader(
-               title:  appLocalizations.emergency_request,
-              subtitle: appLocalizations.emergency_blood_request_desc,
-            ),
-            RequestBody()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-          ],
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.95,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RequestHeader(
+                 title:  appLocalizations.emergency_request,
+                subtitle: appLocalizations.emergency_blood_request_desc,
+              ),
+              RequestBody()
+
+
+
+
+
+
+
+
+
+
+            ],
+          ),
         ),
       ),
     );

@@ -7,7 +7,6 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/request/secti
 import 'package:blood_donation_app/presentation/role/hospital/tabs/request/sections/emergency_request_navigation_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../l10n/app_localizations.dart';
 
 class EmergencyRequestDialog extends StatefulWidget {
   const EmergencyRequestDialog({super.key});
@@ -19,35 +18,38 @@ class EmergencyRequestDialog extends StatefulWidget {
 class _EmergencyRequestDialogState extends State<EmergencyRequestDialog> {
   @override
   Widget build(BuildContext context) {
-    final appLocalizations = AppLocalizations.of(context)!;
 
     return Dialog(
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       backgroundColor: ColorManger.pureWhite,
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-          child: SingleChildScrollView(
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                EmergencyRequestHeader(),
-                SizedBox(height: 16),
-                AlertsCard(),
-                SizedBox(height: 16),
-                EmergencyRequestBody(),
-                SizedBox(height: 24),
-                EmergencyRequestNavigationButton(
-                  onSubmit: () {},
-                  onCancel: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.95,
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  EmergencyRequestHeader(),
+                  SizedBox(height: 16),
+                  AlertsCard(),
+                  SizedBox(height: 16),
+                  EmergencyRequestBody(),
+                  SizedBox(height: 24),
+                  EmergencyRequestNavigationButton(
+                    onSubmit: () {},
+                    onCancel: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
