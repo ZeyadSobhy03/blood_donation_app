@@ -41,7 +41,8 @@ class _RequestDetailsCardState extends State<RequestDetailsCard> {
               RequestDetailBody(),
               SizedBox(height: 16),
               CustomElevatedButton(
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+
                 backgroundColor: ColorManger.skyBlue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),

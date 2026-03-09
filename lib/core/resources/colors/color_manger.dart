@@ -40,7 +40,7 @@ class ColorManger {
   static const Color lightYellow = Color(0xFFFFFBEB);
   static const Color yellow = Color(0xFFFCD34D);
   static const Color darkOrange = Color(0xFFB45309);
-  static const Color lightGreen=Color(0xFFEFFFF4);
+  static const Color lightGreen = Color(0xFFEFFFF4);
   static const Color grey800 = Color(0xFF4B5563);
   static const Color lightGreenBorder = Color(0xFFEFFFF4);
   static const Color darkBlue = Color(0xFF1A1A2E);
@@ -55,8 +55,25 @@ class ColorManger {
   static const Color successBackground = Color(0xFFE8F5E9);
   static const Color warningIcon = Color(0xFFFB8C00);
   static const Color warningBackground = Color(0xFFFFF3E0);
-  static const Color errorLightBackground=Color(0xFFFFEBEE);
+  static const Color errorLightBackground = Color(0xFFFFEBEE);
+  static const Color platinum = Color(0xFFE5E4E2);
+  static const Color lightGold = Color(0xFFFFF8E1);
+  static const Color lightBronze = Color(0xFFFFF3E0);
+  static const Color bronze = Color(0xFFCD7F32);
+  static const Color bronzeDark = Color(0xFFA0522D);
 
+  static const Color lightSilver = Color(0xFFF5F5F5);
+  static const Color silver = Color(0xFFBDBDBD);
+  static const Color silverDark = Color(0xFF757575);
 
-
+  static const Color goldDark = Color(0xFFF9A825);
+  static const Color grey100 = Color(0xFFF5F5F5);
+  static const Color grey200 = Color(0xFFEEEEEE);
+  static const Color grey400 = Color(0xFFBDBDBD);
+  static const Color grey500 = Color(0xFF9E9E9E);
+  static const Color grey700 = Color(0xFF616161);
+  static const Color diamond = Color(0xFF00B4D8);
+  static const Color diamondDark = Color(0xFF0077B6);
+  static const Color lightDiamond = Color(0xFFE0F7FF);
+  static const Color bloodRed = Color(0xFFFF0F22);
 }

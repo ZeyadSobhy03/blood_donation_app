@@ -43,6 +43,8 @@ class EmergencyRequestCard extends StatelessWidget {
             ),
             SizedBox(height: 24),
             CustomElevatedButton(
+              padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -54,7 +56,6 @@ class EmergencyRequestCard extends StatelessWidget {
                   builder: (context) => EmergencyRequestDialog(),
                 );
               },
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               foregroundColor: ColorManger.pureWhite,
               child: CustomText(
                 text: appLocalizations.create_emergency_request,

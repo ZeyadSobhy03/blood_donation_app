@@ -14,6 +14,8 @@ class ConfirmNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
     return     CustomElevatedButton(
+      padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+
       elevation: 3,
       backgroundColor: ColorManger.pureWhite,
       shape: RoundedRectangleBorder(

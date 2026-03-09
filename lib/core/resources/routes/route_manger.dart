@@ -6,8 +6,10 @@ import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/schedule_donation.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donor_main_layout.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/notifications.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/confirm_donation/confirm_donation.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/help_and_support/screen/pdf_viewer_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/privacy_and_security/privacy_and_security.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/scan_qr/scan_qr.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/two_factor_authentication/screen/two_factor_authentication_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/request_screen.dart';
 import 'package:flutter/material.dart';
@@ -40,10 +42,12 @@ class RouteManger {
   static const String donationHistory = '/donationHistory';
   static const String privacyAndSecurity = '/privacyAndSecurity';
   static const String twoFactorAuthentication = '/twoFactorAuthentication';
+  static const String confirmDonation= '/confirmDonation';
 
   static const String helpAndSupport = '/helpAndSupport';
   static const String pdfViewer = '/pdfViewer';
   static const String hospitalMainLayout = '/hospitalMainLayout';
+  static const String scanQrCode = '/scanQrCode';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -51,6 +55,9 @@ class RouteManger {
         return MaterialPageRoute(builder: (context) => SplashScreen());
       case onboarding:
         return MaterialPageRoute(builder: (context) => OnboardingPages());
+
+      case scanQrCode:
+        return MaterialPageRoute(builder: (context) => const ScanQr());
 
       case donationHistory:
         return MaterialPageRoute(builder: (context) => DonationHistory());
@@ -93,6 +100,9 @@ class RouteManger {
 
       case donorLogin:
         return MaterialPageRoute(builder: (context) => DonorLogin());
+
+      case confirmDonation:
+        return MaterialPageRoute(builder: (context) => const ConfirmDonation());
 
       case donorRegister:
         return MaterialPageRoute(builder: (context) => DonorRegister());

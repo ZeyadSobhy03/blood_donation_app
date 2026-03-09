@@ -23,7 +23,7 @@ class RequestActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomElevatedButton(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+      padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
       elevation: 4,
       foregroundColor: foregroundColor,
       onPressed: onPressed,

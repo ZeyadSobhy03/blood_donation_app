@@ -163,16 +163,18 @@ class ContactDonorDialog extends StatelessWidget {
                     return AvailableDonorCard(donors: donor);
                   },
                 ),
+                SizedBox(height: 8.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     CustomElevatedButton(
+                      padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+
                       onPressed: () {
                         Navigator.pop(context);
                       },
                       backgroundColor: ColorManger.pureWhite,
                       foregroundColor: ColorManger.black,
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                         side: BorderSide(

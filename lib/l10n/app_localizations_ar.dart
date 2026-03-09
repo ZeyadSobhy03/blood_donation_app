@@ -1606,4 +1606,146 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get qr_expiry_warning => 'يمكن استخدام رمز QR هذا مرة واحدة فقط';
+
+  @override
+  String get total_points => 'إجمالي النقاط';
+
+  @override
+  String get next_milestone => 'المرحلة التالية';
+
+  @override
+  String points_until_milestone(Object milestone, Object points) {
+    return 'متبقي $points نقطة للوصول إلى $milestone';
+  }
+
+  @override
+  String get locked => 'مقفل';
+
+  @override
+  String get achievement_badges => 'شارات الإنجاز';
+
+  @override
+  String get upcoming_rewards => 'المكافآت القادمة';
+
+  @override
+  String get gold_badge_reward => '🎁 شارة ذهبية: أولوية في جدولة التبرع';
+
+  @override
+  String get platinum_badge_reward =>
+      '🏆 شارة بلاتينية (5000 نقطة): هدايا حصرية';
+
+  @override
+  String get confirm_donation_title => 'تأكيد التبرع';
+
+  @override
+  String get confirm_donation_desc =>
+      'قم بمسح رمز QR الخاص بالمستشفى لتأكيد تبرعك بالدم والحصول على نقاط.';
+
+  @override
+  String get scan_qr_code => 'مسح رمز QR';
+
+  @override
+  String get points_short => 'نقطة';
+
+  @override
+  String get bronze_donor => 'متبرع برونزي';
+
+  @override
+  String get silver_donor => 'متبرع فضي';
+
+  @override
+  String get gold_donor => 'متبرع ذهبي';
+
+  @override
+  String get no_badge => 'متبرع جديد';
+
+  @override
+  String get scan_donation_qr => 'مسح رمز التبرع';
+
+  @override
+  String get confirm_donation_qr_desc =>
+      'قم بتأكيد تبرعك عن طريق مسح رمز QR الخاص بالمستشفى';
+
+  @override
+  String get how_it_works => 'كيف يعمل؟';
+
+  @override
+  String get step_visit_hospital => 'قم بزيارة المستشفى أو مركز التبرع بالدم';
+
+  @override
+  String get step_request_qr => 'اطلب رمز التبرع QR من الموظفين';
+
+  @override
+  String get step_start_scanning => 'اضغط على \"بدء المسح\" بالأسفل';
+
+  @override
+  String get step_point_camera => 'وجّه الكاميرا نحو رمز QR';
+
+  @override
+  String get step_wait_confirmation => 'انتظر رسالة التأكيد';
+
+  @override
+  String get camera_scanner => 'ماسح الكاميرا';
+
+  @override
+  String get camera_ready => 'الكاميرا جاهزة';
+
+  @override
+  String get tap_to_start => 'اضغط على الزر بالأسفل للبدء';
+
+  @override
+  String get scan_qr_description =>
+      'قم بمسح رمز QR الذي يقدمه المستشفى لتأكيد تبرعك بالدم.';
+
+  @override
+  String get start_scanning => 'بدء المسح';
+
+  @override
+  String get security_notice_message =>
+      'قم فقط بمسح رموز QR التي يقدمها موظفو المستشفى الموثوقون مباشرةً. لا تقم أبدًا بمسح الرموز من مصادر غير موثوقة.';
+
+  @override
+  String get recent_confirmations => 'التأكيدات الأخيرة';
+
+  @override
+  String get donationConfirmedTitle => 'تم تأكيد التبرع!';
+
+  @override
+  String get donationConfirmedMessage => 'تم التحقق من تبرعك بالدم بنجاح';
+
+  @override
+  String get youEarned => 'لقد حصلت على';
+
+  @override
+  String get statusLabel => 'الحالة:';
+
+  @override
+  String get donationDetails => 'تفاصيل التبرع';
+
+  @override
+  String get dateLabel => 'التاريخ:';
+
+  @override
+  String get view_points => 'عرض النقاط';
+
+  @override
+  String get align_qr_frame => 'ضع رمز الاستجابة السريعة داخل الإطار';
+
+  @override
+  String camera_error(Object error) {
+    return 'Camera error: $error';
+  }
+
+  @override
+  String get diamond_donor => 'متبرع ماسي';
+
+  @override
+  String get donation_thank_you =>
+      'شكرًا لإنقاذ الأرواح! تم تسجيل تبرعك في سجل التبرعات الخاص بك.';
+
+  @override
+  String get typeLabel => 'النوع:';
+
+  @override
+  String get cancelled => 'ملغاة';
 }

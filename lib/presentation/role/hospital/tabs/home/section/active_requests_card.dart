@@ -104,7 +104,6 @@ class ActiveRequestsCard extends StatelessWidget {
                         SizedBox(height: 16.h),
                         ActiveRequestNavigationButtons(
                           onContactDonorsPressed: () {
-                            // Handle contact donors action
                             showDialog(
                               context: context,
                               builder: (context) => ContactDonorDialog(),

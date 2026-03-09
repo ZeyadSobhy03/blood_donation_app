@@ -36,6 +36,7 @@ class ActiveRequestNavigationButtons extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(width: 4),
         Expanded(
           child: Padding(
             padding: EdgeInsetsGeometry.only(left: 8.w),

@@ -81,8 +81,8 @@ class CustomBadgeCard extends StatelessWidget {
               CustomText(
                 text: title,
                 textStyle: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
                 ),
               ),
 

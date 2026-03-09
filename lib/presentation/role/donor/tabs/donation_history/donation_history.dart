@@ -55,7 +55,7 @@ class DonationHistory extends StatelessWidget {
         donationType: "Plasma Donation",
         hospitalName: "Al Salam Hospital",
         date: "2026-01-22",
-        status: appLocalization.cancelDonation,
+        status: appLocalization.cancel,
         points: 6,
       ),
       DonationHistoryModel(

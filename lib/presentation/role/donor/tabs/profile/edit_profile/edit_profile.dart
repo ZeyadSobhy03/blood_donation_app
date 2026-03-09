@@ -95,7 +95,7 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       child: LayoutBuilder(
         builder: (context, constraints) {
           return ConstrainedBox(
@@ -105,7 +105,7 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
               maxHeight: 600,
             ),
             child: Container(
-              width: double.infinity,
+              width: MediaQuery.of(context).size.width * 0.95,
               decoration: BoxDecoration(
                 color: ColorManger.pureWhite,
                 borderRadius: BorderRadius.circular(20),

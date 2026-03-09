@@ -4,21 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'l10n/app_localizations.dart';
 
-
-
-
 class BloodDonationApp extends StatelessWidget {
   const BloodDonationApp({super.key});
-
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-
-
-
-
-
       designSize: const Size(360, 690),
       minTextAdapt: true,
 
@@ -26,8 +17,7 @@ class BloodDonationApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        locale: Locale('en'),
-
+        locale: Locale('ar'),
 
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteManger.router,

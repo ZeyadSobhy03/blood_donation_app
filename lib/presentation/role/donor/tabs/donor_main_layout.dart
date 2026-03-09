@@ -117,75 +117,83 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.08),
-              blurRadius: 20,
-              offset: const Offset(0, -5),
+              blurRadius: 18,
+              offset: const Offset(0, -4),
             ),
           ],
         ),
         child: SafeArea(
           child: SizedBox(
-            height: 65,
+            height: 72,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(navItems.length, (index) {
                 final isSelected = currentIndex == index;
                 final item = navItems[index];
 
-                return GestureDetector(
-                  onTap: () => _onTabTapped(index),
-                  behavior: HitTestBehavior.opaque,
-                  child: SizedBox(
-                    width: 65,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ScaleTransition(
-                          scale: _iconScales[index],
-                          child: AnimatedSwitcher(
+                return Expanded(
+                  child: GestureDetector(
+                    onTap: () => _onTabTapped(index),
+                    behavior: HitTestBehavior.opaque,
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 250),
+                      curve: Curves.easeOut,
+                      padding: const EdgeInsets.symmetric(vertical: 6),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+
+                          /// ICON
+                          ScaleTransition(
+                            scale: _iconScales[index],
+                            child: AnimatedSwitcher(
+                              duration: const Duration(milliseconds: 200),
+                              transitionBuilder: (child, animation) =>
+                                  ScaleTransition(scale: animation, child: child),
+                              child: Icon(
+                                isSelected ? item.$1 : item.$2,
+                                key: ValueKey(isSelected),
+                                size: isSelected ? 28 : 24,
+                                color: isSelected
+                                    ? ColorManger.brightRed
+                                    : ColorManger.slateGrey,
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(height: 2),
+
+                          /// LABEL
+                          AnimatedDefaultTextStyle(
                             duration: const Duration(milliseconds: 200),
-                            transitionBuilder: (child, animation) =>
-                                ScaleTransition(scale: animation, child: child),
-                            child: Icon(
-                              isSelected ? item.$1 : item.$2,
-                              key: ValueKey(isSelected),
+                            style: TextStyle(
+                              fontSize: isSelected ? 12 : 11,
+                              fontWeight:
+                              isSelected ? FontWeight.w600 : FontWeight.w400,
                               color: isSelected
                                   ? ColorManger.brightRed
                                   : ColorManger.slateGrey,
-                              size: 26,
+                            ),
+                            child: Text(
+                              item.$3,
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                        ),
 
-                        const SizedBox(height: 4),
+                          const SizedBox(height: 2),
 
-                        // Label with animated color + size
-                        AnimatedDefaultTextStyle(
-                          duration: const Duration(milliseconds: 200),
-                          style: TextStyle(
-                            fontSize: isSelected ? 11 : 10,
-                            fontWeight: isSelected
-                                ? FontWeight.w600
-                                : FontWeight.w400,
-                            color: isSelected
-                                ? ColorManger.brightRed
-                                : ColorManger.slateGrey,
+                          /// INDICATOR
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 250),
+                            curve: Curves.easeOut,
+                            height: 3,
+                            width: isSelected ? 18 : 0,
+                            decoration: BoxDecoration(
+                              color: ColorManger.brightRed,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
-                          child: Text(item.$3),
-                        ),
-
-                        // Active dot indicator
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 250),
-                          curve: Curves.easeOut,
-                          margin: const EdgeInsets.only(top: 4),
-                          height: 3,
-                          width: isSelected ? 20 : 0,
-                          decoration: BoxDecoration(
-                            color: ColorManger.brightRed,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 );

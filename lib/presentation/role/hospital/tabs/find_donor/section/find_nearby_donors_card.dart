@@ -51,7 +51,6 @@ class FindNearbyDonorsCard extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Avatar with blood type ring
                   DonorAvatar(bloodType: donor.bloodType),
                   const SizedBox(width: 14),
 
@@ -102,7 +101,6 @@ class FindNearbyDonorsCard extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
 
-                  // Contact button — vertical pill
                   ContactButton(
                     label: appLocalization.contact,
                     onPressed: () {

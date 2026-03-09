@@ -19,6 +19,8 @@ class ContactNavigationButton extends StatelessWidget {
         Expanded(
           flex: 1,
           child: CustomElevatedButton(
+            padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
               side: BorderSide(color: ColorManger.lightGrey, width: 1),
@@ -26,7 +28,6 @@ class ContactNavigationButton extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(),
             backgroundColor: ColorManger.pureWhite,
             foregroundColor: ColorManger.black,
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: CustomText(
               text: appLocalization.close,
               textStyle: TextStyle(
@@ -42,6 +43,8 @@ class ContactNavigationButton extends StatelessWidget {
         Expanded(
           flex: 2,
           child: CustomElevatedButton(
+            padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+
             onPressed: confirmDonation,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
@@ -49,7 +52,6 @@ class ContactNavigationButton extends StatelessWidget {
             ),
             backgroundColor: ColorManger.green,
             foregroundColor: ColorManger.pureWhite,
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
               children: [
                 Icon(

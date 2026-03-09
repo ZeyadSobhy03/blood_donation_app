@@ -530,6 +530,56 @@
   "generate_donation_qr": "إنشاء رمز QR للتبرع",
   "qr_valid_message": "رمز QR صالح لمدة 5 دقائق ويمكن استخدامه مرة واحدة فقط",
   "time_remaining": "الوقت المتبقي",
-  "qr_expiry_warning": "يمكن استخدام رمز QR هذا مرة واحدة فقط"
+  "qr_expiry_warning": "يمكن استخدام رمز QR هذا مرة واحدة فقط",
+  "total_points": "إجمالي النقاط",
+  "next_milestone": "المرحلة التالية",
+  "points_until_milestone": "متبقي {points} نقطة للوصول إلى {milestone}",
+  "locked": "مقفل",
+  "achievement_badges": "شارات الإنجاز",
+  "gold_badge_reward": "🎁 شارة ذهبية: أولوية في جدولة التبرع",
+  "platinum_badge_reward": "🏆 شارة بلاتينية (5000 نقطة): هدايا حصرية",
+  "upcoming_rewards": "المكافآت القادمة",
+  "confirm_donation_title": "تأكيد التبرع",
+  "confirm_donation_desc": "قم بمسح رمز QR الخاص بالمستشفى لتأكيد تبرعك بالدم والحصول على نقاط.",
+  "scan_qr_code": "مسح رمز QR",
+  "points_short": "نقطة",
+  "bronze_donor": "متبرع برونزي",
+  "silver_donor": "متبرع فضي",
+  "gold_donor": "متبرع ذهبي",
+  "no_badge": "متبرع جديد",
+  "scan_donation_qr": "مسح رمز التبرع",
+  "confirm_donation_qr_desc": "قم بتأكيد تبرعك عن طريق مسح رمز QR الخاص بالمستشفى",
+  "how_it_works": "كيف يعمل؟",
+  "step_visit_hospital": "قم بزيارة المستشفى أو مركز التبرع بالدم",
+  "step_request_qr": "اطلب رمز التبرع QR من الموظفين",
+  "step_start_scanning": "اضغط على \"بدء المسح\" بالأسفل",
+  "step_point_camera": "وجّه الكاميرا نحو رمز QR",
+  "step_wait_confirmation": "انتظر رسالة التأكيد",
+  "camera_scanner": "ماسح الكاميرا",
+  "camera_ready": "الكاميرا جاهزة",
+  "tap_to_start": "اضغط على الزر بالأسفل للبدء",
+  "scan_qr_description": "قم بمسح رمز QR الذي يقدمه المستشفى لتأكيد تبرعك بالدم.",
+  "start_scanning": "بدء المسح",
+  "security_notice_message": "قم فقط بمسح رموز QR التي يقدمها موظفو المستشفى الموثوقون مباشرةً. لا تقم أبدًا بمسح الرموز من مصادر غير موثوقة.",
+  "recent_confirmations": "التأكيدات الأخيرة",
+  "donationConfirmedTitle": "تم تأكيد التبرع!",
+  "youEarned": "لقد حصلت على",
+  "statusLabel": "الحالة:",
+  "donationDetails": "تفاصيل التبرع",
+  "donation_thank_you": "شكرًا لإنقاذ الأرواح! تم تسجيل تبرعك في سجل التبرعات الخاص بك.",
+  "view_points": "عرض النقاط",
+  "camera_error_ar": "خطأ في الكاميرا: {error}",
+"diamond_donor": "متبرع ماسي",
+  "align_qr_frame": "ضع رمز الاستجابة السريعة داخل الإطار",
+
+
+  "dateLabel": "التاريخ:",
+  "typeLabel": "النوع:",
+  "cancelled": "ملغاة",
+  "donationConfirmedMessage": "تم التحقق من تبرعك بالدم بنجاح"
+
+
+
+
 
 }

@@ -33,28 +33,30 @@ class _ConfirmDonationDialogState extends State<ConfirmDonationDialog> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           child: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                RequestHeader(
-                  title: appLocalization.generate_donation_qr,
-                  subtitle: appLocalization.qr_valid_message,
-                ),
-
-                const SizedBox(height: 16),
-                ContactDonorHeader(
-                  name: widget.donor.name,
-                  bloodType: widget.donor.bloodType,
-                  location: widget.donor.location,
-                ),
-                const SizedBox(height: 16),
-                QrCard(donorId: widget.donor.id),
-                SizedBox(height: 16),
-                QrWarningCard(),
-                SizedBox(height: 16),
-                ConfirmNavigation(close: () => Navigator.pop(context)),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  RequestHeader(
+                    title: appLocalization.generate_donation_qr,
+                    subtitle: appLocalization.qr_valid_message,
+                  ),
+              
+                  const SizedBox(height: 16),
+                  ContactDonorHeader(
+                    name: widget.donor.name,
+                    bloodType: widget.donor.bloodType,
+                    location: widget.donor.location,
+                  ),
+                  const SizedBox(height: 16),
+                  QrCard(donorId: widget.donor.id),
+                  SizedBox(height: 16),
+                  QrWarningCard(),
+                  SizedBox(height: 16),
+                  ConfirmNavigation(close: () => Navigator.pop(context)),
+                ],
+              ),
             ),
           ),
         ),

@@ -3097,6 +3097,270 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This QR code can only be used once'**
   String get qr_expiry_warning;
+
+  /// No description provided for @total_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Points'**
+  String get total_points;
+
+  /// No description provided for @next_milestone.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Milestone'**
+  String get next_milestone;
+
+  /// No description provided for @points_until_milestone.
+  ///
+  /// In en, this message translates to:
+  /// **'{points} points until {milestone}'**
+  String points_until_milestone(Object milestone, Object points);
+
+  /// No description provided for @locked.
+  ///
+  /// In en, this message translates to:
+  /// **'Locked'**
+  String get locked;
+
+  /// No description provided for @achievement_badges.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement Badges'**
+  String get achievement_badges;
+
+  /// No description provided for @upcoming_rewards.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Rewards'**
+  String get upcoming_rewards;
+
+  /// No description provided for @gold_badge_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'🎁 Gold Badge: Priority donation scheduling'**
+  String get gold_badge_reward;
+
+  /// No description provided for @platinum_badge_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'🏆 Platinum Badge (5,000 pts): Exclusive merchandise'**
+  String get platinum_badge_reward;
+
+  /// No description provided for @confirm_donation_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your donation'**
+  String get confirm_donation_title;
+
+  /// No description provided for @confirm_donation_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan the hospital QR code to confirm your blood donation and earn points.'**
+  String get confirm_donation_desc;
+
+  /// No description provided for @scan_qr_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan QR Code'**
+  String get scan_qr_code;
+
+  /// No description provided for @points_short.
+  ///
+  /// In en, this message translates to:
+  /// **'pts'**
+  String get points_short;
+
+  /// No description provided for @bronze_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Bronze Donor'**
+  String get bronze_donor;
+
+  /// No description provided for @silver_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Silver Donor'**
+  String get silver_donor;
+
+  /// No description provided for @gold_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold Donor'**
+  String get gold_donor;
+
+  /// No description provided for @no_badge.
+  ///
+  /// In en, this message translates to:
+  /// **'New Donor'**
+  String get no_badge;
+
+  /// No description provided for @scan_donation_qr.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan Donation QR'**
+  String get scan_donation_qr;
+
+  /// No description provided for @confirm_donation_qr_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your donation with hospital QR code'**
+  String get confirm_donation_qr_desc;
+
+  /// No description provided for @how_it_works.
+  ///
+  /// In en, this message translates to:
+  /// **'How it works?'**
+  String get how_it_works;
+
+  /// No description provided for @step_visit_hospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Visit the hospital or blood donation center'**
+  String get step_visit_hospital;
+
+  /// No description provided for @step_request_qr.
+  ///
+  /// In en, this message translates to:
+  /// **'Request the donation QR code from staff'**
+  String get step_request_qr;
+
+  /// No description provided for @step_start_scanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap \"Start Scanning\" below'**
+  String get step_start_scanning;
+
+  /// No description provided for @step_point_camera.
+  ///
+  /// In en, this message translates to:
+  /// **'Point your camera at the QR code'**
+  String get step_point_camera;
+
+  /// No description provided for @step_wait_confirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Wait for confirmation'**
+  String get step_wait_confirmation;
+
+  /// No description provided for @camera_scanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera Scanner'**
+  String get camera_scanner;
+
+  /// No description provided for @camera_ready.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera Ready'**
+  String get camera_ready;
+
+  /// No description provided for @tap_to_start.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap button below to start'**
+  String get tap_to_start;
+
+  /// No description provided for @scan_qr_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan the QR code provided by the hospital to confirm your donation.'**
+  String get scan_qr_description;
+
+  /// No description provided for @start_scanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Scanning'**
+  String get start_scanning;
+
+  /// No description provided for @security_notice_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Only scan QR codes provided directly by verified hospital staff. Never scan codes from untrusted sources.'**
+  String get security_notice_message;
+
+  /// No description provided for @recent_confirmations.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Confirmations'**
+  String get recent_confirmations;
+
+  /// No description provided for @donationConfirmedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Confirmed!'**
+  String get donationConfirmedTitle;
+
+  /// No description provided for @donationConfirmedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your blood donation has been successfully verified'**
+  String get donationConfirmedMessage;
+
+  /// No description provided for @youEarned.
+  ///
+  /// In en, this message translates to:
+  /// **'You Earned'**
+  String get youEarned;
+
+  /// No description provided for @statusLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Status:'**
+  String get statusLabel;
+
+  /// No description provided for @donationDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Details'**
+  String get donationDetails;
+
+  /// No description provided for @dateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Date:'**
+  String get dateLabel;
+
+  /// No description provided for @view_points.
+  ///
+  /// In en, this message translates to:
+  /// **'View Points'**
+  String get view_points;
+
+  /// No description provided for @align_qr_frame.
+  ///
+  /// In en, this message translates to:
+  /// **'Align the QR code inside the frame'**
+  String get align_qr_frame;
+
+  /// No description provided for @camera_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera error: {error}'**
+  String camera_error(Object error);
+
+  /// No description provided for @diamond_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Diamond Donor'**
+  String get diamond_donor;
+
+  /// No description provided for @donation_thank_you.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for saving lives! Your contribution has been recorded in your donation history.'**
+  String get donation_thank_you;
+
+  /// No description provided for @typeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Type:'**
+  String get typeLabel;
+
+  /// No description provided for @cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled'**
+  String get cancelled;
 }
 
 class _AppLocalizationsDelegate

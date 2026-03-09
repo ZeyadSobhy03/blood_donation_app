@@ -53,6 +53,7 @@ class EmergencyCard extends StatelessWidget {
             ),
             SizedBox(height: 24.h),
             CustomElevatedButton(
+              padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
               elevation: 4,
               backgroundColor: ColorManger.pureWhite,
               shape: RoundedRectangleBorder(

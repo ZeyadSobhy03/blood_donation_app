@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -30,6 +31,7 @@ class LogOutButton extends StatelessWidget {
           backgroundColor: ColorManger.pureWhite,
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           onPressed: () {
+            Navigator.pushNamed(context, RouteManger.chooseRole);
             // Handle logout action
           },
           child: Row(

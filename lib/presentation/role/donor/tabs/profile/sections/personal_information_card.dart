@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/resources/models/donor.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,8 @@ import '../../../../../../l10n/app_localizations.dart';
 import '../widgets/profile_info_tile.dart';
 
 class PersonalInformationCard extends StatelessWidget {
-  const PersonalInformationCard({super.key});
+  const PersonalInformationCard({super.key, required this.donor});
+  final DonorModel donor;
 
   @override
   Widget build(BuildContext context) {
@@ -41,31 +43,31 @@ class PersonalInformationCard extends StatelessWidget {
               ProfileInfoTile(
                 icon: Icons.phone,
                 label: appLocalizations.phone,
-                value: '+123 456 7890',
+                value: donor.phoneNumber,
               ),
               SizedBox(height: 16),
               ProfileInfoTile(
                 icon: Icons.email,
                 label: appLocalizations.email,
-                value: 'ziyad@gmailcom',
+                value: donor.email,
               ),
               SizedBox(height: 16),
               ProfileInfoTile(
                 icon: Icons.location_on,
                 label: appLocalizations.location,
-                value: 'City, Country',
+                value: donor.location,
               ),
               SizedBox(height: 16),
               ProfileInfoTile(
                 icon: Icons.person,
                 label: appLocalizations.fullName,
-                value: 'Ziyad Sobhy',
+                value: donor.name,
               ),
               SizedBox(height: 16),
               ProfileInfoTile(
                 icon: Icons.bloodtype,
                 label: appLocalizations.bloodType,
-                value: 'A+',
+                value: donor.bloodType,
               ),
               SizedBox(height: 16),
             ],

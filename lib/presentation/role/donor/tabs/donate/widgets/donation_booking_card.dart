@@ -91,7 +91,7 @@ class DonationBookingCard extends StatelessWidget {
                       icon: Icons.calendar_month,
                       text: formatter.format(model.date ?? DateTime.now()),
                     ),
-                    SizedBox(width: 20.w),
+                    SizedBox(width: 10.w),
                     InfoRow(icon: Icons.access_time, text: model.timeSlot ?? ''),
                   ],
                 ),
