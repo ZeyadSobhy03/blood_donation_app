@@ -571,6 +571,7 @@
   "camera_error_ar": "خطأ في الكاميرا: {error}",
 "diamond_donor": "متبرع ماسي",
   "align_qr_frame": "ضع رمز الاستجابة السريعة داخل الإطار",
+  "camera_error": "خطأ في الكاميرا: {error}",
 
 
   "dateLabel": "التاريخ:",

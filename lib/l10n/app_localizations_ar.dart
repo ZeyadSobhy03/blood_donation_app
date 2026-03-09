@@ -1733,7 +1733,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String camera_error(Object error) {
-    return 'Camera error: $error';
+    return 'خطأ في الكاميرا: $error';
   }
 
   @override
