@@ -6,8 +6,8 @@ import '../resources/fonts/font_manger.dart';
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
-  final String hint;
-  final IconData icon;
+  final String? hint;
+  final IconData? icon;
   final bool isPassword;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
@@ -15,8 +15,8 @@ class CustomTextField extends StatefulWidget {
 
   const CustomTextField({
     required this.controller,
-    required this.hint,
-    required this.icon,
+    this.hint,
+    this.icon,
     required this.isPassword,
     this.validator,
     super.key,

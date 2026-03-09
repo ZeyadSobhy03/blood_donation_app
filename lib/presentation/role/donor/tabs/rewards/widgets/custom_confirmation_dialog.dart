@@ -1,7 +1,7 @@
-import 'package:blood_donation_app/core/widgets/custom_success_dialog.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/rewards_screen.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/widgets/custom_success_dialog.dart';
 import 'package:flutter/material.dart';
 
 class CustomConfirmationDialog extends StatefulWidget {
