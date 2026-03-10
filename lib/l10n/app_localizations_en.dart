@@ -1754,4 +1754,116 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cancelled => 'Cancelled';
+
+  @override
+  String get securitySettings => 'Security Settings';
+
+  @override
+  String get securityInfo =>
+      'Keep your account secure by regularly updating your password and enabling two-factor authentication.';
+
+  @override
+  String get enterCurrentPassword => 'Enter current password';
+
+  @override
+  String get enterNewPassword => 'Enter new password';
+
+  @override
+  String get confirmNewPassword => 'Confirm New Password';
+
+  @override
+  String get confirmNewPasswordHint => 'Confirm new password';
+
+  @override
+  String get twoFactorAuth => 'Two-Factor Authentication';
+
+  @override
+  String get extraSecurityLayer => 'Add extra security layer';
+
+  @override
+  String get updatePassword => 'Update Password';
+
+  @override
+  String get notificationPreferences => 'Notification Preferences';
+
+  @override
+  String get receiveMobileNotifications => 'Receive mobile notifications';
+
+  @override
+  String get criticalDonorResponses => 'Critical donor responses';
+
+  @override
+  String get emailNotifications => 'Email Notifications';
+
+  @override
+  String get updatesViaEmail => 'Updates via email';
+
+  @override
+  String get smsAlerts => 'SMS Alerts';
+
+  @override
+  String get textMessageUpdates => 'Text message updates';
+
+  @override
+  String get savePreferences => 'Save Preferences';
+
+  @override
+  String get hospitalName => 'Hospital Name';
+
+  @override
+  String get department => 'Department';
+
+  @override
+  String get saveChanges => 'Save Changes';
+
+  @override
+  String get hospitalProfile => 'Hospital Profile';
+
+  @override
+  String get manageHospitalInformation => 'Manage hospital information';
+
+  @override
+  String get emergencyDepartment => 'Emergency Department';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get contactInformation => 'Contact Information';
+
+  @override
+  String get helpSupport => 'Help & Support';
+
+  @override
+  String get accountStatistics => 'Account Statistics';
+
+  @override
+  String get totalRequests => 'Total Requests';
+
+  @override
+  String get fulfilled => 'Fulfilled';
+
+  @override
+  String get successRate => 'Success Rate';
+
+  @override
+  String get requestHistory => 'Request History';
+
+  @override
+  String get trackBloodRequests => 'Track your blood requests';
+
+  @override
+  String get recentRequests => 'Recent Requests';
+
+  @override
+  String get bloodRequest => 'Blood Request';
+
+  @override
+  String get viewDetails => 'View Details';
+
+  @override
+  String get high => 'High';
+
+  @override
+  String get low => 'Low';
 }

@@ -577,7 +577,48 @@
   "dateLabel": "التاريخ:",
   "typeLabel": "النوع:",
   "cancelled": "ملغاة",
-  "donationConfirmedMessage": "تم التحقق من تبرعك بالدم بنجاح"
+  "donationConfirmedMessage": "تم التحقق من تبرعك بالدم بنجاح",
+
+  "securitySettings": "إعدادات الأمان",
+  "securityInfo": "حافظ على أمان حسابك من خلال تحديث كلمة المرور بانتظام وتفعيل المصادقة الثنائية.",
+  "enterCurrentPassword": "أدخل كلمة المرور الحالية",
+  "enterNewPassword": "أدخل كلمة المرور الجديدة",
+  "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+  "confirmNewPasswordHint": "أكد كلمة المرور الجديدة",
+  "twoFactorAuth": "المصادقة الثنائية",
+  "extraSecurityLayer": "إضافة طبقة أمان إضافية",
+  "updatePassword": "تحديث كلمة المرور",
+  "notificationPreferences": "تفضيلات الإشعارات",
+  "receiveMobileNotifications": "استقبال إشعارات على الهاتف",
+  "criticalDonorResponses": "استجابات المتبرعين الحرجة",
+  "emailNotifications": "إشعارات البريد الإلكتروني",
+  "updatesViaEmail": "تحديثات عبر البريد الإلكتروني",
+  "smsAlerts": "تنبيهات الرسائل النصية",
+  "textMessageUpdates": "تحديثات عبر الرسائل النصية",
+  "savePreferences": "حفظ التفضيلات",
+  "hospitalName": "اسم المستشفى",
+  "department": "القسم",
+   "saveChanges": "حفظ التغييرات",
+  "hospitalProfile": "ملف المستشفى",
+  "manageHospitalInformation": "إدارة معلومات المستشفى",
+  "emergencyDepartment": "قسم الطوارئ",
+  "edit": "تعديل",
+  "contactInformation": "معلومات الاتصال",
+
+  "helpSupport": "المساعدة والدعم",
+  "accountStatistics": "إحصائيات الحساب",
+  "totalRequests": "إجمالي الطلبات",
+  "fulfilled": "المكتملة",
+  "successRate": "معدل النجاح",
+  "requestHistory": "سجل الطلبات",
+  "trackBloodRequests": "تتبع طلبات الدم الخاصة بك",
+  "recentRequests": "أحدث الطلبات",
+  "bloodRequest": "طلب دم",
+  "viewDetails": "عرض التفاصيل",
+
+  "high": "عالي",
+  "low": "منخفض"
+
 
 
 

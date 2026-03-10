@@ -3361,6 +3361,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cancelled'**
   String get cancelled;
+
+  /// No description provided for @securitySettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Settings'**
+  String get securitySettings;
+
+  /// No description provided for @securityInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your account secure by regularly updating your password and enabling two-factor authentication.'**
+  String get securityInfo;
+
+  /// No description provided for @enterCurrentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter current password'**
+  String get enterCurrentPassword;
+
+  /// No description provided for @enterNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter new password'**
+  String get enterNewPassword;
+
+  /// No description provided for @confirmNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm New Password'**
+  String get confirmNewPassword;
+
+  /// No description provided for @confirmNewPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm new password'**
+  String get confirmNewPasswordHint;
+
+  /// No description provided for @twoFactorAuth.
+  ///
+  /// In en, this message translates to:
+  /// **'Two-Factor Authentication'**
+  String get twoFactorAuth;
+
+  /// No description provided for @extraSecurityLayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Add extra security layer'**
+  String get extraSecurityLayer;
+
+  /// No description provided for @updatePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Password'**
+  String get updatePassword;
+
+  /// No description provided for @notificationPreferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Preferences'**
+  String get notificationPreferences;
+
+  /// No description provided for @receiveMobileNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive mobile notifications'**
+  String get receiveMobileNotifications;
+
+  /// No description provided for @criticalDonorResponses.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical donor responses'**
+  String get criticalDonorResponses;
+
+  /// No description provided for @emailNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Notifications'**
+  String get emailNotifications;
+
+  /// No description provided for @updatesViaEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Updates via email'**
+  String get updatesViaEmail;
+
+  /// No description provided for @smsAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS Alerts'**
+  String get smsAlerts;
+
+  /// No description provided for @textMessageUpdates.
+  ///
+  /// In en, this message translates to:
+  /// **'Text message updates'**
+  String get textMessageUpdates;
+
+  /// No description provided for @savePreferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Preferences'**
+  String get savePreferences;
+
+  /// No description provided for @hospitalName.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Name'**
+  String get hospitalName;
+
+  /// No description provided for @department.
+  ///
+  /// In en, this message translates to:
+  /// **'Department'**
+  String get department;
+
+  /// No description provided for @saveChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get saveChanges;
+
+  /// No description provided for @hospitalProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Profile'**
+  String get hospitalProfile;
+
+  /// No description provided for @manageHospitalInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage hospital information'**
+  String get manageHospitalInformation;
+
+  /// No description provided for @emergencyDepartment.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Department'**
+  String get emergencyDepartment;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @contactInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Information'**
+  String get contactInformation;
+
+  /// No description provided for @helpSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get helpSupport;
+
+  /// No description provided for @accountStatistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Statistics'**
+  String get accountStatistics;
+
+  /// No description provided for @totalRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Requests'**
+  String get totalRequests;
+
+  /// No description provided for @fulfilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Fulfilled'**
+  String get fulfilled;
+
+  /// No description provided for @successRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Success Rate'**
+  String get successRate;
+
+  /// No description provided for @requestHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Request History'**
+  String get requestHistory;
+
+  /// No description provided for @trackBloodRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Track your blood requests'**
+  String get trackBloodRequests;
+
+  /// No description provided for @recentRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Requests'**
+  String get recentRequests;
+
+  /// No description provided for @bloodRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Request'**
+  String get bloodRequest;
+
+  /// No description provided for @viewDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get viewDetails;
+
+  /// No description provided for @high.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get high;
+
+  /// No description provided for @low.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get low;
 }
 
 class _AppLocalizationsDelegate

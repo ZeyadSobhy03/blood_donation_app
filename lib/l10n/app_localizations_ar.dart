@@ -1748,4 +1748,116 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cancelled => 'ملغاة';
+
+  @override
+  String get securitySettings => 'إعدادات الأمان';
+
+  @override
+  String get securityInfo =>
+      'حافظ على أمان حسابك من خلال تحديث كلمة المرور بانتظام وتفعيل المصادقة الثنائية.';
+
+  @override
+  String get enterCurrentPassword => 'أدخل كلمة المرور الحالية';
+
+  @override
+  String get enterNewPassword => 'أدخل كلمة المرور الجديدة';
+
+  @override
+  String get confirmNewPassword => 'تأكيد كلمة المرور الجديدة';
+
+  @override
+  String get confirmNewPasswordHint => 'أكد كلمة المرور الجديدة';
+
+  @override
+  String get twoFactorAuth => 'المصادقة الثنائية';
+
+  @override
+  String get extraSecurityLayer => 'إضافة طبقة أمان إضافية';
+
+  @override
+  String get updatePassword => 'تحديث كلمة المرور';
+
+  @override
+  String get notificationPreferences => 'تفضيلات الإشعارات';
+
+  @override
+  String get receiveMobileNotifications => 'استقبال إشعارات على الهاتف';
+
+  @override
+  String get criticalDonorResponses => 'استجابات المتبرعين الحرجة';
+
+  @override
+  String get emailNotifications => 'إشعارات البريد الإلكتروني';
+
+  @override
+  String get updatesViaEmail => 'تحديثات عبر البريد الإلكتروني';
+
+  @override
+  String get smsAlerts => 'تنبيهات الرسائل النصية';
+
+  @override
+  String get textMessageUpdates => 'تحديثات عبر الرسائل النصية';
+
+  @override
+  String get savePreferences => 'حفظ التفضيلات';
+
+  @override
+  String get hospitalName => 'اسم المستشفى';
+
+  @override
+  String get department => 'القسم';
+
+  @override
+  String get saveChanges => 'حفظ التغييرات';
+
+  @override
+  String get hospitalProfile => 'ملف المستشفى';
+
+  @override
+  String get manageHospitalInformation => 'إدارة معلومات المستشفى';
+
+  @override
+  String get emergencyDepartment => 'قسم الطوارئ';
+
+  @override
+  String get edit => 'تعديل';
+
+  @override
+  String get contactInformation => 'معلومات الاتصال';
+
+  @override
+  String get helpSupport => 'المساعدة والدعم';
+
+  @override
+  String get accountStatistics => 'إحصائيات الحساب';
+
+  @override
+  String get totalRequests => 'إجمالي الطلبات';
+
+  @override
+  String get fulfilled => 'المكتملة';
+
+  @override
+  String get successRate => 'معدل النجاح';
+
+  @override
+  String get requestHistory => 'سجل الطلبات';
+
+  @override
+  String get trackBloodRequests => 'تتبع طلبات الدم الخاصة بك';
+
+  @override
+  String get recentRequests => 'أحدث الطلبات';
+
+  @override
+  String get bloodRequest => 'طلب دم';
+
+  @override
+  String get viewDetails => 'عرض التفاصيل';
+
+  @override
+  String get high => 'عالي';
+
+  @override
+  String get low => 'منخفض';
 }
