@@ -1,11 +1,11 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/core/widgets/custom_bullet_point.dart';
-import 'package:blood_donation_app/core/widgets/custom_confirmation_dialog.dart';
-import 'package:blood_donation_app/core/widgets/custom_history_item.dart';
-import 'package:blood_donation_app/core/widgets/custom_redeem_card.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/rewards_screen.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/widgets/custom_bullet_point.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/widgets/custom_confirmation_dialog.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/widgets/custom_history_item.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/widgets/custom_redeem_card.dart';
 import 'package:flutter/material.dart';
 
 class RewardsTab extends StatefulWidget {
