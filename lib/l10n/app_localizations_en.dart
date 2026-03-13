@@ -1866,4 +1866,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get low => 'Low';
+
+  @override
+  String get dashboard => 'Dashboard';
+
+  @override
+  String get users => 'Users';
+
+  @override
+  String get requests => 'Requests';
+
+  @override
+  String get analytics => 'Analytics';
 }

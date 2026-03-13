@@ -1860,4 +1860,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get low => 'منخفض';
+
+  @override
+  String get dashboard => 'لوحة التحكم';
+
+  @override
+  String get users => 'المستخدمين';
+
+  @override
+  String get requests => 'الطلبات';
+
+  @override
+  String get analytics => 'الإحصائيات';
 }

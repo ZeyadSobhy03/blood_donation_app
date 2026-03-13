@@ -614,6 +614,10 @@
   "viewDetails": "View Details",
 
   "high": "High",
-  "low": "Low"
+  "low": "Low",
+  "dashboard": "Dashboard",
+  "users": "Users",
+  "requests": "Requests",
+  "analytics": "Analytics"
 
 }
