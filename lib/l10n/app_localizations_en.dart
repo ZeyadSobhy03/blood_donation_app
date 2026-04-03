@@ -1610,4 +1610,353 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get qr_expiry_warning => 'This QR code can only be used once';
+
+  @override
+  String get total_points => 'Total Points';
+
+  @override
+  String get next_milestone => 'Next Milestone';
+
+  @override
+  String points_until_milestone(Object milestone, Object points) {
+    return '$points points until $milestone';
+  }
+
+  @override
+  String get locked => 'Locked';
+
+  @override
+  String get achievement_badges => 'Achievement Badges';
+
+  @override
+  String get upcoming_rewards => 'Upcoming Rewards';
+
+  @override
+  String get gold_badge_reward => '🎁 Gold Badge: Priority donation scheduling';
+
+  @override
+  String get platinum_badge_reward =>
+      '🏆 Platinum Badge (5,000 pts): Exclusive merchandise';
+
+  @override
+  String get confirm_donation_title => 'Confirm your donation';
+
+  @override
+  String get confirm_donation_desc =>
+      'Scan the hospital QR code to confirm your blood donation and earn points.';
+
+  @override
+  String get scan_qr_code => 'Scan QR Code';
+
+  @override
+  String get points_short => 'pts';
+
+  @override
+  String get bronze_donor => 'Bronze Donor';
+
+  @override
+  String get silver_donor => 'Silver Donor';
+
+  @override
+  String get gold_donor => 'Gold Donor';
+
+  @override
+  String get no_badge => 'New Donor';
+
+  @override
+  String get scan_donation_qr => 'Scan Donation QR';
+
+  @override
+  String get confirm_donation_qr_desc =>
+      'Confirm your donation with hospital QR code';
+
+  @override
+  String get how_it_works => 'How it works?';
+
+  @override
+  String get step_visit_hospital =>
+      'Visit the hospital or blood donation center';
+
+  @override
+  String get step_request_qr => 'Request the donation QR code from staff';
+
+  @override
+  String get step_start_scanning => 'Tap \"Start Scanning\" below';
+
+  @override
+  String get step_point_camera => 'Point your camera at the QR code';
+
+  @override
+  String get step_wait_confirmation => 'Wait for confirmation';
+
+  @override
+  String get camera_scanner => 'Camera Scanner';
+
+  @override
+  String get camera_ready => 'Camera Ready';
+
+  @override
+  String get tap_to_start => 'Tap button below to start';
+
+  @override
+  String get scan_qr_description =>
+      'Scan the QR code provided by the hospital to confirm your donation.';
+
+  @override
+  String get start_scanning => 'Start Scanning';
+
+  @override
+  String get security_notice_message =>
+      'Only scan QR codes provided directly by verified hospital staff. Never scan codes from untrusted sources.';
+
+  @override
+  String get recent_confirmations => 'Recent Confirmations';
+
+  @override
+  String get donationConfirmedTitle => 'Donation Confirmed!';
+
+  @override
+  String get donationConfirmedMessage =>
+      'Your blood donation has been successfully verified';
+
+  @override
+  String get youEarned => 'You Earned';
+
+  @override
+  String get statusLabel => 'Status:';
+
+  @override
+  String get donationDetails => 'Donation Details';
+
+  @override
+  String get dateLabel => 'Date:';
+
+  @override
+  String get view_points => 'View Points';
+
+  @override
+  String get align_qr_frame => 'Align the QR code inside the frame';
+
+  @override
+  String camera_error(Object error) {
+    return 'Camera error: $error';
+  }
+
+  @override
+  String get diamond_donor => 'Diamond Donor';
+
+  @override
+  String get donation_thank_you =>
+      'Thank you for saving lives! Your contribution has been recorded in your donation history.';
+
+  @override
+  String get typeLabel => 'Type:';
+
+  @override
+  String get cancelled => 'Cancelled';
+
+  @override
+  String get securitySettings => 'Security Settings';
+
+  @override
+  String get securityInfo =>
+      'Keep your account secure by regularly updating your password and enabling two-factor authentication.';
+
+  @override
+  String get enterCurrentPassword => 'Enter current password';
+
+  @override
+  String get enterNewPassword => 'Enter new password';
+
+  @override
+  String get confirmNewPassword => 'Confirm New Password';
+
+  @override
+  String get confirmNewPasswordHint => 'Confirm new password';
+
+  @override
+  String get twoFactorAuth => 'Two-Factor Authentication';
+
+  @override
+  String get extraSecurityLayer => 'Add extra security layer';
+
+  @override
+  String get updatePassword => 'Update Password';
+
+  @override
+  String get notificationPreferences => 'Notification Preferences';
+
+  @override
+  String get receiveMobileNotifications => 'Receive mobile notifications';
+
+  @override
+  String get criticalDonorResponses => 'Critical donor responses';
+
+  @override
+  String get emailNotifications => 'Email Notifications';
+
+  @override
+  String get updatesViaEmail => 'Updates via email';
+
+  @override
+  String get smsAlerts => 'SMS Alerts';
+
+  @override
+  String get textMessageUpdates => 'Text message updates';
+
+  @override
+  String get savePreferences => 'Save Preferences';
+
+  @override
+  String get hospitalName => 'Hospital Name';
+
+  @override
+  String get department => 'Department';
+
+  @override
+  String get saveChanges => 'Save Changes';
+
+  @override
+  String get hospitalProfile => 'Hospital Profile';
+
+  @override
+  String get manageHospitalInformation => 'Manage hospital information';
+
+  @override
+  String get emergencyDepartment => 'Emergency Department';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get contactInformation => 'Contact Information';
+
+  @override
+  String get helpSupport => 'Help & Support';
+
+  @override
+  String get accountStatistics => 'Account Statistics';
+
+  @override
+  String get totalRequests => 'Total Requests';
+
+  @override
+  String get fulfilled => 'Fulfilled';
+
+  @override
+  String get successRate => 'Success Rate';
+
+  @override
+  String get requestHistory => 'Request History';
+
+  @override
+  String get trackBloodRequests => 'Track your blood requests';
+
+  @override
+  String get recentRequests => 'Recent Requests';
+
+  @override
+  String get bloodRequest => 'Blood Request';
+
+  @override
+  String get viewDetails => 'View Details';
+
+  @override
+  String get high => 'High';
+
+  @override
+  String get low => 'Low';
+
+  @override
+  String get dashboard => 'Dashboard';
+
+  @override
+  String get users => 'Users';
+
+  @override
+  String get requests => 'Requests';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get topic_create_request => 'How to create blood request?';
+
+  @override
+  String get topic_qr_code => 'How to generate QR code for blood request?';
+
+  @override
+  String get topic_history => 'How to view donation history?';
+
+  @override
+  String get topic_contact => 'How to contact support?';
+
+  @override
+  String get topic_update_profile => 'How to update hospital profile?';
+
+  @override
+  String get faqHowToCreateRequest => 'How to create a blood request?';
+
+  @override
+  String get faqHowToCreateRequestAnswer =>
+      'Go to the requests section, tap on \'Create Request\', fill in the required details like blood type, quantity, and location, then submit the request.';
+
+  @override
+  String get faqQrCode => 'How to generate a QR code for a blood request?';
+
+  @override
+  String get faqQrCodeAnswer =>
+      'After creating a blood request, open the request details and tap on \'Generate QR Code\' to create and share it.';
+
+  @override
+  String get faqHistory => 'How to view donation history?';
+
+  @override
+  String get faqHistoryAnswer =>
+      'Navigate to the history section from your profile to see all previous donations and requests.';
+
+  @override
+  String get faqContact => 'How to contact support?';
+
+  @override
+  String get faqContactAnswer =>
+      'Go to the Help & Support section and choose \'Contact Us\' to reach out via email or phone.';
+
+  @override
+  String get faqUpdateProfile => 'How to update hospital profile?';
+
+  @override
+  String get faqUpdateProfileAnswer =>
+      'Open your profile settings, update the required information, and tap \'Save\' to apply the changes.';
+
+  @override
+  String get requestDetailsSubtitle =>
+      'View detailed information about the blood request.';
+
+  @override
+  String get unitsRequested => 'Units Requested';
+
+  @override
+  String get urgencyLevel => 'Urgency Level';
+
+  @override
+  String get donorsContacted => 'Donors Contacted';
+
+  @override
+  String get donorsConfirmed => 'Donors Confirmed';
+
+  @override
+  String get completionTime => 'Completion Time';
+
+  @override
+  String hours(Object count) {
+    return '$count hours';
+  }
+
+  @override
+  String get requestNoteDescription =>
+      'All blood request records are maintained for audit and compliance purposes.';
+
+  @override
+  String get medium => 'Medium';
 }

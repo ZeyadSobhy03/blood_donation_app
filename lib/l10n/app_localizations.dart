@@ -3097,6 +3097,660 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This QR code can only be used once'**
   String get qr_expiry_warning;
+
+  /// No description provided for @total_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Points'**
+  String get total_points;
+
+  /// No description provided for @next_milestone.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Milestone'**
+  String get next_milestone;
+
+  /// No description provided for @points_until_milestone.
+  ///
+  /// In en, this message translates to:
+  /// **'{points} points until {milestone}'**
+  String points_until_milestone(Object milestone, Object points);
+
+  /// No description provided for @locked.
+  ///
+  /// In en, this message translates to:
+  /// **'Locked'**
+  String get locked;
+
+  /// No description provided for @achievement_badges.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement Badges'**
+  String get achievement_badges;
+
+  /// No description provided for @upcoming_rewards.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Rewards'**
+  String get upcoming_rewards;
+
+  /// No description provided for @gold_badge_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'🎁 Gold Badge: Priority donation scheduling'**
+  String get gold_badge_reward;
+
+  /// No description provided for @platinum_badge_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'🏆 Platinum Badge (5,000 pts): Exclusive merchandise'**
+  String get platinum_badge_reward;
+
+  /// No description provided for @confirm_donation_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your donation'**
+  String get confirm_donation_title;
+
+  /// No description provided for @confirm_donation_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan the hospital QR code to confirm your blood donation and earn points.'**
+  String get confirm_donation_desc;
+
+  /// No description provided for @scan_qr_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan QR Code'**
+  String get scan_qr_code;
+
+  /// No description provided for @points_short.
+  ///
+  /// In en, this message translates to:
+  /// **'pts'**
+  String get points_short;
+
+  /// No description provided for @bronze_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Bronze Donor'**
+  String get bronze_donor;
+
+  /// No description provided for @silver_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Silver Donor'**
+  String get silver_donor;
+
+  /// No description provided for @gold_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold Donor'**
+  String get gold_donor;
+
+  /// No description provided for @no_badge.
+  ///
+  /// In en, this message translates to:
+  /// **'New Donor'**
+  String get no_badge;
+
+  /// No description provided for @scan_donation_qr.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan Donation QR'**
+  String get scan_donation_qr;
+
+  /// No description provided for @confirm_donation_qr_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your donation with hospital QR code'**
+  String get confirm_donation_qr_desc;
+
+  /// No description provided for @how_it_works.
+  ///
+  /// In en, this message translates to:
+  /// **'How it works?'**
+  String get how_it_works;
+
+  /// No description provided for @step_visit_hospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Visit the hospital or blood donation center'**
+  String get step_visit_hospital;
+
+  /// No description provided for @step_request_qr.
+  ///
+  /// In en, this message translates to:
+  /// **'Request the donation QR code from staff'**
+  String get step_request_qr;
+
+  /// No description provided for @step_start_scanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap \"Start Scanning\" below'**
+  String get step_start_scanning;
+
+  /// No description provided for @step_point_camera.
+  ///
+  /// In en, this message translates to:
+  /// **'Point your camera at the QR code'**
+  String get step_point_camera;
+
+  /// No description provided for @step_wait_confirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Wait for confirmation'**
+  String get step_wait_confirmation;
+
+  /// No description provided for @camera_scanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera Scanner'**
+  String get camera_scanner;
+
+  /// No description provided for @camera_ready.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera Ready'**
+  String get camera_ready;
+
+  /// No description provided for @tap_to_start.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap button below to start'**
+  String get tap_to_start;
+
+  /// No description provided for @scan_qr_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan the QR code provided by the hospital to confirm your donation.'**
+  String get scan_qr_description;
+
+  /// No description provided for @start_scanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Scanning'**
+  String get start_scanning;
+
+  /// No description provided for @security_notice_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Only scan QR codes provided directly by verified hospital staff. Never scan codes from untrusted sources.'**
+  String get security_notice_message;
+
+  /// No description provided for @recent_confirmations.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Confirmations'**
+  String get recent_confirmations;
+
+  /// No description provided for @donationConfirmedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Confirmed!'**
+  String get donationConfirmedTitle;
+
+  /// No description provided for @donationConfirmedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your blood donation has been successfully verified'**
+  String get donationConfirmedMessage;
+
+  /// No description provided for @youEarned.
+  ///
+  /// In en, this message translates to:
+  /// **'You Earned'**
+  String get youEarned;
+
+  /// No description provided for @statusLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Status:'**
+  String get statusLabel;
+
+  /// No description provided for @donationDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Details'**
+  String get donationDetails;
+
+  /// No description provided for @dateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Date:'**
+  String get dateLabel;
+
+  /// No description provided for @view_points.
+  ///
+  /// In en, this message translates to:
+  /// **'View Points'**
+  String get view_points;
+
+  /// No description provided for @align_qr_frame.
+  ///
+  /// In en, this message translates to:
+  /// **'Align the QR code inside the frame'**
+  String get align_qr_frame;
+
+  /// No description provided for @camera_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera error: {error}'**
+  String camera_error(Object error);
+
+  /// No description provided for @diamond_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Diamond Donor'**
+  String get diamond_donor;
+
+  /// No description provided for @donation_thank_you.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for saving lives! Your contribution has been recorded in your donation history.'**
+  String get donation_thank_you;
+
+  /// No description provided for @typeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Type:'**
+  String get typeLabel;
+
+  /// No description provided for @cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled'**
+  String get cancelled;
+
+  /// No description provided for @securitySettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Settings'**
+  String get securitySettings;
+
+  /// No description provided for @securityInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your account secure by regularly updating your password and enabling two-factor authentication.'**
+  String get securityInfo;
+
+  /// No description provided for @enterCurrentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter current password'**
+  String get enterCurrentPassword;
+
+  /// No description provided for @enterNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter new password'**
+  String get enterNewPassword;
+
+  /// No description provided for @confirmNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm New Password'**
+  String get confirmNewPassword;
+
+  /// No description provided for @confirmNewPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm new password'**
+  String get confirmNewPasswordHint;
+
+  /// No description provided for @twoFactorAuth.
+  ///
+  /// In en, this message translates to:
+  /// **'Two-Factor Authentication'**
+  String get twoFactorAuth;
+
+  /// No description provided for @extraSecurityLayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Add extra security layer'**
+  String get extraSecurityLayer;
+
+  /// No description provided for @updatePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Password'**
+  String get updatePassword;
+
+  /// No description provided for @notificationPreferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Preferences'**
+  String get notificationPreferences;
+
+  /// No description provided for @receiveMobileNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive mobile notifications'**
+  String get receiveMobileNotifications;
+
+  /// No description provided for @criticalDonorResponses.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical donor responses'**
+  String get criticalDonorResponses;
+
+  /// No description provided for @emailNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Notifications'**
+  String get emailNotifications;
+
+  /// No description provided for @updatesViaEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Updates via email'**
+  String get updatesViaEmail;
+
+  /// No description provided for @smsAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS Alerts'**
+  String get smsAlerts;
+
+  /// No description provided for @textMessageUpdates.
+  ///
+  /// In en, this message translates to:
+  /// **'Text message updates'**
+  String get textMessageUpdates;
+
+  /// No description provided for @savePreferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Preferences'**
+  String get savePreferences;
+
+  /// No description provided for @hospitalName.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Name'**
+  String get hospitalName;
+
+  /// No description provided for @department.
+  ///
+  /// In en, this message translates to:
+  /// **'Department'**
+  String get department;
+
+  /// No description provided for @saveChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get saveChanges;
+
+  /// No description provided for @hospitalProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Profile'**
+  String get hospitalProfile;
+
+  /// No description provided for @manageHospitalInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage hospital information'**
+  String get manageHospitalInformation;
+
+  /// No description provided for @emergencyDepartment.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Department'**
+  String get emergencyDepartment;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @contactInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Information'**
+  String get contactInformation;
+
+  /// No description provided for @helpSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get helpSupport;
+
+  /// No description provided for @accountStatistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Statistics'**
+  String get accountStatistics;
+
+  /// No description provided for @totalRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Requests'**
+  String get totalRequests;
+
+  /// No description provided for @fulfilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Fulfilled'**
+  String get fulfilled;
+
+  /// No description provided for @successRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Success Rate'**
+  String get successRate;
+
+  /// No description provided for @requestHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Request History'**
+  String get requestHistory;
+
+  /// No description provided for @trackBloodRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Track your blood requests'**
+  String get trackBloodRequests;
+
+  /// No description provided for @recentRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Requests'**
+  String get recentRequests;
+
+  /// No description provided for @bloodRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Request'**
+  String get bloodRequest;
+
+  /// No description provided for @viewDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get viewDetails;
+
+  /// No description provided for @high.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get high;
+
+  /// No description provided for @low.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get low;
+
+  /// No description provided for @dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get dashboard;
+
+  /// No description provided for @users.
+  ///
+  /// In en, this message translates to:
+  /// **'Users'**
+  String get users;
+
+  /// No description provided for @requests.
+  ///
+  /// In en, this message translates to:
+  /// **'Requests'**
+  String get requests;
+
+  /// No description provided for @analytics.
+  ///
+  /// In en, this message translates to:
+  /// **'Analytics'**
+  String get analytics;
+
+  /// No description provided for @topic_create_request.
+  ///
+  /// In en, this message translates to:
+  /// **'How to create blood request?'**
+  String get topic_create_request;
+
+  /// No description provided for @topic_qr_code.
+  ///
+  /// In en, this message translates to:
+  /// **'How to generate QR code for blood request?'**
+  String get topic_qr_code;
+
+  /// No description provided for @topic_history.
+  ///
+  /// In en, this message translates to:
+  /// **'How to view donation history?'**
+  String get topic_history;
+
+  /// No description provided for @topic_contact.
+  ///
+  /// In en, this message translates to:
+  /// **'How to contact support?'**
+  String get topic_contact;
+
+  /// No description provided for @topic_update_profile.
+  ///
+  /// In en, this message translates to:
+  /// **'How to update hospital profile?'**
+  String get topic_update_profile;
+
+  /// No description provided for @faqHowToCreateRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'How to create a blood request?'**
+  String get faqHowToCreateRequest;
+
+  /// No description provided for @faqHowToCreateRequestAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to the requests section, tap on \'Create Request\', fill in the required details like blood type, quantity, and location, then submit the request.'**
+  String get faqHowToCreateRequestAnswer;
+
+  /// No description provided for @faqQrCode.
+  ///
+  /// In en, this message translates to:
+  /// **'How to generate a QR code for a blood request?'**
+  String get faqQrCode;
+
+  /// No description provided for @faqQrCodeAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'After creating a blood request, open the request details and tap on \'Generate QR Code\' to create and share it.'**
+  String get faqQrCodeAnswer;
+
+  /// No description provided for @faqHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'How to view donation history?'**
+  String get faqHistory;
+
+  /// No description provided for @faqHistoryAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigate to the history section from your profile to see all previous donations and requests.'**
+  String get faqHistoryAnswer;
+
+  /// No description provided for @faqContact.
+  ///
+  /// In en, this message translates to:
+  /// **'How to contact support?'**
+  String get faqContact;
+
+  /// No description provided for @faqContactAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to the Help & Support section and choose \'Contact Us\' to reach out via email or phone.'**
+  String get faqContactAnswer;
+
+  /// No description provided for @faqUpdateProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'How to update hospital profile?'**
+  String get faqUpdateProfile;
+
+  /// No description provided for @faqUpdateProfileAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Open your profile settings, update the required information, and tap \'Save\' to apply the changes.'**
+  String get faqUpdateProfileAnswer;
+
+  /// No description provided for @requestDetailsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'View detailed information about the blood request.'**
+  String get requestDetailsSubtitle;
+
+  /// No description provided for @unitsRequested.
+  ///
+  /// In en, this message translates to:
+  /// **'Units Requested'**
+  String get unitsRequested;
+
+  /// No description provided for @urgencyLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgency Level'**
+  String get urgencyLevel;
+
+  /// No description provided for @donorsContacted.
+  ///
+  /// In en, this message translates to:
+  /// **'Donors Contacted'**
+  String get donorsContacted;
+
+  /// No description provided for @donorsConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Donors Confirmed'**
+  String get donorsConfirmed;
+
+  /// No description provided for @completionTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Completion Time'**
+  String get completionTime;
+
+  /// No description provided for @hours.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hours'**
+  String hours(Object count);
+
+  /// No description provided for @requestNoteDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'All blood request records are maintained for audit and compliance purposes.'**
+  String get requestNoteDescription;
+
+  /// No description provided for @medium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get medium;
 }
 
 class _AppLocalizationsDelegate

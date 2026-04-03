@@ -18,8 +18,15 @@ import '../../../presentation/authentication/donor_authentication/donor_login.da
 import '../../../presentation/authentication/donor_authentication/donor_register.dart';
 import '../../../presentation/authentication/hospital_authentication/hospital_authentication.dart';
 import '../../../presentation/maps/maps.dart';
+import '../../../presentation/role/admin/tabs/admin_requets/admin_request.dart';
+import '../../../presentation/role/admin/tabs/analytics/analytics.dart';
+import '../../../presentation/role/admin/tabs/dashboard/dashboard.dart';
+import '../../../presentation/role/admin/tabs/system_settings/system_setting.dart';
+import '../../../presentation/role/admin/tabs/users/users.dart';
 import '../../../presentation/role/donor/tabs/donation_history/donation_history.dart';
+import '../../../presentation/role/donor/tabs/profile/confirm_donation/confirm_donation.dart';
 import '../../../presentation/role/donor/tabs/profile/help_and_support/screen/help_and_support_screen.dart';
+import '../../../presentation/role/donor/tabs/profile/scan_qr/scan_qr.dart';
 import '../../../presentation/role/hospital/tabs/hospital_main_layout.dart';
 import '../../../presentation/splash_screen/splash_screen.dart';
 
@@ -44,6 +51,14 @@ class RouteManger {
   static const String helpAndSupport = '/helpAndSupport';
   static const String pdfViewer = '/pdfViewer';
   static const String hospitalMainLayout = '/hospitalMainLayout';
+  static const String scanQrCode = '/scanQrCode';
+  static const String dashboard= '/dashboard';
+  static const String users = '/users';
+  static const String  adminRequest = '/adminRequest';
+  static const String analytics= '/analytics';
+  static const String systemSetting= '/systemSetting';
+  static const String confirmDonation= '/confirmDonation';
+
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -54,6 +69,30 @@ class RouteManger {
 
       case donationHistory:
         return MaterialPageRoute(builder: (context) => DonationHistory());
+      case systemSetting:
+        return MaterialPageRoute(builder: (context) => const SystemSetting());
+
+
+      case confirmDonation:
+        return MaterialPageRoute(builder: (context) => const ConfirmDonation());
+
+      case analytics:
+        return MaterialPageRoute(builder: (context) => const Analytics());
+
+      case dashboard:
+        return MaterialPageRoute(builder: (context) => const Dashboard());
+
+      case users:
+        return MaterialPageRoute(builder: (context) => const Users());
+
+
+      case adminRequest:
+        return MaterialPageRoute(builder: (context) => const AdminRequest());
+
+      case scanQrCode:
+
+
+        return MaterialPageRoute(builder: (context) => const ScanQr());
 
       case privacyAndSecurity:
         return MaterialPageRoute(builder: (context) => PrivacyAndSecurity());
