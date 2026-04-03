@@ -8,22 +8,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../l10n/app_localizations.dart';
 
 class FaqSection extends StatelessWidget {
-  const FaqSection({super.key});
+  const FaqSection({super.key, required this.faqs});
+  final List<Map<String, String>> faqs;
 
 
   @override
   Widget build(BuildContext context) {
     final appLocalization=AppLocalizations.of(context)!;
 
-    final List<Map<String, String>> faqs = [
-      {'question': appLocalization.faqHowToDonate, 'answer': appLocalization.faqHowToDonateAnswer},
-      {'question': appLocalization.faqEligibility, 'answer': appLocalization.faqEligibilityAnswer},
-      {'question': appLocalization.faqEarnPoints, 'answer': appLocalization.faqEarnPointsAnswer},
-      {'question': appLocalization.faqDonationFrequency, 'answer': appLocalization.faqDonationFrequencyAnswer},
-      {'question': appLocalization.faqBeforeDonation, 'answer': appLocalization.faqBeforeDonationAnswer},
-      {'question': appLocalization.faqEmergencyResponse, 'answer': appLocalization.faqEmergencyResponseAnswer},
-      {'question': appLocalization.faqChangeBloodType, 'answer': appLocalization.faqChangeBloodTypeAnswer},
-    ];
+
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       elevation: 3,

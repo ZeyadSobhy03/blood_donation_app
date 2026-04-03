@@ -21,6 +21,7 @@ import '../../../presentation/maps/maps.dart';
 import '../../../presentation/role/donor/tabs/donation_history/donation_history.dart';
 import '../../../presentation/role/donor/tabs/profile/help_and_support/screen/help_and_support_screen.dart';
 import '../../../presentation/role/hospital/tabs/hospital_main_layout.dart';
+import '../../../presentation/role/hospital/tabs/profile/help&support/help_support_hospital.dart';
 import '../../../presentation/splash_screen/splash_screen.dart';
 
 class RouteManger {
@@ -44,6 +45,7 @@ class RouteManger {
   static const String helpAndSupport = '/helpAndSupport';
   static const String pdfViewer = '/pdfViewer';
   static const String hospitalMainLayout = '/hospitalMainLayout';
+  static const String helpAndSupportHospital = '/helpAndSupportHospital';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -54,6 +56,9 @@ class RouteManger {
 
       case donationHistory:
         return MaterialPageRoute(builder: (context) => DonationHistory());
+
+      case helpAndSupportHospital:
+        return MaterialPageRoute(builder: (context) => HelpAndSupportHospital());
 
       case privacyAndSecurity:
         return MaterialPageRoute(builder: (context) => PrivacyAndSecurity());

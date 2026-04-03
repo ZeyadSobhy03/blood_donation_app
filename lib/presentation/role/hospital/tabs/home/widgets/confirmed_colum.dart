@@ -19,7 +19,7 @@ class ConfirmedColum extends StatelessWidget {
         CustomText(
           text: '1',
           textStyle: TextStyle(
-            fontSize: FontSize.s12,
+            fontSize: FontSize.s14,
             fontWeight: FontWeightManager.bold,
             color: ColorManger.green,
           ),

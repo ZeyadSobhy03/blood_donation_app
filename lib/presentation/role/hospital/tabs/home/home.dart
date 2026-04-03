@@ -43,7 +43,6 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 8.h),
-                // Here you can add a list of active requests using ListView.builder or any other widget
                 ActiveRequestsCard(),
                 SizedBox(height: 16.h),
                 NearbyDonorCard(),

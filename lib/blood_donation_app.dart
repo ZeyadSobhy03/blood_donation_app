@@ -26,7 +26,7 @@ class BloodDonationApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        locale: Locale('en'),
+        locale: Locale('ar'),
 
 
         debugShowCheckedModeBanner: false,

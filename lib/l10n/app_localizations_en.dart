@@ -1610,4 +1610,57 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get qr_expiry_warning => 'This QR code can only be used once';
+
+  @override
+  String get high => 'High';
+
+  @override
+  String get topic_create_request => 'How to create blood request?';
+
+  @override
+  String get topic_qr_code => 'How to generate QR code for blood request?';
+
+  @override
+  String get topic_history => 'How to view donation history?';
+
+  @override
+  String get topic_contact => 'How to contact support?';
+
+  @override
+  String get topic_update_profile => 'How to update hospital profile?';
+
+  @override
+  String get faqHowToCreateRequest => 'How to create a blood request?';
+
+  @override
+  String get faqHowToCreateRequestAnswer =>
+      'Go to the requests section, tap on \'Create Request\', fill in the required details like blood type, quantity, and location, then submit the request.';
+
+  @override
+  String get faqQrCode => 'How to generate a QR code for a blood request?';
+
+  @override
+  String get faqQrCodeAnswer =>
+      'After creating a blood request, open the request details and tap on \'Generate QR Code\' to create and share it.';
+
+  @override
+  String get faqHistory => 'How to view donation history?';
+
+  @override
+  String get faqHistoryAnswer =>
+      'Navigate to the history section from your profile to see all previous donations and requests.';
+
+  @override
+  String get faqContact => 'How to contact support?';
+
+  @override
+  String get faqContactAnswer =>
+      'Go to the Help & Support section and choose \'Contact Us\' to reach out via email or phone.';
+
+  @override
+  String get faqUpdateProfile => 'How to update hospital profile?';
+
+  @override
+  String get faqUpdateProfileAnswer =>
+      'Open your profile settings, update the required information, and tap \'Save\' to apply the changes.';
 }

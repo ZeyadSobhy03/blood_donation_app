@@ -147,7 +147,7 @@ class ContactDonorDialog extends StatelessWidget {
                   subtitle: appLocalizations.contact_donor_desc,
                 ),
                 SizedBox(height: 16.h),
-                RequestInfo(bloodType: 'A-', unitsNeeded: 2, urgency: 'High'),
+                RequestInfo(bloodType: 'A-', unitsNeeded: 2, urgency: appLocalizations.high),
                 SizedBox(height: 16.h),
                 CustomLabel(
                   text: appLocalizations.available_donors(donors.length),
@@ -163,25 +163,30 @@ class ContactDonorDialog extends StatelessWidget {
                     return AvailableDonorCard(donors: donor);
                   },
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    CustomElevatedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      backgroundColor: ColorManger.pureWhite,
-                      foregroundColor: ColorManger.black,
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        side: BorderSide(
-                          color: ColorManger.lightGrey.withValues(alpha: 0.5),
+                SizedBox(height: 8.h),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      CustomElevatedButton(
+                        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        backgroundColor: ColorManger.pureWhite,
+                        foregroundColor: ColorManger.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          side: BorderSide(
+                            color: ColorManger.lightGrey.withValues(alpha: 0.5),
+                          ),
                         ),
+                        child: CustomText(text: appLocalizations.close),
                       ),
-                      child: CustomText(text: appLocalizations.close),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),

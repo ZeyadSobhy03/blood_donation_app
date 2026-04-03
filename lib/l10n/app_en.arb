@@ -531,7 +531,29 @@
   "generate_donation_qr": "Generate Donation QR",
   "qr_valid_message": "This QR code is valid for 5 minutes and can only be used once",
   "time_remaining": "Time Remaining",
-  "qr_expiry_warning": "This QR code can only be used once"
+  "qr_expiry_warning": "This QR code can only be used once",
+  "high": "High",
+  "topic_create_request": "How to create blood request?",
+  "topic_qr_code": "How to generate QR code for blood request?",
+  "topic_history": "How to view donation history?",
+  "topic_contact": "How to contact support?",
+  "topic_update_profile": "How to update hospital profile?",
+
+  "faqHowToCreateRequest": "How to create a blood request?",
+  "faqHowToCreateRequestAnswer": "Go to the requests section, tap on 'Create Request', fill in the required details like blood type, quantity, and location, then submit the request.",
+
+  "faqQrCode": "How to generate a QR code for a blood request?",
+  "faqQrCodeAnswer": "After creating a blood request, open the request details and tap on 'Generate QR Code' to create and share it.",
+
+  "faqHistory": "How to view donation history?",
+  "faqHistoryAnswer": "Navigate to the history section from your profile to see all previous donations and requests.",
+
+  "faqContact": "How to contact support?",
+  "faqContactAnswer": "Go to the Help & Support section and choose 'Contact Us' to reach out via email or phone.",
+
+  "faqUpdateProfile": "How to update hospital profile?",
+  "faqUpdateProfileAnswer": "Open your profile settings, update the required information, and tap 'Save' to apply the changes."
+
 
 
 }

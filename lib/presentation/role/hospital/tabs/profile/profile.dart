@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widgets/custom_contact_row.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widgets/custom_profile_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widgets/custom_stat_item.dart';
@@ -138,7 +139,12 @@ class Profile extends StatelessWidget {
                   CustomSettingsTile(
                     icon: Icons.help_outline,
                     title: "Help & Support",
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        RouteManger.helpAndSupportHospital,
+                      );
+                    },
                   ),
                 ],
               ),

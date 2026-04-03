@@ -3097,6 +3097,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This QR code can only be used once'**
   String get qr_expiry_warning;
+
+  /// No description provided for @high.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get high;
+
+  /// No description provided for @topic_create_request.
+  ///
+  /// In en, this message translates to:
+  /// **'How to create blood request?'**
+  String get topic_create_request;
+
+  /// No description provided for @topic_qr_code.
+  ///
+  /// In en, this message translates to:
+  /// **'How to generate QR code for blood request?'**
+  String get topic_qr_code;
+
+  /// No description provided for @topic_history.
+  ///
+  /// In en, this message translates to:
+  /// **'How to view donation history?'**
+  String get topic_history;
+
+  /// No description provided for @topic_contact.
+  ///
+  /// In en, this message translates to:
+  /// **'How to contact support?'**
+  String get topic_contact;
+
+  /// No description provided for @topic_update_profile.
+  ///
+  /// In en, this message translates to:
+  /// **'How to update hospital profile?'**
+  String get topic_update_profile;
+
+  /// No description provided for @faqHowToCreateRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'How to create a blood request?'**
+  String get faqHowToCreateRequest;
+
+  /// No description provided for @faqHowToCreateRequestAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to the requests section, tap on \'Create Request\', fill in the required details like blood type, quantity, and location, then submit the request.'**
+  String get faqHowToCreateRequestAnswer;
+
+  /// No description provided for @faqQrCode.
+  ///
+  /// In en, this message translates to:
+  /// **'How to generate a QR code for a blood request?'**
+  String get faqQrCode;
+
+  /// No description provided for @faqQrCodeAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'After creating a blood request, open the request details and tap on \'Generate QR Code\' to create and share it.'**
+  String get faqQrCodeAnswer;
+
+  /// No description provided for @faqHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'How to view donation history?'**
+  String get faqHistory;
+
+  /// No description provided for @faqHistoryAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigate to the history section from your profile to see all previous donations and requests.'**
+  String get faqHistoryAnswer;
+
+  /// No description provided for @faqContact.
+  ///
+  /// In en, this message translates to:
+  /// **'How to contact support?'**
+  String get faqContact;
+
+  /// No description provided for @faqContactAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to the Help & Support section and choose \'Contact Us\' to reach out via email or phone.'**
+  String get faqContactAnswer;
+
+  /// No description provided for @faqUpdateProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'How to update hospital profile?'**
+  String get faqUpdateProfile;
+
+  /// No description provided for @faqUpdateProfileAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Open your profile settings, update the required information, and tap \'Save\' to apply the changes.'**
+  String get faqUpdateProfileAnswer;
 }
 
 class _AppLocalizationsDelegate

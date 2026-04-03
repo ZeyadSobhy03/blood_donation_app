@@ -1476,7 +1476,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get request_details_desc => 'معلومات مفصلة حول طلب الدم الطارئ هذا.';
 
   @override
-  String get contact_donor => 'تواصل مع المتبرع';
+  String get contact_donor => 'تواصل';
 
   @override
   String get contact_donor_desc =>
@@ -1606,4 +1606,57 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get qr_expiry_warning => 'يمكن استخدام رمز QR هذا مرة واحدة فقط';
+
+  @override
+  String get high => 'عالي';
+
+  @override
+  String get topic_create_request => 'إزاي أعمل طلب دم؟';
+
+  @override
+  String get topic_qr_code => 'إزاي أطلع QR كود لطلب الدم؟';
+
+  @override
+  String get topic_history => 'إزاي أشوف سجل التبرعات؟';
+
+  @override
+  String get topic_contact => 'إزاي أتواصل مع الدعم؟';
+
+  @override
+  String get topic_update_profile => 'إزاي أعدل بيانات المستشفى؟';
+
+  @override
+  String get faqHowToCreateRequest => 'إزاي أعمل طلب دم؟';
+
+  @override
+  String get faqHowToCreateRequestAnswer =>
+      'ادخل على قسم الطلبات، واضغط على \'إنشاء طلب\'، واملأ البيانات المطلوبة زي فصيلة الدم والكمية والموقع، وبعد كده اضغط إرسال.';
+
+  @override
+  String get faqQrCode => 'إزاي أطلع QR كود لطلب الدم؟';
+
+  @override
+  String get faqQrCodeAnswer =>
+      'بعد ما تنشئ طلب دم، ادخل على تفاصيل الطلب واضغط على \'إنشاء QR Code\' عشان تقدر تشاركه.';
+
+  @override
+  String get faqHistory => 'إزاي أشوف سجل التبرعات؟';
+
+  @override
+  String get faqHistoryAnswer =>
+      'روح لقسم السجل من البروفايل بتاعك عشان تشوف كل التبرعات والطلبات السابقة.';
+
+  @override
+  String get faqContact => 'إزاي أتواصل مع الدعم؟';
+
+  @override
+  String get faqContactAnswer =>
+      'ادخل على قسم المساعدة والدعم واختار \'تواصل معنا\' عشان تبعت رسالة أو تتواصل عن طريق الهاتف.';
+
+  @override
+  String get faqUpdateProfile => 'إزاي أعدل بيانات المستشفى؟';
+
+  @override
+  String get faqUpdateProfileAnswer =>
+      'افتح إعدادات البروفايل، عدل البيانات المطلوبة، واضغط \'حفظ\' عشان يتم تطبيق التغييرات.';
 }

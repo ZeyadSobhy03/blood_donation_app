@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../../../core/widgets/custom_text.dart';
@@ -23,8 +22,8 @@ class RequestActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomElevatedButton(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-      elevation: 4,
+      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+       elevation: 4,
       foregroundColor: foregroundColor,
       onPressed: onPressed,
       shape: RoundedRectangleBorder(
