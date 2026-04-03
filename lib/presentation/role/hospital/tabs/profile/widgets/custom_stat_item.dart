@@ -21,7 +21,7 @@ class CustomStatItem extends StatelessWidget {
           Text(
             val,
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
               color: color,
             ),

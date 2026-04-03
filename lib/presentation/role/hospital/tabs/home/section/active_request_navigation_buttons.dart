@@ -41,10 +41,10 @@ class ActiveRequestNavigationButtons extends StatelessWidget {
           child: Padding(
             padding: EdgeInsetsGeometry.only(left: 8.w),
             child: RequestActionButtons(
-              text: appLocalizations.contact_donors,
+              text: appLocalizations.contact_donor,
               backgroundColor: ColorManger.pureWhite,
               foregroundColor: ColorManger.black,
-              borderColor: ColorManger.lightGrey,
+              borderColor: ColorManger.pureWhite.withValues(alpha: 0.5),
               onPressed: onContactDonorsPressed,
             ),
           ),

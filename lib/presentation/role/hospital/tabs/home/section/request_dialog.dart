@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../l10n/app_localizations.dart';
 
-
 class RequestDialog extends StatelessWidget {
   const RequestDialog({super.key});
 
@@ -23,20 +22,10 @@ class RequestDialog extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               RequestHeader(
-                 title:  appLocalizations.emergency_request,
+                title: appLocalizations.emergency_request,
                 subtitle: appLocalizations.emergency_blood_request_desc,
               ),
-              RequestBody()
-
-
-
-
-
-
-
-
-
-
+              RequestBody(),
             ],
           ),
         ),

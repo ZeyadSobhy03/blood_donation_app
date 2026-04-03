@@ -31,7 +31,7 @@ class ContactDonorNavigationButton extends StatelessWidget {
               ),
             ),
             backgroundColor: ColorManger.pureWhite,
-            padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             foregroundColor: ColorManger.black,
             onPressed: contact,
             child: Row(
@@ -59,8 +59,6 @@ class ContactDonorNavigationButton extends StatelessWidget {
 
         Expanded(
           child: CustomElevatedButton(
-            padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
-
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
               side: BorderSide(
@@ -69,6 +67,7 @@ class ContactDonorNavigationButton extends StatelessWidget {
               ),
             ),
             backgroundColor: ColorManger.pureWhite,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             foregroundColor: ColorManger.black,
             onPressed: message,
             child: Row(

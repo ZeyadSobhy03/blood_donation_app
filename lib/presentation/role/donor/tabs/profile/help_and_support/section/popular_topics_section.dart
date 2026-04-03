@@ -7,7 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../l10n/app_localizations.dart';
 
 class PopularTopicsSection extends StatelessWidget {
-  const PopularTopicsSection({super.key});
+  const PopularTopicsSection({super.key, required this.topics});
+
+  final List<String>topics;
 
 
 
@@ -15,12 +17,7 @@ class PopularTopicsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
 
-    final List<String> topics = [
-      appLocalizations.topicDonateBlood,
-      appLocalizations.topicEligibility,
-      appLocalizations.topicEarnPoints,
-      appLocalizations.topicEmergencies,
-    ];
+
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.r),

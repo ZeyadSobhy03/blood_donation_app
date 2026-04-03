@@ -15,6 +15,21 @@ class HelpAndSupportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
       final appLocalization=AppLocalizations.of(context)!;
+      final List<String> topics = [
+        appLocalization.topicDonateBlood,
+        appLocalization.topicEligibility,
+        appLocalization.topicEarnPoints,
+        appLocalization.topicEmergencies,
+      ];
+      final List<Map<String, String>> faqs = [
+        {'question': appLocalization.faqHowToDonate, 'answer': appLocalization.faqHowToDonateAnswer},
+        {'question': appLocalization.faqEligibility, 'answer': appLocalization.faqEligibilityAnswer},
+        {'question': appLocalization.faqEarnPoints, 'answer': appLocalization.faqEarnPointsAnswer},
+        {'question': appLocalization.faqDonationFrequency, 'answer': appLocalization.faqDonationFrequencyAnswer},
+        {'question': appLocalization.faqBeforeDonation, 'answer': appLocalization.faqBeforeDonationAnswer},
+        {'question': appLocalization.faqEmergencyResponse, 'answer': appLocalization.faqEmergencyResponseAnswer},
+        {'question': appLocalization.faqChangeBloodType, 'answer': appLocalization.faqChangeBloodTypeAnswer},
+      ];
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
       appBar: AppBar(
@@ -33,11 +48,16 @@ class HelpAndSupportScreen extends StatelessWidget {
             children: [
               const GetHelpSection(),
               SizedBox(height: 16.h),
-              const PopularTopicsSection(),
+               PopularTopicsSection(
+                topics: topics,
+
+              ),
               SizedBox(height: 16.h),
               const AboutSection(),
               SizedBox(height: 16.h),
-              const FaqSection(),
+               FaqSection(
+                 faqs:faqs ,
+               ),
               SizedBox(height: 24.h),
             ],
           ),
