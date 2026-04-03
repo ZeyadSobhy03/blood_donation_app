@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widgets/custom_contact_row.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widgets/custom_profile_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widgets/custom_stat_item.dart';
@@ -7,11 +8,14 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widge
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widgets/custom_settings_tile.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../l10n/app_localizations.dart';
+
 class Profile extends StatelessWidget {
   const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final appLocalization = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FA),
       body: SingleChildScrollView(
@@ -19,12 +23,12 @@ class Profile extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Hospital Profile",
+             Text(
+               appLocalization.hospitalProfile,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             Text(
-              "Manage hospital information",
+              appLocalization.manageHospitalInformation,
               style: TextStyle(color: Colors.grey[600]),
             ),
             const SizedBox(height: 24),
@@ -57,7 +61,7 @@ class Profile extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Emergency Department",
+                          appLocalization.emergencyDepartment,
                           style: TextStyle(color: Colors.grey[600]),
                         ),
                       ],
@@ -71,7 +75,7 @@ class Profile extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.edit_outlined, size: 18),
-                    label: const Text("Edit"),
+                    label:  Text(appLocalization.edit),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: Colors.black,
                       side: BorderSide(color: Colors.grey.shade300),
@@ -87,7 +91,7 @@ class Profile extends StatelessWidget {
             const SizedBox(height: 20),
 
             CustomProfileCard(
-              title: "Contact Information",
+              title: appLocalization.contactInformation,
               child: Column(
                 children: [
                   CustomContactRow(
@@ -109,12 +113,12 @@ class Profile extends StatelessWidget {
             const SizedBox(height: 20),
 
             CustomProfileCard(
-              title: "Settings",
+              title: appLocalization.settings,
               child: Column(
                 children: [
                   CustomSettingsTile(
                     icon: Icons.notifications_none,
-                    title: "Notification Preferences",
+                    title: appLocalization.notificationPreferences,
                     onTap: () {
                       showDialog(
                         context: context,
@@ -126,7 +130,7 @@ class Profile extends StatelessWidget {
                   const SizedBox(height: 12),
                   CustomSettingsTile(
                     icon: Icons.security_outlined,
-                    title: "Security Settings",
+                    title: appLocalization.securitySettings,
                     onTap: () {
                       showDialog(
                         context: context,
@@ -137,8 +141,10 @@ class Profile extends StatelessWidget {
                   const SizedBox(height: 12),
                   CustomSettingsTile(
                     icon: Icons.help_outline,
-                    title: "Help & Support",
-                    onTap: () {},
+                    title: appLocalization.helpSupport,
+                    onTap: () {
+                      Navigator.pushNamed(context, RouteManger.helpAndSupportHospital);
+                    },
                   ),
                 ],
               ),
@@ -147,7 +153,7 @@ class Profile extends StatelessWidget {
             const SizedBox(height: 20),
 
             CustomProfileCard(
-              title: "Account Statistics",
+              title: appLocalization.accountStatistics,
               child: GridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -158,25 +164,25 @@ class Profile extends StatelessWidget {
                 children: [
                   CustomStatItem(
                     val: "47",
-                    label: "Total Requests",
+                    label: appLocalization.totalRequests,
                     bg: const Color(0xFFEFF6FF),
                     color: Colors.blue,
                   ),
                   CustomStatItem(
                     val: "42",
-                    label: "Fulfilled",
+                    label: appLocalization.fulfilled,
                     bg: const Color(0xFFF0FDF4),
                     color: Colors.green,
                   ),
                   CustomStatItem(
                     val: "3",
-                    label: "Active",
+                    label: appLocalization.active,
                     bg: const Color(0xFFFFF7ED),
                     color: Colors.orange,
                   ),
                   CustomStatItem(
                     val: "89%",
-                    label: "Success Rate",
+                    label: appLocalization.successRate,
                     bg: const Color(0xFFFAF5FF),
                     color: Colors.purple,
                   ),

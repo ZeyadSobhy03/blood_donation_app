@@ -28,6 +28,7 @@ import '../../../presentation/role/donor/tabs/profile/confirm_donation/confirm_d
 import '../../../presentation/role/donor/tabs/profile/help_and_support/screen/help_and_support_screen.dart';
 import '../../../presentation/role/donor/tabs/profile/scan_qr/scan_qr.dart';
 import '../../../presentation/role/hospital/tabs/hospital_main_layout.dart';
+import '../../../presentation/role/hospital/tabs/profile/help&support/help_support_hospital.dart';
 import '../../../presentation/splash_screen/splash_screen.dart';
 
 class RouteManger {
@@ -58,6 +59,7 @@ class RouteManger {
   static const String analytics= '/analytics';
   static const String systemSetting= '/systemSetting';
   static const String confirmDonation= '/confirmDonation';
+  static const String helpAndSupportHospital = '/helpAndSupportHospital';
 
 
   static Route router(RouteSettings settings) {
@@ -71,6 +73,9 @@ class RouteManger {
         return MaterialPageRoute(builder: (context) => DonationHistory());
       case systemSetting:
         return MaterialPageRoute(builder: (context) => const SystemSetting());
+
+      case helpAndSupportHospital:
+        return MaterialPageRoute(builder: (context) => const HelpAndSupportHospital());
 
 
       case confirmDonation:

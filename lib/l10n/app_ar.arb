@@ -647,7 +647,9 @@
   "completionTime": "مدة التنفيذ",
   "hours": "{count} ساعة",
   "requestNoteDescription": "يتم الاحتفاظ بجميع سجلات طلبات الدم لأغراض المراجعة والامتثال.",
-  "medium": "متوسط"
+  "medium": "متوسط",
 
+  "notFulfilled": "Not Fulfilled",
 
+  "unitsCount": "{count} units"
 }

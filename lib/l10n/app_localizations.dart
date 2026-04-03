@@ -3751,6 +3751,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Medium'**
   String get medium;
+
+  /// No description provided for @notFulfilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Fulfilled'**
+  String get notFulfilled;
+
+  /// No description provided for @unitsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} units'**
+  String unitsCount(Object count);
 }
 
 class _AppLocalizationsDelegate

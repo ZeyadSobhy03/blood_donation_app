@@ -639,5 +639,11 @@
   "completionTime": "Completion Time",
   "hours": "{count} hours",
   "requestNoteDescription": "All blood request records are maintained for audit and compliance purposes.",
-  "medium": "Medium"
+  "medium": "Medium",
+
+  "notFulfilled": "Not Fulfilled",
+
+  "unitsCount": "{count} units"
+
+
 }

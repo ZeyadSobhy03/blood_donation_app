@@ -1952,4 +1952,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get medium => 'متوسط';
+
+  @override
+  String get notFulfilled => 'Not Fulfilled';
+
+  @override
+  String unitsCount(Object count) {
+    return '$count units';
+  }
 }
