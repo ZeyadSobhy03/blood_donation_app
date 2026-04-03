@@ -3193,6 +3193,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open your profile settings, update the required information, and tap \'Save\' to apply the changes.'**
   String get faqUpdateProfileAnswer;
+
+  /// No description provided for @bloodRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Request'**
+  String get bloodRequest;
+
+  /// No description provided for @fulfilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Fulfilled'**
+  String get fulfilled;
+
+  /// No description provided for @cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled'**
+  String get cancelled;
+
+  /// No description provided for @requestDetailsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'View detailed information about the blood request.'**
+  String get requestDetailsSubtitle;
+
+  /// No description provided for @unitsRequested.
+  ///
+  /// In en, this message translates to:
+  /// **'Units Requested'**
+  String get unitsRequested;
+
+  /// No description provided for @urgencyLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgency Level'**
+  String get urgencyLevel;
+
+  /// No description provided for @donorsContacted.
+  ///
+  /// In en, this message translates to:
+  /// **'Donors Contacted'**
+  String get donorsContacted;
+
+  /// No description provided for @donorsConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Donors Confirmed'**
+  String get donorsConfirmed;
+
+  /// No description provided for @completionTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Completion Time'**
+  String get completionTime;
+
+  /// No description provided for @hours.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hours'**
+  String hours(Object count);
+
+  /// No description provided for @requestNoteDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'All blood request records are maintained for audit and compliance purposes.'**
+  String get requestNoteDescription;
+
+  /// No description provided for @low.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get low;
+
+  /// No description provided for @medium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get medium;
 }
 
 class _AppLocalizationsDelegate

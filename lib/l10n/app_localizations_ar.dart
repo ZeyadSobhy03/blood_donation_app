@@ -1659,4 +1659,46 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get faqUpdateProfileAnswer =>
       'افتح إعدادات البروفايل، عدل البيانات المطلوبة، واضغط \'حفظ\' عشان يتم تطبيق التغييرات.';
+
+  @override
+  String get bloodRequest => 'طلب دم';
+
+  @override
+  String get fulfilled => 'تم التنفيذ';
+
+  @override
+  String get cancelled => 'ملغي';
+
+  @override
+  String get requestDetailsSubtitle => 'عرض التفاصيل الكاملة لطلب الدم.';
+
+  @override
+  String get unitsRequested => 'عدد الوحدات المطلوبة';
+
+  @override
+  String get urgencyLevel => 'مستوى الخطورة';
+
+  @override
+  String get donorsContacted => 'عدد المتبرعين الذين تم التواصل معهم';
+
+  @override
+  String get donorsConfirmed => 'عدد المتبرعين المؤكدين';
+
+  @override
+  String get completionTime => 'مدة التنفيذ';
+
+  @override
+  String hours(Object count) {
+    return '$count ساعة';
+  }
+
+  @override
+  String get requestNoteDescription =>
+      'يتم الاحتفاظ بجميع سجلات طلبات الدم لأغراض المراجعة والامتثال.';
+
+  @override
+  String get low => 'منخفض';
+
+  @override
+  String get medium => 'متوسط';
 }

@@ -552,8 +552,21 @@
   "faqContactAnswer": "Go to the Help & Support section and choose 'Contact Us' to reach out via email or phone.",
 
   "faqUpdateProfile": "How to update hospital profile?",
-  "faqUpdateProfileAnswer": "Open your profile settings, update the required information, and tap 'Save' to apply the changes."
+  "faqUpdateProfileAnswer": "Open your profile settings, update the required information, and tap 'Save' to apply the changes.",
+  "bloodRequest": "Blood Request",
+  "fulfilled": "Fulfilled",
+  "cancelled": "Cancelled",
+  "requestDetailsSubtitle": "View detailed information about the blood request.",
 
 
+  "unitsRequested": "Units Requested",
+  "urgencyLevel": "Urgency Level",
+  "donorsContacted": "Donors Contacted",
+  "donorsConfirmed": "Donors Confirmed",
+  "completionTime": "Completion Time",
 
+  "hours": "{count} hours",
+  "requestNoteDescription": "All blood request records are maintained for audit and compliance purposes.",
+  "low": "Low",
+    "medium": "Medium"
 }

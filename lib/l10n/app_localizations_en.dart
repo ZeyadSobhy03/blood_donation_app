@@ -1663,4 +1663,47 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get faqUpdateProfileAnswer =>
       'Open your profile settings, update the required information, and tap \'Save\' to apply the changes.';
+
+  @override
+  String get bloodRequest => 'Blood Request';
+
+  @override
+  String get fulfilled => 'Fulfilled';
+
+  @override
+  String get cancelled => 'Cancelled';
+
+  @override
+  String get requestDetailsSubtitle =>
+      'View detailed information about the blood request.';
+
+  @override
+  String get unitsRequested => 'Units Requested';
+
+  @override
+  String get urgencyLevel => 'Urgency Level';
+
+  @override
+  String get donorsContacted => 'Donors Contacted';
+
+  @override
+  String get donorsConfirmed => 'Donors Confirmed';
+
+  @override
+  String get completionTime => 'Completion Time';
+
+  @override
+  String hours(Object count) {
+    return '$count hours';
+  }
+
+  @override
+  String get requestNoteDescription =>
+      'All blood request records are maintained for audit and compliance purposes.';
+
+  @override
+  String get low => 'Low';
+
+  @override
+  String get medium => 'Medium';
 }
