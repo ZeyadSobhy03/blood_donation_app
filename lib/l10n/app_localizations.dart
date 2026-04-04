@@ -3763,6 +3763,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} units'**
   String unitsCount(Object count);
+
+  /// No description provided for @pdfLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load PDF. Please try again later.'**
+  String get pdfLoadError;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
 }
 
 class _AppLocalizationsDelegate

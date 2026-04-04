@@ -1,5 +1,3 @@
-import 'package:blood_donation_app/core/resources/models/blood_request.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/history/widgets/recent_request_detail_dialog.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../l10n/app_localizations.dart';
@@ -11,6 +9,8 @@ class CustomRequestCard extends StatelessWidget {
   final String priority;
   final String status;
   final Color color;
+  final VoidCallback onViewDetails;
+  final bool isFulfilled;
 
   const CustomRequestCard({
     super.key,
@@ -19,22 +19,13 @@ class CustomRequestCard extends StatelessWidget {
     required this.date,
     required this.priority,
     required this.status,
-    required this.color,
+    required this.color, required this.onViewDetails, required this.isFulfilled,
   });
 
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
-    final BloodRequestModel model = BloodRequestModel(
-      bloodType: 'O+',
-      unitsRequested: 2,
-      urgencyLevel: 'low',
-      donorsContacted: 12,
-      donorsConfirmed: 13,
-      isFulfilled: true,
-      requestDate: DateTime.now(),
-      completionTimeInHours: 3,
-    );
+
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.all(16),
@@ -49,7 +40,7 @@ class CustomRequestCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Icon(
-                status == "Fulfilled"
+                isFulfilled
                     ? Icons.check_circle_outline
                     : Icons.cancel_outlined,
                 color: color,
@@ -117,14 +108,7 @@ class CustomRequestCard extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: OutlinedButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return RecentRequestDetailDialog(bloodRequestModel: model);
-                  },
-                );
-              },
+              onPressed: onViewDetails,
               style: OutlinedButton.styleFrom(
                 backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(

@@ -21,10 +21,10 @@ class BloodRequestStatusCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
     return Card(
-      color: ColorManger.lightGreen,
+      color: isFulfilled ? ColorManger.lightGreen : ColorManger.lightRed,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(width: 1, color: ColorManger.green),
+        side: BorderSide(width: 1, color: isFulfilled ? ColorManger.green : ColorManger.brightRed),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -47,6 +47,7 @@ class BloodRequestStatusCard extends StatelessWidget {
                       ),
                 SizedBox(width: 6),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
                       text: '$bloodType ${appLocalization.bloodRequest}',

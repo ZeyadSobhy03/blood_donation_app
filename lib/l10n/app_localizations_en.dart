@@ -1967,4 +1967,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String unitsCount(Object count) {
     return '$count units';
   }
+
+  @override
+  String get pdfLoadError => 'Failed to load PDF. Please try again later.';
+
+  @override
+  String get retry => 'Retry';
 }

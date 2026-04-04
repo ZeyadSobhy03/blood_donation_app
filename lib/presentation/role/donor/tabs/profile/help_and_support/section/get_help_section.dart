@@ -1,6 +1,6 @@
-
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
+import 'package:blood_donation_app/core/resources/models/user_role.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
@@ -10,11 +10,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class GetHelpSection extends StatelessWidget {
-  const GetHelpSection({super.key});
+  const GetHelpSection({super.key, required this.userRole});
+
+  final UserRole userRole;
 
   @override
   Widget build(BuildContext context) {
-      final appLocalization=AppLocalizations.of(context)!;
+    final appLocalization = AppLocalizations.of(context)!;
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       elevation: 3,
@@ -39,7 +41,10 @@ class GetHelpSection extends StatelessWidget {
               title: appLocalization.contactSupport,
               subtitle: appLocalization.chatSupport,
               onTap: () {
-                sendWhatsapp("+201141935341", appLocalization.whatsappHelpMessage);
+                sendWhatsapp(
+                  "+201141935341",
+                  appLocalization.whatsappHelpMessage,
+                );
               },
             ),
             HelpOptionTile(
@@ -59,8 +64,11 @@ class GetHelpSection extends StatelessWidget {
               title: appLocalization.documentation,
               subtitle: appLocalization.userGuides,
               onTap: () {
-                Navigator.pushNamed(context, RouteManger.pdfViewer);
-
+                Navigator.pushNamed(
+                  context,
+                  RouteManger.pdfViewer,
+                  arguments: userRole,
+                );
               },
             ),
           ],
@@ -84,10 +92,7 @@ class GetHelpSection extends StatelessWidget {
     final Uri emailUri = Uri(
       scheme: 'mailto',
       path: email,
-      queryParameters: {
-        'subject': subject,
-        'body': body,
-      },
+      queryParameters: {'subject': subject, 'body': body},
     );
 
     if (await canLaunchUrl(emailUri)) {
@@ -105,8 +110,4 @@ class GetHelpSection extends StatelessWidget {
       debugPrint('Could not launch any email client.');
     }
   }
-
-
-
-
 }

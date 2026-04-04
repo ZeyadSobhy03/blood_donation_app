@@ -649,7 +649,9 @@
   "requestNoteDescription": "يتم الاحتفاظ بجميع سجلات طلبات الدم لأغراض المراجعة والامتثال.",
   "medium": "متوسط",
 
-  "notFulfilled": "Not Fulfilled",
+  "notFulfilled": "لم يتم الوفاء",
 
-  "unitsCount": "{count} units"
+  "unitsCount": "{count} وحدة",
+  "pdfLoadError": "حدث خطأ أثناء تحميل ملف PDF. يرجى المحاولة مرة أخرى لاحقًا.",
+  "retry": "إعادة المحاولة"
 }

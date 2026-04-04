@@ -53,14 +53,13 @@ class RouteManger {
   static const String pdfViewer = '/pdfViewer';
   static const String hospitalMainLayout = '/hospitalMainLayout';
   static const String scanQrCode = '/scanQrCode';
-  static const String dashboard= '/dashboard';
+  static const String dashboard = '/dashboard';
   static const String users = '/users';
-  static const String  adminRequest = '/adminRequest';
-  static const String analytics= '/analytics';
-  static const String systemSetting= '/systemSetting';
-  static const String confirmDonation= '/confirmDonation';
+  static const String adminRequest = '/adminRequest';
+  static const String analytics = '/analytics';
+  static const String systemSetting = '/systemSetting';
+  static const String confirmDonation = '/confirmDonation';
   static const String helpAndSupportHospital = '/helpAndSupportHospital';
-
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -75,8 +74,9 @@ class RouteManger {
         return MaterialPageRoute(builder: (context) => const SystemSetting());
 
       case helpAndSupportHospital:
-        return MaterialPageRoute(builder: (context) => const HelpAndSupportHospital());
-
+        return MaterialPageRoute(
+          builder: (context) => const HelpAndSupportHospital(),
+        );
 
       case confirmDonation:
         return MaterialPageRoute(builder: (context) => const ConfirmDonation());
@@ -90,13 +90,10 @@ class RouteManger {
       case users:
         return MaterialPageRoute(builder: (context) => const Users());
 
-
       case adminRequest:
         return MaterialPageRoute(builder: (context) => const AdminRequest());
 
       case scanQrCode:
-
-
         return MaterialPageRoute(builder: (context) => const ScanQr());
 
       case privacyAndSecurity:
@@ -106,7 +103,11 @@ class RouteManger {
         return MaterialPageRoute(builder: (context) => HelpAndSupportScreen());
 
       case pdfViewer:
-        return MaterialPageRoute(builder: (context) => PdfViewerScreen());
+        return MaterialPageRoute(
+          settings: settings,
+
+          builder: (context) => PdfViewerScreen(),
+        );
 
       case twoFactorAuthentication:
         return MaterialPageRoute(
@@ -118,7 +119,6 @@ class RouteManger {
           builder: (context) => MapScreen(),
           settings: settings,
         );
-
 
       case chooseRole:
         return MaterialPageRoute(builder: (context) => ChooseRole());

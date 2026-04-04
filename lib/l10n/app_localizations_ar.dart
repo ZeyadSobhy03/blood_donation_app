@@ -1954,10 +1954,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get medium => 'متوسط';
 
   @override
-  String get notFulfilled => 'Not Fulfilled';
+  String get notFulfilled => 'لم يتم الوفاء';
 
   @override
   String unitsCount(Object count) {
-    return '$count units';
+    return '$count وحدة';
   }
+
+  @override
+  String get pdfLoadError =>
+      'حدث خطأ أثناء تحميل ملف PDF. يرجى المحاولة مرة أخرى لاحقًا.';
+
+  @override
+  String get retry => 'إعادة المحاولة';
 }

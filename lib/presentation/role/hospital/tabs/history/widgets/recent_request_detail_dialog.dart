@@ -1,4 +1,4 @@
-import 'package:blood_donation_app/core/resources/models/blood_request.dart';
+import 'package:blood_donation_app/core/extension/data_ex.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/widgets/blood_request_status_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/widgets/completion_time_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/widgets/recent_request_body.dart';
@@ -8,12 +8,13 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/resources/colors/color_manger.dart';
+import '../../../../../../core/resources/models/blood_request_history.dart';
 import '../../../../../../l10n/app_localizations.dart';
 
 class RecentRequestDetailDialog extends StatelessWidget {
   const RecentRequestDetailDialog({super.key, required this.bloodRequestModel});
 
-  final BloodRequestModel bloodRequestModel;
+  final BloodRequestHistoryModel bloodRequestModel;
 
   @override
   Widget build(BuildContext context) {
@@ -40,19 +41,24 @@ class RecentRequestDetailDialog extends StatelessWidget {
                 BloodRequestStatusCard(
                   bloodType: bloodRequestModel.bloodType,
                   isFulfilled: bloodRequestModel.isFulfilled,
-                  requestDate: bloodRequestModel.requestDate.toString(),
+                  requestDate: bloodRequestModel.bloodRequestModel.requestDate
+                      .toDateOnlyNumeric(),
                 ),
                 SizedBox(height: 8),
-                RecentRequestBody(bloodRequestModel: bloodRequestModel),
-                SizedBox(height: 8),
-                CompletionTimeCard(
-                  completionTimeInHours:
-                      bloodRequestModel.completionTimeInHours,
+                RecentRequestBody(
+                  bloodRequestModel: bloodRequestModel.bloodRequestModel,
                 ),
                 SizedBox(height: 8),
-                bloodRequestModel.isFulfilled
-                    ? RequestDetailNote()
+                bloodRequestModel.bloodRequestModel.isFulfilled
+                    ? CompletionTimeCard(
+                        completionTimeInHours: bloodRequestModel
+                            .bloodRequestModel
+                            .completionTimeInHours,
+                      )
                     : SizedBox(),
+                SizedBox(height: 8),
+                RequestDetailNote(),
+
                 SizedBox(height: 16),
                 RecentRequestButton(),
               ],

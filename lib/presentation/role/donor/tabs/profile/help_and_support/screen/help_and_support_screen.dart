@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/models/user_role.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/widgets/title_colum.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,9 @@ class HelpAndSupportScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const GetHelpSection(),
+              const GetHelpSection(
+                userRole: UserRole.donor,
+              ),
               SizedBox(height: 16.h),
                PopularTopicsSection(
                 topics: topics,

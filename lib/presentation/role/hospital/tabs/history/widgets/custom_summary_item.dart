@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomSummaryItem extends StatelessWidget {
-  final String count;
+  final int count;
   final String label;
   final Color bg;
   final Color text;
@@ -19,7 +19,7 @@ class CustomSummaryItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text(count, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: text)),
+            Text('$count', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: text)),
             const SizedBox(height: 4),
             Text(label, style: TextStyle(color: text.withValues(alpha: 0.8), fontSize: 13)),
           ],

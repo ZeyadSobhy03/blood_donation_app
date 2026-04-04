@@ -643,7 +643,9 @@
 
   "notFulfilled": "Not Fulfilled",
 
-  "unitsCount": "{count} units"
+  "unitsCount": "{count} units",
+  "pdfLoadError": "Failed to load PDF. Please try again later.",
+  "retry": "Retry"
 
 
 }

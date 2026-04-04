@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/resources/models/user_role.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -54,21 +55,23 @@ class HelpAndSupportHospital extends StatelessWidget {
           subTitle: appLocalization.helpSubtitle,
         ),
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const GetHelpSection(),
-              SizedBox(height: 16.h),
-              PopularTopicsSection(topics: topics),
-              SizedBox(height: 16.h),
-              const AboutSection(),
-              SizedBox(height: 16.h),
-              FaqSection(faqs: faqs),
-              SizedBox(height: 24.h),
-            ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const GetHelpSection(userRole: UserRole.hospital),
+                SizedBox(height: 16.h),
+                PopularTopicsSection(topics: topics),
+                SizedBox(height: 16.h),
+                const AboutSection(),
+                SizedBox(height: 16.h),
+                FaqSection(faqs: faqs),
+                SizedBox(height: 24.h),
+              ],
+            ),
           ),
         ),
       ),

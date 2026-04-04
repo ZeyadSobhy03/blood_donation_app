@@ -1,3 +1,6 @@
+import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
+import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -164,6 +167,8 @@ class _SecuritySettingsDialogState extends State<SecuritySettingsDialog> {
                     ),
 
                     Switch(
+                      activeThumbColor: ColorManger.royalBlue,
+                      inactiveTrackColor: ColorManger.slateGrey.withValues(alpha: 0.4),
                       value: twoFactorAuth,
                       onChanged: (val) => setState(() => twoFactorAuth = val),
                     ),
@@ -178,28 +183,41 @@ class _SecuritySettingsDialogState extends State<SecuritySettingsDialog> {
                 children: [
 
                   Expanded(
-                    child: SizedBox(
-                      height: 48,
-                      child: OutlinedButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: Text(loc.cancel),
-                      ),
-                    ),
-                  ),
+                    child: CustomElevatedButton(
+                      foregroundColor: ColorManger.black,
+                      backgroundColor: ColorManger.pureWhite,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: ColorManger.slateGrey.withValues(alpha: 0.4),
+                        ),
+                        borderRadius: BorderRadiusGeometry.circular(12),
 
-                  const SizedBox(width: 12),
+                      ),
+
+                      onPressed: ()=> Navigator.pop(context),
+                      child: CustomText(text: loc.cancel),
+                    ),
+                  )
+
+
+                  ,const SizedBox(width: 12),
 
                   Expanded(
-                    child: SizedBox(
-                      height: 48,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(loc.updatePassword),
+                    child: CustomElevatedButton(
+                      backgroundColor: ColorManger.royalBlue,
+                      foregroundColor: ColorManger.pureWhite,
+                      onPressed: (){},
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: ColorManger.royalBlue.withValues(alpha: 0.2),
+                        ),
+                        borderRadius: BorderRadiusGeometry.circular(12),
                       ),
+                      child: CustomText(text: loc.updatePassword),
                     ),
-                  ),
+                  )
+
+
                 ],
               ),
             ],
