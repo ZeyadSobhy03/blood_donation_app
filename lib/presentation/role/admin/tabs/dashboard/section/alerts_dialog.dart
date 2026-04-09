@@ -36,8 +36,8 @@ class AlertsDialog extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   AlertCard(
-                    backgroundColor: _getBackgroundColor(alert.type),
-                    color: _getColor(alert.type),
+                    backgroundColor: _getBackgroundColor(_normalizeType(alert.type, context)),
+                    color: _getColor(_normalizeType(alert.type, context)),
                     type: alert.type,
                     date: alert.date,
                     title: alert.title,
@@ -70,22 +70,17 @@ class AlertsDialog extends StatelessWidget {
     );
   }
 
-  String normalizeType(String type) {
-    switch (type.toLowerCase()) {
-      case 'critical':
-      case 'حرج':
-        return ConstantManager.critical;
+  String _normalizeType(String type, BuildContext context) {
+    final appLocalization = AppLocalizations.of(context)!;
 
-      case 'system':
-      case 'نظام':
-        return ConstantManager.system;
-
-      case 'emergency':
-      case 'طارئ':
-        return ConstantManager.emergency;
-
-      default:
-        return 'unknown';
+    if (type.toLowerCase() == appLocalization.critical.toLowerCase()) {
+      return ConstantManager.critical;
+    } else if (type.toLowerCase() == appLocalization.system.toLowerCase()) {
+      return ConstantManager.system;
+    } else if (type.toLowerCase() == appLocalization.emergency.toLowerCase()) {
+      return ConstantManager.emergency;
+    } else {
+      return 'unknown';
     }
   }
 

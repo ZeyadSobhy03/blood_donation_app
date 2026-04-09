@@ -92,4 +92,5 @@ class AlertCard extends StatelessWidget {
       ),
     );
   }
+
 }
