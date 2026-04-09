@@ -18,6 +18,7 @@ import '../../../presentation/authentication/donor_authentication/donor_login.da
 import '../../../presentation/authentication/donor_authentication/donor_register.dart';
 import '../../../presentation/authentication/hospital_authentication/hospital_authentication.dart';
 import '../../../presentation/maps/maps.dart';
+import '../../../presentation/role/admin/tabs/admin_main_layout.dart';
 import '../../../presentation/role/admin/tabs/admin_requets/admin_request.dart';
 import '../../../presentation/role/admin/tabs/analytics/analytics.dart';
 import '../../../presentation/role/admin/tabs/dashboard/dashboard.dart';
@@ -53,6 +54,7 @@ class RouteManger {
   static const String pdfViewer = '/pdfViewer';
   static const String hospitalMainLayout = '/hospitalMainLayout';
   static const String scanQrCode = '/scanQrCode';
+  static const String adminMainLayout = '/adminMainLayout';
   static const String dashboard = '/dashboard';
   static const String users = '/users';
   static const String adminRequest = '/adminRequest';
@@ -89,6 +91,9 @@ class RouteManger {
 
       case users:
         return MaterialPageRoute(builder: (context) => const Users());
+
+      case adminMainLayout:
+        return MaterialPageRoute(builder: (context) => const AdminMainLayout());
 
       case adminRequest:
         return MaterialPageRoute(builder: (context) => const AdminRequest());

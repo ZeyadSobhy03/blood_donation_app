@@ -3,6 +3,8 @@ class DonorModel {
   final String name;
   final String email;
   final String phoneNumber;
+  final int age;
+  final int donorRank;
 
   final String bloodType;
   final DateTime? lastDonationDate;
@@ -16,7 +18,6 @@ class DonorModel {
   final bool isOnline;
 
   final String gender;
-  final int age;
   final double weight;
   final String healthStatus;
 
@@ -56,6 +57,6 @@ class DonorModel {
     this.distanceInKm,
     this.profileImage,
     this.deviceToken,
-    this.updatedAt,
+    this.updatedAt, required this.donorRank,
   });
 }

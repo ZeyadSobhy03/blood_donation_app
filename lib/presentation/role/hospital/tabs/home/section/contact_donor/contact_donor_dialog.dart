@@ -18,6 +18,7 @@ class ContactDonorDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     List<DonorModel> donors = [
       DonorModel(
+        donorRank: 4,
         id: '1',
         name: 'John Doe',
         email: 'john.doe@email.com',
@@ -40,6 +41,7 @@ class ContactDonorDialog extends StatelessWidget {
       ),
 
       DonorModel(
+        donorRank: 5,
         id: '2',
         name: 'Jane Smith',
         email: 'jane.smith@email.com',
@@ -62,6 +64,7 @@ class ContactDonorDialog extends StatelessWidget {
       ),
 
       DonorModel(
+          donorRank: 3,
         id: '3',
         name: 'Alice Johnson',
         email: 'alice.j@email.com',
@@ -84,6 +87,7 @@ class ContactDonorDialog extends StatelessWidget {
       ),
 
       DonorModel(
+        donorRank: 2,
         id: '4',
         name: 'Bob Brown',
         email: 'bob.brown@email.com',
@@ -106,6 +110,7 @@ class ContactDonorDialog extends StatelessWidget {
       ),
 
       DonorModel(
+        donorRank: 1,
         id: '5',
         name: 'Charlie Davis',
         email: 'charlie.d@email.com',

@@ -83,6 +83,7 @@ class _FindDonorState extends State<FindDonor> {
 
   final List<DonorModel> donors = [
     DonorModel(
+      donorRank: 3,
       id: '1',
       name: 'Ahmed Mohamed',
       email: 'ahmed@gmail.com',
@@ -104,6 +105,7 @@ class _FindDonorState extends State<FindDonor> {
     ),
 
     DonorModel(
+      donorRank: 4,
       id: '2',
       name: 'Sara Ali',
       email: 'sara@gmail.com',
@@ -125,6 +127,7 @@ class _FindDonorState extends State<FindDonor> {
     ),
 
     DonorModel(
+      donorRank: 5,
       id: '3',
       name: 'Omar Hassan',
       email: 'omar@gmail.com',
@@ -146,6 +149,7 @@ class _FindDonorState extends State<FindDonor> {
     ),
 
     DonorModel(
+      donorRank: 6,
       id: '4',
       name: 'Mona Adel',
       email: 'mona@gmail.com',

@@ -28,7 +28,7 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
 
     _iconControllers = List.generate(
       5,
-      (i) => AnimationController(
+          (i) => AnimationController(
         vsync: this,
         duration: const Duration(milliseconds: 250),
       ),
@@ -80,25 +80,25 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
 
     final navItems = [
       (
-        Icons.dashboard_rounded,
-        Icons.dashboard_outlined,
-        appLocalizations.dashboard,
+      Icons.dashboard_rounded,
+      Icons.dashboard_outlined,
+      appLocalizations.dashboard,
       ),
       (Icons.group_rounded, Icons.group_outlined, appLocalizations.users),
       (
-        Icons.bloodtype_rounded,
-        Icons.bloodtype_outlined,
-        appLocalizations.requests,
+      Icons.bloodtype_rounded,
+      Icons.bloodtype_outlined,
+      appLocalizations.requests,
       ),
       (
-        Icons.bar_chart_rounded,
-        Icons.bar_chart_outlined,
-        appLocalizations.analytics,
+      Icons.bar_chart_rounded,
+      Icons.bar_chart_outlined,
+      appLocalizations.analytics,
       ),
       (
-        Icons.settings_rounded,
-        Icons.settings_outlined,
-        appLocalizations.settings,
+      Icons.settings_rounded,
+      Icons.settings_outlined,
+      appLocalizations.settings,
       ),
     ];
 
@@ -142,17 +142,18 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ScaleTransition(
-                          scale: _iconScales[index],
-                          child: AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 200),
-                            child: Icon(
-                              isSelected ? item.$1 : item.$2,
-                              key: ValueKey(isSelected),
-                              size: isSelected ? 28 : 24,
-                              color: isSelected
-                                  ? ColorManger.brightRed
-                                  : ColorManger.slateGrey,
+                        Flexible(
+                          child: ScaleTransition(
+                            scale: _iconScales[index],
+                            child: AnimatedOpacity(  /// there in render overflow when scale > 1, so we wrap it with opacity to hide the overflowed part
+                              duration: const Duration(milliseconds: 200),
+                              opacity: 1.0,
+                              child: Icon(
+                                isSelected ? item.$1 : item.$2,
+                                color: isSelected
+                                    ? ColorManger.brightPurple
+                                    : ColorManger.slateGrey,
+                              ),
                             ),
                           ),
                         ),
@@ -167,7 +168,7 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
                                 ? FontWeight.w600
                                 : FontWeight.w400,
                             color: isSelected
-                                ? ColorManger.brightRed
+                                ? ColorManger.brightPurple
                                 : ColorManger.slateGrey,
                           ),
                         ),
@@ -179,7 +180,7 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
                           height: 3,
                           width: isSelected ? 18 : 0,
                           decoration: BoxDecoration(
-                            color: ColorManger.brightRed,
+                            color: ColorManger.brightPurple,
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),

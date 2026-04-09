@@ -427,7 +427,6 @@
   "soon": "Soon",
   "points_history": "Points History",
   "blood_donation": "Blood Donation",
-  "days_ago": "3 days ago",
   "emergency_response": "Emergency Response",
   "week_1_ago": "1 week ago",
   "profile_completion": "Profile Completion",
@@ -645,7 +644,44 @@
 
   "unitsCount": "{count} units",
   "pdfLoadError": "Failed to load PDF. Please try again later.",
-  "retry": "Retry"
+  "retry": "Retry",
+  "adminDashboard": "Admin Dashboard",
+  "dashboardSubtitle": "System overview and analytics",
+
+  "criticalAlerts": "Critical Alerts",
+
+  "alertBloodShortage": "O- blood shortage at City Hospital",
+  "alertHighDemand": "AI prediction: High demand for A+ expected",
+  "alertEmergency": "Mass casualty event - Multiple blood types needed",
+
+  "system": "System",
+  "bloodTypeDistribution": "Blood Type Distribution",
+  "units_count": "{count} units",
+  "aiInsights": "AI Insights",
+
+  "predictedHighDemand": "Predicted High Demand",
+  "predictedHighDemandDesc": "A+ and O+ blood types expected to be in high demand next week",
+
+  "shortageRisk": "Shortage Risk",
+  "shortageRiskDesc": "AB- blood type showing low donor availability in downtown area",
+  "confidencePercentage": "{value}% confidence",
+  "systemOnline": "System Online",
+  "weeklyTrends": "Weekly Trends",
+  "allTopDonors": "All Top Donors",
+  "allTopDonorsSubtitle": "View all top donors and their contribution history.",
+  "lastDonation": "Last donation",
+  "top_donors_in_month": "Top donors in the month",
+  "quickActions": "Quick Actions",
+  "sendEmergencyBroadcast": "Send Emergency Broadcast",
+  "alertDetails": "Alert Details",
+  "alertDetailsSubtitle": "View detailed information about this alert.",
+  "totalDonors": "Total Donors",
+  "activeRequests": "Active Requests",
+  "criticalCases": "Critical Cases",
+  "successfulDonations": "Successful Donations",
+  "just_now": "just now",
+  "minutes_ago": "{minutes} minutes ago",
+  "days_ago": "{days} days ago"
 
 
 }

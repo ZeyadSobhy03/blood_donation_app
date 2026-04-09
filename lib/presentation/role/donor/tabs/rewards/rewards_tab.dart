@@ -150,7 +150,7 @@ class _RewardsTabState extends State<RewardsTab> {
 
         CustomHistoryItem(
           title: appLocalizations.blood_donation,
-          date: appLocalizations.days_ago,
+          date: appLocalizations.days_ago(1),
           points: "+200",
         ),
         CustomHistoryItem(

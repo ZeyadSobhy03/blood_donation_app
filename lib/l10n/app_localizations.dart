@@ -2474,12 +2474,6 @@ abstract class AppLocalizations {
   /// **'Blood Donation'**
   String get blood_donation;
 
-  /// No description provided for @days_ago.
-  ///
-  /// In en, this message translates to:
-  /// **'3 days ago'**
-  String get days_ago;
-
   /// No description provided for @emergency_response.
   ///
   /// In en, this message translates to:
@@ -3775,6 +3769,198 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Retry'**
   String get retry;
+
+  /// No description provided for @adminDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Dashboard'**
+  String get adminDashboard;
+
+  /// No description provided for @dashboardSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'System overview and analytics'**
+  String get dashboardSubtitle;
+
+  /// No description provided for @criticalAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical Alerts'**
+  String get criticalAlerts;
+
+  /// No description provided for @alertBloodShortage.
+  ///
+  /// In en, this message translates to:
+  /// **'O- blood shortage at City Hospital'**
+  String get alertBloodShortage;
+
+  /// No description provided for @alertHighDemand.
+  ///
+  /// In en, this message translates to:
+  /// **'AI prediction: High demand for A+ expected'**
+  String get alertHighDemand;
+
+  /// No description provided for @alertEmergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Mass casualty event - Multiple blood types needed'**
+  String get alertEmergency;
+
+  /// No description provided for @system.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get system;
+
+  /// No description provided for @bloodTypeDistribution.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Type Distribution'**
+  String get bloodTypeDistribution;
+
+  /// No description provided for @units_count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} units'**
+  String units_count(Object count);
+
+  /// No description provided for @aiInsights.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Insights'**
+  String get aiInsights;
+
+  /// No description provided for @predictedHighDemand.
+  ///
+  /// In en, this message translates to:
+  /// **'Predicted High Demand'**
+  String get predictedHighDemand;
+
+  /// No description provided for @predictedHighDemandDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'A+ and O+ blood types expected to be in high demand next week'**
+  String get predictedHighDemandDesc;
+
+  /// No description provided for @shortageRisk.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortage Risk'**
+  String get shortageRisk;
+
+  /// No description provided for @shortageRiskDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'AB- blood type showing low donor availability in downtown area'**
+  String get shortageRiskDesc;
+
+  /// No description provided for @confidencePercentage.
+  ///
+  /// In en, this message translates to:
+  /// **'{value}% confidence'**
+  String confidencePercentage(Object value);
+
+  /// No description provided for @systemOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'System Online'**
+  String get systemOnline;
+
+  /// No description provided for @weeklyTrends.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Trends'**
+  String get weeklyTrends;
+
+  /// No description provided for @allTopDonors.
+  ///
+  /// In en, this message translates to:
+  /// **'All Top Donors'**
+  String get allTopDonors;
+
+  /// No description provided for @allTopDonorsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'View all top donors and their contribution history.'**
+  String get allTopDonorsSubtitle;
+
+  /// No description provided for @lastDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Last donation'**
+  String get lastDonation;
+
+  /// No description provided for @top_donors_in_month.
+  ///
+  /// In en, this message translates to:
+  /// **'Top donors in the month'**
+  String get top_donors_in_month;
+
+  /// No description provided for @quickActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Actions'**
+  String get quickActions;
+
+  /// No description provided for @sendEmergencyBroadcast.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Emergency Broadcast'**
+  String get sendEmergencyBroadcast;
+
+  /// No description provided for @alertDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Alert Details'**
+  String get alertDetails;
+
+  /// No description provided for @alertDetailsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'View detailed information about this alert.'**
+  String get alertDetailsSubtitle;
+
+  /// No description provided for @totalDonors.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Donors'**
+  String get totalDonors;
+
+  /// No description provided for @activeRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Requests'**
+  String get activeRequests;
+
+  /// No description provided for @criticalCases.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical Cases'**
+  String get criticalCases;
+
+  /// No description provided for @successfulDonations.
+  ///
+  /// In en, this message translates to:
+  /// **'Successful Donations'**
+  String get successfulDonations;
+
+  /// No description provided for @just_now.
+  ///
+  /// In en, this message translates to:
+  /// **'just now'**
+  String get just_now;
+
+  /// No description provided for @minutes_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} minutes ago'**
+  String minutes_ago(Object minutes);
+
+  /// No description provided for @days_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{days} days ago'**
+  String days_ago(Object days);
 }
 
 class _AppLocalizationsDelegate

@@ -76,4 +76,6 @@ class ColorManger {
   static const Color diamondDark = Color(0xFF0077B6);
   static const Color lightDiamond = Color(0xFFE0F7FF);
   static const Color bloodRed = Color(0xFFFF0F22);
+
+  static const Color brightPurple = Color(0xFF9747FF);
 }

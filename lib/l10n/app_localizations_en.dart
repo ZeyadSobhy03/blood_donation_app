@@ -1272,9 +1272,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get blood_donation => 'Blood Donation';
 
   @override
-  String get days_ago => '3 days ago';
-
-  @override
   String get emergency_response => 'Emergency Response';
 
   @override
@@ -1973,4 +1970,113 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get retry => 'Retry';
+
+  @override
+  String get adminDashboard => 'Admin Dashboard';
+
+  @override
+  String get dashboardSubtitle => 'System overview and analytics';
+
+  @override
+  String get criticalAlerts => 'Critical Alerts';
+
+  @override
+  String get alertBloodShortage => 'O- blood shortage at City Hospital';
+
+  @override
+  String get alertHighDemand => 'AI prediction: High demand for A+ expected';
+
+  @override
+  String get alertEmergency =>
+      'Mass casualty event - Multiple blood types needed';
+
+  @override
+  String get system => 'System';
+
+  @override
+  String get bloodTypeDistribution => 'Blood Type Distribution';
+
+  @override
+  String units_count(Object count) {
+    return '$count units';
+  }
+
+  @override
+  String get aiInsights => 'AI Insights';
+
+  @override
+  String get predictedHighDemand => 'Predicted High Demand';
+
+  @override
+  String get predictedHighDemandDesc =>
+      'A+ and O+ blood types expected to be in high demand next week';
+
+  @override
+  String get shortageRisk => 'Shortage Risk';
+
+  @override
+  String get shortageRiskDesc =>
+      'AB- blood type showing low donor availability in downtown area';
+
+  @override
+  String confidencePercentage(Object value) {
+    return '$value% confidence';
+  }
+
+  @override
+  String get systemOnline => 'System Online';
+
+  @override
+  String get weeklyTrends => 'Weekly Trends';
+
+  @override
+  String get allTopDonors => 'All Top Donors';
+
+  @override
+  String get allTopDonorsSubtitle =>
+      'View all top donors and their contribution history.';
+
+  @override
+  String get lastDonation => 'Last donation';
+
+  @override
+  String get top_donors_in_month => 'Top donors in the month';
+
+  @override
+  String get quickActions => 'Quick Actions';
+
+  @override
+  String get sendEmergencyBroadcast => 'Send Emergency Broadcast';
+
+  @override
+  String get alertDetails => 'Alert Details';
+
+  @override
+  String get alertDetailsSubtitle =>
+      'View detailed information about this alert.';
+
+  @override
+  String get totalDonors => 'Total Donors';
+
+  @override
+  String get activeRequests => 'Active Requests';
+
+  @override
+  String get criticalCases => 'Critical Cases';
+
+  @override
+  String get successfulDonations => 'Successful Donations';
+
+  @override
+  String get just_now => 'just now';
+
+  @override
+  String minutes_ago(Object minutes) {
+    return '$minutes minutes ago';
+  }
+
+  @override
+  String days_ago(Object days) {
+    return '$days days ago';
+  }
 }

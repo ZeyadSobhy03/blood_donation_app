@@ -427,7 +427,6 @@
   "soon": "قريبا",
   "points_history": "سجل النقاط",
   "blood_donation": "تبرع بالدم",
-  "days_ago": "منذ 3 أيام",
   "emergency_response": "إجابة حالة طارئة",
   "week_1_ago": "منذ أسبوع",
   "profile_completion": "إكمال الملف الشخصي",
@@ -653,5 +652,43 @@
 
   "unitsCount": "{count} وحدة",
   "pdfLoadError": "حدث خطأ أثناء تحميل ملف PDF. يرجى المحاولة مرة أخرى لاحقًا.",
-  "retry": "إعادة المحاولة"
+  "retry": "إعادة المحاولة",
+  "adminDashboard": "لوحة تحكم المسؤول",
+  "dashboardSubtitle": "نظرة عامة وتحليلات النظام",
+
+  "criticalAlerts": "تنبيهات حرجة",
+
+  "alertBloodShortage": "نقص في فصيلة O- في مستشفى المدينة",
+  "alertHighDemand": "توقعات الذكاء الاصطناعي: زيادة الطلب على A+",
+  "alertEmergency": "حادث جماعي - الحاجة لعدة فصائل دم",
+
+  "system": "نظام",
+  "bloodTypeDistribution": "توزيع فصائل الدم",
+  "units_count": "{count} وحدة",
+  "aiInsights": "تحليلات الذكاء الاصطناعي",
+
+  "predictedHighDemand": "طلب مرتفع متوقع",
+  "predictedHighDemandDesc": "من المتوقع زيادة الطلب على فصائل A+ و O+ خلال الأسبوع القادم",
+
+  "shortageRisk": "خطر نقص",
+  "shortageRiskDesc": "فصيلة AB- تعاني من نقص في المتبرعين في منطقة وسط المدينة",
+  "confidencePercentage": "نسبة الثقة {value}%",
+  "systemOnline": "النظام متصل",
+  "weeklyTrends": "الاتجاهات الأسبوعية",
+  "allTopDonors": "أفضل المتبرعين",
+  "allTopDonorsSubtitle": "عرض جميع أفضل المتبرعين وسجل تبرعاتهم.",
+  "lastDonation": "آخر تبرع",
+  "top_donors_in_month": "أفضل المتبرعين في الشهر",
+  "quickActions": "إجراءات سريعة",
+  "sendEmergencyBroadcast": "إرسال تنبيه طارئ",
+  "alertDetails": "تفاصيل التنبيه",
+  "alertDetailsSubtitle": "عرض المعلومات التفصيلية لهذا التنبيه",
+  "totalDonors": "إجمالي المتبرعين",
+  "activeRequests": "الطلبات النشطة",
+  "criticalCases": "الحالات الحرجة",
+  "successfulDonations": "التبرعات الناجحة",
+  "just_now": "الآن",
+  "minutes_ago": "منذ {minutes} دقيقة",
+  "days_ago": "منذ {days} يوم"
+
 }

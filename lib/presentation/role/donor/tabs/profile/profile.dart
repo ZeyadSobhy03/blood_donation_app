@@ -102,6 +102,7 @@ class Profile extends StatelessWidget {
               SizedBox(height: 16),
               PersonalInformationCard(
                 donor: DonorModel(
+                  donorRank: 1,
                   id: '1',
                   name: 'Ziyad Sonhy',
                   email: 'ziad60189@gmail.com',

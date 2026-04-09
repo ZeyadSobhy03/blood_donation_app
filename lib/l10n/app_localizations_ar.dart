@@ -1271,9 +1271,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get blood_donation => 'تبرع بالدم';
 
   @override
-  String get days_ago => 'منذ 3 أيام';
-
-  @override
   String get emergency_response => 'إجابة حالة طارئة';
 
   @override
@@ -1967,4 +1964,110 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get retry => 'إعادة المحاولة';
+
+  @override
+  String get adminDashboard => 'لوحة تحكم المسؤول';
+
+  @override
+  String get dashboardSubtitle => 'نظرة عامة وتحليلات النظام';
+
+  @override
+  String get criticalAlerts => 'تنبيهات حرجة';
+
+  @override
+  String get alertBloodShortage => 'نقص في فصيلة O- في مستشفى المدينة';
+
+  @override
+  String get alertHighDemand => 'توقعات الذكاء الاصطناعي: زيادة الطلب على A+';
+
+  @override
+  String get alertEmergency => 'حادث جماعي - الحاجة لعدة فصائل دم';
+
+  @override
+  String get system => 'نظام';
+
+  @override
+  String get bloodTypeDistribution => 'توزيع فصائل الدم';
+
+  @override
+  String units_count(Object count) {
+    return '$count وحدة';
+  }
+
+  @override
+  String get aiInsights => 'تحليلات الذكاء الاصطناعي';
+
+  @override
+  String get predictedHighDemand => 'طلب مرتفع متوقع';
+
+  @override
+  String get predictedHighDemandDesc =>
+      'من المتوقع زيادة الطلب على فصائل A+ و O+ خلال الأسبوع القادم';
+
+  @override
+  String get shortageRisk => 'خطر نقص';
+
+  @override
+  String get shortageRiskDesc =>
+      'فصيلة AB- تعاني من نقص في المتبرعين في منطقة وسط المدينة';
+
+  @override
+  String confidencePercentage(Object value) {
+    return 'نسبة الثقة $value%';
+  }
+
+  @override
+  String get systemOnline => 'النظام متصل';
+
+  @override
+  String get weeklyTrends => 'الاتجاهات الأسبوعية';
+
+  @override
+  String get allTopDonors => 'أفضل المتبرعين';
+
+  @override
+  String get allTopDonorsSubtitle => 'عرض جميع أفضل المتبرعين وسجل تبرعاتهم.';
+
+  @override
+  String get lastDonation => 'آخر تبرع';
+
+  @override
+  String get top_donors_in_month => 'أفضل المتبرعين في الشهر';
+
+  @override
+  String get quickActions => 'إجراءات سريعة';
+
+  @override
+  String get sendEmergencyBroadcast => 'إرسال تنبيه طارئ';
+
+  @override
+  String get alertDetails => 'تفاصيل التنبيه';
+
+  @override
+  String get alertDetailsSubtitle => 'عرض المعلومات التفصيلية لهذا التنبيه';
+
+  @override
+  String get totalDonors => 'إجمالي المتبرعين';
+
+  @override
+  String get activeRequests => 'الطلبات النشطة';
+
+  @override
+  String get criticalCases => 'الحالات الحرجة';
+
+  @override
+  String get successfulDonations => 'التبرعات الناجحة';
+
+  @override
+  String get just_now => 'الآن';
+
+  @override
+  String minutes_ago(Object minutes) {
+    return 'منذ $minutes دقيقة';
+  }
+
+  @override
+  String days_ago(Object days) {
+    return 'منذ $days يوم';
+  }
 }
