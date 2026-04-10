@@ -5,8 +5,8 @@ import '../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../core/widgets/custom_text.dart';
 
-class HospitalTitle extends StatelessWidget {
-  const HospitalTitle({super.key, required this.title, required this.subTitle});
+class CustomTitle extends StatelessWidget {
+  const CustomTitle({super.key, required this.title, required this.subTitle});
   final String title;
   final String subTitle;
 

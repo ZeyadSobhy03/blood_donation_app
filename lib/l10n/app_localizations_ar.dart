@@ -420,6 +420,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get mark_all_as_read => 'تعليم الكل كمقروء';
 
   @override
+  String get userDetails => 'تفاصيل المستخدم';
+
+  @override
+  String get userDetailsSubtitle => 'عرض وإدارة تفاصيل المستخدم والإجراءات.';
+
+  @override
+  String get adminRole => 'دور المسؤول';
+
+  @override
+  String get systemAdministrator => 'مسؤول النظام';
+
+  @override
   String get respond_now => 'رد الآن';
 
   @override
@@ -446,6 +458,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get callNow => 'اتصل الآن';
+
+  @override
+  String get adminActions => 'إجراءات المسؤول';
+
+  @override
+  String get suspendUser => 'تعليق المستخدم';
+
+  @override
+  String get verifyUser => 'توثيق المستخدم';
+
+  @override
+  String get hello => 'مرحبًا';
+
+  @override
+  String get iNeedToContactYouRegardingYourAccount =>
+      'أحتاج إلى التواصل معك بخصوص حسابك.';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get deleteUser => 'حذف المستخدم';
+
+  @override
+  String get deleteUserConfirm => 'هل أنت متأكد أنك تريد حذف هذا المستخدم؟';
 
   @override
   String get sendMessage => 'أرسل رسالة';
@@ -1533,7 +1570,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get donors => 'متبرع';
+  String get donors => 'متبرعون';
+
+  @override
+  String get allUsers => 'الكل';
 
   @override
   String get complete => 'مكتمل';
@@ -2070,4 +2110,112 @@ class AppLocalizationsAr extends AppLocalizations {
   String days_ago(Object days) {
     return 'منذ $days يوم';
   }
+
+  @override
+  String get hospitals => 'المستشفيات';
+
+  @override
+  String get admins => 'المسؤولين';
+
+  @override
+  String get userManagement => 'إدارة المستخدمين';
+
+  @override
+  String get manageUsersSubtitle => 'إدارة المتبرعين والمستشفيات والمسؤولين';
+
+  @override
+  String get noUsersFound => 'لم يتم العثور على مستخدمين';
+
+  @override
+  String get recentUsers => 'أحدث المستخدمين';
+
+  @override
+  String get addHospital => 'إضافة مستشفى';
+
+  @override
+  String get addHospitalSubtitle => 'إضافة مستشفى جديد إلى النظام.';
+
+  @override
+  String get type => 'النوع';
+
+  @override
+  String get selectHospitalType => 'اختر نوع المستشفى';
+
+  @override
+  String get governmentHospital => 'مستشفى حكومي';
+
+  @override
+  String get privateHospital => 'مستشفى خاص';
+
+  @override
+  String get specializedHospital => 'مستشفى تخصصي';
+
+  @override
+  String get communityHospital => 'مستشفى مجتمعي';
+
+  @override
+  String get medicalCenter => 'مركز طبي';
+
+  @override
+  String get enterHospitalName => 'أدخل اسم المستشفى';
+
+  @override
+  String get enterHospitalEmail => 'أدخل بريد المستشفى الإلكتروني';
+
+  @override
+  String get enterHospitalContactNumber => 'أدخل رقم تواصل المستشفى';
+
+  @override
+  String get enterHospitalAddress => 'أدخل عنوان المستشفى';
+
+  @override
+  String get latitude => 'خط العرض';
+
+  @override
+  String get enterHospitalLatitude => 'أدخل خط عرض المستشفى';
+
+  @override
+  String get latitudeRangeError => 'يجب أن تكون قيمة خط العرض بين -90 و 90';
+
+  @override
+  String get longitude => 'خط الطول';
+
+  @override
+  String get enterHospitalLongitude => 'أدخل خط طول المستشفى';
+
+  @override
+  String get longitudeRangeError => 'يجب أن تكون قيمة خط الطول بين -180 و 180';
+
+  @override
+  String get licenseNumber => 'رقم الترخيص';
+
+  @override
+  String get enterHospitalLicenseNumber => 'أدخل رقم ترخيص المستشفى';
+
+  @override
+  String get adminContactName => 'اسم مسؤول التواصل';
+
+  @override
+  String get enterAdminContactName => 'أدخل اسم مسؤول التواصل';
+
+  @override
+  String get adminContactPhone => 'هاتف مسؤول التواصل';
+
+  @override
+  String get enterAdminContactPhone => 'أدخل هاتف مسؤول التواصل';
+
+  @override
+  String get emergencyContactNumber => 'رقم الطوارئ';
+
+  @override
+  String get enterEmergencyContactNumber => 'أدخل رقم الطوارئ';
+
+  @override
+  String get hospitalAddedSuccessfully => 'تمت إضافة المستشفى بنجاح';
+
+  @override
+  String get totalUsers => 'إجمالي المستخدمين';
+
+  @override
+  String get verified => 'موثّق';
 }

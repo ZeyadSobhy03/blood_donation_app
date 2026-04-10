@@ -5,12 +5,14 @@ import '../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../../../core/widgets/custom_text.dart';
+import '../../../../../../l10n/app_localizations.dart';
 
 class NavigationButtons extends StatelessWidget {
   const NavigationButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -27,7 +29,7 @@ class NavigationButtons extends StatelessWidget {
               Icon(Icons.phone),
               SizedBox(width: 4.w),
               CustomText(
-                text: 'Contact',
+                text: appLocalizations.contact,
                 textStyle: TextStyle(
                   fontSize: FontSize.s16,
                   fontWeight: FontWeightManager.regular,
@@ -56,7 +58,7 @@ class NavigationButtons extends StatelessWidget {
               ),
               SizedBox(width: 4.w),
               CustomText(
-                text: 'Navigate',
+                text: appLocalizations.navigate,
                 textStyle: TextStyle(
                   fontSize: FontSize.s16,
                   fontWeight: FontWeightManager.regular,

@@ -186,7 +186,7 @@ class _FindDonorState extends State<FindDonor> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HospitalTitle(
+                CustomTitle(
                   title: appLocalization.find_donors,
                   subTitle: appLocalization.find_donors_dec,
                 ),

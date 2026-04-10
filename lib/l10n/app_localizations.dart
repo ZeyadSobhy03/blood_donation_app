@@ -890,6 +890,30 @@ abstract class AppLocalizations {
   /// **'Mark All as Read'**
   String get mark_all_as_read;
 
+  /// No description provided for @userDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'User Details'**
+  String get userDetails;
+
+  /// No description provided for @userDetailsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'View and manage user details and actions.'**
+  String get userDetailsSubtitle;
+
+  /// No description provided for @adminRole.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Role'**
+  String get adminRole;
+
+  /// No description provided for @systemAdministrator.
+  ///
+  /// In en, this message translates to:
+  /// **'System Administrator'**
+  String get systemAdministrator;
+
   /// No description provided for @respond_now.
   ///
   /// In en, this message translates to:
@@ -937,6 +961,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Call Now'**
   String get callNow;
+
+  /// No description provided for @adminActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Actions'**
+  String get adminActions;
+
+  /// No description provided for @suspendUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Suspend User'**
+  String get suspendUser;
+
+  /// No description provided for @verifyUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify User'**
+  String get verifyUser;
+
+  /// No description provided for @hello.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello'**
+  String get hello;
+
+  /// No description provided for @iNeedToContactYouRegardingYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'I need to contact you regarding your account.'**
+  String get iNeedToContactYouRegardingYourAccount;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @deleteUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete User'**
+  String get deleteUser;
+
+  /// No description provided for @deleteUserConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this user?'**
+  String get deleteUserConfirm;
 
   /// No description provided for @sendMessage.
   ///
@@ -2963,8 +3035,14 @@ abstract class AppLocalizations {
   /// No description provided for @donors.
   ///
   /// In en, this message translates to:
-  /// **'donors'**
+  /// **'Donors'**
   String get donors;
+
+  /// No description provided for @allUsers.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get allUsers;
 
   /// No description provided for @complete.
   ///
@@ -3961,6 +4039,222 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{days} days ago'**
   String days_ago(Object days);
+
+  /// No description provided for @hospitals.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospitals'**
+  String get hospitals;
+
+  /// No description provided for @admins.
+  ///
+  /// In en, this message translates to:
+  /// **'Admins'**
+  String get admins;
+
+  /// No description provided for @userManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'User Management'**
+  String get userManagement;
+
+  /// No description provided for @manageUsersSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage donors, hospitals, and administrators'**
+  String get manageUsersSubtitle;
+
+  /// No description provided for @noUsersFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No users found'**
+  String get noUsersFound;
+
+  /// No description provided for @recentUsers.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Users'**
+  String get recentUsers;
+
+  /// No description provided for @addHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Hospital'**
+  String get addHospital;
+
+  /// No description provided for @addHospitalSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a new hospital to the system.'**
+  String get addHospitalSubtitle;
+
+  /// No description provided for @type.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get type;
+
+  /// No description provided for @selectHospitalType.
+  ///
+  /// In en, this message translates to:
+  /// **'Select hospital type'**
+  String get selectHospitalType;
+
+  /// No description provided for @governmentHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Government Hospital'**
+  String get governmentHospital;
+
+  /// No description provided for @privateHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Private Hospital'**
+  String get privateHospital;
+
+  /// No description provided for @specializedHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Specialized Hospital'**
+  String get specializedHospital;
+
+  /// No description provided for @communityHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Community Hospital'**
+  String get communityHospital;
+
+  /// No description provided for @medicalCenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical Center'**
+  String get medicalCenter;
+
+  /// No description provided for @enterHospitalName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter hospital name'**
+  String get enterHospitalName;
+
+  /// No description provided for @enterHospitalEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter hospital email'**
+  String get enterHospitalEmail;
+
+  /// No description provided for @enterHospitalContactNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter hospital contact number'**
+  String get enterHospitalContactNumber;
+
+  /// No description provided for @enterHospitalAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter hospital address'**
+  String get enterHospitalAddress;
+
+  /// No description provided for @latitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Latitude'**
+  String get latitude;
+
+  /// No description provided for @enterHospitalLatitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter hospital latitude'**
+  String get enterHospitalLatitude;
+
+  /// No description provided for @latitudeRangeError.
+  ///
+  /// In en, this message translates to:
+  /// **'Latitude must be between -90 and 90'**
+  String get latitudeRangeError;
+
+  /// No description provided for @longitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Longitude'**
+  String get longitude;
+
+  /// No description provided for @enterHospitalLongitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter hospital longitude'**
+  String get enterHospitalLongitude;
+
+  /// No description provided for @longitudeRangeError.
+  ///
+  /// In en, this message translates to:
+  /// **'Longitude must be between -180 and 180'**
+  String get longitudeRangeError;
+
+  /// No description provided for @licenseNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'License Number'**
+  String get licenseNumber;
+
+  /// No description provided for @enterHospitalLicenseNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter hospital license number'**
+  String get enterHospitalLicenseNumber;
+
+  /// No description provided for @adminContactName.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Contact Name'**
+  String get adminContactName;
+
+  /// No description provided for @enterAdminContactName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter admin contact name'**
+  String get enterAdminContactName;
+
+  /// No description provided for @adminContactPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Contact Phone'**
+  String get adminContactPhone;
+
+  /// No description provided for @enterAdminContactPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter admin contact phone'**
+  String get enterAdminContactPhone;
+
+  /// No description provided for @emergencyContactNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Contact Number'**
+  String get emergencyContactNumber;
+
+  /// No description provided for @enterEmergencyContactNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter emergency contact number'**
+  String get enterEmergencyContactNumber;
+
+  /// No description provided for @hospitalAddedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital added successfully'**
+  String get hospitalAddedSuccessfully;
+
+  /// No description provided for @totalUsers.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Users'**
+  String get totalUsers;
+
+  /// No description provided for @verified.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get verified;
 }
 
 class _AppLocalizationsDelegate

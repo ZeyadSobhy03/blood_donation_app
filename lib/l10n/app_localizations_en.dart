@@ -422,6 +422,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mark_all_as_read => 'Mark All as Read';
 
   @override
+  String get userDetails => 'User Details';
+
+  @override
+  String get userDetailsSubtitle => 'View and manage user details and actions.';
+
+  @override
+  String get adminRole => 'Admin Role';
+
+  @override
+  String get systemAdministrator => 'System Administrator';
+
+  @override
   String get respond_now => 'Respond Now';
 
   @override
@@ -448,6 +460,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get callNow => 'Call Now';
+
+  @override
+  String get adminActions => 'Admin Actions';
+
+  @override
+  String get suspendUser => 'Suspend User';
+
+  @override
+  String get verifyUser => 'Verify User';
+
+  @override
+  String get hello => 'Hello';
+
+  @override
+  String get iNeedToContactYouRegardingYourAccount =>
+      'I need to contact you regarding your account.';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get deleteUser => 'Delete User';
+
+  @override
+  String get deleteUserConfirm => 'Are you sure you want to delete this user?';
 
   @override
   String get sendMessage => 'Send Message';
@@ -1535,7 +1572,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get donors => 'donors';
+  String get donors => 'Donors';
+
+  @override
+  String get allUsers => 'All';
 
   @override
   String get complete => 'Complete';
@@ -2079,4 +2119,113 @@ class AppLocalizationsEn extends AppLocalizations {
   String days_ago(Object days) {
     return '$days days ago';
   }
+
+  @override
+  String get hospitals => 'Hospitals';
+
+  @override
+  String get admins => 'Admins';
+
+  @override
+  String get userManagement => 'User Management';
+
+  @override
+  String get manageUsersSubtitle =>
+      'Manage donors, hospitals, and administrators';
+
+  @override
+  String get noUsersFound => 'No users found';
+
+  @override
+  String get recentUsers => 'Recent Users';
+
+  @override
+  String get addHospital => 'Add Hospital';
+
+  @override
+  String get addHospitalSubtitle => 'Add a new hospital to the system.';
+
+  @override
+  String get type => 'Type';
+
+  @override
+  String get selectHospitalType => 'Select hospital type';
+
+  @override
+  String get governmentHospital => 'Government Hospital';
+
+  @override
+  String get privateHospital => 'Private Hospital';
+
+  @override
+  String get specializedHospital => 'Specialized Hospital';
+
+  @override
+  String get communityHospital => 'Community Hospital';
+
+  @override
+  String get medicalCenter => 'Medical Center';
+
+  @override
+  String get enterHospitalName => 'Enter hospital name';
+
+  @override
+  String get enterHospitalEmail => 'Enter hospital email';
+
+  @override
+  String get enterHospitalContactNumber => 'Enter hospital contact number';
+
+  @override
+  String get enterHospitalAddress => 'Enter hospital address';
+
+  @override
+  String get latitude => 'Latitude';
+
+  @override
+  String get enterHospitalLatitude => 'Enter hospital latitude';
+
+  @override
+  String get latitudeRangeError => 'Latitude must be between -90 and 90';
+
+  @override
+  String get longitude => 'Longitude';
+
+  @override
+  String get enterHospitalLongitude => 'Enter hospital longitude';
+
+  @override
+  String get longitudeRangeError => 'Longitude must be between -180 and 180';
+
+  @override
+  String get licenseNumber => 'License Number';
+
+  @override
+  String get enterHospitalLicenseNumber => 'Enter hospital license number';
+
+  @override
+  String get adminContactName => 'Admin Contact Name';
+
+  @override
+  String get enterAdminContactName => 'Enter admin contact name';
+
+  @override
+  String get adminContactPhone => 'Admin Contact Phone';
+
+  @override
+  String get enterAdminContactPhone => 'Enter admin contact phone';
+
+  @override
+  String get emergencyContactNumber => 'Emergency Contact Number';
+
+  @override
+  String get enterEmergencyContactNumber => 'Enter emergency contact number';
+
+  @override
+  String get hospitalAddedSuccessfully => 'Hospital added successfully';
+
+  @override
+  String get totalUsers => 'Total Users';
+
+  @override
+  String get verified => 'Verified';
 }

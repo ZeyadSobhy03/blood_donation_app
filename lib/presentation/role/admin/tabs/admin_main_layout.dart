@@ -86,8 +86,8 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
       ),
       (Icons.group_rounded, Icons.group_outlined, appLocalizations.users),
       (
-      Icons.bloodtype_rounded,
-      Icons.bloodtype_outlined,
+      Icons.favorite_border,
+      Icons.favorite_outline,
       appLocalizations.requests,
       ),
       (

@@ -78,4 +78,5 @@ class ColorManger {
   static const Color bloodRed = Color(0xFFFF0F22);
 
   static const Color brightPurple = Color(0xFF9747FF);
+  static const Color lightPurple = Color(0xFFF3E5FF);
 }

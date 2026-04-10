@@ -21,7 +21,7 @@ class Request extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HospitalTitle(
+                CustomTitle(
                   title: appLocalizations.create_request,
                   subTitle: appLocalizations.create_request_dec,
                 ),
