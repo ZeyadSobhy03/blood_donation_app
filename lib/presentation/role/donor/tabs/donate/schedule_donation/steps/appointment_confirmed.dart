@@ -1,7 +1,7 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/date_and_time_card.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/donation_card.dart';
+import 'package:blood_donation_app/core/widgets/custom_note_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/navigation_button.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/title_step.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +41,7 @@ class AppointmentConfirmed extends StatelessWidget {
               SizedBox(height: 4.h),
               DateAndTimeCard(),
               SizedBox(height: 4.h),
-              DonationCard(
+              CustomNoteCard(
                 title: appLocalization.whatsNextTitle,
                 items: [
                   appLocalization.nextStepEmail,

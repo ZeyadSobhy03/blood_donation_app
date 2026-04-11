@@ -634,6 +634,13 @@
   "users": "المستخدمين",
   "requests": "الطلبات",
   "analytics": "الإحصائيات",
+  "analyticsSubtitle": "رؤى واتجاهات البيانات",
+  "growthRate": "معدل النمو",
+  "monthlyTrend": "الاتجاه الشهري",
+  "aiPredictions": "توقعات الذكاء الاصطناعي",
+  "aiPrediction1": "يتوقع الذكاء الاصطناعي زيادة بنسبة 20% في عدد المتبرعين الشهر القادم.",
+  "aiPrediction2": "يحدد الذكاء الاصطناعي احتمال نقص في فصيلة O- خلال الأسبوعين القادمين.",
+  "aiPrediction3": "يتوقع الذكاء الاصطناعي نموًا بنسبة 15% في التبرعات الناجحة خلال الربع القادم.",
 
   "topic_create_request": "إزاي أعمل طلب دم؟",
   "topic_qr_code": "إزاي أطلع QR كود لطلب الدم؟",
@@ -738,6 +745,7 @@
   "enterEmergencyContactNumber": "أدخل رقم الطوارئ",
   "hospitalAddedSuccessfully": "تمت إضافة المستشفى بنجاح",
   "totalUsers": "إجمالي المستخدمين",
+  "noTrendDataAvailable": "لا توجد بيانات متاحة للاتجاهات",
   "verified": "موثّق"
 
 }

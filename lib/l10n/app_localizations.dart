@@ -3680,6 +3680,48 @@ abstract class AppLocalizations {
   /// **'Analytics'**
   String get analytics;
 
+  /// No description provided for @analyticsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Data insights and trends'**
+  String get analyticsSubtitle;
+
+  /// No description provided for @growthRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth Rate'**
+  String get growthRate;
+
+  /// No description provided for @monthlyTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Trend'**
+  String get monthlyTrend;
+
+  /// No description provided for @aiPredictions.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Predictions'**
+  String get aiPredictions;
+
+  /// No description provided for @aiPrediction1.
+  ///
+  /// In en, this message translates to:
+  /// **'AI predicts a 20% increase in donor turnout next month.'**
+  String get aiPrediction1;
+
+  /// No description provided for @aiPrediction2.
+  ///
+  /// In en, this message translates to:
+  /// **'AI identifies a potential shortage of O- blood type in the next 2 weeks.'**
+  String get aiPrediction2;
+
+  /// No description provided for @aiPrediction3.
+  ///
+  /// In en, this message translates to:
+  /// **'AI forecasts a 15% growth in successful donations over the next quarter.'**
+  String get aiPrediction3;
+
   /// No description provided for @topic_create_request.
   ///
   /// In en, this message translates to:
@@ -4249,6 +4291,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Total Users'**
   String get totalUsers;
+
+  /// No description provided for @noTrendDataAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No trend data available'**
+  String get noTrendDataAvailable;
 
   /// No description provided for @verified.
   ///

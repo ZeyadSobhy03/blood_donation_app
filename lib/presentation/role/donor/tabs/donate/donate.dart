@@ -1,5 +1,5 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/donation_card.dart';
+import 'package:blood_donation_app/core/widgets/custom_note_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/section/appointment_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/section/eligibility_checklist_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/section/eligibility_status_card.dart';
@@ -54,7 +54,7 @@ class Donate extends StatelessWidget {
                 SizedBox(height: 4.h),
                 EligibilityChecklistCard(),
                 SizedBox(height: 4.h),
-                DonationCard(
+                CustomNoteCard(
                   needIcon: true,
                   icon: Icons.info_outline,
                   title: appLocalization.beforeYouDonate,

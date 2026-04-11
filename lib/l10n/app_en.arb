@@ -628,6 +628,13 @@
   "users": "Users",
   "requests": "Requests",
   "analytics": "Analytics",
+  "analyticsSubtitle": "Data insights and trends",
+  "growthRate": "Growth Rate",
+  "monthlyTrend": "Monthly Trend",
+  "aiPredictions": "AI Predictions",
+  "aiPrediction1": "AI predicts a 20% increase in donor turnout next month.",
+  "aiPrediction2": "AI identifies a potential shortage of O- blood type in the next 2 weeks.",
+  "aiPrediction3": "AI forecasts a 15% growth in successful donations over the next quarter.",
   "topic_create_request": "How to create blood request?",
   "topic_qr_code": "How to generate QR code for blood request?",
   "topic_history": "How to view donation history?",
@@ -730,6 +737,7 @@
   "enterEmergencyContactNumber": "Enter emergency contact number",
   "hospitalAddedSuccessfully": "Hospital added successfully",
   "totalUsers": "Total Users",
+  "noTrendDataAvailable": "No trend data available",
   "verified": "Verified"
 
 

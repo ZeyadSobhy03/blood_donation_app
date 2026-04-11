@@ -1917,6 +1917,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get analytics => 'Analytics';
 
   @override
+  String get analyticsSubtitle => 'Data insights and trends';
+
+  @override
+  String get growthRate => 'Growth Rate';
+
+  @override
+  String get monthlyTrend => 'Monthly Trend';
+
+  @override
+  String get aiPredictions => 'AI Predictions';
+
+  @override
+  String get aiPrediction1 =>
+      'AI predicts a 20% increase in donor turnout next month.';
+
+  @override
+  String get aiPrediction2 =>
+      'AI identifies a potential shortage of O- blood type in the next 2 weeks.';
+
+  @override
+  String get aiPrediction3 =>
+      'AI forecasts a 15% growth in successful donations over the next quarter.';
+
+  @override
   String get topic_create_request => 'How to create blood request?';
 
   @override
@@ -2225,6 +2249,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get totalUsers => 'Total Users';
+
+  @override
+  String get noTrendDataAvailable => 'No trend data available';
 
   @override
   String get verified => 'Verified';

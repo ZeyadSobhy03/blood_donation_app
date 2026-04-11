@@ -1,13 +1,14 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/widgets/custom_trends_chart.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/section/ai_insights_card.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/section/blood_type_chart.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/section/critical_alerts_card.dart';
 
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/section/dashboard_title.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/section/top_donors_card.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/section/weekly_trends_chart.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/widgets/state_card.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../../core/resources/models/state_model.dart';
 import '../../../../../l10n/app_localizations.dart';
@@ -52,6 +53,17 @@ class Dashboard extends StatelessWidget {
         backgroundColor: ColorManger.lightGreen,
       ),
     ];
+    final values = [44.0, 52.0, 48.0, 61.0, 55.0, 67.0, 43.0];
+    final startDate = DateTime.now().subtract(Duration(days: values.length - 1));
+    final useFullDayName = appLocalization.localeName.startsWith('ar');
+    final xLabels = List<String>.generate(values.length, (index) {
+      final date = startDate.add(Duration(days: index));
+      return useFullDayName
+          ? DateFormat.EEEE(appLocalization.localeName).format(date)
+          : DateFormat.E(appLocalization.localeName).format(date);
+    });
+
+
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
       body: SafeArea(
@@ -91,13 +103,16 @@ class Dashboard extends StatelessWidget {
                 CriticalAlerts(),
                 SizedBox(height: 20),
                 BloodTypeChart(),
-                SizedBox(height: 20,),
-                WeeklyTrendsChart(),
-                SizedBox(height: 20,),
+                SizedBox(height: 20),
+                CustomTrendsChart(
+                  values: values,
+                  title: appLocalization.weeklyTrends,
+                  xLabels: xLabels,
+                ),
+                SizedBox(height: 20),
                 AiInsightsCard(),
-                SizedBox(height: 20,),
-                TopDonorsCard()
-
+                SizedBox(height: 20),
+                TopDonorsCard(),
               ],
             ),
           ),

@@ -1911,6 +1911,30 @@ class AppLocalizationsAr extends AppLocalizations {
   String get analytics => 'الإحصائيات';
 
   @override
+  String get analyticsSubtitle => 'رؤى واتجاهات البيانات';
+
+  @override
+  String get growthRate => 'معدل النمو';
+
+  @override
+  String get monthlyTrend => 'الاتجاه الشهري';
+
+  @override
+  String get aiPredictions => 'توقعات الذكاء الاصطناعي';
+
+  @override
+  String get aiPrediction1 =>
+      'يتوقع الذكاء الاصطناعي زيادة بنسبة 20% في عدد المتبرعين الشهر القادم.';
+
+  @override
+  String get aiPrediction2 =>
+      'يحدد الذكاء الاصطناعي احتمال نقص في فصيلة O- خلال الأسبوعين القادمين.';
+
+  @override
+  String get aiPrediction3 =>
+      'يتوقع الذكاء الاصطناعي نموًا بنسبة 15% في التبرعات الناجحة خلال الربع القادم.';
+
+  @override
   String get topic_create_request => 'إزاي أعمل طلب دم؟';
 
   @override
@@ -2215,6 +2239,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get totalUsers => 'إجمالي المستخدمين';
+
+  @override
+  String get noTrendDataAvailable => 'لا توجد بيانات متاحة للاتجاهات';
 
   @override
   String get verified => 'موثّق';
