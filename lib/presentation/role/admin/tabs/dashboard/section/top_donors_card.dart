@@ -128,8 +128,10 @@ class TopDonorsCard extends StatelessWidget {
     ];
     return Card(
       color: ColorManger.pureWhite,
+      shadowColor: Colors.black.withValues(alpha: 0.06),
+
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(18),
         side: BorderSide(color: ColorManger.lightGrey.withValues(alpha: 0.5)),
       ),
       child: Padding(
@@ -150,6 +152,7 @@ class TopDonorsCard extends StatelessWidget {
                 CustomElevatedButton(
                   backgroundColor: ColorManger.pureWhite,
                   foregroundColor: ColorManger.black,
+                  elevation: 0,
                   onPressed: () {
                     showDialog(
                       context: context,
@@ -160,9 +163,10 @@ class TopDonorsCard extends StatelessWidget {
                   },
 
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(10),
                     side: BorderSide(
-                      color: ColorManger.lightGrey.withValues(alpha: 0.5),
+                      color: ColorManger.slateGrey.withValues(alpha: 0.35),
+                      width: 1.2,
                     ),
                   ),
                   child: CustomText(

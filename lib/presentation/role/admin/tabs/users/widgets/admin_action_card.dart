@@ -32,9 +32,14 @@ class AdminActionCard extends StatelessWidget {
     final appLocalization = AppLocalizations.of(context)!;
     return Card(
       color: ColorManger.pureWhite,
+      elevation: 0,
+      shadowColor: Colors.black.withValues(alpha: 0.05),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: ColorManger.lightGrey, width: 1),
+        borderRadius: BorderRadius.circular(18),
+        side: BorderSide(
+          color: ColorManger.lightGrey.withValues(alpha: 0.7),
+          width: 1.1,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
@@ -118,11 +123,27 @@ class AdminActionCard extends StatelessWidget {
             onPressed: () => Navigator.pop(context, false),
             backgroundColor: ColorManger.pureWhite,
             foregroundColor: ColorManger.black,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(
+                color: ColorManger.slateGrey.withValues(alpha: 0.3),
+                width: 1.1,
+              ),
+            ),
             child: CustomText(text: appLocalization.cancel),
           ),
           CustomElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             backgroundColor: ColorManger.brightRed,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(
+                color: ColorManger.brightRed.withValues(alpha: 0.55),
+                width: 1,
+              ),
+            ),
             child: CustomText(
               text: appLocalization.delete,
               textStyle: const TextStyle(color: Colors.white),
@@ -177,14 +198,17 @@ class AdminActionCard extends StatelessWidget {
     return CustomElevatedButton(
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
+      elevation: 0,
       padding: _buttonPadding,
       onPressed: onPressed,
 
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         side: BorderSide(
-          color: haveIcon ? textColor : ColorManger.grey500,
-          width: 1,
+          color: haveIcon
+              ? textColor.withValues(alpha: 0.5)
+              : ColorManger.slateGrey.withValues(alpha: 0.3),
+          width: 1.1,
         ),
       ),
       child: Row(

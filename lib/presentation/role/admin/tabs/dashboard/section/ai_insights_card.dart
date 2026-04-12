@@ -26,9 +26,14 @@ class AiInsightsCard extends StatelessWidget {
     ];
     return Card(
       color: ColorManger.lightBlue,
+      elevation: 0,
+      shadowColor: Colors.black.withValues(alpha: 0.05),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: ColorManger.royalBlue),
+        borderRadius: BorderRadius.circular(18),
+        side: BorderSide(
+          color: ColorManger.royalBlue.withValues(alpha: 0.5),
+          width: 1.2,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),

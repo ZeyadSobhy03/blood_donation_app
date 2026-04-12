@@ -33,12 +33,13 @@ class CustomNoteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: cardColor ?? ColorManger.lightCream,
-      elevation: 6,
+      elevation: 0,
+      shadowColor: Colors.black.withValues(alpha: 0.05),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(16.r),
         side: BorderSide(
-          color: borderColor ?? ColorManger.goldBorder,
-          width: 1.5,
+          color: borderColor ?? ColorManger.goldBorder.withValues(alpha: 0.7),
+          width: 1.1,
         ),
       ),
       child: Padding(

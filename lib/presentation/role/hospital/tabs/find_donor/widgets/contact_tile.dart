@@ -76,9 +76,13 @@ class ContactTile extends StatelessWidget {
           const SizedBox(width: 8),
 
           CustomElevatedButton(
+            elevation: 0,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-              side: BorderSide(color: ColorManger.lightGrey, width: 1),
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(
+                color: ColorManger.slateGrey.withValues(alpha: 0.28),
+                width: 1.1,
+              ),
             ),
             backgroundColor: ColorManger.pureWhite,
             foregroundColor: ColorManger.black,

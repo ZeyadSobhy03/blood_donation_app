@@ -26,9 +26,14 @@ class AlertCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: backgroundColor,
+      elevation: 0,
+      shadowColor: Colors.black.withValues(alpha: 0.05),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: color.withValues(alpha: 0.5)),
+        borderRadius: BorderRadius.circular(18),
+        side: BorderSide(
+          color: color.withValues(alpha: 0.45),
+          width: 1.1,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),

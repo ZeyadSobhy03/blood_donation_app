@@ -335,10 +335,12 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
                         child: CustomElevatedButton(
                           backgroundColor: ColorManger.pureWhite,
                           foregroundColor: ColorManger.black,
+                          elevation: 0,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(12),
                             side: BorderSide(
-                              color: ColorManger.lightGreyBorder,
+                              color: ColorManger.slateGrey.withValues(alpha: 0.3),
+                              width: 1.2,
                             ),
                           ),
 
@@ -349,8 +351,13 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: CustomElevatedButton(
+                          elevation: 0,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(12),
+                            side: BorderSide(
+                              color: ColorManger.royalBlue.withValues(alpha: 0.45),
+                              width: 1,
+                            ),
                           ),
                           backgroundColor: ColorManger.royalBlue,
                           foregroundColor: ColorManger.pureWhite,

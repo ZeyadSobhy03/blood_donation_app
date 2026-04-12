@@ -25,8 +25,10 @@ class BloodTypeChart extends StatelessWidget {
 
     return Card(
       color: ColorManger.pureWhite,
+      shadowColor: Colors.black.withValues(alpha: 0.06),
+
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(18),
         side: BorderSide(color: ColorManger.lightGrey.withValues(alpha: 0.5)),
       ),
 

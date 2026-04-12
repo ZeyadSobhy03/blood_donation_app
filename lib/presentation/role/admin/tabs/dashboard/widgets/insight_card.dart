@@ -22,8 +22,10 @@ class InsightCard extends StatelessWidget {
     final appLocalization = AppLocalizations.of(context)!;
     return Card(
       color: ColorManger.pureWhite,
+      shadowColor: Colors.black.withValues(alpha: 0.05),
+
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(18),
         side: BorderSide(color: ColorManger.lightGrey.withValues(alpha: 0.5)),
       ),
       child: Padding(

@@ -164,9 +164,14 @@ class CriticalAlerts extends StatelessWidget {
     ];
     return Card(
       color: ColorManger.lightRed,
+      elevation: 0,
+      shadowColor: Colors.black.withValues(alpha: 0.05),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: ColorManger.brightRed.withValues(alpha: 0.5)),
+        borderRadius: BorderRadius.circular(18),
+        side: BorderSide(
+          color: ColorManger.brightRed.withValues(alpha: 0.45),
+          width: 1.2,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),

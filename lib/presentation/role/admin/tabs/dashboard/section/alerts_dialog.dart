@@ -19,8 +19,16 @@ class AlertsDialog extends StatelessWidget {
     final appLocalization = AppLocalizations.of(context)!;
     return Dialog(
       backgroundColor: ColorManger.pureWhite,
+      elevation: 0,
+      shadowColor: Colors.black.withValues(alpha: 0.05),
       insetPadding: const EdgeInsets.symmetric(horizontal: 20),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+        side: BorderSide(
+          color: ColorManger.lightGrey.withValues(alpha: 0.7),
+          width: 1.1,
+        ),
+      ),
       child: SafeArea(
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.95,

@@ -267,7 +267,8 @@ class ShowAllDonorsDialog extends StatelessWidget {
                   ),
                   SizedBox(height: 32),
                   CustomElevatedButton(
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    elevation: 0,
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     backgroundColor: ColorManger.brightPurple,
                     onPressed: () {
                       Navigator.pop(context);
@@ -275,6 +276,10 @@ class ShowAllDonorsDialog extends StatelessWidget {
                     foregroundColor: ColorManger.pureWhite,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(
+                        color: ColorManger.brightPurple.withValues(alpha: 0.5),
+                        width: 1.1,
+                      ),
                     ),
                     child: CustomText(
                       text: appLocalization.close,

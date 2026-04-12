@@ -21,9 +21,14 @@ class InfoTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: ColorManger.pureWhite,
+      elevation: 0,
+      shadowColor: Colors.black.withValues(alpha: 0.05),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: ColorManger.lightGrey.withValues(alpha: 0.5)),
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: ColorManger.lightGrey.withValues(alpha: 0.7),
+          width: 1.1,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 14),
