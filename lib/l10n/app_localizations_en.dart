@@ -552,6 +552,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get donor_login_button => 'Login';
 
   @override
+  String get donor_pin_verification_title => 'Verify code';
+
+  @override
+  String get donor_pin_verification_subtitle =>
+      'Enter your 6-digit code to continue.';
+
+  @override
+  String get donor_pin_verification_invalid_pin =>
+      'Please enter the full 6-digit code.';
+
+  @override
   String get donor_dont_have_account => 'Don\'t have an account?';
 
   @override

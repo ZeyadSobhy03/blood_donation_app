@@ -550,6 +550,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get donor_login_button => 'تسجيل الدخول';
 
   @override
+  String get donor_pin_verification_title => 'تأكيد الرمز';
+
+  @override
+  String get donor_pin_verification_subtitle =>
+      'أدخل الرمز المكوّن من 6 أرقام للمتابعة.';
+
+  @override
+  String get donor_pin_verification_invalid_pin =>
+      'يرجى إدخال الرمز الكامل المكوّن من 6 أرقام.';
+
+  @override
   String get donor_dont_have_account => 'ليس لديك حساب؟';
 
   @override

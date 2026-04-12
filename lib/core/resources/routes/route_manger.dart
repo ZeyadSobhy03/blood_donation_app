@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
+import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
@@ -15,6 +16,7 @@ import 'package:flutter/material.dart';
 import '../../../presentation/authentication/admin_authentication/admin_authentication.dart';
 import '../../../presentation/authentication/donor_authentication/donor_forget_password.dart';
 import '../../../presentation/authentication/donor_authentication/donor_login.dart';
+import '../../../presentation/authentication/donor_authentication/donor_pin_verification_screen.dart';
 import '../../../presentation/authentication/donor_authentication/donor_register.dart';
 import '../../../presentation/authentication/hospital_authentication/hospital_authentication.dart';
 import '../../../presentation/maps/maps.dart';
@@ -62,6 +64,8 @@ class RouteManger {
   static const String systemSetting = '/systemSetting';
   static const String confirmDonation = '/confirmDonation';
   static const String helpAndSupportHospital = '/helpAndSupportHospital';
+  static const String donorPinVerificationScreen =
+      "/donorPinVerificationScreen";
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -156,6 +160,12 @@ class RouteManger {
 
       case adminAuth:
         return MaterialPageRoute(builder: (context) => AdminAuthentication());
+
+      case donorPinVerificationScreen:
+        final args = settings.arguments as PinVerificationArgs;
+        return MaterialPageRoute <String>(
+          builder: (context) => DonorPinVerificationScreen(args: args),
+        );
 
       case requestScreen:
         return MaterialPageRoute(

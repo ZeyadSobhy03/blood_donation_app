@@ -1124,6 +1124,24 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get donor_login_button;
 
+  /// No description provided for @donor_pin_verification_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify code'**
+  String get donor_pin_verification_title;
+
+  /// No description provided for @donor_pin_verification_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your 6-digit code to continue.'**
+  String get donor_pin_verification_subtitle;
+
+  /// No description provided for @donor_pin_verification_invalid_pin.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter the full 6-digit code.'**
+  String get donor_pin_verification_invalid_pin;
+
   /// No description provided for @donor_dont_have_account.
   ///
   /// In en, this message translates to:
