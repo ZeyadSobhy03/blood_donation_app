@@ -2,6 +2,7 @@ import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/hospital_forget_password.dart';
 import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/schedule_donation.dart';
@@ -66,6 +67,8 @@ class RouteManger {
   static const String helpAndSupportHospital = '/helpAndSupportHospital';
   static const String customPinVerificationScreen =
       "/customPinVerificationScreen";
+
+  static const String hospitalForgetPassword = '/hospitalForgetPassword';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -163,7 +166,7 @@ class RouteManger {
 
       case customPinVerificationScreen:
         final args = settings.arguments as PinVerificationArgs;
-        return MaterialPageRoute <String>(
+        return MaterialPageRoute<String>(
           builder: (context) => CustomPinVerificationScreen(args: args),
         );
 
@@ -171,6 +174,11 @@ class RouteManger {
         return MaterialPageRoute(
           builder: (context) => RequestScreen(),
           settings: settings,
+        );
+
+      case hospitalForgetPassword:
+        return MaterialPageRoute(
+          builder: (context) => HospitalForgetPassword(),
         );
       default:
         return MaterialPageRoute(

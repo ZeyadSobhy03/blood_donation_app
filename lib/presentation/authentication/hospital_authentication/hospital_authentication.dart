@@ -219,6 +219,25 @@ class _HospitalAuthenticationState extends State<HospitalAuthentication> {
                             validator: (value) => value?.passwordValidator(context),
 
                         ),
+                        SizedBox(height: 8),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                RouteManger.hospitalForgetPassword,
+                              );
+                            },
+                            child: Text(
+                              appLocalization.donor_forget_password,
+                              style: TextStyle(
+                                color: ColorManger.skyBlue,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
 
                         const SizedBox(height: 24),
 
