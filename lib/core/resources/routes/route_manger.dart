@@ -15,6 +15,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/r
 import 'package:flutter/material.dart';
 
 import '../../../presentation/authentication/admin_authentication/admin_authentication.dart';
+import '../../../presentation/authentication/admin_authentication/admin_forget_password.dart';
 import '../../../presentation/authentication/donor_authentication/donor_forget_password.dart';
 import '../../../presentation/authentication/donor_authentication/donor_login.dart';
 import '../../../presentation/authentication/donor_authentication/donor_register.dart';
@@ -69,6 +70,8 @@ class RouteManger {
       "/customPinVerificationScreen";
 
   static const String hospitalForgetPassword = '/hospitalForgetPassword';
+
+  static const String adminForgetPassword = '/adminForgetPassword';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -179,6 +182,11 @@ class RouteManger {
       case hospitalForgetPassword:
         return MaterialPageRoute(
           builder: (context) => HospitalForgetPassword(),
+        );
+
+       case adminForgetPassword:
+        return MaterialPageRoute(
+          builder: (context) => AdminForgetPassword(),
         );
       default:
         return MaterialPageRoute(

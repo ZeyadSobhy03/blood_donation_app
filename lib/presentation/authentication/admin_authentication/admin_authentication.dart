@@ -192,6 +192,25 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
                             validator: (value) => value?.passwordValidator(context),
 
                           ),
+                          SizedBox(height: 8),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  RouteManger.adminForgetPassword,
+                                );
+                              },
+                              child: Text(
+                                appLocalization.donor_forget_password,
+                                style: TextStyle(
+                                  color: ColorManger.green,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
 
                           const SizedBox(height: 24),
 
