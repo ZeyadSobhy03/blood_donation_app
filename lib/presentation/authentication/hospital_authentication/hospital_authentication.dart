@@ -1,7 +1,10 @@
 import 'package:blood_donation_app/core/extension/text_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_auth_box.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
+import 'package:blood_donation_app/core/widgets/custom_pin_code.dart';
 import 'package:blood_donation_app/core/widgets/custom_text_field.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +21,41 @@ class _HospitalAuthenticationState extends State<HospitalAuthentication> {
   final TextEditingController _hospitalIdController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> _handleLoginPressed() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    final pin = await _showPinScreen();
+    if (!mounted) return;
+    if (pin == null) return;
+
+    Navigator.pushNamed(context, RouteManger.hospitalMainLayout);
+  }
+
+  Future<String?> _showPinScreen() async {
+    final appLocalization = AppLocalizations.of(context)!;
+    return Navigator.pushNamed<String>(
+      context,
+      RouteManger.customPinVerificationScreen,
+      arguments: PinVerificationArgs(
+        style: const PinVerificationStyle(
+          screenBackgroundColor: ColorManger.veryLightBlue,
+          appBarBackgroundColor: ColorManger.veryLightBlue,
+          submitBackgroundColor: ColorManger.royalBlue,
+          cancelBackgroundColor: ColorManger.accentBlue,
+          cancelForegroundColor: ColorManger.royalBlue,
+          cancelBorderColor: ColorManger.skyBlue,
+        ),
+        pinLength: 6,
+        title: appLocalization.donor_pin_verification_title,
+        subtitle: appLocalization.donor_pin_verification_subtitle,
+        submitText: appLocalization.secure_login,
+        cancelText: appLocalization.cancel,
+        invalidPinText: appLocalization.donor_pin_verification_invalid_pin,
+        role: AuthPinRole.hospital,
+      ),
+    );
+  }
 
   @override
   void dispose() {
@@ -188,9 +226,7 @@ class _HospitalAuthenticationState extends State<HospitalAuthentication> {
                           width: double.infinity,
                           height: 50,
                           child: ElevatedButton(
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {}
-                            },
+                            onPressed: _handleLoginPressed,
                             style: ElevatedButton.styleFrom(
                               backgroundColor: ColorManger.royalBlue,
                               foregroundColor: Colors.white,
