@@ -2,6 +2,7 @@ import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/widgets/add_admin_dialog.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/widgets/add_hospital_dialog.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/widgets/users_info_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/widgets/hospital_title.dart';
@@ -192,7 +193,7 @@ class _UsersState extends State<Users> {
       _filteredUsers = _allUsers.where((user) {
         final matchesSearch =
             user.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-                user.email.toLowerCase().contains(_searchQuery.toLowerCase());
+            user.email.toLowerCase().contains(_searchQuery.toLowerCase());
         final matchesRole =
             _selectedRole == _roleAll || user.role == _selectedRole;
         return matchesSearch && matchesRole;
@@ -316,31 +317,62 @@ class _UsersState extends State<Users> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Column(
+          crossAxisAlignment:  CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            CustomText(
+              text: appLocalization.recentUsers,
+              textStyle: TextStyle(
+                color: ColorManger.black,
+                fontWeight: FontWeightManager.semiBold,
+                fontSize: FontSize.s16,
+              ),
+            ),
+            SizedBox(height: 8),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
               children: [
-                CustomText(
-                  text: appLocalization.recentUsers,
-                  textStyle: TextStyle(
-                    color: ColorManger.black,
-                    fontWeight: FontWeightManager.semiBold,
-                    fontSize: FontSize.s16,
-                  ),
-                ),
                 CustomElevatedButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
-
                   ),
                   backgroundColor: ColorManger.brightPurple,
                   foregroundColor: ColorManger.pureWhite,
                   onPressed: () {
-                    showDialog(context: context, builder: (context) {
-                      return const AddHospitalDialog();
-                    },);
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const AddAdminDialog();
+                      },
+                    );
                   },
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.add, size: 16),
+                      const SizedBox(width: 4),
+                      CustomText(text: appLocalization.addAdmin),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 12),
+                CustomElevatedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  backgroundColor: ColorManger.green,
+                  foregroundColor: ColorManger.pureWhite,
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const AddHospitalDialog();
+                      },
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+
                     children: [
                       Icon(Icons.add, size: 16),
                       const SizedBox(width: 4),
@@ -350,6 +382,7 @@ class _UsersState extends State<Users> {
                 ),
               ],
             ),
+
             const SizedBox(height: 12),
 
             _buildList(),
@@ -363,9 +396,7 @@ class _UsersState extends State<Users> {
     final appLocalization = AppLocalizations.of(context)!;
 
     if (_filteredUsers.isEmpty) {
-      return Center(
-        child: CustomText(text: appLocalization.noUsersFound),
-      );
+      return Center(child: CustomText(text: appLocalization.noUsersFound));
     }
 
     return ListView.separated(
@@ -373,23 +404,16 @@ class _UsersState extends State<Users> {
       physics: NeverScrollableScrollPhysics(),
       itemCount: _filteredUsers.length,
       separatorBuilder: (_, __) => const SizedBox(height: 10),
-      itemBuilder: (_, i) =>
-          UserCard(showMenu: true, user: _filteredUsers[i]),
+      itemBuilder: (_, i) => UserCard(showMenu: true, user: _filteredUsers[i]),
     );
   }
 
   Widget _buildStatsRow() {
     final appLocalization = AppLocalizations.of(context)!;
 
-    final donors = _allUsers
-        .where((u) => u.role == _roleDonor)
-        .length;
-    final hospitals = _allUsers
-        .where((u) => u.role == _roleHospital)
-        .length;
-    final admins = _allUsers
-        .where((u) => u.role == _roleAdmin)
-        .length;
+    final donors = _allUsers.where((u) => u.role == _roleDonor).length;
+    final hospitals = _allUsers.where((u) => u.role == _roleHospital).length;
+    final admins = _allUsers.where((u) => u.role == _roleAdmin).length;
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,

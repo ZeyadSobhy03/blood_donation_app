@@ -749,6 +749,14 @@
   "hospitalAddedSuccessfully": "تمت إضافة المستشفى بنجاح",
   "totalUsers": "إجمالي المستخدمين",
   "noTrendDataAvailable": "لا توجد بيانات متاحة للاتجاهات",
-  "verified": "موثّق"
+  "verified": "موثّق",
+  "addAdmin": "إضافة مسؤول",
+  "accessLevel": "مستوى الصلاحية",
+  "selectAccessLevel": "اختر مستوى الصلاحية",
+  "pleaseSelectAccessLevel": "يرجى اختيار مستوى الصلاحية",
+  "fullAccess": "صلاحية كاملة",
+  "limitedAccess": "صلاحية محدودة",
+  "viewOnly": "عرض فقط",
+  "adminAddedSuccessfully": "تمت إضافة المسؤول بنجاح"
 
 }

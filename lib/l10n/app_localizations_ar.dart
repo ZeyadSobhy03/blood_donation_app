@@ -2256,4 +2256,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get verified => 'موثّق';
+
+  @override
+  String get addAdmin => 'إضافة مسؤول';
+
+  @override
+  String get accessLevel => 'مستوى الصلاحية';
+
+  @override
+  String get selectAccessLevel => 'اختر مستوى الصلاحية';
+
+  @override
+  String get pleaseSelectAccessLevel => 'يرجى اختيار مستوى الصلاحية';
+
+  @override
+  String get fullAccess => 'صلاحية كاملة';
+
+  @override
+  String get limitedAccess => 'صلاحية محدودة';
+
+  @override
+  String get viewOnly => 'عرض فقط';
+
+  @override
+  String get adminAddedSuccessfully => 'تمت إضافة المسؤول بنجاح';
 }

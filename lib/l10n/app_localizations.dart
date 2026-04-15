@@ -4321,6 +4321,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Verified'**
   String get verified;
+
+  /// No description provided for @addAdmin.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Admin'**
+  String get addAdmin;
+
+  /// No description provided for @accessLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Access Level'**
+  String get accessLevel;
+
+  /// No description provided for @selectAccessLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Access Level'**
+  String get selectAccessLevel;
+
+  /// No description provided for @pleaseSelectAccessLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select access level'**
+  String get pleaseSelectAccessLevel;
+
+  /// No description provided for @fullAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Access'**
+  String get fullAccess;
+
+  /// No description provided for @limitedAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Limited Access'**
+  String get limitedAccess;
+
+  /// No description provided for @viewOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'View Only'**
+  String get viewOnly;
+
+  /// No description provided for @adminAddedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin added successfully'**
+  String get adminAddedSuccessfully;
 }
 
 class _AppLocalizationsDelegate

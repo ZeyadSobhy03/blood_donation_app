@@ -2266,4 +2266,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get verified => 'Verified';
+
+  @override
+  String get addAdmin => 'Add Admin';
+
+  @override
+  String get accessLevel => 'Access Level';
+
+  @override
+  String get selectAccessLevel => 'Select Access Level';
+
+  @override
+  String get pleaseSelectAccessLevel => 'Please select access level';
+
+  @override
+  String get fullAccess => 'Full Access';
+
+  @override
+  String get limitedAccess => 'Limited Access';
+
+  @override
+  String get viewOnly => 'View Only';
+
+  @override
+  String get adminAddedSuccessfully => 'Admin added successfully';
 }

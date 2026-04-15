@@ -741,7 +741,15 @@
   "hospitalAddedSuccessfully": "Hospital added successfully",
   "totalUsers": "Total Users",
   "noTrendDataAvailable": "No trend data available",
-  "verified": "Verified"
+  "verified": "Verified",
+  "addAdmin": "Add Admin",
+  "accessLevel": "Access Level",
+  "selectAccessLevel": "Select Access Level",
+  "pleaseSelectAccessLevel": "Please select access level",
+  "fullAccess": "Full Access",
+  "limitedAccess": "Limited Access",
+  "viewOnly": "View Only",
+  "adminAddedSuccessfully": "Admin added successfully"
 
 
 }
