@@ -45,29 +45,46 @@ class QuickActionsCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16),
-            QuickActionButton(
-              backgroundColor: ColorManger.royalBlue,
-              foregroundColor: ColorManger.pureWhite,
-              text: appLocalization.sendEmergencyBroadcast,
-              onPressed: () {},
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: 48,
+
+              ),
+              child: QuickActionButton(
+                backgroundColor: ColorManger.royalBlue,
+                foregroundColor: ColorManger.pureWhite,
+                text: appLocalization.sendEmergencyBroadcast,
+                onPressed: () {},
+              ),
             ),
             SizedBox(height: 12),
-            QuickActionButton(
-              backgroundColor: ColorManger.pureWhite,
-              foregroundColor: ColorManger.black,
-              text: appLocalization.contactHospital,
-              onPressed: () {
-                callHospital(hospitalContactNumber);
-              },
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: 48,
+              ),
+              child: QuickActionButton(
+
+                backgroundColor: ColorManger.pureWhite,
+                foregroundColor: ColorManger.black,
+                text: appLocalization.contactHospital,
+                onPressed: () {
+                  callHospital(hospitalContactNumber);
+                },
+              ),
             ),
             SizedBox(height: 12),
-            QuickActionButton(
-              backgroundColor: ColorManger.pureWhite,
-              foregroundColor: ColorManger.black,
-              text: appLocalization.close,
-              onPressed: () {
-                Navigator.pop(context);
-              },
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: 48,
+              ),
+              child: QuickActionButton(
+                backgroundColor: ColorManger.pureWhite,
+                foregroundColor: ColorManger.black,
+                text: appLocalization.close,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
             ),
           ],
         ),

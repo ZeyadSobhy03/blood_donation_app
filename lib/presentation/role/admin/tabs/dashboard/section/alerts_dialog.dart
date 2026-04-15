@@ -67,6 +67,7 @@ class AlertsDialog extends StatelessWidget {
                   SizedBox(height: 20,),
                   QuickActionsCard(
                     onEmergencyBroadcast: (){},
+
                     hospitalContactNumber: alert.hospitalContact,
                   )
                 ],

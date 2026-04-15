@@ -168,9 +168,11 @@ class CustomTrendsChart extends StatelessWidget {
                         ),
                       ),
                       bottomTitles: AxisTitles(
+
                         sideTitles: SideTitles(
                           showTitles: showTitles,
                           reservedSize: 28,
+                          interval: 1,
                           getTitlesWidget: (value, meta) {
                             final index = value.toInt();
                             if (index < 0 || index >= safeValues.length) {
