@@ -563,6 +563,18 @@ class AppLocalizationsEn extends AppLocalizations {
       'Please enter the full 6-digit code.';
 
   @override
+  String get donor_resend_code => 'Resend code';
+
+  @override
+  String get donor_resending_code => 'Resending code...';
+
+  @override
+  String get donor_code_resent_success => 'Verification code resent';
+
+  @override
+  String get donor_code_resent_error => 'Unable to resend verification code';
+
+  @override
   String get donor_dont_have_account => 'Don\'t have an account?';
 
   @override

@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
+import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/resources/colors/color_manger.dart';
@@ -33,6 +34,7 @@ class _CustomPinVerificationScreenState
     extends State<CustomPinVerificationScreen> {
   final TextEditingController _pinController = TextEditingController();
   String? _pinError;
+  bool _isResending = false;
 
   _PinActionColors get _colors => _resolveActionColors(widget.role);
   Color get _screenBackground =>
@@ -67,6 +69,69 @@ class _CustomPinVerificationScreenState
       return;
     }
     Navigator.pop(context, _pinController.text);
+  }
+
+  Future<void> _handleResendPressed() async {
+    if (_isResending) return;
+
+    setState(() {
+      _isResending = true;
+      _pinError = null;
+    });
+
+    try {
+      await widget.args.onResend?.call();
+      if (!mounted) return;
+
+      _pinController.clear();
+      final localizations = AppLocalizations.of(context)!;
+      ScaffoldMessenger.of(context)
+        ..clearSnackBars()
+        ..showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: _colors.primary,
+            content: CustomText(
+              text: localizations.donor_code_resent_success,
+              textStyle: const TextStyle(
+                color: ColorManger.pureWhite,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        );
+    } catch (_) {
+      if (!mounted) return;
+
+      final localizations = AppLocalizations.of(context)!;
+      ScaffoldMessenger.of(context)
+        ..clearSnackBars()
+        ..showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: ColorManger.brightRed,
+            content: CustomText(
+              text: localizations.donor_code_resent_error,
+              textStyle: const TextStyle(
+                color: ColorManger.pureWhite,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isResending = false;
+        });
+      }
+    }
   }
 
   @override
@@ -109,7 +174,55 @@ class _CustomPinVerificationScreenState
                   },
                   onCompleted: (_) => _submit(),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
+                  child: CustomElevatedButton(
+                    onPressed: _isResending ? null : _handleResendPressed,
+                    backgroundColor:
+                        widget.style?.cancelBackgroundColor ?? _colors.secondaryBackground,
+                    foregroundColor: _cancelForeground,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(_buttonRadius),
+                      side: BorderSide(color: _cancelBorder),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    child: _isResending
+                        ? Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const SizedBox(
+                                width: 16,
+                                height: 16,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  color: ColorManger.grey600,
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              CustomText(
+                                text: AppLocalizations.of(context)!
+                                    .donor_resending_code,
+                                textStyle: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: ColorManger.grey600,
+                                ),
+                              ),
+                            ],
+                          )
+                        : CustomText(
+                            text: AppLocalizations.of(context)!
+                                .donor_resend_code,
+                            textStyle: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                  ),
+                ),
+                const SizedBox(height: 10),
                 SizedBox(
                   width: double.infinity,
                   child: CustomElevatedButton(
@@ -145,6 +258,7 @@ class _CustomPinVerificationScreenState
                     ),
                   ),
                 ),
+                SizedBox(height: 12),
               ],
             ),
           ),

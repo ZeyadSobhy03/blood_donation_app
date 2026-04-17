@@ -561,6 +561,18 @@ class AppLocalizationsAr extends AppLocalizations {
       'يرجى إدخال الرمز الكامل المكوّن من 6 أرقام.';
 
   @override
+  String get donor_resend_code => 'إعادة إرسال الرمز';
+
+  @override
+  String get donor_resending_code => 'جاري إعادة إرسال الرمز...';
+
+  @override
+  String get donor_code_resent_success => 'تمت إعادة إرسال رمز التحقق';
+
+  @override
+  String get donor_code_resent_error => 'تعذر إعادة إرسال رمز التحقق';
+
+  @override
   String get donor_dont_have_account => 'ليس لديك حساب؟';
 
   @override

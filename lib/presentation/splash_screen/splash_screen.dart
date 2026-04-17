@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     Future.delayed(const Duration(seconds: 3), () {
       if (!mounted) return;
-      Navigator.pushReplacementNamed(context, RouteManger.adminMainLayout);
+      Navigator.pushReplacementNamed(context, RouteManger.chooseRole);
     });
   }
 

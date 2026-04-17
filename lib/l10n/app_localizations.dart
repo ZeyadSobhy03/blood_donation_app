@@ -1142,6 +1142,30 @@ abstract class AppLocalizations {
   /// **'Please enter the full 6-digit code.'**
   String get donor_pin_verification_invalid_pin;
 
+  /// No description provided for @donor_resend_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend code'**
+  String get donor_resend_code;
+
+  /// No description provided for @donor_resending_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Resending code...'**
+  String get donor_resending_code;
+
+  /// No description provided for @donor_code_resent_success.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code resent'**
+  String get donor_code_resent_success;
+
+  /// No description provided for @donor_code_resent_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to resend verification code'**
+  String get donor_code_resent_error;
+
   /// No description provided for @donor_dont_have_account.
   ///
   /// In en, this message translates to:
