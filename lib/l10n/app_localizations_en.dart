@@ -2348,4 +2348,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String hours_left(Object count) {
     return '$count hours left';
   }
+
+  @override
+  String get unknown => 'Unknown';
 }

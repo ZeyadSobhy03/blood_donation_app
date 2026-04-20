@@ -114,26 +114,15 @@ class AdminRequest extends StatelessWidget {
                 itemCount: requests.length,
                 itemBuilder: (context, index) {
                   final request = requests[index];
-                  final badgeLabel = getBadgeLabel(
-                    urgencyLevel: request.urgencyLevel,
-                    appLocalizations: appLocalizations,
-                  );
 
                   return Padding(
-                    padding: EdgeInsets.only(bottom: index == requests.length - 1 ? 0 : 16),
-                    child: CustomRequestCard(
-                      title: '${request.hospitalName} - ${request.bloodType} Blood',
-                      badgeLabel: badgeLabel,
-                      badgeColor: getBadgeColor(request.urgencyLevel),
-                      units: request.unitsRequested,
-                      timeString: appLocalizations.hours_left(request.completionTimeInHours),
-                      location: request.location,
-                      contacted: request.donorsContacted,
-                      confirmed: request.donorsConfirmed,
+                    padding: EdgeInsets.only(
+                      bottom: index == requests.length - 1 ? 0 : 16,
                     ),
+                    child: CustomRequestCard(request: request),
                   );
-
-              },),
+                },
+              ),
 
               const SizedBox(height: 32),
             ],
@@ -158,7 +147,6 @@ class AdminRequest extends StatelessWidget {
   }
 
   Color getBadgeColor(String urgencyLevel) {
-
     switch (urgencyLevel.toLowerCase()) {
       case 'critical':
         return ColorManger.brightRed;

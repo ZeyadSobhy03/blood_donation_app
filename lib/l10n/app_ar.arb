@@ -762,7 +762,6 @@
 
   "criticalStatus": "حرج",
   "fulfilledToday": "مكتملة اليوم",
-  "activeRequests": "الطلبات النشطة",
 
   "unitsLabel": "وحدات",
   "contactedLabel": "تم التواصل",
@@ -774,7 +773,6 @@
 
   "bloodTypeLabel": "فصيلة الدم",
   "unitsNeededLabel": "الوحدات المطلوبة",
-  "locationLabel": "الموقع",
   "donorsContactedLabel": "تم التواصل معهم",
   "donorsConfirmedLabel": "المؤكدون",
 
@@ -792,7 +790,8 @@
   "downTown": "وسط المدينة",
   "eastSide": "الجانب الشرقي",
   "westSide": "الجانب الغربي",
-  "hours_left": "باقي {count} ساعة"
+  "hours_left": "باقي {count} ساعة",
+  "unknown": "غير معروف"
 
 
 

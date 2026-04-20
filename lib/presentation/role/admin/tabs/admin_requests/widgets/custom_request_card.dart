@@ -1,39 +1,22 @@
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
-import 'package:blood_donation_app/l10n/app_localizations_ar.dart';
+import 'package:blood_donation_app/core/resources/models/blood_request.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/widgets/manage_request_dialog.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../core/resources/colors/color_manger.dart';
+import '../../../../../../l10n/app_localizations.dart';
+
 class CustomRequestCard extends StatelessWidget {
-  final String title;
-  final String badgeLabel;
-  final Color badgeColor;
-  final int units;
-  final String timeString;
-  final String location;
-  final int contacted;
-  final int confirmed;
-  const CustomRequestCard({super.key,
-    required this.title,
-    required this.badgeLabel,
-    required this.badgeColor,
-    required this.units,
-    required this.timeString,
-    required this.location,
-    required this.contacted,
-    required this.confirmed,
-  });
+  final BloodRequestModel request;
 
-
+  const CustomRequestCard({super.key, required this.request});
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizationsAr appLocalizationsAr = AppLocalizationsAr();
-    final parts = title.split(' - ');
-    final hospitalName = parts[0];
-    final bloodType = parts.length > 1 ? parts[1].replaceAll(' Blood', '') : '';
+    final appLocalizations = AppLocalizations.of(context)!;
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFFFEF5F5),
+        color: ColorManger.lightRed,
         borderRadius: BorderRadius.circular(12),
       ),
       child: ClipRRect(
@@ -41,10 +24,7 @@ class CustomRequestCard extends StatelessWidget {
         child: Container(
           decoration: const BoxDecoration(
             border: Border(
-              left: BorderSide(
-                color: Color(0xFFEF4444),
-                width: 4.0,
-              ),
+              left: BorderSide(color: Color(0xFFEF4444), width: 4.0),
             ),
           ),
           padding: const EdgeInsets.all(16.0),
@@ -56,7 +36,7 @@ class CustomRequestCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: CustomText(
-                      text: title,
+                      text: request.hospitalName,
                       textStyle: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -66,15 +46,20 @@ class CustomRequestCard extends StatelessWidget {
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 4),
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
                     decoration: BoxDecoration(
-                      color: badgeColor,
+                      color: getBadgeColor(request.urgencyLevel),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: CustomText(
-                      text: badgeLabel,
-                      textStyle: const TextStyle(
-                        color: Colors.white,
+                      text: getBadgeLabel(
+                        request.urgencyLevel,
+                        appLocalizations,
+                      ),
+                      textStyle: TextStyle(
+                        color: ColorManger.pureWhite,
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
@@ -84,11 +69,9 @@ class CustomRequestCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CustomText(
-               text:"$units ${appLocalizationsAr.units} • $timeString",
-               textStyle: TextStyle(
-                  color: Colors.grey.shade600,
-                  fontSize: 14,
-                ),
+                text:
+                    "${request.unitsRequested} ${appLocalizations.units} • ${appLocalizations.hours_left(request.completionTimeInHours)}",
+                textStyle: TextStyle(color: Colors.grey.shade600, fontSize: 14),
               ),
               const SizedBox(height: 16),
               Row(
@@ -97,13 +80,18 @@ class CustomRequestCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.location_on_outlined,
-                          size: 16, color: Colors.grey.shade600),
+                      Icon(
+                        Icons.location_on_outlined,
+                        size: 16,
+                        color: Colors.grey.shade600,
+                      ),
                       const SizedBox(width: 4),
                       CustomText(
-                        text: location,
+                        text: request.location,
                         textStyle: TextStyle(
-                            color: Colors.grey.shade600, fontSize: 14),
+                          color: Colors.grey.shade600,
+                          fontSize: 14,
+                        ),
                       ),
                     ],
                   ),
@@ -112,19 +100,30 @@ class CustomRequestCard extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 2.0),
-                        child: Icon(Icons.people_outline,
-                            size: 14, color: Colors.grey.shade600),
+                        child: Icon(
+                          Icons.people_outline,
+                          size: 14,
+                          color: Colors.grey.shade600,
+                        ),
                       ),
                       const SizedBox(width: 4),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CustomText(text:"$contacted",
-                              textStyle: const TextStyle(
-                                  fontSize: 14, color: Colors.black87)),
-                          CustomText(text: appLocalizationsAr.donorsContactedLabel,
-                              textStyle: TextStyle(
-                                  fontSize: 12, color: Colors.grey.shade600)),
+                          CustomText(
+                            text: "${request.donorsContacted}",
+                            textStyle: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black87,
+                            ),
+                          ),
+                          CustomText(
+                            text: appLocalizations.donorsContactedLabel,
+                            textStyle: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -134,19 +133,30 @@ class CustomRequestCard extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 2.0),
-                        child: Icon(Icons.check_circle_outline,
-                            size: 14, color: Colors.grey.shade600),
+                        child: Icon(
+                          Icons.check_circle_outline,
+                          size: 14,
+                          color: Colors.grey.shade600,
+                        ),
                       ),
                       const SizedBox(width: 4),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CustomText(text:"$confirmed",
-                              textStyle: const TextStyle(
-                                  fontSize: 14, color: Colors.black87)),
-                          CustomText(text: appLocalizationsAr.donorsConfirmedLabel,
-                              textStyle: TextStyle(
-                                  fontSize: 12, color: Colors.grey.shade600)),
+                          CustomText(
+                            text: "${request.donorsConfirmed}",
+                            textStyle: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black87,
+                            ),
+                          ),
+                          CustomText(
+                            text: appLocalizations.donorsConfirmedLabel,
+                            textStyle: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -169,21 +179,12 @@ class CustomRequestCard extends StatelessWidget {
                   onPressed: () {
                     showDialog(
                       context: context,
-                      builder: (context) => ManageRequestDialog(
-                        hospitalName: hospitalName,
-                        bloodType: bloodType,
-                        units: units,
-                        timeString: timeString,
-                        location: location,
-                        contacted: contacted,
-                        confirmed: confirmed,
-                        badgeLabel: badgeLabel,
-                        badgeColor: badgeColor,
-                      ),
+                      builder: (context) =>
+                          ManageRequestDialog(request: request),
                     );
                   },
                   child: CustomText(
-                    text: appLocalizationsAr.manageButton,
+                    text: appLocalizations.manageButton,
                     textStyle: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
@@ -196,5 +197,44 @@ class CustomRequestCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Color getBadgeColor(String urgencyLevel) {
+    switch (urgencyLevel.toLowerCase()) {
+      case 'critical':
+        return ColorManger.brightRed;
+      case 'high':
+        return ColorManger.orange;
+      case 'low':
+        return ColorManger.green;
+      default:
+        return ColorManger.grey500;
+    }
+  }
+
+  Color getBackgroundColor(String urgencyLevel) {
+    switch (urgencyLevel.toLowerCase()) {
+      case 'critical':
+        return ColorManger.lightRed;
+      case 'high':
+        return ColorManger.lightOrange;
+      case 'low':
+        return ColorManger.lightGreen;
+      default:
+        return ColorManger.grey500;
+    }
+  }
+
+  String getBadgeLabel(String urgencyLevel, AppLocalizations appLocalizations) {
+    switch (urgencyLevel.toLowerCase()) {
+      case 'critical':
+        return appLocalizations.critical;
+      case 'high':
+        return appLocalizations.high;
+      case 'low':
+        return appLocalizations.low;
+      default:
+        return appLocalizations.unknown;
+    }
   }
 }

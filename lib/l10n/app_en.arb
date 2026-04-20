@@ -758,7 +758,6 @@
 
   "criticalStatus": "Critical",
   "fulfilledToday": "Fulfilled Today",
-  "activeRequests": "Active Requests",
 
   "unitsLabel": "units",
   "contactedLabel": "contacted",
@@ -770,7 +769,6 @@
 
   "bloodTypeLabel": "Blood Type",
   "unitsNeededLabel": "Units Needed",
-  "locationLabel": "Location",
   "donorsContactedLabel": "Donors Contacted",
   "donorsConfirmedLabel": "Donors Confirmed",
 
@@ -789,7 +787,8 @@
   "eastSide": "EastSide",
   "westSide": "WestSide",
 
-  "hours_left": "{count} hours left"
+  "hours_left": "{count} hours left",
+  "unknown": "Unknown"
 
 
 }

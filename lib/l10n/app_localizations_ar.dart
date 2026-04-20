@@ -221,7 +221,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get locationLabel => 'الموقع';
+  String get locationLabel => 'المكان';
 
   @override
   String get whenLabel => 'الوقت';
@@ -2338,4 +2338,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String hours_left(Object count) {
     return 'باقي $count ساعة';
   }
+
+  @override
+  String get unknown => 'غير معروف';
 }

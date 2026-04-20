@@ -4477,6 +4477,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} hours left'**
   String hours_left(Object count);
+
+  /// No description provided for @unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get unknown;
 }
 
 class _AppLocalizationsDelegate
