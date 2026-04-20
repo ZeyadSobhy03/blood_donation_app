@@ -2266,4 +2266,86 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get verified => 'Verified';
+
+  @override
+  String get bloodRequestsTitle => 'Blood Requests';
+
+  @override
+  String get bloodRequestsSubtitle => 'Monitor and manage all blood requests';
+
+  @override
+  String get criticalStatus => 'Critical';
+
+  @override
+  String get fulfilledToday => 'Fulfilled Today';
+
+  @override
+  String get unitsLabel => 'units';
+
+  @override
+  String get contactedLabel => 'contacted';
+
+  @override
+  String get confirmedLabel => 'confirmed';
+
+  @override
+  String get manageButton => 'Manage';
+
+  @override
+  String get manageRequestTitle => 'Manage Blood Request';
+
+  @override
+  String get manageRequestSubtitle =>
+      'Manage the details and actions for this blood request.';
+
+  @override
+  String get bloodTypeLabel => 'Blood Type';
+
+  @override
+  String get unitsNeededLabel => 'Units Needed';
+
+  @override
+  String get donorsContactedLabel => 'Donors Contacted';
+
+  @override
+  String get donorsConfirmedLabel => 'Donors Confirmed';
+
+  @override
+  String get adminActionsTitle => 'Admin Actions';
+
+  @override
+  String get sendEmergencyBroadcastBtn => 'Send Emergency Broadcast';
+
+  @override
+  String get contactHospitalBtn => 'Contact Hospital';
+
+  @override
+  String get markAsFulfilledBtn => 'Mark as Fulfilled';
+
+  @override
+  String get cancelRequestBtn => 'Cancel Request';
+
+  @override
+  String get alertPrefix => 'Alert: ';
+
+  @override
+  String get alertCriticalMessage =>
+      'This is a critical request. Consider sending an emergency broadcast to all nearby donors.';
+
+  @override
+  String get closeButton => 'Close';
+
+  @override
+  String get downTown => 'DownTown';
+
+  @override
+  String get eastSide => 'EastSide';
+
+  @override
+  String get westSide => 'WestSide';
+
+  @override
+  String hours_left(Object count) {
+    return '$count hours left';
+  }
 }

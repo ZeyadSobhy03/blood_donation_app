@@ -221,7 +221,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get locationLabel => 'المكان';
+  String get locationLabel => 'الموقع';
 
   @override
   String get whenLabel => 'الوقت';
@@ -2256,4 +2256,86 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get verified => 'موثّق';
+
+  @override
+  String get bloodRequestsTitle => 'طلبات الدم';
+
+  @override
+  String get bloodRequestsSubtitle => 'مراقبة وإدارة جميع طلبات الدم';
+
+  @override
+  String get criticalStatus => 'حرج';
+
+  @override
+  String get fulfilledToday => 'مكتملة اليوم';
+
+  @override
+  String get unitsLabel => 'وحدات';
+
+  @override
+  String get contactedLabel => 'تم التواصل';
+
+  @override
+  String get confirmedLabel => 'مؤكد';
+
+  @override
+  String get manageButton => 'إدارة';
+
+  @override
+  String get manageRequestTitle => 'إدارة طلب الدم';
+
+  @override
+  String get manageRequestSubtitle =>
+      'إدارة التفاصيل والإجراءات الخاصة بطلب الدم هذا.';
+
+  @override
+  String get bloodTypeLabel => 'فصيلة الدم';
+
+  @override
+  String get unitsNeededLabel => 'الوحدات المطلوبة';
+
+  @override
+  String get donorsContactedLabel => 'تم التواصل معهم';
+
+  @override
+  String get donorsConfirmedLabel => 'المؤكدون';
+
+  @override
+  String get adminActionsTitle => 'إجراءات المسؤول';
+
+  @override
+  String get sendEmergencyBroadcastBtn => 'إرسال نداء طوارئ';
+
+  @override
+  String get contactHospitalBtn => 'الاتصال بالمستشفى';
+
+  @override
+  String get markAsFulfilledBtn => 'تعيين كمكتمل';
+
+  @override
+  String get cancelRequestBtn => 'إلغاء الطلب';
+
+  @override
+  String get alertPrefix => 'تنبيه: ';
+
+  @override
+  String get alertCriticalMessage =>
+      'هذا طلب حرج. يُرجى التفكير في إرسال نداء طوارئ لجميع المتبرعين القريبين.';
+
+  @override
+  String get closeButton => 'إغلاق';
+
+  @override
+  String get downTown => 'وسط المدينة';
+
+  @override
+  String get eastSide => 'الجانب الشرقي';
+
+  @override
+  String get westSide => 'الجانب الغربي';
+
+  @override
+  String hours_left(Object count) {
+    return 'باقي $count ساعة';
+  }
 }

@@ -21,10 +21,10 @@ import '../../../presentation/authentication/donor_authentication/donor_register
 import '../../../presentation/authentication/hospital_authentication/hospital_authentication.dart';
 import '../../../presentation/maps/maps.dart';
 import '../../../presentation/role/admin/tabs/admin_main_layout.dart';
-import '../../../presentation/role/admin/tabs/admin_requets/admin_request.dart';
+import '../../../presentation/role/admin/tabs/admin_requests/admin_request.dart';
 import '../../../presentation/role/admin/tabs/analytics/analytics.dart';
 import '../../../presentation/role/admin/tabs/dashboard/dashboard.dart';
-import '../../../presentation/role/admin/tabs/system_settings/system_setting.dart';
+import '../../../presentation/role/admin/tabs/system_settings/system_settings.dart';
 import '../../../presentation/role/admin/tabs/users/users.dart';
 import '../../../presentation/role/donor/tabs/donation_history/donation_history.dart';
 import '../../../presentation/role/donor/tabs/profile/confirm_donation/confirm_donation.dart';
@@ -77,7 +77,7 @@ class RouteManger {
       case donationHistory:
         return MaterialPageRoute(builder: (context) => DonationHistory());
       case systemSetting:
-        return MaterialPageRoute(builder: (context) => const SystemSetting());
+        return MaterialPageRoute(builder: (context) => const SystemSettings());
 
       case helpAndSupportHospital:
         return MaterialPageRoute(

@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/extension/text_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_auth_box.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
 import 'package:blood_donation_app/core/widgets/custom_text_field.dart';
@@ -164,7 +165,7 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
                             child: ElevatedButton(
                               onPressed: () {
                                 if(_formKey.currentState!.validate()){
-
+                                  Navigator.pushNamed(context, RouteManger.adminMainLayout);
                                 }
                               },
                               style: ElevatedButton.styleFrom(

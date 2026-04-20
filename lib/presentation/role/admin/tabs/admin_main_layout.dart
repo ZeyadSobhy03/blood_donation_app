@@ -1,8 +1,8 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requets/admin_request.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/admin_request.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/analytics.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/dashboard.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/system_setting.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/system_settings.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/users.dart';
 import 'package:flutter/material.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -75,7 +75,7 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
       Users(),
       AdminRequest(),
       Analytics(),
-      SystemSetting(),
+      SystemSettings(),
     ];
 
     final navItems = [

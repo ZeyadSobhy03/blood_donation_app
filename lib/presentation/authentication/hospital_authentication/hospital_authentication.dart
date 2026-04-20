@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/extension/text_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_auth_box.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
 import 'package:blood_donation_app/core/widgets/custom_text_field.dart';
@@ -153,7 +154,7 @@ class _HospitalAuthenticationState extends State<HospitalAuthentication> {
                               return appLocalization.please_enter_hospital_id;
                             }
                             return null;
-                          }, // Building icon
+                          },
                         ),
 
                         const SizedBox(height: 16),
@@ -189,7 +190,9 @@ class _HospitalAuthenticationState extends State<HospitalAuthentication> {
                           height: 50,
                           child: ElevatedButton(
                             onPressed: () {
-                              if (_formKey.currentState!.validate()) {}
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.pushNamed(context, RouteManger.hospitalMainLayout);
+                              }
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: ColorManger.royalBlue,
