@@ -563,6 +563,18 @@ class AppLocalizationsEn extends AppLocalizations {
       'Please enter the full 6-digit code.';
 
   @override
+  String get donor_resend_code => 'Resend code';
+
+  @override
+  String get donor_resending_code => 'Resending code...';
+
+  @override
+  String get donor_code_resent_success => 'Verification code resent';
+
+  @override
+  String get donor_code_resent_error => 'Unable to resend verification code';
+
+  @override
   String get donor_dont_have_account => 'Don\'t have an account?';
 
   @override
@@ -2266,4 +2278,195 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get verified => 'Verified';
+
+  @override
+  String get sendEmergencyBroadcastBtn => 'Send Emergency Broadcast';
+
+  @override
+  String get contactHospitalBtn => 'Contact Hospital';
+
+  @override
+  String get markAsFulfilledBtn => 'Mark as Fulfilled';
+
+  @override
+  String get cancelRequestBtn => 'Cancel Request';
+
+  @override
+  String get alertPrefix => 'Alert: ';
+
+  @override
+  String get alertCriticalMessage =>
+      'This is a critical request. Consider sending an emergency broadcast to all nearby donors.';
+
+  @override
+  String get closeButton => 'Close';
+
+  @override
+  String get downTown => 'DownTown';
+
+  @override
+  String get eastSide => 'EastSide';
+
+  @override
+  String get westSide => 'WestSide';
+
+  @override
+  String hours_left(Object count) {
+    return '$count hours left';
+  }
+
+  @override
+  String get unknown => 'Unknown';
+
+  @override
+  String get systemSettingsTitle => 'System Settings';
+
+  @override
+  String get systemSettingsSubtitle => 'Configure System Preferences';
+
+  @override
+  String get notificationSettings => 'Notification Settings';
+
+  @override
+  String get criticalBloodShortageNotifications =>
+      'Critical blood shortage notifications';
+
+  @override
+  String get machineLearningDemandForecasts =>
+      'Machine learning demand forecasts';
+
+  @override
+  String get roleBasedPermissions => 'Role-Based Permissions';
+
+  @override
+  String get viewAuditLogs => 'View Audit Logs';
+
+  @override
+  String get requiredForAllAdminAccounts => 'Required for all admin accounts';
+
+  @override
+  String get gpsAndLocation => 'GPS & Location';
+
+  @override
+  String get configureSearchRadius => 'Configure Search Radius';
+
+  @override
+  String get locationAccuracySettings => 'Location Accuracy Settings';
+
+  @override
+  String get systemHealth => 'System Health';
+
+  @override
+  String get systemHealthCheck => 'System Health Check';
+
+  @override
+  String get editAdminProfile => 'Edit Admin Profile';
+
+  @override
+  String get updateAdminProfileInfo =>
+      'Update your administrator profile information.';
+
+  @override
+  String get enterFullName => 'Enter full name';
+
+  @override
+  String get enterEmailAddress => 'Enter email address';
+
+  @override
+  String get enterPhoneNumber => 'Enter phone number';
+
+  @override
+  String get systemManagement => 'System Management';
+
+  @override
+  String get userSupport => 'User Support';
+
+  @override
+  String get dataManagement => 'Data Management';
+
+  @override
+  String get security => 'Security';
+
+  @override
+  String get selectDepartment => 'Select Department';
+
+  @override
+  String get accessLevel => 'Access Level';
+
+  @override
+  String get selectAccessLevel => 'Select Access Level';
+
+  @override
+  String get pleaseSelectAccessLevel => 'Please select access level';
+
+  @override
+  String get fullAccess => 'Full Access';
+
+  @override
+  String get limitedAccess => 'Limited Access';
+
+  @override
+  String get viewOnly => 'View Only';
+
+  @override
+  String get adminAddedSuccessfully => 'Admin added successfully';
+
+  @override
+  String get bloodRequestsTitle => 'Blood Requests';
+
+  @override
+  String get bloodRequestsSubtitle => 'Monitor and manage all blood requests';
+
+  @override
+  String get criticalStatus => 'Critical';
+
+  @override
+  String get fulfilledToday => 'Fulfilled Today';
+
+  @override
+  String get unitsLabel => 'units';
+
+  @override
+  String get contactedLabel => 'contacted';
+
+  @override
+  String get confirmedLabel => 'confirmed';
+
+  @override
+  String get manageButton => 'Manage';
+
+  @override
+  String get manageRequestTitle => 'Manage Blood Request';
+
+  @override
+  String get manageRequestSubtitle =>
+      'Manage the details and actions for this blood request.';
+
+  @override
+  String get bloodTypeLabel => 'Blood Type';
+
+  @override
+  String get unitsNeededLabel => 'Units Needed';
+
+  @override
+  String get donorsContactedLabel => 'Donors Contacted';
+
+  @override
+  String get donorsConfirmedLabel => 'Donors Confirmed';
+
+  @override
+  String get adminActionsTitle => 'Admin Actions';
+
+  @override
+  String get addAdmin => 'Add Admin';
+
+  @override
+  String get notePrefix => 'Note:';
+
+  @override
+  String get adminNoteMessage =>
+      'Changes to your profile will be logged in the audit system and may require verification from another administrator.';
+
+  @override
+  String get pleasSelectDepartment => 'Please select a department';
 }

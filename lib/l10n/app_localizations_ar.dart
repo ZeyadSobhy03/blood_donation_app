@@ -561,6 +561,18 @@ class AppLocalizationsAr extends AppLocalizations {
       'يرجى إدخال الرمز الكامل المكوّن من 6 أرقام.';
 
   @override
+  String get donor_resend_code => 'إعادة إرسال الرمز';
+
+  @override
+  String get donor_resending_code => 'جاري إعادة إرسال الرمز...';
+
+  @override
+  String get donor_code_resent_success => 'تمت إعادة إرسال رمز التحقق';
+
+  @override
+  String get donor_code_resent_error => 'تعذر إعادة إرسال رمز التحقق';
+
+  @override
   String get donor_dont_have_account => 'ليس لديك حساب؟';
 
   @override
@@ -2256,4 +2268,195 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get verified => 'موثّق';
+
+  @override
+  String get sendEmergencyBroadcastBtn => 'إرسال نداء طوارئ';
+
+  @override
+  String get contactHospitalBtn => 'الاتصال بالمستشفى';
+
+  @override
+  String get markAsFulfilledBtn => 'تعيين كمكتمل';
+
+  @override
+  String get cancelRequestBtn => 'إلغاء الطلب';
+
+  @override
+  String get alertPrefix => 'تنبيه: ';
+
+  @override
+  String get alertCriticalMessage =>
+      'هذا طلب حرج. يُرجى التفكير في إرسال نداء طوارئ لجميع المتبرعين القريبين.';
+
+  @override
+  String get closeButton => 'إغلاق';
+
+  @override
+  String get downTown => 'وسط المدينة';
+
+  @override
+  String get eastSide => 'الجانب الشرقي';
+
+  @override
+  String get westSide => 'الجانب الغربي';
+
+  @override
+  String hours_left(Object count) {
+    return 'باقي $count ساعة';
+  }
+
+  @override
+  String get unknown => 'غير معروف';
+
+  @override
+  String get systemSettingsTitle => 'إعدادات النظام';
+
+  @override
+  String get systemSettingsSubtitle => 'تكوين تفضيلات النظام';
+
+  @override
+  String get notificationSettings => 'إعدادات الإشعارات';
+
+  @override
+  String get criticalBloodShortageNotifications =>
+      'إشعارات النقص الحرج في الدم';
+
+  @override
+  String get machineLearningDemandForecasts =>
+      'توقعات الطلب باستخدام التعلم الآلي';
+
+  @override
+  String get roleBasedPermissions => 'الأذونات حسب الدور';
+
+  @override
+  String get viewAuditLogs => 'عرض سجل التدقيق';
+
+  @override
+  String get requiredForAllAdminAccounts => 'مطلوبة لجميع حسابات المسؤول';
+
+  @override
+  String get gpsAndLocation => 'الموقع و GPS';
+
+  @override
+  String get configureSearchRadius => 'تحديد نطاق البحث';
+
+  @override
+  String get locationAccuracySettings => 'إعدادات دقة الموقع';
+
+  @override
+  String get systemHealth => 'صحة النظام';
+
+  @override
+  String get systemHealthCheck => 'فحص صحة النظام';
+
+  @override
+  String get editAdminProfile => 'تعديل ملف المسؤول';
+
+  @override
+  String get updateAdminProfileInfo =>
+      'قم بتحديث معلومات ملف المسؤول الخاص بك.';
+
+  @override
+  String get enterFullName => 'أدخل الاسم الكامل';
+
+  @override
+  String get enterEmailAddress => 'أدخل عنوان البريد الإلكتروني';
+
+  @override
+  String get enterPhoneNumber => 'أدخل رقم الهاتف';
+
+  @override
+  String get systemManagement => 'إدارة النظام';
+
+  @override
+  String get userSupport => 'دعم المستخدمين';
+
+  @override
+  String get dataManagement => 'إدارة البيانات';
+
+  @override
+  String get security => 'الأمان';
+
+  @override
+  String get selectDepartment => 'اختر القسم';
+
+  @override
+  String get accessLevel => 'مستوى الصلاحية';
+
+  @override
+  String get selectAccessLevel => 'اختر مستوى الصلاحية';
+
+  @override
+  String get pleaseSelectAccessLevel => 'يرجى اختيار مستوى الصلاحية';
+
+  @override
+  String get fullAccess => 'صلاحية كاملة';
+
+  @override
+  String get limitedAccess => 'صلاحية محدودة';
+
+  @override
+  String get viewOnly => 'عرض فقط';
+
+  @override
+  String get adminAddedSuccessfully => 'تمت إضافة المسؤول بنجاح';
+
+  @override
+  String get bloodRequestsTitle => 'طلبات الدم';
+
+  @override
+  String get bloodRequestsSubtitle => 'مراقبة وإدارة جميع طلبات الدم';
+
+  @override
+  String get criticalStatus => 'حرج';
+
+  @override
+  String get fulfilledToday => 'مكتملة اليوم';
+
+  @override
+  String get unitsLabel => 'وحدات';
+
+  @override
+  String get contactedLabel => 'تم التواصل';
+
+  @override
+  String get confirmedLabel => 'مؤكد';
+
+  @override
+  String get manageButton => 'إدارة';
+
+  @override
+  String get manageRequestTitle => 'إدارة طلب الدم';
+
+  @override
+  String get manageRequestSubtitle =>
+      'إدارة التفاصيل والإجراءات الخاصة بطلب الدم هذا.';
+
+  @override
+  String get bloodTypeLabel => 'فصيلة الدم';
+
+  @override
+  String get unitsNeededLabel => 'الوحدات المطلوبة';
+
+  @override
+  String get donorsContactedLabel => 'تم التواصل معهم';
+
+  @override
+  String get donorsConfirmedLabel => 'المؤكدون';
+
+  @override
+  String get adminActionsTitle => 'إجراءات المسؤول';
+
+  @override
+  String get addAdmin => 'إضافة مسؤول';
+
+  @override
+  String get notePrefix => 'ملاحظة:';
+
+  @override
+  String get adminNoteMessage =>
+      'سيتم تسجيل التغييرات على ملفك الشخصي في نظام التدقيق وقد تتطلب التحقق من مسؤول آخر.';
+
+  @override
+  String get pleasSelectDepartment => 'يرجى اختيار قسم';
 }

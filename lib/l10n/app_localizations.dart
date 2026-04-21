@@ -1142,6 +1142,30 @@ abstract class AppLocalizations {
   /// **'Please enter the full 6-digit code.'**
   String get donor_pin_verification_invalid_pin;
 
+  /// No description provided for @donor_resend_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend code'**
+  String get donor_resend_code;
+
+  /// No description provided for @donor_resending_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Resending code...'**
+  String get donor_resending_code;
+
+  /// No description provided for @donor_code_resent_success.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code resent'**
+  String get donor_code_resent_success;
+
+  /// No description provided for @donor_code_resent_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to resend verification code'**
+  String get donor_code_resent_error;
+
   /// No description provided for @donor_dont_have_account.
   ///
   /// In en, this message translates to:
@@ -4321,6 +4345,372 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Verified'**
   String get verified;
+
+  /// No description provided for @sendEmergencyBroadcastBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Emergency Broadcast'**
+  String get sendEmergencyBroadcastBtn;
+
+  /// No description provided for @contactHospitalBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Hospital'**
+  String get contactHospitalBtn;
+
+  /// No description provided for @markAsFulfilledBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as Fulfilled'**
+  String get markAsFulfilledBtn;
+
+  /// No description provided for @cancelRequestBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel Request'**
+  String get cancelRequestBtn;
+
+  /// No description provided for @alertPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Alert: '**
+  String get alertPrefix;
+
+  /// No description provided for @alertCriticalMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This is a critical request. Consider sending an emergency broadcast to all nearby donors.'**
+  String get alertCriticalMessage;
+
+  /// No description provided for @closeButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get closeButton;
+
+  /// No description provided for @downTown.
+  ///
+  /// In en, this message translates to:
+  /// **'DownTown'**
+  String get downTown;
+
+  /// No description provided for @eastSide.
+  ///
+  /// In en, this message translates to:
+  /// **'EastSide'**
+  String get eastSide;
+
+  /// No description provided for @westSide.
+  ///
+  /// In en, this message translates to:
+  /// **'WestSide'**
+  String get westSide;
+
+  /// No description provided for @hours_left.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hours left'**
+  String hours_left(Object count);
+
+  /// No description provided for @unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get unknown;
+
+  /// No description provided for @systemSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'System Settings'**
+  String get systemSettingsTitle;
+
+  /// No description provided for @systemSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure System Preferences'**
+  String get systemSettingsSubtitle;
+
+  /// No description provided for @notificationSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Settings'**
+  String get notificationSettings;
+
+  /// No description provided for @criticalBloodShortageNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical blood shortage notifications'**
+  String get criticalBloodShortageNotifications;
+
+  /// No description provided for @machineLearningDemandForecasts.
+  ///
+  /// In en, this message translates to:
+  /// **'Machine learning demand forecasts'**
+  String get machineLearningDemandForecasts;
+
+  /// No description provided for @roleBasedPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Role-Based Permissions'**
+  String get roleBasedPermissions;
+
+  /// No description provided for @viewAuditLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'View Audit Logs'**
+  String get viewAuditLogs;
+
+  /// No description provided for @requiredForAllAdminAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Required for all admin accounts'**
+  String get requiredForAllAdminAccounts;
+
+  /// No description provided for @gpsAndLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'GPS & Location'**
+  String get gpsAndLocation;
+
+  /// No description provided for @configureSearchRadius.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure Search Radius'**
+  String get configureSearchRadius;
+
+  /// No description provided for @locationAccuracySettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Accuracy Settings'**
+  String get locationAccuracySettings;
+
+  /// No description provided for @systemHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'System Health'**
+  String get systemHealth;
+
+  /// No description provided for @systemHealthCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'System Health Check'**
+  String get systemHealthCheck;
+
+  /// No description provided for @editAdminProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Admin Profile'**
+  String get editAdminProfile;
+
+  /// No description provided for @updateAdminProfileInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Update your administrator profile information.'**
+  String get updateAdminProfileInfo;
+
+  /// No description provided for @enterFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter full name'**
+  String get enterFullName;
+
+  /// No description provided for @enterEmailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter email address'**
+  String get enterEmailAddress;
+
+  /// No description provided for @enterPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter phone number'**
+  String get enterPhoneNumber;
+
+  /// No description provided for @systemManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'System Management'**
+  String get systemManagement;
+
+  /// No description provided for @userSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'User Support'**
+  String get userSupport;
+
+  /// No description provided for @dataManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Management'**
+  String get dataManagement;
+
+  /// No description provided for @security.
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get security;
+
+  /// No description provided for @selectDepartment.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Department'**
+  String get selectDepartment;
+
+  /// No description provided for @accessLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Access Level'**
+  String get accessLevel;
+
+  /// No description provided for @selectAccessLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Access Level'**
+  String get selectAccessLevel;
+
+  /// No description provided for @pleaseSelectAccessLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select access level'**
+  String get pleaseSelectAccessLevel;
+
+  /// No description provided for @fullAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Access'**
+  String get fullAccess;
+
+  /// No description provided for @limitedAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Limited Access'**
+  String get limitedAccess;
+
+  /// No description provided for @viewOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'View Only'**
+  String get viewOnly;
+
+  /// No description provided for @adminAddedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin added successfully'**
+  String get adminAddedSuccessfully;
+
+  /// The main title of the blood requests screen
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Requests'**
+  String get bloodRequestsTitle;
+
+  /// Subtitle explaining the purpose of the screen
+  ///
+  /// In en, this message translates to:
+  /// **'Monitor and manage all blood requests'**
+  String get bloodRequestsSubtitle;
+
+  /// No description provided for @criticalStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical'**
+  String get criticalStatus;
+
+  /// No description provided for @fulfilledToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Fulfilled Today'**
+  String get fulfilledToday;
+
+  /// No description provided for @unitsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'units'**
+  String get unitsLabel;
+
+  /// No description provided for @contactedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'contacted'**
+  String get contactedLabel;
+
+  /// No description provided for @confirmedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'confirmed'**
+  String get confirmedLabel;
+
+  /// No description provided for @manageButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage'**
+  String get manageButton;
+
+  /// No description provided for @manageRequestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage Blood Request'**
+  String get manageRequestTitle;
+
+  /// No description provided for @manageRequestSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage the details and actions for this blood request.'**
+  String get manageRequestSubtitle;
+
+  /// No description provided for @bloodTypeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Type'**
+  String get bloodTypeLabel;
+
+  /// No description provided for @unitsNeededLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Units Needed'**
+  String get unitsNeededLabel;
+
+  /// No description provided for @donorsContactedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Donors Contacted'**
+  String get donorsContactedLabel;
+
+  /// No description provided for @donorsConfirmedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Donors Confirmed'**
+  String get donorsConfirmedLabel;
+
+  /// No description provided for @adminActionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Actions'**
+  String get adminActionsTitle;
+
+  /// No description provided for @addAdmin.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Admin'**
+  String get addAdmin;
+
+  /// No description provided for @notePrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Note:'**
+  String get notePrefix;
+
+  /// No description provided for @adminNoteMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes to your profile will be logged in the audit system and may require verification from another administrator.'**
+  String get adminNoteMessage;
+
+  /// No description provided for @pleasSelectDepartment.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a department'**
+  String get pleasSelectDepartment;
 }
 
 class _AppLocalizationsDelegate

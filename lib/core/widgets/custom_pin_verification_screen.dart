@@ -93,7 +93,7 @@ class _CustomPinVerificationScreenState
             backgroundColor: _colors.primary,
             content: CustomText(
               text: localizations.donor_code_resent_success,
-              textStyle: const TextStyle(
+              textStyle:  TextStyle(
                 color: ColorManger.pureWhite,
                 fontWeight: FontWeight.w600,
               ),
@@ -115,7 +115,7 @@ class _CustomPinVerificationScreenState
             backgroundColor: ColorManger.brightRed,
             content: CustomText(
               text: localizations.donor_code_resent_error,
-              textStyle: const TextStyle(
+              textStyle:  TextStyle(
                 color: ColorManger.pureWhite,
                 fontWeight: FontWeight.w600,
               ),

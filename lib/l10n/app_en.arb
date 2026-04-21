@@ -745,7 +745,7 @@
   "hospitalAddedSuccessfully": "Hospital added successfully",
   "totalUsers": "Total Users",
   "noTrendDataAvailable": "No trend data available",
-  "verified": "Verified"
+  "verified": "Verified",
 
   "sendEmergencyBroadcastBtn": "Send Emergency Broadcast",
   "contactHospitalBtn": "Contact Hospital",
@@ -775,6 +775,56 @@
   "configureSearchRadius": "Configure Search Radius",
   "locationAccuracySettings": "Location Accuracy Settings",
   "systemHealth": "System Health",
-  "systemHealthCheck": "System Health Check"
+  "systemHealthCheck": "System Health Check",
+
+  "editAdminProfile": "Edit Admin Profile",
+  "updateAdminProfileInfo": "Update your administrator profile information.",
+  "enterFullName": "Enter full name",
+  "enterEmailAddress": "Enter email address",
+  "enterPhoneNumber": "Enter phone number",
+  "systemManagement": "System Management",
+  "userSupport": "User Support",
+  "dataManagement": "Data Management",
+  "security": "Security",
+  "selectDepartment": "Select Department",
+
+
+  "accessLevel": "Access Level",
+  "selectAccessLevel": "Select Access Level",
+  "pleaseSelectAccessLevel": "Please select access level",
+  "fullAccess": "Full Access",
+  "limitedAccess": "Limited Access",
+  "viewOnly": "View Only",
+  "adminAddedSuccessfully": "Admin added successfully",
+  "bloodRequestsTitle": "Blood Requests",
+  "@bloodRequestsTitle": {
+    "description": "The main title of the blood requests screen"
+  },
+
+  "bloodRequestsSubtitle": "Monitor and manage all blood requests",
+  "@bloodRequestsSubtitle": {
+    "description": "Subtitle explaining the purpose of the screen"
+  },
+
+  "criticalStatus": "Critical",
+  "fulfilledToday": "Fulfilled Today",
+  "unitsLabel": "units",
+  "contactedLabel": "contacted",
+  "confirmedLabel": "confirmed",
+  "manageButton": "Manage",
+
+  "manageRequestTitle": "Manage Blood Request",
+  "manageRequestSubtitle": "Manage the details and actions for this blood request.",
+
+  "bloodTypeLabel": "Blood Type",
+  "unitsNeededLabel": "Units Needed",
+  "donorsContactedLabel": "Donors Contacted",
+  "donorsConfirmedLabel": "Donors Confirmed",
+
+  "adminActionsTitle": "Admin Actions",
+   "addAdmin": "Add Admin",
+   "notePrefix": "Note:",
+   "adminNoteMessage": "Changes to your profile will be logged in the audit system and may require verification from another administrator.",
+   "pleasSelectDepartment": "Please select a department"
 
 }

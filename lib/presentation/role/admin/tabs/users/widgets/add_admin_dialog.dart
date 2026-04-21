@@ -162,7 +162,7 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
               key: _formKey,
               child: Column(
                 children: [
-                  RequestHeader(
+                  CustomDialogHeader(
                     title: loc.addAdmin,
                     subtitle: loc.admin_authentication,
                   ),
