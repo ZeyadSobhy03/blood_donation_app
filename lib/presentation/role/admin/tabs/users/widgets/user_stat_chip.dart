@@ -24,7 +24,7 @@ class UserStatChip extends StatelessWidget {
         border: Border.all(color: color.withValues(alpha: 0.2)),
       ),
       child: CustomText(
-        text: '$count $label',
+        text: '$label: $count',
         textStyle: TextStyle(
           fontSize: FontSize.s12,
           fontWeight: FontWeightManager.semiBold,

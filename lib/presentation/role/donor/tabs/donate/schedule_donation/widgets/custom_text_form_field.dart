@@ -13,6 +13,7 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType,
     this.suffixIcon,
     this.onChanged, this.maxLines,
+    this.obscureText = false,
   });
 
   final Widget? prefixIcon;
@@ -23,12 +24,14 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final void Function(String)? onChanged;
   final int? maxLines;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
 
     return TextFormField(
-      maxLines:maxLines ,
+      maxLines: obscureText ? 1 : maxLines,
+      obscureText: obscureText,
       onFieldSubmitted: (_) {
         FocusScope.of(context).unfocus();
       },

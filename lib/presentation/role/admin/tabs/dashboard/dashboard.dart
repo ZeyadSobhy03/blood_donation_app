@@ -18,6 +18,8 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     final appLocalization = AppLocalizations.of(context)!;
     final List<StateModel> stateModels = [
       StateModel(
@@ -56,7 +58,7 @@ class Dashboard extends StatelessWidget {
     final values = [44.0, 52.0, 48.0, 61.0, 55.0, 67.0, 43.0];
     final startDate = DateTime.now().subtract(Duration(days: values.length - 1));
     final useFullDayName = appLocalization.localeName.startsWith('ar');
-    final xLabels = List<String>.generate(values.length, (index) {
+    final xLabels = List<String>.generate(7, (index) {
       final date = startDate.add(Duration(days: index));
       return useFullDayName
           ? DateFormat.EEEE(appLocalization.localeName).format(date)
@@ -85,7 +87,7 @@ class Dashboard extends StatelessWidget {
                     crossAxisSpacing: 8,
                     mainAxisSpacing: 8,
 
-                    crossAxisCount: 2,
+                    crossAxisCount: screenWidth> 600 ? 4 : 2,
                   ),
                   itemBuilder: (context, index) {
                     final stateModel = stateModels[index];

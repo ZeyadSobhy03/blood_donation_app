@@ -2,6 +2,7 @@ import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/hospital_forget_password.dart';
 import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/schedule_donation.dart';
@@ -14,9 +15,9 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/r
 import 'package:flutter/material.dart';
 
 import '../../../presentation/authentication/admin_authentication/admin_authentication.dart';
+import '../../../presentation/authentication/admin_authentication/admin_forget_password.dart';
 import '../../../presentation/authentication/donor_authentication/donor_forget_password.dart';
 import '../../../presentation/authentication/donor_authentication/donor_login.dart';
-import '../../../presentation/authentication/donor_authentication/donor_pin_verification_screen.dart';
 import '../../../presentation/authentication/donor_authentication/donor_register.dart';
 import '../../../presentation/authentication/hospital_authentication/hospital_authentication.dart';
 import '../../../presentation/maps/maps.dart';
@@ -33,6 +34,7 @@ import '../../../presentation/role/donor/tabs/profile/scan_qr/scan_qr.dart';
 import '../../../presentation/role/hospital/tabs/hospital_main_layout.dart';
 import '../../../presentation/role/hospital/tabs/profile/help&support/help_support_hospital.dart';
 import '../../../presentation/splash_screen/splash_screen.dart';
+import '../../widgets/custom_pin_verification_screen.dart';
 
 class RouteManger {
   static const String onboarding = '/onboarding';
@@ -64,8 +66,12 @@ class RouteManger {
   static const String systemSetting = '/systemSetting';
   static const String confirmDonation = '/confirmDonation';
   static const String helpAndSupportHospital = '/helpAndSupportHospital';
-  static const String donorPinVerificationScreen =
-      "/donorPinVerificationScreen";
+  static const String customPinVerificationScreen =
+      "/customPinVerificationScreen";
+
+  static const String hospitalForgetPassword = '/hospitalForgetPassword';
+
+  static const String adminForgetPassword = '/adminForgetPassword';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -161,16 +167,26 @@ class RouteManger {
       case adminAuth:
         return MaterialPageRoute(builder: (context) => AdminAuthentication());
 
-      case donorPinVerificationScreen:
+      case customPinVerificationScreen:
         final args = settings.arguments as PinVerificationArgs;
-        return MaterialPageRoute <String>(
-          builder: (context) => DonorPinVerificationScreen(args: args),
+        return MaterialPageRoute<String>(
+          builder: (context) => CustomPinVerificationScreen(args: args),
         );
 
       case requestScreen:
         return MaterialPageRoute(
           builder: (context) => RequestScreen(),
           settings: settings,
+        );
+
+      case hospitalForgetPassword:
+        return MaterialPageRoute(
+          builder: (context) => HospitalForgetPassword(),
+        );
+
+       case adminForgetPassword:
+        return MaterialPageRoute(
+          builder: (context) => AdminForgetPassword(),
         );
       default:
         return MaterialPageRoute(

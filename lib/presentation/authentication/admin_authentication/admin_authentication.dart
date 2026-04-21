@@ -1,8 +1,10 @@
 import 'package:blood_donation_app/core/extension/text_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_auth_box.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
+import 'package:blood_donation_app/core/widgets/custom_pin_code.dart';
 import 'package:blood_donation_app/core/widgets/custom_text_field.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,40 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
   final TextEditingController _accessKeyController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> _handleLoginPressed() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    final pin = await _showPinScreen();
+    if (!mounted) return;
+    if (pin == null) return;
+
+    Navigator.pushNamed(context, RouteManger.adminMainLayout);
+  }
+
+  Future<String?> _showPinScreen() async {
+    final appLocalization = AppLocalizations.of(context)!;
+    return Navigator.pushNamed<String>(
+      context,
+      RouteManger.customPinVerificationScreen,
+      arguments: PinVerificationArgs(
+        role: AuthPinRole.admin,
+        title: appLocalization.donor_pin_verification_title,
+        subtitle: appLocalization.donor_pin_verification_subtitle,
+        submitText: appLocalization.secure_admin_login,
+        cancelText: appLocalization.cancel,
+        invalidPinText: appLocalization.donor_pin_verification_invalid_pin,
+        style: const PinVerificationStyle(
+          screenBackgroundColor: ColorManger.mintyLightGreen,
+          appBarBackgroundColor: ColorManger.mintyLightGreen,
+          submitBackgroundColor: ColorManger.green,
+          cancelBackgroundColor: ColorManger.pureWhite,
+          cancelForegroundColor: ColorManger.black,
+          cancelBorderColor: ColorManger.grey400,
+        ),
+      ),
+    );
+  }
 
   @override
   void dispose() {
@@ -156,6 +192,25 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
                             validator: (value) => value?.passwordValidator(context),
 
                           ),
+                          SizedBox(height: 8),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  RouteManger.adminForgetPassword,
+                                );
+                              },
+                              child: Text(
+                                appLocalization.donor_forget_password,
+                                style: TextStyle(
+                                  color: ColorManger.green,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
 
                           const SizedBox(height: 24),
 
@@ -163,11 +218,7 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
                             width: double.infinity,
                             height: 50,
                             child: ElevatedButton(
-                              onPressed: () {
-                                if(_formKey.currentState!.validate()){
-                                  Navigator.pushNamed(context, RouteManger.adminMainLayout);
-                                }
-                              },
+                              onPressed: _handleLoginPressed,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: ColorManger.green,
                                 foregroundColor: Colors.white,

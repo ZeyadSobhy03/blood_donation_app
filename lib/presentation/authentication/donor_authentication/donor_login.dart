@@ -8,6 +8,7 @@ import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/resources/models/pin_verification_args.dart';
+import '../../../core/widgets/custom_pin_code.dart';
 
 
 class DonorLogin extends StatefulWidget {
@@ -37,13 +38,14 @@ class _DonorLoginState extends State<DonorLogin> {
     final appLocalization = AppLocalizations.of(context)!;
     return Navigator.pushNamed<String>(
       context,
-      RouteManger.donorPinVerificationScreen,
+      RouteManger.customPinVerificationScreen,
       arguments: PinVerificationArgs(
         title: appLocalization.donor_pin_verification_title,
         subtitle: appLocalization.donor_pin_verification_subtitle,
         submitText: appLocalization.donor_login_button,
         cancelText: appLocalization.cancel,
         invalidPinText: appLocalization.donor_pin_verification_invalid_pin,
+        role: AuthPinRole.donor,
       ),
     );
   }

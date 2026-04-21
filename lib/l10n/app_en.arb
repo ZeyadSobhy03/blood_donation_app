@@ -173,6 +173,10 @@
   "donor_pin_verification_title": "Verify code",
   "donor_pin_verification_subtitle": "Enter your 6-digit code to continue.",
   "donor_pin_verification_invalid_pin": "Please enter the full 6-digit code.",
+  "donor_resend_code": "Resend code",
+  "donor_resending_code": "Resending code...",
+  "donor_code_resent_success": "Verification code resent",
+  "donor_code_resent_error": "Unable to resend verification code",
   "donor_dont_have_account": "Don't have an account?",
   "donor_register_now": "Register Now",
   "donor_register_title": "Create Donor Account",
@@ -741,38 +745,7 @@
   "hospitalAddedSuccessfully": "Hospital added successfully",
   "totalUsers": "Total Users",
   "noTrendDataAvailable": "No trend data available",
-  "verified": "Verified",
-
-
-
-
-  "bloodRequestsTitle": "Blood Requests",
-  "@bloodRequestsTitle": {
-  "description": "The main title of the blood requests screen"
-  },
-
-  "bloodRequestsSubtitle": "Monitor and manage all blood requests",
-  "@bloodRequestsSubtitle": {
-      "description": "Subtitle explaining the purpose of the screen"
-    },
-
-  "criticalStatus": "Critical",
-  "fulfilledToday": "Fulfilled Today",
-
-  "unitsLabel": "units",
-  "contactedLabel": "contacted",
-  "confirmedLabel": "confirmed",
-  "manageButton": "Manage",
-
-  "manageRequestTitle": "Manage Blood Request",
-  "manageRequestSubtitle": "Manage the details and actions for this blood request.",
-
-  "bloodTypeLabel": "Blood Type",
-  "unitsNeededLabel": "Units Needed",
-  "donorsContactedLabel": "Donors Contacted",
-  "donorsConfirmedLabel": "Donors Confirmed",
-
-  "adminActionsTitle": "Admin Actions",
+  "verified": "Verified"
 
   "sendEmergencyBroadcastBtn": "Send Emergency Broadcast",
   "contactHospitalBtn": "Contact Hospital",

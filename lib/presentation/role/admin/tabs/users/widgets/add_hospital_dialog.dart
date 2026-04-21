@@ -30,6 +30,9 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
   late final TextEditingController _adminContactNameController;
   late final TextEditingController _adminContactPhoneController;
   late final TextEditingController _emergencyContactController;
+  late final TextEditingController _hospitalCodeController;
+  late final TextEditingController _passwordController;
+  late final TextEditingController _confirmPasswordController;
 
   String? _selectedHospitalType;
 
@@ -54,6 +57,9 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
     _adminContactNameController = TextEditingController();
     _adminContactPhoneController = TextEditingController();
     _emergencyContactController = TextEditingController();
+    _hospitalCodeController = TextEditingController();
+    _passwordController = TextEditingController();
+    _confirmPasswordController = TextEditingController();
   }
 
   @override
@@ -68,6 +74,9 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
     _adminContactNameController.dispose();
     _adminContactPhoneController.dispose();
     _emergencyContactController.dispose();
+    _hospitalCodeController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -143,6 +152,7 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
     final hospitalData = <String, dynamic>{
       'name': _nameController.text.trim(),
       'type': _selectedHospitalType,
+      'hospitalCode': _hospitalCodeController.text.trim(),
       'email': _emailController.text.trim(),
       'phone': _phoneController.text.trim(),
       'address': _locationController.text.trim(),
@@ -152,6 +162,7 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
       'adminContactName': _adminContactNameController.text.trim(),
       'adminContactPhone': _adminContactPhoneController.text.trim(),
       'emergencyContactNumber': _emergencyContactController.text.trim(),
+      'password': _passwordController.text.trim(),
     };
 
     ScaffoldMessenger.of(context)
@@ -170,6 +181,7 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
     required BuildContext context,
     TextInputType keyboardType = TextInputType.text,
     String? Function(String?)? validator,
+    bool obscureText = false,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,6 +191,7 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
           textEditingController: controller,
           keyboardType: keyboardType,
           hintText: hintText,
+          obscureText: obscureText,
           validator: validator ?? (value) => _requiredValidator(value, context),
         ),
       ],
@@ -222,6 +235,13 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
                             label: loc.hospitalName,
                             hintText: loc.enterHospitalName,
                             controller: _nameController,
+                            context: context,
+                          ),
+                          const SizedBox(height: 16),
+                          _buildField(
+                            label: loc.hospital_id,
+                            hintText: loc.please_enter_hospital_id,
+                            controller: _hospitalCodeController,
                             context: context,
                           ),
                           const SizedBox(height: 16),
@@ -322,6 +342,29 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
                             keyboardType: TextInputType.phone,
                             validator: (value) =>
                                 (value ?? '').phoneValidator(context),
+                          ),
+                          const SizedBox(height: 16),
+                          _buildField(
+                            label: loc.secure_password,
+                            hintText: loc.please_enter_secure_password,
+                            controller: _passwordController,
+                            context: context,
+                            obscureText: true,
+                            validator: (value) =>
+                                (value ?? '').passwordValidator(context),
+                          ),
+                          const SizedBox(height: 16),
+                          _buildField(
+                            label: loc.confirm_password,
+                            hintText: loc.please_confirm_password,
+                            controller: _confirmPasswordController,
+                            context: context,
+                            obscureText: true,
+                            validator: (value) => (value ?? '')
+                                .confirmPasswordValidator(
+                                  context,
+                                  _passwordController.text.trim(),
+                                ),
                           ),
                           const SizedBox(height: 8),
                         ],
