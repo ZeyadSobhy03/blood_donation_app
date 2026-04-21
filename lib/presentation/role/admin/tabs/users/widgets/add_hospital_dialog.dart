@@ -208,7 +208,7 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
               key: _formKey,
               child: Column(
                 children: [
-                  RequestHeader(
+                  CustomDialogHeader(
                     title: loc.addHospital,
                     subtitle: loc.addHospitalSubtitle,
                   ),

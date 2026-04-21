@@ -38,7 +38,7 @@ class AlertsDialog extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  RequestHeader(
+                  CustomDialogHeader(
                     title: appLocalization.alertDetails,
                     subtitle: appLocalization.alertDetailsSubtitle,
                   ),

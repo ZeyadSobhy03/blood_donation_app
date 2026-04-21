@@ -5,8 +5,8 @@ import '../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../core/widgets/custom_text.dart';
 
-class RequestHeader extends StatelessWidget {
-  const RequestHeader({super.key, required this.title, required this.subtitle});
+class CustomDialogHeader extends StatelessWidget {
+  const CustomDialogHeader({super.key, required this.title, required this.subtitle});
 
   final String title;
   final String subtitle;

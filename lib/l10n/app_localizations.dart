@@ -4483,6 +4483,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unknown'**
   String get unknown;
+
+  /// No description provided for @systemSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'System Settings'**
+  String get systemSettingsTitle;
+
+  /// No description provided for @systemSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure System Preferences'**
+  String get systemSettingsSubtitle;
+
+  /// No description provided for @notificationSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Settings'**
+  String get notificationSettings;
+
+  /// No description provided for @criticalBloodShortageNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical blood shortage notifications'**
+  String get criticalBloodShortageNotifications;
+
+  /// No description provided for @machineLearningDemandForecasts.
+  ///
+  /// In en, this message translates to:
+  /// **'Machine learning demand forecasts'**
+  String get machineLearningDemandForecasts;
+
+  /// No description provided for @roleBasedPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Role-Based Permissions'**
+  String get roleBasedPermissions;
+
+  /// No description provided for @viewAuditLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'View Audit Logs'**
+  String get viewAuditLogs;
+
+  /// No description provided for @requiredForAllAdminAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Required for all admin accounts'**
+  String get requiredForAllAdminAccounts;
+
+  /// No description provided for @gpsAndLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'GPS & Location'**
+  String get gpsAndLocation;
+
+  /// No description provided for @configureSearchRadius.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure Search Radius'**
+  String get configureSearchRadius;
+
+  /// No description provided for @locationAccuracySettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Accuracy Settings'**
+  String get locationAccuracySettings;
+
+  /// No description provided for @systemHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'System Health'**
+  String get systemHealth;
+
+  /// No description provided for @systemHealthCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'System Health Check'**
+  String get systemHealthCheck;
 }
 
 class _AppLocalizationsDelegate

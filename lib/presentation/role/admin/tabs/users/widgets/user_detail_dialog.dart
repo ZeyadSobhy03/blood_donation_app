@@ -66,7 +66,7 @@ class UserDetailDialog extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  RequestHeader(
+                  CustomDialogHeader(
                     title: appLocalization.userDetails,
                     subtitle: appLocalization.userDetailsSubtitle,
                   ),

@@ -147,7 +147,7 @@ class ContactDonorDialog extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                RequestHeader(
+                CustomDialogHeader(
                   title: appLocalizations.contact_donor,
                   subtitle: appLocalizations.contact_donor_desc,
                 ),

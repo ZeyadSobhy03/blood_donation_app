@@ -2341,4 +2341,45 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unknown => 'غير معروف';
+
+  @override
+  String get systemSettingsTitle => 'إعدادات النظام';
+
+  @override
+  String get systemSettingsSubtitle => 'تكوين تفضيلات النظام';
+
+  @override
+  String get notificationSettings => 'إعدادات الإشعارات';
+
+  @override
+  String get criticalBloodShortageNotifications =>
+      'إشعارات النقص الحرج في الدم';
+
+  @override
+  String get machineLearningDemandForecasts =>
+      'توقعات الطلب باستخدام التعلم الآلي';
+
+  @override
+  String get roleBasedPermissions => 'الأذونات حسب الدور';
+
+  @override
+  String get viewAuditLogs => 'عرض سجل التدقيق';
+
+  @override
+  String get requiredForAllAdminAccounts => 'مطلوبة لجميع حسابات المسؤول';
+
+  @override
+  String get gpsAndLocation => 'الموقع و GPS';
+
+  @override
+  String get configureSearchRadius => 'تحديد نطاق البحث';
+
+  @override
+  String get locationAccuracySettings => 'إعدادات دقة الموقع';
+
+  @override
+  String get systemHealth => 'صحة النظام';
+
+  @override
+  String get systemHealthCheck => 'فحص صحة النظام';
 }

@@ -38,7 +38,7 @@ class _ConfirmDonationDialogState extends State<ConfirmDonationDialog> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  RequestHeader(
+                  CustomDialogHeader(
                     title: appLocalization.generate_donation_qr,
                     subtitle: appLocalization.qr_valid_message,
                   ),

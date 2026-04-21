@@ -33,7 +33,7 @@ class ManageRequestDialog extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  RequestHeader(
+                  CustomDialogHeader(
                     title: appLocalizations.manageRequestTitle,
                     subtitle: appLocalizations.manageRequestSubtitle,
                   ),

@@ -56,7 +56,7 @@ class _ChangeLocationDialogState extends State<ChangeLocationDialog> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              RequestHeader(
+              CustomDialogHeader(
                 title: appLocalizations.change_location,
                 subtitle: appLocalizations.change_location_desc,
               ),

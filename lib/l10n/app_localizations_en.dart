@@ -2351,4 +2351,45 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unknown => 'Unknown';
+
+  @override
+  String get systemSettingsTitle => 'System Settings';
+
+  @override
+  String get systemSettingsSubtitle => 'Configure System Preferences';
+
+  @override
+  String get notificationSettings => 'Notification Settings';
+
+  @override
+  String get criticalBloodShortageNotifications =>
+      'Critical blood shortage notifications';
+
+  @override
+  String get machineLearningDemandForecasts =>
+      'Machine learning demand forecasts';
+
+  @override
+  String get roleBasedPermissions => 'Role-Based Permissions';
+
+  @override
+  String get viewAuditLogs => 'View Audit Logs';
+
+  @override
+  String get requiredForAllAdminAccounts => 'Required for all admin accounts';
+
+  @override
+  String get gpsAndLocation => 'GPS & Location';
+
+  @override
+  String get configureSearchRadius => 'Configure Search Radius';
+
+  @override
+  String get locationAccuracySettings => 'Location Accuracy Settings';
+
+  @override
+  String get systemHealth => 'System Health';
+
+  @override
+  String get systemHealthCheck => 'System Health Check';
 }

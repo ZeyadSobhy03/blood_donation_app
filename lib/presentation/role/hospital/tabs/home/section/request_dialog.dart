@@ -21,7 +21,7 @@ class RequestDialog extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              RequestHeader(
+              CustomDialogHeader(
                 title: appLocalizations.emergency_request,
                 subtitle: appLocalizations.emergency_blood_request_desc,
               ),

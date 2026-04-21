@@ -33,7 +33,7 @@ class RecentRequestDetailDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                RequestHeader(
+                CustomDialogHeader(
                   title: appLocalization.requestDetails,
                   subtitle: appLocalization.requestDetailsSubtitle,
                 ),

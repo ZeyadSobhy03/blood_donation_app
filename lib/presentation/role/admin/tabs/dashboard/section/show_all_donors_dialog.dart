@@ -240,7 +240,7 @@ class ShowAllDonorsDialog extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  RequestHeader(
+                  CustomDialogHeader(
                     title: appLocalization.allTopDonors,
                     subtitle:
                         appLocalization.allTopDonorsSubtitle,

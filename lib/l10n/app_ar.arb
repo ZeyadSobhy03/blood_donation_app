@@ -791,8 +791,20 @@
   "eastSide": "الجانب الشرقي",
   "westSide": "الجانب الغربي",
   "hours_left": "باقي {count} ساعة",
-  "unknown": "غير معروف"
+  "unknown": "غير معروف",
 
-
+  "systemSettingsTitle": "إعدادات النظام",
+  "systemSettingsSubtitle": "تكوين تفضيلات النظام",
+  "notificationSettings": "إعدادات الإشعارات",
+  "criticalBloodShortageNotifications": "إشعارات النقص الحرج في الدم",
+  "machineLearningDemandForecasts": "توقعات الطلب باستخدام التعلم الآلي",
+  "roleBasedPermissions": "الأذونات حسب الدور",
+  "viewAuditLogs": "عرض سجل التدقيق",
+  "requiredForAllAdminAccounts": "مطلوبة لجميع حسابات المسؤول",
+  "gpsAndLocation": "الموقع و GPS",
+  "configureSearchRadius": "تحديد نطاق البحث",
+  "locationAccuracySettings": "إعدادات دقة الموقع",
+  "systemHealth": "صحة النظام",
+  "systemHealthCheck": "فحص صحة النظام"
 
 }

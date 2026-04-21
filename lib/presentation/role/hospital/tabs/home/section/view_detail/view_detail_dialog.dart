@@ -26,7 +26,7 @@ class ViewDetailDialog extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                RequestHeader(
+                CustomDialogHeader(
                   title: appLocalizations.request_details,
                   subtitle: appLocalizations.request_details_desc,
                 ),

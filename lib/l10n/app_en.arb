@@ -788,7 +788,20 @@
   "westSide": "WestSide",
 
   "hours_left": "{count} hours left",
-  "unknown": "Unknown"
+  "unknown": "Unknown",
 
+  "systemSettingsTitle": "System Settings",
+  "systemSettingsSubtitle": "Configure System Preferences",
+  "notificationSettings": "Notification Settings",
+  "criticalBloodShortageNotifications": "Critical blood shortage notifications",
+  "machineLearningDemandForecasts": "Machine learning demand forecasts",
+  "roleBasedPermissions": "Role-Based Permissions",
+  "viewAuditLogs": "View Audit Logs",
+  "requiredForAllAdminAccounts": "Required for all admin accounts",
+  "gpsAndLocation": "GPS & Location",
+  "configureSearchRadius": "Configure Search Radius",
+  "locationAccuracySettings": "Location Accuracy Settings",
+  "systemHealth": "System Health",
+  "systemHealthCheck": "System Health Check"
 
 }
