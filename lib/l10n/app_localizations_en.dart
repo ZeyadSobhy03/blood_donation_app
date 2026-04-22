@@ -2469,4 +2469,137 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pleasSelectDepartment => 'Please select a department';
+
+  @override
+  String get roleBasedPermissionsTitle => 'Role-Based Permissions';
+
+  @override
+  String get roleBasedPermissionsSubtitle =>
+      'Configure access levels for different user roles.';
+
+  @override
+  String get adminPermissions => 'Admin Permissions';
+
+  @override
+  String get systemSettings => 'System Settings';
+
+  @override
+  String get emergencyBroadcasts => 'Emergency Broadcasts';
+
+  @override
+  String get hospitalPermissions => 'Hospital Permissions';
+
+  @override
+  String get createRequests => 'Create Requests';
+
+  @override
+  String get generateQrCodes => 'Generate QR Codes';
+
+  @override
+  String get viewAnalytics => 'View Analytics';
+
+  @override
+  String get donorPermissions => 'Donor Permissions';
+
+  @override
+  String get viewRequests => 'View Requests';
+
+  @override
+  String get respondToAlerts => 'Respond to Alerts';
+
+  @override
+  String get earnRewards => 'Earn Rewards';
+
+  @override
+  String get systemControl => 'System Control';
+
+  @override
+  String get enableMaintenanceMode => 'Enable Maintenance Mode';
+
+  @override
+  String get emergencyShutdown => 'Emergency Shutdown';
+
+  @override
+  String get runComprehensiveHealthCheck =>
+      'Run a comprehensive system health check.';
+
+  @override
+  String get databaseConnection => 'Database Connection';
+
+  @override
+  String get responseTime45ms => 'Response time: 45ms';
+
+  @override
+  String get apiServer => 'API Server';
+
+  @override
+  String get uptime99_9 => 'Uptime: 99.9%';
+
+  @override
+  String get notificationService => 'Notification Service';
+
+  @override
+  String get queue12Pending => 'Queue: 12 pending';
+
+  @override
+  String get gpsServices => 'GPS Services';
+
+  @override
+  String get activeConnections234 => 'Active connections: 234';
+
+  @override
+  String get storage => 'Storage';
+
+  @override
+  String get usedStorage => 'Used: 45% (22GB / 50GB)';
+
+  @override
+  String get healthy => 'Healthy';
+
+  @override
+  String get warning => 'Warning';
+
+  @override
+  String get reRunCheck => 'Re-run Check';
+
+  @override
+  String get completeCheck => 'Complete Check';
+
+  @override
+  String get maintenanceWarningTitle => 'Warning: ';
+
+  @override
+  String get maintenanceWarningMessage =>
+      ' Enabling maintenance mode will temporarily disable access for all users except administrator';
+
+  @override
+  String get maintenanceNoteMessage =>
+      'Users will see a maintenance message and will be unable to access the system during this time.';
+
+  @override
+  String get enableMaintenanceModeTitle => 'Enable Maintenance Mode';
+
+  @override
+  String get enableMaintenanceModeSubtitle =>
+      'Put the system into maintenance mode.';
+
+  @override
+  String get reasonForMaintenanceMode => 'Reason for Maintenance Mode';
+
+  @override
+  String get enterReasonForMaintenance =>
+      'Enter the reason for enabling maintenance mode';
+
+  @override
+  String get estimatedDurationMinutes => 'Estimated Duration (minutes)';
+
+  @override
+  String get enterEstimatedDuration =>
+      'Enter the estimated duration of maintenance mode';
+
+  @override
+  String get enableMaintenanceButton => 'Enable Maintenance';
+
+  @override
+  String get pleaseEnterValidNumber => 'Please enter a valid number';
 }

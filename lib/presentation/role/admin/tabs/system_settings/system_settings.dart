@@ -1,19 +1,32 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
+import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/admin_detail_card.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/audit_logs_dialog.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/clickable_tile.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/enable_maintenance_mode_dialog.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/role_based_permission_dialog.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/section_card.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/switch_tile.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/system_control_card.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/system_health_check_dialog.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/widgets/hospital_title.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../l10n/app_localizations.dart';
+import '../../../donor/tabs/profile/sections/app_footer.dart';
 
-class SystemSettings extends StatelessWidget {
+class SystemSettings extends StatefulWidget {
   const SystemSettings({super.key});
 
+  @override
+  State<SystemSettings> createState() => _SystemSettingsState();
+}
+
+class _SystemSettingsState extends State<SystemSettings> {
+  bool emergencyAlertsEnabled = true;
+  bool aiPredictionsEnabled = true;
+  bool twoFactorAuthEnabled = true;
 
   void showPermissionsDialog(BuildContext context) {
     showDialog(
@@ -37,36 +50,20 @@ class SystemSettings extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
 
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
 
             children: [
               CustomTitle(
                 title: appLocalization.systemSettingsTitle,
                 subTitle: appLocalization.systemSettingsSubtitle,
               ),
-              SizedBox(height: 16,),
+              SizedBox(height: 16),
               AdminDetailCard(
                 adminName: "Admin Name",
-                adminPosition: "Super Admin"
-
-
+                adminPosition: "Super Admin",
               ),
-              SectionCard(
-                title: appLocalization.notificationSettings,
-                icon: Icons.notifications_none,
-                children: [
-                  SwitchTile(
-                    appLocalization.emergencyAlerts,
-                    appLocalization.criticalBloodShortageNotifications,
-                    true,
-                  ),
-                  SwitchTile(
-                    appLocalization.aiPredictions,
-                    appLocalization.machineLearningDemandForecasts,
-                    true,
-                  ),
-                ],
-              ),
+
               const SizedBox(height: 16),
               SectionCard(
                 title: appLocalization.securitySettings,
@@ -77,28 +74,16 @@ class SystemSettings extends StatelessWidget {
                     label: appLocalization.roleBasedPermissions,
                     onTap: () => showPermissionsDialog(context),
                   ),
-                  ClickableTile(
-                    icon: Icons.storage,
-                    label: appLocalization.viewAuditLogs,
-                    onTap: () => showAuditLogsDialog(context),
-                  ),
                   const Divider(),
-                  SwitchTile(
-                    appLocalization.twoFactorAuthentication,
-                    appLocalization.requiredForAllAdminAccounts,
-                    true,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              SectionCard(
-                title: appLocalization.gpsAndLocation,
-                icon: Icons.location_on_outlined,
-                children: [
-                  ClickableTile(label: appLocalization.configureSearchRadius, onTap: () {}),
-                  ClickableTile(
-                    label: appLocalization.locationAccuracySettings,
-                    onTap: () {},
+                  CustomSwitchTile(
+                    title: appLocalization.twoFactorAuthentication,
+                    subtitle: appLocalization.requiredForAllAdminAccounts,
+                    val: twoFactorAuthEnabled,
+                    onChanged: (value) {
+                      setState(() {
+                        twoFactorAuthEnabled = value;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -110,12 +95,46 @@ class SystemSettings extends StatelessWidget {
                   ClickableTile(
                     icon: Icons.refresh,
                     label: appLocalization.systemHealthCheck,
-                    onTap: () {},
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return SystemHealthCheckDialog();
+                        },
+                      );
+                    },
                   ),
                 ],
               ),
               const SizedBox(height: 16),
-              SystemControlCard(),
+              SystemControlCard(
+                onTapEmergencyShutdown: () {
+
+                },
+                onTapEnableMaintenanceMode: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return EnableMaintenanceModeDialog();
+                    },
+                  );
+                },
+              ),
+              const SizedBox(height: 16),
+              CustomElevatedButton(
+                foregroundColor: ColorManger.pureWhite,
+                backgroundColor: ColorManger.green,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  side: BorderSide(color: ColorManger.green),
+                ),
+                elevation: 0,
+                onPressed: () {},
+                child: CustomText(text: appLocalization.logout),
+              ),
+              SizedBox(height: 16),
+              AppFooter(),
+              SizedBox(height: 16),
             ],
           ),
         ),

@@ -825,9 +825,59 @@
   "userSupport": "دعم المستخدمين",
   "dataManagement": "إدارة البيانات",
   "security": "الأمان",
-   "selectDepartment": "اختر القسم",
-   "notePrefix": "ملاحظة:",
-   "adminNoteMessage": "سيتم تسجيل التغييرات على ملفك الشخصي في نظام التدقيق وقد تتطلب التحقق من مسؤول آخر.",
-   "pleasSelectDepartment": "يرجى اختيار قسم"
+    "selectDepartment": "اختر القسم",
+    "notePrefix": "ملاحظة:",
+    "adminNoteMessage": "سيتم تسجيل التغييرات على ملفك الشخصي في نظام التدقيق وقد تتطلب التحقق من مسؤول آخر.",
+    "pleasSelectDepartment": "يرجى اختيار قسم",
+    "roleBasedPermissionsTitle": "الأذونات حسب الدور",
+    "roleBasedPermissionsSubtitle": "تكوين مستويات الوصول للأدوار المختلفة.",
+    "adminPermissions": "أذونات المسؤول",
+    "emergencyBroadcasts": "البث الطاريء",
+    "hospitalPermissions": "أذونات المستشفى",
+    "createRequests": "إنشاء الطلبات",
+    "generateQrCodes": "توليد رموز QR",
+    "viewAnalytics": "عرض التحليلات",
+    "donorPermissions": "أذونات المتبرع",
+    "viewRequests": "عرض الطلبات",
+    "respondToAlerts": "الرد على التنبيهات",
+    "earnRewards": "كسب المكافآت",
+  "systemSettings": "إعدادات النظام",
+  "systemControl": "التحكم في النظام",
+  "enableMaintenanceMode": "تفعيل وضع الصيانة",
+  "emergencyShutdown": "إيقاف الطوارئ",
+  "runComprehensiveHealthCheck": "قم بإجراء فحص صحة شامل للنظام.",
+  "databaseConnection": "اتصال قاعدة البيانات",
+  "responseTime45ms": "وقت الاستجابة: 45ms",
+  "apiServer": "خادم API",
+  "uptime99_9": "وقت التشغيل: 99.9%",
+  "notificationService": "خدمة الإشعارات",
+  "queue12Pending": "الطابور: 12 معلقة",
+  "gpsServices": "خدمات GPS",
+  "activeConnections234": "الاتصالات النشطة: 234",
+  "storage": "التخزين",
+  "usedStorage": "مستخدم: 45% (22GB / 50GB)",
+  "healthy": "صحي",
+  "warning": "تحذير",
+  "reRunCheck": "إعادة التحقق",
+   "completeCheck": "فحص كامل",
+   "maintenanceWarningTitle": "تنبيه: ",
+   "maintenanceWarningMessage": " تفعيل وضع الصيانة سيؤدي إلى تعطيل الوصول مؤقتاً لجميع المستخدمين باستثناء المسؤول",
+   "maintenanceNoteMessage": "سيرى المستخدمون رسالة صيانة وسيكونون غير قادرين على الوصول إلى النظام خلال هذا الوقت.",
+   "enableMaintenanceModeTitle": "تفعيل وضع الصيانة",
+   "enableMaintenanceModeSubtitle": "ضع النظام في وضع الصيانة.",
+   "reasonForMaintenanceMode": "سبب وضع الصيانة",
+   "enterReasonForMaintenance": "أدخل السبب لتفعيل وضع الصيانة",
+   "estimatedDurationMinutes": "المدة المتوقعة (دقائق)",
+   "enterEstimatedDuration": "أدخل المدة المتوقعة لوضع الصيانة",
+   "enableMaintenanceButton": "تفعيل الصيانة",
+   "pleaseEnterValidNumber": "يرجى إدخال رقم صحيح"
+
+
+
+
+
+
+
+
 
 }

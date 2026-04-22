@@ -234,7 +234,7 @@ class _EditAdminDialogState extends State<EditAdminDialog> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: CustomText(
-            text: 'Please select a department',
+            text: appLocalization.pleasSelectDepartment,
             textStyle: TextStyle(color: ColorManger.pureWhite),
           ),
           backgroundColor: ColorManger.brightRed,

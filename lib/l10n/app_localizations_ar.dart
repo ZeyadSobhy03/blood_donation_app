@@ -2459,4 +2459,133 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pleasSelectDepartment => 'يرجى اختيار قسم';
+
+  @override
+  String get roleBasedPermissionsTitle => 'الأذونات حسب الدور';
+
+  @override
+  String get roleBasedPermissionsSubtitle =>
+      'تكوين مستويات الوصول للأدوار المختلفة.';
+
+  @override
+  String get adminPermissions => 'أذونات المسؤول';
+
+  @override
+  String get systemSettings => 'إعدادات النظام';
+
+  @override
+  String get emergencyBroadcasts => 'البث الطاريء';
+
+  @override
+  String get hospitalPermissions => 'أذونات المستشفى';
+
+  @override
+  String get createRequests => 'إنشاء الطلبات';
+
+  @override
+  String get generateQrCodes => 'توليد رموز QR';
+
+  @override
+  String get viewAnalytics => 'عرض التحليلات';
+
+  @override
+  String get donorPermissions => 'أذونات المتبرع';
+
+  @override
+  String get viewRequests => 'عرض الطلبات';
+
+  @override
+  String get respondToAlerts => 'الرد على التنبيهات';
+
+  @override
+  String get earnRewards => 'كسب المكافآت';
+
+  @override
+  String get systemControl => 'التحكم في النظام';
+
+  @override
+  String get enableMaintenanceMode => 'تفعيل وضع الصيانة';
+
+  @override
+  String get emergencyShutdown => 'إيقاف الطوارئ';
+
+  @override
+  String get runComprehensiveHealthCheck => 'قم بإجراء فحص صحة شامل للنظام.';
+
+  @override
+  String get databaseConnection => 'اتصال قاعدة البيانات';
+
+  @override
+  String get responseTime45ms => 'وقت الاستجابة: 45ms';
+
+  @override
+  String get apiServer => 'خادم API';
+
+  @override
+  String get uptime99_9 => 'وقت التشغيل: 99.9%';
+
+  @override
+  String get notificationService => 'خدمة الإشعارات';
+
+  @override
+  String get queue12Pending => 'الطابور: 12 معلقة';
+
+  @override
+  String get gpsServices => 'خدمات GPS';
+
+  @override
+  String get activeConnections234 => 'الاتصالات النشطة: 234';
+
+  @override
+  String get storage => 'التخزين';
+
+  @override
+  String get usedStorage => 'مستخدم: 45% (22GB / 50GB)';
+
+  @override
+  String get healthy => 'صحي';
+
+  @override
+  String get warning => 'تحذير';
+
+  @override
+  String get reRunCheck => 'إعادة التحقق';
+
+  @override
+  String get completeCheck => 'فحص كامل';
+
+  @override
+  String get maintenanceWarningTitle => 'تنبيه: ';
+
+  @override
+  String get maintenanceWarningMessage =>
+      ' تفعيل وضع الصيانة سيؤدي إلى تعطيل الوصول مؤقتاً لجميع المستخدمين باستثناء المسؤول';
+
+  @override
+  String get maintenanceNoteMessage =>
+      'سيرى المستخدمون رسالة صيانة وسيكونون غير قادرين على الوصول إلى النظام خلال هذا الوقت.';
+
+  @override
+  String get enableMaintenanceModeTitle => 'تفعيل وضع الصيانة';
+
+  @override
+  String get enableMaintenanceModeSubtitle => 'ضع النظام في وضع الصيانة.';
+
+  @override
+  String get reasonForMaintenanceMode => 'سبب وضع الصيانة';
+
+  @override
+  String get enterReasonForMaintenance => 'أدخل السبب لتفعيل وضع الصيانة';
+
+  @override
+  String get estimatedDurationMinutes => 'المدة المتوقعة (دقائق)';
+
+  @override
+  String get enterEstimatedDuration => 'أدخل المدة المتوقعة لوضع الصيانة';
+
+  @override
+  String get enableMaintenanceButton => 'تفعيل الصيانة';
+
+  @override
+  String get pleaseEnterValidNumber => 'يرجى إدخال رقم صحيح';
 }

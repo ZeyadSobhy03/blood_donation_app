@@ -4711,6 +4711,258 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please select a department'**
   String get pleasSelectDepartment;
+
+  /// No description provided for @roleBasedPermissionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Role-Based Permissions'**
+  String get roleBasedPermissionsTitle;
+
+  /// No description provided for @roleBasedPermissionsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure access levels for different user roles.'**
+  String get roleBasedPermissionsSubtitle;
+
+  /// No description provided for @adminPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Permissions'**
+  String get adminPermissions;
+
+  /// No description provided for @systemSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'System Settings'**
+  String get systemSettings;
+
+  /// No description provided for @emergencyBroadcasts.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Broadcasts'**
+  String get emergencyBroadcasts;
+
+  /// No description provided for @hospitalPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Permissions'**
+  String get hospitalPermissions;
+
+  /// No description provided for @createRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Requests'**
+  String get createRequests;
+
+  /// No description provided for @generateQrCodes.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate QR Codes'**
+  String get generateQrCodes;
+
+  /// No description provided for @viewAnalytics.
+  ///
+  /// In en, this message translates to:
+  /// **'View Analytics'**
+  String get viewAnalytics;
+
+  /// No description provided for @donorPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Permissions'**
+  String get donorPermissions;
+
+  /// No description provided for @viewRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'View Requests'**
+  String get viewRequests;
+
+  /// No description provided for @respondToAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Respond to Alerts'**
+  String get respondToAlerts;
+
+  /// No description provided for @earnRewards.
+  ///
+  /// In en, this message translates to:
+  /// **'Earn Rewards'**
+  String get earnRewards;
+
+  /// No description provided for @systemControl.
+  ///
+  /// In en, this message translates to:
+  /// **'System Control'**
+  String get systemControl;
+
+  /// No description provided for @enableMaintenanceMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Maintenance Mode'**
+  String get enableMaintenanceMode;
+
+  /// No description provided for @emergencyShutdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Shutdown'**
+  String get emergencyShutdown;
+
+  /// No description provided for @runComprehensiveHealthCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Run a comprehensive system health check.'**
+  String get runComprehensiveHealthCheck;
+
+  /// No description provided for @databaseConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Database Connection'**
+  String get databaseConnection;
+
+  /// No description provided for @responseTime45ms.
+  ///
+  /// In en, this message translates to:
+  /// **'Response time: 45ms'**
+  String get responseTime45ms;
+
+  /// No description provided for @apiServer.
+  ///
+  /// In en, this message translates to:
+  /// **'API Server'**
+  String get apiServer;
+
+  /// No description provided for @uptime99_9.
+  ///
+  /// In en, this message translates to:
+  /// **'Uptime: 99.9%'**
+  String get uptime99_9;
+
+  /// No description provided for @notificationService.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Service'**
+  String get notificationService;
+
+  /// No description provided for @queue12Pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Queue: 12 pending'**
+  String get queue12Pending;
+
+  /// No description provided for @gpsServices.
+  ///
+  /// In en, this message translates to:
+  /// **'GPS Services'**
+  String get gpsServices;
+
+  /// No description provided for @activeConnections234.
+  ///
+  /// In en, this message translates to:
+  /// **'Active connections: 234'**
+  String get activeConnections234;
+
+  /// No description provided for @storage.
+  ///
+  /// In en, this message translates to:
+  /// **'Storage'**
+  String get storage;
+
+  /// No description provided for @usedStorage.
+  ///
+  /// In en, this message translates to:
+  /// **'Used: 45% (22GB / 50GB)'**
+  String get usedStorage;
+
+  /// No description provided for @healthy.
+  ///
+  /// In en, this message translates to:
+  /// **'Healthy'**
+  String get healthy;
+
+  /// No description provided for @warning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning'**
+  String get warning;
+
+  /// No description provided for @reRunCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Re-run Check'**
+  String get reRunCheck;
+
+  /// No description provided for @completeCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Check'**
+  String get completeCheck;
+
+  /// No description provided for @maintenanceWarningTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning: '**
+  String get maintenanceWarningTitle;
+
+  /// No description provided for @maintenanceWarningMessage.
+  ///
+  /// In en, this message translates to:
+  /// **' Enabling maintenance mode will temporarily disable access for all users except administrator'**
+  String get maintenanceWarningMessage;
+
+  /// No description provided for @maintenanceNoteMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Users will see a maintenance message and will be unable to access the system during this time.'**
+  String get maintenanceNoteMessage;
+
+  /// No description provided for @enableMaintenanceModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Maintenance Mode'**
+  String get enableMaintenanceModeTitle;
+
+  /// No description provided for @enableMaintenanceModeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Put the system into maintenance mode.'**
+  String get enableMaintenanceModeSubtitle;
+
+  /// No description provided for @reasonForMaintenanceMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason for Maintenance Mode'**
+  String get reasonForMaintenanceMode;
+
+  /// No description provided for @enterReasonForMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the reason for enabling maintenance mode'**
+  String get enterReasonForMaintenance;
+
+  /// No description provided for @estimatedDurationMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated Duration (minutes)'**
+  String get estimatedDurationMinutes;
+
+  /// No description provided for @enterEstimatedDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the estimated duration of maintenance mode'**
+  String get enterEstimatedDuration;
+
+  /// No description provided for @enableMaintenanceButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Maintenance'**
+  String get enableMaintenanceButton;
+
+  /// No description provided for @pleaseEnterValidNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid number'**
+  String get pleaseEnterValidNumber;
 }
 
 class _AppLocalizationsDelegate

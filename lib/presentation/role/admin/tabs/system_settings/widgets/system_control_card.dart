@@ -1,11 +1,21 @@
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/control_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
+
 class SystemControlCard extends StatelessWidget {
-  const SystemControlCard({super.key});
+  const SystemControlCard({
+    super.key,
+    this.onTapEnableMaintenanceMode,
+    this.onTapEmergencyShutdown,
+  });
+
+  final VoidCallback? onTapEnableMaintenanceMode;
+  final VoidCallback? onTapEmergencyShutdown;
 
   @override
   Widget build(BuildContext context) {
+    final appLocalization = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -17,16 +27,33 @@ class SystemControlCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            children: const [
-              Icon(Icons.power_settings_new, color: Color(0xFFD35400)),
-              SizedBox(width: 8),
-              Text('System Control', style: TextStyle(fontSize: 18, color: Color(0xFFD35400), fontWeight: FontWeight.w500)),
+            children: [
+              const Icon(Icons.power_settings_new, color: Color(0xFFD35400)),
+              const SizedBox(width: 8),
+              Text(
+                appLocalization.systemControl,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFFD35400),
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 16),
-          ControlButton('Enable Maintenance Mode', const Color(0xFFD35400), false),
+          ControlButton(
+            appLocalization.enableMaintenanceMode,
+            const Color(0xFFD35400),
+            false,
+            onTap: onTapEnableMaintenanceMode,
+          ),
           const SizedBox(height: 8),
-          ControlButton('Emergency Shutdown', Colors.red, true),
+          ControlButton(
+            appLocalization.emergencyShutdown,
+            Colors.red,
+            true,
+            onTap: onTapEmergencyShutdown,
+          ),
         ],
       ),
     );

@@ -26,7 +26,7 @@ class LogOutButton extends StatelessWidget {
               width: 1,
             ),
           ),
-          elevation: 4,
+          elevation: 0,
           foregroundColor: ColorManger.brightRed,
           backgroundColor: ColorManger.pureWhite,
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
