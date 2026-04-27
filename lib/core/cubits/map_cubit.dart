@@ -1,26 +1,21 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:geocoding/geocoding.dart';
+
 
 class MapCubit extends Cubit<MapState> {
   MapCubit() : super(MapInitial()) {
-    _determinePosition();
+    _startListening();
   }
 
-  double calculateDistance(
-    double startLatitude,
-    double startLongitude,
-    double endLatitude,
-    double endLongitude,
-  )  {
-    return Geolocator.distanceBetween(
-      startLatitude,
-      startLongitude,
-      endLatitude,
-      endLongitude,
-    );
-  }
+  Position? _lastPosition;
+  DateTime? _lastUpdateTime;
+  String? _lastGovernorate;
 
-  Future<void> _determinePosition() async {
+  final double distanceThreshold = 2000; // 2 KM
+  final Duration timeThreshold = Duration(minutes: 15);
+
+  void _startListening() async {
     bool serviceEnabled = await _locationServiceEnabled();
     if (!serviceEnabled) {
       emit(MapError('Location service is not enabled'));
@@ -34,13 +29,61 @@ class MapCubit extends Cubit<MapState> {
     }
 
     emit(MapLoading());
-    Position position = await Geolocator.getCurrentPosition();
-    emit(
-      MapLoaded(
-        latitude: position.latitude,
-        longitude: position.longitude,
-      ),
+
+    Geolocator.getPositionStream().listen((position) async {
+      bool shouldUpdate = await _shouldEmit(position);
+
+      if (shouldUpdate) {
+        _lastPosition = position;
+        _lastUpdateTime = DateTime.now();
+
+        emit(MapLoaded(
+          latitude: position.latitude,
+          longitude: position.longitude,
+        ));
+      }
+    });
+  }
+
+  Future<bool> _shouldEmit(Position newPosition) async {
+    if (_lastPosition == null) return true;
+
+    double distance = Geolocator.distanceBetween(
+      _lastPosition!.latitude,
+      _lastPosition!.longitude,
+      newPosition.latitude,
+      newPosition.longitude,
     );
+
+    if (distance >= distanceThreshold) return true;
+
+    if (_lastUpdateTime != null &&
+        DateTime.now().difference(_lastUpdateTime!) >= timeThreshold) {
+      return true;
+    }
+
+    String newGovernorate = await _getGovernorate(newPosition);
+
+    if (_lastGovernorate == null) {
+      _lastGovernorate = newGovernorate;
+      return true;
+    }
+
+    if (newGovernorate != _lastGovernorate) {
+      _lastGovernorate = newGovernorate;
+      return true;
+    }
+
+    return false;
+  }
+
+  Future<String> _getGovernorate(Position position) async {
+    List<Placemark> placemarks = await placemarkFromCoordinates(
+      position.latitude,
+      position.longitude,
+    );
+
+    return placemarks.first.administrativeArea ?? 'Unknown';
   }
 
   Future<bool> _locationServiceEnabled() async {

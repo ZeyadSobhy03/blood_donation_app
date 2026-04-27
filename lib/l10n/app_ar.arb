@@ -867,14 +867,31 @@
    "enableMaintenanceModeSubtitle": "ضع النظام في وضع الصيانة.",
    "reasonForMaintenanceMode": "سبب وضع الصيانة",
    "enterReasonForMaintenance": "أدخل السبب لتفعيل وضع الصيانة",
-   "estimatedDurationMinutes": "المدة المتوقعة (دقائق)",
-   "enterEstimatedDuration": "أدخل المدة المتوقعة لوضع الصيانة",
-   "enableMaintenanceButton": "تفعيل الصيانة",
-   "pleaseEnterValidNumber": "يرجى إدخال رقم صحيح"
-
-
-
-
+    "estimatedDurationMinutes": "المدة المتوقعة (دقائق)",
+    "enterEstimatedDuration": "أدخل المدة المتوقعة لوضع الصيانة",
+    "enableMaintenanceButton": "تفعيل الصيانة",
+    "pleaseEnterValidNumber": "يرجى إدخال رقم صحيح",
+    "processingRequest": "جاري معالجة طلبك...",
+    "loadingMessage": "يرجى الانتظار...",
+    "operationSuccessful": "تمت العملية بنجاح",
+    "successDetails": "التفاصيل",
+    "continueButton": "متابعة",
+    "donationSuccessful": "تم التبرع بنجاح",
+    "requestSuccessful": "تم قبول الطلب بنجاح",
+    "thankYouDonation": "شكراً على تبرعك",
+    "error": "خطأ",
+    "somethingWentWrong": "حدث خطأ ما",
+    "errorDetails": "تفاصيل الخطأ",
+    "errorCode": "رمز الخطأ",
+    "retryButton": "إعادة المحاولة",
+    "dismissButton": "إغلاق",
+    "tryAgain": "حاول مرة أخرى",
+    "failedToProcess": "فشل في المعالجة",
+    "loading": "جاري التحميل",
+    "processing": "جاري المعالجة",
+    "processingDonation": "جاري معالجة تبرعك...",
+    "fetchingData": "جاري جلب البيانات...",
+    "fetchingAnalytics": "جاري جلب الإحصائيات..."
 
 
 

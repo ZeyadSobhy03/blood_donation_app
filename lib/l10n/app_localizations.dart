@@ -4963,6 +4963,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter a valid number'**
   String get pleaseEnterValidNumber;
+
+  /// No description provided for @processingRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing your request...'**
+  String get processingRequest;
+
+  /// No description provided for @loadingMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please wait...'**
+  String get loadingMessage;
+
+  /// No description provided for @operationSuccessful.
+  ///
+  /// In en, this message translates to:
+  /// **'Operation successful'**
+  String get operationSuccessful;
+
+  /// No description provided for @successDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get successDetails;
+
+  /// No description provided for @continueButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueButton;
+
+  /// No description provided for @donationSuccessful.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation successful'**
+  String get donationSuccessful;
+
+  /// No description provided for @requestSuccessful.
+  ///
+  /// In en, this message translates to:
+  /// **'Request successful'**
+  String get requestSuccessful;
+
+  /// No description provided for @thankYouDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for your donation'**
+  String get thankYouDonation;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Oops! Something went wrong'**
+  String get somethingWentWrong;
+
+  /// No description provided for @errorDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Error Details'**
+  String get errorDetails;
+
+  /// No description provided for @errorCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Error Code'**
+  String get errorCode;
+
+  /// No description provided for @retryButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retryButton;
+
+  /// No description provided for @dismissButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Dismiss'**
+  String get dismissButton;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
+
+  /// No description provided for @failedToProcess.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to process'**
+  String get failedToProcess;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading'**
+  String get loading;
+
+  /// No description provided for @processing.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing'**
+  String get processing;
+
+  /// No description provided for @processingDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing your donation...'**
+  String get processingDonation;
+
+  /// No description provided for @fetchingData.
+  ///
+  /// In en, this message translates to:
+  /// **'Fetching data...'**
+  String get fetchingData;
+
+  /// No description provided for @fetchingAnalytics.
+  ///
+  /// In en, this message translates to:
+  /// **'Fetching analytics...'**
+  String get fetchingAnalytics;
 }
 
 class _AppLocalizationsDelegate

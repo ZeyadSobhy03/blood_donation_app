@@ -10,6 +10,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/w
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../../../l10n/app_localizations.dart';
 import '../../../../../core/resources/routes/route_manger.dart';
@@ -24,7 +25,6 @@ class RequestScreen extends StatefulWidget {
 
 class _RequestScreenState extends State<RequestScreen> {
   UrgentRequestModel? urgentRequest;
-  late MapCubit mapCubit;
 
   @override
   void didChangeDependencies() {
@@ -62,12 +62,6 @@ class _RequestScreenState extends State<RequestScreen> {
     }
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    mapCubit = context.read<MapCubit>();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +119,7 @@ class _RequestScreenState extends State<RequestScreen> {
                         urgentRequest!.locationHospital.latitude;
                     final hospitalLng =
                         urgentRequest!.locationHospital.longitude;
-                    final distanceInMeters = mapCubit.calculateDistance(
+                    final distanceInMeters = Geolocator.distanceBetween(
                       state.latitude,
                       state.longitude,
                       hospitalLat,

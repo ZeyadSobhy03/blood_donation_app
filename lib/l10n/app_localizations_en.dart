@@ -2602,4 +2602,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pleaseEnterValidNumber => 'Please enter a valid number';
+
+  @override
+  String get processingRequest => 'Processing your request...';
+
+  @override
+  String get loadingMessage => 'Please wait...';
+
+  @override
+  String get operationSuccessful => 'Operation successful';
+
+  @override
+  String get successDetails => 'Details';
+
+  @override
+  String get continueButton => 'Continue';
+
+  @override
+  String get donationSuccessful => 'Donation successful';
+
+  @override
+  String get requestSuccessful => 'Request successful';
+
+  @override
+  String get thankYouDonation => 'Thank you for your donation';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get somethingWentWrong => 'Oops! Something went wrong';
+
+  @override
+  String get errorDetails => 'Error Details';
+
+  @override
+  String get errorCode => 'Error Code';
+
+  @override
+  String get retryButton => 'Retry';
+
+  @override
+  String get dismissButton => 'Dismiss';
+
+  @override
+  String get tryAgain => 'Try Again';
+
+  @override
+  String get failedToProcess => 'Failed to process';
+
+  @override
+  String get loading => 'Loading';
+
+  @override
+  String get processing => 'Processing';
+
+  @override
+  String get processingDonation => 'Processing your donation...';
+
+  @override
+  String get fetchingData => 'Fetching data...';
+
+  @override
+  String get fetchingAnalytics => 'Fetching analytics...';
 }

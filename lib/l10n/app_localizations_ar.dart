@@ -2588,4 +2588,67 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pleaseEnterValidNumber => 'يرجى إدخال رقم صحيح';
+
+  @override
+  String get processingRequest => 'جاري معالجة طلبك...';
+
+  @override
+  String get loadingMessage => 'يرجى الانتظار...';
+
+  @override
+  String get operationSuccessful => 'تمت العملية بنجاح';
+
+  @override
+  String get successDetails => 'التفاصيل';
+
+  @override
+  String get continueButton => 'متابعة';
+
+  @override
+  String get donationSuccessful => 'تم التبرع بنجاح';
+
+  @override
+  String get requestSuccessful => 'تم قبول الطلب بنجاح';
+
+  @override
+  String get thankYouDonation => 'شكراً على تبرعك';
+
+  @override
+  String get error => 'خطأ';
+
+  @override
+  String get somethingWentWrong => 'حدث خطأ ما';
+
+  @override
+  String get errorDetails => 'تفاصيل الخطأ';
+
+  @override
+  String get errorCode => 'رمز الخطأ';
+
+  @override
+  String get retryButton => 'إعادة المحاولة';
+
+  @override
+  String get dismissButton => 'إغلاق';
+
+  @override
+  String get tryAgain => 'حاول مرة أخرى';
+
+  @override
+  String get failedToProcess => 'فشل في المعالجة';
+
+  @override
+  String get loading => 'جاري التحميل';
+
+  @override
+  String get processing => 'جاري المعالجة';
+
+  @override
+  String get processingDonation => 'جاري معالجة تبرعك...';
+
+  @override
+  String get fetchingData => 'جاري جلب البيانات...';
+
+  @override
+  String get fetchingAnalytics => 'جاري جلب الإحصائيات...';
 }

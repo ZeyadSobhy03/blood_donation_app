@@ -2,6 +2,7 @@ import 'package:blood_donation_app/core/cubits/map_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:geolocator/geolocator.dart';
 
 import '../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../core/resources/fonts/font_manger.dart';
@@ -67,13 +68,12 @@ void showConfirmResponseBottomSheet(
                 Divider(color: ColorManger.slateGrey),
                 BlocBuilder<MapCubit, MapState>(
                   builder: (context, state) {
-                    MapCubit mapCubit = context.read<MapCubit>();
 
                     double? distanceKm;
                     if (state is MapLoaded) {
                       final hospitalLat = request.locationHospital.latitude;
                       final hospitalLng = request.locationHospital.longitude;
-                      final distanceInMeters = mapCubit.calculateDistance(
+                      final distanceInMeters = Geolocator.distanceBetween(
                         state.latitude,
                         state.longitude,
                         hospitalLat,

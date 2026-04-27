@@ -8,6 +8,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/m
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:geolocator/geolocator.dart';
 
 import '../../../../../../core/cubits/map_cubit.dart';
 import '../../../../../../l10n/app_localizations.dart';
@@ -22,12 +23,9 @@ class UrgentRequestsSection extends StatefulWidget {
 }
 
 class _UrgentRequestsSectionState extends State<UrgentRequestsSection> {
-  late MapCubit mapCubit;
-
   @override
   void initState() {
     super.initState();
-    mapCubit = context.read<MapCubit>();
   }
   String formatTimeAgo(DateTime dateTime) {
     final difference = DateTime.now().difference(dateTime);
@@ -116,13 +114,13 @@ class _UrgentRequestsSectionState extends State<UrgentRequestsSection> {
                     if (state is MapLoaded) {
                       final hospitalLat = request.locationHospital.latitude;
                       final hospitalLng = request.locationHospital.longitude;
-                      distanceKm = mapCubit.calculateDistance(
+                      final distanceInMeters = Geolocator.distanceBetween(
                         state.latitude,
                         state.longitude,
                         hospitalLat,
                         hospitalLng,
                       );
-                      distanceKm = distanceKm / 1000;
+                      distanceKm = distanceInMeters / 1000;
                     }
                     return RequestCard(
                       isButtonExist: true,
