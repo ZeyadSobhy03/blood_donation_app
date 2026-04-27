@@ -5,7 +5,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../resources/colors/color_manger.dart';
 import '../../resources/fonts/font_manger.dart';
 import '../../widgets/custom_text.dart';
-
+////////////////////////////////// test
 class CustomSuccessWidget<T> extends StatelessWidget {
   final T data;
   final String message;
