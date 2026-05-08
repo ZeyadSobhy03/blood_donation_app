@@ -5215,6 +5215,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'LifeLink Bot'**
   String get lifeLinkBot;
+
+  /// No description provided for @connectionTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection timeout. Please check your internet connection.'**
+  String get connectionTimeout;
+
+  /// No description provided for @sendTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Request timeout while sending data. Try again.'**
+  String get sendTimeout;
+
+  /// No description provided for @receiveTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Server is taking too long to respond. Try again later.'**
+  String get receiveTimeout;
+
+  /// No description provided for @noInternet.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection.'**
+  String get noInternet;
+
+  /// No description provided for @requestCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request was cancelled.'**
+  String get requestCancelled;
+
+  /// No description provided for @unexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unexpected network error occurred.'**
+  String get unexpectedError;
+
+  /// No description provided for @emptyResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty response from server'**
+  String get emptyResponse;
+
+  /// No description provided for @serverError.
+  ///
+  /// In en, this message translates to:
+  /// **'Server error'**
+  String get serverError;
+
+  /// No description provided for @unknownError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown error'**
+  String get unknownError;
+
+  /// No description provided for @registrationSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration successful! Please check your email to verify your account.'**
+  String get registrationSuccess;
+
+  /// No description provided for @loginSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Login successful! Welcome back.'**
+  String get loginSuccess;
+
+  /// No description provided for @registration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get registration;
+
+  /// No description provided for @dateOfBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of Birth'**
+  String get dateOfBirth;
+
+  /// No description provided for @dateRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth is required'**
+  String get dateRequired;
+
+  /// No description provided for @dateHint.
+  ///
+  /// In en, this message translates to:
+  /// **'YYYY-MM-DD'**
+  String get dateHint;
+
+  /// No description provided for @pinVerificationCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN verification cancelled'**
+  String get pinVerificationCancelled;
+
+  /// No description provided for @invalidPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid PIN. Please try again.'**
+  String get invalidPin;
+
+  /// No description provided for @invalid_pin_length.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN must be 6 digits long.'**
+  String get invalid_pin_length;
 }
 
 class _AppLocalizationsDelegate

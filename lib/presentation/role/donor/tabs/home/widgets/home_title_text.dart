@@ -14,6 +14,7 @@ class HomeTitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText(
           text: title,
@@ -25,16 +26,13 @@ class HomeTitleText extends StatelessWidget {
           ),
         ),
         SizedBox(height: 4.h),
-        Padding(
-          padding: const EdgeInsets.only(right: 24),
-          child: CustomText(
-            text: subTitle,
-            textStyle: TextStyle(
-              fontSize: FontSize.s14,
-              fontWeight: FontWeightManager.regular,
-              color: ColorManger.slateGrey,
-              height: 1.6,
-            ),
+        CustomText(
+          text: subTitle,
+          textStyle: TextStyle(
+            fontSize: FontSize.s14,
+            fontWeight: FontWeightManager.regular,
+            color: ColorManger.slateGrey,
+            height: 1.6,
           ),
         ),
       ],

@@ -12,6 +12,8 @@ class PinVerificationArgs {
   final int pinLength;
   final PinVerificationStyle? style;
   final Future<void> Function()? onResend;
+     final Future<bool> Function(String pin)? onSubmit;
+
 
   PinVerificationArgs({
     required this.title,
@@ -22,7 +24,7 @@ class PinVerificationArgs {
     this.role = AuthPinRole.donor,
     this.pinLength = 6,
     this.style,
-    this.onResend,
+    this.onResend, this.onSubmit,
   });
 }
 

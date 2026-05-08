@@ -2730,4 +2730,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get lifeLinkBot => 'LifeLink Bot';
+
+  @override
+  String get connectionTimeout =>
+      'Connection timeout. Please check your internet connection.';
+
+  @override
+  String get sendTimeout => 'Request timeout while sending data. Try again.';
+
+  @override
+  String get receiveTimeout =>
+      'Server is taking too long to respond. Try again later.';
+
+  @override
+  String get noInternet => 'No internet connection.';
+
+  @override
+  String get requestCancelled => 'Request was cancelled.';
+
+  @override
+  String get unexpectedError => 'Unexpected network error occurred.';
+
+  @override
+  String get emptyResponse => 'Empty response from server';
+
+  @override
+  String get serverError => 'Server error';
+
+  @override
+  String get unknownError => 'Unknown error';
+
+  @override
+  String get registrationSuccess =>
+      'Registration successful! Please check your email to verify your account.';
+
+  @override
+  String get loginSuccess => 'Login successful! Welcome back.';
+
+  @override
+  String get registration => 'Registration';
+
+  @override
+  String get dateOfBirth => 'Date of Birth';
+
+  @override
+  String get dateRequired => 'Date of birth is required';
+
+  @override
+  String get dateHint => 'YYYY-MM-DD';
+
+  @override
+  String get pinVerificationCancelled => 'PIN verification cancelled';
+
+  @override
+  String get invalidPin => 'Invalid PIN. Please try again.';
+
+  @override
+  String get invalid_pin_length => 'PIN must be 6 digits long.';
 }

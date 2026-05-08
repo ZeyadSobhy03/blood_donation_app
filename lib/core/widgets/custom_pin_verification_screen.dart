@@ -11,11 +11,12 @@ import '../../../core/widgets/custom_pin_code.dart';
 class CustomPinVerificationScreen extends StatefulWidget {
   const CustomPinVerificationScreen({
     super.key,
-    required this.args,
+    required this.args, this.onSubmit, this.onResend,
   });
 
   final PinVerificationArgs args;
-
+  final Future<bool> Function(String pin)? onSubmit;
+  final Future<void> Function()? onResend;
   String get title => args.title;
   String get subtitle => args.subtitle;
   String get submitText => args.submitText;
@@ -24,6 +25,10 @@ class CustomPinVerificationScreen extends StatefulWidget {
   AuthPinRole get role => args.role;
   int get pinLength => args.pinLength;
   PinVerificationStyle? get style => args.style;
+
+  Future<bool> Function(String pin)? get submitHandler => onSubmit ?? args.onSubmit;
+  Future<void> Function()? get resendHandler => onResend ?? args.onResend;
+
 
   @override
   State<CustomPinVerificationScreen> createState() =>
@@ -61,78 +66,9 @@ class _CustomPinVerificationScreenState
     super.dispose();
   }
 
-  void _submit() {
-    if (_pinController.text.length != widget.pinLength) {
-      setState(() {
-        _pinError = widget.invalidPinText;
-      });
-      return;
-    }
-    Navigator.pop(context, _pinController.text);
-  }
 
-  Future<void> _handleResendPressed() async {
-    if (_isResending) return;
 
-    setState(() {
-      _isResending = true;
-      _pinError = null;
-    });
 
-    try {
-      await widget.args.onResend?.call();
-      if (!mounted) return;
-
-      _pinController.clear();
-      final localizations = AppLocalizations.of(context)!;
-      ScaffoldMessenger.of(context)
-        ..clearSnackBars()
-        ..showSnackBar(
-          SnackBar(
-            behavior: SnackBarBehavior.floating,
-            backgroundColor: _colors.primary,
-            content: CustomText(
-              text: localizations.donor_code_resent_success,
-              textStyle:  TextStyle(
-                color: ColorManger.pureWhite,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        );
-    } catch (_) {
-      if (!mounted) return;
-
-      final localizations = AppLocalizations.of(context)!;
-      ScaffoldMessenger.of(context)
-        ..clearSnackBars()
-        ..showSnackBar(
-          SnackBar(
-            behavior: SnackBarBehavior.floating,
-            backgroundColor: ColorManger.brightRed,
-            content: CustomText(
-              text: localizations.donor_code_resent_error,
-              textStyle:  TextStyle(
-                color: ColorManger.pureWhite,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        );
-    } finally {
-      if (mounted) {
-        setState(() {
-          _isResending = false;
-        });
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -172,13 +108,30 @@ class _CustomPinVerificationScreenState
                       });
                     }
                   },
-                  onCompleted: (_) => _submit(),
+                  onCompleted: (pin) async {
+                    final handler = widget.submitHandler;
+                    if (handler != null) {
+                      final isValid = await handler(pin);
+                      if (!isValid) {
+                        setState(() {
+                          _pinError = widget.invalidPinText;
+                        });
+                      }
+                    }
+                  },
                 ),
                 const SizedBox(height: 12),
                 SizedBox(
                   width: double.infinity,
                   child: CustomElevatedButton(
-                    onPressed: _isResending ? null : _handleResendPressed,
+                    onPressed: _isResending ? null : () async {
+                      final handler = widget.resendHandler;
+                      if (handler != null) {
+                        setState(() => _isResending = true);
+                        await handler();
+                        setState(() => _isResending = false);
+                      }
+                    },
                     backgroundColor:
                         widget.style?.cancelBackgroundColor ?? _colors.secondaryBackground,
                     foregroundColor: _cancelForeground,
@@ -226,7 +179,25 @@ class _CustomPinVerificationScreenState
                 SizedBox(
                   width: double.infinity,
                   child: CustomElevatedButton(
-                    onPressed: _submit,
+                    onPressed: () async {
+                      final pin = _pinController.text.trim();
+                      if (pin.length != widget.pinLength) {
+                        setState(() {
+                          _pinError =
+                              AppLocalizations.of(context)!.invalid_pin_length;
+                        });
+                        return;
+                      }
+                      final handler = widget.submitHandler;
+                      if (handler != null) {
+                        final isValid = await handler(pin);
+                        if (!isValid) {
+                          setState(() {
+                            _pinError = widget.invalidPinText;
+                          });
+                        }
+                      }
+                    },
                     backgroundColor: _submitBackground,
                     foregroundColor: _submitForeground,
                     shape: RoundedRectangleBorder(

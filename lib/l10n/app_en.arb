@@ -889,5 +889,23 @@
     "scanDonorQrCodeTitle": "Scan Donor QR Code",
      "scanDonorQrCodeDescription": "Verify donors and record donations quickly using QR codes.",
      "openQrScannerButton": "Open Qr Scanner",
-     "lifeLinkBot": "LifeLink Bot"
- }
+     "lifeLinkBot": "LifeLink Bot",
+  "connectionTimeout": "Connection timeout. Please check your internet connection.",
+  "sendTimeout": "Request timeout while sending data. Try again.",
+  "receiveTimeout": "Server is taking too long to respond. Try again later.",
+  "noInternet": "No internet connection.",
+  "requestCancelled": "Request was cancelled.",
+  "unexpectedError": "Unexpected network error occurred.",
+  "emptyResponse": "Empty response from server",
+  "serverError": "Server error",
+  "unknownError": "Unknown error",
+  "registrationSuccess": "Registration successful! Please check your email to verify your account.",
+  "loginSuccess": "Login successful! Welcome back.",
+  "registration": "Registration",
+  "dateOfBirth": "Date of Birth",
+  "dateRequired": "Date of birth is required",
+  "dateHint": "YYYY-MM-DD",
+  "pinVerificationCancelled": "PIN verification cancelled",
+  "invalidPin": "Invalid PIN. Please try again.",
+  "invalid_pin_length": "PIN must be 6 digits long."
+}

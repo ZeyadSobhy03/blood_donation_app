@@ -2716,4 +2716,61 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get lifeLinkBot => 'روبوت LifeLink';
+
+  @override
+  String get connectionTimeout =>
+      'انتهت مهلة الاتصال، برجاء التحقق من الإنترنت.';
+
+  @override
+  String get sendTimeout => 'انتهت مهلة إرسال البيانات، حاول مرة أخرى.';
+
+  @override
+  String get receiveTimeout => 'السيرفر يستغرق وقت طويل في الرد، حاول لاحقًا.';
+
+  @override
+  String get noInternet => 'لا يوجد اتصال بالإنترنت.';
+
+  @override
+  String get requestCancelled => 'تم إلغاء الطلب.';
+
+  @override
+  String get unexpectedError => 'حدث خطأ غير متوقع في الشبكة.';
+
+  @override
+  String get emptyResponse => 'استجابة فارغة من السيرفر';
+
+  @override
+  String get serverError => 'خطأ في السيرفر';
+
+  @override
+  String get unknownError => 'خطأ غير معروف';
+
+  @override
+  String get registrationSuccess =>
+      'تم التسجيل بنجاح!تحقق من بريدك الإلكتروني لتفعيل حسابك.';
+
+  @override
+  String get loginSuccess => 'تم تسجيل الدخول بنجاح! مرحبًا بك ';
+
+  @override
+  String get registration => 'التسجيل';
+
+  @override
+  String get dateOfBirth => 'تاريخ الميلاد';
+
+  @override
+  String get dateRequired => 'تاريخ الميلاد مطلوب';
+
+  @override
+  String get dateHint => 'YYYY-MM-DD';
+
+  @override
+  String get pinVerificationCancelled =>
+      'تم إلغاء التحقق من رقم التعريف الشخصي.';
+
+  @override
+  String get invalidPin => 'رقم التعريف الشخصي غير صالح. يرجى المحاولة';
+
+  @override
+  String get invalid_pin_length => 'يجب أن يكون رقم التعريف الشخصي 6 أرقام.';
 }
