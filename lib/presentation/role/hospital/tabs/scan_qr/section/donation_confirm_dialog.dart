@@ -3,14 +3,14 @@ import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/profile/scan_qr/section/donation_confirm_header.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/profile/scan_qr/section/donation_details_card.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/profile/scan_qr/section/earned_points_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../core/resources/models/donation_details.dart';
 import '../../../../../../../l10n/app_localizations.dart';
+import 'donation_confirm_header.dart';
+import 'donation_details_card.dart';
+import 'earned_points_card.dart';
 
 class DonationConfirmDialog extends StatelessWidget {
   final int pointsEarned;

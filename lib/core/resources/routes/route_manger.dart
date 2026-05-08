@@ -7,7 +7,7 @@ import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/schedule_donation.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donor_main_layout.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/notifications.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/notifications.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/help_and_support/screen/pdf_viewer_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/privacy_and_security/privacy_and_security.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/two_factor_authentication/screen/two_factor_authentication_screen.dart';
@@ -27,12 +27,13 @@ import '../../../presentation/role/admin/tabs/analytics/analytics.dart';
 import '../../../presentation/role/admin/tabs/dashboard/dashboard.dart';
 import '../../../presentation/role/admin/tabs/system_settings/system_settings.dart';
 import '../../../presentation/role/admin/tabs/users/users.dart';
+import '../../../presentation/role/donor/tabs/donate/section/appointment_details.dart';
 import '../../../presentation/role/donor/tabs/donation_history/donation_history.dart';
 import '../../../presentation/role/donor/tabs/profile/confirm_donation/confirm_donation.dart';
 import '../../../presentation/role/donor/tabs/profile/help_and_support/screen/help_and_support_screen.dart';
-import '../../../presentation/role/donor/tabs/profile/scan_qr/scan_qr.dart';
 import '../../../presentation/role/hospital/tabs/hospital_main_layout.dart';
 import '../../../presentation/role/hospital/tabs/profile/help&support/help_support_hospital.dart';
+import '../../../presentation/role/hospital/tabs/scan_qr/scan_qr.dart';
 import '../../../presentation/splash_screen/splash_screen.dart';
 import '../../widgets/custom_pin_verification_screen.dart';
 
@@ -72,6 +73,7 @@ class RouteManger {
   static const String hospitalForgetPassword = '/hospitalForgetPassword';
 
   static const String adminForgetPassword = '/adminForgetPassword';
+  static const String appointmentDetails = '/appointmentDetails';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -79,6 +81,12 @@ class RouteManger {
         return MaterialPageRoute(builder: (context) => SplashScreen());
       case onboarding:
         return MaterialPageRoute(builder: (context) => OnboardingPages());
+
+      case appointmentDetails:
+        return MaterialPageRoute(
+          builder: (context) => const AppointmentDetails(),
+          settings: settings,
+        );
 
       case donationHistory:
         return MaterialPageRoute(builder: (context) => DonationHistory());
@@ -184,10 +192,8 @@ class RouteManger {
           builder: (context) => HospitalForgetPassword(),
         );
 
-       case adminForgetPassword:
-        return MaterialPageRoute(
-          builder: (context) => AdminForgetPassword(),
-        );
+      case adminForgetPassword:
+        return MaterialPageRoute(builder: (context) => AdminForgetPassword());
       default:
         return MaterialPageRoute(
           builder: (context) {

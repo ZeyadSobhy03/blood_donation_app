@@ -50,7 +50,7 @@ class _ConfirmDonationDialogState extends State<ConfirmDonationDialog> {
                     location: widget.donor.location,
                   ),
                   const SizedBox(height: 16),
-                  QrCard(donorId: widget.donor.id),
+                  QrCard(qrToken: widget.donor.id),
                   SizedBox(height: 16),
                   QrWarningCard(),
                   SizedBox(height: 16),

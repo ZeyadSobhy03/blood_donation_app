@@ -891,10 +891,27 @@
     "processing": "جاري المعالجة",
     "processingDonation": "جاري معالجة تبرعك...",
     "fetchingData": "جاري جلب البيانات...",
-    "fetchingAnalytics": "جاري جلب الإحصائيات..."
-
-
-
-
+    "fetchingAnalytics": "جاري جلب الإحصائيات...",
+  "showQrCode": "عرض رمز QR",
+   "donor_qr_card_title": "رمز التبرع الخاص بك",
+   "donor_qr_card_subtitle": "اعرض رمز QR هذا على موظفي المستشفى عند الوصول لتأكيد تبرعك.",
+   "appointmentDetailsTitle": "تفاصيل الموعد",
+   "appointmentDetailsSubtitle": "رمز التبرع الخاص بك",
+   "appointmentPrepStep1": "احضر 10 دقائق مبكراً",
+   "appointmentPrepStep2": "أحضر بطاقة هوية صورة صحيحة",
+   "appointmentPrepStep3": "جهز رمز QR هذا للمسح",
+   "appointmentPrepStep4": "ابق رطباً قبل التبرع",
+   "important": "مهم",
+   "appointmentInformation": "معلومات الموعد",
+   "backToDonations": "العودة إلى التبرعات",
+   "shareQrCode": "مشاركة رمز QR",
+    "bloodDonationAppointmentShare": "موعد التبرع بالدم",
+    "hospitalLabel": "المستشفى",
+    "timeLabel": "الوقت",
+    "qrTokenLabel": "رمز QR",
+    "scanDonorQrCodeTitle": "مسح رمز المتبرع",
+    "scanDonorQrCodeDescription": "تحقق من المتبرعين وسجل التبرعات بسرعة باستخدام رموز QR.",
+    "openQrScannerButton": "فتح ماسح QR",
+  "lifeLinkBot": "روبوت LifeLink"
 
 }

@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/chat_bot_dialog.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/section/recent_activity_section.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/widgets/home_custom_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/widgets/home_navigation_button.dart';
@@ -14,8 +15,47 @@ import '../../../../../core/resources/models/coordinates.dart';
 import '../../../../../l10n/app_localizations.dart';
 import 'model/recent_activity.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 2000),
+    );
+    _animation = Tween<double>(
+      begin: -10,
+      end: 10,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        _controller.forward();
+      }
+    });
+
+    _controller.forward();
+    super.initState();
+
+    // TODO: implement initState
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +74,10 @@ class Home extends StatelessWidget {
         location: '2.3 km away',
         patientType: 'Emergency Surgery',
         contactNumber: '+20 100 123 4567',
-        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
+        locationHospital: Coordinates(
+          latitude: 30.36730355719704,
+          longitude: 30.505864178391217,
+        ),
       ),
       UrgentRequestModel(
         createdAt: DateTime.now().subtract(const Duration(hours: 2)),
@@ -49,7 +92,10 @@ class Home extends StatelessWidget {
         location: '4.8 km away',
         patientType: 'ICU Patient',
         contactNumber: '+20 111 987 6543',
-        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
+        locationHospital: Coordinates(
+          latitude: 30.36730355719704,
+          longitude: 30.505864178391217,
+        ),
       ),
       UrgentRequestModel(
         createdAt: DateTime.now().subtract(const Duration(hours: 4)),
@@ -65,8 +111,10 @@ class Home extends StatelessWidget {
         location: '6.1 km away',
         patientType: 'Accident Case',
         contactNumber: '+20 122 555 7788',
-        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
-
+        locationHospital: Coordinates(
+          latitude: 30.36730355719704,
+          longitude: 30.505864178391217,
+        ),
       ),
       UrgentRequestModel(
         createdAt: DateTime.now().subtract(const Duration(hours: 1)),
@@ -81,8 +129,10 @@ class Home extends StatelessWidget {
         location: '6.1 km away',
         patientType: 'Accident Case',
         contactNumber: '+20 122 555 7788',
-        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
-
+        locationHospital: Coordinates(
+          latitude: 30.36730355719704,
+          longitude: 30.505864178391217,
+        ),
       ),
       UrgentRequestModel(
         createdAt: DateTime.now().subtract(const Duration(hours: 3)),
@@ -98,8 +148,10 @@ class Home extends StatelessWidget {
         patientType: 'Accident Case',
         contactNumber: '+20 122 555 7788',
         // 30.36730355719704, 30.505864178391217
-        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
-
+        locationHospital: Coordinates(
+          latitude: 30.36730355719704,
+          longitude: 30.505864178391217,
+        ),
       ),
       UrgentRequestModel(
         createdAt: DateTime.now().subtract(const Duration(hours: 2)),
@@ -114,8 +166,10 @@ class Home extends StatelessWidget {
         location: '6.1 km away',
         patientType: 'Accident Case',
         contactNumber: '+20 122 555 7788',
-        locationHospital: Coordinates(latitude: 30.36730355719704, longitude: 30.505864178391217),
-
+        locationHospital: Coordinates(
+          latitude: 30.36730355719704,
+          longitude: 30.505864178391217,
+        ),
       ),
     ];
     final List<RecentActivityModel> dummyRecentActivity = [
@@ -141,6 +195,37 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
+      floatingActionButton: AnimatedBuilder(
+        animation: _animation,
+
+        builder: (context, child) {
+          return Transform.translate(
+            offset: Offset(0, _animation.value),
+            child: InkWell(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return ChatBotDialog();
+                  },
+                );
+              },
+              child: Container(
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                  color: ColorManger.brightRed,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.messenger_outline,
+                  color: ColorManger.pureWhite,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

@@ -9,8 +9,8 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/wi
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/model/urgent_request.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/resources/models/coordinates.dart';
-import 'model/notification.dart';
+import '../../../../../../../core/resources/models/coordinates.dart';
+import '../../model/notification.dart';
 
 class Notifications extends StatelessWidget {
   const Notifications({super.key});

@@ -2,11 +2,11 @@ import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/models/donation_details.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/profile/scan_qr/widgets/detail_row.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/profile/scan_qr/widgets/status_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../l10n/app_localizations.dart';
+import '../widgets/detail_row.dart';
+import '../widgets/status_row.dart';
 
 class DonationDetailsCard extends StatelessWidget {
   const DonationDetailsCard({super.key, required this.donation});

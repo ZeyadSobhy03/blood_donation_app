@@ -1,6 +1,6 @@
 import 'package:geolocator/geolocator.dart';
 
-/// Simple location model used across the app to avoid leaking geolocator types
+/// Simple location models used across the app to avoid leaking geolocator types
 /// into higher-level code and to make testing easier.
 class DeviceLocation {
   final double latitude;

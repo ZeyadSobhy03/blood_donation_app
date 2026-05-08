@@ -2,7 +2,6 @@ import 'package:blood_donation_app/core/resources/models/donor.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/widgets/home_stats_row.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/achievement_badges_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/app_footer.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/confirm_donation_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/donation_history_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/log_out_button.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/sections/personal_information_card.dart';
@@ -98,7 +97,6 @@ class Profile extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 16),
-              ConfirmDonationCard(),
               SizedBox(height: 16),
               PersonalInformationCard(
                 donor: DonorModel(

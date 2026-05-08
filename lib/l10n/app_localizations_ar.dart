@@ -2651,4 +2651,69 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get fetchingAnalytics => 'جاري جلب الإحصائيات...';
+
+  @override
+  String get showQrCode => 'عرض رمز QR';
+
+  @override
+  String get donor_qr_card_title => 'رمز التبرع الخاص بك';
+
+  @override
+  String get donor_qr_card_subtitle =>
+      'اعرض رمز QR هذا على موظفي المستشفى عند الوصول لتأكيد تبرعك.';
+
+  @override
+  String get appointmentDetailsTitle => 'تفاصيل الموعد';
+
+  @override
+  String get appointmentDetailsSubtitle => 'رمز التبرع الخاص بك';
+
+  @override
+  String get appointmentPrepStep1 => 'احضر 10 دقائق مبكراً';
+
+  @override
+  String get appointmentPrepStep2 => 'أحضر بطاقة هوية صورة صحيحة';
+
+  @override
+  String get appointmentPrepStep3 => 'جهز رمز QR هذا للمسح';
+
+  @override
+  String get appointmentPrepStep4 => 'ابق رطباً قبل التبرع';
+
+  @override
+  String get important => 'مهم';
+
+  @override
+  String get appointmentInformation => 'معلومات الموعد';
+
+  @override
+  String get backToDonations => 'العودة إلى التبرعات';
+
+  @override
+  String get shareQrCode => 'مشاركة رمز QR';
+
+  @override
+  String get bloodDonationAppointmentShare => 'موعد التبرع بالدم';
+
+  @override
+  String get hospitalLabel => 'المستشفى';
+
+  @override
+  String get timeLabel => 'الوقت';
+
+  @override
+  String get qrTokenLabel => 'رمز QR';
+
+  @override
+  String get scanDonorQrCodeTitle => 'مسح رمز المتبرع';
+
+  @override
+  String get scanDonorQrCodeDescription =>
+      'تحقق من المتبرعين وسجل التبرعات بسرعة باستخدام رموز QR.';
+
+  @override
+  String get openQrScannerButton => 'فتح ماسح QR';
+
+  @override
+  String get lifeLinkBot => 'روبوت LifeLink';
 }

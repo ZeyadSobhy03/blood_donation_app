@@ -7,6 +7,7 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/home_title.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/nearby_donor/nearby_donor_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/recent_activity_card/recent_activity_card.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/scan_donor_qr_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -30,6 +31,9 @@ class Home extends StatelessWidget {
                 HomeTitle(hospitalName: 'Al-Azhar University Hospital'),
                 SizedBox(height: 8.h),
                 DashboardStatsSection(activeRequests: 5, responsesToday: 12),
+                SizedBox(height: 16.h),
+
+                ScanDonorQrCard(),
                 SizedBox(height: 16.h),
                 EmergencyCard(),
                 SizedBox(height: 16.h),

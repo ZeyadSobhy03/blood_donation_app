@@ -422,7 +422,7 @@ Query Parameters:
 ### Step 1: Update Your Data Model
 
 ```dart
-// model/donation_schedule.dart
+// models/donation_schedule.dart
 class DonationSchedule {
   final String? hospitalId;
   final String? slotId;

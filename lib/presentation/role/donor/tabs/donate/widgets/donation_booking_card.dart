@@ -20,149 +20,201 @@ class DonationBookingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
     final formatter = intl.DateFormat('dd MMM yyyy');
-    return LayoutBuilder(builder: (context, constraints) {
-      return ConstrainedBox(
-        constraints: BoxConstraints(
-          maxWidth: constraints.maxWidth,
-          minHeight: 150,
-        ),
-        child: Card(
-          color: ColorManger.lightRed,
-          elevation: 6,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomText(
-                      text: model.donationType ?? '',
-                      textStyle: TextStyle(
-                        color: ColorManger.black,
-                        height: 1.4,
-                        fontSize: FontSize.s15,
-                        fontWeight: FontWeightManager.regular,
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: ColorManger.lightGreen,
-                        borderRadius: BorderRadius.circular(8.r),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: constraints.maxWidth,
+            minHeight: 150,
+          ),
+          child: Card(
+            color: ColorManger.lightRed,
+            elevation: 6,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomText(
+                        text: model.donationType ?? '',
+                        textStyle: TextStyle(
+                          color: ColorManger.black,
+                          height: 1.4,
+                          fontSize: FontSize.s15,
+                          fontWeight: FontWeightManager.regular,
                         ),
-                        child: CustomText(
-                          text: model.isConfirmed ?? false
-                              ? appLocalization.confirmed
-                              : appLocalization.pending,
-                          textStyle: TextStyle(
-                            color: ColorManger.black,
-                            height: 1.4,
-                            fontSize: FontSize.s15,
-                            fontWeight: FontWeightManager.regular,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: ColorManger.lightGreen,
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          child: CustomText(
+                            text: model.isConfirmed ?? false
+                                ? appLocalization.confirmed
+                                : appLocalization.pending,
+                            textStyle: TextStyle(
+                              color: ColorManger.black,
+                              height: 1.4,
+                              fontSize: FontSize.s15,
+                              fontWeight: FontWeightManager.regular,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.h),
-                CustomText(
-                  text: model.hospitalName ?? '',
-                  textStyle: TextStyle(
-                    color: ColorManger.slateGrey,
-                    fontSize: FontSize.s14,
-                    fontWeight: FontWeightManager.regular,
+                    ],
                   ),
-                ),
-                SizedBox(height: 10.h),
+                  SizedBox(height: 10.h),
+                  CustomText(
+                    text: model.hospitalName ?? '',
+                    textStyle: TextStyle(
+                      color: ColorManger.slateGrey,
+                      fontSize: FontSize.s14,
+                      fontWeight: FontWeightManager.regular,
+                    ),
+                  ),
+                  SizedBox(height: 10.h),
 
-                Row(
-                  children: [
-                    InfoRow(
-                      icon: Icons.calendar_month,
-                      text: formatter.format(model.date ?? DateTime.now()),
-                    ),
-                    SizedBox(width: 10.w),
-                    InfoRow(icon: Icons.access_time, text: model.timeSlot ?? ''),
-                  ],
-                ),
-                SizedBox(height: 10.h),
-                Divider(color: ColorManger.brightRed, thickness: 1.h),
-                SizedBox(height: 10.h),
-                Row(
-                  children: [
-                    Expanded(
-                      child: LayoutBuilder(
-                        builder: (context, constraints) {
-                          return ConstrainedBox(
-                            constraints: BoxConstraints(
-                              maxWidth: constraints.maxWidth,
-                              minHeight: 50,
-                            ),
-                            child: CustomElevatedButton(
-                              backgroundColor: ColorManger.pureWhite,
-                              foregroundColor: ColorManger.black,
-                              elevation: 4,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 20.w,
-                                vertical: 10.h,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                              onPressed: () =>
-                                  _cancelAppointment(context, appLocalization),
-                              child: CustomText(text: appLocalization.cancel),
-                            ),
-                          );
-                        },
+                  Row(
+                    children: [
+                      InfoRow(
+                        icon: Icons.calendar_month,
+                        text: formatter.format(model.date ?? DateTime.now()),
                       ),
-                    ),
-                    SizedBox(width: 20.w),
-                    Expanded(
-                      child: LayoutBuilder(
-                        builder: (context, constraints) {
-                          return ConstrainedBox(
-                            constraints: BoxConstraints(
-                              maxWidth: constraints.maxWidth,
-                              minHeight: 50,
-                            ),
-                            child: CustomElevatedButton(
-                              backgroundColor: ColorManger.brightRed,
-                              foregroundColor: ColorManger.pureWhite,
-                              elevation: 4,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 20.w,
-                                vertical: 10.h,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                              onPressed: () =>
-                                  _rescheduleAppointment(context, appLocalization),
-                              child: CustomText(text: appLocalization.reschedule),
-                            ),
-                          );
-                        },
+                      SizedBox(width: 10.w),
+                      InfoRow(
+                        icon: Icons.access_time,
+                        text: model.timeSlot ?? '',
                       ),
+                    ],
+                  ),
+                  SizedBox(height: 10.h),
+                  Divider(color: ColorManger.brightRed, thickness: 1.h),
+                  SizedBox(height: 10.h),
+                  CustomElevatedButton(
+                    backgroundColor: ColorManger.brightRed,
+                    foregroundColor: ColorManger.pureWhite,
+                    elevation: 4,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20.w,
+                      vertical: 10.h,
                     ),
-                  ],
-                ),
-              ],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        RouteManger.appointmentDetails,
+                        arguments: model,
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.qr_code,
+                          color: ColorManger.pureWhite,
+                          size: 16,
+                        ),
+                        SizedBox(width: 6.w),
+                        CustomText(
+                          text: appLocalization.showQrCode,
+                          textStyle: TextStyle(
+                            color: ColorManger.pureWhite,
+                            fontSize: FontSize.s14,
+                            fontWeight: FontWeightManager.regular,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10.h),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            return ConstrainedBox(
+                              constraints: BoxConstraints(
+                                maxWidth: constraints.maxWidth,
+                                minHeight: 50,
+                              ),
+                              child: CustomElevatedButton(
+                                backgroundColor: ColorManger.pureWhite,
+                                foregroundColor: ColorManger.black,
+                                elevation: 4,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 20.w,
+                                  vertical: 10.h,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.r),
+                                ),
+                                onPressed: () => _cancelAppointment(
+                                  context,
+                                  appLocalization,
+                                ),
+                                child: CustomText(text: appLocalization.cancel),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      SizedBox(width: 20.w),
+                      Expanded(
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            return ConstrainedBox(
+                              constraints: BoxConstraints(
+                                maxWidth: constraints.maxWidth,
+                                minHeight: 50,
+                              ),
+                              child: CustomElevatedButton(
+                                backgroundColor: ColorManger.brightRed,
+                                foregroundColor: ColorManger.pureWhite,
+                                elevation: 4,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 20.w,
+                                  vertical: 10.h,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.r),
+                                ),
+                                onPressed: () => _rescheduleAppointment(
+                                  context,
+                                  appLocalization,
+                                ),
+                                child: CustomText(
+                                  text: appLocalization.reschedule,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      );
-    },);
+        );
+      },
+    );
   }
 
   void _cancelAppointment(

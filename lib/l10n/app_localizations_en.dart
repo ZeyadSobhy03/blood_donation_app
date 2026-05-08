@@ -2665,4 +2665,69 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get fetchingAnalytics => 'Fetching analytics...';
+
+  @override
+  String get showQrCode => 'Show QR Code';
+
+  @override
+  String get donor_qr_card_title => 'Your Donation QR Code';
+
+  @override
+  String get donor_qr_card_subtitle =>
+      'Show this QR code to hospital staff upon arrival to confirm your donation.';
+
+  @override
+  String get appointmentDetailsTitle => 'Appointment Details';
+
+  @override
+  String get appointmentDetailsSubtitle => 'Your donation QR code';
+
+  @override
+  String get appointmentPrepStep1 => 'Arrive 10 minutes early';
+
+  @override
+  String get appointmentPrepStep2 => 'Bring a valid photo ID';
+
+  @override
+  String get appointmentPrepStep3 => 'Have this QR code ready to scan';
+
+  @override
+  String get appointmentPrepStep4 => 'Stay hydrated before donation';
+
+  @override
+  String get important => 'Important';
+
+  @override
+  String get appointmentInformation => 'Appointment Information';
+
+  @override
+  String get backToDonations => 'Back to Donations';
+
+  @override
+  String get shareQrCode => 'Share Qr Code';
+
+  @override
+  String get bloodDonationAppointmentShare => 'Blood Donation Appointment';
+
+  @override
+  String get hospitalLabel => 'Hospital';
+
+  @override
+  String get timeLabel => 'Time';
+
+  @override
+  String get qrTokenLabel => 'QR Token';
+
+  @override
+  String get scanDonorQrCodeTitle => 'Scan Donor QR Code';
+
+  @override
+  String get scanDonorQrCodeDescription =>
+      'Verify donors and record donations quickly using QR codes.';
+
+  @override
+  String get openQrScannerButton => 'Open Qr Scanner';
+
+  @override
+  String get lifeLinkBot => 'LifeLink Bot';
 }

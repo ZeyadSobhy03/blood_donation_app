@@ -14,6 +14,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../../../l10n/app_localizations.dart';
 import '../../../../../core/resources/routes/route_manger.dart';
+import '../donate/section/qr_code_card.dart';
 import 'model/urgent_request.dart';
 
 class RequestScreen extends StatefulWidget {
@@ -160,6 +161,9 @@ class _RequestScreenState extends State<RequestScreen> {
                 ),
               ),
               SizedBox(height: 8.h),
+              QrCodeCard(qrToken:urgentRequest!.id),
+              SizedBox(height: 8.h),
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: MapCard(

@@ -5089,6 +5089,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fetching analytics...'**
   String get fetchingAnalytics;
+
+  /// No description provided for @showQrCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Show QR Code'**
+  String get showQrCode;
+
+  /// No description provided for @donor_qr_card_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Donation QR Code'**
+  String get donor_qr_card_title;
+
+  /// No description provided for @donor_qr_card_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Show this QR code to hospital staff upon arrival to confirm your donation.'**
+  String get donor_qr_card_subtitle;
+
+  /// No description provided for @appointmentDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Details'**
+  String get appointmentDetailsTitle;
+
+  /// No description provided for @appointmentDetailsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your donation QR code'**
+  String get appointmentDetailsSubtitle;
+
+  /// No description provided for @appointmentPrepStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'Arrive 10 minutes early'**
+  String get appointmentPrepStep1;
+
+  /// No description provided for @appointmentPrepStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring a valid photo ID'**
+  String get appointmentPrepStep2;
+
+  /// No description provided for @appointmentPrepStep3.
+  ///
+  /// In en, this message translates to:
+  /// **'Have this QR code ready to scan'**
+  String get appointmentPrepStep3;
+
+  /// No description provided for @appointmentPrepStep4.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay hydrated before donation'**
+  String get appointmentPrepStep4;
+
+  /// No description provided for @important.
+  ///
+  /// In en, this message translates to:
+  /// **'Important'**
+  String get important;
+
+  /// No description provided for @appointmentInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Information'**
+  String get appointmentInformation;
+
+  /// No description provided for @backToDonations.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Donations'**
+  String get backToDonations;
+
+  /// No description provided for @shareQrCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Share Qr Code'**
+  String get shareQrCode;
+
+  /// No description provided for @bloodDonationAppointmentShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation Appointment'**
+  String get bloodDonationAppointmentShare;
+
+  /// No description provided for @hospitalLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital'**
+  String get hospitalLabel;
+
+  /// No description provided for @timeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get timeLabel;
+
+  /// No description provided for @qrTokenLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'QR Token'**
+  String get qrTokenLabel;
+
+  /// No description provided for @scanDonorQrCodeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan Donor QR Code'**
+  String get scanDonorQrCodeTitle;
+
+  /// No description provided for @scanDonorQrCodeDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify donors and record donations quickly using QR codes.'**
+  String get scanDonorQrCodeDescription;
+
+  /// No description provided for @openQrScannerButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Qr Scanner'**
+  String get openQrScannerButton;
+
+  /// No description provided for @lifeLinkBot.
+  ///
+  /// In en, this message translates to:
+  /// **'LifeLink Bot'**
+  String get lifeLinkBot;
 }
 
 class _AppLocalizationsDelegate

@@ -18,12 +18,14 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
   int currentIndex = 0;
   final PageController _pageController = PageController();
 
+
   late List<AnimationController> _iconControllers;
   late List<Animation<double>> _iconScales;
 
   @override
   void initState() {
     super.initState();
+
 
     _iconControllers = List.generate(
       5,
@@ -141,14 +143,16 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           /// ICON
                           ScaleTransition(
                             scale: _iconScales[index],
                             child: AnimatedSwitcher(
                               duration: const Duration(milliseconds: 200),
                               transitionBuilder: (child, animation) =>
-                                  ScaleTransition(scale: animation, child: child),
+                                  ScaleTransition(
+                                    scale: animation,
+                                    child: child,
+                                  ),
                               child: Icon(
                                 isSelected ? item.$1 : item.$2,
                                 key: ValueKey(isSelected),
@@ -167,8 +171,9 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
                             duration: const Duration(milliseconds: 200),
                             style: TextStyle(
                               fontSize: isSelected ? 12 : 11,
-                              fontWeight:
-                              isSelected ? FontWeight.w600 : FontWeight.w400,
+                              fontWeight: isSelected
+                                  ? FontWeight.w600
+                                  : FontWeight.w400,
                               color: isSelected
                                   ? ColorManger.brightRed
                                   : ColorManger.slateGrey,
@@ -202,6 +207,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
           ),
         ),
       ),
+
     );
   }
 }
