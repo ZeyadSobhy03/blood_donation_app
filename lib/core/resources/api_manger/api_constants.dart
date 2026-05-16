@@ -6,6 +6,7 @@ class ApiManger {
   static const String nearbyHospitalsEndpoint = "${baseUrl}hospitals/nearby";
   static const String hospitalDetailsEndpoint = "${baseUrl}hospitals/";
   static const String notificationsEndpoint = "${baseUrl}notifications";
+  static const String forgetPasswordEndpoint ="${baseUrl}auth/forgot-password";
 
 // https://graduation-project-cy61.onrender.com/donor/stats
   static String markOneAsReadEndpoint(String id) {
@@ -32,4 +33,11 @@ static const String verifyEmailEndpoint = "${baseUrl}auth/verify-email";
 static const String verifyEmailOtpEndpoint = "${baseUrl}auth/verify-email-otp";
 
 static const String profileEndpoint = "${baseUrl}donor/profile";
+
+
+/////////////////////////////////   hospital auth endpoints   /////////////////////////////////////////
+// https://graduation-project-cy61.onrender.com/auth/hospital/
+
+
+static const String hospitalLoginEndpoint = "${baseUrl}auth/hospital/login";
 }

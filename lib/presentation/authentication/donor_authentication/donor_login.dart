@@ -101,6 +101,7 @@ class _DonorLoginState extends State<DonorLogin> {
                   if (state is AuthLoadingState) {
                     return CustomLoadingWidget(
                       message: appLocalization.processingRequest,
+                      indicatorColor: ColorManger.brightRed,
                     );
                   }
 

@@ -2,7 +2,12 @@ import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/local_data_source/hospital_hive_data_source.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/remote_data_source/hospital_api_data_source.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/repositories/hospital_repositories_impl.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/domain/use_case/hospital_use_case.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/hospital_forget_password.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/presentation/view_model/hospital_view_model.dart';
 import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/schedule_donation.dart';
@@ -12,7 +17,9 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/profile/help_and
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/privacy_and_security/privacy_and_security.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/two_factor_authentication/screen/two_factor_authentication_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/request_screen.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../presentation/authentication/admin_authentication/admin_authentication.dart';
 import '../../../presentation/authentication/admin_authentication/admin_forget_password.dart';
@@ -169,7 +176,17 @@ class RouteManger {
 
       case hospitalAuth:
         return MaterialPageRoute(
-          builder: (context) => HospitalAuthentication(),
+          builder: (_) => BlocProvider(
+            create: (context) => HospitalCubit(
+              hospitalUseCase: HospitalUseCase(
+                hospitalRepositories: HospitalRepositoriesImp(
+                  hospitalRemoteDataSource: HospitalApiDataSource(Dio()),
+                ),
+              ),
+              hospitalHiveDataSource: HospitalHiveDataSource()..init(),
+            ),
+            child: const HospitalAuthentication(),
+          ),
         );
 
       case adminAuth:
@@ -189,7 +206,17 @@ class RouteManger {
 
       case hospitalForgetPassword:
         return MaterialPageRoute(
-          builder: (context) => HospitalForgetPassword(),
+          builder: (_) => BlocProvider(
+            create: (context) => HospitalCubit(
+              hospitalUseCase: HospitalUseCase(
+                hospitalRepositories: HospitalRepositoriesImp(
+                  hospitalRemoteDataSource: HospitalApiDataSource(Dio()),
+                ),
+              ),
+              hospitalHiveDataSource: HospitalHiveDataSource()..init(),
+            ),
+            child: const HospitalForgetPassword(),
+          ),
         );
 
       case adminForgetPassword:

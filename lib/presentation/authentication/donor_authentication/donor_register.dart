@@ -82,6 +82,7 @@ class _DonorRegisterState extends State<DonorRegister> {
               if (state is AuthLoadingState) {
                 return CustomLoadingWidget(
                   message: appLocalization.processingRequest,
+                  indicatorColor: ColorManger.brightRed,
                 );
               }
 

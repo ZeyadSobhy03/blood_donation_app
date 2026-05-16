@@ -10,11 +10,13 @@ import '../../widgets/custom_text.dart';
 class CustomLoadingWidget extends StatelessWidget {
   final String? message;
   final double? indicatorSize;
+  final Color? indicatorColor;
 
   const CustomLoadingWidget({
     super.key,
     this.message,
     this.indicatorSize = 50,
+    this.indicatorColor
   });
 
   @override
@@ -31,7 +33,7 @@ class CustomLoadingWidget extends StatelessWidget {
             child: CircularProgressIndicator(
               strokeWidth: 3.w,
               valueColor: AlwaysStoppedAnimation<Color>(
-                ColorManger.brightRed,
+                indicatorColor!,
               ),
             ),
           ),
