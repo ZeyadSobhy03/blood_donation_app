@@ -1019,7 +1019,7 @@ abstract class AppLocalizations {
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
-  /// **'cancel'**
+  /// **'Cancel'**
   String get cancel;
 
   /// No description provided for @donationMessage.
@@ -5323,6 +5323,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'PIN must be 6 digits long.'**
   String get invalid_pin_length;
+
+  /// No description provided for @working_hours_and_slots.
+  ///
+  /// In en, this message translates to:
+  /// **'Working Hours & Slots'**
+  String get working_hours_and_slots;
+
+  /// No description provided for @measure_in_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'hours'**
+  String get measure_in_hours;
+
+  /// No description provided for @slots.
+  ///
+  /// In en, this message translates to:
+  /// **'slots'**
+  String get slots;
+
+  /// No description provided for @manage_working_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage Working Hours'**
+  String get manage_working_hours;
+
+  /// No description provided for @appointment_slots.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Slots'**
+  String get appointment_slots;
+
+  /// No description provided for @working_hours_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure your hospital\'s operating hours and appointment capacity'**
+  String get working_hours_subtitle;
+
+  /// No description provided for @working_hours_tip.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip: '**
+  String get working_hours_tip;
+
+  /// No description provided for @working_hours_tip_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your working hours and slots per hour. The same slot capacity will be applied to all hours.'**
+  String get working_hours_tip_text;
+
+  /// No description provided for @opening_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Opening Time'**
+  String get opening_time;
+
+  /// No description provided for @closing_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Closing Time'**
+  String get closing_time;
+
+  /// No description provided for @slots_per_hour.
+  ///
+  /// In en, this message translates to:
+  /// **'Slots Per Hour'**
+  String get slots_per_hour;
+
+  /// No description provided for @slots_per_hour_text.
+  ///
+  /// In en, this message translates to:
+  /// **'This value will be applied to every hour between opening and closing time.'**
+  String get slots_per_hour_text;
+
+  /// No description provided for @summary.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary'**
+  String get summary;
+
+  /// No description provided for @operating_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Operating Hours: '**
+  String get operating_hours;
+
+  /// No description provided for @hours_per_day.
+  ///
+  /// In en, this message translates to:
+  /// **'Hours Per Day: '**
+  String get hours_per_day;
+
+  /// No description provided for @total_daily_capacity.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Daily Capacity: '**
+  String get total_daily_capacity;
+
+  /// No description provided for @totalDailySlots.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Daily Slots'**
+  String get totalDailySlots;
+
+  /// No description provided for @availableForScheduling.
+  ///
+  /// In en, this message translates to:
+  /// **'Available For Scheduling'**
+  String get availableForScheduling;
+
+  /// No description provided for @uniformAcrossAllHours.
+  ///
+  /// In en, this message translates to:
+  /// **'Uniform Across All Hours'**
+  String get uniformAcrossAllHours;
 }
 
 class _AppLocalizationsDelegate

@@ -2773,4 +2773,64 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalid_pin_length => 'يجب أن يكون رقم التعريف الشخصي 6 أرقام.';
+
+  @override
+  String get working_hours_and_slots => 'ساعات العمل والأماكن الشاغرة';
+
+  @override
+  String get measure_in_hours => 'ساعات';
+
+  @override
+  String get slots => 'أماكن شاغرة';
+
+  @override
+  String get manage_working_hours => 'إدارة ساعات العمل';
+
+  @override
+  String get appointment_slots => 'الأماكن الشاغرة.';
+
+  @override
+  String get working_hours_subtitle =>
+      'حدد ساعات العمل الخاصة بالمستشفى والطاقة الاستيعابية لها';
+
+  @override
+  String get working_hours_tip => 'تلميح: ';
+
+  @override
+  String get working_hours_tip_text =>
+      'حدد ساعات العمل والأماكن الشاغرة في كل ساعة، سيتم تطبيق السعة نفسها لكل الساعات';
+
+  @override
+  String get opening_time => 'وقت البداية';
+
+  @override
+  String get closing_time => 'وقت الإغلاق';
+
+  @override
+  String get slots_per_hour => 'الأماكن الشاغرة في الساعة: ';
+
+  @override
+  String get slots_per_hour_text =>
+      'هذه القيمة ستطبق على كل ساعة من وقت البداية حتى وقت الإغلاق';
+
+  @override
+  String get summary => 'الملخص';
+
+  @override
+  String get operating_hours => 'ساعات العمل: ';
+
+  @override
+  String get hours_per_day => 'الساعات في اليوم: ';
+
+  @override
+  String get total_daily_capacity => 'الطاقة الاستيعابية الكلية لليوم: ';
+
+  @override
+  String get totalDailySlots => 'الوحدات الاستيعابية الكلية الشاغرة لليوم: ';
+
+  @override
+  String get availableForScheduling => 'متاح للجدولة';
+
+  @override
+  String get uniformAcrossAllHours => 'موحد على مدار جميع الساعات';
 }

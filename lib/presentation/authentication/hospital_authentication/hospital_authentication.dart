@@ -37,13 +37,6 @@ class _HospitalAuthenticationState extends State<HospitalAuthentication> {
   }
 
   Future<void> _onLoginSuccess() async {
-    final pin = await _showPinScreen();
-    if (!mounted) return;
-    if (pin == null) {
-      context.read<HospitalCubit>().reset();
-      return;
-    }
-
     Navigator.pushNamedAndRemoveUntil(
       context,
       RouteManger.hospitalMainLayout,

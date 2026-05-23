@@ -490,7 +490,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sendMessage => 'Send Message';
 
   @override
-  String get cancel => 'cancel';
+  String get cancel => 'Cancel';
 
   @override
   String get donationMessage => 'Hello, I want to donate blood';
@@ -2787,4 +2787,64 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalid_pin_length => 'PIN must be 6 digits long.';
+
+  @override
+  String get working_hours_and_slots => 'Working Hours & Slots';
+
+  @override
+  String get measure_in_hours => 'hours';
+
+  @override
+  String get slots => 'slots';
+
+  @override
+  String get manage_working_hours => 'Manage Working Hours';
+
+  @override
+  String get appointment_slots => 'Appointment Slots';
+
+  @override
+  String get working_hours_subtitle =>
+      'Configure your hospital\'s operating hours and appointment capacity';
+
+  @override
+  String get working_hours_tip => 'Tip: ';
+
+  @override
+  String get working_hours_tip_text =>
+      'Set your working hours and slots per hour. The same slot capacity will be applied to all hours.';
+
+  @override
+  String get opening_time => 'Opening Time';
+
+  @override
+  String get closing_time => 'Closing Time';
+
+  @override
+  String get slots_per_hour => 'Slots Per Hour';
+
+  @override
+  String get slots_per_hour_text =>
+      'This value will be applied to every hour between opening and closing time.';
+
+  @override
+  String get summary => 'Summary';
+
+  @override
+  String get operating_hours => 'Operating Hours: ';
+
+  @override
+  String get hours_per_day => 'Hours Per Day: ';
+
+  @override
+  String get total_daily_capacity => 'Total Daily Capacity: ';
+
+  @override
+  String get totalDailySlots => 'Total Daily Slots';
+
+  @override
+  String get availableForScheduling => 'Available For Scheduling';
+
+  @override
+  String get uniformAcrossAllHours => 'Uniform Across All Hours';
 }

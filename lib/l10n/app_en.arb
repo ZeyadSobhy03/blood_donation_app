@@ -152,7 +152,7 @@
   "deleteUser": "Delete User",
   "deleteUserConfirm": "Are you sure you want to delete this user?",
   "sendMessage": "Send Message",
-  "cancel": "cancel",
+  "cancel": "Cancel",
   "donationMessage": "Hello, I want to donate blood",
   "available": "Available",
   "distanceKm": "{distance} km",
@@ -907,5 +907,28 @@
   "dateHint": "YYYY-MM-DD",
   "pinVerificationCancelled": "PIN verification cancelled",
   "invalidPin": "Invalid PIN. Please try again.",
-  "invalid_pin_length": "PIN must be 6 digits long."
+  "invalid_pin_length": "PIN must be 6 digits long.",
+
+
+  "working_hours_and_slots": "Working Hours & Slots",
+  "measure_in_hours": "hours",
+  "slots": "slots",
+  "manage_working_hours": "Manage Working Hours",
+  "appointment_slots": "Appointment Slots",
+  "working_hours_subtitle": "Configure your hospital's operating hours and appointment capacity",
+  "working_hours_tip": "Tip: ",
+  "working_hours_tip_text": "Set your working hours and slots per hour. The same slot capacity will be applied to all hours.",
+  "opening_time": "Opening Time",
+  "closing_time": "Closing Time",
+  "slots_per_hour": "Slots Per Hour",
+  "slots_per_hour_text": "This value will be applied to every hour between opening and closing time.",
+  "summary": "Summary",
+  "operating_hours": "Operating Hours: ",
+  "hours_per_day": "Hours Per Day: ",
+  "total_daily_capacity": "Total Daily Capacity: ",
+  "totalDailySlots": "Total Daily Slots",
+  "availableForScheduling": "Available For Scheduling",
+  "uniformAcrossAllHours": "Uniform Across All Hours"
+
+
 }
