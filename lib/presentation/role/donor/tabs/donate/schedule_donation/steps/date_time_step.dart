@@ -1,5 +1,6 @@
-import 'package:blood_donation_app/core/widgets/custom_dropdown.dart';
+import 'dart:developer';
 
+import 'package:blood_donation_app/core/widgets/custom_dropdown.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/donation_type_picker.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/input_label.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/navigation_button.dart';
@@ -14,9 +15,10 @@ import 'package:intl/intl.dart';
 import '../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../l10n/app_localizations.dart';
 import '../cubit/donation_schedule.dart';
+import '../presentation/view_model/time_slots/time_slots_view_model.dart';
 
 class DateTimeStep extends StatefulWidget {
-  const DateTimeStep({super.key, required this.next});
+  const DateTimeStep({super.key, required this.next, });
 
   final VoidCallback next;
 
@@ -31,15 +33,15 @@ class _DateTimeStepState extends State<DateTimeStep> {
 
   bool get canContinue =>
       selectedDate != null &&
-      selectedTime != null &&
-      selectedDonationType != null;
+          selectedTime != null &&
+          selectedDonationType != null;
 
-  _pickDate() async {
+  Future<void> _pickDate() async {
     final DateTime? picked = await showDatePicker(
       context: context,
       firstDate: DateTime.now(),
       initialDate: selectedDate ?? DateTime.now(),
-      lastDate: DateTime.now().add(Duration(days: 365)),
+      lastDate: DateTime.now().add(const Duration(days: 365)),
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
@@ -63,9 +65,23 @@ class _DateTimeStepState extends State<DateTimeStep> {
 
     if (picked != null && mounted) {
       context.read<DonationScheduleCubit>().setDate(picked);
+      context.read<DonationScheduleCubit>().setTimeSlot(null);
+
       setState(() {
         selectedDate = picked;
+        selectedTime = null;
       });
+      final hospitalId = context
+          .read<DonationScheduleCubit>()
+          .state
+          .schedule
+          .hospitalId ?? '';
+
+      final dateString = DateFormat('yyyy-MM-dd').format(picked);
+      context.read<TimeSlotsCubit>().fetchTimeSlots(
+        hospitalId: hospitalId,
+        date: dateString,
+      );
     }
   }
 
@@ -79,10 +95,10 @@ class _DateTimeStepState extends State<DateTimeStep> {
     final appLocalization = AppLocalizations.of(context)!;
 
     return BlocBuilder<DonationScheduleCubit, DonationScheduleState>(
-      builder: (context, state) {
-        selectedDate = state.schedule.date;
-        selectedTime = state.schedule.timeSlot;
-        selectedDonationType = state.schedule.donationType;
+      builder: (context, scheduleState) {
+        selectedDate = scheduleState.schedule.date;
+        selectedTime = scheduleState.schedule.timeSlot;
+        selectedDonationType = scheduleState.schedule.donationType;
 
         return Padding(
           padding: const EdgeInsets.all(8.0),
@@ -96,7 +112,7 @@ class _DateTimeStepState extends State<DateTimeStep> {
                     subTitle: appLocalization.selectDateTimeSubtitle,
                   ),
                   SizedBox(height: 4.h),
-                  NoteCard(),
+                  const NoteCard(),
                   InputLabel(label: appLocalization.selectDateLabel),
                   InkWell(
                     onTap: _pickDate,
@@ -106,24 +122,39 @@ class _DateTimeStepState extends State<DateTimeStep> {
                     ),
                   ),
                   InputLabel(label: appLocalization.selectTimeLabel),
-                  TimeSlotPicker(
-                    icon: Icons.access_time,
+                  // 3. Drive the picker from TimeSlotsCubit
+                  BlocBuilder<TimeSlotsCubit, TimeSlotsState>(
 
-                    selectedValue: selectedTime,
-                    onChanged: (value) {
-                      context.read<DonationScheduleCubit>().setTimeSlot(value);
+
+                    builder: (context, timeSlotsState) {
+                      log('TimeSlotsState: $timeSlotsState');
+                      final slots = _resolveSlots(timeSlotsState);
+
+                      return TimeSlotPicker(
+                        key: ValueKey(slots.join(',')),
+                        icon: Icons.access_time,
+                        slots: slots,
+                        isLoading: timeSlotsState is TimeSlotsLoadingState,
+                        selectedValue: selectedTime,
+                        onChanged: (value) {
+                          context
+                              .read<DonationScheduleCubit>()
+                              .setTimeSlot(value);
+                        },
+                      );
                     },
                   ),
                   InputLabel(label: appLocalization.donationTypeLabel),
                   DonationTypePicker(
                     selectedValue: selectedDonationType,
-                    prefixIcon: Icon(Icons.bloodtype, color: ColorManger.slateGrey),
-
-
+                    prefixIcon: Icon(
+                      Icons.bloodtype,
+                      color: ColorManger.slateGrey,
+                    ),
                     onChanged: (value) {
-                      context.read<DonationScheduleCubit>().setDonationType(
-                        value,
-                      );
+                      context
+                          .read<DonationScheduleCubit>()
+                          .setDonationType(value);
                     },
                   ),
                   SizedBox(height: 8.h),
@@ -140,5 +171,13 @@ class _DateTimeStepState extends State<DateTimeStep> {
         );
       },
     );
+  }
+
+  /// Extracts the slot strings from the cubit state, or returns an empty list.
+  List<String> _resolveSlots(TimeSlotsState state) {
+    if (state is TimeSlotsSuccessState) {
+      return state.timeSlots.data?.timeSlots ?? [];
+    }
+    return [];
   }
 }

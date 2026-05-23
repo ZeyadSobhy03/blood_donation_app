@@ -10,7 +10,7 @@ import 'package:share_plus/share_plus.dart';
 import '../../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../../../core/widgets/custom_note_card.dart';
 import '../../../../../../l10n/app_localizations.dart';
-import '../schedule_donation/model/donation_booking_card.dart';
+import '../data/model/appointment_model.dart';
 
 class AppointmentDetails extends StatefulWidget {
   const AppointmentDetails({super.key});
@@ -20,15 +20,14 @@ class AppointmentDetails extends StatefulWidget {
 }
 
 class _AppointmentDetailsState extends State<AppointmentDetails> {
-  late DonationBookingCardModel model;
-
+  late final Appointments appointment;
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
     final args = ModalRoute.of(context)!.settings.arguments;
-    if (args is DonationBookingCardModel) {
-      model = args;
+    if (args is Appointments) {
+      appointment = args;
     } else {
       throw Exception('Expected DonationBookingCardModel as argument');
     }
@@ -37,11 +36,11 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
-    final location = '${model.hospitalName} - ${model.hospitalDistance}';
-    final formattedDate =
-        '${model.date?.day}/${model.date?.month}/${model.date?.year}';
-    final time = model.timeSlot;
-    final donationType = model.donationType;
+    final location = appointment.hospitalId?.address?.city ?? '';
+
+
+    final donationType = appointment.donationType;
+
     final List<String> items = [
       appLocalization.appointmentPrepStep1,
       appLocalization.appointmentPrepStep2,
@@ -99,9 +98,7 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
                         vertical: 4,
                       ),
                       child: CustomText(
-                        text: model.isConfirmed ?? false
-                            ? appLocalization.confirmed
-                            : appLocalization.pending,
+                        text: appointment.status?? '',
                         textStyle: TextStyle(
                           color: ColorManger.black,
                           height: 1.4,
@@ -116,12 +113,11 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
               SizedBox(height: 16),
               AppointmentInformationCard(
                 location: location,
-                formattedDate: formattedDate,
-                time: '$time',
+                formattedDate: '${appointment.appointmentDate}',
                 donationType: '$donationType',
               ),
               SizedBox(height: 16),
-              QrCodeCard(qrToken: model.appointmentId ?? ''),
+              QrCodeCard(qrToken: appointment.qrToken ?? ''),
               SizedBox(height: 16),
               CustomNoteCard(
                 title: appLocalization.important,
@@ -170,12 +166,11 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
         '''
 ${appLocalization.bloodDonationAppointmentShare}
 
-${appLocalization.hospitalLabel}: ${model.hospitalName}
-${appLocalization.dateLabel}: ${model.date?.day}/${model.date?.month}/${model.date?.year}
-${appLocalization.timeLabel}: ${model.timeSlot}
+${appLocalization.hospitalLabel}: ${appointment.hospitalId?.hospitalName?? ''}
+${appLocalization.dateLabel}: ${appointment.appointmentDate}
 
 ${appLocalization.qrTokenLabel}:
-${model.appointmentId}
+${appointment.qrToken}
 ''';
 
     SharePlus.instance.share(

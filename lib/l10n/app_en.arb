@@ -870,26 +870,26 @@
   "fetchingData": "Fetching data...",
   "fetchingAnalytics": "Fetching analytics...",
   "showQrCode": "Show QR Code",
-   "donor_qr_card_title": "Your Donation QR Code",
-   "donor_qr_card_subtitle": "Show this QR code to hospital staff upon arrival to confirm your donation.",
-   "appointmentDetailsTitle": "Appointment Details",
-   "appointmentDetailsSubtitle": "Your donation QR code",
-   "appointmentPrepStep1": "Arrive 10 minutes early",
-   "appointmentPrepStep2": "Bring a valid photo ID",
-   "appointmentPrepStep3": "Have this QR code ready to scan",
-   "appointmentPrepStep4": "Stay hydrated before donation",
-   "important": "Important",
-   "appointmentInformation": "Appointment Information",
-   "backToDonations": "Back to Donations",
-   "shareQrCode": "Share Qr Code",
-    "bloodDonationAppointmentShare": "Blood Donation Appointment",
-    "hospitalLabel": "Hospital",
-    "timeLabel": "Time",
-    "qrTokenLabel": "QR Token",
-    "scanDonorQrCodeTitle": "Scan Donor QR Code",
-     "scanDonorQrCodeDescription": "Verify donors and record donations quickly using QR codes.",
-     "openQrScannerButton": "Open Qr Scanner",
-     "lifeLinkBot": "LifeLink Bot",
+  "donor_qr_card_title": "Your Donation QR Code",
+  "donor_qr_card_subtitle": "Show this QR code to hospital staff upon arrival to confirm your donation.",
+  "appointmentDetailsTitle": "Appointment Details",
+  "appointmentDetailsSubtitle": "Your donation QR code",
+  "appointmentPrepStep1": "Arrive 10 minutes early",
+  "appointmentPrepStep2": "Bring a valid photo ID",
+  "appointmentPrepStep3": "Have this QR code ready to scan",
+  "appointmentPrepStep4": "Stay hydrated before donation",
+  "important": "Important",
+  "appointmentInformation": "Appointment Information",
+  "backToDonations": "Back to Donations",
+  "shareQrCode": "Share Qr Code",
+  "bloodDonationAppointmentShare": "Blood Donation Appointment",
+  "hospitalLabel": "Hospital",
+  "timeLabel": "Time",
+  "qrTokenLabel": "QR Token",
+  "scanDonorQrCodeTitle": "Scan Donor QR Code",
+  "scanDonorQrCodeDescription": "Verify donors and record donations quickly using QR codes.",
+  "openQrScannerButton": "Open Qr Scanner",
+  "lifeLinkBot": "LifeLink Bot",
   "connectionTimeout": "Connection timeout. Please check your internet connection.",
   "sendTimeout": "Request timeout while sending data. Try again.",
   "receiveTimeout": "Server is taking too long to respond. Try again later.",
@@ -907,5 +907,143 @@
   "dateHint": "YYYY-MM-DD",
   "pinVerificationCancelled": "PIN verification cancelled",
   "invalidPin": "Invalid PIN. Please try again.",
-  "invalid_pin_length": "PIN must be 6 digits long."
+  "invalid_pin_length": "PIN must be 6 digits long.",
+  "rescheduled": "Rescheduled",
+  "no_badges_found": "No badges found",
+  "no_rewards_found": "No rewards found",
+  "no_points_history": "No points history found",
+  "current": "Current",
+  "next": "Next",
+  "bronze": "Bronze",
+  "silver": "Silver",
+  "gold": "Gold",
+  "platinum": "Platinum",
+  "diamond": "Diamond",
+  "coffeeVoucher": "Coffee Voucher",
+  "movieTickets": "Movie Tickets",
+  "restaurantGiftCard": "Restaurant Gift Card",
+  "healthCheckUp": "Health Check-up",
+  "premiumBadge": "Premium Badge",
+  "gymMembership": "Gym Membership",
+  "no_notifications": "You have no notifications at this time.",
+  "noHospitalsFound": "No hospitals found in this area.",
+  "unknownHospital": "Unknown Hospital",
+  "keepAppointment": "Keep your appointment",
+  "confirm": "Confirm",
+  "cancelAppointmentTitle": "Cancel Appointment",
+  "cancelAppointmentMessage": "Are you sure you want to cancel your appointment? This may affect your donation history and points.",
+  "noUpcomingAppointments": "You have no upcoming appointments.",
+  "community_helper": "Community Helper",
+  "responded_to_25_emergencies": "Responded to 25 Emergencies",
+  "first_donation": "First Donation",
+  "tier_bonus": "Tier Bonus",
+
+  "badge_unlock": "Badge Unlock",
+  "reward_redeemed": "Reward Redemption",
+  "plasma_donation": "Plasma Donation",
+  "platelets_donation": "Platelets Donation",
+  "organ_donation": "Organ Donation",
+  "admin_adjustment": "Admin Adjustment",
+  "referral": "Referral",
+
+  "requestAcceptedSuccessfully": "Request accepted successfully",
+  "cancelRequest": "Cancel Request",
+    "cancelRequestConfirmation": "Are you sure you want to cancel this request? This action cannot be undone.",
+  "no": "No",
+    "yes": "Yes",
+  "requestCancelledSuccessfully": "Request cancelled successfully",
+  "delete_all_notifications_title": "Delete All Notifications",
+  "delete_all_notifications_message": "Are you sure you want to delete all notifications? This action cannot be undone.",
+  "@responseMattersDescription": {
+    "placeholders": {
+      "units": {},
+      "bloodType": {},
+      "reason": {}
+    }
+  },
+
+  "badge_unlocked_title": "🏆 Badge Unlocked: {badgeName}",
+  "@badge_unlocked_title": {
+    "placeholders": {
+      "badgeName": {"type": "String"}
+    }
+  },
+
+  "badge_unlocked_message": "{badgeDescription}",
+  "@badge_unlocked_message": {
+    "placeholders": {
+      "badgeDescription": {"type": "String"}
+    }
+  },
+
+  "tier_up_title": "🎉 Tier Upgraded to {tier}!",
+  "@tier_up_title": {
+    "placeholders": {
+      "tier": {"type": "String"}
+    }
+  },
+
+  "tier_up_message": "Congratulations! You've reached {tier} tier. Keep donating to unlock more rewards!",
+  "@tier_up_message": {
+    "placeholders": {
+      "tier": {"type": "String"}
+    }
+  },
+
+  "reward_redeemed_title": "🎁 Reward Redeemed!",
+  "@reward_redeemed_title": {},
+
+  "reward_redeemed_message": "Your {rewardName} is confirmed. Code: {confirmationCode}",
+  "@reward_redeemed_message": {
+    "placeholders": {
+      "rewardName": {"type": "String"},
+      "confirmationCode": {"type": "String"}
+    }
+  },
+
+  "emergency_request_title": "🚨 Emergency Blood Request",
+  "@emergency_request_title": {},
+
+  "emergency_request_body": "Critical {bloodType} blood needed near {hospitalName}",
+  "@emergency_request_body": {
+    "placeholders": {
+      "bloodType": {"type": "String"},
+      "hospitalName": {"type": "String"}
+    }
+  },
+
+  "urgent_request_accepted_title": "Urgent Request Accepted",
+  "@urgent_request_accepted_title": {},
+
+  "urgent_request_accepted_message": "You accepted an urgent {requestType} request with {urgency} urgency.",
+  "@urgent_request_accepted_message": {
+    "placeholders": {
+      "requestType": {"type": "String"},
+      "urgency": {"type": "String"}
+    }
+  },
+
+  "urgent_request_declined_title": "Urgent Request Declined",
+  "@urgent_request_declined_title": {},
+
+  "urgent_request_declined_message": "You declined an urgent {requestType} request with {urgency} urgency.",
+  "@urgent_request_declined_message": {
+    "placeholders": {
+      "requestType": {"type": "String"},
+      "urgency": {"type": "String"}
+    }
+  },
+  "error_network_timeout": "Connection timed out. Please check your internet.",
+  "error_server": "Server error. Please try again later.",
+  "error_request_cancelled": "Request was cancelled.",
+  "error_unknown": "Something went wrong. Please try again.",
+  "error_unauthorized": "Unauthorized. Please log in again.",
+  "error_not_found": "The requested resource was not found.",
+  "no_donations_found": "No donation records found",
+  "hospital": "Hospital",
+  "noDonationsYet": "No donations yet."
+
+
+
+
 }

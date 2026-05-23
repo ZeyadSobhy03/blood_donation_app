@@ -14,7 +14,7 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/wi
 import 'package:flutter/material.dart';
 
 import '../../../../../l10n/app_localizations.dart';
-import '../../../donor/tabs/profile/sections/app_footer.dart';
+import '../../../donor/tabs/profile/presentation/view/sections/app_footer.dart';
 
 class SystemSettings extends StatefulWidget {
   const SystemSettings({super.key});

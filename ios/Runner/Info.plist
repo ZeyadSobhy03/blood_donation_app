@@ -3,7 +3,12 @@
 <plist version="1.0">
 	<dict>
 
+
 	     <key>UIBackgroundModes</key>
+	     <key>NSMicrophoneUsageDescription</key>
+         <string>Voice assistant needs microphone to hear your questions</string>
+         <key>NSSpeechRecognitionUsageDescription</key>
+         <string>Converts your voice to text to answer your questions</string>
          <array>
            <string>location</string>
          </array>

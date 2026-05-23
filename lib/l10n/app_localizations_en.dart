@@ -359,8 +359,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get whyYourResponseMatters => 'Why Your Response Matters';
 
   @override
-  String get responseMattersDescription =>
-      'Your blood type matches this urgent request. Your quick response could save a life. The patient needs 3 units of O+ blood for emergency surgery.';
+  String responseMattersDescription(
+    Object units,
+    Object bloodType,
+    Object reason,
+  ) {
+    return 'Your blood type matches this urgent request. Your quick response could save a life. The patient needs 3 units of O+ blood for emergency surgery.';
+  }
 
   @override
   String get bloodTypeNeeded => 'Blood Type Needed';
@@ -2787,4 +2792,219 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalid_pin_length => 'PIN must be 6 digits long.';
+
+  @override
+  String get rescheduled => 'Rescheduled';
+
+  @override
+  String get no_badges_found => 'No badges found';
+
+  @override
+  String get no_rewards_found => 'No rewards found';
+
+  @override
+  String get no_points_history => 'No points history found';
+
+  @override
+  String get current => 'Current';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get bronze => 'Bronze';
+
+  @override
+  String get silver => 'Silver';
+
+  @override
+  String get gold => 'Gold';
+
+  @override
+  String get platinum => 'Platinum';
+
+  @override
+  String get diamond => 'Diamond';
+
+  @override
+  String get coffeeVoucher => 'Coffee Voucher';
+
+  @override
+  String get movieTickets => 'Movie Tickets';
+
+  @override
+  String get restaurantGiftCard => 'Restaurant Gift Card';
+
+  @override
+  String get healthCheckUp => 'Health Check-up';
+
+  @override
+  String get premiumBadge => 'Premium Badge';
+
+  @override
+  String get gymMembership => 'Gym Membership';
+
+  @override
+  String get no_notifications => 'You have no notifications at this time.';
+
+  @override
+  String get noHospitalsFound => 'No hospitals found in this area.';
+
+  @override
+  String get unknownHospital => 'Unknown Hospital';
+
+  @override
+  String get keepAppointment => 'Keep your appointment';
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get cancelAppointmentTitle => 'Cancel Appointment';
+
+  @override
+  String get cancelAppointmentMessage =>
+      'Are you sure you want to cancel your appointment? This may affect your donation history and points.';
+
+  @override
+  String get noUpcomingAppointments => 'You have no upcoming appointments.';
+
+  @override
+  String get community_helper => 'Community Helper';
+
+  @override
+  String get responded_to_25_emergencies => 'Responded to 25 Emergencies';
+
+  @override
+  String get first_donation => 'First Donation';
+
+  @override
+  String get tier_bonus => 'Tier Bonus';
+
+  @override
+  String get badge_unlock => 'Badge Unlock';
+
+  @override
+  String get reward_redeemed => 'Reward Redemption';
+
+  @override
+  String get plasma_donation => 'Plasma Donation';
+
+  @override
+  String get platelets_donation => 'Platelets Donation';
+
+  @override
+  String get organ_donation => 'Organ Donation';
+
+  @override
+  String get admin_adjustment => 'Admin Adjustment';
+
+  @override
+  String get referral => 'Referral';
+
+  @override
+  String get requestAcceptedSuccessfully => 'Request accepted successfully';
+
+  @override
+  String get cancelRequest => 'Cancel Request';
+
+  @override
+  String get cancelRequestConfirmation =>
+      'Are you sure you want to cancel this request? This action cannot be undone.';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get requestCancelledSuccessfully => 'Request cancelled successfully';
+
+  @override
+  String get delete_all_notifications_title => 'Delete All Notifications';
+
+  @override
+  String get delete_all_notifications_message =>
+      'Are you sure you want to delete all notifications? This action cannot be undone.';
+
+  @override
+  String badge_unlocked_title(String badgeName) {
+    return '🏆 Badge Unlocked: $badgeName';
+  }
+
+  @override
+  String badge_unlocked_message(String badgeDescription) {
+    return '$badgeDescription';
+  }
+
+  @override
+  String tier_up_title(String tier) {
+    return '🎉 Tier Upgraded to $tier!';
+  }
+
+  @override
+  String tier_up_message(String tier) {
+    return 'Congratulations! You\'ve reached $tier tier. Keep donating to unlock more rewards!';
+  }
+
+  @override
+  String get reward_redeemed_title => '🎁 Reward Redeemed!';
+
+  @override
+  String reward_redeemed_message(String rewardName, String confirmationCode) {
+    return 'Your $rewardName is confirmed. Code: $confirmationCode';
+  }
+
+  @override
+  String get emergency_request_title => '🚨 Emergency Blood Request';
+
+  @override
+  String emergency_request_body(String bloodType, String hospitalName) {
+    return 'Critical $bloodType blood needed near $hospitalName';
+  }
+
+  @override
+  String get urgent_request_accepted_title => 'Urgent Request Accepted';
+
+  @override
+  String urgent_request_accepted_message(String requestType, String urgency) {
+    return 'You accepted an urgent $requestType request with $urgency urgency.';
+  }
+
+  @override
+  String get urgent_request_declined_title => 'Urgent Request Declined';
+
+  @override
+  String urgent_request_declined_message(String requestType, String urgency) {
+    return 'You declined an urgent $requestType request with $urgency urgency.';
+  }
+
+  @override
+  String get error_network_timeout =>
+      'Connection timed out. Please check your internet.';
+
+  @override
+  String get error_server => 'Server error. Please try again later.';
+
+  @override
+  String get error_request_cancelled => 'Request was cancelled.';
+
+  @override
+  String get error_unknown => 'Something went wrong. Please try again.';
+
+  @override
+  String get error_unauthorized => 'Unauthorized. Please log in again.';
+
+  @override
+  String get error_not_found => 'The requested resource was not found.';
+
+  @override
+  String get no_donations_found => 'No donation records found';
+
+  @override
+  String get hospital => 'Hospital';
+
+  @override
+  String get noDonationsYet => 'No donations yet.';
 }

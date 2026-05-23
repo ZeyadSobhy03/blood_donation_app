@@ -111,7 +111,6 @@
   "iCanHelpRespondNow": "أستطيع المساعدة - الرد الآن",
   "notAvailable": "غير متاح",
   "whyYourResponseMatters": "لماذا ردك مهم",
-  "responseMattersDescription": "فصيلة دمك تطابق هذا الطلب العاجل. استجابتك السريعة قد تنقذ حياة. يحتاج المريض إلى 3 وحدات دم O+ لعملية طارئة.",
   "bloodTypeNeeded": "فصيلة الدم المطلوبة",
   "urgentRequestActive": "طلب عاجل نشط",
   "unitsNeeded": "عدد الوحدات المطلوبة",
@@ -908,5 +907,142 @@
   "dateHint": "YYYY-MM-DD",
   "pinVerificationCancelled": "تم إلغاء التحقق من رقم التعريف الشخصي.",
   "invalidPin": "رقم التعريف الشخصي غير صالح. يرجى المحاولة",
-  "invalid_pin_length": "يجب أن يكون رقم التعريف الشخصي 6 أرقام."
+  "invalid_pin_length": "يجب أن يكون رقم التعريف الشخصي 6 أرقام.",
+  "rescheduled": "تم إعادة جدولة الموعد بنجاح",
+  "no_badges_found": "لم يتم العثور على شارات",
+  "no_rewards_found": "لم يتم العثور على مكافآت",
+  "no_points_history": "لا يوجد سجل نقاط",
+  "current": "الحالي",
+  "next": "التالي",
+  "bronze": "برونزي",
+  "silver": "فضي",
+  "gold": "ذهبي",
+  "platinum": "بلاتيني",
+  "diamond": "ماسي",
+  "coffeeVoucher": "قسيمة قهوة",
+  "movieTickets": "تذاكر سينما",
+  "restaurantGiftCard": "بطاقة هدية لمطعم",
+  "healthCheckUp": "فحص طبي",
+  "premiumBadge": "شارة مميزة",
+  "gymMembership": "عضوية جيم",
+  "no_notifications": "لا توجد إشعارات",
+  "noHospitalsFound": "لم يتم العثور على مستشفيات",
+  "unknownHospital": "مستشفى غير معروف",
+  "keepAppointment": "الاحتفاظ بالموعد",
+  "confirm": "تأكيد",
+  "cancelAppointmentTitle": "تأكيد إلغاء الموعد",
+  "cancelAppointmentMessage": "هل أنت متأكد أنك تريد إلغاء هذا الموعد؟",
+  "noUpcomingAppointments": "لا توجد مواعيد قادمة",
+  "community_helper": "مساعد المجتمع",
+  "responded_to_25_emergencies": "أجبت على 25 حالة طارئة",
+  "first_donation": "أول تبرع",
+  "tier_bonus": "مكافأة المستوى",
+  "badge_unlock": "فتح شارة",
+  "reward_redeemed": "استرداد المكافأة",
+  "plasma_donation": "التبرع بالبلازما",
+  "platelets_donation": "التبرع بالصفائح الدموية",
+  "organ_donation": "التبرع بالأعضاء",
+  "admin_adjustment": "تعديل بواسطة الإدارة",
+  "referral": "إحالة",
+  "requestAcceptedSuccessfully": "تم قبول الطلب بنجاح",
+  "cancelRequest": "إلغاء الطلب",
+    "cancelRequestConfirmation": "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟",
+  "no": "لا",
+  "yes": "نعم",
+  "requestCancelledSuccessfully": "تم إلغاء الطلب بنجاح",
+  "responseMattersDescription": "فصيلة دمك مطابقة لهذا الطلب العاجل. استجابتك السريعة قد تنقذ حياة. يحتاج المريض إلى {units} وحدات من فصيلة {bloodType} بسبب {reason}.",
+  "delete_all_notifications_title": "حذف كل الإشعارات",
+  "delete_all_notifications_message": "هل أنت متأكد أنك تريد حذف كل الإشعارات؟ لا يمكن التراجع عن هذا الإجراء.",
+  "@responseMattersDescription": {
+    "placeholders": {
+      "units": {},
+      "bloodType": {},
+      "reason": {}
+    }
+  },
+
+  "badge_unlocked_title": "🏆 تم فتح شارة: {badgeName}",
+  "@badge_unlocked_title": {
+    "placeholders": {
+      "badgeName": {"type": "String"}
+    }
+  },
+
+  "badge_unlocked_message": "{badgeDescription}",
+  "@badge_unlocked_message": {
+    "placeholders": {
+      "badgeDescription": {"type": "String"}
+    }
+  },
+
+  "tier_up_title": "🎉 تمت ترقية المستوى إلى {tier}!",
+  "@tier_up_title": {
+    "placeholders": {
+      "tier": {"type": "String"}
+    }
+  },
+
+  "tier_up_message": "تهانينا! لقد وصلت إلى مستوى {tier}. استمر في التبرع لفتح المزيد من المكافآت!",
+  "@tier_up_message": {
+    "placeholders": {
+      "tier": {"type": "String"}
+    }
+  },
+
+  "reward_redeemed_title": "🎁 تم استرداد المكافأة!",
+  "@reward_redeemed_title": {},
+
+  "reward_redeemed_message": "تم تأكيد {rewardName} الخاص بك. الرمز: {confirmationCode}",
+  "@reward_redeemed_message": {
+    "placeholders": {
+      "rewardName": {"type": "String"},
+      "confirmationCode": {"type": "String"}
+    }
+  },
+
+  "emergency_request_title": "🚨 طلب دم طارئ",
+  "@emergency_request_title": {},
+
+  "emergency_request_body": "هناك حاجة ماسة لدم {bloodType} بالقرب من {hospitalName}",
+  "@emergency_request_body": {
+    "placeholders": {
+      "bloodType": {"type": "String"},
+      "hospitalName": {"type": "String"}
+    }
+  },
+
+  "urgent_request_accepted_title": "تم قبول الطلب العاجل",
+  "@urgent_request_accepted_title": {},
+
+  "urgent_request_accepted_message": "لقد قبلت طلب {requestType} العاجل بدرجة إلحاح {urgency}.",
+  "@urgent_request_accepted_message": {
+    "placeholders": {
+      "requestType": {"type": "String"},
+      "urgency": {"type": "String"}
+    }
+  },
+
+  "urgent_request_declined_title": "تم رفض الطلب العاجل",
+  "@urgent_request_declined_title": {},
+
+  "urgent_request_declined_message": "لقد رفضت طلب {requestType} العاجل بدرجة إلحاح {urgency}.",
+  "@urgent_request_declined_message": {
+    "placeholders": {
+      "requestType": {"type": "String"},
+      "urgency": {"type": "String"}
+    }
+  },
+  "error_network_timeout": "انتهت مهلة الاتصال. يرجى التحقق من الإنترنت.",
+  "error_server": "خطأ في الخادم. يرجى المحاولة لاحقاً.",
+  "error_request_cancelled": "تم إلغاء الطلب.",
+  "error_unknown": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+  "error_unauthorized": "غير مصرح. يرجى تسجيل الدخول مرة أخرى.",
+  "error_not_found": "المورد المطلوب غير موجود.",
+  "no_donations_found": "لم يتم العثور على سجلات التبرع",
+  "hospital": "المستشفى",
+  "noDonationsYet": "لا توجد تبرعات حتى الآن"
+
+
+
+
 }

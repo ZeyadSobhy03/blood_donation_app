@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/cubit/donation_schedule.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/section/schedule_linear_progress_indicator.dart';
 
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/section/schedule_upper_title.dart';
@@ -8,6 +9,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/steps/location_step.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/steps/review_and_confirm.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ScheduleDonation extends StatefulWidget {
   const ScheduleDonation({super.key});
@@ -81,12 +83,13 @@ class _ScheduleDonationState extends State<ScheduleDonation> {
                 },
                 children: [
                   LocationStep(nextStep: _nextStep),
-                  DateTimeStep(next: _nextStep),
+                  DateTimeStep(
+                    next: _nextStep,
+
+                  ),
                   ConfirmYourDetails(nextStep: _nextStep),
                   ReviewAndConfirm(next: _nextStep),
-                  AppointmentConfirmed(next: (){
-
-                  })
+                  AppointmentConfirmed(next: () {}),
                 ],
               ),
             ),

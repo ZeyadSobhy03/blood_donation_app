@@ -1,215 +1,397 @@
+import 'dart:async';
+import 'dart:developer';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/presentation/view_model/ask_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/voice_call_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/widgets/bot_message.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/widgets/user_message.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChatBotDialog extends StatefulWidget {
-  const ChatBotDialog({super.key});
+  final String userId;
+  const ChatBotDialog({super.key, required this.userId});
 
   @override
   State<ChatBotDialog> createState() => _ChatBotDialogState();
 }
 
-class _ChatBotDialogState extends State<ChatBotDialog> {
+class _ChatBotDialogState extends State<ChatBotDialog>
+    with SingleTickerProviderStateMixin {
+
+  // ── Controllers ─────────────────────────
   late TextEditingController _messageController;
+  late ScrollController _scrollController;
+
+
+
+  // ── Messages ─────────────────────────────
   late List<Map<String, String>> messages;
+
+  // ─────────────────────────────────────────
+  // LIFECYCLE
+  // ─────────────────────────────────────────
 
   @override
   void initState() {
     super.initState();
     _messageController = TextEditingController();
-    // Dummy data for testing
+    _scrollController  = ScrollController();
+
+
+
     messages = [
       {
         'type': 'bot',
         'message': 'Hello! 👋 I\'m LifeLink Assistant. How can I help you today?',
-        'time': '10:30 AM'
-      },
-      {
-        'type': 'user',
-        'message': 'How often can I donate blood?',
-        'time': '10:31 AM'
-      },
-      {
-        'type': 'bot',
-        'message':
-            'Great question! You can donate whole blood every 56 days (8 weeks). Platelet and plasma donations have different frequencies.',
-        'time': '10:32 AM'
-      },
-      {
-        'type': 'user',
-        'message': 'What should I eat before donation?',
-        'time': '10:33 AM'
-      },
-      {
-        'type': 'bot',
-        'message':
-            'Eat a healthy meal 2-3 hours before donation. Avoid fatty foods and stay hydrated by drinking plenty of water.',
-        'time': '10:34 AM'
+        'time': _formatTime(DateTime.now()),
       },
     ];
+
   }
 
   @override
   void dispose() {
     _messageController.dispose();
+    _scrollController.dispose();
+
     super.dispose();
   }
 
-  void _addMessage(String messageText, bool isUser) {
-    if (messageText.isEmpty) return;
 
+
+
+
+
+
+  // ─────────────────────────────────────────
+  // SEND MESSAGES
+  // ─────────────────────────────────────────
+
+  void _sendMessage() {
+    final text = _messageController.text.trim();
+    if (text.isEmpty) return;
+    _addUserMessage(text);
+    _messageController.clear();
+    context.read<AskCubit>().askQuestion(text, widget.userId);
+  }
+
+
+  void _addUserMessage(String text) {
     setState(() {
-      final now = DateTime.now();
-      final timeString =
-          '${now.hour}:${now.minute.toString().padLeft(2, '0')} ${now.hour >= 12 ? 'PM' : 'AM'}';
-
       messages.add({
-        'type': isUser ? 'user' : 'bot',
-        'message': messageText,
-        'time': timeString,
+        'type': 'user',
+        'message': text,
+        'time': _formatTime(DateTime.now()),
       });
+    });
+    _scrollToBottom();
+  }
 
-      if (isUser) {
-        // Simulate bot response
-        Future.delayed(Duration(milliseconds: 800), () {
-          if (mounted) {
-            setState(() {
-              final botTime =
-                  '${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, '0')} ${DateTime.now().hour >= 12 ? 'PM' : 'AM'}';
-              messages.add({
-                'type': 'bot',
-                'message':
-                    'Thank you for your question! I\'m here to help. Is there anything else you\'d like to know?',
-                'time': botTime,
-              });
-            });
-          }
-        });
+  // ─────────────────────────────────────────
+  // OPEN VOICE CALL
+  // ─────────────────────────────────────────
+
+  void _openVoiceCall() {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (_, animation, __) => BlocProvider.value(
+          value: context.read<AskCubit>(),
+          child: VoiceCallScreen(userId: widget.userId),
+        ),
+        transitionsBuilder: (_, animation, __, child) {
+          return SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(0, 1),
+              end: Offset.zero,
+            ).animate(CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeOut,
+            )),
+            child: child,
+          );
+        },
+        transitionDuration: const Duration(milliseconds: 350),
+      ),
+    );
+  }
+
+
+  String _formatTime(DateTime dt) {
+    final hour   = dt.hour > 12 ? dt.hour - 12 : dt.hour == 0 ? 12 : dt.hour;
+    final minute = dt.minute.toString().padLeft(2, '0');
+    final period = dt.hour >= 12 ? 'PM' : 'AM';
+    return '$hour:$minute $period';
+  }
+
+  void _scrollToBottom() {
+    Future.delayed(const Duration(milliseconds: 100), () {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
       }
     });
-    _messageController.clear();
   }
+
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      backgroundColor: ColorManger.pureWhite,
-      alignment: Alignment.bottomCenter,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      insetPadding: EdgeInsets.zero,
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.8,
-        child: Column(
-          children: [
+    return BlocListener<AskCubit, AskState>(
+      listener: (context, state) {
+        if (state is AskSuccessState) {
+          final answer = state.answer.answer ?? '';
+          setState(() {
+            messages.removeWhere((m) => m['type'] == 'streaming');
+            messages.add({
+              'type': 'bot',
+              'message': answer,
+              'time': _formatTime(DateTime.now()),
+            });
+          });
+          _scrollToBottom();
 
-            Container(
-              width: double.infinity,
-              color: ColorManger.brightRed,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 12,
+        } else if (state is AskStreamingState) {
+          setState(() {
+            final idx = messages
+                .indexWhere((m) => m['type'] == 'streaming');
+            if (idx != -1) {
+              messages[idx]['message'] = state.currentText;
+            } else {
+              messages.add({
+                'type': 'streaming',
+                'message': state.currentText,
+                'time': _formatTime(DateTime.now()),
+              });
+            }
+          });
+          _scrollToBottom();
+
+        } else if (state is AskErrorState) {
+          log(state.error);
+          setState(() {
+            messages.removeWhere((m) => m['type'] == 'streaming');
+            messages.add({
+              'type': 'bot',
+              'message':
+              '⚠️ Sorry, something went wrong. Please try again.',
+              'time': _formatTime(DateTime.now()),
+            });
+          });
+          _scrollToBottom();
+        }
+      },
+
+      child: Dialog(
+        backgroundColor: ColorManger.pureWhite,
+        alignment: Alignment.bottomCenter,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12)),
+        insetPadding: EdgeInsets.zero,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.8,
+          child: Column(
+            children: [
+
+              // ── Header ──────────────────────────────
+              Container(
+                width: double.infinity,
+                color: ColorManger.brightRed,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12, vertical: 12),
+                  child: Row(
+                    children: [
+
+                      // Bot avatar
+                      CircleAvatar(
+                        backgroundColor:
+                        ColorManger.pureWhite.withValues(alpha: 0.3),
+                        child: const Icon(
+                          Icons.smart_toy_outlined,
+                          color: ColorManger.pureWhite,
+                          size: 24,
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+
+                      // Title + status
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: "LifeLink Assistant",
+                            textStyle: TextStyle(
+                              fontSize: FontSize.s16,
+                              fontWeight: FontWeightManager.bold,
+                              color: ColorManger.pureWhite,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          BlocBuilder<AskCubit, AskState>(
+                            builder: (context, state) {
+                              final label = switch (state) {
+                                AskLoadingState()   =>
+                                "Typing...",
+                                AskStreamingState() =>
+                                "Typing...",
+                                _ => "Always here to help",
+                              };
+                              return CustomText(
+                                text: label,
+                                textStyle: TextStyle(
+                                  fontSize: FontSize.s14,
+                                  fontWeight:
+                                  FontWeightManager.regular,
+                                  color: ColorManger.pureWhite,
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+
+                      const Spacer(),
+
+                      Container(
+                        margin: const EdgeInsets.only(right: 4),
+                        decoration: BoxDecoration(
+                          color: ColorManger.pureWhite
+                              .withValues(alpha: 0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: IconButton(
+                          onPressed: _openVoiceCall,
+                          icon: const Icon(
+                            Icons.call_rounded,
+                            color: ColorManger.pureWhite,
+                            size: 22,
+                          ),
+                          tooltip: 'Voice Call',
+                        ),
+                      ),
+
+                      // Close button
+                      Container(
+                        decoration: BoxDecoration(
+                          color: ColorManger.pureWhite
+                              .withValues(alpha: 0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: IconButton(
+                          onPressed: () => Navigator.pop(context),
+                          icon: const Icon(
+                            Icons.close,
+                            color: ColorManger.pureWhite,
+                            size: 22,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+              ),
+
+              // ── Live STT banner ──────────────────────
+
+
+              // ── Messages ─────────────────────────────
+              Expanded(
+                child: ListView.builder(
+                  controller: _scrollController,
+                  padding: const EdgeInsets.all(16),
+                  itemCount: messages.length,
+                  itemBuilder: (context, index) {
+                    final message = messages[index];
+                    final isUser = message['type'] == 'user';
+                    return isUser
+                        ? UserMessage(
+                      text: message['message']!,
+                      time: message['time']!,
+                    )
+                        : BotMessage(
+                      text: message['message']!,
+                      time: message['time']!,
+                    );
+                  },
+                ),
+              ),
+
+              // ── Progress bar ─────────────────────────
+              BlocBuilder<AskCubit, AskState>(
+                builder: (context, state) {
+                  if (state is AskLoadingState ||
+                      state is AskStreamingState) {
+                    return LinearProgressIndicator(
+                      color: ColorManger.brightRed,
+                      backgroundColor: ColorManger.brightRed
+                          .withValues(alpha: 0.2),
+                    );
+                  }
+                  return const SizedBox.shrink();
+                },
+              ),
+
+              // ── Input row ────────────────────────────
+              Padding(
+                padding: const EdgeInsets.all(16),
                 child: Row(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: ColorManger.pureWhite.withValues(
-                        alpha: 0.3,
-                      ),
-                      child: Icon(
-                        Icons.smart_toy_outlined,
-                        color: ColorManger.pureWhite,
-                        size: 24,
+
+
+
+                    const SizedBox(width: 8),
+
+                    // Text input
+                    Expanded(
+                      child: CustomTextFormField(
+                        textEditingController: _messageController,
+                        hintText: "Type your message...",
+                        keyboardType: TextInputType.text,
+                        maxLines: 1,
                       ),
                     ),
-                    SizedBox(width: 12),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text: "LifeLink Assistant",
-                          textStyle: TextStyle(
-                            fontSize: FontSize.s16,
-                            fontWeight: FontWeightManager.bold,
+
+                    const SizedBox(width: 8),
+
+                    // Send button
+                    BlocBuilder<AskCubit, AskState>(
+                      builder: (context, state) {
+                        final isBusy =
+                            state is AskLoadingState ||
+                                state is AskStreamingState;
+                        return FloatingActionButton(
+                          backgroundColor: ColorManger.brightRed,
+                          onPressed:
+                          isBusy ? null : _sendMessage,
+                          child: isBusy
+                              ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              color: ColorManger.pureWhite,
+                              strokeWidth: 2,
+                            ),
+                          )
+                              : const Icon(
+                            Icons.send,
                             color: ColorManger.pureWhite,
                           ),
-                        ),
-                        SizedBox(height: 4),
-                        CustomText(
-                          text: "Always here to help",
-                          textStyle: TextStyle(
-                            fontSize: FontSize.s14,
-                            fontWeight: FontWeightManager.regular,
-                            color: ColorManger.pureWhite,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Spacer(),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
+                        );
                       },
-                      icon: Icon(Icons.close, color: ColorManger.pureWhite),
                     ),
                   ],
                 ),
               ),
-            ),
-            // Messages List
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(16),
-                itemCount: messages.length,
-                itemBuilder: (context, index) {
-                  final message = messages[index];
-                  final isBot = message['type'] == 'bot';
-
-                  return isBot
-                      ? BotMessage(
-                          text: message['message']!,
-                          time: message['time']!,
-                        )
-                      : UserMessage(
-                          text: message['message']!,
-                          time: message['time']!,
-                        );
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: CustomTextFormField(
-                      textEditingController: _messageController,
-                      hintText: "Type your message...",
-                      keyboardType: TextInputType.text,
-                      maxLines: 1,
-
-                    ),
-                  ),
-                  SizedBox(width: 8),
-                  FloatingActionButton(
-                    backgroundColor: ColorManger.brightRed,
-                    onPressed: () {
-                      _addMessage(_messageController.text, true);
-                    },
-                    child: Icon(
-                      Icons.send,
-                      color: ColorManger.pureWhite,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

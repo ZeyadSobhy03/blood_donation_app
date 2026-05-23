@@ -25,7 +25,7 @@ class CustomErrorWidget extends StatelessWidget {
     final appLocalizations = AppLocalizations.of(context)!;
 
     return Center(
-      child: Padding(
+      child: SingleChildScrollView(
         padding: EdgeInsets.all(24.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -1,11 +1,11 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/donate.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/home/home.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/profile/profile.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view/home.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/profile_main/profile.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/rewards_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../../l10n/app_localizations.dart';
-import 'find_hospital/find.dart';
+import 'find_hospital/presentation/view/find.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});

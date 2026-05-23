@@ -11,7 +11,8 @@ class CustomDropDownButtonFormField extends StatelessWidget {
     this.onChanged,
     required this.items,
     required this.hintText,
-    this.initialValue, this.prefixIcon,
+    this.initialValue,
+    this.prefixIcon,
   });
 
   final void Function(dynamic)? onChanged;
@@ -22,24 +23,37 @@ class CustomDropDownButtonFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField(
+    final safeInitialValue =
+    items.contains(initialValue) ? initialValue : null;
+
+    return DropdownButtonFormField<String>(
+      key: ValueKey(
+        '${items.join(",")}_${safeInitialValue ?? "null"}',
+      ),
+
       dropdownColor: ColorManger.textFormFieldGrey,
 
       style: TextStyle(
-          color: ColorManger.black
+        color: ColorManger.black,
       ),
-      isDense: true,
-      initialValue: initialValue,
 
+      isDense: true,
       isExpanded: true,
-      icon: Icon(Icons.keyboard_arrow_down, color: ColorManger.slateGrey),
+
+      initialValue: safeInitialValue,
+
+      icon: Icon(
+        Icons.keyboard_arrow_down,
+        color: ColorManger.slateGrey,
+      ),
 
       decoration: InputDecoration(
-        prefixIcon:prefixIcon ,
+        prefixIcon: prefixIcon,
         filled: true,
         fillColor: ColorManger.textFormFieldGrey,
 
         hintText: hintText,
+
         hintStyle: TextStyle(
           color: ColorManger.grey600,
           fontSize: FontSize.s14,
@@ -49,6 +63,7 @@ class CustomDropDownButtonFormField extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
         ),
+
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
           borderSide: BorderSide(
@@ -70,19 +85,17 @@ class CustomDropDownButtonFormField extends StatelessWidget {
         ),
       ),
 
-
-      items: items
-          .map(
-            (type) => DropdownMenuItem<String>(
-              value: type,
-
-              child: CustomText(
-                text: type,
-
-              ),
+      items: items.map(
+            (type) {
+          return DropdownMenuItem<String>(
+            value: type,
+            child: CustomText(
+              text: type,
             ),
-          )
-          .toList(),
+          );
+        },
+      ).toList(),
+
       onChanged: onChanged,
     );
   }

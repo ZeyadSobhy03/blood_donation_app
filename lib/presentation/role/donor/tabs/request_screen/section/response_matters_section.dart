@@ -7,7 +7,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../l10n/app_localizations.dart';
 
 class ResponseMattersSection extends StatelessWidget {
-  const ResponseMattersSection({super.key});
+  const ResponseMattersSection({super.key, required this.unitsNeeded, required this.bloodType, required this.patientType});
+  final int unitsNeeded;
+  final String bloodType;
+  final String patientType;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +55,11 @@ class ResponseMattersSection extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 4.h,),
-                    CustomText(text: appLocalization.responseMattersDescription,textStyle: TextStyle(
+                    CustomText(text: appLocalization.responseMattersDescription(
+                      unitsNeeded.toString(),
+                      bloodType,
+                      patientType
+                    ),textStyle: TextStyle(
                       fontSize: FontSize.s14,
                       fontWeight: FontWeightManager.regular,
                       color: ColorManger.slateGrey,

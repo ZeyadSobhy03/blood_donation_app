@@ -11,13 +11,11 @@ class AppointmentInformationCard extends StatelessWidget {
     super.key,
     required this.location,
     required this.formattedDate,
-    required this.time,
     required this.donationType,
   });
 
   final String location;
   final String formattedDate;
-  final String time;
   final String donationType;
 
   @override
@@ -62,16 +60,6 @@ class AppointmentInformationCard extends StatelessWidget {
               subTitle: formattedDate,
             ),
             SizedBox(height: 8,),
-
-            ReviewRow(
-              title: appLocalizations.time_left_label,
-              subTitle: time,
-              icon: Icons.access_time_outlined,
-              isContact: false,
-              iconColor: ColorManger.slateGrey,
-            ),
-            SizedBox(height: 8,),
-
             ReviewRow(
               title: appLocalizations.donationType,
               subTitle: donationType,

@@ -1,122 +1,285 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
+import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/home/bottom_sheet/confirm_response_bottom_sheet.dart';
-
-import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/widgets/mark_all_as_read_button.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/widgets/notification_request.dart';
-
-import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/widgets/title.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/model/urgent_request.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/mark_all_as_read_button.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/notification_request.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/title.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view_model/notification/notification_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/data/models/notification/notifications_model.dart'
+    as notification_model;
 
-import '../../../../../../../core/resources/models/coordinates.dart';
-import '../../model/notification.dart';
+import '../../../../../../../core/utils/error_localizer.dart';
+import '../../../home/presentation/view/bottom_sheet/confirm_response_bottom_sheet.dart';
+import '../../../home/presentation/view_model/requests/requests_view_model.dart';
 
-class Notifications extends StatelessWidget {
+class Notifications extends StatefulWidget {
   const Notifications({super.key});
+
+  @override
+  State<Notifications> createState() => _NotificationsState();
+}
+
+class _NotificationsState extends State<Notifications> {
+  List<notification_model.Notifications> _cachedNotifications = [];
+  int _cachedUnreadCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<NotificationCubit>().fetchNotifications();
+  }
+
+  String _getNotificationTitle(
+    notification_model.Notifications item,
+    AppLocalizations loc,
+  ) {
+    switch (item.type) {
+      case 'reward':
+        return loc.badge_unlocked_title(item.title ?? '');
+      case 'emergency':
+        return loc.emergency_request_title;
+      case 'achievement':
+        return loc.tier_up_title(item.title ?? '');
+      default:
+        return item.title ?? '';
+    }
+  }
+
+  String _getNotificationBody(
+    notification_model.Notifications item,
+    AppLocalizations loc,
+  ) {
+    switch (item.type) {
+      case 'emergency':
+        return loc.emergency_request_body(
+          item.data?.requestType ?? '',
+          item.data?.hospitalName ?? '',
+        );
+      case 'reward':
+        return loc.badge_unlocked_message(item.message ?? '');
+      case 'achievement':
+        return loc.tier_up_message(item.title ?? '');
+      default:
+        return item.message ?? '';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
-    // dummy data
-    final List<NotificationModel> dummyNotifications = [
-      NotificationModel(
-        id: '1',
-        title: 'Emergency Blood Request',
-        subTitle: 'O+ blood urgently needed at City Hospital, 2.3 km away',
-        time: '5 min ago',
-        type: 'emergency',
-        isRead: false,
-        urgentRequest: UrgentRequestModel(
-          createdAt: DateTime.now(),
-          locationHospital: Coordinates(latitude: 30.0444, longitude: 31.2357),
 
-          id: 'UR1',
-          title: 'Emergency Blood Request',
-          location: 'City Hospital, Nasr City',
-          time: '5 min ago',
-          isEmergency: true,
-          bloodType: 'O+',
-          unitsNeeded: 2,
-          hospitalName: 'City Hospital',
-          hospitalDistance: '2.3 km',
-          patientType: 'Accident',
-          contactNumber: '+201000000000',
-        ),
-      ),
-      NotificationModel(
-        id: '2',
-        title: 'Profile Updated',
-        subTitle: 'Your profile information has been updated successfully',
-        time: '2 hours ago',
-        type: 'info',
-        isRead: true,
-      ),
-      NotificationModel(
-        id: '3',
-        title: 'Reward Earned',
-        subTitle: 'You earned 100 points for donating blood',
-        time: '1 day ago',
-        type: 'reward',
-        isRead: false,
-      ),
-      NotificationModel(
-        id: '4',
-        title: 'Blood Donation Event',
-        subTitle: 'Join us tomorrow at Central Hospital for a donation drive',
-        time: '1 day ago',
-        type: 'info',
-        isRead: false,
-      ),
-      NotificationModel(
-        id: '5',
-        title: 'Achievement Unlocked',
-        subTitle: 'You have donated blood 5 times! Keep it up!',
-        time: '3 days ago',
-        type: 'achievement',
-        isRead: true,
-      ),
-    ];
+    return BlocBuilder<NotificationCubit, NotificationState>(
+      builder: (context, state) {
+        if (state is NotificationSuccessState) {
+          _cachedNotifications = state.notifications.data?.notifications ?? [];
+          _cachedUnreadCount = state.notifications.data?.unreadCount ?? 0;
+        }
 
+        return Scaffold(
+          backgroundColor: ColorManger.pureWhite,
+          appBar: AppBar(
+            backgroundColor: ColorManger.brightRed,
+            foregroundColor: ColorManger.pureWhite,
+            titleSpacing: 0,
+            leading: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: const Icon(Icons.arrow_back),
+            ),
+            title: TitleOfNotification(
+              title: appLocalization.notifications_title,
+              subTitle: appLocalization.notifications_unread(
+                _cachedUnreadCount,
+              ),
+            ),
+            actions: [
+              BlocListener<NotificationDeleteCubit, NotificationDeleteState>(
+                listener: (context, deleteState) {
+                  if (deleteState is NotificationDeleteSuccessState) {
+                    setState(() {
+                      _cachedNotifications = [];
+                      _cachedUnreadCount = 0;
+                    });
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(deleteState.message),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+                  } else if (deleteState is NotificationDeleteErrorState) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(deleteState.message),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+                },
+                child:
+                    BlocBuilder<
+                      NotificationDeleteCubit,
+                      NotificationDeleteState
+                    >(
+                      builder: (context, deleteState) {
+                        if (deleteState is NotificationDeleteLoadingState) {
+                          return const Padding(
+                            padding: EdgeInsets.all(12.0),
+                            child: SizedBox(
+                              width: 20,
+                              height: 20,
+                              child: CircularProgressIndicator(
+                                color: ColorManger.pureWhite,
+                                strokeWidth: 2,
+                              ),
+                            ),
+                          );
+                        }
+                        return IconButton(
+                          onPressed: _cachedNotifications.isEmpty
+                              ? null
+                              : () => _showDeleteConfirmDialog(
+                                  context,
+                                  appLocalization,
+                                ),
+                          icon: Icon(
+                            Icons.delete_outline,
+                            color: _cachedNotifications.isEmpty
+                                ? ColorManger.pureWhite.withValues(alpha: 0.4)
+                                : ColorManger.pureWhite,
+                          ),
+                          tooltip: 'Delete all notifications',
+                        );
+                      },
+                    ),
+              ),
+              IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(Icons.close),
+              ),
+            ],
+          ),
+          body: SafeArea(
+            child: _buildBody(
+              context,
+              state,
+              appLocalization,
+              _cachedNotifications,
+            ),
+          ),
+          bottomNavigationBar: SafeArea(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return BlocListener<
+                  NotificationAllReadCubit,
+                  NotificationAllReadState
+                >(
+                  listener: (context, allReadState) {
+                    if (allReadState is NotificationAllReadSuccessState) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(appLocalization.mark_all_as_read),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                      context.read<NotificationCubit>().fetchNotifications();
+                    } else if (allReadState is NotificationAllReadErrorState) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(allReadState.message),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  },
+                  child: MarkAllAsReadButton(
+                    text: appLocalization.mark_all_as_read,
+                    onPressed:
+                        _cachedUnreadCount == 0 || _cachedNotifications.isEmpty
+                        ? null
+                        : () {
+                            context
+                                .read<NotificationAllReadCubit>()
+                                .markAllAsRead();
+                          },
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
 
-    final unreadCount = dummyNotifications
-        .where((notification) => !notification.isRead)
-        .length;
-
-    return Scaffold(
-      backgroundColor: ColorManger.pureWhite,
-      appBar: AppBar(
-        backgroundColor: ColorManger.brightRed,
-        foregroundColor: ColorManger.pureWhite,
-        titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back),
-        ),
-        title: TitleOfNotification(
-          title: appLocalization.notifications_title,
-          subTitle: appLocalization.notifications_unread(unreadCount),
+  void _showDeleteConfirmDialog(
+    BuildContext context,
+    AppLocalizations appLocalization,
+  ) {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(appLocalization.delete_all_notifications_title),
+        content: Text(
+          appLocalization.delete_all_notifications_message,
+          style: TextStyle(color: ColorManger.black.withValues(alpha: 0.6)),
         ),
         actions: [
-          IconButton(
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(
+              appLocalization.cancel,
+              style: TextStyle(color: ColorManger.black.withValues(alpha: 0.6)),
+            ),
+          ),
+          TextButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pop(dialogContext);
+              context.read<NotificationDeleteCubit>().deleteNotifications();
             },
-            icon: Icon(Icons.close),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: Text(appLocalization.delete),
           ),
         ],
       ),
-      body: SafeArea(
-        child: ListView.builder(
-          itemCount: dummyNotifications.length,
+    );
+  }
+
+  Widget _buildBody(
+    BuildContext context,
+    NotificationState state,
+    AppLocalizations appLocalization,
+    List<notification_model.Notifications> notificationItems,
+  ) {
+    if (state is NotificationLoadingState && notificationItems.isEmpty) {
+      return const CustomLoadingWidget();
+    }
+
+    if (state is NotificationErrorState) {
+      return CustomErrorWidget(
+        message: localizeError(state.message, appLocalization),
+        onRetry: () {
+          context.read<NotificationCubit>().fetchNotifications();
+        },
+      );
+    }
+
+    if (notificationItems.isEmpty) {
+      return Center(child: Text(appLocalization.no_notifications));
+    }
+
+    return Stack(
+      children: [
+        ListView.builder(
+          itemCount: notificationItems.length,
           itemBuilder: (context, index) {
-            final notification = dummyNotifications[index];
+            final item = notificationItems[index];
+            final String type = item.type ?? 'info';
             IconData icon;
             Color iconColor;
-        
-            switch (notification.type) {
+
+            switch (type) {
               case 'reward':
                 icon = Icons.workspace_premium;
                 iconColor = ColorManger.gold;
@@ -130,32 +293,49 @@ class Notifications extends StatelessWidget {
                 iconColor = ColorManger.brightRed;
                 break;
               case 'emergency':
-              default:
                 icon = Icons.error_outline;
                 iconColor = ColorManger.brightRed;
+                break;
+              default:
+                icon = Icons.notifications;
+                iconColor = ColorManger.skyBlue;
             }
-        
+
             return NotificationRequest(
-              bloodRequest: notification.type == 'emergency',
-              isEmergency: notification.type == 'emergency',
+              bloodRequest: type == 'emergency',
+              isEmergency: type == 'emergency',
               icon: icon,
               iconColor: iconColor,
-              notification: notification,
-              onPressed: () => showConfirmResponseBottomSheet(context, notification.urgentRequest!),
+              notification: item,
+              titleOverride: _getNotificationTitle(item, appLocalization),
+              bodyOverride: _getNotificationBody(item, appLocalization),
+              onPressed: type == 'emergency'
+                  ? () async {
+                      final requestId = item.data?.requestId;
+                      if (requestId == null) return;
+
+                      final request = await context
+                          .read<RequestsCubit>()
+                          .fetchRequestById(requestId: requestId);
+
+                      if (context.mounted && request != null) {
+                        showConfirmResponseBottomSheet(context, request);
+                      }
+                    }
+                  : null,
             );
           },
         ),
-      ),
-      bottomNavigationBar: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return MarkAllAsReadButton(
-              text: appLocalization.mark_all_as_read,
-              onPressed: () {},
-            );
-          },
-        ),
-      ),
+
+        if (state is NotificationLoadingState)
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: LinearProgressIndicator(color: ColorManger.brightRed),
+          ),
+      ],
     );
   }
+
 }

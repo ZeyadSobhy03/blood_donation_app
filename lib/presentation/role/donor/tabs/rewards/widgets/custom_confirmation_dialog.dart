@@ -2,17 +2,21 @@ import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/rewards_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/widgets/custom_success_dialog.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/presentation/view_model/rewards_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomConfirmationDialog extends StatefulWidget {
   final int cost;
   final String title;
   final IconData icon;
+  final String rewardId;
 
   const CustomConfirmationDialog({
     required this.cost,
     required this.title,
     required this.icon,
+    required this.rewardId,
     super.key});
 
   @override
@@ -24,6 +28,8 @@ class _CustomConfirmationDialogState extends State<CustomConfirmationDialog> {
   Widget build(BuildContext context) {
     AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     void processRedemption(int cost) {
+      context.read<RewardsCubit>().redeemReward(widget.rewardId, cost);
+
       Navigator.pop(context);
 
       setState(() {

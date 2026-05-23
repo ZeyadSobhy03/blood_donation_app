@@ -35,6 +35,7 @@ class CustomTextFormField extends StatelessWidget {
       onFieldSubmitted: (_) {
         FocusScope.of(context).unfocus();
       },
+
       onChanged: onChanged,
       keyboardType: keyboardType,
       controller: textEditingController,

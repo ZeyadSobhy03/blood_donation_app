@@ -774,7 +774,11 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Your blood type matches this urgent request. Your quick response could save a life. The patient needs 3 units of O+ blood for emergency surgery.'**
-  String get responseMattersDescription;
+  String responseMattersDescription(
+    Object units,
+    Object bloodType,
+    Object reason,
+  );
 
   /// No description provided for @bloodTypeNeeded.
   ///
@@ -5323,6 +5327,396 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'PIN must be 6 digits long.'**
   String get invalid_pin_length;
+
+  /// No description provided for @rescheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'Rescheduled'**
+  String get rescheduled;
+
+  /// No description provided for @no_badges_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No badges found'**
+  String get no_badges_found;
+
+  /// No description provided for @no_rewards_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No rewards found'**
+  String get no_rewards_found;
+
+  /// No description provided for @no_points_history.
+  ///
+  /// In en, this message translates to:
+  /// **'No points history found'**
+  String get no_points_history;
+
+  /// No description provided for @current.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
+  String get current;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @bronze.
+  ///
+  /// In en, this message translates to:
+  /// **'Bronze'**
+  String get bronze;
+
+  /// No description provided for @silver.
+  ///
+  /// In en, this message translates to:
+  /// **'Silver'**
+  String get silver;
+
+  /// No description provided for @gold.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold'**
+  String get gold;
+
+  /// No description provided for @platinum.
+  ///
+  /// In en, this message translates to:
+  /// **'Platinum'**
+  String get platinum;
+
+  /// No description provided for @diamond.
+  ///
+  /// In en, this message translates to:
+  /// **'Diamond'**
+  String get diamond;
+
+  /// No description provided for @coffeeVoucher.
+  ///
+  /// In en, this message translates to:
+  /// **'Coffee Voucher'**
+  String get coffeeVoucher;
+
+  /// No description provided for @movieTickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Movie Tickets'**
+  String get movieTickets;
+
+  /// No description provided for @restaurantGiftCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurant Gift Card'**
+  String get restaurantGiftCard;
+
+  /// No description provided for @healthCheckUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Health Check-up'**
+  String get healthCheckUp;
+
+  /// No description provided for @premiumBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Badge'**
+  String get premiumBadge;
+
+  /// No description provided for @gymMembership.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym Membership'**
+  String get gymMembership;
+
+  /// No description provided for @no_notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'You have no notifications at this time.'**
+  String get no_notifications;
+
+  /// No description provided for @noHospitalsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No hospitals found in this area.'**
+  String get noHospitalsFound;
+
+  /// No description provided for @unknownHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Hospital'**
+  String get unknownHospital;
+
+  /// No description provided for @keepAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your appointment'**
+  String get keepAppointment;
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
+
+  /// No description provided for @cancelAppointmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel Appointment'**
+  String get cancelAppointmentTitle;
+
+  /// No description provided for @cancelAppointmentMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to cancel your appointment? This may affect your donation history and points.'**
+  String get cancelAppointmentMessage;
+
+  /// No description provided for @noUpcomingAppointments.
+  ///
+  /// In en, this message translates to:
+  /// **'You have no upcoming appointments.'**
+  String get noUpcomingAppointments;
+
+  /// No description provided for @community_helper.
+  ///
+  /// In en, this message translates to:
+  /// **'Community Helper'**
+  String get community_helper;
+
+  /// No description provided for @responded_to_25_emergencies.
+  ///
+  /// In en, this message translates to:
+  /// **'Responded to 25 Emergencies'**
+  String get responded_to_25_emergencies;
+
+  /// No description provided for @first_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'First Donation'**
+  String get first_donation;
+
+  /// No description provided for @tier_bonus.
+  ///
+  /// In en, this message translates to:
+  /// **'Tier Bonus'**
+  String get tier_bonus;
+
+  /// No description provided for @badge_unlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge Unlock'**
+  String get badge_unlock;
+
+  /// No description provided for @reward_redeemed.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward Redemption'**
+  String get reward_redeemed;
+
+  /// No description provided for @plasma_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Plasma Donation'**
+  String get plasma_donation;
+
+  /// No description provided for @platelets_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Platelets Donation'**
+  String get platelets_donation;
+
+  /// No description provided for @organ_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Organ Donation'**
+  String get organ_donation;
+
+  /// No description provided for @admin_adjustment.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Adjustment'**
+  String get admin_adjustment;
+
+  /// No description provided for @referral.
+  ///
+  /// In en, this message translates to:
+  /// **'Referral'**
+  String get referral;
+
+  /// No description provided for @requestAcceptedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Request accepted successfully'**
+  String get requestAcceptedSuccessfully;
+
+  /// No description provided for @cancelRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel Request'**
+  String get cancelRequest;
+
+  /// No description provided for @cancelRequestConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to cancel this request? This action cannot be undone.'**
+  String get cancelRequestConfirmation;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @requestCancelledSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Request cancelled successfully'**
+  String get requestCancelledSuccessfully;
+
+  /// No description provided for @delete_all_notifications_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete All Notifications'**
+  String get delete_all_notifications_title;
+
+  /// No description provided for @delete_all_notifications_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete all notifications? This action cannot be undone.'**
+  String get delete_all_notifications_message;
+
+  /// No description provided for @badge_unlocked_title.
+  ///
+  /// In en, this message translates to:
+  /// **'🏆 Badge Unlocked: {badgeName}'**
+  String badge_unlocked_title(String badgeName);
+
+  /// No description provided for @badge_unlocked_message.
+  ///
+  /// In en, this message translates to:
+  /// **'{badgeDescription}'**
+  String badge_unlocked_message(String badgeDescription);
+
+  /// No description provided for @tier_up_title.
+  ///
+  /// In en, this message translates to:
+  /// **'🎉 Tier Upgraded to {tier}!'**
+  String tier_up_title(String tier);
+
+  /// No description provided for @tier_up_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations! You\'ve reached {tier} tier. Keep donating to unlock more rewards!'**
+  String tier_up_message(String tier);
+
+  /// No description provided for @reward_redeemed_title.
+  ///
+  /// In en, this message translates to:
+  /// **'🎁 Reward Redeemed!'**
+  String get reward_redeemed_title;
+
+  /// No description provided for @reward_redeemed_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Your {rewardName} is confirmed. Code: {confirmationCode}'**
+  String reward_redeemed_message(String rewardName, String confirmationCode);
+
+  /// No description provided for @emergency_request_title.
+  ///
+  /// In en, this message translates to:
+  /// **'🚨 Emergency Blood Request'**
+  String get emergency_request_title;
+
+  /// No description provided for @emergency_request_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical {bloodType} blood needed near {hospitalName}'**
+  String emergency_request_body(String bloodType, String hospitalName);
+
+  /// No description provided for @urgent_request_accepted_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent Request Accepted'**
+  String get urgent_request_accepted_title;
+
+  /// No description provided for @urgent_request_accepted_message.
+  ///
+  /// In en, this message translates to:
+  /// **'You accepted an urgent {requestType} request with {urgency} urgency.'**
+  String urgent_request_accepted_message(String requestType, String urgency);
+
+  /// No description provided for @urgent_request_declined_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent Request Declined'**
+  String get urgent_request_declined_title;
+
+  /// No description provided for @urgent_request_declined_message.
+  ///
+  /// In en, this message translates to:
+  /// **'You declined an urgent {requestType} request with {urgency} urgency.'**
+  String urgent_request_declined_message(String requestType, String urgency);
+
+  /// No description provided for @error_network_timeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection timed out. Please check your internet.'**
+  String get error_network_timeout;
+
+  /// No description provided for @error_server.
+  ///
+  /// In en, this message translates to:
+  /// **'Server error. Please try again later.'**
+  String get error_server;
+
+  /// No description provided for @error_request_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request was cancelled.'**
+  String get error_request_cancelled;
+
+  /// No description provided for @error_unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get error_unknown;
+
+  /// No description provided for @error_unauthorized.
+  ///
+  /// In en, this message translates to:
+  /// **'Unauthorized. Please log in again.'**
+  String get error_unauthorized;
+
+  /// No description provided for @error_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'The requested resource was not found.'**
+  String get error_not_found;
+
+  /// No description provided for @no_donations_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No donation records found'**
+  String get no_donations_found;
+
+  /// No description provided for @hospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital'**
+  String get hospital;
+
+  /// No description provided for @noDonationsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No donations yet.'**
+  String get noDonationsYet;
 }
 
 class _AppLocalizationsDelegate

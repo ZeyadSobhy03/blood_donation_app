@@ -1,5 +1,7 @@
-import 'package:blood_donation_app/core/cubits/map_cubit.dart';
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/requests_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/widgets/blood_need_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/widgets/hospital_info_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/widgets/map_card.dart';
@@ -10,12 +12,14 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/w
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import '../../../../../../l10n/app_localizations.dart';
+import '../../../../../core/resources/models/coordinates.dart';
 import '../../../../../core/resources/routes/route_manger.dart';
 import '../donate/section/qr_code_card.dart';
-import 'model/urgent_request.dart';
+import '../home/presentation/view_model/requests/accept_request_view_model.dart';
+import '../home/presentation/view_model/requests/cancel_request_view_model.dart';
 
 class RequestScreen extends StatefulWidget {
   const RequestScreen({super.key});
@@ -25,25 +29,26 @@ class RequestScreen extends StatefulWidget {
 }
 
 class _RequestScreenState extends State<RequestScreen> {
-  UrgentRequestModel? urgentRequest;
+  Requests? urgentRequest;
+  DateTime _createdAt = DateTime.now();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    urgentRequest =
-        ModalRoute.of(context)!.settings.arguments as UrgentRequestModel;
+    urgentRequest = ModalRoute.of(context)!.settings.arguments as Requests;
+    _createdAt = urgentRequest?.createdAt != null
+        ? DateTime.tryParse(urgentRequest!.createdAt!) ?? DateTime.now()
+        : DateTime.now();
   }
 
   Future<void> _openDirections() async {
-    final lat = urgentRequest!.locationHospital.latitude;
-    final lng = urgentRequest!.locationHospital.longitude;
-
-    final Uri googleMapsUrl = Uri.parse(
+    final lat = urgentRequest?.hospital?.latitude ?? 0.0;
+    final lng = urgentRequest?.hospital?.longitude ?? 0.0;
+    final Uri googleMapsUri = Uri.parse(
       'https://www.google.com/maps/dir/?api=1&destination=$lat,$lng&travelmode=driving',
     );
-
-    if (await canLaunchUrl(googleMapsUrl)) {
-      await launchUrl(googleMapsUrl, mode: LaunchMode.externalApplication);
+    if (await canLaunchUrl(googleMapsUri)) {
+      await launchUrl(googleMapsUri, mode: LaunchMode.externalApplication);
     } else {
       throw 'Could not launch Maps';
     }
@@ -51,7 +56,6 @@ class _RequestScreenState extends State<RequestScreen> {
 
   String formatTimeAgo(DateTime dateTime) {
     final difference = DateTime.now().difference(dateTime);
-
     if (difference.inMinutes < 60) {
       return AppLocalizations.of(context)!.minutesAgo(difference.inMinutes);
     } else if (difference.inHours < 24) {
@@ -63,131 +67,246 @@ class _RequestScreenState extends State<RequestScreen> {
     }
   }
 
+  // ── Accept ──────────────────────────────────────────────────────────────────
+  void _handleAccept(BuildContext context) {
+    final requestId = urgentRequest?.id ?? '';
+    log('Accepting request with ID: $requestId');
+    if (requestId.isEmpty) return;
+    context.read<AcceptRequestCubit>().acceptRequest(requestId: requestId);
+  }
+
+  // ── Cancel ──────────────────────────────────────────────────────────────────
+  void _handleCancel(BuildContext context) {
+    final requestId = urgentRequest?.id ?? '';
+    log('Cancelling request with ID: $requestId');
+    if (requestId.isEmpty) return;
+
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(AppLocalizations.of(context)!.cancelRequest),
+        content: Text(AppLocalizations.of(context)!.cancelRequestConfirmation),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(AppLocalizations.of(context)!.no),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(ctx);
+              context
+                  .read<CancelRequestCubit>()
+                  .cancelRequest(requestId: requestId);
+            },
+            child: Text(
+              AppLocalizations.of(context)!.yes,
+              style: const TextStyle(color: Colors.red),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
+    final isEmergency = urgentRequest?.isEmergency ?? false;
+    final statusColor =
+    isEmergency ? ColorManger.brightRed : ColorManger.orange;
 
-    return Scaffold(
-      backgroundColor: ColorManger.pureWhite,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: urgentRequest!.isEmergency
-                      ? ColorManger.brightRed
-                      : ColorManger.orange,
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<AcceptRequestCubit, AcceptRequestState>(
+          listener: (context, state) {
+            if (state is AcceptRequestLoadingState) {
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (_) =>
+                const Center(child: CircularProgressIndicator()),
+              );
+            } else if (state is AcceptRequestSuccessState) {
+              Navigator.of(context, rootNavigator: true).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(appLocalizations.requestAcceptedSuccessfully),
+                  backgroundColor: Colors.green,
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 12,
-                    horizontal: 12,
-                  ),
-                  child: Column(
-                    children: [
-                      RequestScreenTitle(
-                        statusColor: urgentRequest!.isEmergency
-                            ? ColorManger.brightRed
-                            : ColorManger.orange,
-                        title: urgentRequest!.isEmergency
-                            ? appLocalizations.emergencyRequest
-                            : appLocalizations.criticalRequest,
-                        time: formatTimeAgo(urgentRequest!.createdAt),
-                        status: urgentRequest!.isEmergency
-                            ? appLocalizations.emergency
-                            : appLocalizations.critical,
-                      ),
-                      SizedBox(height: 8.h),
-                      BloodNeedCard(
-                        bloodType: urgentRequest!.bloodType,
-                        background: urgentRequest!.isEmergency
-                            ? ColorManger.brightRed
-                            : ColorManger.orange,
-                      ),
-                    ],
-                  ),
+              );
+              Navigator.pop(context);
+            } else if (state is AcceptRequestErrorState) {
+              log(state.message);
+              Navigator.of(context, rootNavigator: true).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.message),
+                  backgroundColor: Colors.red,
                 ),
-              ),
-              SizedBox(height: 8.h),
+              );
+            }
+          },
+        ),
 
-              BlocBuilder<MapCubit, MapState>(
-                builder: (context, state) {
-                  double? distanceKm;
-                  if (state is MapLoaded) {
-                    final hospitalLat =
-                        urgentRequest!.locationHospital.latitude;
-                    final hospitalLng =
-                        urgentRequest!.locationHospital.longitude;
-                    final distanceInMeters = Geolocator.distanceBetween(
-                      state.latitude,
-                      state.longitude,
-                      hospitalLat,
-                      hospitalLng,
-                    );
+        BlocListener<CancelRequestCubit, CancelRequestState>(
+          listener: (context, state) {
+            if (state is CancelRequestLoadingState) {
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (_) =>
+                const Center(child: CircularProgressIndicator()),
+              );
+            } else if (state is CancelRequestSuccessState) {
 
-                    distanceKm = distanceInMeters / 1000;
-                  }
-
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: HospitalInfoCard(
-                      distance: distanceKm != null
-                          ? AppLocalizations.of(context)!.kmAway(distanceKm.toStringAsFixed(1))
-                          : AppLocalizations.of(context)!.gettingDistance,
-                      hospitalName: urgentRequest!.hospitalName,
-                      unitsNeeded:
-                          '${urgentRequest!.unitsNeeded} ${appLocalizations.units}',
-                      onNavigate: _openDirections,
-                      iconColor: ColorManger.brightRed,
-                      location: distanceKm != null
-                          ? AppLocalizations.of(
-                              context,
-                            )!.distanceAway(distanceKm.toStringAsFixed(1))
-                          : AppLocalizations.of(context)!.gettingDistance,
+              Navigator.of(context, rootNavigator: true).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(appLocalizations.requestCancelledSuccessfully),
+                  backgroundColor: Colors.orange,
+                ),
+              );
+              Navigator.pop(context);
+            } else if (state is CancelRequestErrorState) {
+              log(state.message);
+              Navigator.of(context, rootNavigator: true).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.message),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            }
+          },
+        ),
+      ],
+      child: Scaffold(
+        backgroundColor: ColorManger.pureWhite,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(color: statusColor),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 12),
+                    child: Column(
+                      children: [
+                        RequestScreenTitle(
+                          statusColor: statusColor,
+                          title: isEmergency
+                              ? appLocalizations.emergencyRequest
+                              : appLocalizations.criticalRequest,
+                          time: formatTimeAgo(_createdAt),
+                          status: isEmergency
+                              ? appLocalizations.emergency
+                              : appLocalizations.critical,
+                        ),
+                        SizedBox(height: 8.h),
+                        BloodNeedCard(
+                          bloodType: urgentRequest?.bloodType ?? "O+",
+                          background: statusColor,
+                        ),
+                      ],
                     ),
-                  );
-                },
-              ),
-
-              SizedBox(height: 8.h),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RequestDetailsSection(
-                  posted: formatTimeAgo(urgentRequest!.createdAt),
-                  contact: urgentRequest!.contactNumber,
-                  patientType: urgentRequest!.patientType,
+                  ),
                 ),
-              ),
-              SizedBox(height: 8.h),
-              QrCodeCard(qrToken:urgentRequest!.id),
-              SizedBox(height: 8.h),
 
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: MapCard(
-                  hospitalName: urgentRequest!.hospitalName,
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      RouteManger.mapScreen,
-                      arguments: urgentRequest!.locationHospital,
-                    );
-                  },
+                SizedBox(height: 8.h),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: HospitalInfoCard(
+                    distance: urgentRequest?.distanceKm != null
+                        ? appLocalizations.kmAway(
+                        urgentRequest!.distanceKm!.toStringAsFixed(1))
+                        : urgentRequest?.distance ??
+                        appLocalizations.gettingDistance,
+                    hospitalName: urgentRequest?.hospitalName ?? '',
+                    unitsNeeded:
+                    '${urgentRequest?.unitsNeeded ?? 0} ${appLocalizations.units}',
+                    onNavigate: _openDirections,
+                    iconColor: ColorManger.brightRed,
+                    location:
+                    "${urgentRequest?.hospital?.address?.city ?? ''}, ${urgentRequest?.hospital?.address?.governorate ?? ''}",
+                  ),
                 ),
-              ),
-              SizedBox(height: 8.h),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ResponseMattersSection(),
-              ),
-              SizedBox(height: 8.h),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RequestNavigationButtons(accept: () {}, cancel: () {}),
-              ),
-            ],
+
+                SizedBox(height: 8.h),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RequestDetailsSection(
+                    posted: formatTimeAgo(_createdAt),
+                    contact: urgentRequest?.contactNumber ?? '',
+                    patientType: urgentRequest?.patientType?.toString() ?? '',
+                  ),
+                ),
+
+                SizedBox(height: 8.h),
+
+                QrCodeCard(qrToken: urgentRequest?.qrToken ?? ''),
+
+                SizedBox(height: 8.h),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: MapCard(
+                    hospitalName: urgentRequest?.hospitalName ?? '',
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        RouteManger.mapScreen,
+                        arguments: Coordinates(
+                          latitude: urgentRequest?.hospital?.latitude ?? 0.0,
+                          longitude:
+                          urgentRequest?.hospital?.longitude ?? 0.0,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+
+                SizedBox(height: 8.h),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child:  ResponseMattersSection(
+                    bloodType: urgentRequest?.bloodType?? '',
+                    patientType: urgentRequest?.patientType ?? '',
+                    unitsNeeded: urgentRequest?.unitsNeeded ?? 0,
+                  ),
+                ),
+
+                SizedBox(height: 8.h),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: BlocBuilder<AcceptRequestCubit, AcceptRequestState>(
+                    builder: (context, acceptState) {
+                      return BlocBuilder<CancelRequestCubit,
+                          CancelRequestState>(
+                        builder: (context, cancelState) {
+                          final isBusy =
+                              acceptState is AcceptRequestLoadingState ||
+                                  cancelState is CancelRequestLoadingState;
+
+                          return RequestNavigationButtons(
+                            accept: isBusy
+                                ? null
+                                : () => _handleAccept(context),
+                            cancel: isBusy
+                                ? null
+                                : () => _handleCancel(context),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

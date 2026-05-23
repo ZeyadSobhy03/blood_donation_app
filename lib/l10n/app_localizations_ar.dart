@@ -357,8 +357,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get whyYourResponseMatters => 'لماذا ردك مهم';
 
   @override
-  String get responseMattersDescription =>
-      'فصيلة دمك تطابق هذا الطلب العاجل. استجابتك السريعة قد تنقذ حياة. يحتاج المريض إلى 3 وحدات دم O+ لعملية طارئة.';
+  String responseMattersDescription(
+    Object units,
+    Object bloodType,
+    Object reason,
+  ) {
+    return 'فصيلة دمك مطابقة لهذا الطلب العاجل. استجابتك السريعة قد تنقذ حياة. يحتاج المريض إلى $units وحدات من فصيلة $bloodType بسبب $reason.';
+  }
 
   @override
   String get bloodTypeNeeded => 'فصيلة الدم المطلوبة';
@@ -2773,4 +2778,219 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalid_pin_length => 'يجب أن يكون رقم التعريف الشخصي 6 أرقام.';
+
+  @override
+  String get rescheduled => 'تم إعادة جدولة الموعد بنجاح';
+
+  @override
+  String get no_badges_found => 'لم يتم العثور على شارات';
+
+  @override
+  String get no_rewards_found => 'لم يتم العثور على مكافآت';
+
+  @override
+  String get no_points_history => 'لا يوجد سجل نقاط';
+
+  @override
+  String get current => 'الحالي';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get bronze => 'برونزي';
+
+  @override
+  String get silver => 'فضي';
+
+  @override
+  String get gold => 'ذهبي';
+
+  @override
+  String get platinum => 'بلاتيني';
+
+  @override
+  String get diamond => 'ماسي';
+
+  @override
+  String get coffeeVoucher => 'قسيمة قهوة';
+
+  @override
+  String get movieTickets => 'تذاكر سينما';
+
+  @override
+  String get restaurantGiftCard => 'بطاقة هدية لمطعم';
+
+  @override
+  String get healthCheckUp => 'فحص طبي';
+
+  @override
+  String get premiumBadge => 'شارة مميزة';
+
+  @override
+  String get gymMembership => 'عضوية جيم';
+
+  @override
+  String get no_notifications => 'لا توجد إشعارات';
+
+  @override
+  String get noHospitalsFound => 'لم يتم العثور على مستشفيات';
+
+  @override
+  String get unknownHospital => 'مستشفى غير معروف';
+
+  @override
+  String get keepAppointment => 'الاحتفاظ بالموعد';
+
+  @override
+  String get confirm => 'تأكيد';
+
+  @override
+  String get cancelAppointmentTitle => 'تأكيد إلغاء الموعد';
+
+  @override
+  String get cancelAppointmentMessage =>
+      'هل أنت متأكد أنك تريد إلغاء هذا الموعد؟';
+
+  @override
+  String get noUpcomingAppointments => 'لا توجد مواعيد قادمة';
+
+  @override
+  String get community_helper => 'مساعد المجتمع';
+
+  @override
+  String get responded_to_25_emergencies => 'أجبت على 25 حالة طارئة';
+
+  @override
+  String get first_donation => 'أول تبرع';
+
+  @override
+  String get tier_bonus => 'مكافأة المستوى';
+
+  @override
+  String get badge_unlock => 'فتح شارة';
+
+  @override
+  String get reward_redeemed => 'استرداد المكافأة';
+
+  @override
+  String get plasma_donation => 'التبرع بالبلازما';
+
+  @override
+  String get platelets_donation => 'التبرع بالصفائح الدموية';
+
+  @override
+  String get organ_donation => 'التبرع بالأعضاء';
+
+  @override
+  String get admin_adjustment => 'تعديل بواسطة الإدارة';
+
+  @override
+  String get referral => 'إحالة';
+
+  @override
+  String get requestAcceptedSuccessfully => 'تم قبول الطلب بنجاح';
+
+  @override
+  String get cancelRequest => 'إلغاء الطلب';
+
+  @override
+  String get cancelRequestConfirmation =>
+      'هل أنت متأكد أنك تريد إلغاء هذا الطلب؟';
+
+  @override
+  String get no => 'لا';
+
+  @override
+  String get yes => 'نعم';
+
+  @override
+  String get requestCancelledSuccessfully => 'تم إلغاء الطلب بنجاح';
+
+  @override
+  String get delete_all_notifications_title => 'حذف كل الإشعارات';
+
+  @override
+  String get delete_all_notifications_message =>
+      'هل أنت متأكد أنك تريد حذف كل الإشعارات؟ لا يمكن التراجع عن هذا الإجراء.';
+
+  @override
+  String badge_unlocked_title(String badgeName) {
+    return '🏆 تم فتح شارة: $badgeName';
+  }
+
+  @override
+  String badge_unlocked_message(String badgeDescription) {
+    return '$badgeDescription';
+  }
+
+  @override
+  String tier_up_title(String tier) {
+    return '🎉 تمت ترقية المستوى إلى $tier!';
+  }
+
+  @override
+  String tier_up_message(String tier) {
+    return 'تهانينا! لقد وصلت إلى مستوى $tier. استمر في التبرع لفتح المزيد من المكافآت!';
+  }
+
+  @override
+  String get reward_redeemed_title => '🎁 تم استرداد المكافأة!';
+
+  @override
+  String reward_redeemed_message(String rewardName, String confirmationCode) {
+    return 'تم تأكيد $rewardName الخاص بك. الرمز: $confirmationCode';
+  }
+
+  @override
+  String get emergency_request_title => '🚨 طلب دم طارئ';
+
+  @override
+  String emergency_request_body(String bloodType, String hospitalName) {
+    return 'هناك حاجة ماسة لدم $bloodType بالقرب من $hospitalName';
+  }
+
+  @override
+  String get urgent_request_accepted_title => 'تم قبول الطلب العاجل';
+
+  @override
+  String urgent_request_accepted_message(String requestType, String urgency) {
+    return 'لقد قبلت طلب $requestType العاجل بدرجة إلحاح $urgency.';
+  }
+
+  @override
+  String get urgent_request_declined_title => 'تم رفض الطلب العاجل';
+
+  @override
+  String urgent_request_declined_message(String requestType, String urgency) {
+    return 'لقد رفضت طلب $requestType العاجل بدرجة إلحاح $urgency.';
+  }
+
+  @override
+  String get error_network_timeout =>
+      'انتهت مهلة الاتصال. يرجى التحقق من الإنترنت.';
+
+  @override
+  String get error_server => 'خطأ في الخادم. يرجى المحاولة لاحقاً.';
+
+  @override
+  String get error_request_cancelled => 'تم إلغاء الطلب.';
+
+  @override
+  String get error_unknown => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get error_unauthorized => 'غير مصرح. يرجى تسجيل الدخول مرة أخرى.';
+
+  @override
+  String get error_not_found => 'المورد المطلوب غير موجود.';
+
+  @override
+  String get no_donations_found => 'لم يتم العثور على سجلات التبرع';
+
+  @override
+  String get hospital => 'المستشفى';
+
+  @override
+  String get noDonationsYet => 'لا توجد تبرعات حتى الآن';
 }

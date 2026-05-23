@@ -8,12 +8,16 @@ class TimeSlotPicker extends StatefulWidget {
   final ValueChanged<String> onChanged;
   final String? selectedValue;
   final IconData icon;
+  final List<String> slots;
+  final bool isLoading;
 
   const TimeSlotPicker({
     super.key,
     required this.onChanged,
-    this.selectedValue,
     required this.icon,
+    required this.slots,
+    this.selectedValue,
+    this.isLoading = false,
   });
 
   @override
@@ -23,16 +27,6 @@ class TimeSlotPicker extends StatefulWidget {
 class _TimeSlotPickerState extends State<TimeSlotPicker> {
   String? selectedTime;
 
-  final List<String> timeSlots = [
-    "9:00 AM",
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "2:00 PM",
-    "3:00 PM",
-    "4:00 PM",
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -40,22 +34,60 @@ class _TimeSlotPickerState extends State<TimeSlotPicker> {
   }
 
   @override
+  void didUpdateWidget(covariant TimeSlotPicker oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    // لما الـ slots تتغير امسح الاختيار القديم
+    if (oldWidget.slots.join(',') != widget.slots.join(',')) {
+      setState(() {
+        selectedTime = null;
+      });
+    }
+
+    // Sync مع القيمة القادمة من الـ parent
+    if (widget.selectedValue != oldWidget.selectedValue) {
+      setState(() {
+        selectedTime = widget.selectedValue;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
 
-    return CustomDropDownButtonFormField(items: timeSlots, hintText:  appLocalizations.chooseTimeSlot,
+    if (widget.isLoading) {
+      return const Padding(
+        padding: EdgeInsets.symmetric(vertical: 12),
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
 
-    prefixIcon:Icon(widget.icon, color: ColorManger.slateGrey),
-      initialValue: selectedTime,
+    return CustomDropDownButtonFormField(
+      items: widget.slots,
+      hintText: appLocalizations.chooseTimeSlot,
+      prefixIcon: Icon(
+        widget.icon,
+        color: ColorManger.slateGrey,
+      ),
+
+      // تأكد إن القيمة موجودة داخل الـ items
+      initialValue:
+      widget.slots.contains(selectedTime)
+          ? selectedTime
+          : null,
+
       onChanged: (value) {
         setState(() {
           selectedTime = value;
         });
-        widget.onChanged(value!);
+
+        if (value != null) {
+          widget.onChanged(value);
+        }
       },
     );
   }
 }
-
-
-

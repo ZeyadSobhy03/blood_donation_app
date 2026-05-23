@@ -1,6 +1,7 @@
 class DonationSchedule {
   // Step 1 - Location
   String? location;
+  String? hospitalId;
 
   // Step 2 - Date & Time
   DateTime? date;
@@ -23,32 +24,35 @@ class DonationSchedule {
     this.lastName,
     this.phone,
     this.email,
-    this.bloodType
+    this.bloodType,
+    this.hospitalId
   });
+
+  static const _undefined = Object();
+
   DonationSchedule copyWith({
-    String? location,
-    DateTime? date,
-    String? timeSlot,
-    String? donationType,
-    String? firstName,
-    String? lastName,
-    String? phone,
-    String? email,
-    String? bloodType
+    Object? location = _undefined,
+    Object? date = _undefined,
+    Object? timeSlot = _undefined,
+    Object? donationType = _undefined,
+    Object? firstName = _undefined,
+    Object? lastName = _undefined,
+    Object? phone = _undefined,
+    Object? email = _undefined,
+    Object? bloodType = _undefined,
+    Object? hospitalId = _undefined,
   }) {
     return DonationSchedule(
-      location: location ?? this.location,
-      date: date ?? this.date,
-      timeSlot: timeSlot ?? this.timeSlot,
-      donationType: donationType ?? this.donationType,
-      firstName: firstName ?? this.firstName,
-      lastName: lastName ?? this.lastName,
-      phone: phone ?? this.phone,
-      email: email ?? this.email,
-      bloodType: bloodType ?? this.bloodType
+        hospitalId:   hospitalId   == _undefined ? this.hospitalId   : hospitalId   as String?,
+      location:     location     == _undefined ? this.location     : location     as String?,
+      date:         date         == _undefined ? this.date         : date         as DateTime?,
+      timeSlot:     timeSlot     == _undefined ? this.timeSlot     : timeSlot     as String?,
+      donationType: donationType == _undefined ? this.donationType : donationType as String?,
+      firstName:    firstName    == _undefined ? this.firstName    : firstName    as String?,
+      lastName:     lastName     == _undefined ? this.lastName     : lastName     as String?,
+      phone:        phone        == _undefined ? this.phone        : phone        as String?,
+      email:        email        == _undefined ? this.email        : email        as String?,
+      bloodType:    bloodType    == _undefined ? this.bloodType    : bloodType    as String?,
     );
   }
-
-
-
 }

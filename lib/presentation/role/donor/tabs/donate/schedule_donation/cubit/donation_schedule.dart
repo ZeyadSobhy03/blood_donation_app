@@ -5,15 +5,16 @@ class DonationScheduleCubit extends Cubit<DonationScheduleState> {
   DonationScheduleCubit()
     : super(DonationScheduleState(schedule: DonationSchedule()));
 
-  void setLocation(String location) {
-    emit(state.copyWith(schedule: state.schedule.copyWith(location: location)));
+  void setLocation(String location,String hospitalId) {
+    emit(state.copyWith(schedule: state.schedule.copyWith(location: location, hospitalId: hospitalId)));
   }
 
   void setDate(DateTime date) {
     emit(state.copyWith(schedule: state.schedule.copyWith(date: date)));
   }
 
-  void setTimeSlot(String timeSlot) {
+  void setTimeSlot(String? timeSlot) {
+
     emit(state.copyWith(schedule: state.schedule.copyWith(timeSlot: timeSlot)));
   }
 

@@ -50,7 +50,9 @@ class Donate extends StatelessWidget {
                 SizedBox(height: 4.h),
                 EligibilityStatusCard(),
                 SizedBox(height: 4.h),
-                AppointmentCard(),
+                AppointmentCard(
+
+                ),
                 SizedBox(height: 4.h),
                 EligibilityChecklistCard(),
                 SizedBox(height: 4.h),
