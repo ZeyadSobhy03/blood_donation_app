@@ -2833,4 +2833,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get uniformAcrossAllHours => 'موحد على مدار جميع الساعات';
+
+  @override
+  String get loadMore => 'تحميل المزيد';
+
+  @override
+  String get noDonorsFound => 'لم يتم العثور على متبرعين';
 }

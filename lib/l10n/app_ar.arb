@@ -928,5 +928,10 @@
   "total_daily_capacity": "الطاقة الاستيعابية الكلية لليوم: ",
   "totalDailySlots": "الوحدات الاستيعابية الكلية الشاغرة لليوم: ",
   "availableForScheduling": "متاح للجدولة",
-  "uniformAcrossAllHours": "موحد على مدار جميع الساعات"
+  "uniformAcrossAllHours": "موحد على مدار جميع الساعات",
+
+
+  "loadMore": "تحميل المزيد",
+  "noDonorsFound": "لم يتم العثور على متبرعين"
+
 }

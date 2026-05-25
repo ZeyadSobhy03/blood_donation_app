@@ -35,9 +35,10 @@ static const String verifyEmailOtpEndpoint = "${baseUrl}auth/verify-email-otp";
 static const String profileEndpoint = "${baseUrl}donor/profile";
 
 
-/////////////////////////////////   hospital auth endpoints   /////////////////////////////////////////
-// https://graduation-project-cy61.onrender.com/auth/hospital/
+/////////////////////////////////   hospital endpoints   /////////////////////////////////////////
+//
 
 
 static const String hospitalLoginEndpoint = "${baseUrl}auth/hospital/login";
+static const String hospitalFindDonorsEndpoint = "${baseUrl}hospital/find-donors";
 }

@@ -2847,4 +2847,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get uniformAcrossAllHours => 'Uniform Across All Hours';
+
+  @override
+  String get loadMore => 'Load More';
+
+  @override
+  String get noDonorsFound => 'No Donors Found';
 }

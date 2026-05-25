@@ -1,12 +1,19 @@
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/local_data_source/hospital_hive_data_source.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/find_donor.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/history.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/home.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/profile.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/request/request.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/resources/colors/color_manger.dart';
 import '../../../../l10n/app_localizations.dart';
+import 'find_donor/data/data_source/find_donors_api_data_source.dart';
+import 'find_donor/data/repositories/find_donors_repository_imp.dart';
+import 'find_donor/domain/use_cases/find_donors_use_case.dart';
+import 'find_donor/presentation/view_model/find_donors_view_model.dart';
 
 class HospitalMainLayout extends StatefulWidget {
   const HospitalMainLayout({super.key});
@@ -29,7 +36,7 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
 
     _iconControllers = List.generate(
       5,
-          (i) => AnimationController(
+      (i) => AnimationController(
         vsync: this,
         duration: const Duration(milliseconds: 200),
       ),
@@ -39,9 +46,7 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
       return Tween<double>(
         begin: 1.0,
         end: 1.25,
-      ).animate(
-        CurvedAnimation(parent: controller, curve: Curves.elasticOut),
-      );
+      ).animate(CurvedAnimation(parent: controller, curve: Curves.elasticOut));
     }).toList();
 
     _iconControllers[0].forward();
@@ -75,7 +80,17 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
 
     final tabs = [
       const Home(),
-      const FindDonor(),
+      BlocProvider(
+        create: (_) => FindDonorsCubit(
+          findDonorsUseCase: FindDonorsUseCase(
+            findDonorsRepository: FindDonorsRepositoryImp(
+              findDonorsRemoteDataSource: FindDonorsApiDataSource(Dio()),
+            ),
+          ),
+          hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
+        ),
+        child: const FindDonor(),
+      ),
       const Request(),
       const History(),
       const Profile(),
@@ -85,14 +100,14 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
       (Icons.home_rounded, Icons.home_outlined, appLocalizations.home),
       (Icons.search_rounded, Icons.search_outlined, appLocalizations.find),
       (
-      Icons.favorite_rounded,
-      Icons.favorite_border_outlined,
-      appLocalizations.request,
+        Icons.favorite_rounded,
+        Icons.favorite_border_outlined,
+        appLocalizations.request,
       ),
       (
-      Icons.assignment_rounded,
-      Icons.assignment_outlined,
-      appLocalizations.history,
+        Icons.assignment_rounded,
+        Icons.assignment_outlined,
+        appLocalizations.history,
       ),
       (Icons.person_rounded, Icons.person_outlined, appLocalizations.profile),
     ];
@@ -141,7 +156,6 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           /// ICON
                           ScaleTransition(
                             scale: _iconScales[index],
@@ -149,7 +163,9 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
                               duration: const Duration(milliseconds: 200),
                               transitionBuilder: (child, animation) =>
                                   ScaleTransition(
-                                      scale: animation, child: child),
+                                    scale: animation,
+                                    child: child,
+                                  ),
                               child: Icon(
                                 isSelected ? item.$1 : item.$2,
                                 key: ValueKey(isSelected),
@@ -168,8 +184,9 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
                             duration: const Duration(milliseconds: 200),
                             style: TextStyle(
                               fontSize: isSelected ? 12 : 11,
-                              fontWeight:
-                              isSelected ? FontWeight.w600 : FontWeight.w400,
+                              fontWeight: isSelected
+                                  ? FontWeight.w600
+                                  : FontWeight.w400,
                               color: isSelected
                                   ? ColorManger.royalBlue
                                   : ColorManger.slateGrey,

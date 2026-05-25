@@ -928,7 +928,12 @@
   "total_daily_capacity": "Total Daily Capacity: ",
   "totalDailySlots": "Total Daily Slots",
   "availableForScheduling": "Available For Scheduling",
-  "uniformAcrossAllHours": "Uniform Across All Hours"
+  "uniformAcrossAllHours": "Uniform Across All Hours",
+
+
+  "loadMore": "Load More",
+  "noDonorsFound": "No Donors Found"
+
 
 
 }
