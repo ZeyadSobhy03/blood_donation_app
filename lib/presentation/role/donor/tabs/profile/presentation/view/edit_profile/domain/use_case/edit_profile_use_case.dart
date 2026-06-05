@@ -8,24 +8,20 @@ class EditProfileUseCase {
   EditProfileUseCase({required this.repository});
 
   Future<EditProfileModel> editProfile({
-    required String name,
+    required String fullName,
     required String email,
-    required String phone,
-    required String location,
-    required String bloodType,
-    required double weight,
-    required String age,
+    required String phoneNumber,
     required String gender,
-  }) async {
-    return await repository.editProfile(
-      name: name,
-      email: email,
-      phone: phone,
-      location: location,
-      bloodType: bloodType,
-      weight: weight,
-      age: age,
-      gender: gender,
-    );
+    required int weight,
+    required String bloodType,
+    required String dateOfBirth,
+
+    required String city,
+    required String governorate,
+
+    required double lat,
+    required double lng,
+  }){
+    return repository.editProfile(fullName: fullName, email: email, phoneNumber: phoneNumber, gender: gender, weight: weight, bloodType: bloodType, dateOfBirth: dateOfBirth, city: city, governorate: governorate, lat: lat, lng: lng);
   }
 }

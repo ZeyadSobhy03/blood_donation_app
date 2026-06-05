@@ -13,11 +13,23 @@ class UserProfileTile extends StatelessWidget {
     required this.name,
     required this.email,
     required this.bloodType,
+    required this.phone,
+    required this.location,
+    required this.weight,
+    required this.age,
+    required this.gender,
+    this.birthDate,
   });
 
   final String name;
   final String email;
   final String bloodType;
+  final String phone;
+  final String location;
+  final String weight;
+  final String age;
+  final String gender;
+  final DateTime? birthDate;
 
   @override
   Widget build(BuildContext context) {
@@ -91,27 +103,28 @@ class UserProfileTile extends StatelessWidget {
             ),
           ),
 
-          IconButton(
-            onPressed: () async {
-              await showDialog(
-                context: context,
-                builder: (context) {
-                  return EditProfileDialog(
-                    initialName: 'Ziyad Sobhy',
-                    initialEmail: 'Ziyad.Sobhy@email.com',
-                    initialPhone: '+201141935341',
-                    initialLocation: 'Cairo, Egypt',
-                    initialBloodType: 'O+',
-                    initialWeight: '65',
-                    initialAge: '28',
-                    initialGender: 'Male',
-                  );
-                },
-              );
-            },
-            icon: Icon(Icons.edit_note_sharp, size: 30),
-            color: ColorManger.pureWhite,
-          ),
+           IconButton(
+             onPressed: () async {
+               await showDialog(
+                 context: context,
+                 builder: (context) {
+                   return EditProfileDialog(
+                     initialName: name,
+                     initialEmail: email,
+                     initialPhone: phone,
+                     initialLocation: location,
+                     initialBloodType: bloodType,
+                     initialWeight: weight,
+                     initialAge: age,
+                     initialBirthDate: birthDate,
+                     initialGender: gender,
+                   );
+                 },
+               );
+             },
+             icon: Icon(Icons.edit_note_sharp, size: 30),
+             color: ColorManger.pureWhite,
+           ),
         ],
       ),
     );

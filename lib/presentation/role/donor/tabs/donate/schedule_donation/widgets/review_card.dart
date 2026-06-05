@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/review_row.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/profile/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,11 +24,15 @@ class ReviewCard extends StatelessWidget {
         : '';
     final currentTime = cubit.timeSlot;
     final durationType = cubit.donationType;
-    final currentEmail = cubit.email;
-    final currentFirstName = cubit.firstName;
-    final currentPhone = cubit.phone;
-    final currentLastName = cubit.lastName;
-    final completeName = '$currentFirstName $currentLastName';
+
+    final profileState = context.watch<ProfileCubit>().state;
+    final profileData = profileState is ProfileSuccessState
+        ? profileState.profileModel.data
+        : null;
+
+    final completeName = profileData?.fullName ?? '';
+    final currentEmail = profileData?.email ?? appLocalizations.noEmail;
+    final currentPhone = profileData?.phoneNumber ?? appLocalizations.noPhone;
 
     return Card(
       color: ColorManger.pureWhite,
@@ -67,8 +72,8 @@ class ReviewCard extends StatelessWidget {
             ReviewRow(
               iconColor: ColorManger.brightRed,
               isContact: true,
-              email: currentEmail ?? appLocalizations.noEmail,
-              phone: currentPhone ?? appLocalizations.noPhone,
+              email: currentEmail,
+              phone: currentPhone,
               icon: Icons.person,
               title: appLocalizations.contactInfo,
               subTitle: completeName,

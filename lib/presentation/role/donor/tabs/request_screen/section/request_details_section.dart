@@ -60,27 +60,29 @@ class RequestDetailsSection extends StatelessWidget {
       children: [
         Icon(icon, color: ColorManger.slateGrey, size: 22),
         SizedBox(width: 8.w),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomText(
-              text: title,
-              textStyle: TextStyle(
-                fontSize: FontSize.s14,
-                fontWeight: FontWeightManager.regular,
-                color: ColorManger.slateGrey,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomText(
+                text: title,
+                textStyle: TextStyle(
+                  fontSize: FontSize.s14,
+                  fontWeight: FontWeightManager.regular,
+                  color: ColorManger.slateGrey,
+                ),
               ),
-            ),
-            SizedBox(width: 4.w),
-            CustomText(
-              text: subTitle,
-              textStyle: TextStyle(
-                fontSize: FontSize.s14,
-                fontWeight: FontWeightManager.semiBold,
-                color: ColorManger.black,
+              SizedBox(width: 4.w),
+              CustomText(
+                text: subTitle,
+                textStyle: TextStyle(
+                  fontSize: FontSize.s14,
+                  fontWeight: FontWeightManager.semiBold,
+                  color: ColorManger.black,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

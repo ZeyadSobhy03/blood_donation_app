@@ -5,16 +5,14 @@ import '../../../l10n/app_localizations.dart';
 import '../../resources/colors/color_manger.dart';
 import '../../resources/fonts/font_manger.dart';
 import '../../widgets/custom_text.dart';
-////////////////////////////////// test
+
 class CustomSuccessWidget<T> extends StatelessWidget {
-  final T data;
   final String message;
   final VoidCallback? onAction;
   final String? actionButtonText;
 
   const CustomSuccessWidget({
     super.key,
-    required this.data,
     required this.message,
     this.onAction,
     this.actionButtonText,
@@ -30,7 +28,6 @@ class CustomSuccessWidget<T> extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Success Icon
             Container(
               width: 80.w,
               height: 80.w,
@@ -54,7 +51,6 @@ class CustomSuccessWidget<T> extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12.h),
-            // Details Message
             CustomText(
               text: message,
               textAlign: TextAlign.center,
@@ -65,40 +61,6 @@ class CustomSuccessWidget<T> extends StatelessWidget {
               ),
             ),
             SizedBox(height: 24.h),
-            // Success Details Box
-            Container(
-              padding: EdgeInsets.all(16.w),
-              decoration: BoxDecoration(
-                color: ColorManger.lightGreen,
-                borderRadius: BorderRadius.circular(12.r),
-                border: Border.all(
-                  color: ColorManger.successColor,
-                  width: 1.5,
-                ),
-              ),
-              child: Column(
-                children: [
-                  CustomText(
-                    text: appLocalizations.successDetails,
-                    textStyle: TextStyle(
-                      color: ColorManger.successColor,
-                      fontWeight: FontWeightManager.semiBold,
-                      fontSize: FontSize.s13,
-                    ),
-                  ),
-                  SizedBox(height: 8.h),
-                  CustomText(
-                    text: data.toString(),
-                    textAlign: TextAlign.center,
-                    textStyle: TextStyle(
-                      color: ColorManger.grey800,
-                      fontWeight: FontWeightManager.regular,
-                      fontSize: FontSize.s12,
-                    ),
-                  ),
-                ],
-              ),
-            ),
             if (onAction != null) ...[
               SizedBox(height: 24.h),
               ElevatedButton(
@@ -129,4 +91,3 @@ class CustomSuccessWidget<T> extends StatelessWidget {
     );
   }
 }
-

@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/errors/app_exceptions.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/setting/setting_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,18 +10,24 @@ class SettingCubit extends Cubit<SettingState> {
   SettingCubit({required this.settingUseCase}) : super(SettingInitialState());
 
   Future<void> getSetting() async {
+    emit(SettingLoadingState());
     try {
-      emit(SettingLoadingState());
       final settingModel = await settingUseCase.getSetting();
-      if (settingModel.success == true && settingModel.data != null) {
-        emit(SettingSuccessState(settingModel: settingModel));
-      } else {
-        emit(
-          SettingErrorState(error: 'Failed to load setting: Invalid response'),
-        );
-      }
+      emit(SettingSuccessState(settingModel: settingModel));
+    } on NetworkTimeoutException {
+      emit(SettingErrorState(error: 'network_timeout'));
+    } on ServerException catch (e) {
+      emit(SettingErrorState(error: e.serverMessage ?? 'server_error'));
+    } on UnauthorizedException {
+      emit(SettingErrorState(error: 'unauthorized'));
+    } on NotFoundException {
+      emit(SettingErrorState(error: 'not_found'));
+    } on RequestCancelledException {
+      emit(SettingErrorState(error: 'request_cancelled'));
+    } on UnknownNetworkException {
+      emit(SettingErrorState(error: 'unknown_error'));
     } catch (e) {
-      emit(SettingErrorState(error: e.toString()));
+      emit(SettingErrorState(error: 'unknown_error'));
     }
   }
 
@@ -30,26 +37,29 @@ class SettingCubit extends Cubit<SettingState> {
     required bool privacyMode,
     required String language,
   }) async {
+    emit(SettingLoadingState());
     try {
-      emit(SettingLoadingState());
       final settingModel = await settingUseCase.updateSetting(
         pushNotifications: pushNotifications,
         emergencyAlerts: emergencyAlerts,
         privacyMode: privacyMode,
         language: language,
       );
-
-      if (settingModel.success == true && settingModel.data != null) {
-        emit(SettingSuccessState(settingModel: settingModel));
-      } else {
-        emit(
-          SettingErrorState(
-            error: 'Failed to update setting: Invalid response',
-          ),
-        );
-      }
+      emit(SettingSuccessState(settingModel: settingModel));
+    } on NetworkTimeoutException {
+      emit(SettingErrorState(error: 'network_timeout'));
+    } on ServerException catch (e) {
+      emit(SettingErrorState(error: e.serverMessage ?? 'server_error'));
+    } on UnauthorizedException {
+      emit(SettingErrorState(error: 'unauthorized'));
+    } on NotFoundException {
+      emit(SettingErrorState(error: 'not_found'));
+    } on RequestCancelledException {
+      emit(SettingErrorState(error: 'request_cancelled'));
+    } on UnknownNetworkException {
+      emit(SettingErrorState(error: 'unknown_error'));
     } catch (e) {
-      emit(SettingErrorState(error: e.toString()));
+      emit(SettingErrorState(error: 'unknown_error'));
     }
   }
 }

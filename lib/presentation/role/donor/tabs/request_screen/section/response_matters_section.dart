@@ -9,7 +9,7 @@ import '../../../../../../l10n/app_localizations.dart';
 class ResponseMattersSection extends StatelessWidget {
   const ResponseMattersSection({super.key, required this.unitsNeeded, required this.bloodType, required this.patientType});
   final int unitsNeeded;
-  final String bloodType;
+  final List<String> bloodType;
   final String patientType;
 
   @override

@@ -52,6 +52,15 @@ class AuthHiveDataSource implements AuthLocalDataSource {
   }
 
   @override
+  Future<void> saveAccessToken(String accessToken) async {
+    try {
+      await _authBox.put(_accessTokenKey, accessToken);
+    } catch (e) {
+      throw Exception('Failed to save access token: $e');
+    }
+  }
+
+  @override
   Future<void> saveUserData({
     required Map<String, dynamic> userData,
   }) async {
@@ -127,9 +136,15 @@ class AuthHiveDataSource implements AuthLocalDataSource {
   @override
   Future<bool> isUserLoggedIn() async {
     try {
-      final accessToken = await getAccessToken();
-      final user = await getUserData();
-      return accessToken != null && accessToken.isNotEmpty && user != null;
+      final accessToken = _authBox.get(_accessTokenKey) as String?;
+      final refreshToken = _authBox.get(_refreshTokenKey) as String?;
+      final userData = _authBox.get(_userDataKey);
+
+      return accessToken != null &&
+          accessToken.isNotEmpty &&
+          refreshToken != null &&
+          refreshToken.isNotEmpty &&
+          userData != null;
     } catch (e) {
       return false;
     }

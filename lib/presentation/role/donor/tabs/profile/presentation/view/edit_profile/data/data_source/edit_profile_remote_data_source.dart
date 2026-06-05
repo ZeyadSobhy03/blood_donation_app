@@ -2,13 +2,18 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presenta
 
 abstract class EditProfileRemoteDataSource {
   Future<EditProfileModel> editProfile({
-    required String name,
+    required String fullName,
     required String email,
-    required String phone,
-    required String location,
-    required String bloodType,
-    required double weight,
-    required String age,
+    required String phoneNumber,
     required String gender,
+    required int weight,
+    required String bloodType,
+    required String dateOfBirth,
+
+    required String city,
+    required String governorate,
+
+    required double lat,
+    required double lng,
   });
 }

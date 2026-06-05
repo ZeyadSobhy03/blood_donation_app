@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
+import 'package:blood_donation_app/presentation/authentication/donor_authentication/presentation/error_mapper.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view_model/appointments_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/widgets/donation_booking_card.dart';
 import 'package:flutter/material.dart';
@@ -48,14 +51,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
           }
         }
 
-        if (state is AppointmentsErrorState) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: CustomText(text: state.error),
-              backgroundColor: Colors.red.shade400,
-            ),
-          );
-        }
+
       },
       child: Card(
         color: ColorManger.pureWhite,
@@ -87,8 +83,9 @@ class _AppointmentCardState extends State<AppointmentCard> {
                   }
 
                   if (state is AppointmentsErrorState) {
+                    log('AppointmentsErrorState: ${state.error}');
                     return CustomErrorWidget(
-                      message: state.error,
+                      message: ErrorMapper.map(state.error, appLocalization),
                       onRetry: () {
                         context
                             .read<AppointmentsCubit>()

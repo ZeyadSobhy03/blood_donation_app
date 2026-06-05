@@ -271,6 +271,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chooseTimeSlot => 'Choose a time slot';
 
   @override
+  String get timeSlotTime => 'Time';
+
+  @override
+  String get timeSlotCapacity => 'Capacity';
+
+  @override
+  String timeSlotRemainingCapacity(Object remaining, Object total) {
+    return '$remaining/$total slots available';
+  }
+
+  @override
+  String get timeSlotMaxCapacity => 'Max Slots';
+
+  @override
+  String get timeSlotAvailable => 'Available';
+
+  @override
+  String get timeSlotFull => 'Full';
+
+  @override
+  String get timeSlotSlot => 'slot';
+
+  @override
+  String get timeSlotSlots => 'slots';
+
+  @override
+  String timeSlotBookedLabel(Object time, Object remaining, Object max) {
+    return '$time - $remaining/$max available';
+  }
+
+  @override
   String get confirmResponse => 'Confirm Response';
 
   @override
@@ -727,6 +758,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get emailIsRequired => 'Email is required';
+
+  @override
+  String get nameIsRequired => 'Name is required';
+
+  @override
+  String get weightIsRequired => 'Weight is required';
 
   @override
   String get enterValidEmail => 'Enter a valid email';
@@ -1245,6 +1282,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get age => 'Age';
 
   @override
+  String get birthDate => 'Birth Date';
+
+  @override
   String get gender => 'Gender';
 
   @override
@@ -1275,6 +1315,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get badges => 'Badges';
+
+  @override
+  String get forget_password_success => 'Verification code sent to your email';
 
   @override
   String get success => 'Success';
@@ -1368,6 +1411,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get complete_profile_points => 'Complete Profile: 50 pts';
+
+  @override
+  String get plasma_donation_points => 'Plasma Donation: 150 pts';
+
+  @override
+  String get platelets_donation_points => 'Platelet Donation: 175 pts';
+
+  @override
+  String get organ_donation_points => 'Organ Donation: 500 pts';
+
+  @override
+  String get first_donation_bonus_points => 'First Donation Bonus: 100 pts';
 
   @override
   String get your_badges => 'Your Badges';
@@ -3007,4 +3062,209 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noDonationsYet => 'No donations yet.';
+
+  @override
+  String get governorate => 'Governorate';
+
+  @override
+  String get profile_updated_successfully => 'Profile updated successfully';
+
+  @override
+  String get currentPasswordRequired => 'Current password is required';
+
+  @override
+  String get newPasswordRequired => 'New password is required';
+
+  @override
+  String get passwordAtLeast6Characters =>
+      'Password must be at least 6 characters';
+
+  @override
+  String get passwordChangedSuccessfully => 'Password changed successfully';
+
+  @override
+  String get pleaseConfirmPassword => 'Please confirm your password';
+
+  @override
+  String get emailSupport => 'Email Support';
+
+  @override
+  String get locationNotReady =>
+      'Location services are not ready. Please try again.';
+
+  @override
+  String get selectGender => 'Select Gender';
+
+  @override
+  String get selectGovernorate => 'Select Governorate';
+
+  @override
+  String get locationPermanentlyDenied =>
+      'Location permissions are permanently denied. Please enable them in settings.';
+
+  @override
+  String get openSettings => 'Open Settings';
+
+  @override
+  String get waitingForLocation => 'Waiting for location...';
+
+  @override
+  String get acquiringLocation => 'Acquiring location...';
+
+  @override
+  String get locationUnavailable => 'Location unavailable';
+
+  @override
+  String get platelet_donation => 'Platelet Donation';
+
+  @override
+  String get first_donation_bonus => 'First Donation Bonus';
+
+  @override
+  String get error_invalid_credentials =>
+      'Invalid email or password. Please check and try again.';
+
+  @override
+  String get error_invalid_email =>
+      'Invalid email address. Please check and try again.';
+
+  @override
+  String get error_invalid_password => 'Invalid password. Please try again.';
+
+  @override
+  String get error_wrong_password =>
+      'Wrong password. Please check and try again.';
+
+  @override
+  String get error_incorrect_current_password =>
+      'Current password is incorrect. Please try again.';
+
+  @override
+  String get error_user_not_found =>
+      'user account not found. Please sign up first.';
+
+  @override
+  String get error_email_already_exists =>
+      'This email is already registered. Please log in or use a different email.';
+
+  @override
+  String get error_account_locked =>
+      'Your account has been locked. Please contact support.';
+
+  @override
+  String get error_account_disabled =>
+      'Your account has been disabled. Please contact support.';
+
+  @override
+  String get error_email_not_verified =>
+      'Please verify your email address first.';
+
+  @override
+  String get error_validation => 'Please check your input and try again.';
+
+  @override
+  String get error_forbidden =>
+      'You do not have permission to perform this action.';
+
+  @override
+  String get error_token_expired =>
+      'Your session has expired. Please log in again.';
+
+  @override
+  String get dateOfBirthRequired => 'Date of birth is required';
+
+  @override
+  String get minimumAge => 'You must be at least 17 years old to donate';
+
+  @override
+  String get invalidDateOfBirth => 'Date of birth must be a valid past date';
+
+  @override
+  String get ageVerificationFailed => 'Unable to verify age from date of birth';
+
+  @override
+  String get donorNotFound => 'Donor not found';
+
+  @override
+  String get donorOrRequestNotFound => 'Donor or request not found';
+
+  @override
+  String get donorOptedOutOfMatching => 'Donor opted out of matching';
+
+  @override
+  String get donorHasNoBloodType =>
+      'Donor has not provided blood type information';
+
+  @override
+  String get bloodTypeIncompatible =>
+      'Donor blood type is not compatible with the request';
+
+  @override
+  String get matchingLocationUnavailable =>
+      'Matching location is not available';
+
+  @override
+  String get outsideMatchingRadius => 'Donor is outside the matching radius';
+
+  @override
+  String get requestNotFound => 'Request not found';
+
+  @override
+  String get donorEligible => 'Donor is eligible';
+
+  @override
+  String get noTemporaryDeferral => 'No temporary deferral';
+
+  @override
+  String get temporaryDeferralExpired => 'Temporary deferral expired';
+
+  @override
+  String get temporarilyDeferred => 'Temporarily deferred';
+
+  @override
+  String get travelDeferral => 'Travel to high-risk country';
+
+  @override
+  String get noDonationIntervalRestriction =>
+      'No donation interval restriction';
+
+  @override
+  String get invalidLastDonationDateIgnored =>
+      'Invalid last donation date ignored';
+
+  @override
+  String get donationCooldownActive => 'You need to wait before donating again';
+
+  @override
+  String get donationIntervalSatisfied => 'Donation interval satisfied';
+
+  @override
+  String get noHemoglobinRestriction => 'No hemoglobin restriction';
+
+  @override
+  String get hemoglobinBelowMinimum => 'Low hemoglobin level';
+
+  @override
+  String get hemoglobinLevelAcceptable => 'Hemoglobin level acceptable';
+
+  @override
+  String get donorSuspended => 'Donor is suspended';
+
+  @override
+  String get donorCurrentlyUnavailable => 'Donor is currently unavailable';
+
+  @override
+  String get requestNoLongerActive => 'The linked request is no longer active';
+
+  @override
+  String get notEligible => 'Not Eligible';
+
+  @override
+  String get reason => 'Reason';
+
+  @override
+  String get canDonate => 'Can donate';
+
+  @override
+  String get login_successful => 'Login successful! Welcome back.';
 }

@@ -82,7 +82,6 @@ class PointsCard extends StatelessWidget {
               ),
 
               const SizedBox(height: 32),
-              // Milestone label row
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

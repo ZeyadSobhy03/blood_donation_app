@@ -270,6 +270,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chooseTimeSlot => 'اختر توقيت التبرع';
 
   @override
+  String get timeSlotTime => 'الوقت';
+
+  @override
+  String get timeSlotCapacity => 'السعة';
+
+  @override
+  String timeSlotRemainingCapacity(Object remaining, Object total) {
+    return '$remaining/$total مواعيد متاحة';
+  }
+
+  @override
+  String get timeSlotMaxCapacity => 'أقصى مواعيد';
+
+  @override
+  String get timeSlotAvailable => 'متاح';
+
+  @override
+  String get timeSlotFull => 'ممتلئ';
+
+  @override
+  String get timeSlotSlot => 'موعد';
+
+  @override
+  String get timeSlotSlots => 'مواعيد';
+
+  @override
+  String timeSlotBookedLabel(Object time, Object remaining, Object max) {
+    return '$time - $remaining/$max متاح';
+  }
+
+  @override
   String get confirmResponse => 'تأكيد الاستجابة';
 
   @override
@@ -726,6 +757,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get emailIsRequired => 'البريد الإلكتروني مطلوب';
+
+  @override
+  String get nameIsRequired => 'الاسم مطلوب';
+
+  @override
+  String get weightIsRequired => 'الوزن مطلوب';
 
   @override
   String get enterValidEmail => 'أدخل بريد إلكتروني صالح';
@@ -1245,6 +1282,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get age => 'العمر';
 
   @override
+  String get birthDate => 'تاريخ الميلاد';
+
+  @override
   String get gender => 'النوع';
 
   @override
@@ -1275,6 +1315,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get badges => 'الإنجازات';
+
+  @override
+  String get forget_password_success =>
+      'تم إرسال رابط تغيير كلمة المرور بنجاح إلى بريدك الإلكتروني';
 
   @override
   String get success => 'نجاح';
@@ -1367,6 +1411,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get complete_profile_points => 'إكمال الملف الشخصي: 50 نقطة';
+
+  @override
+  String get plasma_donation_points => 'التبرع بالبلازما: 150 نقطة';
+
+  @override
+  String get platelets_donation_points => 'التبرع بالصفائح الدموية: 175 نقطة';
+
+  @override
+  String get organ_donation_points => 'التبرع بالأعضاء: 500 نقطة';
+
+  @override
+  String get first_donation_bonus_points => 'مكافأة أول تبرع: 100 نقطة';
 
   @override
   String get your_badges => 'إنجازاتك';
@@ -2993,4 +3049,206 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noDonationsYet => 'لا توجد تبرعات حتى الآن';
+
+  @override
+  String get governorate => 'المحافظة';
+
+  @override
+  String get profile_updated_successfully => 'تم تحديث الملف الشخصي بنجاح';
+
+  @override
+  String get currentPasswordRequired => 'كلمة المرور الحالية مطلوبة';
+
+  @override
+  String get newPasswordRequired => 'كلمة المرور الجديدة مطلوبة';
+
+  @override
+  String get passwordAtLeast6Characters =>
+      'يجب أن تكون كلمة المرور 6 أحرف على الأقل';
+
+  @override
+  String get passwordChangedSuccessfully => 'تم تغيير كلمة المرور بنجاح';
+
+  @override
+  String get pleaseConfirmPassword => 'يرجى تأكيد كلمة المرور';
+
+  @override
+  String get emailSupport => 'تواصل عبر البريد الإلكتروني';
+
+  @override
+  String get locationNotReady => 'الموقع غير جاهز. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get selectGender => 'اختر الجنس';
+
+  @override
+  String get selectGovernorate => 'اختر المحافظة';
+
+  @override
+  String get locationPermanentlyDenied =>
+      'تم رفض الوصول إلى الموقع بشكل دائم. يرجى تمكين الأذونات من إعدادات التطبيق.';
+
+  @override
+  String get openSettings => 'فتح الإعدادات';
+
+  @override
+  String get waitingForLocation => 'جاري انتظار تحديد الموقع...';
+
+  @override
+  String get acquiringLocation => 'جاري الحصول على الموقع...';
+
+  @override
+  String get locationUnavailable => 'الموقع غير متاح';
+
+  @override
+  String get platelet_donation => 'التبرع بالصفائح الدموية';
+
+  @override
+  String get first_donation_bonus => 'مكافأة أول تبرع';
+
+  @override
+  String get error_invalid_credentials =>
+      'البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى التحقق والمحاولة مرة أخرى.';
+
+  @override
+  String get error_invalid_email =>
+      'عنوان البريد الإلكتروني غير صحيح. يرجى التحقق والمحاولة مرة أخرى.';
+
+  @override
+  String get error_invalid_password =>
+      'كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get error_wrong_password =>
+      'كلمة المرور خاطئة. يرجى التحقق والمحاولة مرة أخرى.';
+
+  @override
+  String get error_incorrect_current_password =>
+      'كلمة المرور الحالية غير صحيحة. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get error_user_not_found =>
+      'حساب المستخدم غير موجود. يرجى التسجيل أولاً.';
+
+  @override
+  String get error_email_already_exists =>
+      'هذا البريد الإلكتروني مسجل بالفعل. يرجى تسجيل الدخول أو استخدام بريد إلكتروني مختلف.';
+
+  @override
+  String get error_account_locked =>
+      'تم قفل حسابك. يرجى التواصل مع الدعم الفني.';
+
+  @override
+  String get error_account_disabled =>
+      'تم تعطيل حسابك. يرجى التواصل مع الدعم الفني.';
+
+  @override
+  String get error_email_not_verified =>
+      'يرجى التحقق من عنوان بريدك الإلكتروني أولاً.';
+
+  @override
+  String get error_validation => 'يرجى التحقق من إدخالك والمحاولة مرة أخرى.';
+
+  @override
+  String get error_forbidden => 'ليس لديك الصلاحية لتنفيذ هذا الإجراء.';
+
+  @override
+  String get error_token_expired =>
+      'انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى.';
+
+  @override
+  String get dateOfBirthRequired => 'تاريخ الميلاد مطلوب';
+
+  @override
+  String get minimumAge => 'يجب أن يكون عمرك 17 عامًا على الأقل للتبرع';
+
+  @override
+  String get invalidDateOfBirth =>
+      'يجب أن يكون تاريخ الميلاد تاريخًا صحيحًا في الماضي';
+
+  @override
+  String get ageVerificationFailed => 'تعذّر التحقق من العمر من تاريخ الميلاد';
+
+  @override
+  String get donorNotFound => 'لم يتم العثور على المتبرع';
+
+  @override
+  String get donorOrRequestNotFound => 'لم يتم العثور على المتبرع أو الطلب';
+
+  @override
+  String get donorOptedOutOfMatching =>
+      'اختار المتبرع عدم المشاركة في المطابقة';
+
+  @override
+  String get donorHasNoBloodType => 'لم يُدخل المتبرع معلومات فصيلة الدم';
+
+  @override
+  String get bloodTypeIncompatible => 'فصيلة دم المتبرع غير متوافقة مع الطلب';
+
+  @override
+  String get matchingLocationUnavailable => 'موقع المطابقة غير متاح';
+
+  @override
+  String get outsideMatchingRadius => 'المتبرع خارج نطاق المطابقة';
+
+  @override
+  String get requestNotFound => 'لم يتم العثور على الطلب';
+
+  @override
+  String get donorEligible => 'المتبرع مؤهل';
+
+  @override
+  String get noTemporaryDeferral => 'لا يوجد تأجيل مؤقت';
+
+  @override
+  String get temporaryDeferralExpired => 'انتهت صلاحية التأجيل المؤقت';
+
+  @override
+  String get temporarilyDeferred => 'مؤجَّل مؤقتًا';
+
+  @override
+  String get travelDeferral => 'السفر إلى بلد مرتفع الخطورة';
+
+  @override
+  String get noDonationIntervalRestriction => 'لا يوجد قيد على فترة التبرع';
+
+  @override
+  String get invalidLastDonationDateIgnored =>
+      'تم تجاهل تاريخ آخر تبرع غير الصحيح';
+
+  @override
+  String get donationCooldownActive => 'يجب عليك الانتظار قبل التبرع مرة أخرى';
+
+  @override
+  String get donationIntervalSatisfied => 'تم استيفاء فترة التبرع المطلوبة';
+
+  @override
+  String get noHemoglobinRestriction => 'لا يوجد قيد على مستوى الهيموغلوبين';
+
+  @override
+  String get hemoglobinBelowMinimum => 'مستوى الهيموغلوبين منخفض';
+
+  @override
+  String get hemoglobinLevelAcceptable => 'مستوى الهيموغلوبين مقبول';
+
+  @override
+  String get donorSuspended => 'المتبرع موقوف';
+
+  @override
+  String get donorCurrentlyUnavailable => 'المتبرع غير متاح حاليًا';
+
+  @override
+  String get requestNoLongerActive => 'الطلب المرتبط لم يعد نشطًا';
+
+  @override
+  String get notEligible => 'غير مؤهل';
+
+  @override
+  String get reason => 'السبب';
+
+  @override
+  String get canDonate => 'يمكن التبرع';
+
+  @override
+  String get login_successful => 'تم تسجيل الدخول بنجاح! مرحبًا بك ';
 }

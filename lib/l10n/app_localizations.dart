@@ -602,6 +602,60 @@ abstract class AppLocalizations {
   /// **'Choose a time slot'**
   String get chooseTimeSlot;
 
+  /// No description provided for @timeSlotTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get timeSlotTime;
+
+  /// No description provided for @timeSlotCapacity.
+  ///
+  /// In en, this message translates to:
+  /// **'Capacity'**
+  String get timeSlotCapacity;
+
+  /// No description provided for @timeSlotRemainingCapacity.
+  ///
+  /// In en, this message translates to:
+  /// **'{remaining}/{total} slots available'**
+  String timeSlotRemainingCapacity(Object remaining, Object total);
+
+  /// No description provided for @timeSlotMaxCapacity.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Slots'**
+  String get timeSlotMaxCapacity;
+
+  /// No description provided for @timeSlotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Available'**
+  String get timeSlotAvailable;
+
+  /// No description provided for @timeSlotFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Full'**
+  String get timeSlotFull;
+
+  /// No description provided for @timeSlotSlot.
+  ///
+  /// In en, this message translates to:
+  /// **'slot'**
+  String get timeSlotSlot;
+
+  /// No description provided for @timeSlotSlots.
+  ///
+  /// In en, this message translates to:
+  /// **'slots'**
+  String get timeSlotSlots;
+
+  /// No description provided for @timeSlotBookedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{time} - {remaining}/{max} available'**
+  String timeSlotBookedLabel(Object time, Object remaining, Object max);
+
   /// No description provided for @confirmResponse.
   ///
   /// In en, this message translates to:
@@ -1457,6 +1511,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Email is required'**
   String get emailIsRequired;
+
+  /// No description provided for @nameIsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Name is required'**
+  String get nameIsRequired;
+
+  /// No description provided for @weightIsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight is required'**
+  String get weightIsRequired;
 
   /// No description provided for @enterValidEmail.
   ///
@@ -2418,6 +2484,12 @@ abstract class AppLocalizations {
   /// **'Age'**
   String get age;
 
+  /// No description provided for @birthDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth Date'**
+  String get birthDate;
+
   /// No description provided for @gender.
   ///
   /// In en, this message translates to:
@@ -2477,6 +2549,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Badges'**
   String get badges;
+
+  /// No description provided for @forget_password_success.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code sent to your email'**
+  String get forget_password_success;
 
   /// No description provided for @success.
   ///
@@ -2657,6 +2735,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Complete Profile: 50 pts'**
   String get complete_profile_points;
+
+  /// No description provided for @plasma_donation_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Plasma Donation: 150 pts'**
+  String get plasma_donation_points;
+
+  /// No description provided for @platelets_donation_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Platelet Donation: 175 pts'**
+  String get platelets_donation_points;
+
+  /// No description provided for @organ_donation_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Organ Donation: 500 pts'**
+  String get organ_donation_points;
+
+  /// No description provided for @first_donation_bonus_points.
+  ///
+  /// In en, this message translates to:
+  /// **'First Donation Bonus: 100 pts'**
+  String get first_donation_bonus_points;
 
   /// No description provided for @your_badges.
   ///
@@ -5717,6 +5819,378 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No donations yet.'**
   String get noDonationsYet;
+
+  /// No description provided for @governorate.
+  ///
+  /// In en, this message translates to:
+  /// **'Governorate'**
+  String get governorate;
+
+  /// No description provided for @profile_updated_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated successfully'**
+  String get profile_updated_successfully;
+
+  /// No description provided for @currentPasswordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Current password is required'**
+  String get currentPasswordRequired;
+
+  /// No description provided for @newPasswordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'New password is required'**
+  String get newPasswordRequired;
+
+  /// No description provided for @passwordAtLeast6Characters.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get passwordAtLeast6Characters;
+
+  /// No description provided for @passwordChangedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Password changed successfully'**
+  String get passwordChangedSuccessfully;
+
+  /// No description provided for @pleaseConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm your password'**
+  String get pleaseConfirmPassword;
+
+  /// No description provided for @emailSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Support'**
+  String get emailSupport;
+
+  /// No description provided for @locationNotReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Location services are not ready. Please try again.'**
+  String get locationNotReady;
+
+  /// No description provided for @selectGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Gender'**
+  String get selectGender;
+
+  /// No description provided for @selectGovernorate.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Governorate'**
+  String get selectGovernorate;
+
+  /// No description provided for @locationPermanentlyDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permissions are permanently denied. Please enable them in settings.'**
+  String get locationPermanentlyDenied;
+
+  /// No description provided for @openSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Settings'**
+  String get openSettings;
+
+  /// No description provided for @waitingForLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for location...'**
+  String get waitingForLocation;
+
+  /// No description provided for @acquiringLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Acquiring location...'**
+  String get acquiringLocation;
+
+  /// No description provided for @locationUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Location unavailable'**
+  String get locationUnavailable;
+
+  /// No description provided for @platelet_donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Platelet Donation'**
+  String get platelet_donation;
+
+  /// No description provided for @first_donation_bonus.
+  ///
+  /// In en, this message translates to:
+  /// **'First Donation Bonus'**
+  String get first_donation_bonus;
+
+  /// No description provided for @error_invalid_credentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email or password. Please check and try again.'**
+  String get error_invalid_credentials;
+
+  /// No description provided for @error_invalid_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email address. Please check and try again.'**
+  String get error_invalid_email;
+
+  /// No description provided for @error_invalid_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid password. Please try again.'**
+  String get error_invalid_password;
+
+  /// No description provided for @error_wrong_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong password. Please check and try again.'**
+  String get error_wrong_password;
+
+  /// No description provided for @error_incorrect_current_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Current password is incorrect. Please try again.'**
+  String get error_incorrect_current_password;
+
+  /// No description provided for @error_user_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'user account not found. Please sign up first.'**
+  String get error_user_not_found;
+
+  /// No description provided for @error_email_already_exists.
+  ///
+  /// In en, this message translates to:
+  /// **'This email is already registered. Please log in or use a different email.'**
+  String get error_email_already_exists;
+
+  /// No description provided for @error_account_locked.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account has been locked. Please contact support.'**
+  String get error_account_locked;
+
+  /// No description provided for @error_account_disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account has been disabled. Please contact support.'**
+  String get error_account_disabled;
+
+  /// No description provided for @error_email_not_verified.
+  ///
+  /// In en, this message translates to:
+  /// **'Please verify your email address first.'**
+  String get error_email_not_verified;
+
+  /// No description provided for @error_validation.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check your input and try again.'**
+  String get error_validation;
+
+  /// No description provided for @error_forbidden.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not have permission to perform this action.'**
+  String get error_forbidden;
+
+  /// No description provided for @error_token_expired.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session has expired. Please log in again.'**
+  String get error_token_expired;
+
+  /// No description provided for @dateOfBirthRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth is required'**
+  String get dateOfBirthRequired;
+
+  /// No description provided for @minimumAge.
+  ///
+  /// In en, this message translates to:
+  /// **'You must be at least 17 years old to donate'**
+  String get minimumAge;
+
+  /// No description provided for @invalidDateOfBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth must be a valid past date'**
+  String get invalidDateOfBirth;
+
+  /// No description provided for @ageVerificationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to verify age from date of birth'**
+  String get ageVerificationFailed;
+
+  /// No description provided for @donorNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor not found'**
+  String get donorNotFound;
+
+  /// No description provided for @donorOrRequestNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor or request not found'**
+  String get donorOrRequestNotFound;
+
+  /// No description provided for @donorOptedOutOfMatching.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor opted out of matching'**
+  String get donorOptedOutOfMatching;
+
+  /// No description provided for @donorHasNoBloodType.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor has not provided blood type information'**
+  String get donorHasNoBloodType;
+
+  /// No description provided for @bloodTypeIncompatible.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor blood type is not compatible with the request'**
+  String get bloodTypeIncompatible;
+
+  /// No description provided for @matchingLocationUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Matching location is not available'**
+  String get matchingLocationUnavailable;
+
+  /// No description provided for @outsideMatchingRadius.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor is outside the matching radius'**
+  String get outsideMatchingRadius;
+
+  /// No description provided for @requestNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Request not found'**
+  String get requestNotFound;
+
+  /// No description provided for @donorEligible.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor is eligible'**
+  String get donorEligible;
+
+  /// No description provided for @noTemporaryDeferral.
+  ///
+  /// In en, this message translates to:
+  /// **'No temporary deferral'**
+  String get noTemporaryDeferral;
+
+  /// No description provided for @temporaryDeferralExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Temporary deferral expired'**
+  String get temporaryDeferralExpired;
+
+  /// No description provided for @temporarilyDeferred.
+  ///
+  /// In en, this message translates to:
+  /// **'Temporarily deferred'**
+  String get temporarilyDeferred;
+
+  /// No description provided for @travelDeferral.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel to high-risk country'**
+  String get travelDeferral;
+
+  /// No description provided for @noDonationIntervalRestriction.
+  ///
+  /// In en, this message translates to:
+  /// **'No donation interval restriction'**
+  String get noDonationIntervalRestriction;
+
+  /// No description provided for @invalidLastDonationDateIgnored.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid last donation date ignored'**
+  String get invalidLastDonationDateIgnored;
+
+  /// No description provided for @donationCooldownActive.
+  ///
+  /// In en, this message translates to:
+  /// **'You need to wait before donating again'**
+  String get donationCooldownActive;
+
+  /// No description provided for @donationIntervalSatisfied.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation interval satisfied'**
+  String get donationIntervalSatisfied;
+
+  /// No description provided for @noHemoglobinRestriction.
+  ///
+  /// In en, this message translates to:
+  /// **'No hemoglobin restriction'**
+  String get noHemoglobinRestriction;
+
+  /// No description provided for @hemoglobinBelowMinimum.
+  ///
+  /// In en, this message translates to:
+  /// **'Low hemoglobin level'**
+  String get hemoglobinBelowMinimum;
+
+  /// No description provided for @hemoglobinLevelAcceptable.
+  ///
+  /// In en, this message translates to:
+  /// **'Hemoglobin level acceptable'**
+  String get hemoglobinLevelAcceptable;
+
+  /// No description provided for @donorSuspended.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor is suspended'**
+  String get donorSuspended;
+
+  /// No description provided for @donorCurrentlyUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor is currently unavailable'**
+  String get donorCurrentlyUnavailable;
+
+  /// No description provided for @requestNoLongerActive.
+  ///
+  /// In en, this message translates to:
+  /// **'The linked request is no longer active'**
+  String get requestNoLongerActive;
+
+  /// No description provided for @notEligible.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Eligible'**
+  String get notEligible;
+
+  /// No description provided for @reason.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get reason;
+
+  /// No description provided for @canDonate.
+  ///
+  /// In en, this message translates to:
+  /// **'Can donate'**
+  String get canDonate;
+
+  /// No description provided for @login_successful.
+  ///
+  /// In en, this message translates to:
+  /// **'Login successful! Welcome back.'**
+  String get login_successful;
 }
 
 class _AppLocalizationsDelegate

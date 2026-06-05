@@ -1,6 +1,8 @@
+
 import 'dart:developer';
 
 import 'package:blood_donation_app/core/widgets/custom_dropdown.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/data/models/time_slots/time_slots_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/donation_type_picker.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/input_label.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/navigation_button.dart';
@@ -122,18 +124,18 @@ class _DateTimeStepState extends State<DateTimeStep> {
                     ),
                   ),
                   InputLabel(label: appLocalization.selectTimeLabel),
-                  // 3. Drive the picker from TimeSlotsCubit
                   BlocBuilder<TimeSlotsCubit, TimeSlotsState>(
-
 
                     builder: (context, timeSlotsState) {
                       log('TimeSlotsState: $timeSlotsState');
                       final slots = _resolveSlots(timeSlotsState);
+                      final slotDetails = _resolveSlotDetails(timeSlotsState);
 
                       return TimeSlotPicker(
-                        key: ValueKey(slots.join(',')),
+                        key: ValueKey(slots.isEmpty ? 'empty' : slots.join(',')),
                         icon: Icons.access_time,
                         slots: slots,
+                        slotDetails: slotDetails,
                         isLoading: timeSlotsState is TimeSlotsLoadingState,
                         selectedValue: selectedTime,
                         onChanged: (value) {
@@ -172,12 +174,19 @@ class _DateTimeStepState extends State<DateTimeStep> {
       },
     );
   }
-
   /// Extracts the slot strings from the cubit state, or returns an empty list.
   List<String> _resolveSlots(TimeSlotsState state) {
     if (state is TimeSlotsSuccessState) {
       return state.timeSlots.data?.timeSlots ?? [];
     }
     return [];
+  }
+
+  /// Extracts the slot details with capacity information from the cubit state
+  List<TimeSlotDetail>? _resolveSlotDetails(TimeSlotsState state) {
+    if (state is TimeSlotsSuccessState) {
+      return state.timeSlots.data?.timeSlotDetails;
+    }
+    return null;
   }
 }

@@ -1,9 +1,14 @@
+import 'dart:developer';
+
+import 'package:blood_donation_app/presentation/authentication/admin_authentication/presentation/view_model/admin_auth_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/resources/assets_manger/assets_manger.dart';
 import '../../core/resources/colors/color_manger.dart';
 import '../../core/resources/fonts/font_manger.dart';
 import '../../core/resources/routes/route_manger.dart';
 import '../../core/widgets/custom_text.dart';
+import '../../presentation/authentication/donor_authentication/presentation/view_model/auth_view_model.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,7 +16,6 @@ class SplashScreen extends StatefulWidget {
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
-
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
@@ -62,10 +66,75 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller.forward();
 
-    Future.delayed(const Duration(seconds: 3), () {
+    _initializeApp();
+  }
+
+  Future<void> _initializeApp() async {
+    try {
+      await Future.delayed(const Duration(milliseconds: 500));
+
+      final authCubit = context.read<AuthCubit>();
+      final adminCubit=context.read<AdminAuthCubit>();
+
+      log('Checking if user is logged in...');
+      final donorIsLoggedIn = await authCubit.isUserLoggedIn();
+      final adminIsLoggedIn = await adminCubit.isAdminLoggedIn();
+      log('Admin logged in: $adminIsLoggedIn');
+      log('User logged in: $donorIsLoggedIn');
+
+      if (donorIsLoggedIn || adminIsLoggedIn) {
+        final donorRole = await authCubit.validateToken();
+        final adminRole=await adminCubit.validateToken();
+        final role = donorRole ?? adminRole;
+        log('User role: $donorRole');
+          log('Admin role: $adminRole');
+
+        if (role != null) {
+          if (role.toLowerCase() == 'admin') {
+            await adminCubit.getMe();
+          } else {
+            await authCubit.getMe();
+          }
+
+          await Future.delayed(const Duration(seconds: 3));
+          if (!mounted) return;
+          _navigateByRole(role);
+          return;
+        } else {
+          await Future.delayed(const Duration(seconds: 3));
+          if (!mounted) return;
+          Navigator.pushReplacementNamed(context, RouteManger.chooseRole);
+          return;
+        }
+      }
+
+      await Future.delayed(const Duration(seconds: 3));
       if (!mounted) return;
       Navigator.pushReplacementNamed(context, RouteManger.chooseRole);
-    });
+    } catch (e) {
+      log('Error during app initialization: $e');
+      await Future.delayed(const Duration(seconds: 3));
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(context, RouteManger.chooseRole);
+    }
+  }
+
+  void _navigateByRole(String role) {
+    log('Navigating by role: $role');
+    switch (role.toLowerCase()) {
+      case 'donor':
+        Navigator.pushReplacementNamed(context, RouteManger.donorMainLayout);
+        break;
+      case 'hospital':
+        Navigator.pushReplacementNamed(context, RouteManger.hospitalMainLayout);
+        break;
+      case 'admin':
+        Navigator.pushReplacementNamed(context, RouteManger.adminMainLayout);
+        break;
+      default:
+        log('Unknown role: $role → going to chooseRole');
+        Navigator.pushReplacementNamed(context, RouteManger.chooseRole);
+    }
   }
 
   @override
@@ -88,8 +157,7 @@ class _SplashScreenState extends State<SplashScreen>
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(width: 60),
-            
+                const SizedBox(width: 60),
                 SlideTransition(
                   position: _logoSlideAnimation,
                   child: FadeTransition(
@@ -103,7 +171,7 @@ class _SplashScreenState extends State<SplashScreen>
                   ),
                 ),
                 Transform.translate(
-                  offset: Offset(-115, 0),
+                  offset: const Offset(-115, 0),
                   child: ClipRect(
                     child: FadeTransition(
                       opacity: _textFadeAnimation,

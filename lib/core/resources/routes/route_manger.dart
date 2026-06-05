@@ -12,8 +12,8 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/profile/help_and
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/request_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../presentation/authentication/admin_authentication/admin_authentication.dart';
-import '../../../presentation/authentication/admin_authentication/admin_forget_password.dart';
+import '../../../presentation/authentication/admin_authentication/presentation/view/admin_authentication.dart';
+import '../../../presentation/authentication/admin_authentication/presentation/view/admin_forget_password.dart';
 import '../../../presentation/authentication/donor_authentication/donor_forget_password.dart';
 import '../../../presentation/authentication/donor_authentication/donor_login.dart';
 import '../../../presentation/authentication/donor_authentication/donor_register.dart';
@@ -37,6 +37,8 @@ import '../../../presentation/role/hospital/tabs/scan_qr/scan_qr.dart';
 import '../../../presentation/splash_screen/splash_screen.dart';
 import '../../widgets/custom_pin_verification_screen.dart';
 
+import '../../../presentation/authentication/donor_authentication/presentation/view/widgets/donor_reset_password.dart';
+
 class RouteManger {
   static const String onboarding = '/onboarding';
   static const String chooseRole = '/chooseRole';
@@ -47,6 +49,7 @@ class RouteManger {
   static const String donorLogin = '/donorLogin';
   static const String donorRegister = '/donorRegister';
   static const String donorForgetPassword = '/donorForgetPassword';
+  static const String donorResetPassword = '/donorResetPassword';
   static const String hospitalAuth = '/hospitalAuthentication';
   static const String adminAuth = '/adminAuthentication';
   static const String splashScreen = '/splashScreen';
@@ -166,6 +169,15 @@ class RouteManger {
 
       case donorForgetPassword:
         return MaterialPageRoute(builder: (context) => DonorForgetPassword());
+
+       case donorResetPassword:
+         final args = settings.arguments as Map<String, dynamic>;
+         return MaterialPageRoute(
+           builder: (context) => DonorResetPassword(
+             email: args['email'],
+             otp: args['otp'],
+           ),
+         );
 
       case hospitalAuth:
         return MaterialPageRoute(

@@ -1,3 +1,4 @@
+
 import 'package:blood_donation_app/core/resources/models/donor.dart';
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/utils/tier_utils.dart';
@@ -68,12 +69,24 @@ class _ProfileState extends State<Profile> {
               final points = stats?.points ?? 0;
               final totalDonations = stats?.totalDonations ?? 0;
               final livesSaved = stats?.livesSaved ?? 0;
-              final location = [
-                data?.location?.city,
-                data?.location?.governorate,
-              ].whereType<String>().where((v) => v.isNotEmpty).join(', ');
               final createdAt = DateTime.tryParse(data?.createdAt ?? '');
               final updatedAt = DateTime.tryParse(data?.updatedAt ?? '');
+
+               final phone = data?.phoneNumber ?? '-';
+               final weight = data?.weight != null
+                   ? (data!.weight is num ? data.weight.toString() : data.weight.toString())
+                   : '0';
+               final age = data?.age != null ? data!.age.toString() : '0';
+               final genderValue = data?.gender ?? 'Male';
+               final gender = genderValue.toString().toLowerCase() == 'male' ? 'Male' : 'Female';
+               final city = data?.location?.city ?? '-';
+               final governorate = data?.location?.governorate ?? '-';
+               final location = '$city, $governorate';
+
+               DateTime? birthDate;
+               if (data?.dateOfBirth != null && data!.dateOfBirth != null && data.dateOfBirth!.isNotEmpty) {
+                 birthDate = DateTime.tryParse(data.dateOfBirth!);
+               }
 
               return SingleChildScrollView(
                 child: Column(
@@ -88,6 +101,12 @@ class _ProfileState extends State<Profile> {
                             name: data?.fullName ?? '-',
                             email: data?.email ?? '-',
                             bloodType: data?.bloodType ?? '-',
+                            phone: phone,
+                            location: location.isEmpty ? '-' : location,
+                            weight: weight,
+                            age: age,
+                            gender: gender,
+                            birthDate: birthDate,
                           ),
                           HomeStatsRow(
                             donations: totalDonations,
@@ -164,9 +183,9 @@ class _ProfileState extends State<Profile> {
                         };
 
                         final tierPoints = {
-                          'bronze': 1200,
-                          'silver': 2300,
-                          'gold': 3000,
+                          'bronze': 0,
+                          'silver': 1000,
+                          'gold': 2500,
                           'platinum': 5000,
                         };
 

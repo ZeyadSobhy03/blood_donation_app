@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/errors/app_exceptions.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/model/profile/profile_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,23 +10,29 @@ class ProfileCubit extends Cubit<ProfileViewState> {
   ProfileCubit({required this.profileUseCase}) : super(ProfileInitialState());
 
   Future<void> fetchProfile() async {
+    emit(ProfileLoadingState());
     try {
-      emit(ProfileLoadingState());
-
       final profileModel = await profileUseCase.getProfile();
-
-      if (profileModel.success == true && profileModel.data != null) {
-        emit(ProfileSuccessState(profileModel: profileModel));
-      } else {
-        emit(
-          ProfileErrorState(
-            error: 'Failed to load profile: Invalid response',
-          ),
-        );
-      }
+      emit(ProfileSuccessState(profileModel: profileModel));
+    } on NetworkTimeoutException {
+      emit(ProfileErrorState(error: 'network_timeout'));
+    } on ServerException catch (e) {
+      emit(ProfileErrorState(error: e.serverMessage ?? 'server_error'));
+    } on UnauthorizedException {
+      emit(ProfileErrorState(error: 'unauthorized'));
+    } on NotFoundException {
+      emit(ProfileErrorState(error: 'not_found'));
+    } on RequestCancelledException {
+      emit(ProfileErrorState(error: 'request_cancelled'));
+    } on UnknownNetworkException {
+      emit(ProfileErrorState(error: 'unknown_error'));
     } catch (e) {
-      emit(ProfileErrorState(error: e.toString()));
+      emit(ProfileErrorState(error: 'unknown_error'));
     }
+  }
+
+  Future<void> refreshProfile() async {
+    await fetchProfile();
   }
 
   Future<void> retryFetchProfile() async {
@@ -43,13 +50,14 @@ sealed class ProfileViewState {}
 
 class ProfileInitialState extends ProfileViewState {}
 
-class ProfileLoadingState extends ProfileViewState {
-}
+class ProfileLoadingState extends ProfileViewState {}
+
 class ProfileSuccessState extends ProfileViewState {
   final ProfileModel profileModel;
 
   ProfileSuccessState({required this.profileModel});
 }
+
 class ProfileErrorState extends ProfileViewState {
   final String error;
 

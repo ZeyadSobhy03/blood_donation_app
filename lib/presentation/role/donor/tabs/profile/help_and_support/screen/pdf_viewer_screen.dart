@@ -1,3 +1,4 @@
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
@@ -24,9 +25,8 @@ class _PdfViewerScreenState extends State<PdfViewerScreen> {
   int _currentPage = 0;
   int _totalPages = 0;
   bool _isLoading = true;
-  bool _hasError = false;        // ← new
-  String _errorMessage = '';     // ← new
-
+  bool _hasError = false;
+  String _errorMessage = '';
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -49,6 +49,7 @@ class _PdfViewerScreenState extends State<PdfViewerScreen> {
   }
 
   String get pdfPath {
+
     switch (role) {
       case UserRole.donor:
         return 'assets/docs/donor.pdf';

@@ -1,21 +1,26 @@
 /// success : true
-/// data : {"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYzZGY5MTVmNDI2ODVjYmJiY2JiMTgiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNjQzOTUsImV4cCI6MTc3ODg2OTE5NX0.OsJ7AaPdWRRWx01uJuafg60-uGyTkQoSCPleLShRDhA","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYzZGY5MTVmNDI2ODVjYmJiY2JiMTgiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNjQzOTUsImV4cCI6MTc4MDg1NjM5NX0.qufdWd7kIhjX9V_gzci1yGVtpLDkk14ChO1FzD1AIew","user":{"_id":"69f3df915f42685cbbbcbb18","fullName":"Aya Hassan","email":"aya.hassan@lifelink.demo","role":"donor"},"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYzZGY5MTVmNDI2ODVjYmJiY2JiMTgiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNjQzOTUsImV4cCI6MTc3ODg2OTE5NX0.OsJ7AaPdWRRWx01uJuafg60-uGyTkQoSCPleLShRDhA","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYzZGY5MTVmNDI2ODVjYmJiY2JiMTgiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNjQzOTUsImV4cCI6MTc4MDg1NjM5NX0.qufdWd7kIhjX9V_gzci1yGVtpLDkk14ChO1FzD1AIew","user_id":"69f3df915f42685cbbbcbb18","user_role":"donor","user_name":"Aya Hassan"}
+/// message : "Login successful"
+/// data : {"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMGU4MDBiMzM5YTQ1YTUxYWRkYWQiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk5OTU0ODMsImV4cCI6MTc4MDYwMDI4M30.aEw896N5D-RWG4JDns7-Ofs1XyBGwJosPkmUDh39-RE","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMGU4MDBiMzM5YTQ1YTUxYWRkYWQiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk5OTU0ODMsImV4cCI6MTc4MjU4NzQ4M30.bkA1_4ks0gYhzPXPx7ifuhJ7-e6H6Ut1c8gbuSj-Gio","user":{"_id":"6a130e800b339a45a51addad","fullName":"Aya Hassan","email":"aya.hassan@lifelink.demo","role":"donor","isEmailVerified":true},"verified":true,"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMGU4MDBiMzM5YTQ1YTUxYWRkYWQiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk5OTU0ODMsImV4cCI6MTc4MDYwMDI4M30.aEw896N5D-RWG4JDns7-Ofs1XyBGwJosPkmUDh39-RE","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMGU4MDBiMzM5YTQ1YTUxYWRkYWQiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk5OTU0ODMsImV4cCI6MTc4MjU4NzQ4M30.bkA1_4ks0gYhzPXPx7ifuhJ7-e6H6Ut1c8gbuSj-Gio","user_id":"6a130e800b339a45a51addad","user_role":"donor","user_name":"Aya Hassan"}
 
 class LoginModel {
   LoginModel({
       this.success, 
+      this.message, 
       this.data,});
 
   LoginModel.fromJson(dynamic json) {
     success = json['success'];
+    message = json['message'];
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   bool? success;
+  String? message;
   Data? data;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['success'] = success;
+    map['message'] = message;
     if (data != null) {
       map['data'] = data?.toJson();
     }
@@ -24,12 +29,13 @@ class LoginModel {
 
 }
 
-/// accessToken : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYzZGY5MTVmNDI2ODVjYmJiY2JiMTgiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNjQzOTUsImV4cCI6MTc3ODg2OTE5NX0.OsJ7AaPdWRRWx01uJuafg60-uGyTkQoSCPleLShRDhA"
-/// refreshToken : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYzZGY5MTVmNDI2ODVjYmJiY2JiMTgiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNjQzOTUsImV4cCI6MTc4MDg1NjM5NX0.qufdWd7kIhjX9V_gzci1yGVtpLDkk14ChO1FzD1AIew"
-/// user : {"_id":"69f3df915f42685cbbbcbb18","fullName":"Aya Hassan","email":"aya.hassan@lifelink.demo","role":"donor"}
-/// access_token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYzZGY5MTVmNDI2ODVjYmJiY2JiMTgiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNjQzOTUsImV4cCI6MTc3ODg2OTE5NX0.OsJ7AaPdWRRWx01uJuafg60-uGyTkQoSCPleLShRDhA"
-/// refresh_token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWYzZGY5MTVmNDI2ODVjYmJiY2JiMTgiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNjQzOTUsImV4cCI6MTc4MDg1NjM5NX0.qufdWd7kIhjX9V_gzci1yGVtpLDkk14ChO1FzD1AIew"
-/// user_id : "69f3df915f42685cbbbcbb18"
+/// accessToken : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMGU4MDBiMzM5YTQ1YTUxYWRkYWQiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk5OTU0ODMsImV4cCI6MTc4MDYwMDI4M30.aEw896N5D-RWG4JDns7-Ofs1XyBGwJosPkmUDh39-RE"
+/// refreshToken : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMGU4MDBiMzM5YTQ1YTUxYWRkYWQiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk5OTU0ODMsImV4cCI6MTc4MjU4NzQ4M30.bkA1_4ks0gYhzPXPx7ifuhJ7-e6H6Ut1c8gbuSj-Gio"
+/// user : {"_id":"6a130e800b339a45a51addad","fullName":"Aya Hassan","email":"aya.hassan@lifelink.demo","role":"donor","isEmailVerified":true}
+/// verified : true
+/// access_token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMGU4MDBiMzM5YTQ1YTUxYWRkYWQiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk5OTU0ODMsImV4cCI6MTc4MDYwMDI4M30.aEw896N5D-RWG4JDns7-Ofs1XyBGwJosPkmUDh39-RE"
+/// refresh_token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMGU4MDBiMzM5YTQ1YTUxYWRkYWQiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk5OTU0ODMsImV4cCI6MTc4MjU4NzQ4M30.bkA1_4ks0gYhzPXPx7ifuhJ7-e6H6Ut1c8gbuSj-Gio"
+/// user_id : "6a130e800b339a45a51addad"
 /// user_role : "donor"
 /// user_name : "Aya Hassan"
 
@@ -38,6 +44,7 @@ class Data {
       this.accessToken, 
       this.refreshToken, 
       this.user, 
+      this.verified, 
 
       this.userId, 
       this.userRole, 
@@ -47,6 +54,7 @@ class Data {
     accessToken = json['accessToken'];
     refreshToken = json['refreshToken'];
     user = json['user'] != null ? User.fromJson(json['user']) : null;
+    verified = json['verified'];
     accessToken = json['access_token'];
     refreshToken = json['refresh_token'];
     userId = json['user_id'];
@@ -56,6 +64,7 @@ class Data {
   String? accessToken;
   String? refreshToken;
   User? user;
+  bool? verified;
 
   String? userId;
   String? userRole;
@@ -68,6 +77,7 @@ class Data {
     if (user != null) {
       map['user'] = user?.toJson();
     }
+    map['verified'] = verified;
     map['access_token'] = accessToken;
     map['refresh_token'] = refreshToken;
     map['user_id'] = userId;
@@ -78,28 +88,32 @@ class Data {
 
 }
 
-/// _id : "69f3df915f42685cbbbcbb18"
+/// _id : "6a130e800b339a45a51addad"
 /// fullName : "Aya Hassan"
 /// email : "aya.hassan@lifelink.demo"
 /// role : "donor"
+/// isEmailVerified : true
 
 class User {
   User({
       this.id, 
       this.fullName, 
       this.email, 
-      this.role,});
+      this.role, 
+      this.isEmailVerified,});
 
   User.fromJson(dynamic json) {
     id = json['_id'];
     fullName = json['fullName'];
     email = json['email'];
     role = json['role'];
+    isEmailVerified = json['isEmailVerified'];
   }
   String? id;
   String? fullName;
   String? email;
   String? role;
+  bool? isEmailVerified;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -107,6 +121,7 @@ class User {
     map['fullName'] = fullName;
     map['email'] = email;
     map['role'] = role;
+    map['isEmailVerified'] = isEmailVerified;
     return map;
   }
 

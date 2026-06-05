@@ -13,7 +13,7 @@ class BloodNeedCard extends StatelessWidget {
     required this.background,
   });
 
-  final String bloodType;
+  final List<String> bloodType;
   final Color background;
 
   @override
@@ -41,7 +41,7 @@ class BloodNeedCard extends StatelessWidget {
             SizedBox(height: 12.h),
 
             CustomText(
-              text: bloodType,
+              text: bloodType.join(', '),
               textStyle: TextStyle(
                 color: ColorManger.pureWhite,
                 fontSize: FontSize.s22,

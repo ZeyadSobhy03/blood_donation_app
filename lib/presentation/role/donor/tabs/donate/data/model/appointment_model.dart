@@ -79,13 +79,13 @@ class Meta {
       this.hasPrevPage,});
 
   Meta.fromJson(dynamic json) {
-    total = json['total'];
-    page = json['page'];
-    limit = json['limit'];
-    totalPages = json['totalPages'];
-    hasNextPage = json['hasNextPage'];
-    hasPrevPage = json['hasPrevPage'];
-  }
+     total = json['total'] is int ? json['total'] : (json['total'] as num?)?.toInt();
+     page = json['page'] is int ? json['page'] : (json['page'] as num?)?.toInt();
+     limit = json['limit'] is int ? json['limit'] : (json['limit'] as num?)?.toInt();
+     totalPages = json['totalPages'] is int ? json['totalPages'] : (json['totalPages'] as num?)?.toInt();
+     hasNextPage = json['hasNextPage'];
+     hasPrevPage = json['hasPrevPage'];
+   }
   int? total;
   int? page;
   int? limit;
@@ -324,9 +324,9 @@ class Coordinates {
       this.lng,});
 
   Coordinates.fromJson(dynamic json) {
-    lat = json['lat'];
-    lng = json['lng'];
-  }
+     lat = json['lat'] != null ? (json['lat'] is double ? json['lat'] : (json['lat'] as num).toDouble()) : null;
+     lng = json['lng'] != null ? (json['lng'] is double ? json['lng'] : (json['lng'] as num).toDouble()) : null;
+   }
   double? lat;
   double? lng;
 

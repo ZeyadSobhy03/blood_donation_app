@@ -1,6 +1,5 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
-import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/mark_all_as_read_button.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/notification_request.dart';
@@ -8,10 +7,12 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/pr
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view_model/notification/notification_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/data/models/notification/notifications_model.dart'
     as notification_model;
 
 import '../../../../../../../core/utils/error_localizer.dart';
+import '../../../../../../../core/widgets/states/custom_loading_widget.dart';
 import '../../../home/presentation/view/bottom_sheet/confirm_response_bottom_sheet.dart';
 import '../../../home/presentation/view_model/requests/requests_view_model.dart';
 
@@ -123,20 +124,25 @@ class _NotificationsState extends State<Notifications> {
                       NotificationDeleteState
                     >(
                       builder: (context, deleteState) {
-                        if (deleteState is NotificationDeleteLoadingState) {
-                          return const Padding(
-                            padding: EdgeInsets.all(12.0),
-                            child: SizedBox(
-                              width: 20,
-                              height: 20,
-                              child: CircularProgressIndicator(
-                                color: ColorManger.pureWhite,
-                                strokeWidth: 2,
-                              ),
-                            ),
-                          );
-                        }
-                        return IconButton(
+                         if (deleteState is NotificationDeleteLoadingState) {
+                           return Padding(
+                             padding: const EdgeInsets.all(12.0),
+                             child: SizedBox(
+                               width: 20,
+                               height: 20,
+                               child: Skeletonizer(
+                                 enabled: true,
+                                 child: Container(
+                                   decoration: const BoxDecoration(
+                                     color: ColorManger.pureWhite,
+                                     shape: BoxShape.circle,
+                                   ),
+                                 ),
+                               ),
+                             ),
+                           );
+                         }
+                         return IconButton(
                           onPressed: _cachedNotifications.isEmpty
                               ? null
                               : () => _showDeleteConfirmDialog(

@@ -1,3 +1,4 @@
+
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
 import 'package:blood_donation_app/core/utils/dio_error_handler.dart';
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/data/data_source/local_data_source/auth_hive_data_source.dart';
@@ -13,40 +14,63 @@ class EditProfileApiDataSource implements EditProfileRemoteDataSource {
 
   @override
   Future<EditProfileModel> editProfile({
-    required String name,
+    required String fullName,
     required String email,
-    required String phone,
-    required String location,
-    required String bloodType,
-    required double weight,
-    required String age,
+    required String phoneNumber,
     required String gender,
+    required int weight,
+    required String bloodType,
+    required String dateOfBirth,
+
+    required String city,
+    required String governorate,
+
+    required double lat,
+    required double lng,
+
   }) async {
     try {
       final token = await authHiveDataSource.getAccessToken();
+
+      final Map<String, dynamic> data = {
+        'fullName': fullName,
+        'email': email,
+        'phoneNumber': phoneNumber,
+        'bloodType': bloodType,
+        'weight': weight,
+        'dateOfBirth': dateOfBirth,
+        'gender': gender,
+        "location": {
+          "city": city,
+          "governorate": governorate,
+          "coordinates": {
+            "lat": lat,
+            "lng": lng,
+          }
+        }
+      };
+
+
       final response = await dio.put(
         ApiManger.editProfileEndpoint,
-        data: {
-          'name': name,
-          'email': email,
-          'phone': phone,
-          'location': location,
-          'bloodType': bloodType,
-          'weight': weight,
-          'age': age,
-          'gender': gender,
-        },
+        data: data,
         options: Options(
           headers: {
             'Authorization': 'Bearer $token',
           },
         ),
       );
-      return EditProfileModel.fromJson(response.data);
+      try {
+        return EditProfileModel.fromJson(response.data);
+      } catch (e) {
+
+        rethrow;
+      }
     } on DioException catch (e) {
       handleDioError(e);
       rethrow;
     } catch (e) {
+
       rethrow;
     }
   }

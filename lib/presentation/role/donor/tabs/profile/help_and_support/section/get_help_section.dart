@@ -1,10 +1,12 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/constant/constant_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/models/user_role.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/help_and_support/widgets/tiles/help_option_tile.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/sections/contact_support_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -41,19 +43,19 @@ class GetHelpSection extends StatelessWidget {
               title: appLocalization.contactSupport,
               subtitle: appLocalization.chatSupport,
               onTap: () {
-                sendWhatsapp(
-                  "+201141935341",
-                  appLocalization.whatsappHelpMessage,
+                showDialog(
+                  context: context,
+                  builder: (context) => ContactSupportDialog(),
                 );
               },
             ),
             HelpOptionTile(
               icon: Icons.email_outlined,
               title: appLocalization.emailUs,
-              subtitle: 'support@lifelink.com',
+              subtitle: appLocalization.emailSupport,
               onTap: () {
                 sendEmail(
-                  'ziad60189@gmail.com',
+                  ConstantManager.emailOfApp,
                   appLocalization.documentationRequestSubject,
                   appLocalization.emailBodyRequestDocumentation,
                 );

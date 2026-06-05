@@ -1,5 +1,3 @@
-/// success : true
-/// data : {"user":{"fullName":"ziyad Sobhy","email":"ahmed@gmail.com","password":"$2b$10$Uu0rUvxNCieMJEFHezJ2LuAoat.dP2WOLNdq7D3WEAzeP9BFazJm.","passwordChangedAt":null,"isEmailVerified":false,"emailVerifiedAt":null,"role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":null,"_id":"69fe0c76ee128be1f559fb43","__t":"donor","phoneNumber":"01141935341","bloodType":"A+","dateOfBirth":"2004-12-02T00:00:00.000Z","weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"isAvailable":true,"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacy":"public","language":"en"},"travelHistory":[],"createdAt":"2026-05-08T16:16:54.566Z","updatedAt":"2026-05-08T16:16:55.317Z","fullNameNormalized":"ziyad sobhy","__v":0,"emailVerificationOtp":"9f7e815da19fa0761a97d57ea9b8cfc7f7e4ac02c131b11c81e8a26b6490f02a","emailVerificationOtpExpires":"2026-05-08T16:26:55.316Z","isBanned":false,"availableToDonate":true,"isVerified":false,"id":"69fe0c76ee128be1f559fb43"},"tokens":{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWZlMGM3NmVlMTI4YmUxZjU1OWZiNDMiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNTcxMzUsImV4cCI6MTc3ODg2MTkzNX0.ZYzu4fImRIRlJcBFw9MSiIJqkljRhhUGGSkJHpBrnSA","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWZlMGM3NmVlMTI4YmUxZjU1OWZiNDMiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNTcxMzUsImV4cCI6MTc4MDg0OTEzNX0.FQGGZDijc5gvNKfQP90SiQnhVWJpuNvZIkNbhawmiFA"},"verificationEmail":{"sent":false,"error":"Failed to send email"}}
 
 class SignUpModel {
   SignUpModel({
@@ -24,23 +22,27 @@ class SignUpModel {
 
 }
 
-/// user : {"fullName":"ziyad Sobhy","email":"ahmed@gmail.com","password":"$2b$10$Uu0rUvxNCieMJEFHezJ2LuAoat.dP2WOLNdq7D3WEAzeP9BFazJm.","passwordChangedAt":null,"isEmailVerified":false,"emailVerifiedAt":null,"role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":null,"_id":"69fe0c76ee128be1f559fb43","__t":"donor","phoneNumber":"01141935341","bloodType":"A+","dateOfBirth":"2004-12-02T00:00:00.000Z","weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"isAvailable":true,"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacy":"public","language":"en"},"travelHistory":[],"createdAt":"2026-05-08T16:16:54.566Z","updatedAt":"2026-05-08T16:16:55.317Z","fullNameNormalized":"ziyad sobhy","__v":0,"emailVerificationOtp":"9f7e815da19fa0761a97d57ea9b8cfc7f7e4ac02c131b11c81e8a26b6490f02a","emailVerificationOtpExpires":"2026-05-08T16:26:55.316Z","isBanned":false,"availableToDonate":true,"isVerified":false,"id":"69fe0c76ee128be1f559fb43"}
-/// tokens : {"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWZlMGM3NmVlMTI4YmUxZjU1OWZiNDMiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNTcxMzUsImV4cCI6MTc3ODg2MTkzNX0.ZYzu4fImRIRlJcBFw9MSiIJqkljRhhUGGSkJHpBrnSA","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWZlMGM3NmVlMTI4YmUxZjU1OWZiNDMiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNTcxMzUsImV4cCI6MTc4MDg0OTEzNX0.FQGGZDijc5gvNKfQP90SiQnhVWJpuNvZIkNbhawmiFA"}
-/// verificationEmail : {"sent":false,"error":"Failed to send email"}
+/// user : {"fullName":"Aya Hassan","email":"aya.hassan5555@lifelink.demo","password":"$2b$10$bC1j4dy6xBWkYXq.xgBRWevwKX6TjcfcTwYSFAz/HylmvCPECHB0.","passwordChangedAt":null,"isEmailVerified":false,"emailVerifiedAt":null,"role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"location":{"city":"Cairo","governorate":"Cairo","coordinates":{"lat":30.0444,"lng":31.2357},"lastUpdated":"2026-05-24T17:34:27.726Z"},"fcmTokens":[],"phone":null,"address":null,"_id":"6a1336a36e9541206b58505f","__t":"donor","phoneNumber":"01011111111","bloodType":"O+","dateOfBirth":"1995-05-15T00:00:00.000Z","gender":"female","weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"isOptedIn":true,"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"travelHistory":[],"createdAt":"2026-05-24T17:34:27.741Z","updatedAt":"2026-05-24T17:34:28.332Z","fullNameNormalized":"aya hassan","__v":0,"emailVerificationOtp":"823edbac2785048f77a52c47e7016080ad137c0dcdfad2e5153203ad93e9a1f9","emailVerificationOtpExpires":"2026-05-24T17:44:28.331Z","isBanned":false,"isVerified":false,"id":"6a1336a36e9541206b58505f"}
+/// tokens : {"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMzZhMzZlOTU0MTIwNmI1ODUwNWYiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk2NDQwNjksImV4cCI6MTc4MDI0ODg2OX0.vLJr9xtz97NxKXOFJdAfeMYcc0Cz4iQF5hh-jvSrnb8","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMzZhMzZlOTU0MTIwNmI1ODUwNWYiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk2NDQwNjksImV4cCI6MTc4MjIzNjA2OX0.UWT9tOavPkAgAnt8CpwhsoYN6DBQS0E03-NNGCkF1O0"}
+/// locationRequired : false
+/// verificationEmail : {"sent":true,"id":"1d75e124-d0f5-49f9-a4f7-3b4e8dcb840f"}
 
 class Data {
   Data({
       this.user, 
       this.tokens, 
+      this.locationRequired, 
       this.verificationEmail,});
 
   Data.fromJson(dynamic json) {
     user = json['user'] != null ? User.fromJson(json['user']) : null;
     tokens = json['tokens'] != null ? Tokens.fromJson(json['tokens']) : null;
+    locationRequired = json['locationRequired'];
     verificationEmail = json['verificationEmail'] != null ? VerificationEmail.fromJson(json['verificationEmail']) : null;
   }
   User? user;
   Tokens? tokens;
+  bool? locationRequired;
   VerificationEmail? verificationEmail;
 
   Map<String, dynamic> toJson() {
@@ -51,6 +53,7 @@ class Data {
     if (tokens != null) {
       map['tokens'] = tokens?.toJson();
     }
+    map['locationRequired'] = locationRequired;
     if (verificationEmail != null) {
       map['verificationEmail'] = verificationEmail?.toJson();
     }
@@ -59,32 +62,32 @@ class Data {
 
 }
 
-/// sent : false
-/// error : "Failed to send email"
+/// sent : true
+/// id : "1d75e124-d0f5-49f9-a4f7-3b4e8dcb840f"
 
 class VerificationEmail {
   VerificationEmail({
       this.sent, 
-      this.error,});
+      this.id,});
 
   VerificationEmail.fromJson(dynamic json) {
     sent = json['sent'];
-    error = json['error'];
+    id = json['id'];
   }
   bool? sent;
-  String? error;
+  String? id;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['sent'] = sent;
-    map['error'] = error;
+    map['id'] = id;
     return map;
   }
 
 }
 
-/// accessToken : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWZlMGM3NmVlMTI4YmUxZjU1OWZiNDMiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNTcxMzUsImV4cCI6MTc3ODg2MTkzNX0.ZYzu4fImRIRlJcBFw9MSiIJqkljRhhUGGSkJHpBrnSA"
-/// refreshToken : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OWZlMGM3NmVlMTI4YmUxZjU1OWZiNDMiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3NzgyNTcxMzUsImV4cCI6MTc4MDg0OTEzNX0.FQGGZDijc5gvNKfQP90SiQnhVWJpuNvZIkNbhawmiFA"
+/// accessToken : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMzZhMzZlOTU0MTIwNmI1ODUwNWYiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk2NDQwNjksImV4cCI6MTc4MDI0ODg2OX0.vLJr9xtz97NxKXOFJdAfeMYcc0Cz4iQF5hh-jvSrnb8"
+/// refreshToken : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTEzMzZhMzZlOTU0MTIwNmI1ODUwNWYiLCJyb2xlIjoiZG9ub3IiLCJpYXQiOjE3Nzk2NDQwNjksImV4cCI6MTc4MjIzNjA2OX0.UWT9tOavPkAgAnt8CpwhsoYN6DBQS0E03-NNGCkF1O0"
 
 class Tokens {
   Tokens({
@@ -107,9 +110,9 @@ class Tokens {
 
 }
 
-/// fullName : "ziyad Sobhy"
-/// email : "ahmed@gmail.com"
-/// password : "$2b$10$Uu0rUvxNCieMJEFHezJ2LuAoat.dP2WOLNdq7D3WEAzeP9BFazJm."
+/// fullName : "Aya Hassan"
+/// email : "aya.hassan5555@lifelink.demo"
+/// password : "$2b$10$bC1j4dy6xBWkYXq.xgBRWevwKX6TjcfcTwYSFAz/HylmvCPECHB0."
 /// passwordChangedAt : null
 /// isEmailVerified : false
 /// emailVerifiedAt : null
@@ -118,32 +121,33 @@ class Tokens {
 /// suspendedAt : null
 /// suspendedReason : null
 /// deletedAt : null
+/// location : {"city":"Cairo","governorate":"Cairo","coordinates":{"lat":30.0444,"lng":31.2357},"lastUpdated":"2026-05-24T17:34:27.726Z"}
 /// fcmTokens : []
 /// phone : null
 /// address : null
-/// _id : "69fe0c76ee128be1f559fb43"
+/// _id : "6a1336a36e9541206b58505f"
 /// __t : "donor"
-/// phoneNumber : "01141935341"
-/// bloodType : "A+"
-/// dateOfBirth : "2004-12-02T00:00:00.000Z"
+/// phoneNumber : "01011111111"
+/// bloodType : "O+"
+/// dateOfBirth : "1995-05-15T00:00:00.000Z"
+/// gender : "female"
 /// weight : null
 /// hemoglobinLevel : null
 /// temporaryDeferralUntil : null
 /// lastDeferralReason : null
 /// healthHistory : {"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null}
-/// isAvailable : true
-/// settings : {"pushNotifications":true,"emergencyAlerts":true,"privacy":"public","language":"en"}
+/// isOptedIn : true
+/// settings : {"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"}
 /// travelHistory : []
-/// createdAt : "2026-05-08T16:16:54.566Z"
-/// updatedAt : "2026-05-08T16:16:55.317Z"
-/// fullNameNormalized : "ziyad sobhy"
+/// createdAt : "2026-05-24T17:34:27.741Z"
+/// updatedAt : "2026-05-24T17:34:28.332Z"
+/// fullNameNormalized : "aya hassan"
 /// __v : 0
-/// emailVerificationOtp : "9f7e815da19fa0761a97d57ea9b8cfc7f7e4ac02c131b11c81e8a26b6490f02a"
-/// emailVerificationOtpExpires : "2026-05-08T16:26:55.316Z"
+/// emailVerificationOtp : "823edbac2785048f77a52c47e7016080ad137c0dcdfad2e5153203ad93e9a1f9"
+/// emailVerificationOtpExpires : "2026-05-24T17:44:28.331Z"
 /// isBanned : false
-/// availableToDonate : true
 /// isVerified : false
-/// id : "69fe0c76ee128be1f559fb43"
+/// id : "6a1336a36e9541206b58505f"
 
 class User {
   User({
@@ -158,20 +162,22 @@ class User {
       this.suspendedAt, 
       this.suspendedReason, 
       this.deletedAt, 
+      this.location, 
       this.fcmTokens, 
       this.phone, 
       this.address, 
-      this.id, 
+      this.sId, 
       this.t, 
       this.phoneNumber, 
       this.bloodType, 
       this.dateOfBirth, 
+      this.gender, 
       this.weight, 
       this.hemoglobinLevel, 
       this.temporaryDeferralUntil, 
       this.lastDeferralReason, 
       this.healthHistory, 
-      this.isAvailable, 
+      this.isOptedIn, 
       this.settings, 
       this.travelHistory, 
       this.createdAt, 
@@ -181,8 +187,8 @@ class User {
       this.emailVerificationOtp, 
       this.emailVerificationOtpExpires, 
       this.isBanned, 
-      this.availableToDonate, 
-      this.isVerified,});
+      this.isVerified, 
+      this.id,});
 
   User.fromJson(dynamic json) {
     fullName = json['fullName'];
@@ -196,29 +202,33 @@ class User {
     suspendedAt = json['suspendedAt'];
     suspendedReason = json['suspendedReason'];
     deletedAt = json['deletedAt'];
+    location = json['location'] != null ? Location.fromJson(json['location']) : null;
     if (json['fcmTokens'] != null) {
-      fcmTokens = json['fcmTokens'] is List
-          ? List<dynamic>.from(json['fcmTokens'])
-          : <dynamic>[];
+      fcmTokens = [];
+      json['fcmTokens'].forEach((v) {
+        fcmTokens?.add(v);
+      });
     }
     phone = json['phone'];
     address = json['address'];
-    id = json['_id'];
+    sId = json['_id'];
     t = json['__t'];
     phoneNumber = json['phoneNumber'];
     bloodType = json['bloodType'];
     dateOfBirth = json['dateOfBirth'];
+    gender = json['gender'];
     weight = json['weight'];
     hemoglobinLevel = json['hemoglobinLevel'];
     temporaryDeferralUntil = json['temporaryDeferralUntil'];
     lastDeferralReason = json['lastDeferralReason'];
     healthHistory = json['healthHistory'] != null ? HealthHistory.fromJson(json['healthHistory']) : null;
-    isAvailable = json['isAvailable'];
+    isOptedIn = json['isOptedIn'];
     settings = json['settings'] != null ? Settings.fromJson(json['settings']) : null;
     if (json['travelHistory'] != null) {
-      travelHistory = json['travelHistory'] is List
-          ? List<dynamic>.from(json['travelHistory'])
-          : <dynamic>[];
+      travelHistory = [];
+      json['travelHistory'].forEach((v) {
+        travelHistory?.add(v);
+      });
     }
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
@@ -227,8 +237,8 @@ class User {
     emailVerificationOtp = json['emailVerificationOtp'];
     emailVerificationOtpExpires = json['emailVerificationOtpExpires'];
     isBanned = json['isBanned'];
-    availableToDonate = json['availableToDonate'];
     isVerified = json['isVerified'];
+    id = json['id'];
   }
   String? fullName;
   String? email;
@@ -241,20 +251,22 @@ class User {
   dynamic suspendedAt;
   dynamic suspendedReason;
   dynamic deletedAt;
+  Location? location;
   List<dynamic>? fcmTokens;
   dynamic phone;
   dynamic address;
-  String? id;
+  String? sId;
   String? t;
   String? phoneNumber;
   String? bloodType;
   String? dateOfBirth;
+  String? gender;
   dynamic weight;
   dynamic hemoglobinLevel;
   dynamic temporaryDeferralUntil;
   dynamic lastDeferralReason;
   HealthHistory? healthHistory;
-  bool? isAvailable;
+  bool? isOptedIn;
   Settings? settings;
   List<dynamic>? travelHistory;
   String? createdAt;
@@ -264,8 +276,8 @@ class User {
   String? emailVerificationOtp;
   String? emailVerificationOtpExpires;
   bool? isBanned;
-  bool? availableToDonate;
   bool? isVerified;
+  String? id;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -280,16 +292,20 @@ class User {
     map['suspendedAt'] = suspendedAt;
     map['suspendedReason'] = suspendedReason;
     map['deletedAt'] = deletedAt;
+    if (location != null) {
+      map['location'] = location?.toJson();
+    }
     if (fcmTokens != null) {
-      map['fcmTokens'] = List<dynamic>.from(fcmTokens!);
+      map['fcmTokens'] = fcmTokens?.map((v) => v.toJson()).toList();
     }
     map['phone'] = phone;
     map['address'] = address;
-    map['_id'] = id;
+    map['_id'] = sId;
     map['__t'] = t;
     map['phoneNumber'] = phoneNumber;
     map['bloodType'] = bloodType;
     map['dateOfBirth'] = dateOfBirth;
+    map['gender'] = gender;
     map['weight'] = weight;
     map['hemoglobinLevel'] = hemoglobinLevel;
     map['temporaryDeferralUntil'] = temporaryDeferralUntil;
@@ -297,12 +313,12 @@ class User {
     if (healthHistory != null) {
       map['healthHistory'] = healthHistory?.toJson();
     }
-    map['isAvailable'] = isAvailable;
+    map['isOptedIn'] = isOptedIn;
     if (settings != null) {
       map['settings'] = settings?.toJson();
     }
     if (travelHistory != null) {
-      map['travelHistory'] = List<dynamic>.from(travelHistory!);
+      map['travelHistory'] = travelHistory?.map((v) => v.toJson()).toList();
     }
     map['createdAt'] = createdAt;
     map['updatedAt'] = updatedAt;
@@ -311,8 +327,8 @@ class User {
     map['emailVerificationOtp'] = emailVerificationOtp;
     map['emailVerificationOtpExpires'] = emailVerificationOtpExpires;
     map['isBanned'] = isBanned;
-    map['availableToDonate'] = availableToDonate;
     map['isVerified'] = isVerified;
+    map['id'] = id;
     return map;
   }
 
@@ -320,32 +336,32 @@ class User {
 
 /// pushNotifications : true
 /// emergencyAlerts : true
-/// privacy : "public"
+/// privacyMode : false
 /// language : "en"
 
 class Settings {
   Settings({
       this.pushNotifications, 
       this.emergencyAlerts, 
-      this.privacy, 
+      this.privacyMode, 
       this.language,});
 
   Settings.fromJson(dynamic json) {
     pushNotifications = json['pushNotifications'];
     emergencyAlerts = json['emergencyAlerts'];
-    privacy = json['privacy'];
+    privacyMode = json['privacyMode'];
     language = json['language'];
   }
   bool? pushNotifications;
   bool? emergencyAlerts;
-  String? privacy;
+  bool? privacyMode;
   String? language;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['pushNotifications'] = pushNotifications;
     map['emergencyAlerts'] = emergencyAlerts;
-    map['privacy'] = privacy;
+    map['privacyMode'] = privacyMode;
     map['language'] = language;
     return map;
   }
@@ -372,19 +388,22 @@ class HealthHistory {
 
   HealthHistory.fromJson(dynamic json) {
     if (json['chronicConditions'] != null) {
-      chronicConditions = json['chronicConditions'] is List
-          ? List<dynamic>.from(json['chronicConditions'])
-          : <dynamic>[];
+      chronicConditions = [];
+      json['chronicConditions'].forEach((v) {
+        chronicConditions?.add(v);
+      });
     }
     if (json['medications'] != null) {
-      medications = json['medications'] is List
-          ? List<dynamic>.from(json['medications'])
-          : <dynamic>[];
+      medications = [];
+      json['medications'].forEach((v) {
+        medications?.add(v);
+      });
     }
     if (json['allergies'] != null) {
-      allergies = json['allergies'] is List
-          ? List<dynamic>.from(json['allergies'])
-          : <dynamic>[];
+      allergies = [];
+      json['allergies'].forEach((v) {
+        allergies?.add(v);
+      });
     }
     recentIllness = json['recentIllness'];
     notes = json['notes'];
@@ -402,18 +421,78 @@ class HealthHistory {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     if (chronicConditions != null) {
-      map['chronicConditions'] = List<dynamic>.from(chronicConditions!);
+      map['chronicConditions'] = chronicConditions?.map((v) => v).toList();
     }
     if (medications != null) {
-      map['medications'] = List<dynamic>.from(medications!);
+      map['medications'] = medications?.map((v) => v).toList();
     }
     if (allergies != null) {
-      map['allergies'] = List<dynamic>.from(allergies!);
+      map['allergies'] = allergies?.map((v) => v).toList();
     }
     map['recentIllness'] = recentIllness;
     map['notes'] = notes;
     map['lastCheckupDate'] = lastCheckupDate;
     map['updatedAt'] = updatedAt;
+    return map;
+  }
+
+}
+
+/// city : "Cairo"
+/// governorate : "Cairo"
+/// coordinates : {"lat":30.0444,"lng":31.2357}
+/// lastUpdated : "2026-05-24T17:34:27.726Z"
+
+class Location {
+  Location({
+      this.city, 
+      this.governorate, 
+      this.coordinates, 
+      this.lastUpdated,});
+
+  Location.fromJson(dynamic json) {
+    city = json['city'];
+    governorate = json['governorate'];
+    coordinates = json['coordinates'] != null ? Coordinates.fromJson(json['coordinates']) : null;
+    lastUpdated = json['lastUpdated'];
+  }
+  String? city;
+  String? governorate;
+  Coordinates? coordinates;
+  String? lastUpdated;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['city'] = city;
+    map['governorate'] = governorate;
+    if (coordinates != null) {
+      map['coordinates'] = coordinates?.toJson();
+    }
+    map['lastUpdated'] = lastUpdated;
+    return map;
+  }
+
+}
+
+/// lat : 30.0444
+/// lng : 31.2357
+
+class Coordinates {
+  Coordinates({
+      this.lat, 
+      this.lng,});
+
+  Coordinates.fromJson(dynamic json) {
+    lat = json['lat'];
+    lng = json['lng'];
+  }
+  double? lat;
+  double? lng;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['lat'] = lat;
+    map['lng'] = lng;
     return map;
   }
 

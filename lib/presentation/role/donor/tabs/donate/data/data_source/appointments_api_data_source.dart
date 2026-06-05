@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/data_source/appointments_remote_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/appointment_cancelled_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/appointment_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/book_appointment_model.dart';
 import 'package:dio/dio.dart';
 
+import '../../../../../../../core/utils/dio_error_handler.dart';
 import '../../../../../../authentication/donor_authentication/data/data_source/local_data_source/auth_hive_data_source.dart';
 
 class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
@@ -28,25 +32,14 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
       );
       return AppointmentModel.fromJson(response.data);
     } on DioException catch (e) {
-      _handleDioError(e);
+      handleDioError(e);
       rethrow;
     } catch (e) {
-      throw Exception('Error fetching appointments: $e');
+      rethrow;
     }
   }
 
-  void _handleDioError(DioException e) {
-    final _ = switch (e.type) {
-      DioExceptionType.connectionTimeout =>
-        'Connection timeout - please check your internet',
-      DioExceptionType.sendTimeout => 'Send timeout - please try again',
-      DioExceptionType.receiveTimeout => 'Receive timeout - please try again',
-      DioExceptionType.badResponse => 'Server error: ${e.response?.statusCode}',
-      DioExceptionType.cancel => 'Request cancelled',
-      DioExceptionType.unknown => 'Network error: ${e.message}',
-      _ => 'Unknown error occurred',
-    };
-  }
+
 
   @override
   Future<AppointmentCancelledModel> cancelAppointment({required String appointmentId})async {
@@ -64,10 +57,43 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
       );
       return AppointmentCancelledModel.fromJson(response.data);
     } on DioException catch (e) {
-      _handleDioError(e);
+      handleDioError(e);
       rethrow;
     } catch (e) {
-      throw Exception('Error cancelling appointment: $e');
+      rethrow;
     }
+  }
+
+  @override
+  Future<BookAppointmentModel> bookAppointment({required String hospitalId, required String appointmentDate, required String donationType, required String notes})async {
+    try {
+      final token = await authLocalDataSource.getAccessToken();
+      final body = {
+        'hospitalId': hospitalId,
+        'appointmentDate': appointmentDate,
+        'donationType': donationType,
+        'notes': notes,
+      };
+      log('Booking appointment with body: $body');
+      final response = await dio.post(
+        ApiManger.bookAppointmentEndpoint,
+        data: body,
+        options: Options(
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Bearer $token',
+          },
+        ),
+      );
+      return BookAppointmentModel.fromJson(response.data);
+    } on DioException catch (e) {
+      handleDioError(e);
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
+
+
   }
 }

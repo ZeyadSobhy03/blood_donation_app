@@ -22,7 +22,8 @@ class UnknownNetworkException implements Exception {
 }
 
 class UnauthorizedException implements Exception {
-  const UnauthorizedException();
+  final String? message;
+  const UnauthorizedException({this.message});
 }
 
 class NotFoundException implements Exception {

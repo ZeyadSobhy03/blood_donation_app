@@ -1,5 +1,11 @@
 import 'package:blood_donation_app/blood_donation_app.dart';
 import 'package:blood_donation_app/core/cubits/map_cubit.dart';
+import 'package:blood_donation_app/core/interceptors/auth_interceptor.dart';
+import 'package:blood_donation_app/presentation/authentication/admin_authentication/data/data_source/local/admin_hive_data_source.dart';
+import 'package:blood_donation_app/presentation/authentication/admin_authentication/data/data_source/remote/admin_auth_api_data_source.dart';
+import 'package:blood_donation_app/presentation/authentication/admin_authentication/data/repositories/admin_auth_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/authentication/admin_authentication/domain/use_case/admin_auth_use_case.dart';
+import 'package:blood_donation_app/presentation/authentication/admin_authentication/presentation/view_model/admin_auth_view_model.dart';
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/data/data_source/local_data_source/auth_hive_data_source.dart';
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/data/data_source/remote_data_source/auth_api_data_source.dart';
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/data/repositories/auth_repositories_imp.dart';
@@ -27,16 +33,20 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/find_hospital/da
 import 'package:blood_donation_app/presentation/role/donor/tabs/find_hospital/domain/use_case/nearby_hospitals_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/find_hospital/presentation/view_model/nearby_hospitals_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/data_source/activities/activities_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/data_source/donation_eligibility/donation_eligibility_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/data_source/donor_states/local/hive_donor_states_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/data_source/donor_states/remote/api_donor_states_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/data_source/requests/requests_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/repositories/activities/activities_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/repositories/donation_eligibility/donation_eligibility_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/repositories/donor_states/donor_states_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/repositories/requests/requests_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/domain/use_case/activities/activities_use_case.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/domain/use_case/donation_eligibility/donation_eligibility_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/domain/use_case/donor_states/donor_states_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/domain/use_case/requests/requests_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view_model/activities/activities_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view_model/donation_eligibility/donation_eligibility_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view_model/donor_states/donor_states_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view_model/requests/accept_request_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view_model/requests/cancel_request_view_model.dart';
@@ -50,12 +60,20 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/do
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/domain/use_cases/notification/notification_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view_model/fcm/fcm_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view_model/notification/notification_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/change_password/change_password_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/profile/profile_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/setting/setting_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/repositories/change_password/change_password_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/repositories/profile/profile_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/repositories/setting/setting_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/change_password/change_password_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/profile/profile_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/setting/setting_use_case.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/edit_profile/data/data_source/edit_profile_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/edit_profile/data/repositories/edit_profile_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/edit_profile/domain/use_case/edit_profile_use_case.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/edit_profile/presentation/view_model/edit_profile_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/change_password/change_password_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/profile/profile_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/setting/setting_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/data/data_source/rewards_api_data_source.dart';
@@ -79,15 +97,23 @@ void main() async {
   final dir = await getApplicationDocumentsDirectory();
 
   Hive.init(dir.path);
+
+  final authHiveDataSource = AuthHiveDataSource();
+  await authHiveDataSource.init();
+
+  final adminHiveDataSource = AdminHiveDataSource();
+  await adminHiveDataSource.init();
+
   Dio dio = Dio();
+  dio.interceptors.add(
+    AuthInterceptor(hiveDataSource: authHiveDataSource, dio: dio),
+  );
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  final authHiveDataSource = AuthHiveDataSource();
   final hiveDonorStatesDataSource = HiveDonorStatesDataSource();
   final hiveNotificationDataSource = HiveNotificationDataSource();
   await hiveNotificationDataSource.init();
 
-  await authHiveDataSource.init();
   await hiveDonorStatesDataSource.init();
   await getFCMToken();
   runApp(
@@ -113,10 +139,26 @@ void main() async {
           create: (context) => AuthCubit(
             authUseCase: AuthUseCase(
               authRepositories: AuthRepositoriesImp(
-                authRemoteDataSource: AuthApiDataSource(dio),
+                authRemoteDataSource: AuthApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
               ),
             ),
             authHiveDataSource: authHiveDataSource,
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AdminAuthCubit(
+            adminAuthUseCase: AdminAuthUseCase(
+              adminAuthRepositories: AdminAuthRepositoriesImp(
+                adminAuthRemoteDataSource: AdminAuthApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+            adminHiveDataSource: adminHiveDataSource,
           ),
         ),
         BlocProvider(
@@ -201,25 +243,176 @@ void main() async {
             ),
           ),
         ),
-        BlocProvider(create: (context) => NotificationAllReadCubit(notificationUseCase: NotificationUseCase(repository: NotificationRepositoryImpl(
-            localDataSource: hiveNotificationDataSource,
-            notificationRemoteDataSource: NotificationApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => FcmCubit(fcmUseCase: FcmUseCase(repository: FcmRepositoriesImp(fcmRemoteDataSource: FcmApiDataSource(dio,authHiveDataSource)))),),
         BlocProvider(
-          create: (context) => TimeSlotsCubit(timeSlotsUseCase: TimeSlotsUseCase(repository: TimeSlotsRepositoriesImp(remoteDataSource: TimeSlotsApiDataSource(dio, authHiveDataSource)))),
-
+          create: (context) => NotificationAllReadCubit(
+            notificationUseCase: NotificationUseCase(
+              repository: NotificationRepositoryImpl(
+                localDataSource: hiveNotificationDataSource,
+                notificationRemoteDataSource: NotificationApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
         ),
-        BlocProvider(create: (context) => SettingCubit(settingUseCase: SettingUseCase(settingRepositories: SettingRepositoriesImp(settingRemoteDataSource: SettingApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => EarningRulesCubit(rewardsUseCase: RewardsUseCase(repository: RewardsRepositoriesImp(rewardsRemoteDataSource: RewardsApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => UserPointsCubit(rewardsUseCase: RewardsUseCase(repository: RewardsRepositoriesImp(rewardsRemoteDataSource: RewardsApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => RequestsCubit(requestsUseCase: RequestsUseCase(repository: RequestsRepositoriesImp(requestsRemoteDataSource: RequestsApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => AcceptRequestCubit(requestsUseCase: RequestsUseCase(repository: RequestsRepositoriesImp(requestsRemoteDataSource: RequestsApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => CancelRequestCubit(requestsUseCase: RequestsUseCase(repository: RequestsRepositoriesImp(requestsRemoteDataSource: RequestsApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => ActivitiesCubit(activitiesUseCase: ActivitiesUseCase(repository: ActivitiesRepositoriesImp(activitiesRemoteDataSource: ActivitiesApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => NotificationDeleteCubit(notificationUseCase: NotificationUseCase(repository: NotificationRepositoryImpl(
-            localDataSource: hiveNotificationDataSource,
-            notificationRemoteDataSource: NotificationApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => DonationHistoryCubit(DonationHistoryUseCase(repository: DonationHistoryRepositoriesImp(remoteDataSource: DonationHistoryApiDataSource(dio, authHiveDataSource)))),)
+        BlocProvider(
+          create: (context) => FcmCubit(
+            fcmUseCase: FcmUseCase(
+              repository: FcmRepositoriesImp(
+                fcmRemoteDataSource: FcmApiDataSource(dio, authHiveDataSource),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => TimeSlotsCubit(
+            timeSlotsUseCase: TimeSlotsUseCase(
+              repository: TimeSlotsRepositoriesImp(
+                remoteDataSource: TimeSlotsApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SettingCubit(
+            settingUseCase: SettingUseCase(
+              settingRepositories: SettingRepositoriesImp(
+                settingRemoteDataSource: SettingApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => EarningRulesCubit(
+            rewardsUseCase: RewardsUseCase(
+              repository: RewardsRepositoriesImp(
+                rewardsRemoteDataSource: RewardsApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => UserPointsCubit(
+            rewardsUseCase: RewardsUseCase(
+              repository: RewardsRepositoriesImp(
+                rewardsRemoteDataSource: RewardsApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => RequestsCubit(
+            requestsUseCase: RequestsUseCase(
+              repository: RequestsRepositoriesImp(
+                requestsRemoteDataSource: RequestsApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AcceptRequestCubit(
+            requestsUseCase: RequestsUseCase(
+              repository: RequestsRepositoriesImp(
+                requestsRemoteDataSource: RequestsApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => CancelRequestCubit(
+            requestsUseCase: RequestsUseCase(
+              repository: RequestsRepositoriesImp(
+                requestsRemoteDataSource: RequestsApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => ActivitiesCubit(
+            activitiesUseCase: ActivitiesUseCase(
+              repository: ActivitiesRepositoriesImp(
+                activitiesRemoteDataSource: ActivitiesApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => NotificationDeleteCubit(
+            notificationUseCase: NotificationUseCase(
+              repository: NotificationRepositoryImpl(
+                localDataSource: hiveNotificationDataSource,
+                notificationRemoteDataSource: NotificationApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => DonationHistoryCubit(
+            DonationHistoryUseCase(
+              repository: DonationHistoryRepositoriesImp(
+                remoteDataSource: DonationHistoryApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => EditProfileCubit(
+            profileUseCase: EditProfileUseCase(
+              repository: EditProfileRepositoriesImp(
+                remoteDataSource: EditProfileApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => ChangePasswordCubit(
+            authUseCase: AuthUseCase(authRepositories: AuthRepositoriesImp(authRemoteDataSource: AuthApiDataSource(dio, authHiveDataSource))),
+            authLocalDataSource: authHiveDataSource,
+            ChangePasswordUseCase(
+              repository: ChangePasswordRepositoriesImp(
+                remoteDataSource: ChangePasswordApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(create: (context) => DonationEligibilityCubit(DonationEligibilityUseCase(repository: DonationEligibilityRepositoriesImp(remoteDataSource: DonationEligibilityApiDataSource(dio, authHiveDataSource)))),)
       ],
       child: const BloodDonationApp(),
     ),

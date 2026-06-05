@@ -1,21 +1,26 @@
 /// success : true
-/// data : {"hospitals":[{"hospitalId":"69f3df915f42685cbbbcbb1b","hospital_id":"69f3df915f42685cbbbcbb1b","name":"Cairo Care Hospital","fullName":"Cairo Care Operations","phoneNumber":"1044444444","contactNumber":"1044444444","email":"ops@cairocare.demo","address":{"city":"Cairo","governorate":"Cairo","district":"Garden City"},"location":{"lat":30.0511,"lng":31.2435},"lat":30.0511,"lng":31.2435,"hospitalType":"General Hospital","workingHours":"9AM - 5PM","bloodTypes":["O+","O-","A+","A-","B+","AB+"],"isAvailable":true,"urgentNeedsCount":3,"distanceKm":0}],"pagination":{"total":1,"page":1,"limit":20,"totalPages":1,"hasNextPage":false,"hasPrevPage":false}}
+/// message : "Nearby hospitals retrieved successfully"
+/// data : {"hospitals":[{"id":"69f3df915f42685cbbbcbb1b","hospitalId":"69f3df915f42685cbbbcbb1b","hospital_id":"69f3df915f42685cbbbcbb1b","name":"Cairo Care Hospital","fullName":"Cairo Care Operations","phoneNumber":"1044444444","contactNumber":"1044444444","email":"ops@cairocare.demo","address":{"city":"Cairo","governorate":"Cairo"},"location":{"lat":30.0511,"lng":31.2435},"lat":30.0511,"lng":31.2435,"hospitalType":"General Hospital","workingHours":"9AM - 5PM","bloodTypes":["O+","A-"],"isAvailable":true,"urgentNeedsCount":2,"distanceKm":2.35,"distanceMeters":2350,"distance":"2.35 km"}],"pagination":{"page":1,"limit":20,"total":1}}
 
 class NearbyHospitals {
   NearbyHospitals({
       this.success, 
+      this.message, 
       this.data,});
 
   NearbyHospitals.fromJson(dynamic json) {
     success = json['success'];
+    message = json['message'];
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   bool? success;
+  String? message;
   Data? data;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['success'] = success;
+    map['message'] = message;
     if (data != null) {
       map['data'] = data?.toJson();
     }
@@ -24,8 +29,8 @@ class NearbyHospitals {
 
 }
 
-/// hospitals : [{"hospitalId":"69f3df915f42685cbbbcbb1b","hospital_id":"69f3df915f42685cbbbcbb1b","name":"Cairo Care Hospital","fullName":"Cairo Care Operations","phoneNumber":"1044444444","contactNumber":"1044444444","email":"ops@cairocare.demo","address":{"city":"Cairo","governorate":"Cairo","district":"Garden City"},"location":{"lat":30.0511,"lng":31.2435},"lat":30.0511,"lng":31.2435,"hospitalType":"General Hospital","workingHours":"9AM - 5PM","bloodTypes":["O+","O-","A+","A-","B+","AB+"],"isAvailable":true,"urgentNeedsCount":3,"distanceKm":0}]
-/// pagination : {"total":1,"page":1,"limit":20,"totalPages":1,"hasNextPage":false,"hasPrevPage":false}
+/// hospitals : [{"id":"69f3df915f42685cbbbcbb1b","hospitalId":"69f3df915f42685cbbbcbb1b","hospital_id":"69f3df915f42685cbbbcbb1b","name":"Cairo Care Hospital","fullName":"Cairo Care Operations","phoneNumber":"1044444444","contactNumber":"1044444444","email":"ops@cairocare.demo","address":{"city":"Cairo","governorate":"Cairo"},"location":{"lat":30.0511,"lng":31.2435},"lat":30.0511,"lng":31.2435,"hospitalType":"General Hospital","workingHours":"9AM - 5PM","bloodTypes":["O+","A-"],"isAvailable":true,"urgentNeedsCount":2,"distanceKm":2.35,"distanceMeters":2350,"distance":"2.35 km"}]
+/// pagination : {"page":1,"limit":20,"total":1}
 
 class Data {
   Data({
@@ -57,50 +62,36 @@ class Data {
 
 }
 
-/// total : 1
 /// page : 1
 /// limit : 20
-/// totalPages : 1
-/// hasNextPage : false
-/// hasPrevPage : false
+/// total : 1
 
 class Pagination {
   Pagination({
-      this.total, 
       this.page, 
       this.limit, 
-      this.totalPages, 
-      this.hasNextPage, 
-      this.hasPrevPage,});
+      this.total,});
 
   Pagination.fromJson(dynamic json) {
-    total = json['total'];
     page = json['page'];
     limit = json['limit'];
-    totalPages = json['totalPages'];
-    hasNextPage = json['hasNextPage'];
-    hasPrevPage = json['hasPrevPage'];
+    total = json['total'];
   }
-  int? total;
   int? page;
   int? limit;
-  int? totalPages;
-  bool? hasNextPage;
-  bool? hasPrevPage;
+  int? total;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['total'] = total;
     map['page'] = page;
     map['limit'] = limit;
-    map['totalPages'] = totalPages;
-    map['hasNextPage'] = hasNextPage;
-    map['hasPrevPage'] = hasPrevPage;
+    map['total'] = total;
     return map;
   }
 
 }
 
+/// id : "69f3df915f42685cbbbcbb1b"
 /// hospitalId : "69f3df915f42685cbbbcbb1b"
 /// hospital_id : "69f3df915f42685cbbbcbb1b"
 /// name : "Cairo Care Hospital"
@@ -108,19 +99,22 @@ class Pagination {
 /// phoneNumber : "1044444444"
 /// contactNumber : "1044444444"
 /// email : "ops@cairocare.demo"
-/// address : {"city":"Cairo","governorate":"Cairo","district":"Garden City"}
+/// address : {"city":"Cairo","governorate":"Cairo"}
 /// location : {"lat":30.0511,"lng":31.2435}
 /// lat : 30.0511
 /// lng : 31.2435
 /// hospitalType : "General Hospital"
 /// workingHours : "9AM - 5PM"
-/// bloodTypes : ["O+","O-","A+","A-","B+","AB+"]
+/// bloodTypes : ["O+","A-"]
 /// isAvailable : true
-/// urgentNeedsCount : 3
-/// distanceKm : 0
+/// urgentNeedsCount : 2
+/// distanceKm : 2.35
+/// distanceMeters : 2350
+/// distance : "2.35 km"
 
 class Hospitals {
   Hospitals({
+      this.id, 
       this.hospitalId, 
       this.name,
       this.fullName, 
@@ -136,9 +130,12 @@ class Hospitals {
       this.bloodTypes, 
       this.isAvailable, 
       this.urgentNeedsCount, 
-      this.distanceKm,});
+      this.distanceKm, 
+      this.distanceMeters, 
+      this.distance,});
 
   Hospitals.fromJson(dynamic json) {
+    id = json['id'];
     hospitalId = json['hospitalId'];
     hospitalId = json['hospital_id'];
     name = json['name'];
@@ -156,7 +153,10 @@ class Hospitals {
     isAvailable = json['isAvailable'];
     urgentNeedsCount = json['urgentNeedsCount'];
     distanceKm = json['distanceKm'];
+    distanceMeters = json['distanceMeters'];
+    distance = json['distance'];
   }
+  String? id;
   String? hospitalId;
   String? name;
   String? fullName;
@@ -172,10 +172,13 @@ class Hospitals {
   List<String>? bloodTypes;
   bool? isAvailable;
   int? urgentNeedsCount;
-  int? distanceKm;
+  double? distanceKm;
+  int? distanceMeters;
+  String? distance;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['id'] = id;
     map['hospitalId'] = hospitalId;
     map['hospital_id'] = hospitalId;
     map['name'] = name;
@@ -197,6 +200,8 @@ class Hospitals {
     map['isAvailable'] = isAvailable;
     map['urgentNeedsCount'] = urgentNeedsCount;
     map['distanceKm'] = distanceKm;
+    map['distanceMeters'] = distanceMeters;
+    map['distance'] = distance;
     return map;
   }
 
@@ -228,28 +233,23 @@ class Location {
 
 /// city : "Cairo"
 /// governorate : "Cairo"
-/// district : "Garden City"
 
 class Address {
   Address({
       this.city, 
-      this.governorate, 
-      this.district,});
+      this.governorate,});
 
   Address.fromJson(dynamic json) {
     city = json['city'];
     governorate = json['governorate'];
-    district = json['district'];
   }
   String? city;
   String? governorate;
-  String? district;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['city'] = city;
     map['governorate'] = governorate;
-    map['district'] = district;
     return map;
   }
 

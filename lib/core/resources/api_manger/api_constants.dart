@@ -22,6 +22,9 @@ class ApiManger {
   static String deleteOneNotificationEndpoint(String id) {
     return "${baseUrl}notifications/$id";
   }
+  static const String me = "${baseUrl}auth/me";
+  static const String validateToken = "${baseUrl}auth/validate-token";
+  static const String refreshToken = "${baseUrl}auth/refresh-token";
 
   static const String nearbyHospitalsEndpointWithQuery =
       "${baseUrl}hospitals/nearby?lat={lat}&lng={lng}";
@@ -39,10 +42,13 @@ class ApiManger {
   static const String nearbyHospitals = "${baseUrl}hospitals/nearby";
   static const String searchNearbyHospitals = "${baseUrl}hospitals/search";
   ////////////// donations endpoints  /////////////
-  static const String appointmentsEndpoint = "${baseUrl}donations/my-appointments";
+  static const String appointmentsEndpoint = "${baseUrl}donations/book-appointment/my-appointments";
+  static const String bookAppointmentEndpoint = "${baseUrl}donations/book-appointment";
   static  String cancelAppointmentEndpoint(String appointmentId) {
     return "${baseUrl}donations/book-appointment/$appointmentId";
   }
+  //
+  static const String donationAvailableEndpoint = "${baseUrl}donor/donation-eligibility";
   static const String badgesEndpoint = "${baseUrl}rewards/badges";
   static const String rewardsEndpoint = "${baseUrl}rewards/catalog";
   static const String earningRulesEndpoint= "${baseUrl}rewards/earning-rules";
@@ -51,7 +57,7 @@ class ApiManger {
   }
   static const String requestsNearbyEndPoint = "${baseUrl}requests/nearby";
   static String acceptRequestEndpoint(String requestId) {
-    return "${baseUrl}requests/$requestId/accept";
+    return "${baseUrl}donor/respond/$requestId";
   }
   static String cancelRequestEndpoint(String requestId) {
     return "${baseUrl}requests/$requestId/cancel";
@@ -60,6 +66,11 @@ class ApiManger {
   static  String fetchByRequestIdEndpoint(String requestId) {
     return "${baseUrl}requests/$requestId";
   }
+  static const String verifyForgetPasswordOtp = "${baseUrl}auth/verify-otp";
+  static const String resetPasswordEndpoint = "${baseUrl}auth/reset-password";
+  static const String forgetPasswordEndpoint = "${baseUrl}auth/forgot-password";
+  static const String logoutEndpoint = "${baseUrl}auth/logout";
+  static const String changePasswordEndpoint = "${baseUrl}auth/change-password";
   static const String editProfileEndpoint = "${baseUrl}donor/profile";
   static const String deleteNotificationEndpoint = "${baseUrl}notifications/";
   static const String donorSates= "${baseUrl}donor/stats";
@@ -86,4 +97,6 @@ static const String saveFcmTokenEndpoint = "${baseUrl}auth/fcm-token";
   // donations/book-appointment/available-slots
   static const String availableSlotsEndpoint = "${baseUrl}donations/book-appointment/available-slots";
 // https://graduation-project-cy61.onrender.com/donations/book-appointment/available-slots
+/////////////////////////// admin /////////////////////////////////
+static const String adminLoginEndPoint="${baseUrl}auth/admin/login";
 }

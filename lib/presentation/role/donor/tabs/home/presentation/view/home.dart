@@ -12,6 +12,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentatio
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view/widgets/home_navigation_button.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view/widgets/home_title_text.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view_model/activities/activities_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view_model/donation_eligibility/donation_eligibility_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view_model/requests/requests_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/profile/profile_view_model.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +45,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       if (!mounted) return;
       context.read<ProfileCubit>().fetchProfile();
       context.read<DonorStatesCubit>().fetchDonorStates();
+      context.read<DonationEligibilityCubit>().fetchDonationEligibility();
       _fetchRequestsWithLocation();
       context.read<ActivitiesCubit>().fetchActivities();
     });
@@ -256,6 +258,7 @@ class _ProfileSection extends StatelessWidget {
         final profileData = state is ProfileSuccessState
             ? state.profileModel
             : null;
+        final bloodType = profileData?.data?.bloodType ?? 'O+';
 
         return Skeletonizer(
           enabled: isLoading,
@@ -286,7 +289,7 @@ class _ProfileSection extends StatelessWidget {
               SizedBox(height: 4.h),
               DonationStatusCard(
                 donationStatus: appLocalizations.eligibleToDonate,
-                bloodType: profileData?.data?.bloodType ?? 'O+',
+                bloodType: bloodType,
               ),
             ],
           ),

@@ -82,8 +82,30 @@
   "notSelected": "Not selected",
   "noEmail": "no email",
   "noPhone": "no phone",
-  "chooseTimeSlot": "Choose a time slot",
-  "confirmResponse": "Confirm Response",
+   "chooseTimeSlot": "Choose a time slot",
+   "timeSlotTime": "Time",
+   "timeSlotCapacity": "Capacity",
+   "timeSlotRemainingCapacity": "{remaining}/{total} slots available",
+   "@timeSlotRemainingCapacity": {
+     "placeholders": {
+       "remaining": {},
+       "total": {}
+     }
+   },
+   "timeSlotMaxCapacity": "Max Slots",
+   "timeSlotAvailable": "Available",
+   "timeSlotFull": "Full",
+   "timeSlotSlot": "slot",
+   "timeSlotSlots": "slots",
+   "timeSlotBookedLabel": "{time} - {remaining}/{max} available",
+   "@timeSlotBookedLabel": {
+     "placeholders": {
+       "time": {},
+       "remaining": {},
+       "max": {}
+     }
+   },
+   "confirmResponse": "Confirm Response",
   "emergencyRequestQuestion": "Are you available to respond to this emergency blood request?",
   "acceptButton": "Accept - I Can Help",
   "declineButton": "Decline - Not Available",
@@ -225,6 +247,8 @@
   "need_access": "Need Access?",
   "contact_system_admin": "Contact the System Administrator at:",
   "emailIsRequired": "Email is required",
+  "nameIsRequired": "Name is required",
+  "weightIsRequired": "Weight is required",
   "enterValidEmail": "Enter a valid email",
   "passwordIsRequired": "Password is required",
   "enterValidPassword": "Enter a valid password",
@@ -417,6 +441,7 @@
   "weight": "Weight",
   "weightKg": "Weight (kg)",
   "age": "Age",
+  "birthDate": "Birth Date",
   "gender": "Gender",
   "save": "Save",
   "thanksHero": "Thank You for Being a Hero! 🎉",
@@ -427,6 +452,7 @@
   "next_reward": "Next Reward",
   "points_to_go": "pts to go",
   "badges": "Badges",
+  "forget_password_success": "Verification code sent to your email",
   "success": "Success",
   "rewards_redeemed": "Rewards Redeemed",
   "you_have_successfully_redeemed": "You have successfully redeemed your reward",
@@ -452,11 +478,15 @@
   "weeks_2_ago": "2 weeks ago",
   "referral_bonus": "Referral Bonus",
   "weeks_3_ago": "3 weeks ago",
-  "how_to_earn_points": "How To Earn Points?",
-  "donate_blood_points": "Blood Donation: 200 pts",
-  "emergency_response_points": "Emergency Response: 100 pts",
-  "refer_to_friends_points": "Refer a Friend: 150 pts",
-  "complete_profile_points": "Complete Profile: 50 pts",
+   "how_to_earn_points": "How To Earn Points?",
+   "donate_blood_points": "Blood Donation: 200 pts",
+   "emergency_response_points": "Emergency Response: 100 pts",
+   "refer_to_friends_points": "Refer a Friend: 150 pts",
+   "complete_profile_points": "Complete Profile: 50 pts",
+   "plasma_donation_points": "Plasma Donation: 150 pts",
+   "platelets_donation_points": "Platelet Donation: 175 pts",
+   "organ_donation_points": "Organ Donation: 500 pts",
+   "first_donation_bonus_points": "First Donation Bonus: 100 pts",
   "your_badges": "Your Badges",
   "first_timer": "First Timer",
   "completed_first_donation": "Completed your first donation",
@@ -937,7 +967,6 @@
   "responded_to_25_emergencies": "Responded to 25 Emergencies",
   "first_donation": "First Donation",
   "tier_bonus": "Tier Bonus",
-
   "badge_unlock": "Badge Unlock",
   "reward_redeemed": "Reward Redemption",
   "plasma_donation": "Plasma Donation",
@@ -945,12 +974,11 @@
   "organ_donation": "Organ Donation",
   "admin_adjustment": "Admin Adjustment",
   "referral": "Referral",
-
   "requestAcceptedSuccessfully": "Request accepted successfully",
   "cancelRequest": "Cancel Request",
-    "cancelRequestConfirmation": "Are you sure you want to cancel this request? This action cannot be undone.",
+  "cancelRequestConfirmation": "Are you sure you want to cancel this request? This action cannot be undone.",
   "no": "No",
-    "yes": "Yes",
+  "yes": "Yes",
   "requestCancelledSuccessfully": "Request cancelled successfully",
   "delete_all_notifications_title": "Delete All Notifications",
   "delete_all_notifications_message": "Are you sure you want to delete all notifications? This action cannot be undone.",
@@ -961,76 +989,88 @@
       "reason": {}
     }
   },
-
   "badge_unlocked_title": "🏆 Badge Unlocked: {badgeName}",
   "@badge_unlocked_title": {
     "placeholders": {
-      "badgeName": {"type": "String"}
+      "badgeName": {
+        "type": "String"
+      }
     }
   },
-
   "badge_unlocked_message": "{badgeDescription}",
   "@badge_unlocked_message": {
     "placeholders": {
-      "badgeDescription": {"type": "String"}
+      "badgeDescription": {
+        "type": "String"
+      }
     }
   },
-
   "tier_up_title": "🎉 Tier Upgraded to {tier}!",
   "@tier_up_title": {
     "placeholders": {
-      "tier": {"type": "String"}
+      "tier": {
+        "type": "String"
+      }
     }
   },
-
   "tier_up_message": "Congratulations! You've reached {tier} tier. Keep donating to unlock more rewards!",
   "@tier_up_message": {
     "placeholders": {
-      "tier": {"type": "String"}
+      "tier": {
+        "type": "String"
+      }
     }
   },
-
   "reward_redeemed_title": "🎁 Reward Redeemed!",
   "@reward_redeemed_title": {},
-
   "reward_redeemed_message": "Your {rewardName} is confirmed. Code: {confirmationCode}",
   "@reward_redeemed_message": {
     "placeholders": {
-      "rewardName": {"type": "String"},
-      "confirmationCode": {"type": "String"}
+      "rewardName": {
+        "type": "String"
+      },
+      "confirmationCode": {
+        "type": "String"
+      }
     }
   },
-
   "emergency_request_title": "🚨 Emergency Blood Request",
   "@emergency_request_title": {},
-
   "emergency_request_body": "Critical {bloodType} blood needed near {hospitalName}",
   "@emergency_request_body": {
     "placeholders": {
-      "bloodType": {"type": "String"},
-      "hospitalName": {"type": "String"}
+      "bloodType": {
+        "type": "String"
+      },
+      "hospitalName": {
+        "type": "String"
+      }
     }
   },
-
   "urgent_request_accepted_title": "Urgent Request Accepted",
   "@urgent_request_accepted_title": {},
-
   "urgent_request_accepted_message": "You accepted an urgent {requestType} request with {urgency} urgency.",
   "@urgent_request_accepted_message": {
     "placeholders": {
-      "requestType": {"type": "String"},
-      "urgency": {"type": "String"}
+      "requestType": {
+        "type": "String"
+      },
+      "urgency": {
+        "type": "String"
+      }
     }
   },
-
   "urgent_request_declined_title": "Urgent Request Declined",
   "@urgent_request_declined_title": {},
-
   "urgent_request_declined_message": "You declined an urgent {requestType} request with {urgency} urgency.",
   "@urgent_request_declined_message": {
     "placeholders": {
-      "requestType": {"type": "String"},
-      "urgency": {"type": "String"}
+      "requestType": {
+        "type": "String"
+      },
+      "urgency": {
+        "type": "String"
+      }
     }
   },
   "error_network_timeout": "Connection timed out. Please check your internet.",
@@ -1041,9 +1081,70 @@
   "error_not_found": "The requested resource was not found.",
   "no_donations_found": "No donation records found",
   "hospital": "Hospital",
-  "noDonationsYet": "No donations yet."
+  "noDonationsYet": "No donations yet.",
+  "governorate": "Governorate",
+  "profile_updated_successfully": "Profile updated successfully",
+  "currentPasswordRequired": "Current password is required",
+  "newPasswordRequired": "New password is required",
+  "passwordAtLeast6Characters": "Password must be at least 6 characters",
+  "passwordChangedSuccessfully": "Password changed successfully",
+  "pleaseConfirmPassword": "Please confirm your password",
+  "emailSupport": "Email Support",
+  "locationNotReady": "Location services are not ready. Please try again.",
+  "selectGender": "Select Gender",
+  "selectGovernorate": "Select Governorate",
+  "locationPermanentlyDenied": "Location permissions are permanently denied. Please enable them in settings.",
+   "openSettings": "Open Settings",
+   "waitingForLocation": "Waiting for location...",
+   "acquiringLocation": "Acquiring location...",
+   "locationUnavailable": "Location unavailable",
+   "platelet_donation": "Platelet Donation",
+   "first_donation_bonus": "First Donation Bonus",
 
-
+    "error_invalid_credentials": "Invalid email or password. Please check and try again.",
+    "error_invalid_email": "Invalid email address. Please check and try again.",
+    "error_invalid_password": "Invalid password. Please try again.",
+    "error_wrong_password": "Wrong password. Please check and try again.",
+    "error_incorrect_current_password": "Current password is incorrect. Please try again.",
+    "error_user_not_found": "user account not found. Please sign up first.",
+    "error_email_already_exists": "This email is already registered. Please log in or use a different email.",
+    "error_account_locked": "Your account has been locked. Please contact support.",
+    "error_account_disabled": "Your account has been disabled. Please contact support.",
+    "error_email_not_verified": "Please verify your email address first.",
+    "error_validation": "Please check your input and try again.",
+    "error_forbidden": "You do not have permission to perform this action.",
+    "error_token_expired": "Your session has expired. Please log in again.",
+  "dateOfBirthRequired": "Date of birth is required",
+  "minimumAge": "You must be at least 17 years old to donate",
+  "invalidDateOfBirth": "Date of birth must be a valid past date",
+  "ageVerificationFailed": "Unable to verify age from date of birth",
+  "donorNotFound": "Donor not found",
+  "donorOrRequestNotFound": "Donor or request not found",
+  "donorOptedOutOfMatching": "Donor opted out of matching",
+  "donorHasNoBloodType": "Donor has not provided blood type information",
+  "bloodTypeIncompatible": "Donor blood type is not compatible with the request",
+  "matchingLocationUnavailable": "Matching location is not available",
+  "outsideMatchingRadius": "Donor is outside the matching radius",
+  "requestNotFound": "Request not found",
+  "donorEligible": "Donor is eligible",
+  "noTemporaryDeferral": "No temporary deferral",
+  "temporaryDeferralExpired": "Temporary deferral expired",
+  "temporarilyDeferred": "Temporarily deferred",
+  "travelDeferral": "Travel to high-risk country",
+  "noDonationIntervalRestriction": "No donation interval restriction",
+  "invalidLastDonationDateIgnored": "Invalid last donation date ignored",
+  "donationCooldownActive": "You need to wait before donating again",
+  "donationIntervalSatisfied": "Donation interval satisfied",
+  "noHemoglobinRestriction": "No hemoglobin restriction",
+  "hemoglobinBelowMinimum": "Low hemoglobin level",
+  "hemoglobinLevelAcceptable": "Hemoglobin level acceptable",
+  "donorSuspended": "Donor is suspended",
+  "donorCurrentlyUnavailable": "Donor is currently unavailable",
+  "requestNoLongerActive": "The linked request is no longer active",
+  "notEligible": "Not Eligible",
+  "reason": "Reason",
+  "canDonate": "Can donate",
+  "login_successful": "Login successful! Welcome back."
 
 
 }

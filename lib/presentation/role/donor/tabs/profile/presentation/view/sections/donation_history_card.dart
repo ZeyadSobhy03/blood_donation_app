@@ -2,6 +2,7 @@ import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donation_history/presentation/view_model/donation_history_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../../core/resources/fonts/font_manger.dart';
@@ -18,14 +19,25 @@ class DonationHistoryCard extends StatelessWidget {
     final appLocation = AppLocalizations.of(context)!;
 
     return BlocBuilder<DonationHistoryCubit, DonationHistoryState>(
-      builder: (context, state) {
-        if (state is DonationHistoryLoading ||
-            state is DonationHistoryInitial) {
-          return const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Center(child: CircularProgressIndicator()),
-          );
-        }
+       builder: (context, state) {
+         if (state is DonationHistoryLoading ||
+             state is DonationHistoryInitial) {
+           return Padding(
+             padding: const EdgeInsets.all(16.0),
+             child: Skeletonizer(
+               enabled: true,
+               child: Center(
+                 child: Container(
+                   height: 80,
+                   decoration: BoxDecoration(
+                     color: Colors.grey.shade200,
+                     borderRadius: BorderRadius.circular(8),
+                   ),
+                 ),
+               ),
+             ),
+           );
+         }
 
         List<dynamic> donationHistory = [];
         if (state is DonationHistoryLoaded) {

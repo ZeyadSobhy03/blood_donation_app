@@ -347,25 +347,34 @@ class _RewardsTabState extends State<RewardsTab> {
     }
   }
 
-  String earningRuleLabel(String title, AppLocalizations l) {
-    switch (title.toLowerCase()) {
-      case 'blood donation':
-        return l.donate_blood_points;
-      case 'emergency response':
-        return l.emergency_response_points;
-      case 'referral':
-        return l.refer_to_friends_points;
-      case 'profile completion':
-        return l.complete_profile_points;
-      default:
-        return title;
-    }
-  }
+   String earningRuleLabel(String title, AppLocalizations l) {
+     switch (title.toLowerCase()) {
+       case 'blood donation':
+         return l.donate_blood_points;
+       case 'plasma donation':
+         return l.plasma_donation_points;
+       case 'platelet donation':
+         return l.platelets_donation_points;
+       case 'organ donation':
+         return l.organ_donation_points;
+       case 'first donation bonus':
+         return l.first_donation_bonus_points;
+       case 'emergency response':
+         return l.emergency_response_points;
+       case 'referral':
+         return l.refer_to_friends_points;
+       case 'profile completion':
+         return l.complete_profile_points;
+
+       default:
+         return title;
+     }
+   }
 
 
   String getHistoryLabel(String type, AppLocalizations l) {
     switch (type.toLowerCase()) {
-      case 'first_donation':
+      case 'blood_donation':
         return l.first_donation;
 
       case 'tier_bonus':
@@ -383,14 +392,15 @@ class _RewardsTabState extends State<RewardsTab> {
       case 'reward_redeemed':
         return l.reward_redeemed;
 
-      case 'blood_donation':
-        return l.blood_donation;
-
       case 'plasma_donation':
         return l.plasma_donation;
 
       case 'platelets_donation':
         return l.platelets_donation;
+
+
+      case 'first_donation':
+        return l.first_donation_bonus;
 
       case 'organ_donation':
         return l.organ_donation;

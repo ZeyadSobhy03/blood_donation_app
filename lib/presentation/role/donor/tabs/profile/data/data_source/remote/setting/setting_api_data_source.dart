@@ -4,6 +4,8 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/dat
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/model/setting/setting_model.dart';
 import 'package:dio/dio.dart';
 
+import '../../../../../../../../../core/utils/dio_error_handler.dart';
+
 class SettingApiDataSource implements SettingRemoteDataSource {
   final Dio dio;
   final AuthHiveDataSource authHiveDataSource;
@@ -21,22 +23,13 @@ class SettingApiDataSource implements SettingRemoteDataSource {
       );
       return SettingModel.fromJson(response.data);
     } on DioException catch (e) {
-      _handleDioError(e);
+      handleDioError(e);
+      rethrow;
+    } catch (e) {
       rethrow;
     }
   }
-  void _handleDioError(DioException e) {
-    final _ = switch (e.type) {
-      DioExceptionType.connectionTimeout =>
-      'Connection timeout - please check your internet',
-      DioExceptionType.sendTimeout => 'Send timeout - please try again',
-      DioExceptionType.receiveTimeout => 'Receive timeout - please try again',
-      DioExceptionType.badResponse => 'Server error: ${e.response?.statusCode}',
-      DioExceptionType.cancel => 'Request cancelled',
-      DioExceptionType.unknown => 'Network error: ${e.message}',
-      _ => 'Unknown error occurred',
-    };
-  }
+
 
   @override
   Future<SettingModel> updateSetting({required bool pushNotifications, required bool emergencyAlerts, required bool privacyMode, required String language})async {
@@ -55,8 +48,10 @@ class SettingApiDataSource implements SettingRemoteDataSource {
         },
       );
       return SettingModel.fromJson(response.data);
-    } on DioException catch (e) {
-      _handleDioError(e);
+    }on DioException catch (e) {
+      handleDioError(e);
+      rethrow;
+    } catch (e) {
       rethrow;
     }
   }

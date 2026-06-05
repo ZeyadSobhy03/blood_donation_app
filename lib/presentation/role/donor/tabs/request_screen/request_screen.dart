@@ -205,7 +205,7 @@ class _RequestScreenState extends State<RequestScreen> {
                         ),
                         SizedBox(height: 8.h),
                         BloodNeedCard(
-                          bloodType: urgentRequest?.bloodType ?? "O+",
+                          bloodType: urgentRequest?.bloodType ?? [],
                           background: statusColor,
                         ),
                       ],
@@ -273,7 +273,7 @@ class _RequestScreenState extends State<RequestScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child:  ResponseMattersSection(
-                    bloodType: urgentRequest?.bloodType?? '',
+                    bloodType: urgentRequest?.bloodType?? [],
                     patientType: urgentRequest?.patientType ?? '',
                     unitsNeeded: urgentRequest?.unitsNeeded ?? 0,
                   ),

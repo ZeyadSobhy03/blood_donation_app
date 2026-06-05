@@ -11,6 +11,8 @@ abstract class AuthLocalDataSource {
 
   Future<String?> getRefreshToken();
 
+  Future<void> saveAccessToken(String accessToken);
+
   Future<void> saveUserData({
     required Map<String, dynamic> userData,
   });

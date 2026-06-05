@@ -1,5 +1,5 @@
 /// success : true
-/// data : {"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"settings":{"privacy":"public","emergencyAlerts":true,"language":"en","privacyMode":false,"pushNotifications":true},"location":{"coordinates":{"lat":30.0444,"lng":31.2357},"city":"Cairo","governorate":"Cairo","lastUpdated":"2026-05-08T13:40:27.463Z"},"weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"phone":null,"address":null,"_id":"69f3df915f42685cbbbcbb18","fullName":"Aya Hassan","email":"aya.hassan@lifelink.demo","isEmailVerified":true,"emailVerifiedAt":"2026-05-08T13:40:27.463Z","role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"__t":"donor","phoneNumber":"01011111111","bloodType":"O+","gender":"female","isAvailable":true,"dateOfBirth":"1996-03-12T00:00:00.000Z","createdAt":"2026-04-30T23:02:41.312Z","updatedAt":"2026-05-08T13:40:34.040Z","__v":1,"travelHistory":[],"isBanned":false,"availableToDonate":true,"isVerified":true,"id":"69f3df915f42685cbbbcbb18","verificationStatus":"verified","age":30,"stats":{"totalDonations":1,"points":850,"livesSaved":3},"currentBadge":null,"nextBadge":"First Timer","progressPercentage":0,"badgeProgress":{"currentBadge":null,"nextBadge":"First Timer","progressPercentage":0}}
+/// data : {"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"Nearby emergency responder for Cairo Care Hospital.","lastCheckupDate":"2026-05-03T07:00:00.000Z","updatedAt":"2026-05-15T19:32:56.422Z"},"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"location":{"coordinates":{"lat":30.0444,"lng":31.2357},"city":"Cairo","governorate":"Cairo"},"_id":"6a06ea9888988a725cb260f0","fullName":"Ziyad Sobhy","email":"cairo.responder@lifelink.demo","isEmailVerified":true,"emailVerifiedAt":"2026-05-15T19:32:56.422Z","role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":["f2d2tGOHRaWsSFK79-3hAt:APA91bFhFb8UfCr6YDjHABQtYGG0Sv8QIrYZdDEVucTuzpPTtPTvC39_7tdH_yPd3znslEmVIzpoyJ6XRvAiwDlSIU_WFMPhsjZqukU_KZAO0i7iHBNSVp0"],"phone":null,"address":null,"__t":"donor","phoneNumber":"01141935341","bloodType":"O+","dateOfBirth":"1995-05-15T00:00:00.000Z","gender":"male","weight":60,"hemoglobinLevel":14.2,"temporaryDeferralUntil":null,"lastDeferralReason":null,"isAvailable":true,"travelHistory":[],"createdAt":"2026-05-15T09:42:48.347Z","updatedAt":"2026-05-23T22:22:13.001Z","fullNameNormalized":"yasmine farouk","__v":1,"isBanned":false,"availableToDonate":true,"isVerified":true,"id":"6a06ea9888988a725cb260f0","verificationStatus":"verified","age":31,"stats":{"totalDonations":5,"points":0,"livesSaved":15},"currentBadge":null,"nextBadge":"First Timer","progressPercentage":0,"badgeProgress":{"currentBadge":null,"nextBadge":"First Timer","progressPercentage":0}}
 
 class ProfileModel {
   ProfileModel({
@@ -24,43 +24,44 @@ class ProfileModel {
 
 }
 
-/// healthHistory : {"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null}
-/// settings : {"privacy":"public","emergencyAlerts":true,"language":"en","privacyMode":false,"pushNotifications":true}
-/// location : {"coordinates":{"lat":30.0444,"lng":31.2357},"city":"Cairo","governorate":"Cairo","lastUpdated":"2026-05-08T13:40:27.463Z"}
-/// weight : null
-/// hemoglobinLevel : null
-/// temporaryDeferralUntil : null
-/// lastDeferralReason : null
-/// phone : null
-/// address : null
-/// _id : "69f3df915f42685cbbbcbb18"
-/// fullName : "Aya Hassan"
-/// email : "aya.hassan@lifelink.demo"
+/// healthHistory : {"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"Nearby emergency responder for Cairo Care Hospital.","lastCheckupDate":"2026-05-03T07:00:00.000Z","updatedAt":"2026-05-15T19:32:56.422Z"}
+/// settings : {"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"}
+/// location : {"coordinates":{"lat":30.0444,"lng":31.2357},"city":"Cairo","governorate":"Cairo"}
+/// _id : "6a06ea9888988a725cb260f0"
+/// fullName : "Ziyad Sobhy"
+/// email : "cairo.responder@lifelink.demo"
 /// isEmailVerified : true
-/// emailVerifiedAt : "2026-05-08T13:40:27.463Z"
+/// emailVerifiedAt : "2026-05-15T19:32:56.422Z"
 /// role : "donor"
 /// isSuspended : false
 /// suspendedAt : null
 /// suspendedReason : null
 /// deletedAt : null
-/// fcmTokens : []
+/// fcmTokens : ["f2d2tGOHRaWsSFK79-3hAt:APA91bFhFb8UfCr6YDjHABQtYGG0Sv8QIrYZdDEVucTuzpPTtPTvC39_7tdH_yPd3znslEmVIzpoyJ6XRvAiwDlSIU_WFMPhsjZqukU_KZAO0i7iHBNSVp0"]
+/// phone : null
+/// address : null
 /// __t : "donor"
-/// phoneNumber : "01011111111"
+/// phoneNumber : "01141935341"
 /// bloodType : "O+"
-/// gender : "female"
+/// dateOfBirth : "1995-05-15T00:00:00.000Z"
+/// gender : "male"
+/// weight : 60
+/// hemoglobinLevel : 14.2
+/// temporaryDeferralUntil : null
+/// lastDeferralReason : null
 /// isAvailable : true
-/// dateOfBirth : "1996-03-12T00:00:00.000Z"
-/// createdAt : "2026-04-30T23:02:41.312Z"
-/// updatedAt : "2026-05-08T13:40:34.040Z"
-/// __v : 1
 /// travelHistory : []
+/// createdAt : "2026-05-15T09:42:48.347Z"
+/// updatedAt : "2026-05-23T22:22:13.001Z"
+/// fullNameNormalized : "yasmine farouk"
+/// __v : 1
 /// isBanned : false
 /// availableToDonate : true
 /// isVerified : true
-/// id : "69f3df915f42685cbbbcbb18"
+/// id : "6a06ea9888988a725cb260f0"
 /// verificationStatus : "verified"
-/// age : 30
-/// stats : {"totalDonations":1,"points":850,"livesSaved":3}
+/// age : 31
+/// stats : {"totalDonations":5,"points":0,"livesSaved":15}
 /// currentBadge : null
 /// nextBadge : "First Timer"
 /// progressPercentage : 0
@@ -71,12 +72,6 @@ class Data {
       this.healthHistory, 
       this.settings, 
       this.location, 
-      this.weight, 
-      this.hemoglobinLevel, 
-      this.temporaryDeferralUntil, 
-      this.lastDeferralReason, 
-      this.phone, 
-      this.address, 
       this.id, 
       this.fullName, 
       this.email, 
@@ -88,16 +83,23 @@ class Data {
       this.suspendedReason, 
       this.deletedAt, 
       this.fcmTokens, 
+      this.phone, 
+      this.address, 
       this.t, 
       this.phoneNumber, 
       this.bloodType, 
-      this.gender, 
-      this.isAvailable, 
       this.dateOfBirth, 
+      this.gender, 
+      this.weight, 
+      this.hemoglobinLevel, 
+      this.temporaryDeferralUntil, 
+      this.lastDeferralReason, 
+      this.isAvailable, 
+      this.travelHistory, 
       this.createdAt, 
       this.updatedAt, 
+      this.fullNameNormalized, 
       this.v, 
-      this.travelHistory, 
       this.isBanned, 
       this.availableToDonate, 
       this.isVerified, 
@@ -113,12 +115,6 @@ class Data {
     healthHistory = json['healthHistory'] != null ? HealthHistory.fromJson(json['healthHistory']) : null;
     settings = json['settings'] != null ? Settings.fromJson(json['settings']) : null;
     location = json['location'] != null ? Location.fromJson(json['location']) : null;
-    weight = json['weight'];
-    hemoglobinLevel = json['hemoglobinLevel'];
-    temporaryDeferralUntil = json['temporaryDeferralUntil'];
-    lastDeferralReason = json['lastDeferralReason'];
-    phone = json['phone'];
-    address = json['address'];
     id = json['_id'];
     fullName = json['fullName'];
     email = json['email'];
@@ -129,25 +125,29 @@ class Data {
     suspendedAt = json['suspendedAt'];
     suspendedReason = json['suspendedReason'];
     deletedAt = json['deletedAt'];
-    if (json['fcmTokens'] != null) {
-      fcmTokens = json['fcmTokens'] is List
-          ? List<dynamic>.from(json['fcmTokens'])
-          : <dynamic>[];
-    }
+    fcmTokens = json['fcmTokens'] != null ? json['fcmTokens'].cast<String>() : [];
+    phone = json['phone'];
+    address = json['address'];
     t = json['__t'];
     phoneNumber = json['phoneNumber'];
     bloodType = json['bloodType'];
-    gender = json['gender'];
-    isAvailable = json['isAvailable'];
     dateOfBirth = json['dateOfBirth'];
+    gender = json['gender'];
+    weight = json['weight'];
+    hemoglobinLevel = json['hemoglobinLevel'];
+    temporaryDeferralUntil = json['temporaryDeferralUntil'];
+    lastDeferralReason = json['lastDeferralReason'];
+    isAvailable = json['isAvailable'];
+    if (json['travelHistory'] != null) {
+       travelHistory = [];
+       json['travelHistory'].forEach((v) {
+         travelHistory?.add(v);
+       });
+     }
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
+    fullNameNormalized = json['fullNameNormalized'];
     v = json['__v'];
-    if (json['travelHistory'] != null) {
-      travelHistory = json['travelHistory'] is List
-          ? List<dynamic>.from(json['travelHistory'])
-          : <dynamic>[];
-    }
     isBanned = json['isBanned'];
     availableToDonate = json['availableToDonate'];
     isVerified = json['isVerified'];
@@ -163,12 +163,6 @@ class Data {
   HealthHistory? healthHistory;
   Settings? settings;
   Location? location;
-  dynamic weight;
-  dynamic hemoglobinLevel;
-  dynamic temporaryDeferralUntil;
-  dynamic lastDeferralReason;
-  dynamic phone;
-  dynamic address;
   String? id;
   String? fullName;
   String? email;
@@ -179,17 +173,24 @@ class Data {
   dynamic suspendedAt;
   dynamic suspendedReason;
   dynamic deletedAt;
-  List<dynamic>? fcmTokens;
+  List<String>? fcmTokens;
+  dynamic phone;
+  dynamic address;
   String? t;
   String? phoneNumber;
   String? bloodType;
-  String? gender;
-  bool? isAvailable;
   String? dateOfBirth;
+  String? gender;
+  int? weight;
+  double? hemoglobinLevel;
+  dynamic temporaryDeferralUntil;
+  dynamic lastDeferralReason;
+  bool? isAvailable;
+  List<dynamic>? travelHistory;
   String? createdAt;
   String? updatedAt;
+  String? fullNameNormalized;
   int? v;
-  List<dynamic>? travelHistory;
   bool? isBanned;
   bool? availableToDonate;
   bool? isVerified;
@@ -212,12 +213,6 @@ class Data {
     if (location != null) {
       map['location'] = location?.toJson();
     }
-    map['weight'] = weight;
-    map['hemoglobinLevel'] = hemoglobinLevel;
-    map['temporaryDeferralUntil'] = temporaryDeferralUntil;
-    map['lastDeferralReason'] = lastDeferralReason;
-    map['phone'] = phone;
-    map['address'] = address;
     map['_id'] = id;
     map['fullName'] = fullName;
     map['email'] = email;
@@ -228,21 +223,26 @@ class Data {
     map['suspendedAt'] = suspendedAt;
     map['suspendedReason'] = suspendedReason;
     map['deletedAt'] = deletedAt;
-    if (fcmTokens != null) {
-      map['fcmTokens'] = List<dynamic>.from(fcmTokens!);
-    }
+    map['fcmTokens'] = fcmTokens;
+    map['phone'] = phone;
+    map['address'] = address;
     map['__t'] = t;
     map['phoneNumber'] = phoneNumber;
     map['bloodType'] = bloodType;
-    map['gender'] = gender;
-    map['isAvailable'] = isAvailable;
     map['dateOfBirth'] = dateOfBirth;
+    map['gender'] = gender;
+    map['weight'] = weight;
+    map['hemoglobinLevel'] = hemoglobinLevel;
+    map['temporaryDeferralUntil'] = temporaryDeferralUntil;
+    map['lastDeferralReason'] = lastDeferralReason;
+    map['isAvailable'] = isAvailable;
+    if (travelHistory != null) {
+      map['travelHistory'] = travelHistory?.map((v) => v.toJson()).toList();
+    }
     map['createdAt'] = createdAt;
     map['updatedAt'] = updatedAt;
+    map['fullNameNormalized'] = fullNameNormalized;
     map['__v'] = v;
-    if (travelHistory != null) {
-      map['travelHistory'] = List<dynamic>.from(travelHistory!);
-    }
     map['isBanned'] = isBanned;
     map['availableToDonate'] = availableToDonate;
     map['isVerified'] = isVerified;
@@ -292,9 +292,9 @@ class BadgeProgress {
 
 }
 
-/// totalDonations : 1
-/// points : 850
-/// livesSaved : 3
+/// totalDonations : 5
+/// points : 0
+/// livesSaved : 15
 
 class Stats {
   Stats({
@@ -324,25 +324,21 @@ class Stats {
 /// coordinates : {"lat":30.0444,"lng":31.2357}
 /// city : "Cairo"
 /// governorate : "Cairo"
-/// lastUpdated : "2026-05-08T13:40:27.463Z"
 
 class Location {
   Location({
       this.coordinates, 
       this.city, 
-      this.governorate, 
-      this.lastUpdated,});
+      this.governorate,});
 
   Location.fromJson(dynamic json) {
     coordinates = json['coordinates'] != null ? Coordinates.fromJson(json['coordinates']) : null;
     city = json['city'];
     governorate = json['governorate'];
-    lastUpdated = json['lastUpdated'];
   }
   Coordinates? coordinates;
   String? city;
   String? governorate;
-  String? lastUpdated;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -351,7 +347,6 @@ class Location {
     }
     map['city'] = city;
     map['governorate'] = governorate;
-    map['lastUpdated'] = lastUpdated;
     return map;
   }
 
@@ -381,40 +376,35 @@ class Coordinates {
 
 }
 
-/// privacy : "public"
-/// emergencyAlerts : true
-/// language : "en"
-/// privacyMode : false
 /// pushNotifications : true
+/// emergencyAlerts : true
+/// privacyMode : false
+/// language : "en"
 
 class Settings {
   Settings({
-      this.privacy, 
+      this.pushNotifications, 
       this.emergencyAlerts, 
-      this.language, 
       this.privacyMode, 
-      this.pushNotifications,});
+      this.language,});
 
   Settings.fromJson(dynamic json) {
-    privacy = json['privacy'];
-    emergencyAlerts = json['emergencyAlerts'];
-    language = json['language'];
-    privacyMode = json['privacyMode'];
     pushNotifications = json['pushNotifications'];
+    emergencyAlerts = json['emergencyAlerts'];
+    privacyMode = json['privacyMode'];
+    language = json['language'];
   }
-  String? privacy;
-  bool? emergencyAlerts;
-  String? language;
-  bool? privacyMode;
   bool? pushNotifications;
+  bool? emergencyAlerts;
+  bool? privacyMode;
+  String? language;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['privacy'] = privacy;
-    map['emergencyAlerts'] = emergencyAlerts;
-    map['language'] = language;
-    map['privacyMode'] = privacyMode;
     map['pushNotifications'] = pushNotifications;
+    map['emergencyAlerts'] = emergencyAlerts;
+    map['privacyMode'] = privacyMode;
+    map['language'] = language;
     return map;
   }
 
@@ -424,9 +414,9 @@ class Settings {
 /// medications : []
 /// allergies : []
 /// recentIllness : ""
-/// notes : ""
-/// lastCheckupDate : null
-/// updatedAt : null
+/// notes : "Nearby emergency responder for Cairo Care Hospital."
+/// lastCheckupDate : "2026-05-03T07:00:00.000Z"
+/// updatedAt : "2026-05-15T19:32:56.422Z"
 
 class HealthHistory {
   HealthHistory({
@@ -440,20 +430,23 @@ class HealthHistory {
 
   HealthHistory.fromJson(dynamic json) {
     if (json['chronicConditions'] != null) {
-      chronicConditions = json['chronicConditions'] is List
-          ? List<dynamic>.from(json['chronicConditions'])
-          : <dynamic>[];
-    }
-    if (json['medications'] != null) {
-      medications = json['medications'] is List
-          ? List<dynamic>.from(json['medications'])
-          : <dynamic>[];
-    }
-    if (json['allergies'] != null) {
-      allergies = json['allergies'] is List
-          ? List<dynamic>.from(json['allergies'])
-          : <dynamic>[];
-    }
+       chronicConditions = [];
+       json['chronicConditions'].forEach((v) {
+         chronicConditions?.add(v);
+       });
+     }
+     if (json['medications'] != null) {
+       medications = [];
+       json['medications'].forEach((v) {
+         medications?.add(v);
+       });
+     }
+     if (json['allergies'] != null) {
+       allergies = [];
+       json['allergies'].forEach((v) {
+         allergies?.add(v);
+       });
+     }
     recentIllness = json['recentIllness'];
     notes = json['notes'];
     lastCheckupDate = json['lastCheckupDate'];
@@ -464,19 +457,19 @@ class HealthHistory {
   List<dynamic>? allergies;
   String? recentIllness;
   String? notes;
-  dynamic lastCheckupDate;
-  dynamic updatedAt;
+  String? lastCheckupDate;
+  String? updatedAt;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     if (chronicConditions != null) {
-      map['chronicConditions'] = List<dynamic>.from(chronicConditions!);
+      map['chronicConditions'] = chronicConditions?.map((v) => v.toJson()).toList();
     }
     if (medications != null) {
-      map['medications'] = List<dynamic>.from(medications!);
+      map['medications'] = medications?.map((v) => v.toJson()).toList();
     }
     if (allergies != null) {
-      map['allergies'] = List<dynamic>.from(allergies!);
+      map['allergies'] = allergies?.map((v) => v.toJson()).toList();
     }
     map['recentIllness'] = recentIllness;
     map['notes'] = notes;
@@ -486,4 +479,3 @@ class HealthHistory {
   }
 
 }
-

@@ -64,7 +64,7 @@ class RequestCard extends StatelessWidget {
                   CustomText(
                     text: title,
                     textStyle: TextStyle(
-                      fontSize: FontSize.s16,
+                      fontSize: FontSize.s15,
                       fontWeight: FontWeightManager.bold,
                       color: ColorManger.black,
                     ),

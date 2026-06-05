@@ -1,15 +1,12 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/cubit/donation_schedule.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/section/schedule_linear_progress_indicator.dart';
 
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/section/schedule_upper_title.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/steps/appointment_confirmed.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/steps/confirm_your_details.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/steps/date_time_step.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/steps/location_step.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/steps/review_and_confirm.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ScheduleDonation extends StatefulWidget {
   const ScheduleDonation({super.key});
@@ -21,7 +18,7 @@ class ScheduleDonation extends StatefulWidget {
 class _ScheduleDonationState extends State<ScheduleDonation> {
   final PageController _pageController = PageController();
   int currentStep = 0;
-  int totalSteps = 5;
+  int totalSteps = 4;
 
   void _nextStep() {
     if (currentStep < totalSteps - 1) {
@@ -87,7 +84,6 @@ class _ScheduleDonationState extends State<ScheduleDonation> {
                     next: _nextStep,
 
                   ),
-                  ConfirmYourDetails(nextStep: _nextStep),
                   ReviewAndConfirm(next: _nextStep),
                   AppointmentConfirmed(next: () {}),
                 ],
