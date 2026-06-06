@@ -932,7 +932,23 @@
 
 
   "loadMore": "Load More",
-  "noDonorsFound": "No Donors Found"
+  "noDonorsFound": "No Donors Found",
+
+  "patientTypeAdult": "Adult",
+  "patientTypeChild": "Child",
+  "patientTypeInfant": "Infant",
+  "bloodTypeNeededMulti": "Blood Types Needed (Select one or more)",
+  "selected": "Selected",
+  "requiredBy": "Required By",
+  "patientType": "PatientType",
+  "selectPatientType": "Select Patient Type",
+  "contactNumber": "Contact Number",
+  "contactNumberHint": "e.g: 015980089",
+  "patientDetailsHint": "e.g: needed for surgery",
+  "noHistoryFound": "No History Found"
+
+
+
 
 
 

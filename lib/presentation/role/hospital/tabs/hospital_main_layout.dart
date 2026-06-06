@@ -14,6 +14,10 @@ import 'find_donor/data/data_source/find_donors_api_data_source.dart';
 import 'find_donor/data/repositories/find_donors_repository_imp.dart';
 import 'find_donor/domain/use_cases/find_donors_use_case.dart';
 import 'find_donor/presentation/view_model/find_donors_view_model.dart';
+import 'history/data/data_source/history_api_data_source.dart';
+import 'history/data/repositories/history_repository_imp.dart';
+import 'history/domain/use_cases/history_use_case.dart';
+import 'history/presentation/view_model/history_view_model.dart';
 
 class HospitalMainLayout extends StatefulWidget {
   const HospitalMainLayout({super.key});
@@ -92,7 +96,17 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
         child: const FindDonor(),
       ),
       const Request(),
-      const History(),
+      BlocProvider(
+          create: (_) => HistoryCubit(
+            historyUseCase: HistoryUseCase(
+              historyRepository: HistoryRepositoryImp(
+                historyRemoteDataSource: HistoryApiDataSource(Dio()),
+              ),
+            ),
+            hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
+          ),
+      child: const History(),
+      ),
       const Profile(),
     ];
 

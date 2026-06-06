@@ -743,7 +743,7 @@ abstract class AppLocalizations {
   /// No description provided for @patientType.
   ///
   /// In en, this message translates to:
-  /// **'Patient Type'**
+  /// **'PatientType'**
   String get patientType;
 
   /// No description provided for @contact.
@@ -5449,6 +5449,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No Donors Found'**
   String get noDonorsFound;
+
+  /// No description provided for @patientTypeAdult.
+  ///
+  /// In en, this message translates to:
+  /// **'Adult'**
+  String get patientTypeAdult;
+
+  /// No description provided for @patientTypeChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Child'**
+  String get patientTypeChild;
+
+  /// No description provided for @patientTypeInfant.
+  ///
+  /// In en, this message translates to:
+  /// **'Infant'**
+  String get patientTypeInfant;
+
+  /// No description provided for @bloodTypeNeededMulti.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Types Needed (Select one or more)'**
+  String get bloodTypeNeededMulti;
+
+  /// No description provided for @selected.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected'**
+  String get selected;
+
+  /// No description provided for @requiredBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Required By'**
+  String get requiredBy;
+
+  /// No description provided for @selectPatientType.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Patient Type'**
+  String get selectPatientType;
+
+  /// No description provided for @contactNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Number'**
+  String get contactNumber;
+
+  /// No description provided for @contactNumberHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g: 015980089'**
+  String get contactNumberHint;
+
+  /// No description provided for @patientDetailsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g: needed for surgery'**
+  String get patientDetailsHint;
+
+  /// No description provided for @noHistoryFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No History Found'**
+  String get noHistoryFound;
 }
 
 class _AppLocalizationsDelegate

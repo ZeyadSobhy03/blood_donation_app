@@ -1,162 +1,40 @@
-import 'package:blood_donation_app/core/resources/models/blood_request.dart';
+import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/models/summary_model.dart';
+import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/history/presentation/view_model/history_view_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/widgets/custom_request_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/widgets/custom_summary_item.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/widgets/recent_request_detail_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/resources/models/blood_request_history.dart';
 import '../../../../../l10n/app_localizations.dart';
 
-class History extends StatelessWidget {
+class History extends StatefulWidget {
   const History({super.key});
+
+  @override
+  State<History> createState() => _HistoryState();
+}
+
+class _HistoryState extends State<History> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      context.read<HistoryCubit>().fetchHistory(
+        loc: AppLocalizations.of(context)!,
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
-    final List<BloodRequestHistoryModel> requests = [
-      BloodRequestHistoryModel(
-        bloodRequestModel: BloodRequestModel(
-          bloodType: 'O+',
-          unitsRequested: 3,
-          urgencyLevel: 'critical',
-          donorsContacted: 20,
-          donorsConfirmed: 12,
-          isFulfilled: true,
-          requestDate: DateTime(2024, 9, 28),
-          completionTimeInHours: 3,
-          priority: RequestPriority.high,
-          location: 'Cairo, El Maadi',
-          hospitalContact: '+201001234567',
-          hospitalName: 'Al Salam Hospital',
-        ),
-        bloodType: "O+",
-        units: 3,
-        date: DateTime(2024, 9, 28),
-        priority: loc.critical,
-        status: loc.fulfilled,
-        isFulfilled: true,
-      ),
-      BloodRequestHistoryModel(
-        bloodRequestModel: BloodRequestModel(
-          bloodType: 'A-',
-          unitsRequested: 2,
-          urgencyLevel: 'high',
-          donorsContacted: 15,
-          donorsConfirmed: 7,
-          isFulfilled: true,
-          requestDate: DateTime(2024, 9, 15),
-          completionTimeInHours: 5,
-          priority: RequestPriority.high,
-          location: 'Alexandria, Sidi Gaber',
-          hospitalContact: '+201002223334',
-          hospitalName: 'Hayat Hospital',
-        ),
-        bloodType: "A-",
-        units: 2,
-        date: DateTime(2024, 9, 15),
-        priority: loc.high,
-        status: loc.fulfilled,
-        isFulfilled: true,
-      ),
-      BloodRequestHistoryModel(
-        bloodRequestModel: BloodRequestModel(
-          bloodType: 'B+',
-          unitsRequested: 4,
-          urgencyLevel: 'high',
-          donorsContacted: 18,
-          donorsConfirmed: 10,
-          isFulfilled: true,
-          requestDate: DateTime(2024, 3, 20),
-          completionTimeInHours: 7,
-          priority: RequestPriority.high,
-          location: 'Giza, Dokki',
-          hospitalContact: '+201005556667',
-          hospitalName: 'Al Amal Medical Center',
-        ),
-        bloodType: "B+",
-        units: 4,
-        date: DateTime(2024, 3, 20),
-        priority: loc.high,
-        status: loc.fulfilled,
-        isFulfilled: true,
-      ),
-      BloodRequestHistoryModel(
-        bloodRequestModel: BloodRequestModel(
-          bloodType: 'A+',
-          unitsRequested: 1,
-          urgencyLevel: 'critical',
-          donorsContacted: 6,
-          donorsConfirmed: 1,
-          isFulfilled: false,
-          requestDate: DateTime(2024, 6, 3),
-          completionTimeInHours: 24,
-          priority: RequestPriority.high,
-          location: 'Mansoura, City Center',
-          hospitalContact: '+201007770088',
-          hospitalName: 'University Hospital',
-        ),
-        bloodType: "A+",
-        units: 1,
-        date: DateTime(2024, 6, 3),
-        priority: loc.critical,
-        status: loc.cancelled,
-        isFulfilled: false,
-      ),
-      BloodRequestHistoryModel(
-        bloodRequestModel: BloodRequestModel(
-          bloodType: 'AB-',
-          unitsRequested: 3,
-          urgencyLevel: 'critical',
-          donorsContacted: 22,
-          donorsConfirmed: 11,
-          isFulfilled: true,
-          requestDate: DateTime(2024, 2, 13),
-          completionTimeInHours: 4,
-          priority: RequestPriority.high,
-          location: 'Tanta, El Bahr Street',
-          hospitalContact: '+201009991122',
-          hospitalName: 'Al Noor Hospital',
-        ),
-        bloodType: "AB-",
-        units: 3,
-        date: DateTime(2024, 2, 13),
-        priority: loc.critical,
-        status: loc.fulfilled,
-        isFulfilled: true,
-      ),
-      BloodRequestHistoryModel(
-        bloodRequestModel: BloodRequestModel(
-          bloodType: 'O-',
-          unitsRequested: 2,
-          urgencyLevel: 'low',
-          donorsContacted: 8,
-          donorsConfirmed: 2,
-          isFulfilled: false,
-          requestDate: DateTime(2024, 4, 23),
-          completionTimeInHours: 18,
-          priority: RequestPriority.low,
-          location: 'Asyut, El Gomhoria Street',
-          hospitalContact: '+201003330044',
-          hospitalName: 'Al Shifa Hospital',
-        ),
-        bloodType: "O-",
-        units: 2,
-        date: DateTime(2024, 4, 23),
-        priority: loc.low,
-        status: loc.cancelled,
-        isFulfilled: false,
-      ),
-    ];
-    final SummaryModel summaryModel = SummaryModel(
-      completed: 42,
-      active: 3,
-      cancelled: 2,
-    );
 
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FA),
-
       appBar: AppBar(
         title: Text(
           loc.requestHistory,
@@ -165,22 +43,77 @@ class History extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
       ),
+      body: BlocBuilder<HistoryCubit, HistoryState>(
+        builder: (context, state) {
+          if (state is HistoryLoadingState) {
+            return const Center(child: CustomLoadingWidget(indicatorColor: Colors.blueAccent,));
+          }
 
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+          if (state is HistoryErrorState) {
+            return _ErrorView(
+              message: state.message,
+              onRetry: () => context.read<HistoryCubit>().fetchHistory(loc: loc),
+            );
+          }
 
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          if (state is HistoryEmptyState) {
+            return _buildScrollContent(
+              loc: loc,
+              summaryModel: state.summaryModel,
+              requests: const [],
+              isPaginating: false,
+              hasMore: false,
+            );
+          }
 
-          children: [
-            Text(
-              loc.trackBloodRequests,
-              style: const TextStyle(color: Colors.grey),
-            ),
+          final requests = switch (state) {
+            HistorySuccessState s => s.requests,
+            HistoryPaginatingState s => s.currentRequests,
+            _ => [],
+          };
 
-            const SizedBox(height: 20),
+          final summaryModel = switch (state) {
+            HistorySuccessState s => s.summaryModel,
+            HistoryPaginatingState s => s.summaryModel,
+            _ => null,
+          };
 
-            /// Summary
+          final isPaginating = state is HistoryPaginatingState;
+          final hasMore =
+          state is HistorySuccessState ? state.hasMore : false;
+
+          return _buildScrollContent(
+            loc: loc,
+            summaryModel: summaryModel,
+            requests: requests,
+            isPaginating: isPaginating,
+            hasMore: hasMore,
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildScrollContent({
+    required AppLocalizations loc,
+    required SummaryModel? summaryModel,
+    required List requests,
+    required bool isPaginating,
+    required bool hasMore,
+  }) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            loc.trackBloodRequests,
+            style: const TextStyle(color: Colors.grey),
+          ),
+
+          const SizedBox(height: 20),
+
+          if (summaryModel != null)
             Row(
               children: [
                 CustomSummaryItem(
@@ -189,18 +122,14 @@ class History extends StatelessWidget {
                   bg: const Color(0xFFE8F5E9),
                   text: const Color(0xFF2E7D32),
                 ),
-
                 const SizedBox(width: 12),
-
                 CustomSummaryItem(
                   count: summaryModel.active,
                   label: loc.active,
                   bg: const Color(0xFFFFF3E0),
                   text: const Color(0xFFEF6C00),
                 ),
-
                 const SizedBox(width: 12),
-
                 CustomSummaryItem(
                   count: summaryModel.cancelled,
                   label: loc.cancelled,
@@ -210,44 +139,133 @@ class History extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 32),
+          const SizedBox(height: 32),
 
-            Text(
-              loc.recentRequests,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Text(
+            loc.recentRequests,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          const SizedBox(height: 16),
+
+          if (requests.isEmpty && !isPaginating)
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 40),
+                child: Column(
+                  children: [
+                    Icon(
+                      Icons.history_rounded,
+                      size: 56,
+                      color: ColorManger.slateGrey.withValues(alpha: 0.4),
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      loc.noHistoryFound,
+                      style: TextStyle(color: ColorManger.slateGrey),
+                    ),
+                  ],
+                ),
+              ),
             ),
 
+          ListView.builder(
+            itemCount: requests.length,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              final request = requests[index];
+
+              final historyModel = request.toHistoryModel(loc);
+
+              return CustomRequestCard(
+                isFulfilled: historyModel.isFulfilled,
+                type: '${historyModel.bloodType} ${loc.bloodRequest}',
+                units: historyModel.units,
+                date:
+                '${historyModel.date.month}/${historyModel.date.day}/${historyModel.date.year}',
+                priority: historyModel.priority,
+                status: historyModel.status,
+                color: historyModel.isFulfilled ? Colors.green : Colors.red,
+                onViewDetails: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => RecentRequestDetailDialog(
+                      bloodRequestModel: historyModel,
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+
+          if (isPaginating)
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 16),
+              child: Center(child: CircularProgressIndicator()),
+            ),
+
+          if (hasMore && !isPaginating)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Center(
+                child: TextButton(
+                  onPressed: () => context.read<HistoryCubit>().loadMore(
+                    loc: loc,
+                  ),
+                  child: Text(
+                    loc.loadMore,
+                    style: TextStyle(
+                      color: ColorManger.brightRed,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class _ErrorView extends StatelessWidget {
+  final String message;
+  final VoidCallback onRetry;
+
+  const _ErrorView({required this.message, required this.onRetry});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.error_outline,
+                size: 56, color: ColorManger.brightRed),
             const SizedBox(height: 16),
-
-            ListView.builder(
-              itemCount: requests.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return CustomRequestCard(
-                  isFulfilled: requests[index].isFulfilled ,
-                  type: "${requests[index].bloodType} ${loc.bloodRequest}",
-                  units: requests[index].units,
-                  date:
-                      "${requests[index].date.month}/${requests[index].date.day}/${requests[index].date.year}",
-                  priority: requests[index].priority,
-                  status: requests[index].status,
-                  color: requests[index].isFulfilled
-                      ? Colors.green
-                      : Colors.red,
-
-                  onViewDetails: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return RecentRequestDetailDialog(
-                          bloodRequestModel: requests[index],
-                        );
-                      },
-                    );
-                  },
-                );
-              },
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: ColorManger.slateGrey),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: onRetry,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: ColorManger.brightRed,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: const Text('Retry'),
             ),
           ],
         ),

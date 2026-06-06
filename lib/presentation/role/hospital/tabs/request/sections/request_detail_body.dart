@@ -1,8 +1,12 @@
+import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
+import 'package:blood_donation_app/core/widgets/custom_drop_down_button_form_field.dart';
+import 'package:blood_donation_app/core/widgets/custom_label.dart';
+import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
-import '../../../../../../core/widgets/custom_drop_down_button_form_field.dart';
-import '../../../../../../core/widgets/custom_label.dart';
 import '../../../../../../l10n/app_localizations.dart';
 import '../../../../donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
 import '../../../../donor/tabs/donate/schedule_donation/widgets/input_label.dart';
@@ -15,43 +19,77 @@ class RequestDetailBody extends StatefulWidget {
 }
 
 class _RequestDetailBodyState extends State<RequestDetailBody> {
-  final List<String> bloodTypes = [
-    'A+',
-    'A-',
-    'B+',
-    'B-',
-    'O+',
-    'O-',
-    'AB+',
-    'AB-',
+  final List<String> _bloodTypes = [
+    'O+', 'O-', 'A+', 'A-',
+    'B+', 'B-', 'AB+', 'AB-',
   ];
-  late TextEditingController _unitsController;
-  String? _selectedUrgency;
+  final Set<String> _selectedBloodTypes = {};
 
-  String? _selectedBloodType;
+  late TextEditingController _unitsController;
+  late TextEditingController _contactController;
+  late TextEditingController _patientDetailsController;
+
+  String? _selectedUrgency;
+  String? _selectedPatientType;
+  DateTime? _requiredByDate;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _unitsController = TextEditingController();
+    _contactController = TextEditingController();
+    _patientDetailsController = TextEditingController();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
-    super.dispose();
     _unitsController.dispose();
+    _contactController.dispose();
+    _patientDetailsController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _pickDate() async {
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: _requiredByDate ?? DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime.now().add(const Duration(days: 365)),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: ColorScheme.light(
+              primary: ColorManger.skyBlue,
+              onPrimary: ColorManger.pureWhite,
+              surface: ColorManger.pureWhite,
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (picked != null) {
+      setState(() => _requiredByDate = picked);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final appLocalizations = AppLocalizations.of(context)!;
+    final loc = AppLocalizations.of(context)!;
+
     final List<String> urgencyLevels = [
-      appLocalizations.urgency_low,
-      appLocalizations.urgency_medium,
-      appLocalizations.urgency_high,
+      loc.urgency_low,
+      loc.urgency_medium,
+      loc.urgency_high,
     ];
+
+    final List<String> patientTypes = [
+      loc.patientTypeAdult,
+      loc.patientTypeChild,
+      loc.patientTypeInfant,
+    ];
+
     return SingleChildScrollView(
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom,
@@ -59,38 +97,174 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomLabel(text: appLocalizations.blood_type_needed),
-          SizedBox(height: 8),
-          CustomDropDownButtonFormField(
-            items: bloodTypes,
-            hintText: appLocalizations.select_blood_type,
-            onChanged: (p0) {
-              setState(() {
-                _selectedBloodType = p0!;
-              });
-            },
-            initialValue: _selectedBloodType,
+
+          CustomLabel(text: loc.bloodTypeNeededMulti),
+          SizedBox(height: 10.h),
+
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: _bloodTypes.map((type) {
+              final isSelected = _selectedBloodTypes.contains(type);
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    if (isSelected) {
+                      _selectedBloodTypes.remove(type);
+                    } else {
+                      _selectedBloodTypes.add(type);
+                    }
+                  });
+                },
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 180),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? ColorManger.brightRed
+                        : ColorManger.pureWhite,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: isSelected
+                          ? ColorManger.brightRed
+                          : ColorManger.slateGrey.withValues(alpha: 0.35),
+                      width: 1.5,
+                    ),
+                    boxShadow: isSelected
+                        ? [
+                      BoxShadow(
+                        color: ColorManger.brightRed.withValues(alpha: 0.25),
+                        blurRadius: 6,
+                        offset: const Offset(0, 2),
+                      ),
+                    ]
+                        : [],
+                  ),
+                  child: CustomText(
+                    text: type,
+                    textStyle: TextStyle(
+                      fontSize: FontSize.s13,
+                      fontWeight: isSelected
+                          ? FontWeightManager.bold
+                          : FontWeightManager.medium,
+                      color: isSelected
+                          ? ColorManger.pureWhite
+                          : ColorManger.black,
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
           ),
-          SizedBox(height: 8.h),
-          InputLabel(label: appLocalizations.units_needed),
+
+          if (_selectedBloodTypes.isNotEmpty) ...[
+            SizedBox(height: 8.h),
+            CustomText(
+              text: '${loc.selected}: ${_selectedBloodTypes.join(', ')}',
+              textStyle: TextStyle(
+                fontSize: FontSize.s12,
+                color: ColorManger.brightRed,
+                fontWeight: FontWeightManager.medium,
+              ),
+            ),
+          ],
+
+          SizedBox(height: 14.h),
+
+          InputLabel(label: loc.units_needed),
           SizedBox(height: 8.h),
           CustomTextFormField(
             textEditingController: _unitsController,
             keyboardType: TextInputType.number,
-            hintText: appLocalizations.enter_units_needed,
+            hintText: loc.enter_units_needed,
           ),
-          SizedBox(height: 8.h),
-          InputLabel(label: appLocalizations.urgency),
+
+          SizedBox(height: 14.h),
+
+          InputLabel(label: loc.urgency),
           SizedBox(height: 8.h),
           CustomDropDownButtonFormField(
             items: urgencyLevels,
-            hintText: appLocalizations.select_urgency,
-            onChanged: (p0) {
-              setState(() {
-                _selectedUrgency = p0!;
-              });
-            },
+            hintText: loc.select_urgency,
+            onChanged: (value) => setState(() => _selectedUrgency = value),
             initialValue: _selectedUrgency,
+          ),
+
+          SizedBox(height: 14.h),
+
+          InputLabel(label: loc.requiredBy),
+          SizedBox(height: 8.h),
+          GestureDetector(
+            onTap: _pickDate,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+              decoration: BoxDecoration(
+                color: ColorManger.pureWhite,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: ColorManger.slateGrey.withValues(alpha: 0.35),
+                  width: 1.5,
+                ),
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.calendar_today_outlined,
+                    size: 18,
+                    color: ColorManger.slateGrey,
+                  ),
+                  const SizedBox(width: 10),
+                  CustomText(
+                    text: _requiredByDate != null
+                        ? DateFormat('dd / MM / yyyy').format(_requiredByDate!)
+                        : loc.selectDateLabel,
+                    textStyle: TextStyle(
+                      fontSize: FontSize.s13,
+                      color: _requiredByDate != null
+                          ? ColorManger.black
+                          : ColorManger.slateGrey,
+                      fontWeight: FontWeightManager.regular,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          SizedBox(height: 14.h),
+
+          InputLabel(label: loc.patientType),
+          SizedBox(height: 8.h),
+          CustomDropDownButtonFormField(
+            items: patientTypes,
+            hintText: loc.selectPatientType,
+            onChanged: (value) => setState(() => _selectedPatientType = value),
+            initialValue: _selectedPatientType,
+          ),
+
+          SizedBox(height: 14.h),
+
+          InputLabel(label: loc.contactNumber),
+          SizedBox(height: 8.h),
+          CustomTextFormField(
+            textEditingController: _contactController,
+            keyboardType: TextInputType.phone,
+            hintText: loc.contactNumberHint,
+          ),
+
+          SizedBox(height: 14.h),
+
+          InputLabel(label: loc.patient_details),
+          SizedBox(height: 8.h),
+          CustomTextFormField(
+            textEditingController: _patientDetailsController,
+            keyboardType: TextInputType.multiline,
+            maxLines: 3,
+            hintText: loc.patientDetailsHint,
           ),
         ],
       ),

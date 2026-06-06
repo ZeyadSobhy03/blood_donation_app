@@ -344,7 +344,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get posted => 'Posted';
 
   @override
-  String get patientType => 'Patient Type';
+  String get patientType => 'PatientType';
 
   @override
   String get contact => 'Contact';
@@ -2853,4 +2853,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noDonorsFound => 'No Donors Found';
+
+  @override
+  String get patientTypeAdult => 'Adult';
+
+  @override
+  String get patientTypeChild => 'Child';
+
+  @override
+  String get patientTypeInfant => 'Infant';
+
+  @override
+  String get bloodTypeNeededMulti => 'Blood Types Needed (Select one or more)';
+
+  @override
+  String get selected => 'Selected';
+
+  @override
+  String get requiredBy => 'Required By';
+
+  @override
+  String get selectPatientType => 'Select Patient Type';
+
+  @override
+  String get contactNumber => 'Contact Number';
+
+  @override
+  String get contactNumberHint => 'e.g: 015980089';
+
+  @override
+  String get patientDetailsHint => 'e.g: needed for surgery';
+
+  @override
+  String get noHistoryFound => 'No History Found';
 }

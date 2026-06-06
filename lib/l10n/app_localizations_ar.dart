@@ -342,7 +342,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get posted => 'تاريخ النشر';
 
   @override
-  String get patientType => 'نوع المريض';
+  String get patientType => 'عمر المريض';
 
   @override
   String get contact => 'رقم الاتصال';
@@ -2839,4 +2839,37 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noDonorsFound => 'لم يتم العثور على متبرعين';
+
+  @override
+  String get patientTypeAdult => 'بالغ';
+
+  @override
+  String get patientTypeChild => 'طفل';
+
+  @override
+  String get patientTypeInfant => 'رضيع';
+
+  @override
+  String get bloodTypeNeededMulti => 'وحدات الدم المطلوبة: اختر واحدة أو أكثر';
+
+  @override
+  String get selected => 'تم اختيارها';
+
+  @override
+  String get requiredBy => 'مطلوب بتاريخ';
+
+  @override
+  String get selectPatientType => 'اختيار عمر المريض';
+
+  @override
+  String get contactNumber => 'رقم التواصل';
+
+  @override
+  String get contactNumberHint => 'مثال: 015980089';
+
+  @override
+  String get patientDetailsHint => 'مثال: مطلوب لعمل جراحي';
+
+  @override
+  String get noHistoryFound => 'لم يتم العثور على سجلات';
 }

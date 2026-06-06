@@ -932,6 +932,18 @@
 
 
   "loadMore": "تحميل المزيد",
-  "noDonorsFound": "لم يتم العثور على متبرعين"
+  "noDonorsFound": "لم يتم العثور على متبرعين",
+  "patientTypeAdult": "بالغ",
+  "patientTypeChild": "طفل",
+  "patientTypeInfant": "رضيع",
+  "bloodTypeNeededMulti": "وحدات الدم المطلوبة: اختر واحدة أو أكثر",
+  "selected": "تم اختيارها",
+  "requiredBy": "مطلوب بتاريخ",
+  "patientType": "عمر المريض",
+  "selectPatientType": "اختيار عمر المريض",
+  "contactNumber": "رقم التواصل",
+  "contactNumberHint": "مثال: 015980089",
+  "patientDetailsHint": "مثال: مطلوب لعمل جراحي",
+  "noHistoryFound": "لم يتم العثور على سجلات"
 
 }
