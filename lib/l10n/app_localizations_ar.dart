@@ -2872,4 +2872,26 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noHistoryFound => 'لم يتم العثور على سجلات';
+
+  @override
+  String get invalidUnits => 'لم يتم اختيار وحدات';
+
+  @override
+  String get update => 'تعديل';
+
+  @override
+  String get updateRequest => 'تعديل الطلب';
+
+  @override
+  String get updateRequestSubtitle => 'عدل بيانات هذا الطلب، ثم احفظ التعديلات';
+
+  @override
+  String get cancelRequestConfirmation =>
+      'هل أنت متأكد أنك تريد إلغاء هذا الطلب؟ لا يمكن التراجع بعد التنفيذ';
+
+  @override
+  String get keepRequest => 'أبقي الطلب';
+
+  @override
+  String get yesCancelRequest => 'نعم، ألغي الطلب';
 }

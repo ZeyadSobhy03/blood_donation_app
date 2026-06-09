@@ -42,4 +42,6 @@ static const String profileEndpoint = "${baseUrl}donor/profile";
 static const String hospitalLoginEndpoint = "${baseUrl}auth/hospital/login";
 static const String hospitalFindDonorsEndpoint = "${baseUrl}hospital/find-donors";
 static const String hospitalHistoryEndpoint = "${baseUrl}hospital/history";
+static const String hospitalCreateRequestEndpoint = "${baseUrl}hospital/request";
+static const String hospitalCreateEmergencyRequestEndpoint = "${baseUrl}hospital/requests/create-emergency";
 }

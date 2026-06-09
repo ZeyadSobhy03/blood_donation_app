@@ -5515,6 +5515,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No History Found'**
   String get noHistoryFound;
+
+  /// No description provided for @invalidUnits.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Units'**
+  String get invalidUnits;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
+
+  /// No description provided for @updateRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Request'**
+  String get updateRequest;
+
+  /// No description provided for @updateRequestSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit the details for this blood request, then save your changes'**
+  String get updateRequestSubtitle;
+
+  /// No description provided for @cancelRequestConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to cancel this blood request? this action can\'t be undone'**
+  String get cancelRequestConfirmation;
+
+  /// No description provided for @keepRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep Request'**
+  String get keepRequest;
+
+  /// No description provided for @yesCancelRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, Cancel Request'**
+  String get yesCancelRequest;
 }
 
 class _AppLocalizationsDelegate

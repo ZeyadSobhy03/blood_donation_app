@@ -3,6 +3,10 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/fi
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/history.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/home.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/profile.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/request/data/data_source/request_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/request/data/repositories/request_repository_imp.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/request/domain/use_cases/request_use_case.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/request/presentation/view_model/request_view_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/request/request.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -95,7 +99,17 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
         ),
         child: const FindDonor(),
       ),
-      const Request(),
+      BlocProvider(
+        create: (_) => RequestCubit(
+          requestUseCase: RequestUseCase(
+            requestRepository: RequestRepositoryImp(
+              requestRemoteDataSource: RequestApiDataSource(Dio()),
+            ),
+          ),
+          hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
+        ),
+        child: const Request(),
+      ),
       BlocProvider(
           create: (_) => HistoryCubit(
             historyUseCase: HistoryUseCase(

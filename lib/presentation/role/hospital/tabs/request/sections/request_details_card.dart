@@ -1,6 +1,5 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
-import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/request/sections/request_detail_body.dart';
 import 'package:flutter/material.dart';
@@ -40,35 +39,7 @@ class _RequestDetailsCardState extends State<RequestDetailsCard> {
               SizedBox(height: 16),
               RequestDetailBody(),
               SizedBox(height: 16),
-              CustomElevatedButton(
-                padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
 
-                backgroundColor: ColorManger.skyBlue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                elevation: 4,
-                foregroundColor: ColorManger.pureWhite,
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.favorite_border,
-                      size: 16,
-                      color: ColorManger.pureWhite,
-                    ),
-                    SizedBox(width: 8),
-                    CustomText(
-                      text: appLocalizations.submit_request,
-                      textStyle: TextStyle(
-                        fontSize: FontSize.s14,
-                        fontWeight: FontWeightManager.semiBold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
         ),

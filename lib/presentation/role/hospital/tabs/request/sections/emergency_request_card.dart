@@ -2,8 +2,10 @@ import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/request/presentation/view_model/request_view_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/request/sections/emergency_request_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../l10n/app_localizations.dart';
 
@@ -53,7 +55,9 @@ class EmergencyRequestCard extends StatelessWidget {
               onPressed: () {
                 showDialog(
                   context: context,
-                  builder: (context) => EmergencyRequestDialog(),
+                  builder: (dialogContext) => BlocProvider.value(
+                    value: context.read<RequestCubit>(),
+                    child: const EmergencyRequestDialog()),
                 );
               },
               foregroundColor: ColorManger.pureWhite,

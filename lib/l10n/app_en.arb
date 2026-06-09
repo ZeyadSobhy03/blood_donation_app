@@ -945,7 +945,14 @@
   "contactNumber": "Contact Number",
   "contactNumberHint": "e.g: 015980089",
   "patientDetailsHint": "e.g: needed for surgery",
-  "noHistoryFound": "No History Found"
+  "noHistoryFound": "No History Found",
+  "invalidUnits": "Invalid Units",
+  "update": "Update",
+  "updateRequest": "Update Request",
+  "updateRequestSubtitle": "Edit the details for this blood request, then save your changes",
+  "cancelRequestConfirmation": "Are you sure you want to cancel this blood request? this action can't be undone",
+  "keepRequest": "Keep Request",
+  "yesCancelRequest": "Yes, Cancel Request"
 
 
 

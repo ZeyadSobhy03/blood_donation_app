@@ -2886,4 +2886,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noHistoryFound => 'No History Found';
+
+  @override
+  String get invalidUnits => 'Invalid Units';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get updateRequest => 'Update Request';
+
+  @override
+  String get updateRequestSubtitle =>
+      'Edit the details for this blood request, then save your changes';
+
+  @override
+  String get cancelRequestConfirmation =>
+      'Are you sure you want to cancel this blood request? this action can\'t be undone';
+
+  @override
+  String get keepRequest => 'Keep Request';
+
+  @override
+  String get yesCancelRequest => 'Yes, Cancel Request';
 }

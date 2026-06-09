@@ -944,6 +944,13 @@
   "contactNumber": "رقم التواصل",
   "contactNumberHint": "مثال: 015980089",
   "patientDetailsHint": "مثال: مطلوب لعمل جراحي",
-  "noHistoryFound": "لم يتم العثور على سجلات"
+  "noHistoryFound": "لم يتم العثور على سجلات",
+  "invalidUnits": "لم يتم اختيار وحدات",
+  "update": "تعديل",
+  "updateRequest": "تعديل الطلب",
+  "updateRequestSubtitle": "عدل بيانات هذا الطلب، ثم احفظ التعديلات",
+  "cancelRequestConfirmation": "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟ لا يمكن التراجع بعد التنفيذ",
+  "keepRequest": "أبقي الطلب",
+  "yesCancelRequest": "نعم، ألغي الطلب"
 
 }
