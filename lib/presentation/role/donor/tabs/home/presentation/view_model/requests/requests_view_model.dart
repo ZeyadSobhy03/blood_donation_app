@@ -12,18 +12,15 @@ class RequestsCubit extends Cubit<RequestsState> {
   RequestsCubit({required this.requestsUseCase}) : super(RequestsInitialState());
 
   Future<void> fetchRequests({
-    required double latitude,
-    required double longitude,
-    required String bloodType,
-    required int radius,
+    required int limit,
+    required int  page,
+
   }) async {
     emit(RequestsLoadingState());
     try {
       final requestsModel = await requestsUseCase.getRequests(
-        latitude: latitude,
-        longitude: longitude,
-        bloodType: bloodType,
-        radius: radius,
+        limit: limit,
+        page: page,
       );
       emit(RequestsSuccessState(requestsModel));
     } on NetworkTimeoutException {

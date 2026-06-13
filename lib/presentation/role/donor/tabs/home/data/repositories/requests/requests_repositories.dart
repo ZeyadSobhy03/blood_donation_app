@@ -6,10 +6,9 @@ abstract class RequestsRepositories {
 
 
   Future<RequestsModel>getRequests({
-    required double latitude,
-    required double longitude,
-    required String bloodType,
-    required int radius,
+    required int limit,
+    required int page,
+
   });
   Future<RequestAcceptModel>acceptRequest({required String requestId});
   Future<RequestCancelModel> cancelRequest({required String requestId});

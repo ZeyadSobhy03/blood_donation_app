@@ -218,18 +218,14 @@ class _RequestScreenState extends State<RequestScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: HospitalInfoCard(
-                    distance: urgentRequest?.distanceKm != null
-                        ? appLocalizations.kmAway(
-                        urgentRequest!.distanceKm!.toStringAsFixed(1))
-                        : urgentRequest?.distance ??
-                        appLocalizations.gettingDistance,
+                    distance: urgentRequest?.hospital?.address ?? '',
                     hospitalName: urgentRequest?.hospitalName ?? '',
                     unitsNeeded:
                     '${urgentRequest?.unitsNeeded ?? 0} ${appLocalizations.units}',
                     onNavigate: _openDirections,
                     iconColor: ColorManger.brightRed,
                     location:
-                    "${urgentRequest?.hospital?.address?.city ?? ''}, ${urgentRequest?.hospital?.address?.governorate ?? ''}",
+                    urgentRequest?.hospital?.address?? '',
                   ),
                 ),
 
@@ -239,14 +235,14 @@ class _RequestScreenState extends State<RequestScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: RequestDetailsSection(
                     posted: formatTimeAgo(_createdAt),
-                    contact: urgentRequest?.contactNumber ?? '',
-                    patientType: urgentRequest?.patientType?.toString() ?? '',
+                    contact: urgentRequest?.hospital?.contactNumber ?? '',
+                    patientType: "urgentRequest?",
                   ),
                 ),
 
                 SizedBox(height: 8.h),
 
-                QrCodeCard(qrToken: urgentRequest?.qrToken ?? ''),
+               // QrCodeCard(qrToken: urgentRequest?.qrToken ?? ''),
 
                 SizedBox(height: 8.h),
 
@@ -274,7 +270,7 @@ class _RequestScreenState extends State<RequestScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child:  ResponseMattersSection(
                     bloodType: urgentRequest?.bloodType?? [],
-                    patientType: urgentRequest?.patientType ?? '',
+                    patientType: urgentRequest?.urgency ?? '',
                     unitsNeeded: urgentRequest?.unitsNeeded ?? 0,
                   ),
                 ),

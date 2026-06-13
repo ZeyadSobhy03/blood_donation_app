@@ -1,10 +1,11 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/widgets/insight_card.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../l10n/app_localizations.dart';
+import '../widgets/insight_card.dart';
+
 
 class AiInsightsCard extends StatelessWidget {
   const AiInsightsCard({super.key});

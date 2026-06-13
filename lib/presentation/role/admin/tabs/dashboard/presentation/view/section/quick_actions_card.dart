@@ -1,11 +1,12 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/widgets/quick_action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../l10n/app_localizations.dart';
+import '../widgets/quick_action_button.dart';
+
 
 class QuickActionsCard extends StatelessWidget {
   const QuickActionsCard({

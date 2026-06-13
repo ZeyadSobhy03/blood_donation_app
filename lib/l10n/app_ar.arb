@@ -1134,6 +1134,8 @@
   "notEligible": "غير مؤهل",
   "reason": "السبب",
   "canDonate": "يمكن التبرع",
-  "login_successful": "تم تسجيل الدخول بنجاح! مرحبًا بك "
+  "login_successful": "تم تسجيل الدخول بنجاح! مرحبًا بك ",
+  "noDonorsFound": "لم يتم العثور على متبرعين",
+  "noDataFound": "لم يتم العثور على بيانات"
 
 }

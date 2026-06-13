@@ -4,8 +4,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../../../core/resources/colors/color_manger.dart';
-import '../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../core/resources/colors/color_manger.dart';
+import '../../../../../../../../l10n/app_localizations.dart';
+
 
 class WeeklyTrendsChart extends StatelessWidget {
   const WeeklyTrendsChart({super.key});

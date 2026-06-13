@@ -3267,4 +3267,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get login_successful => 'Login successful! Welcome back.';
+
+  @override
+  String get noDonorsFound => 'No donors found';
+
+  @override
+  String get noDataFound => 'No data found';
 }

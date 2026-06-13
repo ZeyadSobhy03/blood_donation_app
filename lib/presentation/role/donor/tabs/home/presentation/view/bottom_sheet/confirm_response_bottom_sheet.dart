@@ -163,7 +163,7 @@ void showConfirmResponseBottomSheet(
                       backgroundColor: ColorManger.lightRed,
                       dotColor: ColorManger.brightRed,
                       title: request.hospitalName ?? '',
-                      location: request.hospital?.address?.city ?? '',
+                      location: request.hospital?.address ?? '',
                       time: formatTimeAgo(createdAt, sheetContext),
                       buttonBackgroundColor: ColorManger.brightRed,
                     ),

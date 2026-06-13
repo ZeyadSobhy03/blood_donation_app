@@ -3251,4 +3251,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get login_successful => 'تم تسجيل الدخول بنجاح! مرحبًا بك ';
+
+  @override
+  String get noDonorsFound => 'لم يتم العثور على متبرعين';
+
+  @override
+  String get noDataFound => 'لم يتم العثور على بيانات';
 }

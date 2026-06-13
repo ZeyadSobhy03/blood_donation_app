@@ -10,8 +10,8 @@ class RequestsRepositoriesImp  implements RequestsRepositories{
   RequestsRepositoriesImp({required this.requestsRemoteDataSource});
 
   @override
-  Future<RequestsModel> getRequests({required double latitude, required double longitude, required String bloodType, required int radius}) {
-    return requestsRemoteDataSource.getRequests(latitude: latitude, longitude: longitude, bloodType: bloodType, radius: radius);
+  Future<RequestsModel> getRequests({required int limit, required int page}) {
+return requestsRemoteDataSource.getRequests(limit: limit, page: page);
   }
 
   @override

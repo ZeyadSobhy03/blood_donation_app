@@ -5,6 +5,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/data_s
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_accept_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_cancel_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/requests_model.dart';
+
 import 'package:dio/dio.dart';
 
 class RequestsApiDataSource implements RequestsRemoteDataSource {
@@ -15,20 +16,17 @@ class RequestsApiDataSource implements RequestsRemoteDataSource {
 
   @override
   Future<RequestsModel> getRequests({
-    required double latitude,
-    required double longitude,
-    required String bloodType,
-    required int radius,
+    required int limit,
+    required int page,
+
   }) async {
     try {
       final token = await authLocalDataSource.getAccessToken();
       final response = await dio.get(
         ApiManger.requestsNearbyEndPoint,
         queryParameters: {
-          'lat': latitude,
-          'lng': longitude,
-          'bloodType': bloodType,
-          'radius': radius,
+          'limit': limit,
+          'page': page,
         },
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );

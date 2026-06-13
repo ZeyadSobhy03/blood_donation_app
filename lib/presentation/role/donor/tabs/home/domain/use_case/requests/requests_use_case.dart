@@ -9,16 +9,14 @@ class RequestsUseCase {
   final RequestsRepositories repository;
   RequestsUseCase({required this.repository});
   Future<RequestsModel>getRequests({
-    required double latitude,
-    required double longitude,
-    required String bloodType,
-    required int radius,
+    required int limit,
+    required int page,
+
   })  {
     return repository.getRequests(
-      latitude: latitude,
-      longitude: longitude,
-      bloodType: bloodType,
-      radius: radius,
+      limit: limit,
+      page: page,
+
     );
   }
   Future<RequestAcceptModel>acceptRequest({required String requestId}) {

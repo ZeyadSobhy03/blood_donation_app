@@ -6191,6 +6191,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Login successful! Welcome back.'**
   String get login_successful;
+
+  /// No description provided for @noDonorsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No donors found'**
+  String get noDonorsFound;
+
+  /// No description provided for @noDataFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No data found'**
+  String get noDataFound;
 }
 
 class _AppLocalizationsDelegate

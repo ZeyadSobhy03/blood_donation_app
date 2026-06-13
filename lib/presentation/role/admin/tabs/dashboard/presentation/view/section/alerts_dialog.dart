@@ -1,13 +1,14 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/section/alert_card.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/section/quick_actions_card.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/widgets/info_tile.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/presentation/view/section/quick_actions_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/request_header.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/resources/constant/constant_manger.dart';
-import '../../../../../../core/resources/models/alert.dart';
-import '../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../core/resources/constant/constant_manger.dart';
+import '../../../../../../../../core/resources/models/alert.dart';
+import '../../../../../../../../l10n/app_localizations.dart';
+
+import '../widgets/info_tile.dart';
+import 'alert_card.dart';
 
 class AlertsDialog extends StatelessWidget {
   const AlertsDialog({super.key, required this.alert});

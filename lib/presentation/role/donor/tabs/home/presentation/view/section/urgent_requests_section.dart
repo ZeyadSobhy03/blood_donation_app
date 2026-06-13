@@ -133,7 +133,7 @@ class _UrgentRequestsSectionState extends State<UrgentRequestsSection> {
                       ? ColorManger.brightRed
                       : ColorManger.orange,
                   title: request.hospitalName ?? '',
-                  location: request.distance ??
+                  location: request.hospital?.address ??
                       AppLocalizations.of(context)!.gettingDistance,
                   time: formatTimeAgo(createdAt),
                   buttonBackgroundColor: isEmergency

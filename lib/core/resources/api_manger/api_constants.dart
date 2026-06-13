@@ -55,7 +55,7 @@ class ApiManger {
   static  String redeemRewardEndpoint(String rewardId) {
     return "${baseUrl}rewards/catalog/$rewardId/redeem";
   }
-  static const String requestsNearbyEndPoint = "${baseUrl}requests/nearby";
+  static const String requestsNearbyEndPoint = "${baseUrl}donor/matches";
   static String acceptRequestEndpoint(String requestId) {
     return "${baseUrl}donor/respond/$requestId";
   }
@@ -99,4 +99,10 @@ static const String saveFcmTokenEndpoint = "${baseUrl}auth/fcm-token";
 // https://graduation-project-cy61.onrender.com/donations/book-appointment/available-slots
 /////////////////////////// admin /////////////////////////////////
 static const String adminLoginEndPoint="${baseUrl}auth/admin/login";
+static const String systemHealthEndpoint="${baseUrl}admin/system/health";
+static const String analyticsDashboardEndpoint="${baseUrl}analytics/dashboard";
+//analytics/donations
+static const String analyticsDonationsEndpoint="${baseUrl}analytics/donations";
+//admin/analytics/top-donors
+static const String topDonorsEndpoint="${baseUrl}admin/analytics/top-donors";
 }

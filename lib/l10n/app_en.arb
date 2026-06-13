@@ -1144,7 +1144,9 @@
   "notEligible": "Not Eligible",
   "reason": "Reason",
   "canDonate": "Can donate",
-  "login_successful": "Login successful! Welcome back."
+  "login_successful": "Login successful! Welcome back.",
+  "noDonorsFound": "No donors found",
+  "noDataFound": "No data found"
 
 
 }

@@ -4,7 +4,7 @@ import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../l10n/app_localizations.dart';
 
 class BloodTypeChart extends StatelessWidget {
   const BloodTypeChart({super.key});

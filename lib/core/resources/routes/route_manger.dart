@@ -22,7 +22,7 @@ import '../../../presentation/maps/maps.dart';
 import '../../../presentation/role/admin/tabs/admin_main_layout.dart';
 import '../../../presentation/role/admin/tabs/admin_requests/admin_request.dart';
 import '../../../presentation/role/admin/tabs/analytics/analytics.dart';
-import '../../../presentation/role/admin/tabs/dashboard/dashboard.dart';
+import '../../../presentation/role/admin/tabs/dashboard/presentation/view/dashboard.dart';
 import '../../../presentation/role/admin/tabs/system_settings/system_settings.dart';
 import '../../../presentation/role/admin/tabs/users/users.dart';
 import '../../../presentation/role/donor/tabs/donate/section/appointment_details.dart';

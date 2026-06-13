@@ -3,11 +3,11 @@ import 'package:blood_donation_app/core/resources/constant/constant_manger.dart'
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/models/alert.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/section/alerts_dialog.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/widgets/alert.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../l10n/app_localizations.dart';
+import '../widgets/alert.dart';
+import 'alerts_dialog.dart';
 
 class CriticalAlerts extends StatelessWidget {
   const CriticalAlerts({super.key});

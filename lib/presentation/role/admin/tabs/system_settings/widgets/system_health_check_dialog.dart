@@ -4,12 +4,27 @@ import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/widgets/system_status_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/request_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../l10n/app_localizations.dart';
+import '../data/model/system_health_model.dart';
+import '../presentation/view_model/system_health_view_model.dart';
 
-class SystemHealthCheckDialog extends StatelessWidget {
+class SystemHealthCheckDialog extends StatefulWidget {
   const SystemHealthCheckDialog({super.key});
+
+  @override
+  State<SystemHealthCheckDialog> createState() => _SystemHealthCheckDialogState();
+}
+
+class _SystemHealthCheckDialogState extends State<SystemHealthCheckDialog> {
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<SystemHealthCubit>().fetchSystemHealth();
+  }
 
   Color getStatusColor(SystemStatusType statusType) {
     switch (statusType) {
@@ -33,19 +48,40 @@ class SystemHealthCheckDialog extends StatelessWidget {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
+  List<SystemStatus> _buildStatusList(
+      BuildContext context,
+      Data data,
+      ) {
     final appLocalization = AppLocalizations.of(context)!;
-    final List<SystemStatus> statusList = [
+
+    final dbType = data.database == 'connected'
+        ? SystemStatusType.health
+        : SystemStatusType.warning;
+
+    final serverType = data.status == 'healthy'
+        ? SystemStatusType.health
+        : SystemStatusType.warning;
+
+    final memoryType = SystemStatusType.health;
+
+    final uptimeHours = data.uptime != null
+        ? '${(data.uptime! / 3600).toStringAsFixed(1)}h uptime'
+        : appLocalization.uptime99_9;
+
+    final memoryText = (data.memory?.used != null && data.memory?.total != null)
+        ? '${data.memory!.used} / ${data.memory!.total}'
+        : appLocalization.usedStorage;
+
+    return [
       SystemStatus(
         title: appLocalization.databaseConnection,
-        subtitle: appLocalization.responseTime45ms,
-        type: SystemStatusType.health,
+        subtitle: data.database ?? appLocalization.responseTime45ms,
+        type: dbType,
       ),
       SystemStatus(
         title: appLocalization.apiServer,
-        type: SystemStatusType.health,
-        subtitle: appLocalization.uptime99_9,
+        subtitle: uptimeHours,
+        type: serverType,
       ),
       SystemStatus(
         title: appLocalization.notificationService,
@@ -59,10 +95,16 @@ class SystemHealthCheckDialog extends StatelessWidget {
       ),
       SystemStatus(
         title: appLocalization.storage,
-        type: SystemStatusType.health,
-        subtitle: appLocalization.usedStorage,
+        type: memoryType,
+        subtitle: memoryText,
       ),
     ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final appLocalization = AppLocalizations.of(context)!;
+
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       shape: RoundedRectangleBorder(
@@ -83,28 +125,74 @@ class SystemHealthCheckDialog extends StatelessWidget {
                   subtitle: appLocalization.runComprehensiveHealthCheck,
                 ),
                 const SizedBox(height: 20),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: statusList.length,
-                  itemBuilder: (context, index) {
-                    final item = statusList[index];
-                    final statusText = item.type == SystemStatusType.health
-                        ? appLocalization.healthy
-                        : appLocalization.warning;
-                    final bgColor = getStatusBgColor(item.type);
-                    final statusColor = getStatusColor(item.type);
 
-                    return SystemStatusCard(
-                      title: item.title,
-                      subtitle: item.subtitle,
-                      status: statusText,
-                      bgColor: bgColor,
-                      statusColor: statusColor,
-                    );
+                // ─── BlocBuilder ──────────────────────────────────────
+                BlocBuilder<SystemHealthCubit, SystemHealthState>(
+                  builder: (context, state) {
+                    if (state is SystemHealthLoadingState) {
+                      return const Center(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 40),
+                          child: CircularProgressIndicator(),
+                        ),
+                      );
+                    }
+
+                    if (state is SystemHealthErrorState) {
+                      return Center(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 40),
+                          child: Column(
+                            children: [
+                              Icon(Icons.error_outline,
+                                  color: ColorManger.orange, size: 40),
+                              const SizedBox(height: 8),
+                              Text(
+                                state.errorKey,
+                                style: TextStyle(color: ColorManger.grey400),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }
+
+                    if (state is SystemHealthSuccessState) {
+                      final statusList = _buildStatusList(
+                        context,
+                        state.systemHealthModel.data!,
+                      );
+
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: statusList.length,
+                        itemBuilder: (context, index) {
+                          final item = statusList[index];
+                          final statusText = item.type == SystemStatusType.health
+                              ? appLocalization.healthy
+                              : appLocalization.warning;
+                          final bgColor = getStatusBgColor(item.type);
+                          final statusColor = getStatusColor(item.type);
+
+                          return SystemStatusCard(
+                            title: item.title,
+                            subtitle: item.subtitle,
+                            status: statusText,
+                            bgColor: bgColor,
+                            statusColor: statusColor,
+                          );
+                        },
+                      );
+                    }
+
+                    return const SizedBox.shrink();
                   },
                 ),
+
                 const SizedBox(height: 30),
+
+                // ─── Buttons ──────────────────────────────────────────
                 Row(
                   children: [
                     Expanded(
@@ -112,8 +200,10 @@ class SystemHealthCheckDialog extends StatelessWidget {
                         elevation: 0,
                         backgroundColor: ColorManger.pureWhite,
                         foregroundColor: ColorManger.black,
-                        onPressed: () {},
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        onPressed: () =>
+                            context.read<SystemHealthCubit>().fetchSystemHealth(),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                           side: BorderSide(color: ColorManger.lightGrey),
@@ -134,17 +224,17 @@ class SystemHealthCheckDialog extends StatelessWidget {
                         elevation: 0,
                         backgroundColor: ColorManger.brightPurple,
                         foregroundColor: ColorManger.pureWhite,
-                        onPressed: () {},
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        onPressed: () => Navigator.pop(context),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: CustomText(text: appLocalization.completeCheck),
                       ),
-                    )
+                    ),
                   ],
-                )
-                
+                ),
               ],
             ),
           ),

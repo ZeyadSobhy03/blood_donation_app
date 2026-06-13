@@ -74,10 +74,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         : 'O+';
 
     context.read<RequestsCubit>().fetchRequests(
-      latitude: mapState.latitude,
-      longitude: mapState.longitude,
-      bloodType: bloodType,
-      radius: 500,
+      limit: 10,
+      page: 2
     );
   }
 
@@ -381,7 +379,7 @@ class _RequestsSection extends StatelessWidget {
       child: BlocBuilder<RequestsCubit, RequestsState>(
         builder: (context, state) {
           final isLoading = state is RequestsLoadingState;
-          final List<Requests> requests=state is RequestsSuccessState ? state.requestsModel.data?.requests ?? [] : [];
+          final List<Requests> requests=state is RequestsSuccessState ? state.requestsModel.data?.requestsList ?? [] : [];
 
 
 

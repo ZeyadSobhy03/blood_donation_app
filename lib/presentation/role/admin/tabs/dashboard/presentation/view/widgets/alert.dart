@@ -3,8 +3,10 @@ import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/extension/data_ex.dart';
-import '../../../../../../core/resources/models/alert.dart';
+import '../../../../../../../../core/extension/data_ex.dart';
+import '../../../../../../../../core/resources/models/alert.dart';
+
+
 
 class Alert extends StatelessWidget {
   const Alert({
