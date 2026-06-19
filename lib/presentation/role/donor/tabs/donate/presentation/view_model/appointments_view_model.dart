@@ -5,6 +5,8 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/mode
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../core/errors/app_exceptions.dart';
+import '../../../../../../../core/utils/error_localizer.dart';
+import '../../data/model/rescheduled_appointment_model.dart';
 import '../../domain/use_case/appointments_use_case.dart';
 
 class AppointmentsCubit extends Cubit<AppointmentsState> {
@@ -70,6 +72,43 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
       emit(AppointmentsErrorState('unknown_error'));
     }
   }
+  Future<void> rescheduleAppointment({
+    required String appointmentId,
+    required String appointmentDate,
+    required String donationType,
+    required String notes,
+  }) async {
+    emit(RescheduleAppointmentLoadingState());
+    try {
+      final result = await appointmentsUseCase.rescheduleAppointment(
+        appointmentId: appointmentId,
+        appointmentDate: appointmentDate,
+        donationType: donationType,
+        notes: notes,
+      );
+      if (result.success == true) {
+        emit(RescheduleAppointmentSuccessState(result));
+        await fetchAppointments();
+      } else {
+        emit(RescheduleAppointmentErrorState('failed_to_reschedule_appointment'));
+      }
+    } on NetworkTimeoutException {
+      emit(RescheduleAppointmentErrorState('network_timeout'));
+    } on ServerException catch (e) {
+      emit(RescheduleAppointmentErrorState(mapServerErrorToKey(e.serverMessage)));
+    } on UnauthorizedException {
+      emit(RescheduleAppointmentErrorState('unauthorized'));
+    } on NotFoundException {
+      emit(RescheduleAppointmentErrorState('not_found'));
+    } on RequestCancelledException {
+      emit(RescheduleAppointmentErrorState('request_cancelled'));
+    } on UnknownNetworkException {
+      emit(RescheduleAppointmentErrorState('unknown_error'));
+    } catch (e) {
+      log('Unknown error while rescheduling appointment: $e');
+      emit(RescheduleAppointmentErrorState('unknown_error'));
+    }
+  }
 
   Future<void> bookAppointment({
     required String hospitalId,
@@ -95,7 +134,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
       log('Network timeout while booking appointment');
       emit(BookAppointmentErrorState('network_timeout'));
     } on ServerException catch (e) {
-        log('Server error while booking appointment: ${e.serverMessage}');
+      log('Server error while booking appointment: ${e.serverMessage}');
       emit(BookAppointmentErrorState(e.serverMessage ?? 'server_error'));
     } on UnauthorizedException {
       emit(BookAppointmentErrorState('unauthorized'));
@@ -137,4 +176,15 @@ class BookAppointmentSuccessState extends AppointmentsState {
 class BookAppointmentErrorState extends AppointmentsState {
   final String error;
   BookAppointmentErrorState(this.error);
+}
+class RescheduleAppointmentLoadingState extends AppointmentsState {}
+
+class RescheduleAppointmentSuccessState extends AppointmentsState {
+  final RescheduledAppointmentModel rescheduledAppointmentModel;
+  RescheduleAppointmentSuccessState(this.rescheduledAppointmentModel);
+}
+
+class RescheduleAppointmentErrorState extends AppointmentsState {
+  final String error;
+  RescheduleAppointmentErrorState(this.error);
 }

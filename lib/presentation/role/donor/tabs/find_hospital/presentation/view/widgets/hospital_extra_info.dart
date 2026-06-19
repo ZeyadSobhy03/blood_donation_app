@@ -12,7 +12,7 @@ class HospitalExtraInfo extends StatelessWidget {
     required this.urgentNeedsCount,
   });
 
-  final num distanceKm;
+  final double distanceKm;
   final int urgentNeedsCount;
 
   @override
@@ -22,9 +22,9 @@ class HospitalExtraInfo extends StatelessWidget {
       children: [
         InfoRow(
           icon: Icons.location_on_outlined,
-          text: appLocalization.distanceKm(distanceKm.toStringAsFixed(1)),
+          text: appLocalization.distanceKm(distanceKm.toStringAsFixed(0)),
         ),
-        SizedBox(width: 12.w),
+        SizedBox(width: 10.w),
         InfoRow(
           icon: Icons.favorite_border,
           text: appLocalization.urgentNeeds(urgentNeedsCount),

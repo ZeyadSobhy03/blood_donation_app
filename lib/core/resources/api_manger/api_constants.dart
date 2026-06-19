@@ -55,10 +55,15 @@ class ApiManger {
   static  String redeemRewardEndpoint(String rewardId) {
     return "${baseUrl}rewards/catalog/$rewardId/redeem";
   }
-  static const String requestsNearbyEndPoint = "${baseUrl}donor/matches";
+  // donations/book-appointment/69fe540565ff7785a031315c
+  static  String rescheduleAppointmentEndpoint(String appointmentId) {
+    return "${baseUrl}donations/book-appointment/$appointmentId";
+  }
+  static const String requestsEndPoint = "${baseUrl}donor/requests";
   static String acceptRequestEndpoint(String requestId) {
     return "${baseUrl}donor/respond/$requestId";
   }
+ static const String requestAcceptEndpoint = "${baseUrl}requests/accepted";
   static String cancelRequestEndpoint(String requestId) {
     return "${baseUrl}requests/$requestId/cancel";
   }
@@ -100,7 +105,35 @@ static const String saveFcmTokenEndpoint = "${baseUrl}auth/fcm-token";
 /////////////////////////// admin /////////////////////////////////
 static const String adminLoginEndPoint="${baseUrl}auth/admin/login";
 static const String systemHealthEndpoint="${baseUrl}admin/system/health";
-static const String analyticsDashboardEndpoint="${baseUrl}analytics/dashboard";
+static const String analyticsDashboardEndpoint="${baseUrl}admin/dashboard";
+static const String adminProfileEndpoint="${baseUrl}admin/profile";
+//admin/requests
+static const String adminRequestsEndpoint="${baseUrl}admin/requests";
+// admin/requests/69fe540565ff7785a031314f/fulfill
+static String fulfillRequestEndpoint(String requestId) {
+  return "${baseUrl}admin/requests/$requestId/fulfill";
+}
+// https://graduation-project-cy61.onrender.com/admin/requests/69fe540565ff7785a031314f/cancel
+static String adminCancelRequestsEndpoint(String requestId) {
+  return "${baseUrl}admin/requests/$requestId/cancel";
+}
+// https://graduation-project-cy61.onrender.com/admin/requests/69fe540565ff7785a031314f/broadcast
+static String broadcastRequestEndpoint(String requestId) {
+  return "${baseUrl}admin/requests/$requestId/broadcast";
+}
+// analytics/overview
+static const String analyticsOverviewEndpoint="${baseUrl}analytics/overview";
+// admin/users
+static const String adminUsersEndpoint="${baseUrl}admin/users";
+static  String deleteUserEndpoint(String userId) {
+  return "${baseUrl}admin/users/$userId";
+}
+static String banUserEndpoint(String userId) {
+  return "${baseUrl}admin/users/$userId/ban";
+}
+static String unbanUserEndpoint(String userId) {
+  return "${baseUrl}admin/users/$userId/unban";
+}
 //analytics/donations
 static const String analyticsDonationsEndpoint="${baseUrl}analytics/donations";
 //admin/analytics/top-donors

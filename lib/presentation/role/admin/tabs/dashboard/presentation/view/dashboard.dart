@@ -33,21 +33,41 @@ class _DashboardState extends State<Dashboard> {
     context.read<AnalyticsCubit>().fetchAnalytics();
   }
 
+  List<String> _buildXLabels(
+      List<String>? apiLabels,
+      int count,
+      AppLocalizations loc,
+      ) {
+    if (apiLabels != null && apiLabels.isNotEmpty) {
+      if (loc.localeName.startsWith('ar')) {
+        const Map<String, String> dayMap = {
+          'Mon': 'الاثنين',
+          'Tue': 'الثلاثاء',
+          'Wed': 'الأربعاء',
+          'Thu': 'الخميس',
+          'Fri': 'الجمعة',
+          'Sat': 'السبت',
+          'Sun': 'الأحد',
+        };
+        return apiLabels.map((l) => dayMap[l] ?? l).toList();
+      }
+      return apiLabels;
+    }
+
+    final startDate = DateTime.now().subtract(Duration(days: count - 1));
+    final useFullDayName = loc.localeName.startsWith('ar');
+    return List<String>.generate(count, (index) {
+      final date = startDate.add(Duration(days: index));
+      return useFullDayName
+          ? DateFormat.EEEE(loc.localeName).format(date)
+          : DateFormat.E(loc.localeName).format(date);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     final appLocalization = AppLocalizations.of(context)!;
-
-    final values = [44.0, 52.0, 48.0, 61.0, 55.0, 67.0, 43.0];
-    final startDate =
-    DateTime.now().subtract(Duration(days: values.length - 1));
-    final useFullDayName = appLocalization.localeName.startsWith('ar');
-    final xLabels = List<String>.generate(7, (index) {
-      final date = startDate.add(Duration(days: index));
-      return useFullDayName
-          ? DateFormat.EEEE(appLocalization.localeName).format(date)
-          : DateFormat.E(appLocalization.localeName).format(date);
-    });
 
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
@@ -63,6 +83,7 @@ class _DashboardState extends State<Dashboard> {
                 BlocBuilder<AnalyticsCubit, AnalyticsState>(
                   builder: (context, state) {
                     log('Analytics State: $state');
+
                     if (state is AnalyticsLoadingState) {
                       return CustomLoadingWidget(
                         indicatorColor: ColorManger.royalBlue,
@@ -70,9 +91,15 @@ class _DashboardState extends State<Dashboard> {
                     }
 
                     if (state is AnalyticsErrorState) {
-                      return CustomErrorWidget(message: localizeError(state.errorMessage, appLocalization), onRetry: () {
-                        context.read<AnalyticsCubit>().fetchAnalytics();
-                      },);
+                      return CustomErrorWidget(
+                        message: localizeError(
+                          state.errorMessage,
+                          appLocalization,
+                        ),
+                        onRetry: () {
+                          context.read<AnalyticsCubit>().fetchAnalytics();
+                        },
+                      );
                     }
 
                     final data = state is AnalyticsSuccessState
@@ -82,75 +109,95 @@ class _DashboardState extends State<Dashboard> {
                     final List<StateModel> stateModels = [
                       StateModel(
                         text: appLocalization.totalDonors,
-                        totalDonor: data?.users?.donors ?? 0,
-                        percentage: '+12%',
+                        totalDonor: data?.totalDonors ?? 0,
+                        percentage: data?.totalDonorsGrowth ?? '+0%',
                         icon: Icons.group,
                         color: ColorManger.royalBlue,
                         backgroundColor: ColorManger.lightBlue,
                       ),
                       StateModel(
                         text: appLocalization.activeRequests,
-                        totalDonor: data?.requests?.active ?? 0,
-                        percentage: '+5%',
+                        totalDonor: data?.activeRequests ?? 0,
+                        percentage: data?.activeRequestsGrowth ?? '-0%',
                         icon: Icons.favorite,
                         color: ColorManger.brightRed,
                         backgroundColor: ColorManger.lightRed,
                       ),
                       StateModel(
                         text: appLocalization.criticalCases,
-                        totalDonor: data?.requests?.critical ?? 0,
-                        percentage: '-2%',
+                        totalDonor: data?.criticalCases ?? 0,
+                        percentage: data?.criticalCasesGrowth ?? '+0%',
                         icon: Icons.warning,
                         color: ColorManger.orange,
                         backgroundColor: ColorManger.lightOrange,
                       ),
                       StateModel(
                         text: appLocalization.successfulDonations,
-                        totalDonor: data?.donations?.completed ?? 0,
-                        percentage: '+8%',
+                        totalDonor: data?.successfulDonations ?? 0,
+                        percentage: data?.successfulDonationsGrowth ?? '+0%',
                         icon: Icons.trending_up,
                         color: ColorManger.green,
                         backgroundColor: ColorManger.lightGreen,
                       ),
                     ];
 
-                    return GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: stateModels.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisSpacing: 8,
-                        mainAxisSpacing: 8,
-                        crossAxisCount: screenWidth > 600 ? 4 : 2,
-                      ),
-                      itemBuilder: (context, index) {
-                        final stateModel = stateModels[index];
-                        return StateCard(
-                          backgroundColor: stateModel.backgroundColor,
-                          color: stateModel.color,
-                          text: stateModel.text,
-                          icon: stateModel.icon,
-                          percentage: stateModel.percentage,
-                          totalDonor: stateModel.totalDonor,
-                        );
-                      },
+                    final weeklyValues = data?.weeklyTrends?.values
+                        ?.map((v) => v.toDouble())
+                        .toList() ??
+                        [];
+
+                    final xLabels = _buildXLabels(
+                      data?.weeklyTrends?.labels,
+                      weeklyValues.isEmpty ? 7 : weeklyValues.length,
+                      appLocalization,
+                    );
+
+                    return Column(
+                      children: [
+                        GridView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: stateModels.length,
+                          gridDelegate:
+                          SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8,
+                            crossAxisCount: screenWidth > 600 ? 4 : 2,
+                          ),
+                          itemBuilder: (context, index) {
+                            final stateModel = stateModels[index];
+                            return StateCard(
+                              backgroundColor: stateModel.backgroundColor,
+                              color: stateModel.color,
+                              text: stateModel.text,
+                              icon: stateModel.icon,
+                              percentage: stateModel.percentage,
+                              totalDonor: stateModel.totalDonor,
+                            );
+                          },
+                        ),
+
+                        const SizedBox(height: 20),
+                        CriticalAlerts(),
+                        const SizedBox(height: 20),
+                        BloodTypeChart(),
+                        const SizedBox(height: 20),
+
+                        CustomTrendsChart(
+                          values: weeklyValues,
+                          title: appLocalization.weeklyTrends,
+                          xLabels: xLabels,
+                        ),
+
+                        const SizedBox(height: 20),
+                        AiInsightsCard(),
+                        const SizedBox(height: 20),
+                        TopDonorsCard(),
+                        const SizedBox(height: 20),
+                      ],
                     );
                   },
                 ),
-                const SizedBox(height: 20),
-                CriticalAlerts(),
-                const SizedBox(height: 20),
-                BloodTypeChart(),
-                const SizedBox(height: 20),
-                CustomTrendsChart(
-                  values: values,
-                  title: appLocalization.weeklyTrends,
-                  xLabels: xLabels,
-                ),
-                const SizedBox(height: 20),
-                AiInsightsCard(),
-                const SizedBox(height: 20),
-                TopDonorsCard(),
               ],
             ),
           ),

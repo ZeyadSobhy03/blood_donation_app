@@ -17,7 +17,6 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../../../../l10n/app_localizations.dart';
 import '../../../../../core/resources/models/coordinates.dart';
 import '../../../../../core/resources/routes/route_manger.dart';
-import '../donate/section/qr_code_card.dart';
 import '../home/presentation/view_model/requests/accept_request_view_model.dart';
 import '../home/presentation/view_model/requests/cancel_request_view_model.dart';
 
@@ -67,7 +66,6 @@ class _RequestScreenState extends State<RequestScreen> {
     }
   }
 
-  // ── Accept ──────────────────────────────────────────────────────────────────
   void _handleAccept(BuildContext context) {
     final requestId = urgentRequest?.id ?? '';
     log('Accepting request with ID: $requestId');
@@ -75,7 +73,6 @@ class _RequestScreenState extends State<RequestScreen> {
     context.read<AcceptRequestCubit>().acceptRequest(requestId: requestId);
   }
 
-  // ── Cancel ──────────────────────────────────────────────────────────────────
   void _handleCancel(BuildContext context) {
     final requestId = urgentRequest?.id ?? '';
     log('Cancelling request with ID: $requestId');

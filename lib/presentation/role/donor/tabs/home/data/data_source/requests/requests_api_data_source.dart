@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
 import 'package:blood_donation_app/core/utils/dio_error_handler.dart';
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/data/data_source/local_data_source/auth_hive_data_source.dart';
@@ -23,15 +25,19 @@ class RequestsApiDataSource implements RequestsRemoteDataSource {
     try {
       final token = await authLocalDataSource.getAccessToken();
       final response = await dio.get(
-        ApiManger.requestsNearbyEndPoint,
+        ApiManger.requestsEndPoint,
         queryParameters: {
           'limit': limit,
           'page': page,
         },
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
+      log('Fetched requests: ${response.data}');
+
+
       return RequestsModel.fromJson(response.data);
     } on DioException catch (e) {
+      log('Error fetching requests: ${e.message}');
       handleDioError(e);
       rethrow;
     } catch (e) {

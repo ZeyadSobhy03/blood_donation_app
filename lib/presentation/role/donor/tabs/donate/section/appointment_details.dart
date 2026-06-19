@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/extension/data_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../../../../../core/utils/appointment_status_utils.dart';
 import '../../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../../../core/widgets/custom_note_card.dart';
 import '../../../../../../l10n/app_localizations.dart';
@@ -23,7 +25,6 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
   late final Appointments appointment;
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
     super.didChangeDependencies();
     final args = ModalRoute.of(context)!.settings.arguments;
     if (args is Appointments) {
@@ -89,7 +90,7 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
                   Spacer(),
                   Container(
                     decoration: BoxDecoration(
-                      color: ColorManger.lightGreen,
+                      color: AppointmentStatusUtils.statusBackgroundColor(appointment.status),
                       borderRadius: BorderRadius.circular(8.r),
                     ),
                     child: Padding(
@@ -98,9 +99,9 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
                         vertical: 4,
                       ),
                       child: CustomText(
-                        text: appointment.status?? '',
+                        text:AppointmentStatusUtils.localizeStatus(appointment.status, appLocalization),
                         textStyle: TextStyle(
-                          color: ColorManger.black,
+                          color: AppointmentStatusUtils.statusTextColor(appointment.status),
                           height: 1.4,
                           fontSize: FontSize.s15,
                           fontWeight: FontWeightManager.regular,
@@ -113,7 +114,7 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
               SizedBox(height: 16),
               AppointmentInformationCard(
                 location: location,
-                formattedDate: '${appointment.appointmentDate}',
+                formattedDate: appointment.appointmentDate.toFormattedDate(),
                 donationType: '$donationType',
               ),
               SizedBox(height: 16),

@@ -1,6 +1,6 @@
 /// success : true
 /// message : "Nearby hospitals retrieved successfully"
-/// data : {"hospitals":[{"id":"69f3df915f42685cbbbcbb1b","hospitalId":"69f3df915f42685cbbbcbb1b","hospital_id":"69f3df915f42685cbbbcbb1b","name":"Cairo Care Hospital","fullName":"Cairo Care Operations","phoneNumber":"1044444444","contactNumber":"1044444444","email":"ops@cairocare.demo","address":{"city":"Cairo","governorate":"Cairo"},"location":{"lat":30.0511,"lng":31.2435},"lat":30.0511,"lng":31.2435,"hospitalType":"General Hospital","workingHours":"9AM - 5PM","bloodTypes":["O+","A-"],"isAvailable":true,"urgentNeedsCount":2,"distanceKm":2.35,"distanceMeters":2350,"distance":"2.35 km"}],"pagination":{"page":1,"limit":20,"total":1}}
+/// data : {"hospitals":[{"id":"69f3df915f42685cbbbcbb1b","hospitalId":"69f3df915f42685cbbbcbb1b","hospital_id":"69f3df915f42685cbbbcbb1b","name":"Cairo Care Hospital","fullName":"Cairo Care Operations","phoneNumber":"1044444444","contactNumber":"1044444444","email":"ops@cairocare.demo","address":{"city":"Cairo","governorate":"Cairo"},"location":{"lat":30.0511,"lng":31.2435},"lat":30.0511,"lng":31.2435,"hospitalType":"General Hospital","workingHours":"9AM - 5PM","bloodTypes":["O+","A-"],"isAvailable":true,"urgentNeedsCount":2,"distanceKm":2.35,"distanceMeters":2350,"distance":"2.35 km","appointmentSchedulingEnabled":true,"hospitalActive":true,"hospitalVerified":true}],"pagination":{"page":1,"limit":20,"total":1}}
 
 class NearbyHospitals {
   NearbyHospitals({
@@ -29,7 +29,7 @@ class NearbyHospitals {
 
 }
 
-/// hospitals : [{"id":"69f3df915f42685cbbbcbb1b","hospitalId":"69f3df915f42685cbbbcbb1b","hospital_id":"69f3df915f42685cbbbcbb1b","name":"Cairo Care Hospital","fullName":"Cairo Care Operations","phoneNumber":"1044444444","contactNumber":"1044444444","email":"ops@cairocare.demo","address":{"city":"Cairo","governorate":"Cairo"},"location":{"lat":30.0511,"lng":31.2435},"lat":30.0511,"lng":31.2435,"hospitalType":"General Hospital","workingHours":"9AM - 5PM","bloodTypes":["O+","A-"],"isAvailable":true,"urgentNeedsCount":2,"distanceKm":2.35,"distanceMeters":2350,"distance":"2.35 km"}]
+/// hospitals : [{"id":"69f3df915f42685cbbbcbb1b","hospitalId":"69f3df915f42685cbbbcbb1b","hospital_id":"69f3df915f42685cbbbcbb1b","name":"Cairo Care Hospital","fullName":"Cairo Care Operations","phoneNumber":"1044444444","contactNumber":"1044444444","email":"ops@cairocare.demo","address":{"city":"Cairo","governorate":"Cairo"},"location":{"lat":30.0511,"lng":31.2435},"lat":30.0511,"lng":31.2435,"hospitalType":"General Hospital","workingHours":"9AM - 5PM","bloodTypes":["O+","A-"],"isAvailable":true,"urgentNeedsCount":2,"distanceKm":2.35,"distanceMeters":2350,"distance":"2.35 km","appointmentSchedulingEnabled":true,"hospitalActive":true,"hospitalVerified":true}]
 /// pagination : {"page":1,"limit":20,"total":1}
 
 class Data {
@@ -111,13 +111,15 @@ class Pagination {
 /// distanceKm : 2.35
 /// distanceMeters : 2350
 /// distance : "2.35 km"
+/// appointmentSchedulingEnabled : true
+/// hospitalActive : true
+/// hospitalVerified : true
 
 class Hospitals {
   Hospitals({
       this.id, 
       this.hospitalId, 
-      this.name,
-      this.fullName, 
+      this.fullName,
       this.phoneNumber, 
       this.contactNumber, 
       this.email, 
@@ -132,7 +134,10 @@ class Hospitals {
       this.urgentNeedsCount, 
       this.distanceKm, 
       this.distanceMeters, 
-      this.distance,});
+      this.distance, 
+      this.appointmentSchedulingEnabled, 
+      this.hospitalActive, 
+      this.hospitalVerified,});
 
   Hospitals.fromJson(dynamic json) {
     id = json['id'];
@@ -155,6 +160,9 @@ class Hospitals {
     distanceKm = json['distanceKm'];
     distanceMeters = json['distanceMeters'];
     distance = json['distance'];
+    appointmentSchedulingEnabled = json['appointmentSchedulingEnabled'];
+    hospitalActive = json['hospitalActive'];
+    hospitalVerified = json['hospitalVerified'];
   }
   String? id;
   String? hospitalId;
@@ -175,6 +183,9 @@ class Hospitals {
   double? distanceKm;
   int? distanceMeters;
   String? distance;
+  bool? appointmentSchedulingEnabled;
+  bool? hospitalActive;
+  bool? hospitalVerified;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -202,6 +213,9 @@ class Hospitals {
     map['distanceKm'] = distanceKm;
     map['distanceMeters'] = distanceMeters;
     map['distance'] = distance;
+    map['appointmentSchedulingEnabled'] = appointmentSchedulingEnabled;
+    map['hospitalActive'] = hospitalActive;
+    map['hospitalVerified'] = hospitalVerified;
     return map;
   }
 

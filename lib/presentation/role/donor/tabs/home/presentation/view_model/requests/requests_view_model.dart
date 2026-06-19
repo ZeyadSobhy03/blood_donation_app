@@ -26,7 +26,8 @@ class RequestsCubit extends Cubit<RequestsState> {
     } on NetworkTimeoutException {
       emit(RequestsErrorState('network_timeout'));
     } on ServerException catch (e) {
-      log('ServerException: ${e.serverMessage}');
+
+      log('ServerException: ${e.statusCode } ${e.serverMessage}');
       emit(RequestsErrorState(e.serverMessage ?? 'server_error'));
     } on UnauthorizedException {
       log('UnauthorizedException: Unauthorized access');

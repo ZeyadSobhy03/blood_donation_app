@@ -9,7 +9,7 @@ class DonorTile extends StatelessWidget {
     super.key,
     required this.rank,
     required this.name,
-    required this.bloodType,
+    required this.points,
     required this.completedDonations,
     required this.showLastDonation,
     required this.showActivityStatus,
@@ -19,7 +19,7 @@ class DonorTile extends StatelessWidget {
 
   final int rank;
   final String name;
-  final String bloodType;
+  final int points;
   final int completedDonations;
   final bool showLastDonation;
   final bool showActivityStatus;
@@ -38,7 +38,6 @@ class DonorTile extends StatelessWidget {
       return ColorManger.slateGrey;
     }
 
-    // Format lastDonation date string to readable format
     String formatDate(String? isoDate) {
       if (isoDate == null) return '-';
       try {
@@ -57,7 +56,6 @@ class DonorTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Rank badge
           Container(
             width: 32,
             height: 32,
@@ -143,7 +141,7 @@ class DonorTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: CustomText(
-                  text: bloodType,
+                  text: '$points ${loc.points}',
                   textStyle: TextStyle(
                     color: ColorManger.brightRed,
                     fontWeight: FontWeightManager.bold,

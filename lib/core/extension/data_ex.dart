@@ -1,8 +1,9 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import '../../../../l10n/app_localizations.dart'; // عدّل المسار حسب مشروعك
+import '../../../../l10n/app_localizations.dart';
 
 extension DateTimeEx on DateTime {
+
   String toDateOnly({String? locale}) {
     return DateFormat('dd MMM yyyy', locale).format(this);
   }
@@ -38,6 +39,19 @@ extension DateTimeEx on DateTime {
       return appLocalization.days_ago(difference.inDays);
     } else {
       return toDateOnly(locale: Localizations.localeOf(context).toString());
+    }
+  }
+}
+extension DateTimeExtension on String? {
+  String toFormattedDate() {
+    if (this == null || this!.isEmpty) return '';
+    try {
+      final DateTime dateTime = DateTime.parse(this!);
+      return '${dateTime.day.toString().padLeft(2, '0')} / '
+          '${dateTime.month.toString().padLeft(2, '0')} / '
+          '${dateTime.year}';
+    } catch (_) {
+      return this!;
     }
   }
 }

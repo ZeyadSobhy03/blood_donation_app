@@ -3046,6 +3046,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_request_cancelled => 'Request was cancelled.';
 
   @override
+  String get error_already_cancelled => 'This request is already cancelled.';
+
+  @override
   String get error_unknown => 'Something went wrong. Please try again.';
 
   @override
@@ -3273,4 +3276,186 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noDataFound => 'No data found';
+
+  @override
+  String get alreadyCancelled => 'Appointment Already Cancelled';
+
+  @override
+  String get alreadyCancelledMessage =>
+      'This appointment has already been cancelled.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get rescheduleSuccess => 'Appointment Rescheduled';
+
+  @override
+  String get rescheduleSuccessMessage =>
+      'Your appointment has been updated successfully.';
+
+  @override
+  String get rescheduleError => 'Reschedule Failed';
+
+  @override
+  String get error_hospital_id_date_required =>
+      'Hospital and appointment date are required';
+
+  @override
+  String get error_invalid_donation_type => 'Invalid donation type';
+
+  @override
+  String get error_appointment_date_future =>
+      'Appointment date must be in the future';
+
+  @override
+  String get error_appointment_date_invalid => 'Appointment date is invalid';
+
+  @override
+  String get error_appointment_min_hours =>
+      'Appointment must be scheduled further in advance';
+
+  @override
+  String get error_appointment_max_days =>
+      'Appointment cannot be scheduled that far in advance';
+
+  @override
+  String get error_day_not_available =>
+      'Selected day is not available for appointments';
+
+  @override
+  String get error_hospital_scheduling_disabled =>
+      'Hospital appointment scheduling is currently disabled';
+
+  @override
+  String get error_hospital_donation_type_not_supported =>
+      'Hospital does not support this donation type';
+
+  @override
+  String get error_invalid_donor_or_hospital => 'Invalid donor or hospital';
+
+  @override
+  String get error_invalid_request_id => 'Invalid request ID';
+
+  @override
+  String get error_request_not_belong_hospital =>
+      'Request does not belong to this hospital';
+
+  @override
+  String get error_request_no_longer_active =>
+      'The linked request is no longer active';
+
+  @override
+  String get error_outside_operating_hours =>
+      'Selected time slot is outside operating hours';
+
+  @override
+  String get error_time_slot_not_available =>
+      'Selected time slot is no longer available';
+
+  @override
+  String get error_daily_capacity_reached =>
+      'Daily appointment capacity has been reached';
+
+  @override
+  String get error_donor_unavailable => 'Donor is currently unavailable';
+
+  @override
+  String get error_donor_suspended => 'Donor account is suspended';
+
+  @override
+  String get error_donor_cooldown => 'Donor is in a cooldown period';
+
+  @override
+  String get error_incompatible_blood_type => 'Incompatible blood type';
+
+  @override
+  String get error_active_donation_in_progress =>
+      'There is already an active donation in progress';
+
+  @override
+  String get error_hospital_not_found => 'Hospital not found';
+
+  @override
+  String get error_donor_not_found => 'Donor not found';
+
+  @override
+  String get error_request_not_found => 'Request not found';
+
+  @override
+  String get error_appointment_already_exists =>
+      'You already have an active appointment at this hospital';
+
+  @override
+  String get error_appointment_id_required => 'Appointment ID is required';
+
+  @override
+  String get error_date_required => 'Date is required';
+
+  @override
+  String get error_invalid_appointment_id => 'Invalid appointment ID';
+
+  @override
+  String get error_only_pending_confirmed_reschedule =>
+      'Only pending or confirmed appointments can be rescheduled';
+
+  @override
+  String get error_reschedule_date_future =>
+      'New appointment date must be in the future';
+
+  @override
+  String get error_reschedule_same_details =>
+      'New appointment details must be different from the current appointment';
+
+  @override
+  String get error_max_reschedules_reached =>
+      'This appointment has reached the maximum number of reschedules';
+
+  @override
+  String get error_hospital_no_rescheduling =>
+      'This hospital does not allow rescheduling';
+
+  @override
+  String get error_reschedule_min_hours =>
+      'Reschedule must be further in advance';
+
+  @override
+  String get error_reschedule_max_days =>
+      'Reschedule cannot be that far in advance';
+
+  @override
+  String get error_appointment_not_found => 'Appointment not found';
+
+  @override
+  String get error_hospital_suspended => 'Hospital is currently suspended';
+
+  @override
+  String get error_hospital_not_verified => 'Hospital is not verified';
+
+  @override
+  String get noAlerts => 'You have no alerts at this time.';
+
+  @override
+  String get noInsightsAvailable => 'No insights available at this time.';
+
+  @override
+  String get suspended => 'Suspended';
+
+  @override
+  String get noRequestsFound => 'No requests found';
+
+  @override
+  String get noContactNumberAvailable => 'No contact number available';
+
+  @override
+  String get couldNotLaunchDialer =>
+      'Could not launch dialer. Please check your device settings.';
+
+  @override
+  String get cancelRequestConfirmationMessage =>
+      'Are you sure you want to cancel this request? This action cannot be undone.';
+
+  @override
+  String get deleteUserConfirmation =>
+      'Are you sure you want to delete this user? This action cannot be undone.';
 }

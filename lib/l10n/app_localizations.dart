@@ -5784,6 +5784,12 @@ abstract class AppLocalizations {
   /// **'Request was cancelled.'**
   String get error_request_cancelled;
 
+  /// No description provided for @error_already_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'This request is already cancelled.'**
+  String get error_already_cancelled;
+
   /// No description provided for @error_unknown.
   ///
   /// In en, this message translates to:
@@ -6203,6 +6209,318 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No data found'**
   String get noDataFound;
+
+  /// No description provided for @alreadyCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Already Cancelled'**
+  String get alreadyCancelled;
+
+  /// No description provided for @alreadyCancelledMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This appointment has already been cancelled.'**
+  String get alreadyCancelledMessage;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
+  /// No description provided for @rescheduleSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Rescheduled'**
+  String get rescheduleSuccess;
+
+  /// No description provided for @rescheduleSuccessMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your appointment has been updated successfully.'**
+  String get rescheduleSuccessMessage;
+
+  /// No description provided for @rescheduleError.
+  ///
+  /// In en, this message translates to:
+  /// **'Reschedule Failed'**
+  String get rescheduleError;
+
+  /// No description provided for @error_hospital_id_date_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital and appointment date are required'**
+  String get error_hospital_id_date_required;
+
+  /// No description provided for @error_invalid_donation_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid donation type'**
+  String get error_invalid_donation_type;
+
+  /// No description provided for @error_appointment_date_future.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment date must be in the future'**
+  String get error_appointment_date_future;
+
+  /// No description provided for @error_appointment_date_invalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment date is invalid'**
+  String get error_appointment_date_invalid;
+
+  /// No description provided for @error_appointment_min_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment must be scheduled further in advance'**
+  String get error_appointment_min_hours;
+
+  /// No description provided for @error_appointment_max_days.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment cannot be scheduled that far in advance'**
+  String get error_appointment_max_days;
+
+  /// No description provided for @error_day_not_available.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected day is not available for appointments'**
+  String get error_day_not_available;
+
+  /// No description provided for @error_hospital_scheduling_disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital appointment scheduling is currently disabled'**
+  String get error_hospital_scheduling_disabled;
+
+  /// No description provided for @error_hospital_donation_type_not_supported.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital does not support this donation type'**
+  String get error_hospital_donation_type_not_supported;
+
+  /// No description provided for @error_invalid_donor_or_hospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid donor or hospital'**
+  String get error_invalid_donor_or_hospital;
+
+  /// No description provided for @error_invalid_request_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid request ID'**
+  String get error_invalid_request_id;
+
+  /// No description provided for @error_request_not_belong_hospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Request does not belong to this hospital'**
+  String get error_request_not_belong_hospital;
+
+  /// No description provided for @error_request_no_longer_active.
+  ///
+  /// In en, this message translates to:
+  /// **'The linked request is no longer active'**
+  String get error_request_no_longer_active;
+
+  /// No description provided for @error_outside_operating_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected time slot is outside operating hours'**
+  String get error_outside_operating_hours;
+
+  /// No description provided for @error_time_slot_not_available.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected time slot is no longer available'**
+  String get error_time_slot_not_available;
+
+  /// No description provided for @error_daily_capacity_reached.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily appointment capacity has been reached'**
+  String get error_daily_capacity_reached;
+
+  /// No description provided for @error_donor_unavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor is currently unavailable'**
+  String get error_donor_unavailable;
+
+  /// No description provided for @error_donor_suspended.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor account is suspended'**
+  String get error_donor_suspended;
+
+  /// No description provided for @error_donor_cooldown.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor is in a cooldown period'**
+  String get error_donor_cooldown;
+
+  /// No description provided for @error_incompatible_blood_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Incompatible blood type'**
+  String get error_incompatible_blood_type;
+
+  /// No description provided for @error_active_donation_in_progress.
+  ///
+  /// In en, this message translates to:
+  /// **'There is already an active donation in progress'**
+  String get error_active_donation_in_progress;
+
+  /// No description provided for @error_hospital_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital not found'**
+  String get error_hospital_not_found;
+
+  /// No description provided for @error_donor_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor not found'**
+  String get error_donor_not_found;
+
+  /// No description provided for @error_request_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Request not found'**
+  String get error_request_not_found;
+
+  /// No description provided for @error_appointment_already_exists.
+  ///
+  /// In en, this message translates to:
+  /// **'You already have an active appointment at this hospital'**
+  String get error_appointment_already_exists;
+
+  /// No description provided for @error_appointment_id_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment ID is required'**
+  String get error_appointment_id_required;
+
+  /// No description provided for @error_date_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Date is required'**
+  String get error_date_required;
+
+  /// No description provided for @error_invalid_appointment_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid appointment ID'**
+  String get error_invalid_appointment_id;
+
+  /// No description provided for @error_only_pending_confirmed_reschedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Only pending or confirmed appointments can be rescheduled'**
+  String get error_only_pending_confirmed_reschedule;
+
+  /// No description provided for @error_reschedule_date_future.
+  ///
+  /// In en, this message translates to:
+  /// **'New appointment date must be in the future'**
+  String get error_reschedule_date_future;
+
+  /// No description provided for @error_reschedule_same_details.
+  ///
+  /// In en, this message translates to:
+  /// **'New appointment details must be different from the current appointment'**
+  String get error_reschedule_same_details;
+
+  /// No description provided for @error_max_reschedules_reached.
+  ///
+  /// In en, this message translates to:
+  /// **'This appointment has reached the maximum number of reschedules'**
+  String get error_max_reschedules_reached;
+
+  /// No description provided for @error_hospital_no_rescheduling.
+  ///
+  /// In en, this message translates to:
+  /// **'This hospital does not allow rescheduling'**
+  String get error_hospital_no_rescheduling;
+
+  /// No description provided for @error_reschedule_min_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Reschedule must be further in advance'**
+  String get error_reschedule_min_hours;
+
+  /// No description provided for @error_reschedule_max_days.
+  ///
+  /// In en, this message translates to:
+  /// **'Reschedule cannot be that far in advance'**
+  String get error_reschedule_max_days;
+
+  /// No description provided for @error_appointment_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment not found'**
+  String get error_appointment_not_found;
+
+  /// No description provided for @error_hospital_suspended.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital is currently suspended'**
+  String get error_hospital_suspended;
+
+  /// No description provided for @error_hospital_not_verified.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital is not verified'**
+  String get error_hospital_not_verified;
+
+  /// No description provided for @noAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'You have no alerts at this time.'**
+  String get noAlerts;
+
+  /// No description provided for @noInsightsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No insights available at this time.'**
+  String get noInsightsAvailable;
+
+  /// No description provided for @suspended.
+  ///
+  /// In en, this message translates to:
+  /// **'Suspended'**
+  String get suspended;
+
+  /// No description provided for @noRequestsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No requests found'**
+  String get noRequestsFound;
+
+  /// No description provided for @noContactNumberAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No contact number available'**
+  String get noContactNumberAvailable;
+
+  /// No description provided for @couldNotLaunchDialer.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not launch dialer. Please check your device settings.'**
+  String get couldNotLaunchDialer;
+
+  /// No description provided for @cancelRequestConfirmationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to cancel this request? This action cannot be undone.'**
+  String get cancelRequestConfirmationMessage;
+
+  /// No description provided for @deleteUserConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this user? This action cannot be undone.'**
+  String get deleteUserConfirmation;
 }
 
 class _AppLocalizationsDelegate

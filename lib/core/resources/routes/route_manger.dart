@@ -1,6 +1,7 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
+import 'package:blood_donation_app/core/widgets/custom_ban_screen.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/hospital_forget_password.dart';
 import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
@@ -20,11 +21,11 @@ import '../../../presentation/authentication/donor_authentication/donor_register
 import '../../../presentation/authentication/hospital_authentication/hospital_authentication.dart';
 import '../../../presentation/maps/maps.dart';
 import '../../../presentation/role/admin/tabs/admin_main_layout.dart';
-import '../../../presentation/role/admin/tabs/admin_requests/admin_request.dart';
-import '../../../presentation/role/admin/tabs/analytics/analytics.dart';
+import '../../../presentation/role/admin/tabs/admin_requests/presentation/view/admin_request.dart';
+import '../../../presentation/role/admin/tabs/analytics/presentation/view/analytics.dart';
 import '../../../presentation/role/admin/tabs/dashboard/presentation/view/dashboard.dart';
-import '../../../presentation/role/admin/tabs/system_settings/system_settings.dart';
-import '../../../presentation/role/admin/tabs/users/users.dart';
+import '../../../presentation/role/admin/tabs/system_settings/presentation/view/system_settings.dart';
+import '../../../presentation/role/admin/tabs/users/presentation/view/users.dart';
 import '../../../presentation/role/donor/tabs/donate/section/appointment_details.dart';
 import '../../../presentation/role/donor/tabs/donation_history/presentation/view/donation_history.dart';
 import '../../../presentation/role/donor/tabs/profile/confirm_donation/confirm_donation.dart';
@@ -77,6 +78,7 @@ class RouteManger {
 
   static const String adminForgetPassword = '/adminForgetPassword';
   static const String appointmentDetails = '/appointmentDetails';
+  static const String banScreen = '/banScreen';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -85,6 +87,14 @@ class RouteManger {
       case onboarding:
         return MaterialPageRoute(builder: (context) => OnboardingPages());
 
+      case banScreen:
+        return MaterialPageRoute(
+          builder: (context) {
+            final role = settings.arguments as BanRole;
+            return CustomBanScreen(role: role);
+          },
+          settings: settings,
+        );
       case appointmentDetails:
         return MaterialPageRoute(
           builder: (context) => const AppointmentDetails(),
@@ -170,14 +180,12 @@ class RouteManger {
       case donorForgetPassword:
         return MaterialPageRoute(builder: (context) => DonorForgetPassword());
 
-       case donorResetPassword:
-         final args = settings.arguments as Map<String, dynamic>;
-         return MaterialPageRoute(
-           builder: (context) => DonorResetPassword(
-             email: args['email'],
-             otp: args['otp'],
-           ),
-         );
+      case donorResetPassword:
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) =>
+              DonorResetPassword(email: args['email'], otp: args['otp']),
+        );
 
       case hospitalAuth:
         return MaterialPageRoute(

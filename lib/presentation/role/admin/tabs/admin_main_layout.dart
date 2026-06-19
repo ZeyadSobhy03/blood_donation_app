@@ -1,9 +1,9 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/admin_request.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/analytics.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/presentation/view/admin_request.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/presentation/view/analytics.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/presentation/view/dashboard.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/system_settings.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/users/users.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view/system_settings.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/presentation/view/users.dart';
 import 'package:flutter/material.dart';
 import '../../../../l10n/app_localizations.dart';
 

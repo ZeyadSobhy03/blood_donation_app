@@ -3033,6 +3033,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get error_request_cancelled => 'تم إلغاء الطلب.';
 
   @override
+  String get error_already_cancelled => 'هذا الطلب مُلغى بالفعل.';
+
+  @override
   String get error_unknown => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.';
 
   @override
@@ -3257,4 +3260,179 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noDataFound => 'لم يتم العثور على بيانات';
+
+  @override
+  String get alreadyCancelled => 'الموعد ملغى بالفعل';
+
+  @override
+  String get alreadyCancelledMessage => 'تم إلغاء هذا الموعد مسبقاً.';
+
+  @override
+  String get ok => 'حسناً';
+
+  @override
+  String get rescheduleSuccess => 'تمت إعادة الجدولة';
+
+  @override
+  String get rescheduleSuccessMessage => 'تم تحديث موعدك بنجاح.';
+
+  @override
+  String get rescheduleError => 'فشلت إعادة الجدولة';
+
+  @override
+  String get error_hospital_id_date_required =>
+      'المستشفى وتاريخ الموعد مطلوبان';
+
+  @override
+  String get error_invalid_donation_type => 'نوع التبرع غير صالح';
+
+  @override
+  String get error_appointment_date_future =>
+      'يجب أن يكون تاريخ الموعد في المستقبل';
+
+  @override
+  String get error_appointment_date_invalid => 'تاريخ الموعد غير صالح';
+
+  @override
+  String get error_appointment_min_hours => 'يجب حجز الموعد قبل وقت كافٍ';
+
+  @override
+  String get error_appointment_max_days =>
+      'لا يمكن حجز الموعد في هذا الوقت البعيد';
+
+  @override
+  String get error_day_not_available => 'اليوم المحدد غير متاح للمواعيد';
+
+  @override
+  String get error_hospital_scheduling_disabled =>
+      'جدولة المواعيد في المستشفى معطلة حالياً';
+
+  @override
+  String get error_hospital_donation_type_not_supported =>
+      'المستشفى لا يدعم هذا النوع من التبرع';
+
+  @override
+  String get error_invalid_donor_or_hospital =>
+      'بيانات المتبرع أو المستشفى غير صالحة';
+
+  @override
+  String get error_invalid_request_id => 'معرّف الطلب غير صالح';
+
+  @override
+  String get error_request_not_belong_hospital =>
+      'الطلب لا ينتمي إلى هذا المستشفى';
+
+  @override
+  String get error_request_no_longer_active => 'الطلب المرتبط لم يعد نشطاً';
+
+  @override
+  String get error_outside_operating_hours => 'الموعد المحدد خارج ساعات العمل';
+
+  @override
+  String get error_time_slot_not_available => 'الموعد المحدد لم يعد متاحاً';
+
+  @override
+  String get error_daily_capacity_reached =>
+      'تم الوصول إلى الحد الأقصى للمواعيد اليومية';
+
+  @override
+  String get error_donor_unavailable => 'المتبرع غير متاح حالياً';
+
+  @override
+  String get error_donor_suspended => 'حساب المتبرع موقوف';
+
+  @override
+  String get error_donor_cooldown => 'المتبرع في فترة انتظار';
+
+  @override
+  String get error_incompatible_blood_type => 'فصيلة الدم غير متوافقة';
+
+  @override
+  String get error_active_donation_in_progress =>
+      'يوجد تبرع نشط بالفعل قيد التنفيذ';
+
+  @override
+  String get error_hospital_not_found => 'المستشفى غير موجود';
+
+  @override
+  String get error_donor_not_found => 'المتبرع غير موجود';
+
+  @override
+  String get error_request_not_found => 'الطلب غير موجود';
+
+  @override
+  String get error_appointment_already_exists =>
+      'لديك موعد نشط بالفعل في هذا المستشفى';
+
+  @override
+  String get error_appointment_id_required => 'معرّف الموعد مطلوب';
+
+  @override
+  String get error_date_required => 'التاريخ مطلوب';
+
+  @override
+  String get error_invalid_appointment_id => 'معرّف الموعد غير صالح';
+
+  @override
+  String get error_only_pending_confirmed_reschedule =>
+      'يمكن إعادة جدولة المواعيد المعلقة أو المؤكدة فقط';
+
+  @override
+  String get error_reschedule_date_future =>
+      'يجب أن يكون تاريخ الموعد الجديد في المستقبل';
+
+  @override
+  String get error_reschedule_same_details =>
+      'يجب أن تختلف تفاصيل الموعد الجديد عن الموعد الحالي';
+
+  @override
+  String get error_max_reschedules_reached =>
+      'وصل هذا الموعد إلى الحد الأقصى لعدد مرات إعادة الجدولة';
+
+  @override
+  String get error_hospital_no_rescheduling =>
+      'هذا المستشفى لا يسمح بإعادة الجدولة';
+
+  @override
+  String get error_reschedule_min_hours => 'يجب إعادة الجدولة قبل وقت كافٍ';
+
+  @override
+  String get error_reschedule_max_days =>
+      'لا يمكن إعادة الجدولة في هذا الوقت البعيد';
+
+  @override
+  String get error_appointment_not_found => 'الموعد غير موجود';
+
+  @override
+  String get error_hospital_suspended => 'المستشفى موقوف حالياً';
+
+  @override
+  String get error_hospital_not_verified => 'المستشفى غير موثق';
+
+  @override
+  String get noAlerts => 'لا توجد تنبيهات';
+
+  @override
+  String get noInsightsAvailable => 'لا توجد تحليلات متاحة';
+
+  @override
+  String get suspended => 'موقوف';
+
+  @override
+  String get noRequestsFound => 'لم يتم العثور على طلبات';
+
+  @override
+  String get noContactNumberAvailable => 'لا يوجد رقم تواصل متاح';
+
+  @override
+  String get couldNotLaunchDialer =>
+      'تعذر فتح تطبيق الاتصال. يرجى التحقق من إعدادات جهازك.';
+
+  @override
+  String get cancelRequestConfirmationMessage =>
+      'هل أنت متأكد أنك تريد إلغاء هذا الطلب؟ لا يمكن التراجع عن هذا الإجراء.';
+
+  @override
+  String get deleteUserConfirmation =>
+      'هل أنت متأكد أنك تريد حذف هذا المستخدم؟ لا يمكن التراجع عن هذا الإجراء.';
 }

@@ -33,7 +33,7 @@ class CustomLoadingWidget extends StatelessWidget {
             child: CircularProgressIndicator(
               strokeWidth: 3.w,
               valueColor: AlwaysStoppedAnimation<Color>(
-                ColorManger.brightRed,
+                indicatorColor,
               ),
             ),
           ),

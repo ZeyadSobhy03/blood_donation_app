@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/errors/app_exceptions.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/model/profile/profile_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +19,7 @@ class ProfileCubit extends Cubit<ProfileViewState> {
     } on NetworkTimeoutException {
       emit(ProfileErrorState(error: 'network_timeout'));
     } on ServerException catch (e) {
+      log('Error fetching profile: ${e.serverMessage}');
       emit(ProfileErrorState(error: e.serverMessage ?? 'server_error'));
     } on UnauthorizedException {
       emit(ProfileErrorState(error: 'unauthorized'));
@@ -27,6 +30,7 @@ class ProfileCubit extends Cubit<ProfileViewState> {
     } on UnknownNetworkException {
       emit(ProfileErrorState(error: 'unknown_error'));
     } catch (e) {
+      log('Unknown error while fetching profile: $e');
       emit(ProfileErrorState(error: 'unknown_error'));
     }
   }

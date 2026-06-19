@@ -3,6 +3,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/repo
 import '../../data/model/appointment_cancelled_model.dart';
 import '../../data/model/appointment_model.dart';
 import '../../data/model/book_appointment_model.dart';
+import '../../data/model/rescheduled_appointment_model.dart';
 
 class AppointmentsUseCase {
   AppointmentsRepositories appointmentsRepositories;
@@ -24,6 +25,19 @@ class AppointmentsUseCase {
   })  {
     return appointmentsRepositories.bookAppointment(
         hospitalId: hospitalId,
+        appointmentDate: appointmentDate,
+        donationType: donationType,
+        notes: notes
+    );
+  }
+  Future<RescheduledAppointmentModel> rescheduleAppointment({
+    required String appointmentId,
+    required String appointmentDate,
+    required String donationType,
+    required  String notes
+  }) {
+    return appointmentsRepositories.rescheduleAppointment(
+        appointmentId: appointmentId,
         appointmentDate: appointmentDate,
         donationType: donationType,
         notes: notes

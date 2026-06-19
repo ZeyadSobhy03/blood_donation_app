@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
-import '../../view_model/top_donors/top_donors_view_model.dart';
+import '../../view_model/analytics/analytics_view_model.dart';
 
 class ShowAllDonorsDialog extends StatelessWidget {
   const ShowAllDonorsDialog({super.key});
@@ -38,26 +38,23 @@ class ShowAllDonorsDialog extends StatelessWidget {
                     subtitle: appLocalization.allTopDonorsSubtitle,
                   ),
                   const SizedBox(height: 16),
-                  BlocBuilder<TopDonorsCubit, TopDonorsState>(
+                  BlocBuilder<AnalyticsCubit, AnalyticsState>(
                     builder: (context, state) {
-                      if (state is TopDonorsLoadingState) {
+                      if (state is AnalyticsLoadingState) {
                         return CustomLoadingWidget(
                           indicatorColor: ColorManger.royalBlue,
                         );
                       }
 
-                      if (state is TopDonorsErrorState) {
-                        return CustomErrorWidget(
-                          message: localizeError(
-                              state.errorMessage, appLocalization),
-                          onRetry: () =>
-                              context.read<TopDonorsCubit>().fetchTopDonors(),
-                        );
+                      if (state is AnalyticsErrorState) {
+                        return CustomErrorWidget(message: localizeError(state.errorMessage, appLocalization), onRetry: (){
+                          context.read<AnalyticsCubit>().fetchAnalytics();
+                        });
                       }
 
-                      if (state is TopDonorsSuccessState) {
+                      if (state is AnalyticsSuccessState) {
                         final donors =
-                            state.topDonors.data?.topDonors ?? [];
+                            state.analyticsModel.data?.topDonors ?? [];
 
                         if (donors.isEmpty) {
                           return Center(
@@ -83,16 +80,13 @@ class ShowAllDonorsDialog extends StatelessWidget {
                                 vertical: 8,
                               ),
                               child: DonorTile(
-                                isActive: true,
-
-                                rank: 0,
-                                name: donor.donor?.fullName ?? '-',
-                                bloodType: donor.donor?.bloodType ?? '-',
-                                location:
-                                '${donor.donor?.location?.city ?? ''}, ${donor.donor?.location?.governorate ?? ''}',
-                                completedDonations:
-                                donor.completedDonations ?? 0,
-                                lastDonation: donor.lastDonation,
+                                rank: donor.donorRank ?? 0,
+                                isActive: donor.isActive ?? false,
+                                name: donor.name ?? '-',
+                                points: donor.points ?? 0,
+                                location: donor.location ?? '-',
+                                completedDonations: donor.totalDonations ?? 0,
+                                lastDonation: donor.createdAt,
                                 showLastDonation: true,
                                 showActivityStatus: true,
                               ),

@@ -16,7 +16,7 @@ class InsightCard extends StatelessWidget {
 
   final String title;
   final String description;
-  final double confidence;
+  final num confidence;
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,4 @@
+
 import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
@@ -5,6 +6,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/data
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/appointment_cancelled_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/appointment_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/book_appointment_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/rescheduled_appointment_model.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../../../core/utils/dio_error_handler.dart';
@@ -39,10 +41,10 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
     }
   }
 
-
-
   @override
-  Future<AppointmentCancelledModel> cancelAppointment({required String appointmentId})async {
+  Future<AppointmentCancelledModel> cancelAppointment({
+    required String appointmentId,
+  }) async {
     try {
       final token = await authLocalDataSource.getAccessToken();
       final response = await dio.delete(
@@ -65,7 +67,12 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
   }
 
   @override
-  Future<BookAppointmentModel> bookAppointment({required String hospitalId, required String appointmentDate, required String donationType, required String notes})async {
+  Future<BookAppointmentModel> bookAppointment({
+    required String hospitalId,
+    required String appointmentDate,
+    required String donationType,
+    required String notes,
+  }) async {
     try {
       final token = await authLocalDataSource.getAccessToken();
       final body = {
@@ -74,7 +81,6 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
         'donationType': donationType,
         'notes': notes,
       };
-      log('Booking appointment with body: $body');
       final response = await dio.post(
         ApiManger.bookAppointmentEndpoint,
         data: body,
@@ -93,7 +99,40 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
     } catch (e) {
       rethrow;
     }
+  }
 
-
+  @override
+  Future<RescheduledAppointmentModel> rescheduleAppointment({
+    required String appointmentId,
+    required String appointmentDate,
+    required String donationType,
+    required String notes,
+  })async {
+    try {
+      final token = await authLocalDataSource.getAccessToken();
+      final body = {
+        'appointmentDate': appointmentDate,
+        'donationType': donationType,
+        'notes': notes,
+      };
+      log(body.toString());
+      final response = await dio.patch(
+        ApiManger.rescheduleAppointmentEndpoint(appointmentId),
+        data: body,
+        options: Options(
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Bearer $token',
+          },
+        ),
+      );
+      return RescheduledAppointmentModel.fromJson(response.data);
+    } on DioException catch (e) {
+      handleDioError(e);
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
   }
 }

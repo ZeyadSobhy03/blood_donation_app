@@ -25,9 +25,9 @@ class _HospitalAuthenticationState extends State<HospitalAuthentication> {
   Future<void> _handleLoginPressed() async {
     if (!_formKey.currentState!.validate()) return;
 
-    final pin = await _showPinScreen();
-    if (!mounted) return;
-    if (pin == null) return;
+    //final pin = await _showPinScreen();
+    // if (!mounted) return;
+    // if (pin == null) return;
 
     Navigator.pushNamed(context, RouteManger.hospitalMainLayout);
   }
@@ -216,7 +216,6 @@ class _HospitalAuthenticationState extends State<HospitalAuthentication> {
                           hint: "••••••••",
                           icon: Icons.lock_outline,
                           isPassword: true,
-                            validator: (value) => value?.passwordValidator(context),
 
                         ),
                         SizedBox(height: 8),

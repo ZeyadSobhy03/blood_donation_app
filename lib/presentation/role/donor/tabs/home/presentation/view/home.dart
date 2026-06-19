@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
@@ -75,7 +77,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
     context.read<RequestsCubit>().fetchRequests(
       limit: 10,
-      page: 2
+      page: 1
     );
   }
 
@@ -243,9 +245,11 @@ class _ProfileSection extends StatelessWidget {
 
     return BlocBuilder<ProfileCubit, ProfileViewState>(
       builder: (context, state) {
+        log('ProfileViewState: $state');
         final isLoading = state is ProfileLoadingState;
 
         if (state is ProfileErrorState) {
+          log('Profile error: ${state.error}');
           return CustomErrorWidget(
             message: localizeError(state.error, appLocalizations),
             onRetry: () => context.read<ProfileCubit>().fetchProfile(),

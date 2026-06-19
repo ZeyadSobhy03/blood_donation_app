@@ -1,19 +1,20 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/utils/alert_status.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/presentation/view/section/quick_actions_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/request_header.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../../../core/resources/constant/constant_manger.dart';
-import '../../../../../../../../core/resources/models/alert.dart';
+import '../../../../../../../../core/extension/data_ex.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 
+import '../../../data/model/analytics/analytics_model.dart';
 import '../widgets/info_tile.dart';
 import 'alert_card.dart';
 
 class AlertsDialog extends StatelessWidget {
   const AlertsDialog({super.key, required this.alert});
 
-  final AlertModel alert;
+  final CriticalAlertModel alert;
 
   @override
   Widget build(BuildContext context) {
@@ -45,19 +46,19 @@ class AlertsDialog extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   AlertCard(
-                    backgroundColor: _getBackgroundColor(_normalizeType(alert.type, context)),
-                    color: _getColor(_normalizeType(alert.type, context)),
-                    type: alert.type,
-                    date: alert.date,
-                    title: alert.title,
-                    description: alert.description,
+                    backgroundColor: AlertStatus.getBackgroundColor(alert.type?? ''),
+                    color: AlertStatus.getColor(alert.type?? ''),
+                    type:  AlertStatus.getLabel(alert.type?? '', context),
+                    date: alert.date.toFormattedDate() ,
+                    title: alert.title ?? '',
+                    description: alert.description  ?? '',
                   ),
                   SizedBox(height: 20),
                   InfoTile(
                     icon: Icons.location_on_outlined,
                     iconColor: ColorManger.royalBlue,
                     label: appLocalization.location,
-                    value: alert.location,
+                    value: alert.location ?? '',
                   ),
                   InfoTile(
                     icon: Icons.favorite_border,
@@ -69,7 +70,7 @@ class AlertsDialog extends StatelessWidget {
                   QuickActionsCard(
                     onEmergencyBroadcast: (){},
 
-                    hospitalContactNumber: alert.hospitalContact,
+                    hospitalContactNumber: alert.hospitalContact ?? '',
                   )
                 ],
               ),
@@ -80,44 +81,6 @@ class AlertsDialog extends StatelessWidget {
     );
   }
 
-  String _normalizeType(String type, BuildContext context) {
-    final appLocalization = AppLocalizations.of(context)!;
 
-    if (type.toLowerCase() == appLocalization.critical.toLowerCase()) {
-      return ConstantManager.critical;
-    } else if (type.toLowerCase() == appLocalization.system.toLowerCase()) {
-      return ConstantManager.system;
-    } else if (type.toLowerCase() == appLocalization.emergency.toLowerCase()) {
-      return ConstantManager.emergency;
-    } else {
-      return 'unknown';
-    }
-  }
-
-  Color _getColor(String type) {
-    switch (type) {
-      case ConstantManager.critical:
-        return ColorManger.orange;
-      case ConstantManager.system:
-        return ColorManger.yellow;
-      case ConstantManager.emergency:
-        return ColorManger.brightRed;
-      default:
-        return ColorManger.grey500;
-    }
-  }
-
-  Color _getBackgroundColor(String type) {
-    switch (type) {
-      case ConstantManager.critical:
-        return ColorManger.lightOrange;
-      case ConstantManager.system:
-        return ColorManger.lightYellow;
-      case ConstantManager.emergency:
-        return ColorManger.lightRed;
-      default:
-        return ColorManger.grey100;
-    }
-  }
 
 }

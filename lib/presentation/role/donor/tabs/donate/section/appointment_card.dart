@@ -35,6 +35,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
     final appLocalization = AppLocalizations.of(context)!;
 
     return BlocListener<AppointmentsCubit, AppointmentsState>(
+      listenWhen: (previous, current) => current is AppointmentsSuccessState,
       listener: (context, state) {
         if (state is AppointmentsSuccessState) {
           if (_isFirstLoad) {
@@ -50,8 +51,6 @@ class _AppointmentCardState extends State<AppointmentCard> {
             );
           }
         }
-
-
       },
       child: Card(
         color: ColorManger.pureWhite,
@@ -77,6 +76,10 @@ class _AppointmentCardState extends State<AppointmentCard> {
               SizedBox(height: 16.h),
 
               BlocBuilder<AppointmentsCubit, AppointmentsState>(
+                buildWhen: (previous, current) =>
+                current is AppointmentsLoadingState ||
+                    current is AppointmentsSuccessState ||
+                    current is AppointmentsErrorState,
                 builder: (context, state) {
                   if (state is AppointmentsLoadingState) {
                     return const CustomLoadingWidget();

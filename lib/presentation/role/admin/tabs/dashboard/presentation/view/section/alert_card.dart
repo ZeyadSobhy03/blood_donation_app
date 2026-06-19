@@ -1,4 +1,3 @@
-import 'package:blood_donation_app/core/extension/data_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
@@ -18,7 +17,7 @@ class AlertCard extends StatelessWidget {
   final Color backgroundColor;
   final Color color;
   final String type;
-  final DateTime date;
+  final String date;
   final String title;
   final String description;
 
@@ -61,7 +60,7 @@ class AlertCard extends StatelessWidget {
                   ),
                 ),
                 CustomText(
-                  text: date.toTimeAgo(context),
+                  text: date,
                   textStyle: TextStyle(
                     color: ColorManger.slateGrey,
                     fontSize: FontSize.s12,

@@ -150,7 +150,7 @@ class _DateTimeStepState extends State<DateTimeStep> {
                   DonationTypePicker(
                     selectedValue: selectedDonationType,
                     prefixIcon: Icon(
-                      Icons.bloodtype,
+                      Icons.favorite_border,
                       color: ColorManger.slateGrey,
                     ),
                     onChanged: (value) {
@@ -174,7 +174,6 @@ class _DateTimeStepState extends State<DateTimeStep> {
       },
     );
   }
-  /// Extracts the slot strings from the cubit state, or returns an empty list.
   List<String> _resolveSlots(TimeSlotsState state) {
     if (state is TimeSlotsSuccessState) {
       return state.timeSlots.data?.timeSlots ?? [];
@@ -182,7 +181,6 @@ class _DateTimeStepState extends State<DateTimeStep> {
     return [];
   }
 
-  /// Extracts the slot details with capacity information from the cubit state
   List<TimeSlotDetail>? _resolveSlotDetails(TimeSlotsState state) {
     if (state is TimeSlotsSuccessState) {
       return state.timeSlots.data?.timeSlotDetails;

@@ -25,7 +25,7 @@ class CancelRequestCubit extends Cubit<CancelRequestState> {
     } on NotFoundException {
       emit(CancelRequestErrorState('not_found'));
     } on RequestCancelledException {
-      emit(CancelRequestErrorState('request_cancelled'));
+      emit(CancelRequestAlreadyCancelledState());
     } on UnknownNetworkException {
       emit(CancelRequestErrorState('unknown_error'));
     } catch (e) {
@@ -41,6 +41,7 @@ class CancelRequestSuccessState extends CancelRequestState {
   final RequestCancelModel cancelRequestModel;
   CancelRequestSuccessState(this.cancelRequestModel);
 }
+class CancelRequestAlreadyCancelledState extends CancelRequestState {}
 class CancelRequestErrorState extends CancelRequestState {
   final String message;
   CancelRequestErrorState(this.message);

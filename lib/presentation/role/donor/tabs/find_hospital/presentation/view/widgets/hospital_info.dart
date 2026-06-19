@@ -59,7 +59,7 @@ class HospitalInfo extends StatelessWidget {
         ),
         SizedBox(height: 4.h),
         HospitalExtraInfo(
-          distanceKm: hospitals.distanceKm ?? 0.0,
+          distanceKm: hospitals.distanceKm??0.0 ,
           urgentNeedsCount: hospitals.urgentNeedsCount ?? 0,
         ),
         SizedBox(height: 4.h),

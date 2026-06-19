@@ -1,10 +1,12 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/model/analytics/analytics_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../../core/extension/data_ex.dart';
-import '../../../../../../../../core/resources/models/alert.dart';
+import '../../../../../../../../core/utils/alert_status.dart';
+
 
 
 
@@ -19,7 +21,7 @@ class Alert extends StatelessWidget {
   final Color backgroundColor;
 
   final Color color;
-  final AlertModel alertModel;
+  final CriticalAlertModel alertModel;
   final void Function()? onTap;
 
   @override
@@ -44,7 +46,7 @@ class Alert extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
-                      text: alertModel.title,
+                      text: alertModel.title ?? '',
                       textStyle: TextStyle(
                         color: ColorManger.black,
                         fontSize: FontSize.s14,
@@ -53,7 +55,7 @@ class Alert extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     CustomText(
-                      text: alertModel.date.toTimeAgo(context),
+                      text: alertModel.date.toFormattedDate() ,
                       textStyle: TextStyle(color: ColorManger.slateGrey),
                     ),
                   ],
@@ -71,7 +73,7 @@ class Alert extends StatelessWidget {
                     vertical: 4,
                   ),
                   child: CustomText(
-                    text:  alertModel.type,
+                    text:  AlertStatus.getLabel(alertModel.type ?? '', context),
                     textStyle: TextStyle(
                       color: ColorManger.pureWhite,
                       fontSize: FontSize.s12,

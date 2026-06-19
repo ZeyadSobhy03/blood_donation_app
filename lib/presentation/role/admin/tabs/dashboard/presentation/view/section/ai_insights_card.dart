@@ -1,11 +1,15 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
+import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
+import '../../view_model/analytics/analytics_view_model.dart';
 import '../widgets/insight_card.dart';
-
 
 class AiInsightsCard extends StatelessWidget {
   const AiInsightsCard({super.key});
@@ -13,18 +17,7 @@ class AiInsightsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
-    final aiInsights = [
-      InsightCard(
-        title: appLocalization.predictedHighDemand,
-        description: appLocalization.predictedHighDemandDesc,
-        confidence: 40,
-      ),
-      InsightCard(
-        title: appLocalization.shortageRisk,
-        description: appLocalization.shortageRiskDesc,
-        confidence: 92,
-      ),
-    ];
+
     return Card(
       color: ColorManger.lightBlue,
       elevation: 0,
@@ -39,6 +32,7 @@ class AiInsightsCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -47,7 +41,7 @@ class AiInsightsCard extends StatelessWidget {
                   color: ColorManger.royalBlue,
                   size: 22,
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 CustomText(
                   text: appLocalization.aiInsights,
                   textStyle: TextStyle(
@@ -58,16 +52,56 @@ class AiInsightsCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 32),
-            ListView.builder(
-              itemCount: aiInsights.length,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
-                  child: aiInsights[index],
-                );
+            const SizedBox(height: 32),
+            BlocBuilder<AnalyticsCubit, AnalyticsState>(
+              builder: (context, state) {
+                if (state is AnalyticsLoadingState) {
+                  return CustomLoadingWidget(
+                    indicatorColor: ColorManger.royalBlue,
+                  );
+                }
+
+                if (state is AnalyticsErrorState) {
+                  return CustomErrorWidget(message: localizeError(state.errorMessage, appLocalization), onRetry: (){
+                    context.read<AnalyticsCubit>().fetchAnalytics();
+                  });
+                }
+
+                if (state is AnalyticsSuccessState) {
+                  final insights =
+                      state.analyticsModel.data?.aiInsights ?? [];
+
+                  if (insights.isEmpty) {
+                    return Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          appLocalization.noInsightsAvailable,
+                          style: TextStyle(color: ColorManger.royalBlue),
+                        ),
+                      ),
+                    );
+                  }
+
+                  return ListView.builder(
+                    itemCount: insights.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      final insight = insights[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 16.0),
+                        child: InsightCard(
+                          title: insight.title ?? '',
+                          description: insight.description ?? '',
+                          confidence: insight.confidence ?? 0,
+                        ),
+                      );
+                    },
+                  );
+                }
+
+                return const SizedBox.shrink();
               },
             ),
           ],

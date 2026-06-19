@@ -41,6 +41,7 @@ class _DonorLoginState extends State<DonorLogin> {
       email: _emailController.text.trim(),
       password: _passwordController.text.trim(),
     );
+
   }
 
   @override
@@ -48,6 +49,12 @@ class _DonorLoginState extends State<DonorLogin> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
   }
 
   @override
@@ -78,6 +85,7 @@ class _DonorLoginState extends State<DonorLogin> {
 
               final isEmailVerified =
                   state.loginModel.data?.user?.isEmailVerified ?? true;
+
 
               Future.delayed(const Duration(milliseconds: 900), () async {
                 if (!context.mounted) return;

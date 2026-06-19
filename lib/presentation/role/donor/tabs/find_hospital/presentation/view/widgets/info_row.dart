@@ -25,7 +25,7 @@ class InfoRow extends StatelessWidget {
         CustomText(text: text,textStyle: TextStyle(
           color: ColorManger.slateGrey,
           fontWeight: FontWeightManager.regular,
-          fontSize: FontSize.s14,
+          fontSize: FontSize.s13,
           height: 1.4,
         ),)
       ],

@@ -15,9 +15,16 @@ import '../../../../../../../core/utils/error_localizer.dart';
 import '../../../../../../../l10n/app_localizations.dart';
 
 class ReviewAndConfirm extends StatefulWidget {
-  const ReviewAndConfirm({super.key, required this.next});
+  const ReviewAndConfirm({
+    super.key,
+    required this.next,
+    this.isReschedule = false,
+    this.appointmentId,
+  });
 
   final VoidCallback next;
+  final bool isReschedule;
+  final String? appointmentId;
 
   @override
   State<ReviewAndConfirm> createState() => _ReviewAndConfirmState();
@@ -33,7 +40,16 @@ class _ReviewAndConfirmState extends State<ReviewAndConfirm> {
       listener: (context, state) {
         if (state is BookAppointmentSuccessState) {
           widget.next();
+        } else if (state is RescheduleAppointmentSuccessState) {
+          widget.next();
         } else if (state is BookAppointmentErrorState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(localizeError(state.error, appLocalization)),
+              backgroundColor: Colors.red,
+            ),
+          );
+        } else if (state is RescheduleAppointmentErrorState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(localizeError(state.error, appLocalization)),
@@ -71,15 +87,21 @@ class _ReviewAndConfirmState extends State<ReviewAndConfirm> {
                 SizedBox(height: 4.h),
                 BlocBuilder<AppointmentsCubit, AppointmentsState>(
                   builder: (context, state) {
-                    final isLoading = state is BookAppointmentLoadingState;
+                    final isLoading =
+                        state is BookAppointmentLoadingState ||
+                        state is RescheduleAppointmentLoadingState;
 
                     return NavigationButton(
                       foregroundColor: ColorManger.pureWhite,
                       backgroundColor: ColorManger.brightRed,
-                      nextStep: isLoading ? null : () => _bookAppointment(context),
+                      nextStep: isLoading
+                          ? null
+                          : () => _handleAppointmentAction(context),
                       text: isLoading
                           ? appLocalization.processing
-                          : appLocalization.confirmAppointment,
+                          : (widget.isReschedule
+                              ? appLocalization.reschedule
+                              : appLocalization.confirmAppointment),
                     );
                   },
                 ),
@@ -91,9 +113,17 @@ class _ReviewAndConfirmState extends State<ReviewAndConfirm> {
     );
   }
 
-  void _bookAppointment(BuildContext context) {
+  void _handleAppointmentAction(BuildContext context) {
     final scheduleState = context.read<DonationScheduleCubit>().state.schedule;
 
+    if (!widget.isReschedule) {
+      _bookAppointment(context, scheduleState);
+    } else {
+      _rescheduleAppointment(context, scheduleState);
+    }
+  }
+
+  void _bookAppointment(BuildContext context, dynamic scheduleState) {
     if (scheduleState.hospitalId == null || scheduleState.hospitalId!.isEmpty) {
       return;
     }
@@ -130,6 +160,43 @@ class _ReviewAndConfirmState extends State<ReviewAndConfirm> {
       appointmentDate: appointmentDateString,
       donationType: mappedDonationType,
       notes: 'Scheduled appointment',
+    );
+  }
+
+  void _rescheduleAppointment(BuildContext context, dynamic scheduleState) {
+    if (scheduleState.date == null) {
+      _showError(context, 'Date is required - please select a date');
+      return;
+    }
+
+    if (scheduleState.donationType == null || scheduleState.donationType!.isEmpty) {
+      _showError(context, 'Donation type is required');
+      return;
+    }
+
+    final date = scheduleState.date!;
+    final timeSlot = scheduleState.timeSlot ?? '09:00 AM';
+    final donationTypeMap = {
+      'بلازما': 'Plasma',
+      'دم كامل': 'Whole Blood',
+      'صفائح دموية': 'Platelets',
+      'خلايا حمراء': 'Red Cells',
+      'Plasma': 'Plasma',
+      'Whole Blood': 'Whole Blood',
+      'Platelets': 'Platelets',
+      'Red Cells': 'Red Cells',
+    };
+
+    final appointmentDateString = _parseTimeSlot(date, timeSlot).toIso8601String();
+    final rawType = scheduleState.donationType!;
+
+    final mappedDonationType = donationTypeMap[rawType] ?? rawType;
+
+    context.read<AppointmentsCubit>().rescheduleAppointment(
+      appointmentId: widget.appointmentId ?? '',
+      appointmentDate: appointmentDateString,
+      donationType: mappedDonationType,
+      notes: 'Rescheduled appointment',
     );
   }
 

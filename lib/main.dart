@@ -11,18 +11,30 @@ import 'package:blood_donation_app/presentation/authentication/donor_authenticat
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/data/repositories/auth_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/domain/use_case/auth_use_case.dart';
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/presentation/view_model/auth_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/data/data_source/remote/admin_requests_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/data/repositories/admin_requests_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/domain/use_case/admin_requests_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/presentation/view_model/admin_requests_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/data/data_source/remote/analytics_overview_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/data/repositories/analytics_overview_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/domain/use_case/analytics_overview_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/presentation/view_model/analytics_overview_view_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/data_source/remote/analytics/analytics_api_data_source.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/data_source/remote/top_donor/top_donors_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/repositories/analytics/analytics_repositories_imp.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/repositories/top_donor/top_donors_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/domain/use_case/analytics/analytics_use_case.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/domain/use_case/top_donors/top_donors_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/presentation/view_model/analytics/analytics_view_model.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/presentation/view_model/top_donors/top_donors_view_model.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/system_health_api_data_source.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/system_health_repositories_imp.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/system_health_use_case.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/system_health_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/profile/admin_profile_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/system_health/system_health_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/profile/admin_profile_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/system_health/system_health_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/profile/admin_profile_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/system_health/system_health_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/profile/admin_profile_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/system_health/system_health_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/data_source/remote/users_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/repositories/users_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/domain/use_case/users_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/presentation/view_model/users_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/data/data_source/ask_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/data/repositories/ask_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/domain/use_case/ask_use_case.dart';
@@ -131,7 +143,10 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => TopDonorsCubit(topDonorsUseCase: TopDonorsUseCase(topDonorsRepositories: TopDonorsRepositoriesImp(topDonorsRemoteDataSource: TopDonorsApiDataSource(dio, adminHiveDataSource)))),),
+        BlocProvider(create: (context) => UsersCubit(usersUseCase: UsersUseCase(usersRepositories: UsersRepositoriesImp(usersRemoteDataSource: UsersApiDataSource(dio, adminHiveDataSource)))),),
+        BlocProvider(create: (context) => AnalyticsOverviewCubit(analyticsOverviewUseCase: AnalyticsOverviewUseCase(analyticsOverviewRepositories: AnalyticsOverviewRepositoriesImp(analyticsOverviewRemoteDataSource: AnalyticsOverviewApiDataSource(dio, adminHiveDataSource)))),),
+        BlocProvider(create: (context) => AdminRequestsCubit(adminRequestsUseCase: AdminRequestsUseCase(adminRequestsRepositories: AdminRequestsRepositoriesImp(adminRequestsRemoteDataSource: AdminRequestsApiDataSource(dio, adminHiveDataSource)))),),
+        BlocProvider(create: (context) => AdminProfileCubit(adminProfileUseCase: AdminProfileUseCase(profileRepositories: AdminProfileRepositoriesImp(profileRemoteDataSource: AdminProfileApiDataSource(dio, adminHiveDataSource)))),),
         BlocProvider(create: (context) => AnalyticsCubit(analyticsUseCase: AnalyticsUseCase(analyticsRepositories: AnalyticsRepositoriesImp(analyticsRemoteDataSource: AnalyticsApiDataSource(dio, adminHiveDataSource)))),),
         BlocProvider(create: (context) => SystemHealthCubit(systemHealthUseCase: SystemHealthUseCase(systemHealthRepositories: SystemHealthRepositoriesImp(systemHealthRemoteDataSource: SystemHealthApiDataSource(dio, adminHiveDataSource)))),),
         BlocProvider(create: (context) => DonationScheduleCubit()),
