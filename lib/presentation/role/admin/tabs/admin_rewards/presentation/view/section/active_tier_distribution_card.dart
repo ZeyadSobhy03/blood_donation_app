@@ -1,23 +1,21 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/utils/tier_data.dart';
 import 'package:blood_donation_app/core/utils/tier_utils.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/data/model/admin_rewards_data_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/section/custom_tier_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
 
 class ActiveTierDistributionCard extends StatelessWidget {
-  const ActiveTierDistributionCard({super.key});
+  const ActiveTierDistributionCard({super.key, required this.tiers});
+
+  final List<Tiers> tiers;
 
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
-    final Map<String, dynamic> tierData = {
-      'Bronze': {'points': 150},
-      'Silver': {'points': 300},
-      'Gold': {'points': 50},
-      "Platinum": {'points': 20},
-    };
+    
     return Card(
       color: ColorManger.pureWhite,
       elevation: 0,
@@ -31,19 +29,20 @@ class ActiveTierDistributionCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
         child: GridView.builder(
-          itemCount: tierData.length,
-          physics: NeverScrollableScrollPhysics(),
+          itemCount: tiers.length,
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
           ),
           itemBuilder: (context, index) {
-            final tierName = tierData.keys.elementAt(index);
-            final totalPoints = tierData[tierName]['points'] as int;
+            final tier = tiers[index];
+            final tierName = tier.tierName ?? '';
+            final userCount = tier.userCount ?? 0;
 
             return CustomTierCard(
               mainColor: TierUtils.getColorForTier(tierName),
-              totalPoints: totalPoints,
+              totalPoints: userCount,
               tierName: localizeTier(tierName, loc),
             );
           },

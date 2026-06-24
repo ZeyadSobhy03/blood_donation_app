@@ -15,6 +15,10 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/d
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/data/repositories/admin_requests_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/domain/use_case/admin_requests_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/presentation/view_model/admin_requests_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/data/data_source/admin_rewards_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/data/repositories/admin_rewards_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/domain/use_case/admin_rewards_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view_model/admin_rewards_view_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/data/data_source/remote/analytics_overview_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/data/repositories/analytics_overview_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/domain/use_case/analytics_overview_use_case.dart';
@@ -156,6 +160,7 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => AdminRewardsCubit(adminRewardsUseCase: AdminRewardsUseCase(adminRewardsRepositories: AdminRewardsRepositoriesImp(adminRewardsRemoteDataSource: AdminRewardsApiDataSource(dio, adminHiveDataSource)))),),
         BlocProvider(create: (context) => SupportContactCubit(supportContactUseCase: SupportContactUseCase(supportContactRepositories: SupportContactRepositoriesImp(supportContactRemoteDataSource: SupportContactApiDataSource(dio, authHiveDataSource)))),),
         BlocProvider(create: (context) =>  AcceptedRequestsCubit(acceptedRequestsUseCase: AcceptedRequestsUseCase(acceptedRequestsRepositories: AcceptedRequestsRepositoriesImp(acceptedRequestsRemoteDataSource: AcceptedRequestsApiDataSource(dio, authHiveDataSource)))),),
         BlocProvider(create: (context) => InboundEmailCubit(inboundEmailUseCase: InboundEmailUseCase(inboundEmailRepositories: InboundEmailRepositoriesImp(inboundEmailRemoteDataSource: InboundEmailApiDataSource(dio, adminHiveDataSource)))),),

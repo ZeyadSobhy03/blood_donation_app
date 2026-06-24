@@ -84,6 +84,7 @@ class ApiManger {
   static const String getSettingEndpoint = "${baseUrl}donor/settings";
   static const String historyEndpoint = "${baseUrl}donor/history";
   static const String supportRequestsEndpoint = "${baseUrl}support/contact";
+  static const String adminRewardsEndpoint = "${baseUrl}admin/rewards";
 
 
 
