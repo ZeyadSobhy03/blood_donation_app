@@ -3160,6 +3160,15 @@ class AppLocalizationsAr extends AppLocalizations {
       'انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى.';
 
   @override
+  String get unauthorized => 'غير مصرح بالدخول. يرجى تسجيل الدخول مرة أخرى.';
+
+  @override
+  String get email_error => 'عنوان البريد الإلكتروني غير صحيح.';
+
+  @override
+  String get password_error => 'كلمة المرور غير صحيحة.';
+
+  @override
   String get dateOfBirthRequired => 'تاريخ الميلاد مطلوب';
 
   @override
@@ -3435,4 +3444,704 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get deleteUserConfirmation =>
       'هل أنت متأكد أنك تريد حذف هذا المستخدم؟ لا يمكن التراجع عن هذا الإجراء.';
+
+  @override
+  String get rewardsConfigAnalyticsTitle => 'إعدادات وتحليلات المكافآت';
+
+  @override
+  String get rewardsConfigAnalyticsDescription =>
+      'إدارة الكتالوج والإعدادات والنقاط';
+
+  @override
+  String get overview => 'نظرة عامة';
+
+  @override
+  String get configuration => 'الإعدادات';
+
+  @override
+  String get adjustPoints => 'تعديل النقاط';
+
+  @override
+  String get increase_from_last_month => 'زيادة من الشهر الماضي';
+
+  @override
+  String get topRedeemedRewards => 'أفضل المكافآت المستردة';
+
+  @override
+  String get pointsConfiguration => 'إعدادات النقاط';
+
+  @override
+  String get globalPointAllocationSettings => 'إعدادات توزيع النقاط العامة';
+
+  @override
+  String get configurationNote => 'ملاحظة حول الإعدادات';
+
+  @override
+  String get configurationNoteDescription =>
+      'تنطبق التغييرات بشكل عام على جميع أحداث النقاط المستقبلية. النقاط المكتسبة سابقًا لا تتأثر.';
+
+  @override
+  String get manualPointsAdjustment => 'تعديل النقاط يدويًا';
+
+  @override
+  String get manualPointsAdjustmentDescription =>
+      'تعديل رصيد متبرع معين مباشرة';
+
+  @override
+  String get userIdOrEmail => 'معرف المستخدم / البريد الإلكتروني';
+
+  @override
+  String get userIdOrEmailHint => 'أدخل معرف المستخدم أو البريد الإلكتروني';
+
+  @override
+  String get amountPoints => 'المبلغ (نقاط)';
+
+  @override
+  String get amountPointsHint => 'أدخل المبلغ بالنقاط';
+
+  @override
+  String get reasonHint => 'أدخل سبب التعديل';
+
+  @override
+  String get submitAdjustment => 'إرسال التعديل';
+
+  @override
+  String get recentAdjustments => 'التعديلات الأخيرة';
+
+  @override
+  String get banUser => 'حظر المستخدم';
+
+  @override
+  String get banUserConfirmation => 'هل أنت متأكد من حظر';
+
+  @override
+  String get banReasonHint => 'أدخل سبب حظر هذا المستخدم';
+
+  @override
+  String get ban => 'حظر';
+
+  @override
+  String get unbanUser => 'إلغاء حظر المستخدم';
+
+  @override
+  String get unbanUserConfirmation => 'هل أنت متأكد من إلغاء حظر';
+
+  @override
+  String get unban => 'إلغاء الحظر';
+
+  @override
+  String aiPredictionDemandIncrease(Object percentage) {
+    return 'من المتوقع زيادة الطلب على الدم بنسبة $percentage٪ الشهر المقبل بناءً على الاتجاهات التاريخية - ضع في اعتبارك جدولة حملات تبرع إضافية وإرسال تنبيهات استباقية إلى المتبرعين بفصائل O+ و A+.';
+  }
+
+  @override
+  String aiPredictionDemandSteady(Object percentage) {
+    return 'يظهر الطلب على الدم زيادة أسبوعية ثابتة بنسبة $percentage٪. راقب مستويات المخزون عن كثب خلال الأسبوعين القادمين.';
+  }
+
+  @override
+  String aiPredictionDemandDecline(Object percentage) {
+    return 'انخفض الطلب على الدم بنسبة $percentage٪ في الأسبوع الماضي. ضع في اعتبارك تقليل تواتر حملات التبرع المجدولة ومراجعة إعادة توزيع المخزون عبر المستشفيات.';
+  }
+
+  @override
+  String aiPredictionShortageCritical(
+    Object available,
+    Object bloodType,
+    Object needed,
+  ) {
+    return 'فصيلة $bloodType منخفضة للغاية - يتوفر $available متبرع فقط مقابل $needed وحدة مطلوبة. ابدأ حملة طوارئ في غضون 48 ساعة.';
+  }
+
+  @override
+  String aiPredictionShortageRisk(Object bloodType, Object ratio) {
+    return 'مخزون فصيلة $bloodType معرض للخطر بنسبة طلب إلى عرض تبلغ $ratio:1. يوصى بالتواصل الهادف والاستباقي مع متبرعي $bloodType هذا الأسبوع.';
+  }
+
+  @override
+  String aiPredictionRetentionDrop(Object rate) {
+    return 'انخفض معدل عودة المتبرعين إلى $rate٪ - ضع في اعتبارك إطلاق حملة لإعادة إشراك المتبرعين بنقاط مكافأة للمتبرعين العائدين هذا الشهر.';
+  }
+
+  @override
+  String aiPredictionRetentionImprove(Object rate) {
+    return 'تحسن معدل الاحتفاظ بالمتبرعين إلى $rate٪ - الزخم الحالي قوي. استفد من ذلك من خلال تقديم مكافآت الإحالة للحفاظ على النمو.';
+  }
+
+  @override
+  String aiPredictionPeakDay(Object day, Object percentage) {
+    return 'يظهر يوم $day نشاط تبرع أعلى بنسبة $percentage٪ - قم بجدولة المزيد من الحملات المتنقلة والموظفين في هذا اليوم لزيادة عمليات التجميع.';
+  }
+
+  @override
+  String aiPredictionWeekend(Object percentage) {
+    return 'تظهر حملات التبرع في عطلة نهاية الأسبوع معدلات نجاح أعلى بنسبة $percentage٪ مقارنة بأيام الأسبوع. حدد أولويات جدولة عطلة نهاية الأسبوع لحملات الطوارئ القادمة.';
+  }
+
+  @override
+  String get jan => 'يناير';
+
+  @override
+  String get feb => 'فبراير';
+
+  @override
+  String get mar => 'مارس';
+
+  @override
+  String get apr => 'أبريل';
+
+  @override
+  String get may => 'مايو';
+
+  @override
+  String get jun => 'يونيو';
+
+  @override
+  String get jul => 'يوليو';
+
+  @override
+  String get aug => 'أغسطس';
+
+  @override
+  String get sep => 'سبتمبر';
+
+  @override
+  String get oct => 'أكتوبر';
+
+  @override
+  String get nov => 'نوفمبر';
+
+  @override
+  String get dec => 'ديسمبر';
+
+  @override
+  String get selectLocationOnMap => 'حدد موقعك على الخريطة';
+
+  @override
+  String get locationPermissionPermanentlyDenied =>
+      'تم رفض إذن الموقع بشكل دائم. يرجى تمكين الأذونات من إعدادات التطبيق.';
+
+  @override
+  String get tapOnMapToSelectLocation => 'اضغط على الخريطة لتحديد موقعك';
+
+  @override
+  String get confirmLocation => 'تأكيد الموقع';
+
+  @override
+  String get locationOnMap => 'الموقع على الخريطة';
+
+  @override
+  String get tapToSelectLocationOnMap => 'اضغط لتحديد موقعك على الخريطة';
+
+  @override
+  String get enterCity => 'أدخل المدينة';
+
+  @override
+  String get enterState => 'أدخل المحافظة';
+
+  @override
+  String get zipCode => 'الرمز البريدي';
+
+  @override
+  String get enterZipCode => 'أدخل الرمز البريدي';
+
+  @override
+  String get capacity => 'السعة';
+
+  @override
+  String get enterCapacity => 'أدخل عدد الأسرة';
+
+  @override
+  String get capacityInvalidError => 'يرجى إدخال سعة صحيحة';
+
+  @override
+  String get locationSelected => 'تم تحديد الموقع';
+
+  @override
+  String get bloodBanksAvailable => 'فصائل الدم المتوفرة';
+
+  @override
+  String get selectAtLeastOneBloodBank =>
+      'يرجى اختيار فصيلة دم واحدة على الأقل';
+
+  @override
+  String get failedToCreateHospital =>
+      'فشل في إنشاء المستشفى. يرجى التحقق من التفاصيل والمحاولة مرة أخرى.';
+
+  @override
+  String get copiedToClipboard => 'تم النسخ إلى الحافظة';
+
+  @override
+  String get share => 'مشاركة';
+
+  @override
+  String get done => 'تم';
+
+  @override
+  String get copy => 'نسخ';
+
+  @override
+  String get addNewReward => 'إضافة مكافأة جديدة';
+
+  @override
+  String get addNewRewardSubtitle =>
+      'املأ التفاصيل لإضافة مكافأة جديدة إلى الكتالوج.';
+
+  @override
+  String get rewardName => 'اسم المكافأة';
+
+  @override
+  String get enterRewardName => 'أدخل اسم المكافأة';
+
+  @override
+  String get category => 'الفئة';
+
+  @override
+  String get enterRewardCategory => 'أدخل فئة المكافأة';
+
+  @override
+  String get pointsRequired => 'النقاط المطلوبة';
+
+  @override
+  String get enterPointsRequired => 'أدخل النقاط المطلوبة';
+
+  @override
+  String get initialState => 'الحالة الأولية';
+
+  @override
+  String get selectState => 'اختر الحالة';
+
+  @override
+  String get addReward => 'إضافة مكافأة';
+
+  @override
+  String get rewardCatalog => 'كتالوج المكافآت';
+
+  @override
+  String itemsCount(int count) {
+    return '$count عناصر';
+  }
+
+  @override
+  String get fieldRequired => 'هذا الحقل مطلوب';
+
+  @override
+  String get invalidNumber => 'يرجى إدخال رقم صحيح';
+
+  @override
+  String get rewardSubtitle => 'وصف المكافأة';
+
+  @override
+  String get admin => 'المسؤول';
+
+  @override
+  String get superAdmin => 'المسؤول الأعلى';
+
+  @override
+  String get inboundEmailsTitle => 'البريد الوارد';
+
+  @override
+  String get inboundEmailSearchHint => 'بحث في الرسائل...';
+
+  @override
+  String get inboundEmailFilterAll => 'الكل';
+
+  @override
+  String get inboundEmailFilterUnread => 'غير مقروء';
+
+  @override
+  String get inboundEmailFilterArchived => 'مؤرشف';
+
+  @override
+  String get inboundEmailEmptyState => 'لا توجد رسائل هنا';
+
+  @override
+  String get inboundEmailDeleteTitle => 'حذف الرسالة';
+
+  @override
+  String inboundEmailDeleteConfirm(String subject) {
+    return 'هل أنت متأكد أنك تريد حذف \"$subject\"؟ لا يمكن التراجع عن هذا الإجراء.';
+  }
+
+  @override
+  String get inboundEmailCancel => 'إلغاء';
+
+  @override
+  String get inboundEmailDelete => 'حذف';
+
+  @override
+  String get inboundEmailMarkAsRead => 'تحديد كمقروء';
+
+  @override
+  String get inboundEmailArchive => 'أرشفة';
+
+  @override
+  String inboundEmailFrom(String from) {
+    return 'من: $from';
+  }
+
+  @override
+  String get inboundEmailArchivedBadge => 'مؤرشف';
+
+  @override
+  String get inboundEmailUnreadBadge => 'غير مقروء';
+
+  @override
+  String get inboundEmailDetailFrom => 'من';
+
+  @override
+  String get inboundEmailDetailTo => 'إلى';
+
+  @override
+  String get inboundEmailDetailProvider => 'المزوّد';
+
+  @override
+  String get inboundEmailDetailReceived => 'تاريخ الاستلام';
+
+  @override
+  String get inboundEmailMarkedAsReadSnack => 'تم التحديد كمقروء';
+
+  @override
+  String get inboundEmailArchivedSnack => 'تمت أرشفة الرسالة';
+
+  @override
+  String get inboundEmailDeletedSnack => 'تم حذف الرسالة';
+
+  @override
+  String get inboundEmailErrorGeneric => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get inboundEmailErrorNetworkTimeout =>
+      'انتهت مهلة الاتصال. يرجى التحقق من الإنترنت والمحاولة مرة أخرى.';
+
+  @override
+  String get inboundEmailErrorUnauthorized => 'غير مصرح لك بتنفيذ هذا الإجراء.';
+
+  @override
+  String get inboundEmailErrorNotFound => 'الرسالة غير موجودة.';
+
+  @override
+  String get inboundEmailErrorRequestCancelled => 'تم إلغاء الطلب.';
+
+  @override
+  String get inboundEmails => 'الرسائل الواردة';
+
+  @override
+  String get admin_reset_password_title => 'إعادة تعيين كلمة المرور';
+
+  @override
+  String get admin_reset_password_subtitle =>
+      'أدخل كلمة مرور جديدة لحساب المسؤول هذا.';
+
+  @override
+  String get hospital_reset_password_title =>
+      'إعادة تعيين كلمة المرور للمستشفى';
+
+  @override
+  String get hospital_reset_password_subtitle =>
+      'أدخل كلمة مرور جديدة لحساب المستشفى هذا';
+
+  @override
+  String get noMoreHospitals => 'لا توجد مستشفيات أخرى';
+
+  @override
+  String get acceptedRequestSectionTitle => 'الطلبات المقبولة';
+
+  @override
+  String get requestedAt => 'طلب في';
+
+  @override
+  String get status => 'الحالة';
+
+  @override
+  String get notes => 'ملاحظات';
+
+  @override
+  String get showDetails => 'عرض التفاصيل';
+
+  @override
+  String get adult => 'بالغ';
+
+  @override
+  String get child => 'طفل';
+
+  @override
+  String get urgent => 'عاجل';
+
+  @override
+  String get normal => 'عادي';
+
+  @override
+  String get emergency2Units => 'وحدتان';
+
+  @override
+  String get emergencyLabel => 'طارئة';
+
+  @override
+  String get loadingAcceptedRequestsMessage => 'جاري تحميل الطلبات المقبولة...';
+
+  @override
+  String get noAcceptedRequestsMessage =>
+      'لا توجد طلبات مقبولة في الوقت الحالي.';
+
+  @override
+  String get cancellingRequest => 'جاري إلغاء الطلب...';
+
+  @override
+  String get requestAlreadyCancelled => 'تم إلغاء هذا الطلب بالفعل';
+
+  @override
+  String get cancelConfirmationMessage =>
+      'هل أنت متأكد من رغبتك في إلغاء هذا الطلب؟';
+
+  @override
+  String get addressNotAvailable => 'العنوان غير متاح';
+
+  @override
+  String get acceptedRequestsLoadingMoreMessage =>
+      'جاري تحميل المزيد من الطلبات...';
+
+  @override
+  String get connection_timeout =>
+      'انتهت مهلة الاتصال. يرجى التحقق من الإنترنت.';
+
+  @override
+  String get request_cancelled => 'تم إلغاء الطلب.';
+
+  @override
+  String get no_internet => 'لا يوجد اتصال بالإنترنت.';
+
+  @override
+  String get unknown_error => 'حدث خطأ غير متوقع في الشبكة.';
+
+  @override
+  String get empty_response => 'استجابة فارغة من السيرفر';
+
+  @override
+  String get server_error => 'خطأ في السيرفر';
+
+  @override
+  String get donor_login_success_message => 'تم تسجيل الدخول بنجاح! مرحبًا بك ';
+
+  @override
+  String get donorNotEligible => 'المتبرع غير مؤهل';
+
+  @override
+  String get donorAccountDeletedOrInactive => 'حساب المتبرع محذوف أو غير نشط';
+
+  @override
+  String get invalidDonorRole => 'دور المتبرع غير صحيح';
+
+  @override
+  String get donorAccountSuspended => 'تم إيقاف حساب المتبرع';
+
+  @override
+  String get donorChronicMedicalConditions =>
+      'المتبرع يعاني من حالات طبية مزمنة';
+
+  @override
+  String get donorActiveDonationInProgress =>
+      'لدى المتبرع تبرع نشط قيد الإجراء';
+
+  @override
+  String get donorCompletedOrRejectedRequest =>
+      'المتبرع قد أكمل أو رفض هذا الطلب بالفعل';
+
+  @override
+  String get cannotSpecifyAnotherDonorId =>
+      'لا يمكنك تحديد معرف متبرع آخر — يتم استخدام معرف المصادقة الخاص بك فقط';
+
+  @override
+  String get requestIdAndDonationTypeNotAccepted =>
+      'معاملات requestId و donationType غير مقبولة على نقطة النهاية هذه';
+
+  @override
+  String get authenticatedDonorIdNotFound =>
+      'لم يتم العثور على معرف المتبرع المصرح به في رمز المصادقة';
+
+  @override
+  String get activityTimelineRetrievedSuccessfully =>
+      'تم استرجاع سجل الأنشطة بنجاح';
+
+  @override
+  String get pageMustBePositiveInteger => 'يجب أن تكون الصفحة رقماً موجباً';
+
+  @override
+  String get limitMustBePositiveInteger => 'يجب أن يكون الحد رقماً موجباً';
+
+  @override
+  String invalidTypeFilter(String typeParam) {
+    return 'مرشح نوع غير صحيح: $typeParam';
+  }
+
+  @override
+  String get activityProfileCompleted => 'اكتمل الملف الشخصي';
+
+  @override
+  String get activityUrgentRequestNearby => 'طلب عاجل بالقرب';
+
+  @override
+  String activityPointsEarned(String points, String activity) {
+    return '$points نقطة مكتسبة — $activity';
+  }
+
+  @override
+  String get relativeTimeJustNow => 'للتو';
+
+  @override
+  String get relativeTime1MinuteAgo => 'منذ دقيقة واحدة';
+
+  @override
+  String relativeTimeMinutesAgo(String count) {
+    return 'منذ $count دقائق';
+  }
+
+  @override
+  String get relativeTime1HourAgo => 'منذ ساعة واحدة';
+
+  @override
+  String relativeTimeHoursAgo(String count) {
+    return 'منذ $count ساعات';
+  }
+
+  @override
+  String get relativeTime1DayAgo => 'منذ يوم واحد';
+
+  @override
+  String relativeTimeDaysAgo(String count) {
+    return 'منذ $count أيام';
+  }
+
+  @override
+  String get relativeTime1WeekAgo => 'منذ أسبوع واحد';
+
+  @override
+  String relativeTimeWeeksAgo(String count) {
+    return 'منذ $count أسابيع';
+  }
+
+  @override
+  String get relativeTime1MonthAgo => 'منذ شهر واحد';
+
+  @override
+  String relativeTimeMonthsAgo(String count) {
+    return 'منذ $count أشهر';
+  }
+
+  @override
+  String get relativeTime1YearAgo => 'منذ سنة واحدة';
+
+  @override
+  String relativeTimeYearsAgo(String count) {
+    return 'منذ $count سنة';
+  }
+
+  @override
+  String get activityStatusPending => 'قيد الانتظار';
+
+  @override
+  String get activityStatusSuccess => 'نجح';
+
+  @override
+  String get activityStatusCancelled => 'ملغى';
+
+  @override
+  String get noActivitiesFound => 'لم يتم العثور على أنشطة';
+
+  @override
+  String get activityProfileUpdated => 'تم تحديث الملف الشخصي';
+
+  @override
+  String get activityDonationCompleted => 'اكتمل التبرع';
+
+  @override
+  String get activityDonationCancelled => 'تم إلغاء التبرع';
+
+  @override
+  String get reward_redeemed_successfully => 'تم استبدال المكافأة بنجاح';
+
+  @override
+  String get participationUpdated => 'تم تحديث المشاركة بنجاح';
+
+  @override
+  String get youAreNotEligible => 'أنت غير مؤهل للتبرع في الوقت الحالي';
+
+  @override
+  String get youAreEligible => 'أنت مؤهل للتبرع في الوقت الحالي';
+
+  @override
+  String get donationEligibility => 'أهلية التبرع';
+
+  @override
+  String get contact_support => 'التواصل مع الدعم';
+
+  @override
+  String get contact_support_subtitle =>
+      'املأ النموذج أدناه لتقديم طلب دعم فني.';
+
+  @override
+  String get subject => 'الموضوع';
+
+  @override
+  String get select_category => 'اختر فئة';
+
+  @override
+  String get submit_ticket => 'إرسال الطلب';
+
+  @override
+  String get account_management => 'إدارة الحساب';
+
+  @override
+  String get technical_issue => 'مشكلة تقنية';
+
+  @override
+  String get donation_process => 'عملية التبرع';
+
+  @override
+  String get rewards_point => 'نقاط المكافآت';
+
+  @override
+  String get other => 'أخرى';
+
+  @override
+  String get support_request_sent_successfully => 'تم إرسال طلب الدعم بنجاح';
+
+  @override
+  String get please_enter_your_name => 'يرجى إدخال اسمك';
+
+  @override
+  String get please_enter_your_email => 'يرجى إدخال بريدك الإلكتروني';
+
+  @override
+  String get please_enter_valid_email => 'يرجى إدخال بريد إلكتروني صحيح';
+
+  @override
+  String get please_enter_subject => 'يرجى إدخال الموضوع';
+
+  @override
+  String get please_select_category => 'يرجى تحديد فئة';
+
+  @override
+  String get please_enter_message => 'يرجى إدخال الرسالة';
+
+  @override
+  String get network_timeout => 'انقطاع الشبكة. حاول مرة أخرى.';
+
+  @override
+  String get not_found => 'لم يتم العثور على المورد.';
+
+  @override
+  String get rewardsPoint => 'نقاط المكافآت';
+
+  @override
+  String get donationProcess => 'عملية التبرع';
+
+  @override
+  String get technicalIssue => 'مشكلة تقنية';
+
+  @override
+  String get accountManagement => 'إدارة الحساب';
+
+  @override
+  String get ticket_submitted_successfully => 'تم إرسال الطلب بنجاح';
 }

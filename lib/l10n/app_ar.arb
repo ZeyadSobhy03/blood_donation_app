@@ -1105,6 +1105,9 @@
     "error_validation": "يرجى التحقق من إدخالك والمحاولة مرة أخرى.",
     "error_forbidden": "ليس لديك الصلاحية لتنفيذ هذا الإجراء.",
     "error_token_expired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى.",
+    "unauthorized": "غير مصرح بالدخول. يرجى تسجيل الدخول مرة أخرى.",
+    "email_error": "عنوان البريد الإلكتروني غير صحيح.",
+    "password_error": "كلمة المرور غير صحيحة.",
   "dateOfBirthRequired": "تاريخ الميلاد مطلوب",
   "minimumAge": "يجب أن يكون عمرك 17 عامًا على الأقل للتبرع",
   "invalidDateOfBirth": "يجب أن يكون تاريخ الميلاد تاريخًا صحيحًا في الماضي",
@@ -1190,6 +1193,302 @@
   "noContactNumberAvailable": "لا يوجد رقم تواصل متاح",
   "couldNotLaunchDialer": "تعذر فتح تطبيق الاتصال. يرجى التحقق من إعدادات جهازك.",
   "cancelRequestConfirmationMessage": "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟ لا يمكن التراجع عن هذا الإجراء.",
-  "deleteUserConfirmation": "هل أنت متأكد أنك تريد حذف هذا المستخدم؟ لا يمكن التراجع عن هذا الإجراء."
+  "deleteUserConfirmation": "هل أنت متأكد أنك تريد حذف هذا المستخدم؟ لا يمكن التراجع عن هذا الإجراء.",
+  "rewardsConfigAnalyticsTitle": "إعدادات وتحليلات المكافآت",
+  "rewardsConfigAnalyticsDescription": "إدارة الكتالوج والإعدادات والنقاط",
+  "adjustPoints": "تعديل النقاط",
+  "configuration": "الإعدادات",
+  "overview": "نظرة عامة",
+  "increase_from_last_month": "زيادة من الشهر الماضي",
+  "topRedeemedRewards": "أفضل المكافآت المستردة",
+  "pointsConfiguration": "إعدادات النقاط",
+  "globalPointAllocationSettings": "إعدادات توزيع النقاط العامة",
+  "configurationNoteDescription": "تنطبق التغييرات بشكل عام على جميع أحداث النقاط المستقبلية. النقاط المكتسبة سابقًا لا تتأثر.",
+  "configurationNote": "ملاحظة حول الإعدادات",
+  "manualPointsAdjustment": "تعديل النقاط يدويًا",
+  "manualPointsAdjustmentDescription": "تعديل رصيد متبرع معين مباشرة",
+  "userIdOrEmail": "معرف المستخدم / البريد الإلكتروني",
+  "userIdOrEmailHint": "أدخل معرف المستخدم أو البريد الإلكتروني",
+  "amountPoints": "المبلغ (نقاط)",
+  "amountPointsHint": "أدخل المبلغ بالنقاط",
+  "reasonHint": "أدخل سبب التعديل",
+  "submitAdjustment": "إرسال التعديل",
+  "recentAdjustments": "التعديلات الأخيرة",
+  "banUser": "حظر المستخدم",
+  "banUserConfirmation": "هل أنت متأكد من حظر",
+  "banReasonHint": "أدخل سبب حظر هذا المستخدم",
+  "ban": "حظر",
+  "unbanUser": "إلغاء حظر المستخدم",
+  "unbanUserConfirmation": "هل أنت متأكد من إلغاء حظر",
+  "unban": "إلغاء الحظر",
+  "aiPredictionDemandIncrease": "من المتوقع زيادة الطلب على الدم بنسبة {percentage}٪ الشهر المقبل بناءً على الاتجاهات التاريخية - ضع في اعتبارك جدولة حملات تبرع إضافية وإرسال تنبيهات استباقية إلى المتبرعين بفصائل O+ و A+.",
+  "aiPredictionDemandSteady": "يظهر الطلب على الدم زيادة أسبوعية ثابتة بنسبة {percentage}٪. راقب مستويات المخزون عن كثب خلال الأسبوعين القادمين.",
+  "aiPredictionDemandDecline": "انخفض الطلب على الدم بنسبة {percentage}٪ في الأسبوع الماضي. ضع في اعتبارك تقليل تواتر حملات التبرع المجدولة ومراجعة إعادة توزيع المخزون عبر المستشفيات.",
+  "aiPredictionShortageCritical": "فصيلة {bloodType} منخفضة للغاية - يتوفر {available} متبرع فقط مقابل {needed} وحدة مطلوبة. ابدأ حملة طوارئ في غضون 48 ساعة.",
+  "aiPredictionShortageRisk": "مخزون فصيلة {bloodType} معرض للخطر بنسبة طلب إلى عرض تبلغ {ratio}:1. يوصى بالتواصل الهادف والاستباقي مع متبرعي {bloodType} هذا الأسبوع.",
+  "aiPredictionRetentionDrop": "انخفض معدل عودة المتبرعين إلى {rate}٪ - ضع في اعتبارك إطلاق حملة لإعادة إشراك المتبرعين بنقاط مكافأة للمتبرعين العائدين هذا الشهر.",
+  "aiPredictionRetentionImprove": "تحسن معدل الاحتفاظ بالمتبرعين إلى {rate}٪ - الزخم الحالي قوي. استفد من ذلك من خلال تقديم مكافآت الإحالة للحفاظ على النمو.",
+  "aiPredictionPeakDay": "يظهر يوم {day} نشاط تبرع أعلى بنسبة {percentage}٪ - قم بجدولة المزيد من الحملات المتنقلة والموظفين في هذا اليوم لزيادة عمليات التجميع.",
+  "aiPredictionWeekend": "تظهر حملات التبرع في عطلة نهاية الأسبوع معدلات نجاح أعلى بنسبة {percentage}٪ مقارنة بأيام الأسبوع. حدد أولويات جدولة عطلة نهاية الأسبوع لحملات الطوارئ القادمة.",
+
+  "jan": "يناير",
+  "feb": "فبراير",
+  "mar": "مارس",
+  "apr": "أبريل",
+  "may": "مايو",
+  "jun": "يونيو",
+  "jul": "يوليو",
+  "aug": "أغسطس",
+  "sep": "سبتمبر",
+  "oct": "أكتوبر",
+  "nov": "نوفمبر",
+  "dec": "ديسمبر",
+  "selectLocationOnMap": "حدد موقعك على الخريطة",
+  "locationPermissionPermanentlyDenied": "تم رفض إذن الموقع بشكل دائم. يرجى تمكين الأذونات من إعدادات التطبيق.",
+  "tapOnMapToSelectLocation": "اضغط على الخريطة لتحديد موقعك",
+  "confirmLocation": "تأكيد الموقع",
+  "locationOnMap": "الموقع على الخريطة",
+  "tapToSelectLocationOnMap": "اضغط لتحديد موقعك على الخريطة",
+
+
+
+  "enterCity": "أدخل المدينة",
+  "enterState": "أدخل المحافظة",
+  "zipCode": "الرمز البريدي",
+  "enterZipCode": "أدخل الرمز البريدي",
+  "capacity": "السعة",
+  "enterCapacity": "أدخل عدد الأسرة",
+  "capacityInvalidError": "يرجى إدخال سعة صحيحة",
+
+  "locationSelected": "تم تحديد الموقع",
+  "bloodBanksAvailable": "فصائل الدم المتوفرة",
+  "selectAtLeastOneBloodBank": "يرجى اختيار فصيلة دم واحدة على الأقل",
+  "failedToCreateHospital": "فشل في إنشاء المستشفى. يرجى التحقق من التفاصيل والمحاولة مرة أخرى.",
+  "copiedToClipboard": "تم النسخ إلى الحافظة",
+  "share": "مشاركة",
+  "done": "تم",
+  "copy": "نسخ",
+
+  "addNewReward": "إضافة مكافأة جديدة",
+  "addNewRewardSubtitle": "املأ التفاصيل لإضافة مكافأة جديدة إلى الكتالوج.",
+  "rewardName": "اسم المكافأة",
+  "enterRewardName": "أدخل اسم المكافأة",
+  "category": "الفئة",
+  "enterRewardCategory": "أدخل فئة المكافأة",
+  "pointsRequired": "النقاط المطلوبة",
+  "enterPointsRequired": "أدخل النقاط المطلوبة",
+  "initialState": "الحالة الأولية",
+  "selectState": "اختر الحالة",
+
+  "addReward": "إضافة مكافأة",
+  "rewardCatalog": "كتالوج المكافآت",
+  "itemsCount": "{count} عناصر",
+  "rewardSubtitle": "وصف المكافأة",
+  "fieldRequired": "هذا الحقل مطلوب",
+  "invalidNumber": "يرجى إدخال رقم صحيح",
+  "admin": "المسؤول",
+  "superAdmin": "المسؤول الأعلى",
+  "inboundEmailsTitle": "البريد الوارد",
+  "inboundEmailSearchHint": "بحث في الرسائل...",
+  "inboundEmailFilterAll": "الكل",
+  "inboundEmailFilterUnread": "غير مقروء",
+  "inboundEmailFilterArchived": "مؤرشف",
+  "inboundEmailEmptyState": "لا توجد رسائل هنا",
+  "inboundEmailDeleteTitle": "حذف الرسالة",
+  "inboundEmailDeleteConfirm": "هل أنت متأكد أنك تريد حذف \"{subject}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+  "@inboundEmailDeleteConfirm": {
+    "placeholders": { "subject": { "type": "String" } }
+  },
+  "inboundEmailCancel": "إلغاء",
+  "inboundEmailDelete": "حذف",
+  "inboundEmailMarkAsRead": "تحديد كمقروء",
+  "inboundEmailArchive": "أرشفة",
+  "inboundEmailFrom": "من: {from}",
+  "@inboundEmailFrom": {
+    "placeholders": { "from": { "type": "String" } }
+  },
+  "inboundEmailArchivedBadge": "مؤرشف",
+  "inboundEmailUnreadBadge": "غير مقروء",
+  "inboundEmailDetailFrom": "من",
+  "inboundEmailDetailTo": "إلى",
+  "inboundEmailDetailProvider": "المزوّد",
+  "inboundEmailDetailReceived": "تاريخ الاستلام",
+  "inboundEmailMarkedAsReadSnack": "تم التحديد كمقروء",
+  "inboundEmailArchivedSnack": "تمت أرشفة الرسالة",
+  "inboundEmailDeletedSnack": "تم حذف الرسالة",
+  "inboundEmailErrorGeneric": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+  "inboundEmailErrorNetworkTimeout": "انتهت مهلة الاتصال. يرجى التحقق من الإنترنت والمحاولة مرة أخرى.",
+  "inboundEmailErrorUnauthorized": "غير مصرح لك بتنفيذ هذا الإجراء.",
+  "inboundEmailErrorNotFound": "الرسالة غير موجودة.",
+  "inboundEmailErrorRequestCancelled": "تم إلغاء الطلب.",
+  "inboundEmails": "الرسائل الواردة",
+  "admin_reset_password_title": "إعادة تعيين كلمة المرور",
+  "admin_reset_password_subtitle": "أدخل كلمة مرور جديدة لحساب المسؤول هذا.",
+  "hospital_reset_password_title": "إعادة تعيين كلمة المرور للمستشفى",
+  "hospital_reset_password_subtitle": "أدخل كلمة مرور جديدة لحساب المستشفى هذا",
+  "noMoreHospitals": "لا توجد مستشفيات أخرى",
+  "showDetails": "عرض التفاصيل",
+  "acceptedRequestSectionTitle": "الطلبات المقبولة",
+
+  "requestedAt": "طلب في",
+  "status": "الحالة",
+  "notes": "ملاحظات",
+
+  "adult": "بالغ",
+  "child": "طفل",
+
+  "urgent": "عاجل",
+  "normal": "عادي",
+  "emergency2Units": "وحدتان",
+  "emergencyLabel": "طارئة",
+  "loadingAcceptedRequestsMessage": "جاري تحميل الطلبات المقبولة...",
+  "noAcceptedRequestsMessage": "لا توجد طلبات مقبولة في الوقت الحالي.",
+  "acceptedRequestsLoadingMoreMessage": "جاري تحميل المزيد من الطلبات...",
+  "cancellingRequest": "جاري إلغاء الطلب...",
+  "requestAlreadyCancelled": "تم إلغاء هذا الطلب بالفعل",
+  "cancelConfirmationMessage": "هل أنت متأكد من رغبتك في إلغاء هذا الطلب؟",
+  "addressNotAvailable": "العنوان غير متاح",
+  "connection_timeout": "انتهت مهلة الاتصال. يرجى التحقق من الإنترنت.",
+  "no_internet": "لا يوجد اتصال بالإنترنت.",
+  "request_cancelled": "تم إلغاء الطلب.",
+  "unknown_error": "حدث خطأ غير متوقع في الشبكة.",
+  "empty_response": "استجابة فارغة من السيرفر",
+  "server_error": "خطأ في السيرفر",
+  "donor_login_success_message": "تم تسجيل الدخول بنجاح! مرحبًا بك ",
+  "donorNotEligible": "المتبرع غير مؤهل",
+
+  "donorAccountDeletedOrInactive": "حساب المتبرع محذوف أو غير نشط",
+  "invalidDonorRole": "دور المتبرع غير صحيح",
+  "donorAccountSuspended": "تم إيقاف حساب المتبرع",
+  "donorChronicMedicalConditions": "المتبرع يعاني من حالات طبية مزمنة",
+  "donorActiveDonationInProgress": "لدى المتبرع تبرع نشط قيد الإجراء",
+  "donorCompletedOrRejectedRequest": "المتبرع قد أكمل أو رفض هذا الطلب بالفعل",
+  "cannotSpecifyAnotherDonorId": "لا يمكنك تحديد معرف متبرع آخر — يتم استخدام معرف المصادقة الخاص بك فقط",
+  "requestIdAndDonationTypeNotAccepted": "معاملات requestId و donationType غير مقبولة على نقطة النهاية هذه",
+  "authenticatedDonorIdNotFound": "لم يتم العثور على معرف المتبرع المصرح به في رمز المصادقة",
+
+  "activityTimelineRetrievedSuccessfully": "تم استرجاع سجل الأنشطة بنجاح",
+  "pageMustBePositiveInteger": "يجب أن تكون الصفحة رقماً موجباً",
+  "limitMustBePositiveInteger": "يجب أن يكون الحد رقماً موجباً",
+  "invalidTypeFilter": "مرشح نوع غير صحيح: {typeParam}",
+  "@invalidTypeFilter": {
+    "placeholders": {
+      "typeParam": {
+        "type": "String"
+      }
+    }
+  },
+  "activityProfileCompleted": "اكتمل الملف الشخصي",
+  "activityUrgentRequestNearby": "طلب عاجل بالقرب",
+  "activityPointsEarned": "{points} نقطة مكتسبة — {activity}",
+  "@activityPointsEarned": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      },
+      "activity": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTimeJustNow": "للتو",
+  "relativeTime1MinuteAgo": "منذ دقيقة واحدة",
+  "relativeTimeMinutesAgo": "منذ {count} دقائق",
+  "@relativeTimeMinutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1HourAgo": "منذ ساعة واحدة",
+  "relativeTimeHoursAgo": "منذ {count} ساعات",
+  "@relativeTimeHoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1DayAgo": "منذ يوم واحد",
+  "relativeTimeDaysAgo": "منذ {count} أيام",
+  "@relativeTimeDaysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1WeekAgo": "منذ أسبوع واحد",
+  "relativeTimeWeeksAgo": "منذ {count} أسابيع",
+  "@relativeTimeWeeksAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1MonthAgo": "منذ شهر واحد",
+  "relativeTimeMonthsAgo": "منذ {count} أشهر",
+  "@relativeTimeMonthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1YearAgo": "منذ سنة واحدة",
+  "relativeTimeYearsAgo": "منذ {count} سنة",
+  "@relativeTimeYearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "activityStatusPending": "قيد الانتظار",
+  "activityStatusSuccess": "نجح",
+  "activityStatusCancelled": "ملغى",
+  "noActivitiesFound": "لم يتم العثور على أنشطة",
+  "activityProfileUpdated": "تم تحديث الملف الشخصي",
+  "activityDonationCancelled": "تم إلغاء التبرع",
+  "activityDonationCompleted": "اكتمل التبرع",
+  "reward_redeemed_successfully": "تم استبدال المكافأة بنجاح",
+
+  "participationUpdated": "تم تحديث المشاركة بنجاح",
+  "donationEligibility": "أهلية التبرع",
+  "youAreNotEligible": "أنت غير مؤهل للتبرع في الوقت الحالي",
+  "youAreEligible": "أنت مؤهل للتبرع في الوقت الحالي",
+  "contact_support": "التواصل مع الدعم",
+  "contact_support_subtitle": "املأ النموذج أدناه لتقديم طلب دعم فني.",
+  "subject": "الموضوع",
+  "select_category": "اختر فئة",
+  "submit_ticket": "إرسال الطلب",
+  "account_management": "إدارة الحساب",
+  "technical_issue": "مشكلة تقنية",
+  "donation_process": "عملية التبرع",
+  "rewards_point": "نقاط المكافآت",
+  "other": "أخرى",
+  "support_request_sent_successfully": "تم إرسال طلب الدعم بنجاح",
+  "please_enter_your_name": "يرجى إدخال اسمك",
+  "please_enter_your_email": "يرجى إدخال بريدك الإلكتروني",
+  "please_enter_valid_email": "يرجى إدخال بريد إلكتروني صحيح",
+  "please_enter_subject": "يرجى إدخال الموضوع",
+  "please_select_category": "يرجى تحديد فئة",
+  "please_enter_message": "يرجى إدخال الرسالة",
+  "network_timeout": "انقطاع الشبكة. حاول مرة أخرى.",
+  "not_found": "لم يتم العثور على المورد.",
+  "accountManagement": "إدارة الحساب",
+  "technicalIssue": "مشكلة تقنية",
+  "donationProcess": "عملية التبرع",
+  "rewardsPoint": "نقاط المكافآت",
+  "ticket_submitted_successfully": "تم إرسال الطلب بنجاح"
+
+
+
+
+
+
+
 
 }

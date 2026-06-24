@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_drop_down_button_form_field.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../core/extension/text_ex.dart';
 import '../../../../../../../../core/widgets/custom_elevated_button.dart';
@@ -9,6 +12,8 @@ import '../../../../../../../../core/widgets/custom_label.dart';
 import '../../../../../../../../core/widgets/custom_text.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../../../../hospital/tabs/home/section/request_header.dart';
+import '../../view_model/users_view_model.dart';
+import 'admin_created_summary.dart';
 import 'build_field.dart';
 
 class AddAdminDialog extends StatefulWidget {
@@ -28,10 +33,13 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
   late final TextEditingController _adminCodeController;
   late final TextEditingController _passwordController;
   late final TextEditingController _confirmPasswordController;
+
   String? selectedAccessLevel;
+  bool _isLoading = false;
+  CreatedAdminSummary? _createdAdminSummary;
 
   List<String> _accessLevelItems(AppLocalizations loc) {
-    return [loc.fullAccess, loc.limitedAccess, loc.viewOnly];
+    return [loc.admin, loc.superAdmin];
   }
 
   @override
@@ -84,40 +92,64 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
     );
   }
 
-  void _onSave() {
+  Future<void> _onSave() async {
     final loc = AppLocalizations.of(context)!;
-    final isFormValid = _formKey.currentState?.validate() ?? false;
 
-    if (!isFormValid) {
-      return;
-    }
+    if (!(_formKey.currentState?.validate() ?? false)) return;
 
     if (selectedAccessLevel == null) {
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(
-          _buildSnackBar(message: loc.pleaseSelectAccessLevel, isSuccess: false),
+          _buildSnackBar(
+              message: loc.pleaseSelectAccessLevel, isSuccess: false),
         );
       return;
     }
 
-    final adminData = <String, dynamic>{
-      'name': _nameController.text.trim(),
-      'email': _emailController.text.trim(),
-      'phone': _phoneController.text.trim(),
-      'address': _locationController.text.trim(),
-      'accessLevel': selectedAccessLevel,
-      'adminCode': _adminCodeController.text.trim(),
-      'password': _passwordController.text.trim(),
-    };
+    setState(() => _isLoading = true);
+    String role = 'admin';
+    if (selectedAccessLevel == loc.superAdmin) {
+      role = 'superadmin';
+    } else if (selectedAccessLevel == loc.admin) {
+      role = 'admin';
+    }
 
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(
-        _buildSnackBar(message: loc.adminAddedSuccessfully, isSuccess: true),
-      );
+    final result = await context.read<UsersCubit>().createAdmin(
+      fullName: _nameController.text.trim(),
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+      phone: _phoneController.text.trim(),
+      role: role,
+    );
+    log('$result');
 
-    Navigator.of(context).pop(adminData);
+    if (!mounted) return;
+
+    setState(() => _isLoading = false);
+
+    if (result.success && result.admin != null) {
+      final admin = result.admin!;
+      setState(() {
+        _createdAdminSummary = CreatedAdminSummary(
+          fullName: admin.fullName ?? '',
+          adminKey: admin.adminKey ?? '',
+          email: admin.email ?? '',
+          phone: admin.phone ?? '',
+          role: admin.role ?? selectedAccessLevel!,
+        );
+      });
+    } else {
+      log('Create admin failed: ${result.errorMessage}');
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          _buildSnackBar(
+            message:  localizeError(result.errorMessage ?? loc.error_unknown, loc),
+            isSuccess: false,
+          ),
+        );
+    }
   }
 
   Widget _buildField({
@@ -126,10 +158,13 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
     required TextEditingController controller,
     required BuildContext context,
     TextInputType keyboardType = TextInputType.text,
+    TextInputAction textInputAction = TextInputAction.next,
+
     String? Function(String?)? validator,
     bool obscureText = false,
   }) {
     return BuildField(
+      textInputAction: textInputAction,
       label: label,
       controller: controller,
       keyboardType: keyboardType,
@@ -137,13 +172,13 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
       obscureText: obscureText,
       validator: validator ?? (value) => _requiredValidator(value, context),
     );
-
   }
 
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
     final accessLevelItems = _accessLevelItems(loc);
+
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       shape: RoundedRectangleBorder(
@@ -159,7 +194,12 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
             constraints: BoxConstraints(
               maxHeight: MediaQuery.of(context).size.height * 0.86,
             ),
-            child: Form(
+            child: _createdAdminSummary != null
+                ? AdminCreatedSuccessView(
+              summary: _createdAdminSummary!,
+              onDone: () => Navigator.of(context).pop(_createdAdminSummary),
+            )
+                : Form(
               key: _formKey,
               child: Column(
                 children: [
@@ -184,7 +224,6 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
                             context: context,
                           ),
                           const SizedBox(height: 16),
-
                           _buildField(
                             obscureText: false,
                             label: loc.email,
@@ -196,7 +235,6 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
                                 (value ?? '').emailValidator(context),
                           ),
                           const SizedBox(height: 16),
-
                           _buildField(
                             label: loc.phone,
                             hintText: loc.please_enter_phone,
@@ -208,41 +246,19 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
                                 (value ?? '').phoneValidator(context),
                           ),
                           const SizedBox(height: 16),
-
                           CustomLabel(text: loc.accessLevel),
-                          CustomDropDownButtonFormField(items: accessLevelItems, hintText: loc.selectAccessLevel,
-                          initialValue:selectedAccessLevel ,
+                          CustomDropDownButtonFormField(
+                            items: accessLevelItems,
+                            hintText: loc.selectAccessLevel,
+                            initialValue: selectedAccessLevel,
                             onChanged: (value) {
                               setState(() {
                                 selectedAccessLevel = value;
                               });
                             },
-
-
                           ),
 
                           const SizedBox(height: 16),
-
-                          _buildField(
-                            label: loc.address,
-                            hintText: loc.address,
-                            controller: _locationController,
-                            context: context,
-                          ),
-
-                          const SizedBox(height: 16),
-
-                          _buildField(
-                            obscureText: false,
-                            keyboardType: TextInputType.text,
-                            label: loc.admin_access_key,
-                            hintText: loc.please_enter_admin_access_key,
-                            controller: _adminCodeController,
-                            context: context,
-                          ),
-
-                          const SizedBox(height: 16),
-
                           _buildField(
                             keyboardType: TextInputType.text,
                             label: loc.secure_password,
@@ -250,24 +266,22 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
                             controller: _passwordController,
                             context: context,
                             obscureText: true,
-                            validator: (value) =>
-                                (value ?? '').passwordValidator(context),
+
                           ),
-
                           const SizedBox(height: 16),
-
                           _buildField(
+                            textInputAction: TextInputAction.done,
                             label: loc.confirm_password,
                             hintText: loc.please_confirm_password,
                             controller: _confirmPasswordController,
                             keyboardType: TextInputType.text,
                             context: context,
                             obscureText: true,
-                            validator: (value) => (value ?? '')
-                                .confirmPasswordValidator(
-                              context,
-                              _passwordController.text.trim(),
-                            ),
+                            validator: (value) =>
+                                (value ?? '').confirmPasswordValidator(
+                                  context,
+                                  _passwordController.text.trim(),
+                                ),
                           ),
                           const SizedBox(height: 8),
                         ],
@@ -285,12 +299,14 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                             side: BorderSide(
-                              color: ColorManger.slateGrey.withValues(alpha: 0.3),
+                              color: ColorManger.slateGrey
+                                  .withValues(alpha: 0.3),
                               width: 1.2,
                             ),
                           ),
-
-                          onPressed: () => Navigator.of(context).pop(),
+                          onPressed: _isLoading
+                              ? null
+                              : () => Navigator.of(context).pop(),
                           child: CustomText(text: loc.cancel),
                         ),
                       ),
@@ -301,15 +317,24 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                             side: BorderSide(
-                              color: ColorManger.royalBlue.withValues(alpha: 0.45),
+                              color: ColorManger.royalBlue
+                                  .withValues(alpha: 0.45),
                               width: 1,
                             ),
                           ),
                           backgroundColor: ColorManger.royalBlue,
                           foregroundColor: ColorManger.pureWhite,
-
-                          onPressed: _onSave,
-                          child: CustomText(text: loc.save),
+                          onPressed: _isLoading ? null : _onSave,
+                          child: _isLoading
+                              ? SizedBox(
+                            height: 18,
+                            width: 18,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: ColorManger.pureWhite,
+                            ),
+                          )
+                              : CustomText(text: loc.save),
                         ),
                       ),
                     ],
@@ -319,9 +344,7 @@ class _AddAdminDialogState extends State<AddAdminDialog> {
             ),
           ),
         ),
-
       ),
-
     );
   }
 }

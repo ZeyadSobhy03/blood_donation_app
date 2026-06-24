@@ -13,8 +13,8 @@ class NotificationApiDataSource implements NotificationRemoteDataSource {
 
   @override
   Future<NotificationsModel> getNotifications({
-    int page = 1,
-    int limit = 10,
+     required int page,
+   required int limit,
   }) async {
     try {
       final token = await authLocalDataSource.getAccessToken();

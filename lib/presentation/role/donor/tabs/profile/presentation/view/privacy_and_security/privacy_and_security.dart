@@ -1,8 +1,8 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/widgets/title_colum.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
+import '../../../../donate/presentation/view/widgets/title_colum.dart';
 import '../sections/password_and_security_card.dart';
 
 

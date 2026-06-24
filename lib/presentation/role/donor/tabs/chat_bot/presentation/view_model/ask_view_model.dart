@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:blood_donation_app/core/errors/app_exceptions.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/data/model/answer_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/use_case/ask_use_case.dart';
@@ -21,8 +23,18 @@ class AskCubit extends Cubit<AskState> {
         userId: userId,
       );
       emit(AskSuccessState(answer));
+    } on NetworkTimeoutException {
+      emit(AskErrorState('network_timeout'));
+    } on ServerException catch (e) {
+      emit(AskErrorState(mapServerErrorToKey(e.serverMessage)));
+    } on UnauthorizedException {
+      emit(AskErrorState('unauthorized'));
+    } on RequestCancelledException {
+      emit(AskErrorState('request_cancelled'));
+    } on UnknownNetworkException {
+      emit(AskErrorState('unknown_error'));
     } catch (e) {
-      emit(AskErrorState(e.toString()));
+      emit(AskErrorState('unknown_error'));
     }
   }
 
@@ -55,11 +67,17 @@ class AskCubit extends Cubit<AskState> {
           ));
         },
         onError: (e) {
-          emit(AskErrorState(e.toString()));
+          if (e is ServerException) {
+            emit(AskErrorState(mapServerErrorToKey(e.serverMessage)));
+          } else if (e is NetworkTimeoutException) {
+            emit(AskErrorState('network_timeout'));
+          } else {
+            emit(AskErrorState('unknown_error'));
+          }
         },
       );
     } catch (e) {
-      emit(AskErrorState(e.toString()));
+      emit(AskErrorState('unknown_error'));
     }
   }
 

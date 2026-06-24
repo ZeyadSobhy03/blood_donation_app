@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../l10n/app_localizations.dart';
-import '../../../../donor/tabs/donate/widgets/title_colum.dart';
-import '../../../../donor/tabs/profile/help_and_support/section/about_section.dart';
-import '../../../../donor/tabs/profile/help_and_support/section/faq_section.dart';
-import '../../../../donor/tabs/profile/help_and_support/section/get_help_section.dart';
-import '../../../../donor/tabs/profile/help_and_support/section/popular_topics_section.dart';
+import '../../../../donor/tabs/donate/presentation/view/widgets/title_colum.dart';
+import '../../../../donor/tabs/profile/presentation/view/help_and_support/section/about_section.dart';
+import '../../../../donor/tabs/profile/presentation/view/help_and_support/section/faq_section.dart';
+import '../../../../donor/tabs/profile/presentation/view/help_and_support/section/get_help_section.dart';
+import '../../../../donor/tabs/profile/presentation/view/help_and_support/section/popular_topics_section.dart';
 
 class HelpAndSupportHospital extends StatelessWidget {
   const HelpAndSupportHospital({super.key});

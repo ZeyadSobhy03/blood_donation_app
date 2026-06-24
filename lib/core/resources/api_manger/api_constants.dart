@@ -47,7 +47,8 @@ class ApiManger {
   static  String cancelAppointmentEndpoint(String appointmentId) {
     return "${baseUrl}donations/book-appointment/$appointmentId";
   }
-  //
+  static const String acceptedRequestsEndpoint = "${baseUrl}requests/accepted";
+
   static const String donationAvailableEndpoint = "${baseUrl}donor/donation-eligibility";
   static const String badgesEndpoint = "${baseUrl}rewards/badges";
   static const String rewardsEndpoint = "${baseUrl}rewards/catalog";
@@ -55,7 +56,6 @@ class ApiManger {
   static  String redeemRewardEndpoint(String rewardId) {
     return "${baseUrl}rewards/catalog/$rewardId/redeem";
   }
-  // donations/book-appointment/69fe540565ff7785a031315c
   static  String rescheduleAppointmentEndpoint(String appointmentId) {
     return "${baseUrl}donations/book-appointment/$appointmentId";
   }
@@ -67,7 +67,6 @@ class ApiManger {
   static String cancelRequestEndpoint(String requestId) {
     return "${baseUrl}requests/$requestId/cancel";
   }
-  // https://graduation-project-cy61.onrender.com/requests/69fe540565ff7785a031314f
   static  String fetchByRequestIdEndpoint(String requestId) {
     return "${baseUrl}requests/$requestId";
   }
@@ -79,13 +78,16 @@ class ApiManger {
   static const String editProfileEndpoint = "${baseUrl}donor/profile";
   static const String deleteNotificationEndpoint = "${baseUrl}notifications/";
   static const String donorSates= "${baseUrl}donor/stats";
-  // https://graduation-project-cy61.onrender.com/donor/activity
   static const String activityHistoryEndpoint = "${baseUrl}donor/activity";
-  // https://graduation-project-cy61.onrender.com/rewards/points
   static const String userPointsEndpoint = "${baseUrl}rewards/points";
   static const String pointsHistoryEndpoint = "${baseUrl}rewards/points/history";
   static const String getSettingEndpoint = "${baseUrl}donor/settings";
   static const String historyEndpoint = "${baseUrl}donor/history";
+  static const String supportRequestsEndpoint = "${baseUrl}support/contact";
+
+
+
+   static const String participationEndpoint = "${baseUrl}donor/participation";
 
 ///////////// notifications endpoints  /////////////
   static const String notificationsListEndpoint = "${baseUrl}notifications";
@@ -96,34 +98,27 @@ static const String chatBotUrl = "https://donation-chatbot-1fie.onrender.com";
 static const String askChatBotEndpoint = "$chatBotUrl/ask";
 static const String chatEndPoint= "$chatBotUrl/chat";
 /////////////////////////////////////////// fcm endpoints  /////////////////////////////////////
-  // auth/fcm-token
 static const String saveFcmTokenEndpoint = "${baseUrl}auth/fcm-token";
 //////////////////////////////////// schedule donation endpoints  /////////////////////////////////////
-  // donations/book-appointment/available-slots
   static const String availableSlotsEndpoint = "${baseUrl}donations/book-appointment/available-slots";
-// https://graduation-project-cy61.onrender.com/donations/book-appointment/available-slots
 /////////////////////////// admin /////////////////////////////////
 static const String adminLoginEndPoint="${baseUrl}auth/admin/login";
 static const String systemHealthEndpoint="${baseUrl}admin/system/health";
 static const String analyticsDashboardEndpoint="${baseUrl}admin/dashboard";
+static const String createHospitalEndpoint="${baseUrl}admin/users/hospital";
 static const String adminProfileEndpoint="${baseUrl}admin/profile";
-//admin/requests
 static const String adminRequestsEndpoint="${baseUrl}admin/requests";
-// admin/requests/69fe540565ff7785a031314f/fulfill
 static String fulfillRequestEndpoint(String requestId) {
   return "${baseUrl}admin/requests/$requestId/fulfill";
 }
-// https://graduation-project-cy61.onrender.com/admin/requests/69fe540565ff7785a031314f/cancel
 static String adminCancelRequestsEndpoint(String requestId) {
   return "${baseUrl}admin/requests/$requestId/cancel";
 }
-// https://graduation-project-cy61.onrender.com/admin/requests/69fe540565ff7785a031314f/broadcast
 static String broadcastRequestEndpoint(String requestId) {
   return "${baseUrl}admin/requests/$requestId/broadcast";
 }
-// analytics/overview
+
 static const String analyticsOverviewEndpoint="${baseUrl}analytics/overview";
-// admin/users
 static const String adminUsersEndpoint="${baseUrl}admin/users";
 static  String deleteUserEndpoint(String userId) {
   return "${baseUrl}admin/users/$userId";
@@ -134,8 +129,20 @@ static String banUserEndpoint(String userId) {
 static String unbanUserEndpoint(String userId) {
   return "${baseUrl}admin/users/$userId/unban";
 }
-//analytics/donations
+static const String createAdminEndpoint="${baseUrl}admin/admins";
+static  String updateUserEndpoint(String userId) {
+  return "${baseUrl}admin/users/$userId";
+}
+static const String inboundEmailsEndpoint="${baseUrl}admin/inbound-emails";
+static String deleteInboundEmailEndpoint(String emailId) {
+  return "${baseUrl}admin/inbound-emails/$emailId";
+}
+static String markInboundEmailAsReadEndpoint(String emailId) {
+  return "${baseUrl}admin/inbound-emails/$emailId/read";
+}
+static String archiveInboundEmailEndpoint(String emailId) {
+  return "${baseUrl}admin/inbound-emails/$emailId/archive";
+}
 static const String analyticsDonationsEndpoint="${baseUrl}analytics/donations";
-//admin/analytics/top-donors
 static const String topDonorsEndpoint="${baseUrl}admin/analytics/top-donors";
 }

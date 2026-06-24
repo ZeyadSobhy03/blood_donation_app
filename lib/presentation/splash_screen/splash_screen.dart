@@ -90,7 +90,7 @@ class _SplashScreenState extends State<SplashScreen>
           log('Admin role: $adminRole');
 
         if (role != null) {
-          if (role.toLowerCase() == 'admin') {
+          if (role.toLowerCase() == 'admin' || role.toLowerCase()=='superadmin') {
             await adminCubit.getMe();
           } else {
             await authCubit.getMe();
@@ -130,6 +130,10 @@ class _SplashScreenState extends State<SplashScreen>
         break;
       case 'admin':
         Navigator.pushReplacementNamed(context, RouteManger.adminMainLayout);
+
+      case 'superadmin':
+        Navigator.pushReplacementNamed(context, RouteManger.adminMainLayout);
+
         break;
       default:
         log('Unknown role: $role → going to chooseRole');

@@ -106,11 +106,13 @@ class DonorTile extends StatelessWidget {
                         color: ColorManger.slateGrey,
                       ),
                       const SizedBox(width: 2),
-                      CustomText(
-                        text: location!,
-                        textStyle: TextStyle(
-                          fontSize: FontSize.s12,
-                          color: ColorManger.slateGrey,
+                      Expanded(
+                        child: CustomText(
+                          text: location!,
+                          textStyle: TextStyle(
+                            fontSize: FontSize.s12,
+                            color: ColorManger.slateGrey,
+                          ),
                         ),
                       ),
                     ],

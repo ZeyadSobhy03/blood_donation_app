@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/donation_eligibility/donation_eligibility_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/donation_eligibility/participation_preference_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/repositories/donation_eligibility/donation_eligibility_repositories.dart';
 
 import '../../data_source/donation_eligibility/donation_eligibility_remote_data_source.dart';
@@ -10,6 +11,11 @@ class DonationEligibilityRepositoriesImp implements DonationEligibilityRepositor
   @override
   Future<DonationEligibilityModel> fetchDonationEligibility() {
     return remoteDataSource.fetchDonationEligibility();
+  }
+
+  @override
+  Future<ParticipationPreferenceModel> setParticipation({required bool participation}) {
+    return remoteDataSource.setParticipation(participation: participation);
   }
 
 

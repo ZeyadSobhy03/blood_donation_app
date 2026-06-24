@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
@@ -14,18 +15,16 @@ import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../../../core/cubits/map_cubit.dart';
 import '../../../../../../../core/resources/models/coordinates.dart';
 import '../../../../../../../core/resources/routes/route_manger.dart';
 
+import '../../../donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 import '../view_model/nearby_hospitals_view_model.dart';
 import '../../data/model/nearby_hospitals.dart';
 
 import '../../../request_screen/widgets/map_card.dart';
-
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
 
 class FindHospital extends StatefulWidget {
   const FindHospital({super.key});
@@ -36,10 +35,7 @@ class FindHospital extends StatefulWidget {
 
 class _FindHospitalState extends State<FindHospital> {
   final TextEditingController _searchController = TextEditingController();
-
   final ScrollController _scrollController = ScrollController();
-
-  final List<Hospitals> _hospitals = [];
 
   Timer? _debounce;
 
@@ -49,20 +45,10 @@ class _FindHospitalState extends State<FindHospital> {
   String _searchQuery = '';
   String? _selectedBloodType;
 
-  double? _lat;
-  double? _lng;
-
-  int _currentPage = 1;
-
-  bool _hasMore = true;
-  bool _isLoadingMore = false;
-
   @override
   void initState() {
     super.initState();
-
     _fetchNearby();
-
     _scrollController.addListener(_onScroll);
   }
 
@@ -75,93 +61,46 @@ class _FindHospitalState extends State<FindHospital> {
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels >=
-            _scrollController.position.maxScrollExtent - 200 &&
-        !_isLoadingMore &&
-        _hasMore) {
-      _loadMore();
-    }
-  }
+    final atBottom =
+        _scrollController.position.pixels >=
+            _scrollController.position.maxScrollExtent - 200;
 
-  Future<void> _loadMore() async {
-    final mapState = context.read<MapCubit>().state;
+    if (atBottom) {
+      final mapState = context.read<MapCubit>().state;
+      if (mapState is! MapLoaded) return;
 
-    if (mapState is! MapLoaded) return;
-
-    setState(() {
-      _isLoadingMore = true;
-    });
-
-    _currentPage++;
-
-    try {
-      final cubit = context.read<NearbyHospitalsCubit>();
-
-      if (_searchQuery.isNotEmpty) {
-        await cubit.searchNearbyHospitals(
-          query: _searchQuery,
-          bloodType: _selectedBloodType,
-          availableOnly: true,
-          page: _currentPage,
-          limit: 10,
-        );
-      } else {
-        await cubit.fetchNearbyHospitals(
-          latitude: mapState.latitude,
-          longitude: mapState.longitude,
-          radius: 10,
-          bloodType: _selectedBloodType,
-          sortBy: 'distance',
-          order: isAscending ? 'asc' : 'desc',
-          page: _currentPage,
-          limit: 10,
-        );
-      }
-    } finally {
-      setState(() {
-        _isLoadingMore = false;
-      });
+      context.read<NearbyHospitalsCubit>().loadMore(
+        latitude: mapState.latitude,
+        longitude: mapState.longitude,
+        searchQuery: _searchQuery,
+        bloodType: _selectedBloodType,
+        isAscending: isAscending,
+      );
     }
   }
 
   void _fetchNearby() {
     final state = context.read<MapCubit>().state;
-
     if (state is! MapLoaded) return;
 
-    _lat = state.latitude;
-    _lng = state.longitude;
-
-    _currentPage = 1;
-
-    _hasMore = true;
-
     context.read<NearbyHospitalsCubit>().fetchNearbyHospitals(
-      latitude: _lat!,
-      longitude: _lng!,
+      latitude: state.latitude,
+      longitude: state.longitude,
       radius: 10,
-      search: null,
       bloodType: _selectedBloodType,
       sortBy: 'distance',
       order: isAscending ? 'asc' : 'desc',
       page: 1,
-      limit: 10,
     );
   }
 
   void _onSearchChanged(String value) {
     _searchQuery = value;
-
     _debounce?.cancel();
 
     _debounce = Timer(const Duration(milliseconds: 500), () {
       final mapState = context.read<MapCubit>().state;
-
       if (mapState is! MapLoaded) return;
-
-      _currentPage = 1;
-
-      _hasMore = true;
 
       if (value.trim().isEmpty) {
         context.read<NearbyHospitalsCubit>().fetchNearbyHospitals(
@@ -172,7 +111,6 @@ class _FindHospitalState extends State<FindHospital> {
           sortBy: 'distance',
           order: isAscending ? 'asc' : 'desc',
           page: 1,
-          limit: 10,
         );
       } else {
         context.read<NearbyHospitalsCubit>().searchNearbyHospitals(
@@ -180,22 +118,15 @@ class _FindHospitalState extends State<FindHospital> {
           bloodType: _selectedBloodType,
           availableOnly: true,
           page: 1,
-          limit: 10,
         );
       }
     });
   }
 
-  void filterByBloodType(String? bloodType) {
+  void _filterByBloodType(String? bloodType) {
     _selectedBloodType = bloodType;
-
     final mapState = context.read<MapCubit>().state;
-
     if (mapState is! MapLoaded) return;
-
-    _currentPage = 1;
-
-    _hasMore = true;
 
     if (_searchQuery.isNotEmpty) {
       context.read<NearbyHospitalsCubit>().searchNearbyHospitals(
@@ -203,7 +134,6 @@ class _FindHospitalState extends State<FindHospital> {
         bloodType: bloodType,
         availableOnly: true,
         page: 1,
-        limit: 10,
       );
     } else {
       context.read<NearbyHospitalsCubit>().fetchNearbyHospitals(
@@ -214,26 +144,19 @@ class _FindHospitalState extends State<FindHospital> {
         sortBy: 'distance',
         order: isAscending ? 'asc' : 'desc',
         page: 1,
-        limit: 10,
       );
     }
   }
 
-  void sortByDistance() {
-    setState(() {
-      isAscending = !isAscending;
-    });
-
+  void _sortByDistance() {
+    setState(() => isAscending = !isAscending);
     _fetchNearby();
   }
 
   Coordinates? _cords(Hospitals h) {
     final lat = h.location?.lat ?? h.lat;
-
     final lng = h.location?.lng ?? h.lng;
-
     if (lat == null || lng == null) return null;
-
     return Coordinates(latitude: lat, longitude: lng);
   }
 
@@ -244,42 +167,23 @@ class _FindHospitalState extends State<FindHospital> {
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
       body: SafeArea(
-        child: MultiBlocListener(
-          listeners: [
-            BlocListener<MapCubit, MapState>(
-              listener: (context, state) {
-                if (state is MapLoaded) {
-                  _fetchNearby();
-                }
-              },
-            ),
-            BlocListener<NearbyHospitalsCubit, NearbyHospitalsState>(
-              listener: (context, state) {
-                if (state is NearbyHospitalsSuccessState) {
-                  final data = state.nearbyHospitals.data?.hospitals ?? [];
-
-                  setState(() {
-                    if (_currentPage == 1) {
-                      _hospitals.clear();
-                    }
-
-                    _hospitals.addAll(data);
-
-                    if (data.length < 10) {
-                      _hasMore = false;
-                    }
-                  });
-                }
-              },
-            ),
-          ],
+        child: BlocListener<MapCubit, MapState>(
+          listener: (context, state) {
+            if (state is MapLoaded) _fetchNearby();
+          },
           child: BlocBuilder<NearbyHospitalsCubit, NearbyHospitalsState>(
-           builder: (context, state) {
-               if (state is NearbyHospitalsLoadingState && _hospitals.isEmpty) {
-                 return CustomLoadingWidget();
-               }
+            builder: (context, state) {
+              final cubit = context.read<NearbyHospitalsCubit>();
+              final hospitals = cubit.hospitals;
+              final isLoadingMore = cubit.isLoadingMore;
+              final hasMore = cubit.hasMore;
 
-               if (state is NearbyHospitalsErrorState && _hospitals.isEmpty) {
+              if (state is NearbyHospitalsLoadingState && hospitals.isEmpty) {
+                return const CustomLoadingWidget();
+              }
+
+              if (state is NearbyHospitalsErrorState && hospitals.isEmpty) {
+                log('Error fetching nearby hospitals: ${state.error}');
                 return CustomErrorWidget(
                   message: localizeError(state.error, app),
                   onRetry: _fetchNearby,
@@ -287,7 +191,7 @@ class _FindHospitalState extends State<FindHospital> {
                 );
               }
 
-              final hasData = _hospitals.isNotEmpty;
+              final hasData = hospitals.isNotEmpty;
 
               return SingleChildScrollView(
                 controller: _scrollController,
@@ -312,11 +216,7 @@ class _FindHospitalState extends State<FindHospital> {
                         prefixIcon: const Icon(Icons.search),
                         hintText: app.searchHint,
                         suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              showFilter = !showFilter;
-                            });
-                          },
+                          onPressed: () => setState(() => showFilter = !showFilter),
                           icon: Icon(
                             Icons.filter_alt_outlined,
                             color: showFilter
@@ -330,8 +230,8 @@ class _FindHospitalState extends State<FindHospital> {
 
                       if (showFilter)
                         BloodFilter(
-                          onBloodTypeChanged: filterByBloodType,
-                          onClear: () => filterByBloodType(null),
+                          onBloodTypeChanged: _filterByBloodType,
+                          onClear: () => _filterByBloodType(null),
                         ),
 
                       SizedBox(height: 10.h),
@@ -339,18 +239,17 @@ class _FindHospitalState extends State<FindHospital> {
                       MapCard(
                         onTap: hasData
                             ? () {
-                                final c = _cords(_hospitals.first);
-
-                                if (c != null) {
-                                  Navigator.pushNamed(
-                                    context,
-                                    RouteManger.mapScreen,
-                                    arguments: c,
-                                  );
-                                }
-                              }
+                          final c = _cords(hospitals.first);
+                          if (c != null) {
+                            Navigator.pushNamed(
+                              context,
+                              RouteManger.mapScreen,
+                              arguments: c,
+                            );
+                          }
+                        }
                             : null,
-                        hospitalName: app.hospitalsNearby(_hospitals.length),
+                        hospitalName: app.hospitalsNearby(hospitals.length),
                       ),
 
                       SizedBox(height: 10.h),
@@ -359,7 +258,7 @@ class _FindHospitalState extends State<FindHospital> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CustomText(
-                            text: app.hospitalsFound(_hospitals.length),
+                            text: app.hospitalsFound(hospitals.length),
                             textStyle: TextStyle(
                               fontSize: 15.sp,
                               fontWeight: FontWeightManager.medium,
@@ -376,7 +275,7 @@ class _FindHospitalState extends State<FindHospital> {
                                 CustomText(text: app.sortByDistance),
                               ],
                             ),
-                            onPressed: sortByDistance,
+                            onPressed: _sortByDistance,
                           ),
                         ],
                       ),
@@ -386,29 +285,31 @@ class _FindHospitalState extends State<FindHospital> {
                       ListView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: _hospitals.length,
+                        itemCount: hospitals.length,
                         itemBuilder: (context, index) {
-                          return HospitalCard(hospitals: _hospitals[index]);
+                          return HospitalCard(hospitals: hospitals[index]);
                         },
                       ),
 
-                       if (_isLoadingMore)
-                         Padding(
-                           padding: EdgeInsets.symmetric(vertical: 16.h),
-                           child: Skeletonizer(
-                             enabled: true,
-                             child: Center(
-                               child: Container(
-                                 width: 40.w,
-                                 height: 40.w,
-                                 decoration: BoxDecoration(
-                                   color: Colors.grey.shade300,
-                                   shape: BoxShape.circle,
-                                 ),
-                               ),
-                             ),
-                           ),
-                         ),
+                      if (isLoadingMore)
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16.h),
+                          child: const Center(child: CircularProgressIndicator()),
+                        ),
+
+                      if (!hasMore && hasData)
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 12.h),
+                          child: Center(
+                            child: CustomText(
+                              text: app.noMoreHospitals,
+                              textStyle: TextStyle(
+                                fontSize: 13.sp,
+                                color: ColorManger.slateGrey,
+                              ),
+                            ),
+                          ),
+                        ),
 
                       SizedBox(height: 20.h),
                     ],

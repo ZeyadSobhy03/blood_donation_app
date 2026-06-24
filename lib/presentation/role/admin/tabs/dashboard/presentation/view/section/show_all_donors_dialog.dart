@@ -42,7 +42,7 @@ class ShowAllDonorsDialog extends StatelessWidget {
                     builder: (context, state) {
                       if (state is AnalyticsLoadingState) {
                         return CustomLoadingWidget(
-                          indicatorColor: ColorManger.royalBlue,
+                          indicatorColor: ColorManger.brightPurple,
                         );
                       }
 

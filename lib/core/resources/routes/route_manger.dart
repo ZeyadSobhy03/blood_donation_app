@@ -1,17 +1,17 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
+import 'package:blood_donation_app/core/resources/models/reset_password_args.dart';
 import 'package:blood_donation_app/core/widgets/custom_ban_screen.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/hospital_forget_password.dart';
 import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/schedule_donation.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donor_main_layout.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/notifications.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/profile/help_and_support/screen/pdf_viewer_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/request_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../presentation/authentication/admin_authentication/presentation/view/admin_authentication.dart';
 import '../../../presentation/authentication/admin_authentication/presentation/view/admin_forget_password.dart';
@@ -22,14 +22,20 @@ import '../../../presentation/authentication/hospital_authentication/hospital_au
 import '../../../presentation/maps/maps.dart';
 import '../../../presentation/role/admin/tabs/admin_main_layout.dart';
 import '../../../presentation/role/admin/tabs/admin_requests/presentation/view/admin_request.dart';
+import '../../../presentation/role/admin/tabs/admin_rewards/presentation/view/admin_rewards.dart';
 import '../../../presentation/role/admin/tabs/analytics/presentation/view/analytics.dart';
 import '../../../presentation/role/admin/tabs/dashboard/presentation/view/dashboard.dart';
 import '../../../presentation/role/admin/tabs/system_settings/presentation/view/system_settings.dart';
+import '../../../presentation/role/admin/tabs/system_settings/presentation/view/widgets/inbound_emails_screen.dart';
 import '../../../presentation/role/admin/tabs/users/presentation/view/users.dart';
-import '../../../presentation/role/donor/tabs/donate/section/appointment_details.dart';
+import '../../../presentation/role/donor/tabs/donate/presentation/view/schedule_donation/cubit/donation_schedule.dart';
+import '../../../presentation/role/donor/tabs/donate/presentation/view/schedule_donation/schedule_donation.dart';
+import '../../../presentation/role/donor/tabs/donate/presentation/view/section/accepted_request_details.dart';
+import '../../../presentation/role/donor/tabs/donate/presentation/view/section/appointment_details.dart';
 import '../../../presentation/role/donor/tabs/donation_history/presentation/view/donation_history.dart';
 import '../../../presentation/role/donor/tabs/profile/confirm_donation/confirm_donation.dart';
-import '../../../presentation/role/donor/tabs/profile/help_and_support/screen/help_and_support_screen.dart';
+import '../../../presentation/role/donor/tabs/profile/presentation/view/help_and_support/screen/help_and_support_screen.dart';
+import '../../../presentation/role/donor/tabs/profile/presentation/view/help_and_support/screen/pdf_viewer_screen.dart';
 import '../../../presentation/role/donor/tabs/profile/presentation/view/privacy_and_security/privacy_and_security.dart';
 import '../../../presentation/role/donor/tabs/profile/presentation/view/two_factor_authentication/screen/two_factor_authentication_screen.dart';
 import '../../../presentation/role/hospital/tabs/hospital_main_layout.dart';
@@ -39,6 +45,7 @@ import '../../../presentation/splash_screen/splash_screen.dart';
 import '../../widgets/custom_pin_verification_screen.dart';
 
 import '../../../presentation/authentication/donor_authentication/presentation/view/widgets/donor_reset_password.dart';
+import '../../widgets/custom_reset_password.dart';
 
 class RouteManger {
   static const String onboarding = '/onboarding';
@@ -79,6 +86,10 @@ class RouteManger {
   static const String adminForgetPassword = '/adminForgetPassword';
   static const String appointmentDetails = '/appointmentDetails';
   static const String banScreen = '/banScreen';
+  static const String adminRewards='/adminRewards';
+  static const String inboundEmailsScreen='/inboundEmailsScreen';
+  static const String customResetPassword = '/customResetPassword';
+  static const String acceptedRequestDetails='/acceptedRequestDetails';
 
   static Route router(RouteSettings settings) {
     switch (settings.name) {
@@ -98,6 +109,27 @@ class RouteManger {
       case appointmentDetails:
         return MaterialPageRoute(
           builder: (context) => const AppointmentDetails(),
+          settings: settings,
+        );
+
+      case acceptedRequestDetails:
+        return MaterialPageRoute(
+          builder: (context) => const AcceptedRequestDetails(),
+          settings: settings,
+        );
+
+       case customResetPassword:
+        final args = settings.arguments as ResetPasswordArgs ;
+        return MaterialPageRoute(
+          builder: (context) => CustomResetPassword(
+            args: args,
+          ),
+          settings: settings,
+        );
+
+      case inboundEmailsScreen:
+        return MaterialPageRoute(
+          builder: (context) => const InboundEmailsScreen(),
           settings: settings,
         );
 
@@ -122,6 +154,10 @@ class RouteManger {
 
       case users:
         return MaterialPageRoute(builder: (context) => const Users());
+
+      case adminRewards:
+        return MaterialPageRoute(builder: (context) => const AdminRewards());
+
 
       case adminMainLayout:
         return MaterialPageRoute(builder: (context) => const AdminMainLayout());
@@ -169,8 +205,12 @@ class RouteManger {
         return MaterialPageRoute(builder: (context) => Notifications());
 
       case scheduleDonation:
-        return MaterialPageRoute(builder: (context) => ScheduleDonation());
-
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => DonationScheduleCubit(),
+            child: const ScheduleDonation(),
+          ),
+        );
       case donorLogin:
         return MaterialPageRoute(builder: (context) => DonorLogin());
 

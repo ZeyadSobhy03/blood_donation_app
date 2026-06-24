@@ -1,3 +1,5 @@
+import 'package:blood_donation_app/core/errors/app_exceptions.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/model/badges_model.dart';
@@ -15,8 +17,18 @@ class RewardsCubit extends Cubit<RewardsState> {
       emit(RewardsLoadingState());
       final badges = await rewardsUseCase.getBadges();
       emit(BadgesSuccessState(badges));
+    } on NetworkTimeoutException {
+      emit(RewardsErrorState('network_timeout'));
+    } on ServerException catch (e) {
+      emit(RewardsErrorState(mapServerErrorToKey(e.serverMessage)));
+    } on UnauthorizedException {
+      emit(RewardsErrorState('unauthorized'));
+    } on RequestCancelledException {
+      emit(RewardsErrorState('request_cancelled'));
+    } on UnknownNetworkException {
+      emit(RewardsErrorState('unknown_error'));
     } catch (e) {
-      emit(RewardsErrorState(e.toString()));
+      emit(RewardsErrorState('unknown_error'));
     }
   }
 
@@ -25,8 +37,18 @@ class RewardsCubit extends Cubit<RewardsState> {
       emit(RewardsLoadingState());
       final rewards = await rewardsUseCase.getRewards();
       emit(RewardsSuccessState(rewards));
+    } on NetworkTimeoutException {
+      emit(RewardsErrorState('network_timeout'));
+    } on ServerException catch (e) {
+      emit(RewardsErrorState(mapServerErrorToKey(e.serverMessage)));
+    } on UnauthorizedException {
+      emit(RewardsErrorState('unauthorized'));
+    } on RequestCancelledException {
+      emit(RewardsErrorState('request_cancelled'));
+    } on UnknownNetworkException {
+      emit(RewardsErrorState('unknown_error'));
     } catch (e) {
-      emit(RewardsErrorState(e.toString()));
+      emit(RewardsErrorState('unknown_error'));
     }
   }
 
@@ -34,9 +56,19 @@ class RewardsCubit extends Cubit<RewardsState> {
     try {
       emit(RewardsLoadingState());
       await rewardsUseCase.redeemReward(rewardId: rewardId);
-      emit(RedeemSuccessState("Reward redeemed successfully!"));
+      emit(RedeemSuccessState("reward_redeemed_successfully"));
+    } on NetworkTimeoutException {
+      emit(RewardsErrorState('network_timeout'));
+    } on ServerException catch (e) {
+      emit(RewardsErrorState(mapServerErrorToKey(e.serverMessage)));
+    } on UnauthorizedException {
+      emit(RewardsErrorState('unauthorized'));
+    } on RequestCancelledException {
+      emit(RewardsErrorState('request_cancelled'));
+    } on UnknownNetworkException {
+      emit(RewardsErrorState('unknown_error'));
     } catch (e) {
-      emit(RewardsErrorState(e.toString()));
+      emit(RewardsErrorState('unknown_error'));
     }
   }
 
@@ -44,8 +76,18 @@ class RewardsCubit extends Cubit<RewardsState> {
     try {
       final points = await rewardsUseCase.getUserPoints();
       emit(UserPointsUpdatedState(points));
+    } on NetworkTimeoutException {
+      emit(UserPointsErrorState('network_timeout'));
+    } on ServerException catch (e) {
+      emit(UserPointsErrorState(mapServerErrorToKey(e.serverMessage)));
+    } on UnauthorizedException {
+      emit(UserPointsErrorState('unauthorized'));
+    } on RequestCancelledException {
+      emit(UserPointsErrorState('request_cancelled'));
+    } on UnknownNetworkException {
+      emit(UserPointsErrorState('unknown_error'));
     } catch (e) {
-      emit(UserPointsErrorState(e.toString()));
+      emit(UserPointsErrorState('unknown_error'));
     }
   }
 

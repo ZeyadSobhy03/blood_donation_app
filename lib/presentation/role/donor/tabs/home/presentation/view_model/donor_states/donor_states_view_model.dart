@@ -3,6 +3,7 @@ import 'package:blood_donation_app/core/errors/app_exceptions.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/donor_states/donor_state_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/utils/error_localizer.dart';
 import '../../../domain/use_case/donor_states/donor_states_use_case.dart';
 
 class DonorStatesCubit extends Cubit<DonorStatesViewState> {
@@ -19,7 +20,7 @@ class DonorStatesCubit extends Cubit<DonorStatesViewState> {
     } on NetworkTimeoutException {
       emit(DonorStatesErrorState(error: 'network_timeout'));
     } on ServerException catch (e) {
-      emit(DonorStatesErrorState(error: e.serverMessage ?? 'server_error'));
+      emit(DonorStatesErrorState(error: mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(DonorStatesErrorState(error: 'unauthorized'));
     } on NotFoundException {

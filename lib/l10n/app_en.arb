@@ -1115,6 +1115,9 @@
     "error_validation": "Please check your input and try again.",
     "error_forbidden": "You do not have permission to perform this action.",
     "error_token_expired": "Your session has expired. Please log in again.",
+    "unauthorized": "Unauthorized access. Please log in again.",
+    "email_error": "Invalid email address.",
+    "password_error": "Invalid password.",
   "dateOfBirthRequired": "Date of birth is required",
   "minimumAge": "You must be at least 17 years old to donate",
   "invalidDateOfBirth": "Date of birth must be a valid past date",
@@ -1200,7 +1203,300 @@
   "noContactNumberAvailable": "No contact number available",
   "couldNotLaunchDialer": "Could not launch dialer. Please check your device settings.",
   "cancelRequestConfirmationMessage": "Are you sure you want to cancel this request? This action cannot be undone.",
-  "deleteUserConfirmation": "Are you sure you want to delete this user? This action cannot be undone."
+  "deleteUserConfirmation": "Are you sure you want to delete this user? This action cannot be undone.",
+  "rewardsConfigAnalyticsTitle": "Rewards Config & Analytics",
+  "rewardsConfigAnalyticsDescription": "Catalog, configuration & point management",
+  "overview": "Overview",
+  "configuration": "Configuration",
+  "adjustPoints": "Adjust Points",
+  "increase_from_last_month": "Increase from last month",
+  "topRedeemedRewards": "Top Redeemed Rewards",
+  "pointsConfiguration": "Points Configuration",
+  "globalPointAllocationSettings": "Global point allocation settings",
+  "configurationNote": "Configuration Note",
+  "configurationNoteDescription": "Changes apply globally to all future point events. Previously earned points are not affected.",
+  "manualPointsAdjustment": "Manual Points Adjustment",
+  "manualPointsAdjustmentDescription": "Directly modify a specific donor's balance",
+  "userIdOrEmail": "User ID / Email",
+  "userIdOrEmailHint": "Enter User ID or Email",
+  "amountPoints": "Amount (Points)",
+  "amountPointsHint": "Enter Amount in Points",
+  "reasonHint": "Enter Reason for Adjustment",
+  "submitAdjustment": "Submit Adjustment",
+  "recentAdjustments": "Recent Adjustments",
+  "banUser": "Ban User",
+  "banUserConfirmation": "Are you sure you want to ban",
+  "banReasonHint": "Enter the reason for banning this user",
+  "ban": "Ban",
+  "unbanUser": "Unban User",
+  "unbanUserConfirmation": "Are you sure you want to unban",
+  "unban": "Unban",
+  "aiPredictionDemandIncrease": "Blood demand expected to increase {percentage}% next month based on historical trends — consider scheduling additional donation drives and sending proactive alerts to O+ and A+ donors.",
+  "aiPredictionDemandSteady": "Blood demand showing a steady {percentage}% weekly increase. Monitor inventory levels closely over the next 2 weeks.",
+  "aiPredictionDemandDecline": "Blood demand has declined {percentage}% in the past week. Consider reducing scheduled drive frequency and reviewing inventory redistribution across hospitals.",
+  "aiPredictionShortageCritical": "{bloodType} critically low — only {available} donors available against {needed} units needed. Launch emergency campaign within 48 hours.",
+  "aiPredictionShortageRisk": "{bloodType} supply at risk with a {ratio}:1 demand-to-supply ratio. Proactive targeted outreach to {bloodType} donors recommended this week.",
+  "aiPredictionRetentionDrop": "Donor return rate has dropped to {rate}% — consider launching a re-engagement campaign with bonus points for returning donors this month.",
+  "aiPredictionRetentionImprove": "Donor retention has improved to {rate}% — current momentum is strong. Capitalize by introducing referral rewards to sustain growth.",
+  "aiPredictionPeakDay": "{day} shows {percentage}% higher donation activity — schedule more mobile drives and staff on this day to maximize collections.",
+  "aiPredictionWeekend": "Weekend donation drives show {percentage}% higher success rates compared to weekdays. Prioritize weekend scheduling for upcoming emergency campaigns.",
 
+  "jan": "January",
+  "feb": "February",
+  "mar": "March",
+  "apr": "April",
+  "may": "May",
+  "jun": "June",
+  "jul": "July",
+  "aug": "August",
+  "sep": "September",
+  "oct": "October",
+  "nov": "November",
+  "dec": "December",
+  "selectLocationOnMap": "Select Location on Map",
+  "locationPermissionPermanentlyDenied": "Location permissions are permanently denied. Please enable them in settings.",
+  "tapOnMapToSelectLocation": "Tap on the map to select your location",
+  "confirmLocation": "Confirm Location",
+  "locationOnMap": "Location on Map",
+  "tapToSelectLocationOnMap": "Tap to select location on map",
+  "enterCity": "Enter city",
+  "enterState": "Enter state or governorate",
+  "zipCode": "Zip Code",
+  "enterZipCode": "Enter zip code",
+  "capacity": "Capacity",
+  "enterCapacity": "Enter bed capacity",
+  "capacityInvalidError": "Please enter a valid capacity",
+
+
+  "locationSelected": "Location selected",
+  "bloodBanksAvailable": "Blood Banks Available",
+  "selectAtLeastOneBloodBank": "Please select at least one blood type",
+
+  "failedToCreateHospital": "Failed to create hospital",
+  "copiedToClipboard": "Copied to clipboard",
+  "share": "Share",
+  "done": "Done",
+  "copy": "Copy",
+
+  "addNewReward": "Add New Reward",
+  "addNewRewardSubtitle": "Fill in the details to add a new reward to the catalog.",
+  "rewardName": "Reward Name",
+  "enterRewardName": "Enter reward name",
+  "category": "Category",
+  "enterRewardCategory": "Enter reward category",
+  "pointsRequired": "Points Required",
+  "enterPointsRequired": "Enter points required",
+  "initialState": "Initial State",
+  "selectState": "Select state",
+  "addReward": "Add Reward",
+  "rewardCatalog": "Reward Catalog",
+  "itemsCount": "{count} Items",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "fieldRequired": "This field is required",
+  "invalidNumber": "Please enter a valid number",
+  "rewardSubtitle": "Reward Subtitle",
+  "admin" : "Admin",
+  "superAdmin": "Super Admin",
+  "inboundEmailsTitle": "Inbound Emails",
+  "inboundEmailSearchHint": "Search emails...",
+  "inboundEmailFilterAll": "All",
+  "inboundEmailFilterUnread": "Unread",
+  "inboundEmailFilterArchived": "Archived",
+  "inboundEmailEmptyState": "No emails here",
+  "inboundEmailDeleteTitle": "Delete email",
+  "inboundEmailDeleteConfirm": "Are you sure you want to delete \"{subject}\"? This cannot be undone.",
+  "@inboundEmailDeleteConfirm": {
+    "placeholders": { "subject": { "type": "String" } }
+  },
+  "inboundEmailCancel": "Cancel",
+  "inboundEmailDelete": "Delete",
+  "inboundEmailMarkAsRead": "Mark as read",
+  "inboundEmailArchive": "Archive",
+  "inboundEmailFrom": "From: {from}",
+  "@inboundEmailFrom": {
+    "placeholders": { "from": { "type": "String" } }
+  },
+  "inboundEmailArchivedBadge": "Archived",
+  "inboundEmailUnreadBadge": "Unread",
+  "inboundEmailDetailFrom": "From",
+  "inboundEmailDetailTo": "To",
+  "inboundEmailDetailProvider": "Provider",
+  "inboundEmailDetailReceived": "Received",
+  "inboundEmailMarkedAsReadSnack": "Marked as read",
+  "inboundEmailArchivedSnack": "Email archived",
+  "inboundEmailDeletedSnack": "Email deleted",
+  "inboundEmailErrorGeneric": "Something went wrong. Please try again.",
+  "inboundEmailErrorNetworkTimeout": "Connection timed out. Please check your internet and try again.",
+  "inboundEmailErrorUnauthorized": "You are not authorized to perform this action.",
+  "inboundEmailErrorNotFound": "Email not found.",
+  "inboundEmailErrorRequestCancelled": "Request was cancelled.",
+  "inboundEmails": "Inbound Emails",
+"admin_reset_password_title": "Reset Admin Password",
+"admin_reset_password_subtitle": "Enter a new password for the admin account.",
+  "hospital_reset_password_title": "Reset Hospital Password",
+  "hospital_reset_password_subtitle": "Enter a new password for the hospital account.",
+  "noMoreHospitals": "No more hospitals available",
+  "acceptedRequestSectionTitle": "Accepted Requests",
+
+  "requestedAt": "Requested at",
+  "status": "Status",
+  "notes": "Notes",
+"showDetails": "Show Details",
+  "adult": "Adult",
+  "child": "Child",
+
+  "urgent": "Urgent",
+  "normal": "Normal",
+  "emergency2Units": "2 units",
+  "emergencyLabel": "Emergency",
+  "loadingAcceptedRequestsMessage": "Loading accepted requests...",
+  "noAcceptedRequestsMessage": "No accepted requests found.",
+
+  "cancellingRequest": "Cancelling request...",
+  "requestAlreadyCancelled": "This request has already been cancelled",
+  "cancelConfirmationMessage": "Are you sure you want to cancel this request?",
+  "addressNotAvailable": "Address not available",
+  "acceptedRequestsLoadingMoreMessage": "Loading more requests...",
+"connection_timeout": "Connection timeout. Please check your internet connection.",
+  "request_cancelled": "Request was cancelled.",
+  "no_internet": "No internet connection.",
+  "unknown_error": "Unexpected network error occurred.",
+  "empty_response": "Empty response from server",
+  "server_error": "Server error",
+  "donor_login_success_message": "Login successful! Welcome back.",
+  "donorNotEligible": "Donor is not eligible",
+  "donorAccountDeletedOrInactive": "Donor account is deleted or inactive",
+  "invalidDonorRole": "Invalid donor role",
+  "donorAccountSuspended": "Donor account is suspended",
+  "donorChronicMedicalConditions": "Donor has chronic medical conditions",
+  "donorActiveDonationInProgress": "Donor already has an active donation in progress",
+  "donorCompletedOrRejectedRequest": "Donor has already completed or rejected this request",
+  "cannotSpecifyAnotherDonorId": "You cannot specify another donor's ID — only your authenticated ID is used",
+  "requestIdAndDonationTypeNotAccepted": "requestId and donationType parameters are not accepted on this endpoint",
+  "authenticatedDonorIdNotFound": "Authenticated donor ID not found in authentication token",
+
+  "activityTimelineRetrievedSuccessfully": "Activity timeline retrieved successfully",
+  "pageMustBePositiveInteger": "Page must be a positive integer",
+  "limitMustBePositiveInteger": "Limit must be a positive integer",
+  "invalidTypeFilter": "Invalid type filter: {typeParam}",
+  "@invalidTypeFilter": {
+    "placeholders": {
+      "typeParam": {
+        "type": "String"
+      }
+    }
+  },
+  "activityProfileCompleted": "Profile Completed",
+  "activityUrgentRequestNearby": "Urgent Request Nearby",
+  "activityPointsEarned": "{points} Points Earned — {activity}",
+  "@activityPointsEarned": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      },
+      "activity": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTimeJustNow": "just now",
+  "relativeTime1MinuteAgo": "1 minute ago",
+  "relativeTimeMinutesAgo": "{count} minutes ago",
+  "@relativeTimeMinutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1HourAgo": "1 hour ago",
+  "relativeTimeHoursAgo": "{count} hours ago",
+  "@relativeTimeHoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1DayAgo": "1 day ago",
+  "relativeTimeDaysAgo": "{count} days ago",
+  "@relativeTimeDaysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1WeekAgo": "1 week ago",
+  "relativeTimeWeeksAgo": "{count} weeks ago",
+  "@relativeTimeWeeksAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1MonthAgo": "1 month ago",
+  "relativeTimeMonthsAgo": "{count} months ago",
+  "@relativeTimeMonthsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTime1YearAgo": "1 year ago",
+  "relativeTimeYearsAgo": "{count} years ago",
+  "@relativeTimeYearsAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "activityStatusPending": "Pending",
+  "activityStatusSuccess": "Success",
+  "activityStatusCancelled": "Cancelled",
+  "noActivitiesFound": "No activities found",
+  "activityProfileUpdated": "Profile Updated",
+  "activityDonationCompleted": "Donation Completed",
+  "activityDonationCancelled": "Donation Cancelled",
+  "reward_redeemed_successfully": "Reward redeemed successfully",
+  "participationUpdated": "Participation updated successfully",
+  "youAreNotEligible": "You are not eligible for this activity",
+  "youAreEligible": "You are eligible for this activity",
+  "donationEligibility": "Donation Eligibility",
+  "contact_support": "Contact Support",
+  "contact_support_subtitle": "Fill out the form below to submit a support ticket.",
+
+  "subject": "Subject",
+  "select_category": "Select a category",
+  "submit_ticket": "Submit Ticket",
+  "account_management": "Account Management",
+  "technical_issue": "Technical Issue",
+  "donation_process": "Donation Process",
+  "rewards_point": "Rewards Point",
+  "other": "Other",
+  "support_request_sent_successfully": "Support request sent successfully",
+  "please_enter_your_name": "Please enter your name",
+  "please_enter_your_email": "Please enter your email",
+  "please_enter_valid_email": "Please enter a valid email",
+  "please_enter_subject": "Please enter a subject",
+  "please_select_category": "Please select a category",
+  "please_enter_message": "Please enter a message",
+  "network_timeout": "Network timeout. Please try again.",
+  "not_found": "Resource not found.",
+  "rewardsPoint":   "Rewards Point",
+  "donationProcess": "Donation Process",
+  "technicalIssue": "Technical Issue",
+  "accountManagement": "Account Management",
+  "ticket_submitted_successfully": "Ticket submitted successfully"
 
 }

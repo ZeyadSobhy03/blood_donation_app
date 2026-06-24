@@ -15,7 +15,7 @@ class HospitalActions extends StatelessWidget {
       children: [
         Expanded(
           child: ContactHospitalButton(
-            hospitalNumber: hospitals.phoneNumber ?? 'No phone number available',
+            hospitalNumber: hospitals.contactNumber ?? 'No phone number available',
 
             hospitalName: hospitals.name ?? 'No hospital name available',
             bloodType: hospitals.bloodTypes ?? [],

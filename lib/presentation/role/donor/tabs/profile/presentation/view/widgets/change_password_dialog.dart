@@ -9,7 +9,7 @@ import '../../../../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../../../../../core/widgets/custom_text.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../../../../../authentication/donor_authentication/presentation/error_mapper.dart';
-import '../../../../donate/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 import '../../view_model/change_password/change_password_view_model.dart';
 
 class ChangePasswordDialog extends StatefulWidget {

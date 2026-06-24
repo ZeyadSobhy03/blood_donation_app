@@ -32,7 +32,7 @@ class HospitalHeader extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: () => callHospital(hospitals.phoneNumber ?? ''),
+          onPressed: () => callHospital(hospitals.contactNumber ?? ''),
           icon: Icon(Icons.phone, color: ColorManger.brightRed),
         ),
 

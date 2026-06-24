@@ -1,3 +1,5 @@
+import 'package:blood_donation_app/core/errors/app_exceptions.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/data/model/points_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,10 +17,22 @@ class UserPointsCubit extends Cubit<UserPointsState> {
       if (result.success == true && result.data != null) {
         emit(UserPointsSuccessState(result));
       } else {
-        emit(UserPointsErrorState('Failed to load points'));
+        emit(UserPointsErrorState('server_error'));
       }
+    } on NetworkTimeoutException {
+      emit(UserPointsErrorState('network_timeout'));
+    } on ServerException catch (e) {
+      emit(UserPointsErrorState(mapServerErrorToKey(e.serverMessage)));
+    } on UnauthorizedException {
+      emit(UserPointsErrorState('unauthorized'));
+    } on NotFoundException {
+      emit(UserPointsErrorState('not_found'));
+    } on RequestCancelledException {
+      emit(UserPointsErrorState('request_cancelled'));
+    } on UnknownNetworkException {
+      emit(UserPointsErrorState('unknown_error'));
     } catch (e) {
-      emit(UserPointsErrorState(e.toString()));
+      emit(UserPointsErrorState('unknown_error'));
     }
   }
 

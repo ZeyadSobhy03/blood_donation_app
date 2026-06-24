@@ -76,7 +76,7 @@ class _DonorLoginState extends State<DonorLogin> {
 
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(appLocalization.success),
+                  content: Text(appLocalization.donor_login_success_message),
                   backgroundColor: ColorManger.successColor,
                   behavior: SnackBarBehavior.floating,
                   duration: const Duration(milliseconds: 800),

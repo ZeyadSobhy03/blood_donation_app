@@ -3,6 +3,8 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/domain/use_case/requests/requests_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/utils/error_localizer.dart';
+
 class CancelRequestCubit extends Cubit<CancelRequestState> {
   final RequestsUseCase requestsUseCase;
 
@@ -19,7 +21,7 @@ class CancelRequestCubit extends Cubit<CancelRequestState> {
     } on NetworkTimeoutException {
       emit(CancelRequestErrorState('network_timeout'));
     } on ServerException catch (e) {
-      emit(CancelRequestErrorState(e.serverMessage ?? 'server_error'));
+      emit(CancelRequestErrorState(mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(CancelRequestErrorState('unauthorized'));
     } on NotFoundException {

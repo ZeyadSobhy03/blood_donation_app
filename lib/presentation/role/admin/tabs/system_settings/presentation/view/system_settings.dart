@@ -111,6 +111,11 @@ class _SystemSettingsState extends State<SystemSettings> {
                       );
                     },
                   ),
+                  ClickableTile(
+                    icon: Icons.mark_email_unread_outlined,
+                    label: appLocalization.inboundEmails,
+                    onTap: () => Navigator.pushNamed(context, RouteManger.inboundEmailsScreen),
+                  ),
                 ],
               ),
               const SizedBox(height: 16),

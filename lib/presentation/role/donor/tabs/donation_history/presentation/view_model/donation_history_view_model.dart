@@ -3,6 +3,8 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/donation_history
 import 'package:blood_donation_app/presentation/role/donor/tabs/donation_history/domain/use_case/donation_history_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/utils/error_localizer.dart';
+
 class DonationHistoryCubit extends Cubit<DonationHistoryState> {
   final DonationHistoryUseCase donationHistoryUseCase;
 
@@ -20,7 +22,7 @@ class DonationHistoryCubit extends Cubit<DonationHistoryState> {
     } on NetworkTimeoutException {
       emit(DonationHistoryError('network_timeout'));
     } on ServerException catch (e) {
-      emit(DonationHistoryError(e.serverMessage ?? 'server_error'));
+      emit(DonationHistoryError(mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(DonationHistoryError('unauthorized'));
     } on NotFoundException {

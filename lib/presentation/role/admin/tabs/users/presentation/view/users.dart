@@ -17,7 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../l10n/app_localizations.dart';
-import '../../../../../donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 import '../../data/model/users_model.dart';
 import '../view_model/users_view_model.dart';
 
@@ -191,7 +191,7 @@ class _UsersState extends State<Users> {
                             child: UsersInfoCard(
                               icon: Icons.block_outlined,
                               label: appLocalization.pending,
-                              value: (stats?.unverifiedUsers ?? 0).toString(),
+                              value: (stats?.suspendedUsers ?? 0).toString(),
                               iconColor: ColorManger.brightRed,
                             ),
                           ),

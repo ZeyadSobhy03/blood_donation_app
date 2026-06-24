@@ -9,9 +9,17 @@ class NotificationRepositoryImpl implements  NotificationRepository {
   final LocalNotificationDataSource localDataSource;
   NotificationRepositoryImpl({required this.notificationRemoteDataSource, required this.localDataSource});
   @override
-  Future<NotificationsModel> getNotifications() async {
+  Future<NotificationsModel> getNotifications(
+  {
+    required int page,
+    required int limit,
+}
+      ) async {
     try {
-      final remoteData = await notificationRemoteDataSource.getNotifications();
+      final remoteData = await notificationRemoteDataSource.getNotifications(
+        page: page,
+        limit: limit,
+      );
       await localDataSource.saveNotifications(remoteData);
       return remoteData;
     } catch (e) {

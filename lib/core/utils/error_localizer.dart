@@ -7,7 +7,6 @@ String mapServerErrorToKey(String? errorMessage) {
 
   final lowerMessage = errorMessage.toLowerCase().trim();
 
-  // ── Password errors ──
   if (lowerMessage.contains('incorrect') && lowerMessage.contains('current') &&
       lowerMessage.contains('password')) {
     return 'error_incorrect_current_password';
@@ -217,11 +216,13 @@ String localizeError(String errorKey, AppLocalizations loc) {
   switch (errorKey) {
     case 'connection_timeout':
     case 'network_timeout':
-      return loc.error_network_timeout;
+      return loc.connection_timeout;
     case 'no_internet':
-      return loc.noInternet;
+      return loc.no_internet;
+    case 'request_cancelled':
+      return loc.request_cancelled;
 
-  // ── Auth ──
+  // ── Authentication Errors ──
     case 'error_invalid_credentials':
       return loc.error_invalid_credentials;
     case 'error_invalid_email':
@@ -245,11 +246,18 @@ String localizeError(String errorKey, AppLocalizations loc) {
     case 'error_token_expired':
       return loc.error_token_expired;
     case 'unauthorized':
-      return loc.error_unauthorized;
+      return loc.unauthorized;
     case 'error_forbidden':
       return loc.error_forbidden;
 
-  // ── Booking ──
+  // ── Validation Errors ──
+    case 'email_error':
+      return loc.email_error;
+    case 'password_error':
+      return loc.password_error;
+    case 'error_validation':
+      return loc.error_validation;
+
     case 'error_hospital_id_date_required':
       return loc.error_hospital_id_date_required;
     case 'error_invalid_donation_type':
@@ -282,8 +290,10 @@ String localizeError(String errorKey, AppLocalizations loc) {
       return loc.error_time_slot_not_available;
     case 'error_daily_capacity_reached':
       return loc.error_daily_capacity_reached;
+    case 'error_appointment_already_exists':
+      return loc.error_appointment_already_exists;
 
-  // ── Donor eligibility ──
+  // ── Donor Eligibility Errors ──
     case 'error_donor_unavailable':
       return loc.error_donor_unavailable;
     case 'error_donor_suspended':
@@ -295,11 +305,7 @@ String localizeError(String errorKey, AppLocalizations loc) {
     case 'error_active_donation_in_progress':
       return loc.error_active_donation_in_progress;
 
-  // ── Conflict ──
-    case 'error_appointment_already_exists':
-      return loc.error_appointment_already_exists;
-
-  // ── Reschedule ──
+  // ── Reschedule Errors ──
     case 'error_appointment_id_required':
       return loc.error_appointment_id_required;
     case 'error_date_required':
@@ -321,7 +327,7 @@ String localizeError(String errorKey, AppLocalizations loc) {
     case 'error_reschedule_max_days':
       return loc.error_reschedule_max_days;
 
-  // ── Not found ──
+  // ── Not Found Errors ──
     case 'error_appointment_not_found':
       return loc.error_appointment_not_found;
     case 'error_hospital_not_found':
@@ -333,22 +339,20 @@ String localizeError(String errorKey, AppLocalizations loc) {
     case 'error_not_found':
       return loc.error_not_found;
 
+  // ── Hospital Errors ──
     case 'error_hospital_suspended':
       return loc.error_hospital_suspended;
     case 'error_hospital_not_verified':
       return loc.error_hospital_not_verified;
 
-    case 'error_validation':
-      return loc.error_validation;
-    case 'request_cancelled':
-      return loc.error_request_cancelled;
+
     case 'server_error':
     case 'bad_response':
-      return loc.error_server;
+      return loc.server_error;
     case 'empty_response':
-      return loc.emptyResponse;
+      return loc.empty_response;
     case 'unknown_error':
     default:
-      return loc.error_unknown;
+      return loc.unknown_error;
   }
 }

@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/presentation/view/admin_request.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/admin_rewards.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/analytics/presentation/view/analytics.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/presentation/view/dashboard.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view/system_settings.dart';
@@ -27,7 +28,7 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
     super.initState();
 
     _iconControllers = List.generate(
-      5,
+      6,
           (i) => AnimationController(
         vsync: this,
         duration: const Duration(milliseconds: 250),
@@ -75,6 +76,7 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
       Users(),
       AdminRequest(),
       Analytics(),
+      AdminRewards(),
       SystemSettings(),
     ];
 
@@ -96,10 +98,18 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
       appLocalizations.analytics,
       ),
       (
+      Icons.card_giftcard_rounded,
+      Icons.card_giftcard_outlined,
+      appLocalizations.rewards,
+      ),
+
+      (
       Icons.settings_rounded,
       Icons.settings_outlined,
       appLocalizations.settings,
       ),
+
+
     ];
 
     return Scaffold(
@@ -109,6 +119,7 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
         controller: _pageController,
         physics: const BouncingScrollPhysics(),
         onPageChanged: (index) {
+
           _iconControllers[currentIndex].reverse();
           _iconControllers[index].forward();
           setState(() => currentIndex = index);
@@ -145,7 +156,7 @@ class _AdminMainLayoutState extends State<AdminMainLayout>
                         Flexible(
                           child: ScaleTransition(
                             scale: _iconScales[index],
-                            child: AnimatedOpacity(  /// there in render overflow when scale > 1, so we wrap it with opacity to hide the overflowed part
+                            child: AnimatedOpacity(
                               duration: const Duration(milliseconds: 200),
                               opacity: 1.0,
                               child: Icon(

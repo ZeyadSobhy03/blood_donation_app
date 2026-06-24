@@ -1,5 +1,5 @@
-
 import 'package:blood_donation_app/core/errors/app_exceptions.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/fcm/fcm_model.dart';
@@ -18,7 +18,7 @@ class FcmCubit extends Cubit<FcmState> {
     } on NetworkTimeoutException {
       emit(FcmErrorState('network_timeout'));
     } on ServerException catch (e) {
-      emit(FcmErrorState(e.serverMessage ?? 'server_error'));
+      emit(FcmErrorState(mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(FcmErrorState('unauthorized'));
     } on NotFoundException {

@@ -13,11 +13,9 @@ import '../../../../../../../../l10n/app_localizations.dart';
 class DonationStatusCard extends StatelessWidget {
   const DonationStatusCard({
     super.key,
-    required this.donationStatus,
     required this.bloodType,
   });
 
-  final String donationStatus;
   final String bloodType;
 
   String _formatDate(String? dateString) {
@@ -38,34 +36,95 @@ class DonationStatusCard extends StatelessWidget {
 
   String _getLocalizedReason(String? reason, AppLocalizations l10n) {
     if (reason == null || reason.isEmpty) return '';
+
     switch (reason) {
-      case 'donorEligible': return l10n.donorEligible;
-      case 'donorNotFound': return l10n.donorNotFound;
-      case 'donorOrRequestNotFound': return l10n.donorOrRequestNotFound;
-      case 'donorOptedOutOfMatching': return l10n.donorOptedOutOfMatching;
-      case 'donorHasNoBloodType': return l10n.donorHasNoBloodType;
-      case 'bloodTypeIncompatible': return l10n.bloodTypeIncompatible;
-      case 'matchingLocationUnavailable': return l10n.matchingLocationUnavailable;
-      case 'outsideMatchingRadius': return l10n.outsideMatchingRadius;
-      case 'requestNotFound': return l10n.requestNotFound;
-      case 'noTemporaryDeferral': return l10n.noTemporaryDeferral;
-      case 'temporaryDeferralExpired': return l10n.temporaryDeferralExpired;
-      case 'temporarilyDeferred': return l10n.temporarilyDeferred;
-      case 'travelDeferral': return l10n.travelDeferral;
-      case 'noDonationIntervalRestriction': return l10n.noDonationIntervalRestriction;
-      case 'invalidLastDonationDateIgnored': return l10n.invalidLastDonationDateIgnored;
-      case 'donationCooldownActive': return l10n.donationCooldownActive;
-      case 'donationIntervalSatisfied': return l10n.donationIntervalSatisfied;
-      case 'noHemoglobinRestriction': return l10n.noHemoglobinRestriction;
-      case 'hemoglobinBelowMinimum': return l10n.hemoglobinBelowMinimum;
-      case 'hemoglobinLevelAcceptable': return l10n.hemoglobinLevelAcceptable;
-      case 'donorSuspended': return l10n.donorSuspended;
-      case 'donorCurrentlyUnavailable': return l10n.donorCurrentlyUnavailable;
-      case 'requestNoLongerActive': return l10n.requestNoLongerActive;
-      default: return reason;
+      case 'eligibility.donationCooldownActive':
+        return l10n.donationCooldownActive;
+      case 'eligibility.donorOptedOutOfMatching':
+        return l10n.donorOptedOutOfMatching;
+      case 'eligibility.donorHasNoBloodType':
+        return l10n.donorHasNoBloodType;
+      case 'eligibility.bloodTypeIncompatible':
+        return l10n.bloodTypeIncompatible;
+      case 'eligibility.dateOfBirthRequired':
+        return l10n.dateOfBirthRequired;
+      case 'eligibility.invalidDateOfBirth':
+        return l10n.invalidDateOfBirth;
+      case 'eligibility.ageVerificationFailed':
+        return l10n.ageVerificationFailed;
+      case 'eligibility.donorNotFound':
+        return l10n.donorNotFound;
+      case 'eligibility.hemoglobinBelowMinimum':
+        return l10n.hemoglobinBelowMinimum;
+      case 'eligibility.outsideMatchingRadius':
+        return l10n.outsideMatchingRadius;
+      case 'eligibility.donorNotEligible':
+        return l10n.donorNotEligible;
+
+    // Legacy cases (keeping for backward compatibility)
+      case 'donorEligible':
+        return l10n.donorEligible;
+      case 'donorOrRequestNotFound':
+        return l10n.donorOrRequestNotFound;
+      case 'matchingLocationUnavailable':
+        return l10n.matchingLocationUnavailable;
+      case 'requestNotFound':
+        return l10n.requestNotFound;
+      case 'noTemporaryDeferral':
+        return l10n.noTemporaryDeferral;
+      case 'temporaryDeferralExpired':
+        return l10n.temporaryDeferralExpired;
+      case 'temporarilyDeferred':
+        return l10n.temporarilyDeferred;
+      case 'travelDeferral':
+        return l10n.travelDeferral;
+      case 'noDonationIntervalRestriction':
+        return l10n.noDonationIntervalRestriction;
+      case 'invalidLastDonationDateIgnored':
+        return l10n.invalidLastDonationDateIgnored;
+      case 'donationIntervalSatisfied':
+        return l10n.donationIntervalSatisfied;
+      case 'noHemoglobinRestriction':
+        return l10n.noHemoglobinRestriction;
+      case 'hemoglobinLevelAcceptable':
+        return l10n.hemoglobinLevelAcceptable;
+      case 'donorSuspended':
+        return l10n.donorSuspended;
+      case 'donorCurrentlyUnavailable':
+        return l10n.donorCurrentlyUnavailable;
+      case 'requestNoLongerActive':
+        return l10n.requestNoLongerActive;
+
+    // Plain text error messages (localized)
+      case 'Donor account is deleted or inactive':
+        return l10n.donorAccountDeletedOrInactive;
+      case 'Invalid donor role':
+        return l10n.invalidDonorRole;
+      case 'Donor account is suspended':
+        return l10n.donorAccountSuspended;
+      case 'Donor has chronic medical conditions':
+        return l10n.donorChronicMedicalConditions;
+      case 'Donor already has an active donation in progress':
+        return l10n.donorActiveDonationInProgress;
+      case 'Donor has already completed or rejected this request':
+        return l10n.donorCompletedOrRejectedRequest;
+      case 'You cannot specify another donor\'s ID — only your authenticated ID is used':
+        return l10n.cannotSpecifyAnotherDonorId;
+      case 'requestId and donationType parameters are not accepted on this endpoint':
+        return l10n.requestIdAndDonationTypeNotAccepted;
+      case 'Donor not found':
+        return l10n.donorNotFound;
+      case 'Authenticated donor ID not found in authentication token':
+        return l10n.authenticatedDonorIdNotFound;
+
+    // Dynamic error messages
+      default:
+        if (reason.startsWith('Error validating eligibility:')) {
+          return reason; // Return as-is (already contains error details)
+        }
+        return reason; // Fallback: return the reason as-is
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DonationEligibilityCubit, DonationEligibilityState>(

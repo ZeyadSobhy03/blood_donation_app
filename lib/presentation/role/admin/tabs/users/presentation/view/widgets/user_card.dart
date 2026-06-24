@@ -30,7 +30,7 @@ class UserCard extends StatelessWidget {
     final isActive = user.isActive ?? false;
     final isVerified = user.isVerified ?? false;
     final displayName = user.fullName ?? user.name ?? '-';
-    final bloodType = ''; // TODO: backend to add bloodType field on user list endpoint
+    final bloodType = '';
 
     return Container(
       padding: const EdgeInsets.all(14),

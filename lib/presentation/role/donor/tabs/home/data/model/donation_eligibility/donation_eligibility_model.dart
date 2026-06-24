@@ -17,6 +17,18 @@ class DonationEligibilityModel {
   String? message;
   Data? data;
 
+  DonationEligibilityModel copyWith({
+    bool? success,
+    String? message,
+    Data? data,
+  }) {
+    return DonationEligibilityModel(
+      success: success ?? this.success,
+      message: message ?? this.message,
+      data: data ?? this.data,
+    );
+  }
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['success'] = success;
@@ -63,6 +75,26 @@ class Data {
   String? lastDonationDate;
   int? cooldownDays;
   int? daysRemaining;
+
+  Data copyWith({
+    bool? isEligible,
+    dynamic reason,
+    dynamic nextEligibleDate,
+    bool? participationEnabled,
+    String? lastDonationDate,
+    int? cooldownDays,
+    int? daysRemaining,
+  }) {
+    return Data(
+      isEligible: isEligible ?? this.isEligible,
+      reason: reason ?? this.reason,
+      nextEligibleDate: nextEligibleDate ?? this.nextEligibleDate,
+      participationEnabled: participationEnabled ?? this.participationEnabled,
+      lastDonationDate: lastDonationDate ?? this.lastDonationDate,
+      cooldownDays: cooldownDays ?? this.cooldownDays,
+      daysRemaining: daysRemaining ?? this.daysRemaining,
+    );
+  }
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

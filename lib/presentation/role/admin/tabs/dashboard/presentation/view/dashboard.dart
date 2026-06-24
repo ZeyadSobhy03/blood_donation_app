@@ -82,7 +82,6 @@ class _DashboardState extends State<Dashboard> {
                 const SizedBox(height: 20),
                 BlocBuilder<AnalyticsCubit, AnalyticsState>(
                   builder: (context, state) {
-                    log('Analytics State: $state');
 
                     if (state is AnalyticsLoadingState) {
                       return CustomLoadingWidget(

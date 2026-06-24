@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/users_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/presentation/view/widgets/summary_card.dart';
@@ -53,6 +54,8 @@ class UserDetailDialog extends StatelessWidget {
 
   bool get _isAdmin => user.role == _roleAdmin;
 
+  bool get _isBanned => user.isSuspended ?? false;
+
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
@@ -90,12 +93,14 @@ class UserDetailDialog extends StatelessWidget {
                     onEditUser: (name, phone) {
                       user.name = name;
                       user.phone = phone;
+                      final messenger = ScaffoldMessenger.maybeOf(context);
                       _showSnackBar(
-                        context,
+                        messenger,
                         '${appLocalization.edit} ${user.name}',
                       );
                     },
-                    onToggleVerification: () {},
+                    onToggleVerification: () =>
+                        _confirmAndToggleBan(context, usersCubit, appLocalization),
                   ),
                 ],
               ),
@@ -114,20 +119,30 @@ class UserDetailDialog extends StatelessWidget {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        shape:  RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        backgroundColor: ColorManger.pureWhite,
         title: CustomText(text: appLocalization.deleteUser),
         content: CustomText(
           text: '${appLocalization.deleteUserConfirmation} ${user.fullName ?? user.name ?? ''}?',
         ),
         actions: [
-          TextButton(
+          CustomElevatedButton(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            backgroundColor: ColorManger.brightRed,
+            elevation: 0,
+            foregroundColor: ColorManger.pureWhite,
             onPressed: () => Navigator.of(context).pop(false),
             child: CustomText(text: appLocalization.cancel),
           ),
-          TextButton(
+          CustomElevatedButton(
+            elevation: 0,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            backgroundColor: ColorManger.successColor,
+            foregroundColor: ColorManger.pureWhite,
             onPressed: () => Navigator.of(context).pop(true),
             child: CustomText(
               text: appLocalization.delete,
-              textStyle: const TextStyle(color: Colors.red),
+
             ),
           ),
         ],
@@ -140,20 +155,142 @@ class UserDetailDialog extends StatelessWidget {
     if (userId.isEmpty) return;
 
     if (!context.mounted) return;
+
+    final messenger = ScaffoldMessenger.maybeOf(context);
     Navigator.of(context).pop();
 
-    await usersCubit.deleteUser(userId: userId);
+    final result = await usersCubit.deleteUser(userId: userId);
 
-    final latestState = usersCubit.state;
-    if (!context.mounted) return;
-
-    if (latestState is UsersSuccessState && latestState.deleteError == null) {
+    if (result.success) {
       _showSnackBar(
-        context,
+        messenger,
         '${user.fullName ?? user.name ?? ''} ${appLocalization.deleteUser}',
       );
-    } else if (latestState is UsersSuccessState && latestState.deleteError != null) {
-      _showSnackBar(context, latestState.deleteError!, isError: true);
+    } else {
+      _showSnackBar(messenger, result.errorMessage ?? 'unknown_error', isError: true);
+    }
+  }
+
+  Future<void> _confirmAndToggleBan(
+      BuildContext context,
+      UsersCubit usersCubit,
+      AppLocalizations appLocalization,
+      ) async {
+    final userId = user.id ?? '';
+    if (userId.isEmpty) return;
+
+    if (_isBanned) {
+      final confirmed = await showDialog<bool>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: CustomText(text: appLocalization.unbanUser),
+          content: CustomText(
+            text:
+            '${appLocalization.unbanUserConfirmation} ${user.fullName ?? user.name ?? ''}?',
+          ),
+          actions: [
+            CustomElevatedButton(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              backgroundColor: ColorManger.brightRed,
+              elevation: 0,
+              foregroundColor: ColorManger.pureWhite,
+              onPressed: () => Navigator.of(context).pop(false),
+              child: CustomText(text: appLocalization.cancel),
+            ),
+            CustomElevatedButton(
+              elevation: 0,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              backgroundColor: ColorManger.successColor,
+              foregroundColor: ColorManger.pureWhite,
+              onPressed: () => Navigator.of(context).pop(true),
+              child: CustomText(text: appLocalization.unban),
+            ),
+          ],
+        ),
+      );
+
+      if (confirmed != true || !context.mounted) return;
+
+      final messenger = ScaffoldMessenger.maybeOf(context);
+      Navigator.of(context).pop();
+
+      final result = await usersCubit.unbanUser(userId: userId);
+      _handleActionResult(messenger, result, appLocalization, wasUnban: true);
+      return;
+    }
+
+    final reasonController = TextEditingController();
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: CustomText(text: appLocalization.banUser),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomText(
+              text:
+              '${appLocalization.banUserConfirmation} ${user.fullName ?? user.name ?? ''}?',
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: reasonController,
+              maxLines: 2,
+              decoration: InputDecoration(
+                hintText: appLocalization.banReasonHint,
+                border: const OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          CustomElevatedButton(
+            elevation: 0,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            backgroundColor: ColorManger.brightRed,
+            foregroundColor: ColorManger.pureWhite,
+            onPressed: () => Navigator.of(context).pop(false),
+            child: CustomText(text: appLocalization.cancel),
+          ),
+          CustomElevatedButton(
+            elevation: 0,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            backgroundColor: ColorManger.successColor,
+            foregroundColor: ColorManger.pureWhite,
+            onPressed: () => Navigator.of(context).pop(true),
+            child: CustomText(text: appLocalization.ban),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true || !context.mounted) return;
+
+    final reason = reasonController.text.trim();
+    if (reason.isEmpty) return;
+
+    final messenger = ScaffoldMessenger.maybeOf(context);
+    Navigator.of(context).pop();
+
+    final result = await usersCubit.banUser(userId: userId, reason: reason);
+    _handleActionResult(messenger, result, appLocalization, wasUnban: false);
+  }
+
+  void _handleActionResult(
+      ScaffoldMessengerState? messenger,
+      ActionResult result,
+      AppLocalizations appLocalization, {
+        required bool wasUnban,
+      }) {
+    if (result.success) {
+      _showSnackBar(
+        messenger,
+        wasUnban
+            ? '${user.fullName ?? user.name ?? ''} ${appLocalization.unbanUser}'
+            : '${user.fullName ?? user.name ?? ''} ${appLocalization.banUser}',
+      );
+    } else {
+      _showSnackBar(messenger, result.errorMessage ?? 'unknown_error', isError: true);
     }
   }
 
@@ -164,7 +301,7 @@ class UserDetailDialog extends StatelessWidget {
           buttonText: appLocalization.call,
           icon: Icons.phone,
           label: appLocalization.phone,
-          value: user.phone ?? '',
+          value: user.phoneNumber ?? '',
           onPressed: () => callUser(user.phone ?? ''),
         ),
         const SizedBox(height: 8),
@@ -193,7 +330,7 @@ class UserDetailDialog extends StatelessWidget {
             child: SummaryCard(
               backgroundColor: colors['light']!,
               title: appLocalization.bloodType,
-              value: '-', // TODO: backend to add bloodType field
+              value: user.bloodType ?? '-' ,
               valueColor: colors['primary']!,
             ),
           ),
@@ -212,7 +349,7 @@ class UserDetailDialog extends StatelessWidget {
       return SummaryCard(
         backgroundColor: colors['light']!,
         title: appLocalization.totalRequests,
-        value: '-', // TODO: backend to add totalRequests field
+        value: '${user.totalDonations ?? 0}',
         valueColor: colors['primary']!,
       );
     } else if (_isAdmin) {
@@ -268,8 +405,8 @@ class UserDetailDialog extends StatelessWidget {
     }
   }
 
-  void _showSnackBar(BuildContext context, String message, {bool isError = false}) {
-    ScaffoldMessenger.maybeOf(context)?.showSnackBar(
+  void _showSnackBar(ScaffoldMessengerState? messenger, String message, {bool isError = false}) {
+    messenger?.showSnackBar(
       SnackBar(
         backgroundColor: isError ? ColorManger.brightRed : ColorManger.successColor,
         behavior: SnackBarBehavior.floating,

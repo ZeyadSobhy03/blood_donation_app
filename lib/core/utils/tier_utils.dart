@@ -1,7 +1,7 @@
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 
 String localizeTier(String? tier, AppLocalizations loc) {
-  switch (tier) {
+  switch (tier?.toLowerCase()) {
     case 'bronze':
       return loc.bronze;
     case 'silver':

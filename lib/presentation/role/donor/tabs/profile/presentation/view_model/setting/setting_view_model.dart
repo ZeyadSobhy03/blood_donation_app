@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/errors/app_exceptions.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/setting/setting_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +18,7 @@ class SettingCubit extends Cubit<SettingState> {
     } on NetworkTimeoutException {
       emit(SettingErrorState(error: 'network_timeout'));
     } on ServerException catch (e) {
-      emit(SettingErrorState(error: e.serverMessage ?? 'server_error'));
+      emit(SettingErrorState(error: mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(SettingErrorState(error: 'unauthorized'));
     } on NotFoundException {
@@ -49,7 +50,7 @@ class SettingCubit extends Cubit<SettingState> {
     } on NetworkTimeoutException {
       emit(SettingErrorState(error: 'network_timeout'));
     } on ServerException catch (e) {
-      emit(SettingErrorState(error: e.serverMessage ?? 'server_error'));
+      emit(SettingErrorState(error: mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(SettingErrorState(error: 'unauthorized'));
     } on NotFoundException {

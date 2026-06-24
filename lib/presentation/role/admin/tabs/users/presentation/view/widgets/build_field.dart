@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../../../core/widgets/custom_label.dart';
-import '../../../../../../donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 
 
 class BuildField extends StatelessWidget {
@@ -12,7 +12,7 @@ class BuildField extends StatelessWidget {
     required this.keyboardType,
     required this.hintText,
     required this.obscureText,
-    this.validator,
+    this.validator, this.textInputAction = TextInputAction.next,
   });
 
   final String label;
@@ -21,6 +21,7 @@ class BuildField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final String? Function(String?)? validator;
+  final TextInputAction textInputAction ;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,7 @@ class BuildField extends StatelessWidget {
       children: [
         CustomLabel(text: label),
         CustomTextFormField(
+          textInputAction: textInputAction ,
           textEditingController: controller,
           keyboardType: keyboardType,
           hintText: hintText,

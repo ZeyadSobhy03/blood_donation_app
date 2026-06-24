@@ -4,10 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
-// ─────────────────────────────────────────────────────────────────────────────
-// STATES
-// ─────────────────────────────────────────────────────────────────────────────
-
 sealed class MapState {}
 
 final class MapInitial extends MapState {}
@@ -33,13 +29,8 @@ final class MapError extends MapState {
   MapError(this.error);
 }
 
-/// Emitted when the user has permanently denied location permission.
-/// The UI should guide the user to open app settings.
 final class MapPermissionPermanentlyDenied extends MapState {}
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CUBIT
-// ─────────────────────────────────────────────────────────────────────────────
 
 class MapCubit extends Cubit<MapState> {
   MapCubit() : super(MapInitial()) {
@@ -51,6 +42,8 @@ class MapCubit extends Cubit<MapState> {
   DateTime? _lastUpdateTime;
   String? _lastGovernorate;
 
+  bool _isManuallyPicked = false;
+
   final double distanceThreshold = 2000; // 2 km
   final Duration timeThreshold = const Duration(minutes: 15);
 
@@ -60,7 +53,6 @@ class MapCubit extends Cubit<MapState> {
     return super.close();
   }
 
-  // ── Entry point ─────────────────────────────────────────────────────────────
 
   void _startListening() async {
     final serviceEnabled = await _locationServiceEnabled();
@@ -76,6 +68,8 @@ class MapCubit extends Cubit<MapState> {
     emit(MapLoading());
 
     _positionSubscription = Geolocator.getPositionStream().listen((position) async {
+      if (_isManuallyPicked) return; // user is in control now, ignore GPS drift
+
       final shouldUpdate = await _shouldEmit(position);
 
       if (shouldUpdate && !isClosed) {
@@ -97,7 +91,41 @@ class MapCubit extends Cubit<MapState> {
     });
   }
 
-  // ── Throttle logic ───────────────────────────────────────────────────────────
+
+  Future<void> pickLocation(double latitude, double longitude) async {
+    _isManuallyPicked = true;
+    emit(MapLoading());
+
+    final info = await _getPlaceInfo(
+      Position(
+        latitude: latitude,
+        longitude: longitude,
+        timestamp: DateTime.now(),
+        accuracy: 0,
+        altitude: 0,
+        altitudeAccuracy: 0,
+        heading: 0,
+        headingAccuracy: 0,
+        speed: 0,
+        speedAccuracy: 0,
+      ),
+    );
+
+    if (isClosed) return;
+
+    _lastGovernorate = info.governorate;
+    emit(MapLoaded(
+      latitude: latitude,
+      longitude: longitude,
+      governorate: info.governorate,
+      city: info.city,
+    ));
+  }
+
+  void resumeGpsTracking() {
+    _isManuallyPicked = false;
+  }
+
 
   Future<bool> _shouldEmit(Position newPosition) async {
     // Always emit the very first fix
@@ -117,7 +145,6 @@ class MapCubit extends Cubit<MapState> {
       return true;
     }
 
-    // Emit if the user crossed a governorate boundary
     final info = await _getPlaceInfo(newPosition);
     if (_lastGovernorate == null || info.governorate != _lastGovernorate) {
       return true;
@@ -126,14 +153,7 @@ class MapCubit extends Cubit<MapState> {
     return false;
   }
 
-  // ── Geocoding ────────────────────────────────────────────────────────────────
 
-  /// Returns governorate + city from a GPS position using reverse geocoding.
-  ///
-  /// Placemark field mapping:
-  ///   administrativeArea      → Governorate  (e.g. "Cairo Governorate")
-  ///   locality                → City/District (e.g. "Heliopolis")
-  ///   subAdministrativeArea   → Fallback city if locality is null
   Future<({String governorate, String city})> _getPlaceInfo(
       Position position,
       ) async {
@@ -157,23 +177,18 @@ class MapCubit extends Cubit<MapState> {
     }
   }
 
-
   Future<bool> _locationServiceEnabled() async {
     return Geolocator.isLocationServiceEnabled();
   }
 
-  /// Returns true if permission is granted.
-  /// Emits [MapPermissionPermanentlyDenied] or [MapError] on failure
   Future<bool> _checkPermission() async {
     LocationPermission permission = await Geolocator.checkPermission();
 
-    // Already permanently denied — cannot request again
     if (permission == LocationPermission.deniedForever) {
       emit(MapPermissionPermanentlyDenied());
       return false;
     }
 
-    // Ask the user if not yet decided
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
     }

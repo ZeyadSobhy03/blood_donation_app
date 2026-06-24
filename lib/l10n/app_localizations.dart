@@ -6012,6 +6012,24 @@ abstract class AppLocalizations {
   /// **'Your session has expired. Please log in again.'**
   String get error_token_expired;
 
+  /// No description provided for @unauthorized.
+  ///
+  /// In en, this message translates to:
+  /// **'Unauthorized access. Please log in again.'**
+  String get unauthorized;
+
+  /// No description provided for @email_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email address.'**
+  String get email_error;
+
+  /// No description provided for @password_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid password.'**
+  String get password_error;
+
   /// No description provided for @dateOfBirthRequired.
   ///
   /// In en, this message translates to:
@@ -6521,6 +6539,1276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Are you sure you want to delete this user? This action cannot be undone.'**
   String get deleteUserConfirmation;
+
+  /// No description provided for @rewardsConfigAnalyticsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards Config & Analytics'**
+  String get rewardsConfigAnalyticsTitle;
+
+  /// No description provided for @rewardsConfigAnalyticsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalog, configuration & point management'**
+  String get rewardsConfigAnalyticsDescription;
+
+  /// No description provided for @overview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get overview;
+
+  /// No description provided for @configuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Configuration'**
+  String get configuration;
+
+  /// No description provided for @adjustPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Adjust Points'**
+  String get adjustPoints;
+
+  /// No description provided for @increase_from_last_month.
+  ///
+  /// In en, this message translates to:
+  /// **'Increase from last month'**
+  String get increase_from_last_month;
+
+  /// No description provided for @topRedeemedRewards.
+  ///
+  /// In en, this message translates to:
+  /// **'Top Redeemed Rewards'**
+  String get topRedeemedRewards;
+
+  /// No description provided for @pointsConfiguration.
+  ///
+  /// In en, this message translates to:
+  /// **'Points Configuration'**
+  String get pointsConfiguration;
+
+  /// No description provided for @globalPointAllocationSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Global point allocation settings'**
+  String get globalPointAllocationSettings;
+
+  /// No description provided for @configurationNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Configuration Note'**
+  String get configurationNote;
+
+  /// No description provided for @configurationNoteDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes apply globally to all future point events. Previously earned points are not affected.'**
+  String get configurationNoteDescription;
+
+  /// No description provided for @manualPointsAdjustment.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual Points Adjustment'**
+  String get manualPointsAdjustment;
+
+  /// No description provided for @manualPointsAdjustmentDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Directly modify a specific donor\'s balance'**
+  String get manualPointsAdjustmentDescription;
+
+  /// No description provided for @userIdOrEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'User ID / Email'**
+  String get userIdOrEmail;
+
+  /// No description provided for @userIdOrEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter User ID or Email'**
+  String get userIdOrEmailHint;
+
+  /// No description provided for @amountPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount (Points)'**
+  String get amountPoints;
+
+  /// No description provided for @amountPointsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Amount in Points'**
+  String get amountPointsHint;
+
+  /// No description provided for @reasonHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Reason for Adjustment'**
+  String get reasonHint;
+
+  /// No description provided for @submitAdjustment.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Adjustment'**
+  String get submitAdjustment;
+
+  /// No description provided for @recentAdjustments.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Adjustments'**
+  String get recentAdjustments;
+
+  /// No description provided for @banUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Ban User'**
+  String get banUser;
+
+  /// No description provided for @banUserConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to ban'**
+  String get banUserConfirmation;
+
+  /// No description provided for @banReasonHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the reason for banning this user'**
+  String get banReasonHint;
+
+  /// No description provided for @ban.
+  ///
+  /// In en, this message translates to:
+  /// **'Ban'**
+  String get ban;
+
+  /// No description provided for @unbanUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Unban User'**
+  String get unbanUser;
+
+  /// No description provided for @unbanUserConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to unban'**
+  String get unbanUserConfirmation;
+
+  /// No description provided for @unban.
+  ///
+  /// In en, this message translates to:
+  /// **'Unban'**
+  String get unban;
+
+  /// No description provided for @aiPredictionDemandIncrease.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood demand expected to increase {percentage}% next month based on historical trends — consider scheduling additional donation drives and sending proactive alerts to O+ and A+ donors.'**
+  String aiPredictionDemandIncrease(Object percentage);
+
+  /// No description provided for @aiPredictionDemandSteady.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood demand showing a steady {percentage}% weekly increase. Monitor inventory levels closely over the next 2 weeks.'**
+  String aiPredictionDemandSteady(Object percentage);
+
+  /// No description provided for @aiPredictionDemandDecline.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood demand has declined {percentage}% in the past week. Consider reducing scheduled drive frequency and reviewing inventory redistribution across hospitals.'**
+  String aiPredictionDemandDecline(Object percentage);
+
+  /// No description provided for @aiPredictionShortageCritical.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} critically low — only {available} donors available against {needed} units needed. Launch emergency campaign within 48 hours.'**
+  String aiPredictionShortageCritical(
+    Object available,
+    Object bloodType,
+    Object needed,
+  );
+
+  /// No description provided for @aiPredictionShortageRisk.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} supply at risk with a {ratio}:1 demand-to-supply ratio. Proactive targeted outreach to {bloodType} donors recommended this week.'**
+  String aiPredictionShortageRisk(Object bloodType, Object ratio);
+
+  /// No description provided for @aiPredictionRetentionDrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor return rate has dropped to {rate}% — consider launching a re-engagement campaign with bonus points for returning donors this month.'**
+  String aiPredictionRetentionDrop(Object rate);
+
+  /// No description provided for @aiPredictionRetentionImprove.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor retention has improved to {rate}% — current momentum is strong. Capitalize by introducing referral rewards to sustain growth.'**
+  String aiPredictionRetentionImprove(Object rate);
+
+  /// No description provided for @aiPredictionPeakDay.
+  ///
+  /// In en, this message translates to:
+  /// **'{day} shows {percentage}% higher donation activity — schedule more mobile drives and staff on this day to maximize collections.'**
+  String aiPredictionPeakDay(Object day, Object percentage);
+
+  /// No description provided for @aiPredictionWeekend.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekend donation drives show {percentage}% higher success rates compared to weekdays. Prioritize weekend scheduling for upcoming emergency campaigns.'**
+  String aiPredictionWeekend(Object percentage);
+
+  /// No description provided for @jan.
+  ///
+  /// In en, this message translates to:
+  /// **'January'**
+  String get jan;
+
+  /// No description provided for @feb.
+  ///
+  /// In en, this message translates to:
+  /// **'February'**
+  String get feb;
+
+  /// No description provided for @mar.
+  ///
+  /// In en, this message translates to:
+  /// **'March'**
+  String get mar;
+
+  /// No description provided for @apr.
+  ///
+  /// In en, this message translates to:
+  /// **'April'**
+  String get apr;
+
+  /// No description provided for @may.
+  ///
+  /// In en, this message translates to:
+  /// **'May'**
+  String get may;
+
+  /// No description provided for @jun.
+  ///
+  /// In en, this message translates to:
+  /// **'June'**
+  String get jun;
+
+  /// No description provided for @jul.
+  ///
+  /// In en, this message translates to:
+  /// **'July'**
+  String get jul;
+
+  /// No description provided for @aug.
+  ///
+  /// In en, this message translates to:
+  /// **'August'**
+  String get aug;
+
+  /// No description provided for @sep.
+  ///
+  /// In en, this message translates to:
+  /// **'September'**
+  String get sep;
+
+  /// No description provided for @oct.
+  ///
+  /// In en, this message translates to:
+  /// **'October'**
+  String get oct;
+
+  /// No description provided for @nov.
+  ///
+  /// In en, this message translates to:
+  /// **'November'**
+  String get nov;
+
+  /// No description provided for @dec.
+  ///
+  /// In en, this message translates to:
+  /// **'December'**
+  String get dec;
+
+  /// No description provided for @selectLocationOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Location on Map'**
+  String get selectLocationOnMap;
+
+  /// No description provided for @locationPermissionPermanentlyDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permissions are permanently denied. Please enable them in settings.'**
+  String get locationPermissionPermanentlyDenied;
+
+  /// No description provided for @tapOnMapToSelectLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap on the map to select your location'**
+  String get tapOnMapToSelectLocation;
+
+  /// No description provided for @confirmLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Location'**
+  String get confirmLocation;
+
+  /// No description provided for @locationOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Location on Map'**
+  String get locationOnMap;
+
+  /// No description provided for @tapToSelectLocationOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to select location on map'**
+  String get tapToSelectLocationOnMap;
+
+  /// No description provided for @enterCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter city'**
+  String get enterCity;
+
+  /// No description provided for @enterState.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter state or governorate'**
+  String get enterState;
+
+  /// No description provided for @zipCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Zip Code'**
+  String get zipCode;
+
+  /// No description provided for @enterZipCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter zip code'**
+  String get enterZipCode;
+
+  /// No description provided for @capacity.
+  ///
+  /// In en, this message translates to:
+  /// **'Capacity'**
+  String get capacity;
+
+  /// No description provided for @enterCapacity.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter bed capacity'**
+  String get enterCapacity;
+
+  /// No description provided for @capacityInvalidError.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid capacity'**
+  String get capacityInvalidError;
+
+  /// No description provided for @locationSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'Location selected'**
+  String get locationSelected;
+
+  /// No description provided for @bloodBanksAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Banks Available'**
+  String get bloodBanksAvailable;
+
+  /// No description provided for @selectAtLeastOneBloodBank.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select at least one blood type'**
+  String get selectAtLeastOneBloodBank;
+
+  /// No description provided for @failedToCreateHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to create hospital'**
+  String get failedToCreateHospital;
+
+  /// No description provided for @copiedToClipboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied to clipboard'**
+  String get copiedToClipboard;
+
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @copy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get copy;
+
+  /// No description provided for @addNewReward.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Reward'**
+  String get addNewReward;
+
+  /// No description provided for @addNewRewardSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill in the details to add a new reward to the catalog.'**
+  String get addNewRewardSubtitle;
+
+  /// No description provided for @rewardName.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward Name'**
+  String get rewardName;
+
+  /// No description provided for @enterRewardName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter reward name'**
+  String get enterRewardName;
+
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get category;
+
+  /// No description provided for @enterRewardCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter reward category'**
+  String get enterRewardCategory;
+
+  /// No description provided for @pointsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Points Required'**
+  String get pointsRequired;
+
+  /// No description provided for @enterPointsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter points required'**
+  String get enterPointsRequired;
+
+  /// No description provided for @initialState.
+  ///
+  /// In en, this message translates to:
+  /// **'Initial State'**
+  String get initialState;
+
+  /// No description provided for @selectState.
+  ///
+  /// In en, this message translates to:
+  /// **'Select state'**
+  String get selectState;
+
+  /// No description provided for @addReward.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Reward'**
+  String get addReward;
+
+  /// No description provided for @rewardCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward Catalog'**
+  String get rewardCatalog;
+
+  /// No description provided for @itemsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Items'**
+  String itemsCount(int count);
+
+  /// No description provided for @fieldRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get fieldRequired;
+
+  /// No description provided for @invalidNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid number'**
+  String get invalidNumber;
+
+  /// No description provided for @rewardSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward Subtitle'**
+  String get rewardSubtitle;
+
+  /// No description provided for @admin.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin'**
+  String get admin;
+
+  /// No description provided for @superAdmin.
+  ///
+  /// In en, this message translates to:
+  /// **'Super Admin'**
+  String get superAdmin;
+
+  /// No description provided for @inboundEmailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Inbound Emails'**
+  String get inboundEmailsTitle;
+
+  /// No description provided for @inboundEmailSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search emails...'**
+  String get inboundEmailSearchHint;
+
+  /// No description provided for @inboundEmailFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get inboundEmailFilterAll;
+
+  /// No description provided for @inboundEmailFilterUnread.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread'**
+  String get inboundEmailFilterUnread;
+
+  /// No description provided for @inboundEmailFilterArchived.
+  ///
+  /// In en, this message translates to:
+  /// **'Archived'**
+  String get inboundEmailFilterArchived;
+
+  /// No description provided for @inboundEmailEmptyState.
+  ///
+  /// In en, this message translates to:
+  /// **'No emails here'**
+  String get inboundEmailEmptyState;
+
+  /// No description provided for @inboundEmailDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete email'**
+  String get inboundEmailDeleteTitle;
+
+  /// No description provided for @inboundEmailDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete \"{subject}\"? This cannot be undone.'**
+  String inboundEmailDeleteConfirm(String subject);
+
+  /// No description provided for @inboundEmailCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get inboundEmailCancel;
+
+  /// No description provided for @inboundEmailDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get inboundEmailDelete;
+
+  /// No description provided for @inboundEmailMarkAsRead.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as read'**
+  String get inboundEmailMarkAsRead;
+
+  /// No description provided for @inboundEmailArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive'**
+  String get inboundEmailArchive;
+
+  /// No description provided for @inboundEmailFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From: {from}'**
+  String inboundEmailFrom(String from);
+
+  /// No description provided for @inboundEmailArchivedBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Archived'**
+  String get inboundEmailArchivedBadge;
+
+  /// No description provided for @inboundEmailUnreadBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread'**
+  String get inboundEmailUnreadBadge;
+
+  /// No description provided for @inboundEmailDetailFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get inboundEmailDetailFrom;
+
+  /// No description provided for @inboundEmailDetailTo.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get inboundEmailDetailTo;
+
+  /// No description provided for @inboundEmailDetailProvider.
+  ///
+  /// In en, this message translates to:
+  /// **'Provider'**
+  String get inboundEmailDetailProvider;
+
+  /// No description provided for @inboundEmailDetailReceived.
+  ///
+  /// In en, this message translates to:
+  /// **'Received'**
+  String get inboundEmailDetailReceived;
+
+  /// No description provided for @inboundEmailMarkedAsReadSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Marked as read'**
+  String get inboundEmailMarkedAsReadSnack;
+
+  /// No description provided for @inboundEmailArchivedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Email archived'**
+  String get inboundEmailArchivedSnack;
+
+  /// No description provided for @inboundEmailDeletedSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Email deleted'**
+  String get inboundEmailDeletedSnack;
+
+  /// No description provided for @inboundEmailErrorGeneric.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get inboundEmailErrorGeneric;
+
+  /// No description provided for @inboundEmailErrorNetworkTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection timed out. Please check your internet and try again.'**
+  String get inboundEmailErrorNetworkTimeout;
+
+  /// No description provided for @inboundEmailErrorUnauthorized.
+  ///
+  /// In en, this message translates to:
+  /// **'You are not authorized to perform this action.'**
+  String get inboundEmailErrorUnauthorized;
+
+  /// No description provided for @inboundEmailErrorNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Email not found.'**
+  String get inboundEmailErrorNotFound;
+
+  /// No description provided for @inboundEmailErrorRequestCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request was cancelled.'**
+  String get inboundEmailErrorRequestCancelled;
+
+  /// No description provided for @inboundEmails.
+  ///
+  /// In en, this message translates to:
+  /// **'Inbound Emails'**
+  String get inboundEmails;
+
+  /// No description provided for @admin_reset_password_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Admin Password'**
+  String get admin_reset_password_title;
+
+  /// No description provided for @admin_reset_password_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a new password for the admin account.'**
+  String get admin_reset_password_subtitle;
+
+  /// No description provided for @hospital_reset_password_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Hospital Password'**
+  String get hospital_reset_password_title;
+
+  /// No description provided for @hospital_reset_password_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a new password for the hospital account.'**
+  String get hospital_reset_password_subtitle;
+
+  /// No description provided for @noMoreHospitals.
+  ///
+  /// In en, this message translates to:
+  /// **'No more hospitals available'**
+  String get noMoreHospitals;
+
+  /// No description provided for @acceptedRequestSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Accepted Requests'**
+  String get acceptedRequestSectionTitle;
+
+  /// No description provided for @requestedAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Requested at'**
+  String get requestedAt;
+
+  /// No description provided for @status.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get status;
+
+  /// No description provided for @notes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notes;
+
+  /// No description provided for @showDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Details'**
+  String get showDetails;
+
+  /// No description provided for @adult.
+  ///
+  /// In en, this message translates to:
+  /// **'Adult'**
+  String get adult;
+
+  /// No description provided for @child.
+  ///
+  /// In en, this message translates to:
+  /// **'Child'**
+  String get child;
+
+  /// No description provided for @urgent.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent'**
+  String get urgent;
+
+  /// No description provided for @normal.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get normal;
+
+  /// No description provided for @emergency2Units.
+  ///
+  /// In en, this message translates to:
+  /// **'2 units'**
+  String get emergency2Units;
+
+  /// No description provided for @emergencyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency'**
+  String get emergencyLabel;
+
+  /// No description provided for @loadingAcceptedRequestsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading accepted requests...'**
+  String get loadingAcceptedRequestsMessage;
+
+  /// No description provided for @noAcceptedRequestsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No accepted requests found.'**
+  String get noAcceptedRequestsMessage;
+
+  /// No description provided for @cancellingRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelling request...'**
+  String get cancellingRequest;
+
+  /// No description provided for @requestAlreadyCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'This request has already been cancelled'**
+  String get requestAlreadyCancelled;
+
+  /// No description provided for @cancelConfirmationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to cancel this request?'**
+  String get cancelConfirmationMessage;
+
+  /// No description provided for @addressNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Address not available'**
+  String get addressNotAvailable;
+
+  /// No description provided for @acceptedRequestsLoadingMoreMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading more requests...'**
+  String get acceptedRequestsLoadingMoreMessage;
+
+  /// No description provided for @connection_timeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection timeout. Please check your internet connection.'**
+  String get connection_timeout;
+
+  /// No description provided for @request_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request was cancelled.'**
+  String get request_cancelled;
+
+  /// No description provided for @no_internet.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection.'**
+  String get no_internet;
+
+  /// No description provided for @unknown_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Unexpected network error occurred.'**
+  String get unknown_error;
+
+  /// No description provided for @empty_response.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty response from server'**
+  String get empty_response;
+
+  /// No description provided for @server_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Server error'**
+  String get server_error;
+
+  /// No description provided for @donor_login_success_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Login successful! Welcome back.'**
+  String get donor_login_success_message;
+
+  /// No description provided for @donorNotEligible.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor is not eligible'**
+  String get donorNotEligible;
+
+  /// No description provided for @donorAccountDeletedOrInactive.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor account is deleted or inactive'**
+  String get donorAccountDeletedOrInactive;
+
+  /// No description provided for @invalidDonorRole.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid donor role'**
+  String get invalidDonorRole;
+
+  /// No description provided for @donorAccountSuspended.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor account is suspended'**
+  String get donorAccountSuspended;
+
+  /// No description provided for @donorChronicMedicalConditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor has chronic medical conditions'**
+  String get donorChronicMedicalConditions;
+
+  /// No description provided for @donorActiveDonationInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor already has an active donation in progress'**
+  String get donorActiveDonationInProgress;
+
+  /// No description provided for @donorCompletedOrRejectedRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor has already completed or rejected this request'**
+  String get donorCompletedOrRejectedRequest;
+
+  /// No description provided for @cannotSpecifyAnotherDonorId.
+  ///
+  /// In en, this message translates to:
+  /// **'You cannot specify another donor\'s ID — only your authenticated ID is used'**
+  String get cannotSpecifyAnotherDonorId;
+
+  /// No description provided for @requestIdAndDonationTypeNotAccepted.
+  ///
+  /// In en, this message translates to:
+  /// **'requestId and donationType parameters are not accepted on this endpoint'**
+  String get requestIdAndDonationTypeNotAccepted;
+
+  /// No description provided for @authenticatedDonorIdNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Authenticated donor ID not found in authentication token'**
+  String get authenticatedDonorIdNotFound;
+
+  /// No description provided for @activityTimelineRetrievedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity timeline retrieved successfully'**
+  String get activityTimelineRetrievedSuccessfully;
+
+  /// No description provided for @pageMustBePositiveInteger.
+  ///
+  /// In en, this message translates to:
+  /// **'Page must be a positive integer'**
+  String get pageMustBePositiveInteger;
+
+  /// No description provided for @limitMustBePositiveInteger.
+  ///
+  /// In en, this message translates to:
+  /// **'Limit must be a positive integer'**
+  String get limitMustBePositiveInteger;
+
+  /// No description provided for @invalidTypeFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid type filter: {typeParam}'**
+  String invalidTypeFilter(String typeParam);
+
+  /// No description provided for @activityProfileCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Completed'**
+  String get activityProfileCompleted;
+
+  /// No description provided for @activityUrgentRequestNearby.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent Request Nearby'**
+  String get activityUrgentRequestNearby;
+
+  /// No description provided for @activityPointsEarned.
+  ///
+  /// In en, this message translates to:
+  /// **'{points} Points Earned — {activity}'**
+  String activityPointsEarned(String points, String activity);
+
+  /// No description provided for @relativeTimeJustNow.
+  ///
+  /// In en, this message translates to:
+  /// **'just now'**
+  String get relativeTimeJustNow;
+
+  /// No description provided for @relativeTime1MinuteAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 minute ago'**
+  String get relativeTime1MinuteAgo;
+
+  /// No description provided for @relativeTimeMinutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} minutes ago'**
+  String relativeTimeMinutesAgo(String count);
+
+  /// No description provided for @relativeTime1HourAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 hour ago'**
+  String get relativeTime1HourAgo;
+
+  /// No description provided for @relativeTimeHoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hours ago'**
+  String relativeTimeHoursAgo(String count);
+
+  /// No description provided for @relativeTime1DayAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 day ago'**
+  String get relativeTime1DayAgo;
+
+  /// No description provided for @relativeTimeDaysAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} days ago'**
+  String relativeTimeDaysAgo(String count);
+
+  /// No description provided for @relativeTime1WeekAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 week ago'**
+  String get relativeTime1WeekAgo;
+
+  /// No description provided for @relativeTimeWeeksAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} weeks ago'**
+  String relativeTimeWeeksAgo(String count);
+
+  /// No description provided for @relativeTime1MonthAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 month ago'**
+  String get relativeTime1MonthAgo;
+
+  /// No description provided for @relativeTimeMonthsAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} months ago'**
+  String relativeTimeMonthsAgo(String count);
+
+  /// No description provided for @relativeTime1YearAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 year ago'**
+  String get relativeTime1YearAgo;
+
+  /// No description provided for @relativeTimeYearsAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} years ago'**
+  String relativeTimeYearsAgo(String count);
+
+  /// No description provided for @activityStatusPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get activityStatusPending;
+
+  /// No description provided for @activityStatusSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get activityStatusSuccess;
+
+  /// No description provided for @activityStatusCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled'**
+  String get activityStatusCancelled;
+
+  /// No description provided for @noActivitiesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No activities found'**
+  String get noActivitiesFound;
+
+  /// No description provided for @activityProfileUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Updated'**
+  String get activityProfileUpdated;
+
+  /// No description provided for @activityDonationCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Completed'**
+  String get activityDonationCompleted;
+
+  /// No description provided for @activityDonationCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Cancelled'**
+  String get activityDonationCancelled;
+
+  /// No description provided for @reward_redeemed_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward redeemed successfully'**
+  String get reward_redeemed_successfully;
+
+  /// No description provided for @participationUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Participation updated successfully'**
+  String get participationUpdated;
+
+  /// No description provided for @youAreNotEligible.
+  ///
+  /// In en, this message translates to:
+  /// **'You are not eligible for this activity'**
+  String get youAreNotEligible;
+
+  /// No description provided for @youAreEligible.
+  ///
+  /// In en, this message translates to:
+  /// **'You are eligible for this activity'**
+  String get youAreEligible;
+
+  /// No description provided for @donationEligibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Eligibility'**
+  String get donationEligibility;
+
+  /// No description provided for @contact_support.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Support'**
+  String get contact_support;
+
+  /// No description provided for @contact_support_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill out the form below to submit a support ticket.'**
+  String get contact_support_subtitle;
+
+  /// No description provided for @subject.
+  ///
+  /// In en, this message translates to:
+  /// **'Subject'**
+  String get subject;
+
+  /// No description provided for @select_category.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a category'**
+  String get select_category;
+
+  /// No description provided for @submit_ticket.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Ticket'**
+  String get submit_ticket;
+
+  /// No description provided for @account_management.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Management'**
+  String get account_management;
+
+  /// No description provided for @technical_issue.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical Issue'**
+  String get technical_issue;
+
+  /// No description provided for @donation_process.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Process'**
+  String get donation_process;
+
+  /// No description provided for @rewards_point.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards Point'**
+  String get rewards_point;
+
+  /// No description provided for @other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
+
+  /// No description provided for @support_request_sent_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Support request sent successfully'**
+  String get support_request_sent_successfully;
+
+  /// No description provided for @please_enter_your_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your name'**
+  String get please_enter_your_name;
+
+  /// No description provided for @please_enter_your_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get please_enter_your_email;
+
+  /// No description provided for @please_enter_valid_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get please_enter_valid_email;
+
+  /// No description provided for @please_enter_subject.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a subject'**
+  String get please_enter_subject;
+
+  /// No description provided for @please_select_category.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a category'**
+  String get please_select_category;
+
+  /// No description provided for @please_enter_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a message'**
+  String get please_enter_message;
+
+  /// No description provided for @network_timeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Network timeout. Please try again.'**
+  String get network_timeout;
+
+  /// No description provided for @not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Resource not found.'**
+  String get not_found;
+
+  /// No description provided for @rewardsPoint.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards Point'**
+  String get rewardsPoint;
+
+  /// No description provided for @donationProcess.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Process'**
+  String get donationProcess;
+
+  /// No description provided for @technicalIssue.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical Issue'**
+  String get technicalIssue;
+
+  /// No description provided for @accountManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Management'**
+  String get accountManagement;
+
+  /// No description provided for @ticket_submitted_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Ticket submitted successfully'**
+  String get ticket_submitted_successfully;
 }
 
 class _AppLocalizationsDelegate

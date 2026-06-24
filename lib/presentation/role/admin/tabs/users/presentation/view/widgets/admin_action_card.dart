@@ -9,7 +9,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
 
-
 class AdminActionCard extends StatelessWidget {
   const AdminActionCard({
     super.key,
@@ -56,29 +55,29 @@ class AdminActionCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            user.isVerified ?? false
+            user.isSuspended ?? false
                 ? _buildActionButton(
-                    text: appLocalization.suspendUser,
-                    onPressed: () => onToggleVerification?.call(),
-                    haveIcon: true,
-                    icon: Icons.block,
-                    textColor: ColorManger.brightRed,
-                  )
+              text: appLocalization.unbanUser,
+              onPressed: () => onToggleVerification?.call(),
+              haveIcon: true,
+              icon: Icons.verified_outlined,
+              textColor: ColorManger.green,
+              backgroundColor: ColorManger.lightGreen,
+            )
                 : _buildActionButton(
-                    text: appLocalization.verifyUser,
-                    onPressed: () => onToggleVerification?.call(),
-                    haveIcon: true,
-                    icon: Icons.verified_outlined,
-                    textColor: ColorManger.green,
-                    backgroundColor: ColorManger.lightGreen,
-                  ),
+              text: appLocalization.banUser,
+              onPressed: () => onToggleVerification?.call(),
+              haveIcon: true,
+              icon: Icons.block,
+              textColor: ColorManger.brightRed,
+            ),
             const SizedBox(height: 12),
             _buildActionButton(
               text: appLocalization.sendMessage,
               onPressed: () => sendWhatsapp(
-                phoneNumber: user.phone,
+                phoneNumber: user.phone ?? '',
                 message:
-                    '${appLocalization.hello} ${user.name}, ${appLocalization.iNeedToContactYouRegardingYourAccount}',
+                '${appLocalization.hello} ${user.name}, ${appLocalization.iNeedToContactYouRegardingYourAccount}',
               ),
               haveIcon: false,
             ),
@@ -92,7 +91,7 @@ class AdminActionCard extends StatelessWidget {
             _buildActionButton(
               text: appLocalization.delete,
               textColor: ColorManger.brightRed,
-              onPressed: () => _confirmAndDelete(context, appLocalization),
+              onPressed: () => onDeleteUser?.call(),
             ),
             const SizedBox(height: 18),
             _buildActionButton(
@@ -109,66 +108,12 @@ class AdminActionCard extends StatelessWidget {
     );
   }
 
-  Future<void> _confirmAndDelete(
-    BuildContext context,
-    AppLocalizations appLocalization,
-  ) async {
-    final navigator = Navigator.of(context);
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (_) => AlertDialog(
-        title: CustomText(text: appLocalization.deleteUser),
-        content: CustomText(text: appLocalization.deleteUserConfirm),
-        actions: [
-          CustomElevatedButton(
-            onPressed: () => Navigator.pop(context, false),
-            backgroundColor: ColorManger.pureWhite,
-            foregroundColor: ColorManger.black,
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-              side: BorderSide(
-                color: ColorManger.slateGrey.withValues(alpha: 0.3),
-                width: 1.1,
-              ),
-            ),
-            child: CustomText(text: appLocalization.cancel),
-          ),
-          CustomElevatedButton(
-            onPressed: () => Navigator.pop(context, true),
-            backgroundColor: ColorManger.brightRed,
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-              side: BorderSide(
-                color: ColorManger.brightRed.withValues(alpha: 0.55),
-                width: 1,
-              ),
-            ),
-            child: CustomText(
-              text: appLocalization.delete,
-              textStyle: const TextStyle(color: Colors.white),
-            ),
-          ),
-        ],
-      ),
-    );
-
-    if (!context.mounted) return;
-    if (confirmed == true) {
-      onDeleteUser?.call();
-      if (navigator.canPop()) {
-        navigator.pop();
-      }
-    }
-  }
-
   void _openEditSheet(BuildContext context) {
     if (onEditUser == null) return;
     UserEditSheet.show(
       context,
       user,
-      (name, phone) => onEditUser?.call(name, phone),
+          (name, phone) => onEditUser?.call(name, phone),
     );
   }
 
@@ -193,7 +138,6 @@ class AdminActionCard extends StatelessWidget {
     required String text,
     required VoidCallback onPressed,
     Color textColor = ColorManger.black,
-
     IconData? icon,
   }) {
     return CustomElevatedButton(
@@ -202,7 +146,6 @@ class AdminActionCard extends StatelessWidget {
       elevation: 0,
       padding: _buttonPadding,
       onPressed: onPressed,
-
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
         side: BorderSide(

@@ -10,6 +10,8 @@ import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../core/utils/ai_prediction_localizer.dart';
+import '../../../../../../../core/utils/month_localizer.dart';
 import '../view_model/analytics_overview_view_model.dart';
 
 class Analytics extends StatefulWidget {
@@ -86,12 +88,12 @@ class _AnalyticsState extends State<Analytics> {
                       const SizedBox(height: 16),
                       CustomTrendsChart(
                         values: data.monthlyTrend?.values?.map((e) => e.toDouble()).toList() ?? [],                        title: loc.monthlyTrend,
-                        xLabels: data.monthlyTrend?.labels ?? [],
+                        xLabels: localizeMonthLabels(data.monthlyTrend?.labels ?? [], loc),
                       ),
                       const SizedBox(height: 16),
                       CustomNoteCard(
                         title: loc.aiPredictions,
-                        items: data.aiPredictions ?? [],
+                        items: localizeAiPredictions(data.aiPredictions ?? [], loc),
                         textColor: ColorManger.skyBlue,
                         cardColor: ColorManger.lightBlue,
                         bulletColor: ColorManger.skyBlue,

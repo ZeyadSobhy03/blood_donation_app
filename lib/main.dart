@@ -23,12 +23,16 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/d
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/repositories/analytics/analytics_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/domain/use_case/analytics/analytics_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/presentation/view_model/analytics/analytics_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/inbound_email/inbound_email_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/profile/admin_profile_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/system_health/system_health_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/inbound_email/inbound_email_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/profile/admin_profile_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/system_health/system_health_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/inbound_email/inbound_email_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/profile/admin_profile_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/system_health/system_health_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/inbound_email/inbound_email_view_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/profile/admin_profile_view_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/system_health/system_health_view_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/data_source/remote/users_api_data_source.dart';
@@ -39,15 +43,20 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/data/da
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/data/repositories/ask_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/domain/use_case/ask_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/presentation/view_model/ask_view_model.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/data_source/appointments_api_data_source.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/repositories/appointments_repositories_imp.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/domain/use_case/appointments_use_case.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view_model/appointments_view_model.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/cubit/donation_schedule.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/data/data_source/time_slots/time_slots_api_data_source.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/data/repositories/time_slots/time_slots_repositories_imp.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/domain/use_cases/time_slots/time_slots_use_case.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/presentation/view_model/time_slots/time_slots_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/data_source/accepted_requests/accepted_requests_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/data_source/appointments/appointments_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/repositories/accepted_requests/accepted_requests_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/repositories/appointments/appointments_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/domain/use_case/accepted_requests/accepted_requests_use_case.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/domain/use_case/appointments/appointments_use_case.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/cubit/donation_schedule.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/data/data_source/time_slots/time_slots_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/data/repositories/time_slots/time_slots_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/domain/use_cases/time_slots/time_slots_use_case.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view_model/time_slots/time_slots_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view_model/accepted_requests/accepted_requests_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view_model/appointments/appointments_view_model.dart';
+
 import 'package:blood_donation_app/presentation/role/donor/tabs/donation_history/data/data_source/donation_history_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donation_history/data/repositories/donation_history_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donation_history/domain/use_case/donation_history_use_case.dart';
@@ -87,12 +96,15 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/pr
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/change_password/change_password_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/profile/profile_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/setting/setting_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/support_contact/support_contact_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/repositories/change_password/change_password_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/repositories/profile/profile_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/repositories/setting/setting_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/repositories/support_contact/support_contact_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/change_password/change_password_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/profile/profile_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/setting/setting_use_case.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/support_contact/support_contact_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/edit_profile/data/data_source/edit_profile_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/edit_profile/data/repositories/edit_profile_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/edit_profile/domain/use_case/edit_profile_use_case.dart';
@@ -100,6 +112,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presenta
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/change_password/change_password_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/profile/profile_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/setting/setting_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/support_contact/support_contact_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/data/data_source/rewards_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/data/repositories/rewards_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/domain/use_case/rewards_use_case.dart';
@@ -143,6 +156,9 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => SupportContactCubit(supportContactUseCase: SupportContactUseCase(supportContactRepositories: SupportContactRepositoriesImp(supportContactRemoteDataSource: SupportContactApiDataSource(dio, authHiveDataSource)))),),
+        BlocProvider(create: (context) =>  AcceptedRequestsCubit(acceptedRequestsUseCase: AcceptedRequestsUseCase(acceptedRequestsRepositories: AcceptedRequestsRepositoriesImp(acceptedRequestsRemoteDataSource: AcceptedRequestsApiDataSource(dio, authHiveDataSource)))),),
+        BlocProvider(create: (context) => InboundEmailCubit(inboundEmailUseCase: InboundEmailUseCase(inboundEmailRepositories: InboundEmailRepositoriesImp(inboundEmailRemoteDataSource: InboundEmailApiDataSource(dio, adminHiveDataSource)))),),
         BlocProvider(create: (context) => UsersCubit(usersUseCase: UsersUseCase(usersRepositories: UsersRepositoriesImp(usersRemoteDataSource: UsersApiDataSource(dio, adminHiveDataSource)))),),
         BlocProvider(create: (context) => AnalyticsOverviewCubit(analyticsOverviewUseCase: AnalyticsOverviewUseCase(analyticsOverviewRepositories: AnalyticsOverviewRepositoriesImp(analyticsOverviewRemoteDataSource: AnalyticsOverviewApiDataSource(dio, adminHiveDataSource)))),),
         BlocProvider(create: (context) => AdminRequestsCubit(adminRequestsUseCase: AdminRequestsUseCase(adminRequestsRepositories: AdminRequestsRepositoriesImp(adminRequestsRemoteDataSource: AdminRequestsApiDataSource(dio, adminHiveDataSource)))),),

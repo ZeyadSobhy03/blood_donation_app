@@ -1,6 +1,7 @@
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/data_source/donation_eligibility/donation_eligibility_remote_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/donation_eligibility/donation_eligibility_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/donation_eligibility/participation_preference_model.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../../../../core/utils/dio_error_handler.dart';
@@ -29,4 +30,23 @@ class DonationEligibilityApiDataSource
       rethrow;
     }
   }
+
+  @override
+  Future<ParticipationPreferenceModel> setParticipation({required bool participation})async {
+    try {
+      final token = await authRemoteDataSource.getAccessToken();
+      final response = await dio.put(
+        ApiManger.participationEndpoint,
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+        data: {'isOptedIn': participation},
+      );
+      return ParticipationPreferenceModel.fromJson(response.data);
+    } on DioException catch (e) {
+      handleDioError(e);
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
 }

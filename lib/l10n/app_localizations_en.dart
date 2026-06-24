@@ -3174,6 +3174,15 @@ class AppLocalizationsEn extends AppLocalizations {
       'Your session has expired. Please log in again.';
 
   @override
+  String get unauthorized => 'Unauthorized access. Please log in again.';
+
+  @override
+  String get email_error => 'Invalid email address.';
+
+  @override
+  String get password_error => 'Invalid password.';
+
+  @override
   String get dateOfBirthRequired => 'Date of birth is required';
 
   @override
@@ -3458,4 +3467,707 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get deleteUserConfirmation =>
       'Are you sure you want to delete this user? This action cannot be undone.';
+
+  @override
+  String get rewardsConfigAnalyticsTitle => 'Rewards Config & Analytics';
+
+  @override
+  String get rewardsConfigAnalyticsDescription =>
+      'Catalog, configuration & point management';
+
+  @override
+  String get overview => 'Overview';
+
+  @override
+  String get configuration => 'Configuration';
+
+  @override
+  String get adjustPoints => 'Adjust Points';
+
+  @override
+  String get increase_from_last_month => 'Increase from last month';
+
+  @override
+  String get topRedeemedRewards => 'Top Redeemed Rewards';
+
+  @override
+  String get pointsConfiguration => 'Points Configuration';
+
+  @override
+  String get globalPointAllocationSettings =>
+      'Global point allocation settings';
+
+  @override
+  String get configurationNote => 'Configuration Note';
+
+  @override
+  String get configurationNoteDescription =>
+      'Changes apply globally to all future point events. Previously earned points are not affected.';
+
+  @override
+  String get manualPointsAdjustment => 'Manual Points Adjustment';
+
+  @override
+  String get manualPointsAdjustmentDescription =>
+      'Directly modify a specific donor\'s balance';
+
+  @override
+  String get userIdOrEmail => 'User ID / Email';
+
+  @override
+  String get userIdOrEmailHint => 'Enter User ID or Email';
+
+  @override
+  String get amountPoints => 'Amount (Points)';
+
+  @override
+  String get amountPointsHint => 'Enter Amount in Points';
+
+  @override
+  String get reasonHint => 'Enter Reason for Adjustment';
+
+  @override
+  String get submitAdjustment => 'Submit Adjustment';
+
+  @override
+  String get recentAdjustments => 'Recent Adjustments';
+
+  @override
+  String get banUser => 'Ban User';
+
+  @override
+  String get banUserConfirmation => 'Are you sure you want to ban';
+
+  @override
+  String get banReasonHint => 'Enter the reason for banning this user';
+
+  @override
+  String get ban => 'Ban';
+
+  @override
+  String get unbanUser => 'Unban User';
+
+  @override
+  String get unbanUserConfirmation => 'Are you sure you want to unban';
+
+  @override
+  String get unban => 'Unban';
+
+  @override
+  String aiPredictionDemandIncrease(Object percentage) {
+    return 'Blood demand expected to increase $percentage% next month based on historical trends — consider scheduling additional donation drives and sending proactive alerts to O+ and A+ donors.';
+  }
+
+  @override
+  String aiPredictionDemandSteady(Object percentage) {
+    return 'Blood demand showing a steady $percentage% weekly increase. Monitor inventory levels closely over the next 2 weeks.';
+  }
+
+  @override
+  String aiPredictionDemandDecline(Object percentage) {
+    return 'Blood demand has declined $percentage% in the past week. Consider reducing scheduled drive frequency and reviewing inventory redistribution across hospitals.';
+  }
+
+  @override
+  String aiPredictionShortageCritical(
+    Object available,
+    Object bloodType,
+    Object needed,
+  ) {
+    return '$bloodType critically low — only $available donors available against $needed units needed. Launch emergency campaign within 48 hours.';
+  }
+
+  @override
+  String aiPredictionShortageRisk(Object bloodType, Object ratio) {
+    return '$bloodType supply at risk with a $ratio:1 demand-to-supply ratio. Proactive targeted outreach to $bloodType donors recommended this week.';
+  }
+
+  @override
+  String aiPredictionRetentionDrop(Object rate) {
+    return 'Donor return rate has dropped to $rate% — consider launching a re-engagement campaign with bonus points for returning donors this month.';
+  }
+
+  @override
+  String aiPredictionRetentionImprove(Object rate) {
+    return 'Donor retention has improved to $rate% — current momentum is strong. Capitalize by introducing referral rewards to sustain growth.';
+  }
+
+  @override
+  String aiPredictionPeakDay(Object day, Object percentage) {
+    return '$day shows $percentage% higher donation activity — schedule more mobile drives and staff on this day to maximize collections.';
+  }
+
+  @override
+  String aiPredictionWeekend(Object percentage) {
+    return 'Weekend donation drives show $percentage% higher success rates compared to weekdays. Prioritize weekend scheduling for upcoming emergency campaigns.';
+  }
+
+  @override
+  String get jan => 'January';
+
+  @override
+  String get feb => 'February';
+
+  @override
+  String get mar => 'March';
+
+  @override
+  String get apr => 'April';
+
+  @override
+  String get may => 'May';
+
+  @override
+  String get jun => 'June';
+
+  @override
+  String get jul => 'July';
+
+  @override
+  String get aug => 'August';
+
+  @override
+  String get sep => 'September';
+
+  @override
+  String get oct => 'October';
+
+  @override
+  String get nov => 'November';
+
+  @override
+  String get dec => 'December';
+
+  @override
+  String get selectLocationOnMap => 'Select Location on Map';
+
+  @override
+  String get locationPermissionPermanentlyDenied =>
+      'Location permissions are permanently denied. Please enable them in settings.';
+
+  @override
+  String get tapOnMapToSelectLocation =>
+      'Tap on the map to select your location';
+
+  @override
+  String get confirmLocation => 'Confirm Location';
+
+  @override
+  String get locationOnMap => 'Location on Map';
+
+  @override
+  String get tapToSelectLocationOnMap => 'Tap to select location on map';
+
+  @override
+  String get enterCity => 'Enter city';
+
+  @override
+  String get enterState => 'Enter state or governorate';
+
+  @override
+  String get zipCode => 'Zip Code';
+
+  @override
+  String get enterZipCode => 'Enter zip code';
+
+  @override
+  String get capacity => 'Capacity';
+
+  @override
+  String get enterCapacity => 'Enter bed capacity';
+
+  @override
+  String get capacityInvalidError => 'Please enter a valid capacity';
+
+  @override
+  String get locationSelected => 'Location selected';
+
+  @override
+  String get bloodBanksAvailable => 'Blood Banks Available';
+
+  @override
+  String get selectAtLeastOneBloodBank =>
+      'Please select at least one blood type';
+
+  @override
+  String get failedToCreateHospital => 'Failed to create hospital';
+
+  @override
+  String get copiedToClipboard => 'Copied to clipboard';
+
+  @override
+  String get share => 'Share';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get copy => 'Copy';
+
+  @override
+  String get addNewReward => 'Add New Reward';
+
+  @override
+  String get addNewRewardSubtitle =>
+      'Fill in the details to add a new reward to the catalog.';
+
+  @override
+  String get rewardName => 'Reward Name';
+
+  @override
+  String get enterRewardName => 'Enter reward name';
+
+  @override
+  String get category => 'Category';
+
+  @override
+  String get enterRewardCategory => 'Enter reward category';
+
+  @override
+  String get pointsRequired => 'Points Required';
+
+  @override
+  String get enterPointsRequired => 'Enter points required';
+
+  @override
+  String get initialState => 'Initial State';
+
+  @override
+  String get selectState => 'Select state';
+
+  @override
+  String get addReward => 'Add Reward';
+
+  @override
+  String get rewardCatalog => 'Reward Catalog';
+
+  @override
+  String itemsCount(int count) {
+    return '$count Items';
+  }
+
+  @override
+  String get fieldRequired => 'This field is required';
+
+  @override
+  String get invalidNumber => 'Please enter a valid number';
+
+  @override
+  String get rewardSubtitle => 'Reward Subtitle';
+
+  @override
+  String get admin => 'Admin';
+
+  @override
+  String get superAdmin => 'Super Admin';
+
+  @override
+  String get inboundEmailsTitle => 'Inbound Emails';
+
+  @override
+  String get inboundEmailSearchHint => 'Search emails...';
+
+  @override
+  String get inboundEmailFilterAll => 'All';
+
+  @override
+  String get inboundEmailFilterUnread => 'Unread';
+
+  @override
+  String get inboundEmailFilterArchived => 'Archived';
+
+  @override
+  String get inboundEmailEmptyState => 'No emails here';
+
+  @override
+  String get inboundEmailDeleteTitle => 'Delete email';
+
+  @override
+  String inboundEmailDeleteConfirm(String subject) {
+    return 'Are you sure you want to delete \"$subject\"? This cannot be undone.';
+  }
+
+  @override
+  String get inboundEmailCancel => 'Cancel';
+
+  @override
+  String get inboundEmailDelete => 'Delete';
+
+  @override
+  String get inboundEmailMarkAsRead => 'Mark as read';
+
+  @override
+  String get inboundEmailArchive => 'Archive';
+
+  @override
+  String inboundEmailFrom(String from) {
+    return 'From: $from';
+  }
+
+  @override
+  String get inboundEmailArchivedBadge => 'Archived';
+
+  @override
+  String get inboundEmailUnreadBadge => 'Unread';
+
+  @override
+  String get inboundEmailDetailFrom => 'From';
+
+  @override
+  String get inboundEmailDetailTo => 'To';
+
+  @override
+  String get inboundEmailDetailProvider => 'Provider';
+
+  @override
+  String get inboundEmailDetailReceived => 'Received';
+
+  @override
+  String get inboundEmailMarkedAsReadSnack => 'Marked as read';
+
+  @override
+  String get inboundEmailArchivedSnack => 'Email archived';
+
+  @override
+  String get inboundEmailDeletedSnack => 'Email deleted';
+
+  @override
+  String get inboundEmailErrorGeneric =>
+      'Something went wrong. Please try again.';
+
+  @override
+  String get inboundEmailErrorNetworkTimeout =>
+      'Connection timed out. Please check your internet and try again.';
+
+  @override
+  String get inboundEmailErrorUnauthorized =>
+      'You are not authorized to perform this action.';
+
+  @override
+  String get inboundEmailErrorNotFound => 'Email not found.';
+
+  @override
+  String get inboundEmailErrorRequestCancelled => 'Request was cancelled.';
+
+  @override
+  String get inboundEmails => 'Inbound Emails';
+
+  @override
+  String get admin_reset_password_title => 'Reset Admin Password';
+
+  @override
+  String get admin_reset_password_subtitle =>
+      'Enter a new password for the admin account.';
+
+  @override
+  String get hospital_reset_password_title => 'Reset Hospital Password';
+
+  @override
+  String get hospital_reset_password_subtitle =>
+      'Enter a new password for the hospital account.';
+
+  @override
+  String get noMoreHospitals => 'No more hospitals available';
+
+  @override
+  String get acceptedRequestSectionTitle => 'Accepted Requests';
+
+  @override
+  String get requestedAt => 'Requested at';
+
+  @override
+  String get status => 'Status';
+
+  @override
+  String get notes => 'Notes';
+
+  @override
+  String get showDetails => 'Show Details';
+
+  @override
+  String get adult => 'Adult';
+
+  @override
+  String get child => 'Child';
+
+  @override
+  String get urgent => 'Urgent';
+
+  @override
+  String get normal => 'Normal';
+
+  @override
+  String get emergency2Units => '2 units';
+
+  @override
+  String get emergencyLabel => 'Emergency';
+
+  @override
+  String get loadingAcceptedRequestsMessage => 'Loading accepted requests...';
+
+  @override
+  String get noAcceptedRequestsMessage => 'No accepted requests found.';
+
+  @override
+  String get cancellingRequest => 'Cancelling request...';
+
+  @override
+  String get requestAlreadyCancelled =>
+      'This request has already been cancelled';
+
+  @override
+  String get cancelConfirmationMessage =>
+      'Are you sure you want to cancel this request?';
+
+  @override
+  String get addressNotAvailable => 'Address not available';
+
+  @override
+  String get acceptedRequestsLoadingMoreMessage => 'Loading more requests...';
+
+  @override
+  String get connection_timeout =>
+      'Connection timeout. Please check your internet connection.';
+
+  @override
+  String get request_cancelled => 'Request was cancelled.';
+
+  @override
+  String get no_internet => 'No internet connection.';
+
+  @override
+  String get unknown_error => 'Unexpected network error occurred.';
+
+  @override
+  String get empty_response => 'Empty response from server';
+
+  @override
+  String get server_error => 'Server error';
+
+  @override
+  String get donor_login_success_message => 'Login successful! Welcome back.';
+
+  @override
+  String get donorNotEligible => 'Donor is not eligible';
+
+  @override
+  String get donorAccountDeletedOrInactive =>
+      'Donor account is deleted or inactive';
+
+  @override
+  String get invalidDonorRole => 'Invalid donor role';
+
+  @override
+  String get donorAccountSuspended => 'Donor account is suspended';
+
+  @override
+  String get donorChronicMedicalConditions =>
+      'Donor has chronic medical conditions';
+
+  @override
+  String get donorActiveDonationInProgress =>
+      'Donor already has an active donation in progress';
+
+  @override
+  String get donorCompletedOrRejectedRequest =>
+      'Donor has already completed or rejected this request';
+
+  @override
+  String get cannotSpecifyAnotherDonorId =>
+      'You cannot specify another donor\'s ID — only your authenticated ID is used';
+
+  @override
+  String get requestIdAndDonationTypeNotAccepted =>
+      'requestId and donationType parameters are not accepted on this endpoint';
+
+  @override
+  String get authenticatedDonorIdNotFound =>
+      'Authenticated donor ID not found in authentication token';
+
+  @override
+  String get activityTimelineRetrievedSuccessfully =>
+      'Activity timeline retrieved successfully';
+
+  @override
+  String get pageMustBePositiveInteger => 'Page must be a positive integer';
+
+  @override
+  String get limitMustBePositiveInteger => 'Limit must be a positive integer';
+
+  @override
+  String invalidTypeFilter(String typeParam) {
+    return 'Invalid type filter: $typeParam';
+  }
+
+  @override
+  String get activityProfileCompleted => 'Profile Completed';
+
+  @override
+  String get activityUrgentRequestNearby => 'Urgent Request Nearby';
+
+  @override
+  String activityPointsEarned(String points, String activity) {
+    return '$points Points Earned — $activity';
+  }
+
+  @override
+  String get relativeTimeJustNow => 'just now';
+
+  @override
+  String get relativeTime1MinuteAgo => '1 minute ago';
+
+  @override
+  String relativeTimeMinutesAgo(String count) {
+    return '$count minutes ago';
+  }
+
+  @override
+  String get relativeTime1HourAgo => '1 hour ago';
+
+  @override
+  String relativeTimeHoursAgo(String count) {
+    return '$count hours ago';
+  }
+
+  @override
+  String get relativeTime1DayAgo => '1 day ago';
+
+  @override
+  String relativeTimeDaysAgo(String count) {
+    return '$count days ago';
+  }
+
+  @override
+  String get relativeTime1WeekAgo => '1 week ago';
+
+  @override
+  String relativeTimeWeeksAgo(String count) {
+    return '$count weeks ago';
+  }
+
+  @override
+  String get relativeTime1MonthAgo => '1 month ago';
+
+  @override
+  String relativeTimeMonthsAgo(String count) {
+    return '$count months ago';
+  }
+
+  @override
+  String get relativeTime1YearAgo => '1 year ago';
+
+  @override
+  String relativeTimeYearsAgo(String count) {
+    return '$count years ago';
+  }
+
+  @override
+  String get activityStatusPending => 'Pending';
+
+  @override
+  String get activityStatusSuccess => 'Success';
+
+  @override
+  String get activityStatusCancelled => 'Cancelled';
+
+  @override
+  String get noActivitiesFound => 'No activities found';
+
+  @override
+  String get activityProfileUpdated => 'Profile Updated';
+
+  @override
+  String get activityDonationCompleted => 'Donation Completed';
+
+  @override
+  String get activityDonationCancelled => 'Donation Cancelled';
+
+  @override
+  String get reward_redeemed_successfully => 'Reward redeemed successfully';
+
+  @override
+  String get participationUpdated => 'Participation updated successfully';
+
+  @override
+  String get youAreNotEligible => 'You are not eligible for this activity';
+
+  @override
+  String get youAreEligible => 'You are eligible for this activity';
+
+  @override
+  String get donationEligibility => 'Donation Eligibility';
+
+  @override
+  String get contact_support => 'Contact Support';
+
+  @override
+  String get contact_support_subtitle =>
+      'Fill out the form below to submit a support ticket.';
+
+  @override
+  String get subject => 'Subject';
+
+  @override
+  String get select_category => 'Select a category';
+
+  @override
+  String get submit_ticket => 'Submit Ticket';
+
+  @override
+  String get account_management => 'Account Management';
+
+  @override
+  String get technical_issue => 'Technical Issue';
+
+  @override
+  String get donation_process => 'Donation Process';
+
+  @override
+  String get rewards_point => 'Rewards Point';
+
+  @override
+  String get other => 'Other';
+
+  @override
+  String get support_request_sent_successfully =>
+      'Support request sent successfully';
+
+  @override
+  String get please_enter_your_name => 'Please enter your name';
+
+  @override
+  String get please_enter_your_email => 'Please enter your email';
+
+  @override
+  String get please_enter_valid_email => 'Please enter a valid email';
+
+  @override
+  String get please_enter_subject => 'Please enter a subject';
+
+  @override
+  String get please_select_category => 'Please select a category';
+
+  @override
+  String get please_enter_message => 'Please enter a message';
+
+  @override
+  String get network_timeout => 'Network timeout. Please try again.';
+
+  @override
+  String get not_found => 'Resource not found.';
+
+  @override
+  String get rewardsPoint => 'Rewards Point';
+
+  @override
+  String get donationProcess => 'Donation Process';
+
+  @override
+  String get technicalIssue => 'Technical Issue';
+
+  @override
+  String get accountManagement => 'Account Management';
+
+  @override
+  String get ticket_submitted_successfully => 'Ticket submitted successfully';
 }

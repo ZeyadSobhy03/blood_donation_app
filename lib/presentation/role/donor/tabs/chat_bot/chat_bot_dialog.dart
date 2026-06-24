@@ -7,9 +7,10 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/present
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/voice_call_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/widgets/bot_message.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/widgets/user_message.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 
 class ChatBotDialog extends StatefulWidget {
   final String userId;

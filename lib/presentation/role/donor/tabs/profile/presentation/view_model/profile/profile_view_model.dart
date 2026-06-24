@@ -4,6 +4,7 @@ import 'package:blood_donation_app/core/errors/app_exceptions.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/model/profile/profile_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/utils/error_localizer.dart';
 import '../../../domain/use_case/profile/profile_use_case.dart';
 
 class ProfileCubit extends Cubit<ProfileViewState> {
@@ -20,7 +21,7 @@ class ProfileCubit extends Cubit<ProfileViewState> {
       emit(ProfileErrorState(error: 'network_timeout'));
     } on ServerException catch (e) {
       log('Error fetching profile: ${e.serverMessage}');
-      emit(ProfileErrorState(error: e.serverMessage ?? 'server_error'));
+      emit(ProfileErrorState(error: mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(ProfileErrorState(error: 'unauthorized'));
     } on NotFoundException {

@@ -1,16 +1,16 @@
-import 'package:blood_donation_app/core/extension/text_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_auth_box.dart';
 import 'package:blood_donation_app/core/widgets/custom_drop_down_button_form_field.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 
 import '../../../../../../core/cubits/map_cubit.dart';
+import '../../../../../../core/extension/text_ex.dart';
+import '../../../../../role/donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 import '../../view_model/auth_view_model.dart';
 import 'location_status_chip.dart';
 
