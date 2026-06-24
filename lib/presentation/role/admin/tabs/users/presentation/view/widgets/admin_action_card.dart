@@ -3,7 +3,6 @@ import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/users_model.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/users/presentation/view/widgets/user_edit_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -21,7 +20,8 @@ class AdminActionCard extends StatelessWidget {
   final Users user;
   final VoidCallback? onToggleVerification;
   final VoidCallback? onDeleteUser;
-  final void Function(String name, String phone)? onEditUser;
+  final VoidCallback? onEditUser;
+
   static const EdgeInsets _buttonPadding = EdgeInsets.symmetric(
     horizontal: 26,
     vertical: 16,
@@ -48,7 +48,7 @@ class AdminActionCard extends StatelessWidget {
           children: [
             CustomText(
               text: appLocalization.adminActions,
-              textStyle: TextStyle(
+              textStyle: const TextStyle(
                 color: ColorManger.black,
                 fontSize: FontSize.s16,
                 fontWeight: FontWeightManager.regular,
@@ -84,7 +84,7 @@ class AdminActionCard extends StatelessWidget {
             const SizedBox(height: 12),
             _buildActionButton(
               text: appLocalization.edit,
-              onPressed: () => _openEditSheet(context),
+              onPressed: () => onEditUser?.call(),
               haveIcon: false,
             ),
             const SizedBox(height: 12),
@@ -105,15 +105,6 @@ class AdminActionCard extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  void _openEditSheet(BuildContext context) {
-    if (onEditUser == null) return;
-    UserEditSheet.show(
-      context,
-      user,
-          (name, phone) => onEditUser?.call(name, phone),
     );
   }
 

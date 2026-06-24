@@ -85,8 +85,16 @@ class ApiManger {
   static const String historyEndpoint = "${baseUrl}donor/history";
   static const String supportRequestsEndpoint = "${baseUrl}support/contact";
   static const String adminRewardsEndpoint = "${baseUrl}admin/rewards";
-
-
+  // https://graduation-project-cy61.onrender.com/admin/users/donor/69f3df915f42685cbbbcbb18
+  static String updateDonorEndpoint(String userId) {
+    return "${baseUrl}admin/users/donor/$userId";
+  }
+  static String updateHospitalEndpoint(String userId) {
+    return "${baseUrl}admin/users/hospital/$userId";
+  }
+  static String updateAdminEndpoint(String userId) {
+    return "${baseUrl}admin/users/admin/$userId";
+  }
 
    static const String participationEndpoint = "${baseUrl}donor/participation";
 

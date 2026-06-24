@@ -1497,6 +1497,19 @@
   "donationProcess": "Donation Process",
   "technicalIssue": "Technical Issue",
   "accountManagement": "Account Management",
-  "ticket_submitted_successfully": "Ticket submitted successfully"
+  "ticket_submitted_successfully": "Ticket submitted successfully",
+
+
+  "editDonor": "Edit Donor",
+  "editHospital": "Edit Hospital",
+  "editAdmin": "Edit Admin",
+
+
+
+  "phoneNumber": "Phone Number",
+
+  "updateSuccess": "Updated successfully",
+  "updateFailed": "Update failed"
+
 
 }

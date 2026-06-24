@@ -7809,6 +7809,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ticket submitted successfully'**
   String get ticket_submitted_successfully;
+
+  /// No description provided for @editDonor.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Donor'**
+  String get editDonor;
+
+  /// No description provided for @editHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Hospital'**
+  String get editHospital;
+
+  /// No description provided for @editAdmin.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Admin'**
+  String get editAdmin;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// No description provided for @updateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated successfully'**
+  String get updateSuccess;
+
+  /// No description provided for @updateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Update failed'**
+  String get updateFailed;
 }
 
 class _AppLocalizationsDelegate

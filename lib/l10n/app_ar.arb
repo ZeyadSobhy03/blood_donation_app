@@ -1482,7 +1482,16 @@
   "technicalIssue": "مشكلة تقنية",
   "donationProcess": "عملية التبرع",
   "rewardsPoint": "نقاط المكافآت",
-  "ticket_submitted_successfully": "تم إرسال الطلب بنجاح"
+  "ticket_submitted_successfully": "تم إرسال الطلب بنجاح",
+  "editDonor": "تعديل المتبرع",
+  "editHospital": "تعديل المستشفى",
+  "editAdmin": "تعديل المسؤول",
+
+  "phoneNumber": "رقم الهاتف",
+
+  "updateSuccess": "تم التحديث بنجاح",
+  "updateFailed": "فشل التحديث"
+
 
 
 

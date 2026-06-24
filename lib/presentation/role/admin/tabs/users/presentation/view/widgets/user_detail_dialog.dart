@@ -1,9 +1,11 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/users_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/presentation/view/widgets/summary_card.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/presentation/view/widgets/user_card.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/presentation/view/widgets/user_edit_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -90,15 +92,8 @@ class UserDetailDialog extends StatelessWidget {
                     user: user,
                     onDeleteUser: () =>
                         _confirmAndDeleteUser(context, usersCubit, appLocalization),
-                    onEditUser: (name, phone) {
-                      user.name = name;
-                      user.phone = phone;
-                      final messenger = ScaffoldMessenger.maybeOf(context);
-                      _showSnackBar(
-                        messenger,
-                        '${appLocalization.edit} ${user.name}',
-                      );
-                    },
+                    onEditUser: () =>
+                        _handleEditUser(context, usersCubit, appLocalization),
                     onToggleVerification: () =>
                         _confirmAndToggleBan(context, usersCubit, appLocalization),
                   ),
@@ -111,6 +106,66 @@ class UserDetailDialog extends StatelessWidget {
     );
   }
 
+  Future<void> _handleEditUser(
+      BuildContext context,
+      UsersCubit usersCubit,
+      AppLocalizations appLocalization,
+      ) async {
+    final data = await UserEditSheet.show(context, user);
+    if (data == null) return;
+
+    final userId = user.id ?? '';
+    if (userId.isEmpty) return;
+
+    if (!context.mounted) return;
+
+    final messenger = ScaffoldMessenger.maybeOf(context);
+    Navigator.of(context).pop();
+
+    ActionResult result;
+    final type = data['type'] as String;
+
+    switch (type) {
+      case 'donor':
+        result = await usersCubit.updateDonor(
+          fullName: data['fullName'] as String,
+          phoneNumber: data['phoneNumber'] as String,
+          bloodType: data['bloodType'] as String,
+          userId: userId,
+        );
+        break;
+      case 'hospital':
+        result = await usersCubit.updateHospital(
+          fullName: data['fullName'] as String,
+          hospitalName: data['hospitalName'] as String,
+          phone: data['phone'] as String,
+          bloodBanksAvailable: List<String>.from(data['bloodBanksAvailable']),
+          capacity: data['capacity'] as int,
+          userId: userId,
+        );
+        break;
+      case 'admin':
+        result = await usersCubit.updateAdmin(
+          fullName: data['fullName'] as String,
+          isSuspended: data['isSuspended'] as bool,
+          userId: userId,
+        );
+        break;
+      default:
+        return;
+    }
+
+    if (result.success) {
+      _showSnackBar(messenger, appLocalization.updateSuccess);
+    } else {
+      _showSnackBar(
+        messenger,
+        result.errorMessage ?? appLocalization.updateFailed,
+        isError: true,
+      );
+    }
+  }
+
   Future<void> _confirmAndDeleteUser(
       BuildContext context,
       UsersCubit usersCubit,
@@ -119,11 +174,12 @@ class UserDetailDialog extends StatelessWidget {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        shape:  RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         backgroundColor: ColorManger.pureWhite,
         title: CustomText(text: appLocalization.deleteUser),
         content: CustomText(
-          text: '${appLocalization.deleteUserConfirmation} ${user.fullName ?? user.name ?? ''}?',
+          text:
+          '${appLocalization.deleteUserConfirmation} ${user.fullName ?? user.name ?? ''}?',
         ),
         actions: [
           CustomElevatedButton(
@@ -140,10 +196,7 @@ class UserDetailDialog extends StatelessWidget {
             backgroundColor: ColorManger.successColor,
             foregroundColor: ColorManger.pureWhite,
             onPressed: () => Navigator.of(context).pop(true),
-            child: CustomText(
-              text: appLocalization.delete,
-
-            ),
+            child: CustomText(text: appLocalization.delete),
           ),
         ],
       ),
@@ -167,7 +220,7 @@ class UserDetailDialog extends StatelessWidget {
         '${user.fullName ?? user.name ?? ''} ${appLocalization.deleteUser}',
       );
     } else {
-      _showSnackBar(messenger, result.errorMessage ?? 'unknown_error', isError: true);
+      _showSnackBar(messenger, localizeError(result.errorMessage ??appLocalization.unknown_error,appLocalization ) , isError: true);
     }
   }
 
@@ -215,7 +268,7 @@ class UserDetailDialog extends StatelessWidget {
       Navigator.of(context).pop();
 
       final result = await usersCubit.unbanUser(userId: userId);
-      _handleActionResult(messenger, result, appLocalization, wasUnban: true);
+      _handleBanResult(messenger, result, appLocalization, wasUnban: true);
       return;
     }
 
@@ -273,10 +326,10 @@ class UserDetailDialog extends StatelessWidget {
     Navigator.of(context).pop();
 
     final result = await usersCubit.banUser(userId: userId, reason: reason);
-    _handleActionResult(messenger, result, appLocalization, wasUnban: false);
+    _handleBanResult(messenger, result, appLocalization, wasUnban: false);
   }
 
-  void _handleActionResult(
+  void _handleBanResult(
       ScaffoldMessengerState? messenger,
       ActionResult result,
       AppLocalizations appLocalization, {
@@ -330,7 +383,7 @@ class UserDetailDialog extends StatelessWidget {
             child: SummaryCard(
               backgroundColor: colors['light']!,
               title: appLocalization.bloodType,
-              value: user.bloodType ?? '-' ,
+              value: user.bloodType ?? '-',
               valueColor: colors['primary']!,
             ),
           ),
@@ -405,16 +458,21 @@ class UserDetailDialog extends StatelessWidget {
     }
   }
 
-  void _showSnackBar(ScaffoldMessengerState? messenger, String message, {bool isError = false}) {
+  void _showSnackBar(ScaffoldMessengerState? messenger, String message,
+      {bool isError = false}) {
     messenger?.showSnackBar(
       SnackBar(
-        backgroundColor: isError ? ColorManger.brightRed : ColorManger.successColor,
+        backgroundColor:
+        isError ? ColorManger.brightRed : ColorManger.successColor,
         behavior: SnackBarBehavior.floating,
         margin: const EdgeInsets.all(12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         content: CustomText(
           text: message,
-          textStyle: const TextStyle(color: ColorManger.pureWhite, fontWeight: FontWeight.w500),
+          textStyle: const TextStyle(
+            color: ColorManger.pureWhite,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
     );

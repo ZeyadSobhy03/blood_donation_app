@@ -4170,4 +4170,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ticket_submitted_successfully => 'Ticket submitted successfully';
+
+  @override
+  String get editDonor => 'Edit Donor';
+
+  @override
+  String get editHospital => 'Edit Hospital';
+
+  @override
+  String get editAdmin => 'Edit Admin';
+
+  @override
+  String get phoneNumber => 'Phone Number';
+
+  @override
+  String get updateSuccess => 'Updated successfully';
+
+  @override
+  String get updateFailed => 'Update failed';
 }

@@ -5,6 +5,9 @@ import 'package:blood_donation_app/core/resources/models/create_hospital_model.d
 import 'package:blood_donation_app/presentation/authentication/admin_authentication/data/data_source/local/admin_hive_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/data_source/remote/users_remote_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_update_admin_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_update_donor_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_update_hospital_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/ban_user_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/delete_user_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/hospital_model.dart';
@@ -170,6 +173,92 @@ class UsersApiDataSource implements UsersRemoteDataSource {
       handleDioError(e);
       rethrow;
     } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<AdminUpdateAdminModel> updateAdmin({required String fullName, required bool isSuspended,required String userId}) async{
+    try{
+      final token = await adminHiveDataSource.getAccessToken();
+      final response = await dio.put(
+        ApiManger.updateAdminEndpoint(
+          userId
+        ),
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': 'application/json',
+          },
+        ),
+        data: {
+          'fullName': fullName,
+          'isSuspended': isSuspended,
+        },
+
+      );
+      return AdminUpdateAdminModel.fromJson(response.data);
+    } on DioException catch (e) {
+      handleDioError(e);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<AdminUpdateDonorModel> updateDonor({required String fullName, required String phoneNumber, required String bloodType,required String userId})async {
+    try{
+      final token =await adminHiveDataSource.getAccessToken();
+      final response = await dio.put(
+        ApiManger.updateDonorEndpoint(
+          userId
+        ),
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': 'application/json',
+          },
+        ),
+        data: {
+          'fullName': fullName,
+          'phoneNumber': phoneNumber,
+          'bloodType': bloodType,
+        },
+      );
+      return AdminUpdateDonorModel.fromJson(response.data) ;
+
+    }
+    on DioException catch (e) {
+      handleDioError(e);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<AdminUpdateHospitalModel> updateHospital({required String fullName, required String hospitalName, required String phone, required List<String> bloodBanksAvailable, required int capacity,required String userId}) async {
+    try {
+      final token = await adminHiveDataSource.getAccessToken();
+      final response = await dio.put(
+        ApiManger.updateHospitalEndpoint(
+            userId
+        ),
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': 'application/json',
+          },
+        ),
+        data: {
+          'fullName': fullName,
+          'hospitalName': hospitalName,
+          'phone': phone,
+          'bloodBanksAvailable': bloodBanksAvailable,
+          'capacity': capacity,
+        },
+      );
+      return AdminUpdateHospitalModel.fromJson(response.data);
+    }
+    on DioException catch (e) {
+      handleDioError(e);
       rethrow;
     }
   }

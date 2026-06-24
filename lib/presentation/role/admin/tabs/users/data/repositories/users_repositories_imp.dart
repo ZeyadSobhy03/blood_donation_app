@@ -1,6 +1,9 @@
 import 'package:blood_donation_app/core/resources/models/create_hospital_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/data_source/remote/users_remote_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_update_admin_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_update_donor_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_update_hospital_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/ban_user_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/delete_user_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/hospital_model.dart';
@@ -41,5 +44,20 @@ class UsersRepositoriesImp implements UsersRepositories {
   @override
   Future<AdminModel> createAdmin({required String fullName, required String email, required String password, required String phone,required String role}) {
     return usersRemoteDataSource.createAdmin(fullName: fullName, email: email, password: password, phone: phone, role: role);
+  }
+
+  @override
+  Future<AdminUpdateAdminModel> updateAdmin({required String fullName, required bool isSuspended, required String userId}) {
+    return usersRemoteDataSource.updateAdmin(fullName: fullName, isSuspended: isSuspended, userId: userId);
+  }
+
+  @override
+  Future<AdminUpdateDonorModel> updateDonor({required String fullName, required String phoneNumber, required String bloodType, required String userId}) {
+    return usersRemoteDataSource.updateDonor(fullName: fullName, phoneNumber: phoneNumber, bloodType: bloodType, userId: userId);
+  }
+
+  @override
+  Future<AdminUpdateHospitalModel> updateHospital({required String fullName, required String hospitalName, required String phone, required List<String> bloodBanksAvailable, required int capacity, required String userId}) {
+    return usersRemoteDataSource.updateHospital(fullName: fullName, hospitalName: hospitalName, phone: phone, bloodBanksAvailable: bloodBanksAvailable, capacity: capacity, userId: userId);
   }
 }

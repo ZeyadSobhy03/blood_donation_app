@@ -38,6 +38,9 @@ class UsersCubit extends Cubit<UsersState> {
   bool _isProcessingBan = false;
   bool _isCreatingHospital = false;
   bool _isCreatingAdmin = false;
+  bool _isUpdatingDonor = false;
+  bool _isUpdatingHospital = false;
+  bool _isUpdatingAdmin = false;
   final List<Users> _allUsers = [];
 
   String? _role;
@@ -444,6 +447,224 @@ class UsersCubit extends Cubit<UsersState> {
     return result;
   }
 
+  Future<ActionResult> updateDonor({
+    required String fullName,
+    required String phoneNumber,
+    required String bloodType,
+    required String userId,
+  }) async {
+    if (_isUpdatingDonor) {
+      return const ActionResult.failure('action_in_progress');
+    }
+
+    final currentState = state;
+    if (currentState is! UsersSuccessState) {
+      return const ActionResult.failure('unknown_error');
+    }
+
+    _isUpdatingDonor = true;
+    emit(UsersSuccessState(
+      usersModel: currentState.usersModel,
+      users: List.of(_allUsers),
+      hasNextPage: _hasNextPage,
+      isLoadingMore: currentState.isLoadingMore,
+      isDeleting: currentState.isDeleting,
+      isProcessingBan: currentState.isProcessingBan,
+      isCreatingHospital: currentState.isCreatingHospital,
+      isCreatingAdmin: currentState.isCreatingAdmin,
+      isUpdatingDonor: true,
+    ));
+
+    ActionResult result = const ActionResult.failure('unknown_error');
+    try {
+      final updateDonorModel = await usersUseCase.updateDonor(
+        fullName: fullName,
+        phoneNumber: phoneNumber,
+        bloodType: bloodType,
+        userId: userId,
+      );
+      if (updateDonorModel.success == true) {
+        result = const ActionResult.success();
+        await getUsers(role: _role, search: _search);
+      } else {
+        result = ActionResult.failure(updateDonorModel.message ?? 'failed_to_update_donor');
+        _emitUpdateDonorError(currentState, result.errorMessage!);
+      }
+    } on NetworkTimeoutException {
+      result = const ActionResult.failure('network_timeout');
+      _emitUpdateDonorError(currentState, result.errorMessage!);
+    } on UnauthorizedException catch (e) {
+      result = ActionResult.failure(e.message ?? 'unauthorized');
+      _emitUpdateDonorError(currentState, result.errorMessage!);
+    } on ServerException catch (e) {
+      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      _emitUpdateDonorError(currentState, result.errorMessage!);
+    } on NotFoundException {
+      result = const ActionResult.failure('not_found');
+      _emitUpdateDonorError(currentState, result.errorMessage!);
+    } on RequestCancelledException {
+      result = const ActionResult.failure('request_cancelled');
+      _emitUpdateDonorError(currentState, result.errorMessage!);
+    } on UnknownNetworkException {
+      result = const ActionResult.failure('unknown_error');
+      _emitUpdateDonorError(currentState, result.errorMessage!);
+    } catch (e) {
+      result = const ActionResult.failure('unknown_error');
+      _emitUpdateDonorError(currentState, result.errorMessage!);
+    } finally {
+      _isUpdatingDonor = false;
+    }
+
+    return result;
+  }
+
+  Future<ActionResult> updateHospital({
+    required String fullName,
+    required String hospitalName,
+    required String phone,
+    required List<String> bloodBanksAvailable,
+    required int capacity,
+    required String userId,
+  }) async {
+    if (_isUpdatingHospital) {
+      return const ActionResult.failure('action_in_progress');
+    }
+
+    final currentState = state;
+    if (currentState is! UsersSuccessState) {
+      return const ActionResult.failure('unknown_error');
+    }
+
+    _isUpdatingHospital = true;
+    emit(UsersSuccessState(
+      usersModel: currentState.usersModel,
+      users: List.of(_allUsers),
+      hasNextPage: _hasNextPage,
+      isLoadingMore: currentState.isLoadingMore,
+      isDeleting: currentState.isDeleting,
+      isProcessingBan: currentState.isProcessingBan,
+      isCreatingHospital: currentState.isCreatingHospital,
+      isCreatingAdmin: currentState.isCreatingAdmin,
+      isUpdatingDonor: currentState.isUpdatingDonor,
+      isUpdatingHospital: true,
+    ));
+
+    ActionResult result = const ActionResult.failure('unknown_error');
+    try {
+      final updateHospitalModel = await usersUseCase.updateHospital(
+        fullName: fullName,
+        hospitalName: hospitalName,
+        phone: phone,
+        bloodBanksAvailable: bloodBanksAvailable,
+        capacity: capacity,
+        userId: userId,
+      );
+      if (updateHospitalModel.success == true) {
+        result = const ActionResult.success();
+        await getUsers(role: _role, search: _search);
+      } else {
+        result = ActionResult.failure(updateHospitalModel.message ?? 'failed_to_update_hospital');
+        _emitUpdateHospitalError(currentState, result.errorMessage!);
+      }
+    } on NetworkTimeoutException {
+      result = const ActionResult.failure('network_timeout');
+      _emitUpdateHospitalError(currentState, result.errorMessage!);
+    } on UnauthorizedException catch (e) {
+      result = ActionResult.failure(e.message ?? 'unauthorized');
+      _emitUpdateHospitalError(currentState, result.errorMessage!);
+    } on ServerException catch (e) {
+      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      _emitUpdateHospitalError(currentState, result.errorMessage!);
+    } on NotFoundException {
+      result = const ActionResult.failure('not_found');
+      _emitUpdateHospitalError(currentState, result.errorMessage!);
+    } on RequestCancelledException {
+      result = const ActionResult.failure('request_cancelled');
+      _emitUpdateHospitalError(currentState, result.errorMessage!);
+    } on UnknownNetworkException {
+      result = const ActionResult.failure('unknown_error');
+      _emitUpdateHospitalError(currentState, result.errorMessage!);
+    } catch (e) {
+      result = const ActionResult.failure('unknown_error');
+      _emitUpdateHospitalError(currentState, result.errorMessage!);
+    } finally {
+      _isUpdatingHospital = false;
+    }
+
+    return result;
+  }
+
+  Future<ActionResult> updateAdmin({
+    required String fullName,
+    required bool isSuspended,
+    required String userId,
+  }) async {
+    if (_isUpdatingAdmin) {
+      return const ActionResult.failure('action_in_progress');
+    }
+
+    final currentState = state;
+    if (currentState is! UsersSuccessState) {
+      return const ActionResult.failure('unknown_error');
+    }
+
+    _isUpdatingAdmin = true;
+    emit(UsersSuccessState(
+      usersModel: currentState.usersModel,
+      users: List.of(_allUsers),
+      hasNextPage: _hasNextPage,
+      isLoadingMore: currentState.isLoadingMore,
+      isDeleting: currentState.isDeleting,
+      isProcessingBan: currentState.isProcessingBan,
+      isCreatingHospital: currentState.isCreatingHospital,
+      isCreatingAdmin: currentState.isCreatingAdmin,
+      isUpdatingDonor: currentState.isUpdatingDonor,
+      isUpdatingHospital: currentState.isUpdatingHospital,
+      isUpdatingAdmin: true,
+    ));
+
+    ActionResult result = const ActionResult.failure('unknown_error');
+    try {
+      final updateAdminModel = await usersUseCase.updateAdmin(
+        fullName: fullName,
+        isSuspended: isSuspended,
+        userId: userId,
+      );
+      if (updateAdminModel.success == true) {
+        result = const ActionResult.success();
+        await getUsers(role: _role, search: _search);
+      } else {
+        result = ActionResult.failure(updateAdminModel.message ?? 'failed_to_update_admin');
+        _emitUpdateAdminError(currentState, result.errorMessage!);
+      }
+    } on NetworkTimeoutException {
+      result = const ActionResult.failure('network_timeout');
+      _emitUpdateAdminError(currentState, result.errorMessage!);
+    } on UnauthorizedException catch (e) {
+      result = ActionResult.failure(e.message ?? 'unauthorized');
+      _emitUpdateAdminError(currentState, result.errorMessage!);
+    } on ServerException catch (e) {
+      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      _emitUpdateAdminError(currentState, result.errorMessage!);
+    } on NotFoundException {
+      result = const ActionResult.failure('not_found');
+      _emitUpdateAdminError(currentState, result.errorMessage!);
+    } on RequestCancelledException {
+      result = const ActionResult.failure('request_cancelled');
+      _emitUpdateAdminError(currentState, result.errorMessage!);
+    } on UnknownNetworkException {
+      result = const ActionResult.failure('unknown_error');
+      _emitUpdateAdminError(currentState, result.errorMessage!);
+    } catch (e) {
+      result = const ActionResult.failure('unknown_error');
+      _emitUpdateAdminError(currentState, result.errorMessage!);
+    } finally {
+      _isUpdatingAdmin = false;
+    }
+
+    return result;
+  }
+
   void _emitDeleteError(UsersSuccessState currentState, String message) {
     emit(UsersSuccessState(
       usersModel: currentState.usersModel,
@@ -490,6 +711,51 @@ class UsersCubit extends Cubit<UsersState> {
       createAdminError: message,
     ));
   }
+
+  void _emitUpdateDonorError(UsersSuccessState currentState, String message) {
+    emit(UsersSuccessState(
+      usersModel: currentState.usersModel,
+      users: List.of(_allUsers),
+      hasNextPage: _hasNextPage,
+      isLoadingMore: currentState.isLoadingMore,
+      isProcessingBan: currentState.isProcessingBan,
+      isCreatingHospital: currentState.isCreatingHospital,
+      isCreatingAdmin: currentState.isCreatingAdmin,
+      isUpdatingDonor: false,
+      updateDonorError: message,
+    ));
+  }
+
+  void _emitUpdateHospitalError(UsersSuccessState currentState, String message) {
+    emit(UsersSuccessState(
+      usersModel: currentState.usersModel,
+      users: List.of(_allUsers),
+      hasNextPage: _hasNextPage,
+      isLoadingMore: currentState.isLoadingMore,
+      isProcessingBan: currentState.isProcessingBan,
+      isCreatingHospital: currentState.isCreatingHospital,
+      isCreatingAdmin: currentState.isCreatingAdmin,
+      isUpdatingDonor: currentState.isUpdatingDonor,
+      isUpdatingHospital: false,
+      updateHospitalError: message,
+    ));
+  }
+
+  void _emitUpdateAdminError(UsersSuccessState currentState, String message) {
+    emit(UsersSuccessState(
+      usersModel: currentState.usersModel,
+      users: List.of(_allUsers),
+      hasNextPage: _hasNextPage,
+      isLoadingMore: currentState.isLoadingMore,
+      isProcessingBan: currentState.isProcessingBan,
+      isCreatingHospital: currentState.isCreatingHospital,
+      isCreatingAdmin: currentState.isCreatingAdmin,
+      isUpdatingDonor: currentState.isUpdatingDonor,
+      isUpdatingHospital: currentState.isUpdatingHospital,
+      isUpdatingAdmin: false,
+      updateAdminError: message,
+    ));
+  }
 }
 
 sealed class UsersState {}
@@ -511,6 +777,12 @@ class UsersSuccessState extends UsersState {
   final String? createHospitalError;
   final bool isCreatingAdmin;
   final String? createAdminError;
+  final bool isUpdatingDonor;
+  final String? updateDonorError;
+  final bool isUpdatingHospital;
+  final String? updateHospitalError;
+  final bool isUpdatingAdmin;
+  final String? updateAdminError;
 
   UsersSuccessState({
     required this.usersModel,
@@ -525,6 +797,12 @@ class UsersSuccessState extends UsersState {
     this.createHospitalError,
     this.isCreatingAdmin = false,
     this.createAdminError,
+    this.isUpdatingDonor = false,
+    this.updateDonorError,
+    this.isUpdatingHospital = false,
+    this.updateHospitalError,
+    this.isUpdatingAdmin = false,
+    this.updateAdminError,
   });
 }
 

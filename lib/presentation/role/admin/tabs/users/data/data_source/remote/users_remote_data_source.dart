@@ -1,5 +1,8 @@
 import 'package:blood_donation_app/core/resources/models/create_hospital_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_update_admin_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_update_donor_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/admin_update_hospital_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/ban_user_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/delete_user_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/hospital_model.dart';
@@ -33,5 +36,28 @@ abstract class UsersRemoteDataSource {
     required String password,
     required String phone,
     required String role,
+
+  });
+
+  Future<AdminUpdateDonorModel> updateDonor({
+    required String fullName,
+    required String phoneNumber,
+    required String bloodType,
+    required String userId,
+  });
+
+  Future<AdminUpdateHospitalModel> updateHospital({
+    required String fullName,
+    required String hospitalName,
+    required String phone,
+    required List<String> bloodBanksAvailable,
+    required int capacity,
+    required String userId,
+  });
+
+  Future<AdminUpdateAdminModel> updateAdmin({
+    required String fullName,
+    required bool isSuspended,
+    required String userId,
   });
 }

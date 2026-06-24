@@ -2,6 +2,9 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/repos
 
 import '../../../../../../../core/resources/models/create_hospital_model.dart';
 import '../../data/model/admin_model.dart';
+import '../../data/model/admin_update_admin_model.dart';
+import '../../data/model/admin_update_donor_model.dart';
+import '../../data/model/admin_update_hospital_model.dart';
 import '../../data/model/ban_user_model.dart';
 import '../../data/model/delete_user_model.dart';
 import '../../data/model/hospital_model.dart';
@@ -36,6 +39,44 @@ class UsersUseCase {
     required String role,
   }){
     return usersRepositories.createAdmin(fullName: fullName, email: email, password: password, phone: phone, role: role);
+  }
+  Future<AdminUpdateDonorModel> updateDonor({
+    required String fullName,
+    required String phoneNumber,
+    required String bloodType,
+    required String userId,
+  }){
+    return usersRepositories.updateDonor(fullName: fullName, phoneNumber: phoneNumber, bloodType: bloodType, userId: userId);
+  }
+
+  Future<AdminUpdateHospitalModel> updateHospital({
+    required String fullName,
+    required String hospitalName,
+    required String phone,
+    required List<String> bloodBanksAvailable,
+    required int capacity,
+    required String userId,
+  }){
+    return usersRepositories.updateHospital(
+      fullName: fullName,
+      hospitalName: hospitalName,
+      phone: phone,
+      bloodBanksAvailable: bloodBanksAvailable,
+      capacity: capacity,
+      userId: userId,
+    );
+  }
+
+  Future<AdminUpdateAdminModel> updateAdmin({
+    required String fullName,
+    required bool isSuspended,
+    required String userId,
+  }){
+    return usersRepositories.updateAdmin(
+      fullName: fullName,
+      isSuspended: isSuspended,
+      userId: userId,
+    );
   }
 
 }

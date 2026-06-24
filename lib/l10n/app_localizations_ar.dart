@@ -4144,4 +4144,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get ticket_submitted_successfully => 'تم إرسال الطلب بنجاح';
+
+  @override
+  String get editDonor => 'تعديل المتبرع';
+
+  @override
+  String get editHospital => 'تعديل المستشفى';
+
+  @override
+  String get editAdmin => 'تعديل المسؤول';
+
+  @override
+  String get phoneNumber => 'رقم الهاتف';
+
+  @override
+  String get updateSuccess => 'تم التحديث بنجاح';
+
+  @override
+  String get updateFailed => 'فشل التحديث';
 }
