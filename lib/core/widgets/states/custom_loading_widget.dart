@@ -16,7 +16,7 @@ class CustomLoadingWidget extends StatelessWidget {
     super.key,
     this.message,
     this.indicatorSize = 50,
-    this.indicatorColor
+    this.indicatorColor,
   });
 
   @override
@@ -33,7 +33,7 @@ class CustomLoadingWidget extends StatelessWidget {
             child: CircularProgressIndicator(
               strokeWidth: 3.w,
               valueColor: AlwaysStoppedAnimation<Color>(
-                indicatorColor!,
+                indicatorColor ?? ColorManger.royalBlue,
               ),
             ),
           ),

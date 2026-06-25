@@ -3,20 +3,23 @@ import '../../../../../../core/widgets/custom_drop_down_button_form_field.dart';
 import '../../../../../../core/widgets/custom_label.dart';
 import '../../../../../../l10n/app_localizations.dart';
 import '../../../../donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
+import '../data/model/request_enum_mapper.dart';
 
 class EmergencyRequestBody extends StatelessWidget {
   const EmergencyRequestBody({
     super.key,
     required this.unitsController,
-    required this.patientDetailsController,
     required this.selectedBloodType,
     required this.onBloodTypeChanged,
+    required this.selectedPatientDetails,
+    required this.onPatientDetailsChanged,
   });
 
   final TextEditingController unitsController;
-  final TextEditingController patientDetailsController;
   final String? selectedBloodType;
   final void Function(dynamic) onBloodTypeChanged;
+  final String? selectedPatientDetails;
+  final void Function(dynamic) onPatientDetailsChanged;
 
   static const List<String> _bloodTypes = [
     'A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-',
@@ -25,6 +28,9 @@ class EmergencyRequestBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
+
+    final List<String> patientDetailsOptions =
+        RequestEnumMapper.patientDetailsDisplayOptions(loc);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,11 +54,11 @@ class EmergencyRequestBody extends StatelessWidget {
         const SizedBox(height: 8),
         CustomLabel(text: loc.patient_details),
         const SizedBox(height: 8),
-        CustomTextFormField(
-          maxLines: 4,
+        CustomDropDownButtonFormField(
+          items: patientDetailsOptions,
           hintText: loc.enter_patient_details,
-          keyboardType: TextInputType.multiline,
-          textEditingController: patientDetailsController,
+          onChanged: onPatientDetailsChanged,
+          initialValue: selectedPatientDetails,
         ),
       ],
     );

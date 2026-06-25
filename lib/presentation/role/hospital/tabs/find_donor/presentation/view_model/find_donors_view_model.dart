@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/models/donor.dart';
+import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/local_data_source/hospital_local_data_source.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/data/model/find_donors_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/domain/use_cases/find_donors_use_case.dart';
@@ -9,10 +10,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FindDonorsCubit extends Cubit<FindDonorsState> {
   final FindDonorsUseCase findDonorsUseCase;
   final HospitalLocalDataSource hospitalLocalDataSource;
+  final AppLocalizations? loc;
 
   FindDonorsCubit({
     required this.findDonorsUseCase,
     required this.hospitalLocalDataSource,
+    this.loc,
   }) : super(FindDonorsInitialState());
 
   int _currentPage = 1;
@@ -117,16 +120,16 @@ class FindDonorsCubit extends Cubit<FindDonorsState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout')) return 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return 'No internet connection.';
+      return loc?.noInternetConnection ?? 'No internet connection.';
     }
-    if (e.contains('unauthorized')) return 'Session expired. Please log in again.';
-    if (e.contains('access_denied')) return 'Access denied.';
+    if (e.contains('unauthorized')) return loc?.sessionExpired ?? 'Session expired. Please log in again.';
+    if (e.contains('access_denied')) return loc?.accessDenied ?? 'Access denied.';
     if (e.contains('hospital_not_found')) {
-      return 'Hospital location not set. Please update your profile.';
+      return loc?.hospitalLocationNotSet ?? 'Hospital location not set. Please update your profile.';
     }
-    return 'Something went wrong. Please try again.';
+    return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 
   void reset() => emit(FindDonorsInitialState());

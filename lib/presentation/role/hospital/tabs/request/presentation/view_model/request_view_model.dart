@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/local_data_source/hospital_local_data_source.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/request/data/model/request_enum_mapper.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/request/data/model/request_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/request/domain/use_cases/request_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,10 +11,12 @@ import 'package:intl/intl.dart';
 class RequestCubit extends Cubit<RequestState> {
   final RequestUseCase requestUseCase;
   final HospitalLocalDataSource hospitalLocalDataSource;
+  final AppLocalizations? loc;
 
   RequestCubit({
     required this.requestUseCase,
     required this.hospitalLocalDataSource,
+    this.loc,
   }) : super(RequestInitialState());
 
   Future<void> createRequest({
@@ -22,7 +25,7 @@ class RequestCubit extends Cubit<RequestState> {
     required DateTime? requiredByDate,
     required String? selectedPatientTypeDisplay,
     required String contactNumber,
-    required String patientDetails,
+    required String? selectedPatientDetailsDisplay,
     required int unitsNeeded,
     required AppLocalizations loc,
   }) async {
@@ -40,7 +43,7 @@ class RequestCubit extends Cubit<RequestState> {
         unitsNeeded: unitsNeeded,
         patientType: _mapPatientType(selectedPatientTypeDisplay, loc),
         contactNumber: contactNumber,
-        patientDetails: patientDetails,
+        patientDetails: RequestEnumMapper.patientDetailsDisplayToKey(selectedPatientDetailsDisplay, loc),
       );
       if (isClosed) return;
 
@@ -60,7 +63,8 @@ class RequestCubit extends Cubit<RequestState> {
   Future<void> createEmergencyRequest({
     required String bloodType,
     required int unitsNeeded,
-    required String patientDetails,
+    required String? selectedPatientDetailsDisplay,
+    required AppLocalizations loc,
   }) async {
     try {
       emit(RequestLoadingState());
@@ -72,7 +76,7 @@ class RequestCubit extends Cubit<RequestState> {
         token: token,
         bloodType: bloodType,
         unitsNeeded: unitsNeeded,
-        patientDetails: patientDetails,
+        patientDetails: RequestEnumMapper.patientDetailsDisplayToKey(selectedPatientDetailsDisplay, loc),
       );
       if (isClosed) return;
 
@@ -121,16 +125,22 @@ class RequestCubit extends Cubit<RequestState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout'))        return 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return 'No internet connection.';
+      return loc?.noInternetConnection ?? 'No internet connection.';
     }
-    if (e.contains('unauthorized'))    return 'Session expired. Please log in again.';
-    if (e.contains('validation_error')) return 'Please check all fields and try again.';
+    if (e.contains('unauthorized')) return loc?.sessionExpired ?? 'Session expired. Please log in again.';
+    if (e.contains('validation_error')) return loc?.checkAllFields ?? 'Please check all fields and try again.';
     if (e.contains('unknown_error') || e.contains('bad_response')) {
-      return 'Something went wrong. Please try again.';
+      return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
     }
-    return error.replaceFirst('Exception: ', '');
+    if (e.contains('access_denied') || e.contains('forbidden')) {
+      return loc?.accessDenied ?? 'Access denied.';
+    }
+    if (e.contains('contact_required') || e.contains('hospital_contact')) {
+      return loc?.hospitalContactRequired ?? 'Please set a contact number in your profile before creating a request.';
+    }
+    return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 }
 

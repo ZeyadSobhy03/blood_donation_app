@@ -1,19 +1,19 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
-import 'package:blood_donation_app/core/resources/models/donor.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/contact_donor/section/contact_donor_navigation_button.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/contact_donor/widgets/donor_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
+import '../../../data/models/home_request_responses_model.dart';
+import 'contact_donor_navigation_button.dart';
+import '../widgets/donor_info.dart';
 
 class AvailableDonorCard extends StatelessWidget {
-  const AvailableDonorCard({super.key, required this.donors});
+  const AvailableDonorCard({super.key, required this.donor});
 
-  final DonorModel donors;
+  final RequestDonorResponse donor;
 
   void callDonor(String phoneNumber) async {
     final Uri callUri = Uri(scheme: 'tel', path: phoneNumber);
@@ -35,9 +35,37 @@ class AvailableDonorCard extends StatelessWidget {
     }
   }
 
+  Color _statusColor() {
+    if (donor.isAvailable == true) return ColorManger.green;
+    switch (donor.responseStatus) {
+      case 'accepted':
+        return ColorManger.green;
+      case 'declined':
+        return ColorManger.brightRed;
+      case 'pending':
+      default:
+        return ColorManger.orange;
+    }
+  }
+
+  String _statusLabel(AppLocalizations loc) {
+    switch (donor.responseStatus) {
+      case 'accepted':
+        return loc.statusAccepted;
+      case 'declined':
+        return loc.donorResponseStatusDeclined;
+      case 'pending':
+        return loc.pending;
+      default:
+        return donor.isAvailable == true ? loc.available : loc.notAvailable;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
+    final phoneNumber = donor.phoneNumber ?? '';
+
     return Card(
       color: ColorManger.pureWhite,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -61,11 +89,10 @@ class AvailableDonorCard extends StatelessWidget {
                 SizedBox(width: 12),
                 Expanded(
                   child: DonorInfo(
-                    name: donors.name,
-                    bloodType: donors.bloodType,
+                    name: donor.fullName ?? '',
+                    bloodType: donor.bloodType ?? '',
                   ),
                 ),
-
                 SizedBox(width: 8),
                 Container(
                   padding: const EdgeInsets.symmetric(
@@ -73,11 +100,11 @@ class AvailableDonorCard extends StatelessWidget {
                     vertical: 5,
                   ),
                   decoration: BoxDecoration(
-                    color: ColorManger.green,
+                    color: _statusColor(),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: CustomText(
-                    text: appLocalization.available,
+                    text: _statusLabel(appLocalization),
                     textStyle: TextStyle(
                       color: ColorManger.pureWhite,
                       fontSize: FontSize.s12,
@@ -87,22 +114,19 @@ class AvailableDonorCard extends StatelessWidget {
                 ),
               ],
             ),
-
             SizedBox(height: 16.h),
             ContactDonorNavigationButton(
-              contact: () {
-                callDonor(donors.phoneNumber);
-              },
-              message: () {
-                sendWhatsapp(
-                  donors.phoneNumber,
-                  appLocalization.hospital_message,
-                );
-              },
+              contact: phoneNumber.isEmpty
+                  ? null
+                  : () => callDonor(phoneNumber),
+              message: phoneNumber.isEmpty
+                  ? null
+                  : () => sendWhatsapp(
+                        phoneNumber,
+                        appLocalization.hospital_message,
+                      ),
             ),
             SizedBox(height: 16.h),
-
-
           ],
         ),
       ),

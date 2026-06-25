@@ -12,6 +12,7 @@ import 'package:intl/intl.dart';
 import '../../../../../../l10n/app_localizations.dart';
 import '../../../../donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
 import '../../../../donor/tabs/donate/schedule_donation/widgets/input_label.dart';
+import '../data/model/request_enum_mapper.dart';
 
 class RequestDetailBody extends StatefulWidget {
   const RequestDetailBody({super.key});
@@ -31,17 +32,16 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
 
   final TextEditingController _unitsController        = TextEditingController();
   final TextEditingController _contactController      = TextEditingController();
-  final TextEditingController _patientDetailsController = TextEditingController();
 
   String? _selectedUrgency;
   String? _selectedPatientType;
+  String? _selectedPatientDetails;
   DateTime? _requiredByDate;
 
   @override
   void dispose() {
     _unitsController.dispose();
     _contactController.dispose();
-    _patientDetailsController.dispose();
     super.dispose();
   }
 
@@ -98,7 +98,7 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
       requiredByDate: _requiredByDate,
       selectedPatientTypeDisplay: _selectedPatientType,
       contactNumber: _contactController.text.trim(),
-      patientDetails: _patientDetailsController.text.trim(),
+      selectedPatientDetailsDisplay: _selectedPatientDetails,
       unitsNeeded: int.tryParse(_unitsController.text.trim()) ?? 1,
       loc: loc,
     );
@@ -109,11 +109,11 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
       _selectedBloodTypes.clear();
       _selectedUrgency = null;
       _selectedPatientType = null;
+      _selectedPatientDetails = null;
       _requiredByDate = null;
     });
     _unitsController.clear();
     _contactController.clear();
-    _patientDetailsController.clear();
   }
 
   @override
@@ -132,6 +132,9 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
       loc.patientTypeChild,
       loc.patientTypeInfant,
     ];
+
+    final List<String> patientDetailsOptions =
+        RequestEnumMapper.patientDetailsDisplayOptions(loc);
 
     return BlocListener<RequestCubit, RequestState>(
       listener: (context, state) {
@@ -347,11 +350,12 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
 
                   InputLabel(label: loc.patient_details),
                   SizedBox(height: 8.h),
-                  CustomTextFormField(
-                    textEditingController: _patientDetailsController,
-                    keyboardType: TextInputType.multiline,
-                    maxLines: 3,
-                    hintText: loc.patientDetailsHint,
+                  CustomDropDownButtonFormField(
+                    items: patientDetailsOptions,
+                    hintText: loc.enter_patient_details,
+                    onChanged: (value) =>
+                        setState(() => _selectedPatientDetails = value),
+                    initialValue: _selectedPatientDetails,
                   ),
 
                   SizedBox(height: 24.h),

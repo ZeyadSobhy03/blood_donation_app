@@ -26,6 +26,7 @@ class CreatedRequestData {
     this.isEmergency,
     this.notes,
     this.hospitalName,
+    this.status,
   });
 
   CreatedRequestData.fromJson(dynamic json) {
@@ -48,6 +49,7 @@ class CreatedRequestData {
     contactNumber = json['contactNumber'];
     isEmergency = json['isEmergency'];
     notes = json['notes'];
+    status = json['status'] ?? json['requestStatus'];
 
     final rawHospital = json['hospitalId'];
     if (rawHospital is Map) {
@@ -67,6 +69,7 @@ class CreatedRequestData {
   bool? isEmergency;
   String? notes;
   String? hospitalName;
+  String? status;
 
   String get bloodTypeDisplay => bloodType?.join(', ') ?? '';
 }

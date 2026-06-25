@@ -789,7 +789,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reschedule => 'إعادة الجدولة';
 
   @override
-  String get appointmentCancelled => 'تم إلغاء الموعد';
+  String get appointmentCancelled => 'تم إلغاء هذا الموعد.';
 
   @override
   String get rescheduleAppointmentTitle => 'إعادة جدولة الموعد';
@@ -2617,7 +2617,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get error => 'خطأ';
 
   @override
-  String get somethingWentWrong => 'حدث خطأ ما';
+  String get somethingWentWrong => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.';
 
   @override
   String get errorDetails => 'تفاصيل الخطأ';
@@ -2894,4 +2894,361 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get yesCancelRequest => 'نعم، ألغي الطلب';
+
+  @override
+  String get patientDetailsSurgery => 'عملية جراحية';
+
+  @override
+  String get patientDetailsCardiacSurgery => 'جراحة قلب';
+
+  @override
+  String get patientDetailsAccident => 'حادث';
+
+  @override
+  String get patientDetailsBurns => 'حروق';
+
+  @override
+  String get patientDetailsCancer => 'سرطان';
+
+  @override
+  String get patientDetailsLeukemia => 'سرطان الدم';
+
+  @override
+  String get patientDetailsMaternity => 'أمومة';
+
+  @override
+  String get patientDetailsChronicIllness => 'مرض مزمن';
+
+  @override
+  String get patientDetailsHemophilia => 'هيموفيليا';
+
+  @override
+  String get patientDetailsThalassemia => 'ثالاسيميا';
+
+  @override
+  String get patientDetailsDialysis => 'غسيل الكلى';
+
+  @override
+  String get patientDetailsGastrointestinalBleeding => 'نزيف الجهاز الهضمي';
+
+  @override
+  String get patientDetailsOrganTransplant => 'زرع الأعضاء';
+
+  @override
+  String get patientDetailsPediatric => 'طب الأطفال';
+
+  @override
+  String get patientDetailsEmergency => 'طارئ';
+
+  @override
+  String get patientDetailsGeneral => 'عام';
+
+  @override
+  String get statusAccepted => 'تم القبول';
+
+  @override
+  String get statusInProgress => 'قيد العمل';
+
+  @override
+  String get statusExpired => 'انتهت المدة';
+
+  @override
+  String get requestStatusLabel => 'حالة الطلب';
+
+  @override
+  String get updateStatus => 'تعديل الحالة';
+
+  @override
+  String get selectStatus => 'اختيار الحالة';
+
+  @override
+  String activeRequestsCount(Object count) {
+    return '$count طلبات نشطة';
+  }
+
+  @override
+  String responsesTodayCount(Object count) {
+    return '$count ردود لليوم';
+  }
+
+  @override
+  String get noActiveRequests => 'لا يوجد طلبات نشطة حتى الآن';
+
+  @override
+  String get noRecentActivity => 'لا توجد أنشطة حديثة حتى الآن';
+
+  @override
+  String get noNearbyDonorsFound => 'لم يتم العثور على متبرعين قريبين';
+
+  @override
+  String get nearestDonor => 'الأقرب';
+
+  @override
+  String donorsCountLabel(Object count) {
+    return '$count متبرعين';
+  }
+
+  @override
+  String get cancelRequestSuccess => 'تم إلغاء الطلب بنجاح';
+
+  @override
+  String get updateRequestSuccess => 'تم تعديل الطلب بنجاح';
+
+  @override
+  String get failedToLoadDashboard => 'فشل تحميل بيانات الإحصائيات';
+
+  @override
+  String get failedToLoadRequests => 'فشل تحميل الطلبات';
+
+  @override
+  String get failedToLoadActivity => 'فشل تحميل الأنشطة الحديثة';
+
+  @override
+  String get failedToLoadNearbyDonors => 'فشل تحميل المتبرعين القريبين';
+
+  @override
+  String get failedToLoadResponses => 'فشل تحميل المتبرعين الذين ردوا';
+
+  @override
+  String get noResponsesYet => 'لم يرد أي متبرع حتى الآن';
+
+  @override
+  String get donorResponseStatusDeclined => 'مرفوض';
+
+  @override
+  String get scanQrInstructionTitle => 'وجه الكاميرا إلى الQR الخاص بالمتبرع';
+
+  @override
+  String get verifyingQrCode => 'جاري التأكد من الرمز...';
+
+  @override
+  String get qrVerificationFailed => 'فشل التحقق من رمز QR.';
+
+  @override
+  String get donationConfirmedSuccessTitle => 'تم تأكيد التبرع!';
+
+  @override
+  String donationConfirmedSuccessMessage(Object donorName) {
+    return 'لقد تم تسجيل التبرع الخاص ب $donorName والتأكد منه';
+  }
+
+  @override
+  String get scanAnotherCode => 'امسح رمزا آخر';
+
+  @override
+  String get invalidQrCode => 'رمز QR غير صالح.';
+
+  @override
+  String get qrCodeExpired => 'انتهت صلاحية رمز QR هذا.';
+
+  @override
+  String get doneButton => 'انتهاء';
+
+  @override
+  String get allAppointments => 'جميع المواعيد';
+
+  @override
+  String get noAppointmentsFound => 'لم يتم العثور على مواعيد';
+
+  @override
+  String get enterCodeManually => 'أدخل الرمز يدوياً';
+
+  @override
+  String get manualEntry => 'إدخال يدوي';
+
+  @override
+  String get enterDonationCode => 'أدخل رمز التبرع';
+
+  @override
+  String get donationCodeLabel => 'رمز التبرع';
+
+  @override
+  String get verifyCode => 'تأكيد الرمز';
+
+  @override
+  String get scanQrInstead => 'مسح رمز QR بدلاً من ذلك';
+
+  @override
+  String get appointmentDateLabel => 'تاريخ الموعد';
+
+  @override
+  String get rejectVerification => 'رفض التحقق';
+
+  @override
+  String get rejectConfirmation => 'هل أنت متأكد أنك تريد رفض هذا التحقق؟';
+
+  @override
+  String get reasonLabel => 'السبب';
+
+  @override
+  String get reasonHint => 'مثال: المريض غير جاهز';
+
+  @override
+  String get reject => 'رفض';
+
+  @override
+  String get verificationRejected => 'تم رفض التحقق';
+
+  @override
+  String get pleaseEnterReason => 'يرجى إدخال سبب';
+
+  @override
+  String get pleaseCompleteChecklist => 'يرجى إكمال جميع عناصر القائمة';
+
+  @override
+  String get eligibilityChecklist => 'قائمة التحقق من الأهلية';
+
+  @override
+  String get donorNotEligible => 'المتبرع غير مؤهل';
+
+  @override
+  String get verificationChecklist => 'قائمة التحقق';
+
+  @override
+  String get idVerified => 'تم التحقق من الهوية';
+
+  @override
+  String get questionnaireCompleted => 'تم إكمال الاستبيان';
+
+  @override
+  String get consentSigned => 'تم التوقيع على الموافقة';
+
+  @override
+  String get diseaseScreening => 'فحص الأمراض';
+
+  @override
+  String get screeningCompleted => 'اكتمل الفحص (لا توجد أمراض مانعة)';
+
+  @override
+  String get disqualifyingDiseaseFound => 'تم العثور على مرض مانع';
+
+  @override
+  String get addDisease => 'إضافة مرض';
+
+  @override
+  String get addToList => 'إضافة إلى القائمة';
+
+  @override
+  String get notes => 'ملاحظات';
+
+  @override
+  String get additionalNotes => 'ملاحظات إضافية...';
+
+  @override
+  String get submitVerification => 'إرسال التحقق';
+
+  @override
+  String get pleaseFillRequiredFields => 'يرجى ملء جميع الحقول المطلوبة';
+
+  @override
+  String get donationCompletion => 'إتمام التبرع';
+
+  @override
+  String get donationCompletedSuccessfully => 'تم إتمام التبرع بنجاح!';
+
+  @override
+  String pointsEarned(Object count) {
+    return 'النقاط المكتسبة: $count';
+  }
+
+  @override
+  String get recordDonorData => 'تسجيل بيانات المتبرع';
+
+  @override
+  String get enterDonorReadings => 'أدخل القراءات الطبية للمتبرع أدناه';
+
+  @override
+  String get hemoglobinLevel => 'مستوى الهيموجلوبين (جم/ديسيلتر)';
+
+  @override
+  String get unitsCollected => 'الوحدات المجمعة';
+
+  @override
+  String get donationCodeHint => 'أدخل رمز التبرع';
+
+  @override
+  String get verificationFailed => 'فشل التحقق.';
+
+  @override
+  String get connectionTimedOut =>
+      'انتهت مهلة الاتصال. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get noInternetConnection => 'لا يوجد اتصال بالإنترنت.';
+
+  @override
+  String get sessionExpired => 'انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى.';
+
+  @override
+  String get notFoundItem => 'غير موجود.';
+
+  @override
+  String get checkAllFields => 'يرجى التحقق من جميع الحقول والمحاولة مرة أخرى.';
+
+  @override
+  String get requestNotFound => 'الطلب غير موجود.';
+
+  @override
+  String get profileNotFound => 'الملف الشخصي غير موجود.';
+
+  @override
+  String get accessDenied => 'تم رفض الوصول.';
+
+  @override
+  String get hospitalLocationNotSet =>
+      'لم يتم تعيين موقع المستشفى. يرجى تحديث ملفك الشخصي.';
+
+  @override
+  String get invalidStatusFilter => 'فلتر حالة غير صالح.';
+
+  @override
+  String get failedLoadAppointmentDetails => 'فشل تحميل تفاصيل الموعد.';
+
+  @override
+  String get failedCompleteDonation => 'فشل إتمام التبرع.';
+
+  @override
+  String get failedRejectAppointment => 'فشل رفض الموعد.';
+
+  @override
+  String get failedLoadRequestDetails => 'فشل تحميل تفاصيل الطلب.';
+
+  @override
+  String get requestUpdatedSuccess => 'تم تحديث الطلب بنجاح.';
+
+  @override
+  String get failedUpdateRequest => 'فشل تحديث الطلب.';
+
+  @override
+  String get requestCancelledSuccess => 'تم إلغاء الطلب بنجاح.';
+
+  @override
+  String get failedLoadDonorResponses => 'فشل تحميل ردود المتبرعين.';
+
+  @override
+  String get failedLoadProfile => 'فشل تحميل الملف الشخصي.';
+
+  @override
+  String get profileUpdatedSuccess => 'تم تحديث الملف الشخصي بنجاح.';
+
+  @override
+  String get workingHoursUpdatedSuccess => 'تم تحديث ساعات العمل بنجاح.';
+
+  @override
+  String get currentPasswordIncorrect => 'كلمة المرور الحالية غير صحيحة.';
+
+  @override
+  String get passwordMustBeDifferent =>
+      'يجب أن تختلف كلمة المرور الجديدة عن الحالية.';
+
+  @override
+  String get hospitalContactRequired =>
+      'يرجى تعيين رقم اتصال في ملفك الشخصي قبل إنشاء طلب.';
+
+  @override
+  String get donationAlreadyCompleted => 'تم إتمام هذا التبرع بالفعل.';
+
+  @override
+  String get hospitalNotApproved =>
+      'حساب المستشفى الخاص بك لم يتم الموافقة عليه بعد. يرجى التواصل مع support@lifelink.org.';
 }

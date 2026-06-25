@@ -44,4 +44,27 @@ static const String hospitalFindDonorsEndpoint = "${baseUrl}hospital/find-donors
 static const String hospitalHistoryEndpoint = "${baseUrl}hospital/history";
 static const String hospitalCreateRequestEndpoint = "${baseUrl}hospital/request";
 static const String hospitalCreateEmergencyRequestEndpoint = "${baseUrl}hospital/requests/create-emergency";
+static const String hospitalDashboardEndpoint = "${baseUrl}hospital/dashboard";
+static const String hospitalActivityEndpoint = "${baseUrl}hospital/activity";
+static const String hospitalRequestsEndpoint = "${baseUrl}hospital/requests";
+static const String hospitalNearbyDonorsEndpoint = "${baseUrl}hospital/nearby-donors";
+static const String hospitalProfileEndpoint = "${baseUrl}hospital/profile";
+static const String hospitalChangePasswordEndpoint = "${baseUrl}hospital/profile/password";
+
+static String hospitalRequestByIdEndpoint(String requestId) =>
+  "${baseUrl}hospital/requests/$requestId";
+static String hospitalRequestResponsesEndpoint(String requestId) =>
+      "${baseUrl}hospital/requests/$requestId/responses";
+
+////////////////////////////// appointments endpoints //////////////////////////////
+static const String hospitalAppointmentsEndpoint = "${baseUrl}hospital/appointments";
+static const String appointmentVerifyQrEndpoint = "${baseUrl}appointments/verify-qr";
+static const String donationCompleteEndpoint = "${baseUrl}donations/complete";
+
+static String hospitalAppointmentByIdEndpoint(String appointmentId) =>
+    "${baseUrl}hospital/appointments/$appointmentId";
+static String appointmentVerifyEndpoint(String appointmentId) =>
+    "${baseUrl}appointments/$appointmentId/verify";
+static String appointmentRejectEndpoint(String appointmentId) =>
+    "${baseUrl}appointments/$appointmentId/reject";
 }

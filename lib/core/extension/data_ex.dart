@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import '../../../../l10n/app_localizations.dart'; // عدّل المسار حسب مشروعك
+import '../../l10n/app_localizations.dart';
 
 extension DateTimeEx on DateTime {
   String toDateOnly({String? locale}) {

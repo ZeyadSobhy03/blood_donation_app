@@ -93,8 +93,10 @@ class HistoryRequestModel {
     final rawBloodType = json['bloodType'];
     if (rawBloodType is List) {
       bloodType = rawBloodType.join(', ');
+    } else if (rawBloodType is String) {
+      bloodType = rawBloodType;
     } else {
-      bloodType = rawBloodType as String?;
+      bloodType = null;
     }
     unitsRequested = (json['unitsRequested'] as num?)?.toInt();
     urgencyLevel = json['urgencyLevel'];
@@ -106,7 +108,9 @@ class HistoryRequestModel {
         : null;
     completionTimeInHours = (json['completionTimeInHours'] as num?)?.toInt();
     priority = json['priority'];
-    location = json['location'];
+    location = json['location'] != null
+        ? HistoryLocation.fromJson(json['location'])
+        : null;
     hospitalContact = json['hospitalContact'];
     hospitalName = json['hospitalName'];
     status = json['status'];
@@ -122,10 +126,17 @@ class HistoryRequestModel {
   DateTime? requestDate;
   int? completionTimeInHours;
   String? priority;
-  String? location;
+  HistoryLocation? location;
   String? hospitalContact;
   String? hospitalName;
   String? status;
+
+  String get locationDisplay {
+    final lat = location?.lat;
+    final lng = location?.lng;
+    if (lat == null || lng == null) return '';
+    return '$lat, $lng';
+  }
 
 
   bool get isCompleted => status?.toLowerCase() == 'completed';
@@ -157,7 +168,7 @@ class HistoryRequestModel {
         requestDate: requestDate ?? DateTime.now(),
         completionTimeInHours: completionTimeInHours ?? 0,
         priority: requestPriority,
-        location: location ?? '',
+        location: locationDisplay,
         hospitalContact: hospitalContact ?? '',
         hospitalName: hospitalName ?? '',
       ),
@@ -195,10 +206,28 @@ class HistoryRequestModel {
         return loc.active;
       case 'pending':
         return loc.pending;
+      case 'accepted':
+        return loc.statusAccepted;
       default:
         return status ?? '';
     }
   }
+}
+
+/// location: { coordinates: { lat, lng } }
+class HistoryLocation {
+  HistoryLocation({this.lat, this.lng});
+
+  HistoryLocation.fromJson(dynamic json) {
+    final coordinates = json['coordinates'];
+    if (coordinates != null) {
+      lat = (coordinates['lat'] as num?)?.toDouble();
+      lng = (coordinates['lng'] as num?)?.toDouble();
+    }
+  }
+
+  double? lat;
+  double? lng;
 }
 
 /// pagination: { total, page, currentPage, limit, totalPages,

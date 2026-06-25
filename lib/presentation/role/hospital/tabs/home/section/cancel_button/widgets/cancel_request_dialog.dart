@@ -9,14 +9,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CancelRequestDialog extends StatelessWidget {
   const CancelRequestDialog({
     super.key,
-    required this.urgency,
+    required this.urgencyDisplay,
     required this.bloodType,
     required this.unitsNeeded,
     required this.urgencyColor,
     this.onConfirmCancel,
   });
 
-  final String urgency;
+  final String urgencyDisplay;
   final String bloodType;
   final int unitsNeeded;
   final Color urgencyColor;
@@ -41,24 +41,23 @@ class CancelRequestDialog extends StatelessWidget {
                 Icon(Icons.delete_outline,
                     color: ColorManger.brightRed, size: 22),
                 const SizedBox(width: 8),
-                CustomText(
-                  text: loc.cancelRequestBtn,
-                  textStyle: TextStyle(
-                    fontSize: FontSize.s16,
-                    fontWeight: FontWeightManager.bold,
-                    color: ColorManger.brightRed,
+                Expanded(
+                  child: CustomText(
+                    text: loc.cancelRequestBtn,
+                    textStyle: TextStyle(
+                      fontSize: FontSize.s16,
+                      fontWeight: FontWeightManager.bold,
+                      color: ColorManger.brightRed,
+                    ),
                   ),
                 ),
-                const Spacer(),
                 GestureDetector(
                   onTap: () => Navigator.of(context).pop(),
                   child: const Icon(Icons.close, size: 20),
                 ),
               ],
             ),
-
             SizedBox(height: 8.h),
-
             CustomText(
               text: loc.cancelRequestConfirmation,
               textStyle: TextStyle(
@@ -67,13 +66,10 @@ class CancelRequestDialog extends StatelessWidget {
                 color: ColorManger.slateGrey,
               ),
             ),
-
             SizedBox(height: 16.h),
-
             Container(
               width: double.infinity,
-              padding:
-              const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               decoration: BoxDecoration(
                 color: Colors.red.shade50,
                 borderRadius: BorderRadius.circular(10),
@@ -82,7 +78,7 @@ class CancelRequestDialog extends StatelessWidget {
               child: Row(
                 children: [
                   CustomBadge(
-                    text: urgency,
+                    text: urgencyDisplay,
                     backgroundColor: urgencyColor,
                     fontColor: ColorManger.pureWhite,
                     borderColor: urgencyColor,
@@ -106,9 +102,7 @@ class CancelRequestDialog extends StatelessWidget {
                 ],
               ),
             ),
-
             SizedBox(height: 24.h),
-
             Row(
               children: [
                 Expanded(
@@ -131,9 +125,7 @@ class CancelRequestDialog extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 SizedBox(width: 12.w),
-
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {

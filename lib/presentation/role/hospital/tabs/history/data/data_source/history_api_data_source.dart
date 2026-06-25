@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/data/data_source/history_remote_data_source.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/data/model/history_model.dart';
@@ -42,9 +44,9 @@ class HistoryApiDataSource implements HistoryRemoteDataSource {
     } on DioException catch (e) {
       throw Exception(_mapDioError(e));
     } catch (e) {
-      print('HistoryApiDataSource raw error: ${e.runtimeType}: $e');
-      if (e.toString().contains('Exception')) rethrow;
-      throw Exception('UNKNOWN_ERROR');
+      log('HistoryApiDataSource raw error: ${e.runtimeType}: $e');
+      if (e.toString().contains('Exception:')) rethrow;
+      throw Exception('Failed to parse history response: $e');
     }
   }
 

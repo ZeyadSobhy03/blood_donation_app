@@ -280,7 +280,7 @@ class _ErrorView extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12)),
               ),
-              child: const Text('Retry'),
+              child: Text(AppLocalizations.of(context)!.retry),
             ),
           ],
         ),

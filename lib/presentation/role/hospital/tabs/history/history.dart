@@ -265,7 +265,7 @@ class _ErrorView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text('Retry'),
+              child: Text(AppLocalizations.of(context)!.retry),
             ),
           ],
         ),

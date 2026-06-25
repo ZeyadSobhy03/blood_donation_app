@@ -7,6 +7,8 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/request/secti
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
+
 class EmergencyRequestDialog extends StatefulWidget {
   const EmergencyRequestDialog({super.key});
 
@@ -16,14 +18,13 @@ class EmergencyRequestDialog extends StatefulWidget {
 
 class _EmergencyRequestDialogState extends State<EmergencyRequestDialog> {
   final TextEditingController _unitsController = TextEditingController();
-  final TextEditingController _patientDetailsController = TextEditingController();
   String? _selectedBloodType;
+  String? _selectedPatientDetails;
   String? _inlineError;
 
   @override
   void dispose() {
     _unitsController.dispose();
-    _patientDetailsController.dispose();
     super.dispose();
   }
 
@@ -35,7 +36,8 @@ class _EmergencyRequestDialogState extends State<EmergencyRequestDialog> {
     context.read<RequestCubit>().createEmergencyRequest(
       bloodType: _selectedBloodType!,
       unitsNeeded: units,
-      patientDetails: _patientDetailsController.text.trim(),
+      selectedPatientDetailsDisplay: _selectedPatientDetails,
+      loc: AppLocalizations.of(context)!,
     );
   }
 
@@ -81,10 +83,12 @@ class _EmergencyRequestDialogState extends State<EmergencyRequestDialog> {
                     const SizedBox(height: 16),
                     EmergencyRequestBody(
                       unitsController: _unitsController,
-                      patientDetailsController: _patientDetailsController,
                       selectedBloodType: _selectedBloodType,
                       onBloodTypeChanged: (value) =>
                           setState(() => _selectedBloodType = value),
+                      selectedPatientDetails: _selectedPatientDetails,
+                      onPatientDetailsChanged: (value) =>
+                          setState(() => _selectedPatientDetails = value),
                     ),
                     const SizedBox(height: 24),
 

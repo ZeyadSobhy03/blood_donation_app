@@ -38,6 +38,7 @@ class RequestApiDataSource implements RequestRemoteDataSource {
           'contactNumber': contactNumber,
           'isEmergency': false,
           'patientDetails': patientDetails,
+          'status': 'pending',
         },
         options: Options(
           headers: {
@@ -76,6 +77,7 @@ class RequestApiDataSource implements RequestRemoteDataSource {
           'bloodType': bloodType,
           'unitsNeeded': unitsNeeded,
           'patientDetails': patientDetails,
+          'status': 'pending',
         },
         options: Options(
           headers: {

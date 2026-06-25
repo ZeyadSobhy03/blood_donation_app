@@ -790,7 +790,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reschedule => 'Reschedule';
 
   @override
-  String get appointmentCancelled => 'Appointment cancelled';
+  String get appointmentCancelled => 'This appointment has been cancelled.';
 
   @override
   String get rescheduleAppointmentTitle => 'Reschedule Appointment';
@@ -2631,7 +2631,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error => 'Error';
 
   @override
-  String get somethingWentWrong => 'Oops! Something went wrong';
+  String get somethingWentWrong => 'Something went wrong. Please try again.';
 
   @override
   String get errorDetails => 'Error Details';
@@ -2909,4 +2909,367 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get yesCancelRequest => 'Yes, Cancel Request';
+
+  @override
+  String get patientDetailsSurgery => 'Surgery';
+
+  @override
+  String get patientDetailsCardiacSurgery => 'Cardiac Surgery';
+
+  @override
+  String get patientDetailsAccident => 'Accident';
+
+  @override
+  String get patientDetailsBurns => 'Burns';
+
+  @override
+  String get patientDetailsCancer => 'Cancer';
+
+  @override
+  String get patientDetailsLeukemia => 'Leukemia';
+
+  @override
+  String get patientDetailsMaternity => 'Maternity';
+
+  @override
+  String get patientDetailsChronicIllness => 'Chronic Illness';
+
+  @override
+  String get patientDetailsHemophilia => 'Hemophilia';
+
+  @override
+  String get patientDetailsThalassemia => 'Thalassemia';
+
+  @override
+  String get patientDetailsDialysis => 'Dialysis';
+
+  @override
+  String get patientDetailsGastrointestinalBleeding =>
+      'Gastrointestinal Bleeding';
+
+  @override
+  String get patientDetailsOrganTransplant => 'Organ Transplant';
+
+  @override
+  String get patientDetailsPediatric => 'Pediatric';
+
+  @override
+  String get patientDetailsEmergency => 'Emergency';
+
+  @override
+  String get patientDetailsGeneral => 'General';
+
+  @override
+  String get statusAccepted => 'Accepted';
+
+  @override
+  String get statusInProgress => 'In Progress';
+
+  @override
+  String get statusExpired => 'Expired';
+
+  @override
+  String get requestStatusLabel => 'Request Status';
+
+  @override
+  String get updateStatus => 'Update Status';
+
+  @override
+  String get selectStatus => 'Select Status';
+
+  @override
+  String activeRequestsCount(Object count) {
+    return '$count Active Requests';
+  }
+
+  @override
+  String responsesTodayCount(Object count) {
+    return '$count Responses Today';
+  }
+
+  @override
+  String get noActiveRequests => 'No active requests right now';
+
+  @override
+  String get noRecentActivity => 'No recent activity';
+
+  @override
+  String get noNearbyDonorsFound => 'No nearby donors found';
+
+  @override
+  String get nearestDonor => 'Nearest';
+
+  @override
+  String donorsCountLabel(Object count) {
+    return '$count donors';
+  }
+
+  @override
+  String get cancelRequestSuccess => 'Request cancelled successfully';
+
+  @override
+  String get updateRequestSuccess => 'Request updated successfully';
+
+  @override
+  String get failedToLoadDashboard => 'Failed to load dashboard data';
+
+  @override
+  String get failedToLoadRequests => 'Failed to load requests';
+
+  @override
+  String get failedToLoadActivity => 'Failed to load recent activity';
+
+  @override
+  String get failedToLoadNearbyDonors => 'Failed to load nearby donors';
+
+  @override
+  String get failedToLoadResponses => 'Failed to load donor responses';
+
+  @override
+  String get noResponsesYet => 'No donors have responded yet';
+
+  @override
+  String get donorResponseStatusDeclined => 'Declined';
+
+  @override
+  String get scanQrInstructionTitle => 'Point camera at donor\'s QR code';
+
+  @override
+  String get verifyingQrCode => 'Verifying QR code...';
+
+  @override
+  String get qrVerificationFailed => 'QR verification failed.';
+
+  @override
+  String get donationConfirmedSuccessTitle => 'Donation Confirmed!';
+
+  @override
+  String donationConfirmedSuccessMessage(Object donorName) {
+    return '$donorName\'s donation has been verified and recorded.';
+  }
+
+  @override
+  String get scanAnotherCode => 'Scan Another Code';
+
+  @override
+  String get invalidQrCode => 'Invalid QR code.';
+
+  @override
+  String get qrCodeExpired => 'This QR code has expired.';
+
+  @override
+  String get doneButton => 'Done';
+
+  @override
+  String get allAppointments => 'All Appointments';
+
+  @override
+  String get noAppointmentsFound => 'No appointments found.';
+
+  @override
+  String get enterCodeManually => 'Enter Code Manually';
+
+  @override
+  String get manualEntry => 'Manual Entry';
+
+  @override
+  String get enterDonationCode => 'Enter the donation code';
+
+  @override
+  String get donationCodeLabel => 'Donation Code';
+
+  @override
+  String get verifyCode => 'Verify Code';
+
+  @override
+  String get scanQrInstead => 'Scan QR Code instead';
+
+  @override
+  String get appointmentDateLabel => 'Appointment Date';
+
+  @override
+  String get rejectVerification => 'Reject Verification';
+
+  @override
+  String get rejectConfirmation =>
+      'Are you sure you want to reject this verification?';
+
+  @override
+  String get reasonLabel => 'Reason';
+
+  @override
+  String get reasonHint => 'e.g. Patient not ready';
+
+  @override
+  String get reject => 'Reject';
+
+  @override
+  String get verificationRejected => 'Verification rejected';
+
+  @override
+  String get pleaseEnterReason => 'Please enter a reason';
+
+  @override
+  String get pleaseCompleteChecklist => 'Please complete all checklist items';
+
+  @override
+  String get eligibilityChecklist => 'Eligibility Checklist';
+
+  @override
+  String get donorNotEligible => 'Donor is not eligible';
+
+  @override
+  String get verificationChecklist => 'Verification Checklist';
+
+  @override
+  String get idVerified => 'ID Verified';
+
+  @override
+  String get questionnaireCompleted => 'Questionnaire Completed';
+
+  @override
+  String get consentSigned => 'Consent Signed';
+
+  @override
+  String get diseaseScreening => 'Disease Screening';
+
+  @override
+  String get screeningCompleted =>
+      'Screening Completed (No disqualifying diseases)';
+
+  @override
+  String get disqualifyingDiseaseFound => 'Disqualifying Disease Found';
+
+  @override
+  String get addDisease => 'Add disease';
+
+  @override
+  String get addToList => 'Add to list';
+
+  @override
+  String get notes => 'Notes';
+
+  @override
+  String get additionalNotes => 'Additional notes...';
+
+  @override
+  String get submitVerification => 'Submit Verification';
+
+  @override
+  String get pleaseFillRequiredFields => 'Please fill all required fields';
+
+  @override
+  String get donationCompletion => 'Donation Completion';
+
+  @override
+  String get donationCompletedSuccessfully =>
+      'Donation Completed Successfully!';
+
+  @override
+  String pointsEarned(Object count) {
+    return 'Points earned: $count';
+  }
+
+  @override
+  String get recordDonorData => 'Record Donor Data';
+
+  @override
+  String get enterDonorReadings => 'Enter the donor\'s medical readings below';
+
+  @override
+  String get hemoglobinLevel => 'Hemoglobin Level (g/dL)';
+
+  @override
+  String get unitsCollected => 'Units Collected';
+
+  @override
+  String get donationCodeHint => 'Enter donation code';
+
+  @override
+  String get verificationFailed => 'Verification failed.';
+
+  @override
+  String get connectionTimedOut => 'Connection timed out. Please try again.';
+
+  @override
+  String get noInternetConnection => 'No internet connection.';
+
+  @override
+  String get sessionExpired => 'Session expired. Please log in again.';
+
+  @override
+  String get notFoundItem => 'Not found.';
+
+  @override
+  String get checkAllFields => 'Please check all fields and try again.';
+
+  @override
+  String get requestNotFound => 'Request not found.';
+
+  @override
+  String get profileNotFound => 'Profile not found.';
+
+  @override
+  String get accessDenied => 'Access denied.';
+
+  @override
+  String get hospitalLocationNotSet =>
+      'Hospital location not set. Please update your profile.';
+
+  @override
+  String get invalidStatusFilter => 'Invalid status filter.';
+
+  @override
+  String get failedLoadAppointmentDetails =>
+      'Failed to load appointment details.';
+
+  @override
+  String get failedCompleteDonation => 'Failed to complete donation.';
+
+  @override
+  String get failedRejectAppointment => 'Failed to reject appointment.';
+
+  @override
+  String get failedLoadRequestDetails => 'Failed to load request details.';
+
+  @override
+  String get requestUpdatedSuccess => 'Request updated successfully.';
+
+  @override
+  String get failedUpdateRequest => 'Failed to update request.';
+
+  @override
+  String get requestCancelledSuccess => 'Request cancelled successfully.';
+
+  @override
+  String get failedLoadDonorResponses => 'Failed to load donor responses.';
+
+  @override
+  String get failedLoadProfile => 'Failed to load profile.';
+
+  @override
+  String get profileUpdatedSuccess => 'Profile updated successfully.';
+
+  @override
+  String get workingHoursUpdatedSuccess =>
+      'Working hours updated successfully.';
+
+  @override
+  String get currentPasswordIncorrect => 'Current password is incorrect.';
+
+  @override
+  String get passwordMustBeDifferent =>
+      'New password must be different from current password.';
+
+  @override
+  String get hospitalContactRequired =>
+      'Please set a contact number in your profile before creating a request.';
+
+  @override
+  String get donationAlreadyCompleted =>
+      'This donation has already been completed.';
+
+  @override
+  String get hospitalNotApproved =>
+      'Your hospital account is not yet approved. Please contact support@lifelink.org.';
 }

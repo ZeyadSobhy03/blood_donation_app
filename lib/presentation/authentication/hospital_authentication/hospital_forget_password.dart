@@ -5,7 +5,6 @@ import 'package:blood_donation_app/core/widgets/custom_label.dart';
 import 'package:blood_donation_app/core/widgets/custom_text_field.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
-import 'package:blood_donation_app/presentation/authentication/hospital_authentication/presentation/error_mapper.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/presentation/view_model/hospital_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,8 +23,10 @@ class _HospitalForgetPasswordState extends State<HospitalForgetPassword> {
   void _handleSendOtp() {
     if (!_formKey.currentState!.validate()) return;
     FocusScope.of(context).unfocus();
+    final loc = AppLocalizations.of(context)!;
     context.read<HospitalCubit>().forgotPassword(
       email: _emailController.text.trim(),
+      loc: loc,
     );
   }
 
@@ -66,10 +67,7 @@ class _HospitalForgetPasswordState extends State<HospitalForgetPassword> {
                 if (state is HospitalErrorState) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(
-                        HospitalErrorMapper.map(
-                            state.errorKey, appLocalization),
-                      ),
+                      content: Text(state.message),
                       backgroundColor: Colors.red,
                       behavior: SnackBarBehavior.floating,
                     ),

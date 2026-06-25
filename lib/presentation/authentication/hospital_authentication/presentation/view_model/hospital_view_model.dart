@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/local_data_source/hospital_local_data_source.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/model/hospital_login_model.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/domain/use_case/hospital_use_case.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HospitalCubit extends Cubit<HospitalState> {
   final HospitalUseCase hospitalUseCase;
   final HospitalLocalDataSource hospitalHiveDataSource;
+  AppLocalizations? _loc;
 
   HospitalCubit({
     required this.hospitalUseCase,
@@ -19,7 +21,9 @@ class HospitalCubit extends Cubit<HospitalState> {
     required String hospitalId,
     required String email,
     required String password,
+    required AppLocalizations loc,
   }) async {
+    _loc = loc;
     try {
       emit(HospitalLoadingState());
 
@@ -38,21 +42,25 @@ class HospitalCubit extends Cubit<HospitalState> {
         log('Hospital login data saved successfully.');
         emit(HospitalLoginSuccessState(loginModel: loginModel));
       } else {
-        emit(HospitalErrorState(errorKey: 'UNKNOWN_ERROR'));
+        emit(HospitalErrorState(message: _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.'));
       }
     } catch (e) {
-      emit(HospitalErrorState(errorKey: _parseError(e.toString())));
+      emit(HospitalErrorState(message: _parseError(e.toString())));
     }
   }
 
 
-  Future<void> forgotPassword({required String email}) async {
+  Future<void> forgotPassword({
+    required String email,
+    required AppLocalizations loc,
+  }) async {
+    _loc = loc;
     try {
       emit(HospitalLoadingState());
       await hospitalUseCase.forgotPassword(email: email);
       emit(HospitalForgotPasswordSuccessState());
     } catch (e) {
-      emit(HospitalErrorState(errorKey: _parseError(e.toString())));
+      emit(HospitalErrorState(message: _parseError(e.toString())));
     }
   }
 
@@ -96,20 +104,20 @@ class HospitalCubit extends Cubit<HospitalState> {
     final e = error.toLowerCase();
 
     if (e.contains('timeout') || e.contains('connection_timeout')) {
-      return 'CONNECTION_TIMEOUT';
+      return _loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
     } else if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return 'NO_INTERNET';
+      return _loc?.noInternetConnection ?? 'No internet connection.';
     } else if (e.contains('hospital_not_approved')) {
-      return 'HOSPITAL_NOT_APPROVED';
-    } else if (e.contains('bad_response')) {
-      return 'BAD_RESPONSE';
+      return _loc?.hospitalNotApproved ?? 'Your hospital account is not yet approved. Please contact support@lifelink.org.';
+    } else if (e.contains('bad_response') || e.contains('server_error')) {
+      return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
     } else if (e.contains('empty_response')) {
-      return 'EMPTY_RESPONSE';
-    } else if (e.contains('server_error')) {
-      return 'SERVER_ERROR';
+      return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
+    } else if (e.contains('unauthorized')) {
+      return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
     }
 
-    return 'UNKNOWN_ERROR';
+    return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 }
 
@@ -134,16 +142,7 @@ class HospitalLoginSuccessState extends HospitalState {
 class HospitalForgotPasswordSuccessState extends HospitalState {}
 
 class HospitalErrorState extends HospitalState {
-  final String errorKey;
+  final String message;
 
-  HospitalErrorState({required this.errorKey});
-
-  bool get isNetworkError =>
-      errorKey.contains('TIMEOUT') || errorKey.contains('NO_INTERNET');
-
-  bool get isCredentialError => errorKey == 'BAD_RESPONSE';
-
-  bool get isApprovalError => errorKey == 'HOSPITAL_NOT_APPROVED';
-
-  bool get isServerError => errorKey == 'SERVER_ERROR';
+  HospitalErrorState({required this.message});
 }

@@ -10,10 +10,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HistoryCubit extends Cubit<HistoryState> {
   final HistoryUseCase historyUseCase;
   final HospitalLocalDataSource hospitalLocalDataSource;
+  final AppLocalizations? loc;
 
   HistoryCubit({
     required this.historyUseCase,
     required this.hospitalLocalDataSource,
+    this.loc,
   }) : super(HistoryInitialState());
 
 
@@ -125,16 +127,16 @@ class HistoryCubit extends Cubit<HistoryState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout')) return 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return 'No internet connection.';
+      return loc?.noInternetConnection ?? 'No internet connection.';
     }
     if (e.contains('unauthorized')) {
-      return 'Session expired. Please log in again.';
+      return loc?.sessionExpired ?? 'Session expired. Please log in again.';
     }
-    if (e.contains('access_denied')) return 'Access denied.';
-    if (e.contains('invalid_status_filter')) return 'Invalid status filter.';
-    return 'Something went wrong. Please try again.';
+    if (e.contains('access_denied')) return loc?.accessDenied ?? 'Access denied.';
+    if (e.contains('invalid_status_filter')) return loc?.invalidStatusFilter ?? 'Invalid status filter.';
+    return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 
   void reset() => emit(HistoryInitialState());

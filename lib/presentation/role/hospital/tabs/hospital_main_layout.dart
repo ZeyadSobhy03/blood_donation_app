@@ -1,7 +1,15 @@
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/local_data_source/hospital_hive_data_source.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/find_donor.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/history/history.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/home/appointments/data/data_source/appointments_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/home/appointments/data/repository/appointments_repository_imp.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/home/appointments/domain/use_cases/appointments_use_case.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/home/appointments/presentation/view_model/appointments_view_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/home.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/data/data_source/profile_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/data/repositories/profile_repository_imp.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/domain/use_cases/profile_use_case.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/presentation/view_model/profile_view_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/profile.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/request/data/data_source/request_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/request/data/repositories/request_repository_imp.dart';
@@ -22,6 +30,10 @@ import 'history/data/data_source/history_api_data_source.dart';
 import 'history/data/repositories/history_repository_imp.dart';
 import 'history/domain/use_cases/history_use_case.dart';
 import 'history/presentation/view_model/history_view_model.dart';
+import 'home/data/data_source/home_api_data_source.dart';
+import 'home/data/repositories/home_repository_imp.dart';
+import 'home/domain/use_cases/home_use_case.dart';
+import 'home/presentation/view_model/home_view_model.dart';
 
 class HospitalMainLayout extends StatefulWidget {
   const HospitalMainLayout({super.key});
@@ -87,41 +99,81 @@ class _HospitalMainLayoutState extends State<HospitalMainLayout>
     final appLocalizations = AppLocalizations.of(context)!;
 
     final tabs = [
-      const Home(),
+      MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (ctx) => HomeCubit(
+              homeUseCase: HomeUseCase(
+                homeRepository: HomeRepositoryImp(
+                  homeRemoteDataSource: HomeApiDataSource(Dio()),
+                ),
+              ),
+              hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
+              loc: AppLocalizations.of(ctx),
+            ),
+          ),
+          BlocProvider(
+            create: (ctx) => AppointmentsCubit(
+              appointmentsUseCase: AppointmentsUseCase(
+                repository: AppointmentsRepositoryImp(
+                  remoteDataSource: AppointmentsApiDataSource(Dio()),
+                ),
+              ),
+              hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
+              loc: AppLocalizations.of(ctx),
+            ),
+          ),
+        ],
+        child: const Home(),
+      ),
       BlocProvider(
-        create: (_) => FindDonorsCubit(
+        create: (ctx) => FindDonorsCubit(
           findDonorsUseCase: FindDonorsUseCase(
             findDonorsRepository: FindDonorsRepositoryImp(
               findDonorsRemoteDataSource: FindDonorsApiDataSource(Dio()),
             ),
           ),
           hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
+          loc: AppLocalizations.of(ctx),
         ),
         child: const FindDonor(),
       ),
       BlocProvider(
-        create: (_) => RequestCubit(
+        create: (ctx) => RequestCubit(
           requestUseCase: RequestUseCase(
             requestRepository: RequestRepositoryImp(
               requestRemoteDataSource: RequestApiDataSource(Dio()),
             ),
           ),
           hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
+          loc: AppLocalizations.of(ctx),
         ),
         child: const Request(),
       ),
       BlocProvider(
-          create: (_) => HistoryCubit(
+          create: (ctx) => HistoryCubit(
             historyUseCase: HistoryUseCase(
               historyRepository: HistoryRepositoryImp(
                 historyRemoteDataSource: HistoryApiDataSource(Dio()),
               ),
             ),
             hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
+            loc: AppLocalizations.of(ctx),
           ),
       child: const History(),
       ),
-      const Profile(),
+      BlocProvider(
+        create: (ctx) => ProfileCubit(
+          profileUseCase: ProfileUseCase(
+            profileRepository: ProfileRepositoryImp(
+              profileRemoteDataSource: ProfileApiDataSource(Dio()),
+            ),
+          ),
+          hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
+          loc: AppLocalizations.of(ctx),
+        ),
+        child: const Profile(),
+      ),
     ];
 
     final navItems = [

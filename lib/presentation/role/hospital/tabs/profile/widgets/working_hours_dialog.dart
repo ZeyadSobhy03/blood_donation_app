@@ -1,7 +1,7 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/l10n/app_localizations_ar.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
 import 'labeled_dropdown.dart';
 import 'stepper_button.dart';
 
@@ -9,7 +9,11 @@ class WorkingHoursDialog extends StatefulWidget {
   final int initialOpeningHour;
   final int initialClosingHour;
   final int initialSlotsPerHour;
-  final void Function(int opening, int closing, int slots) onSave;
+  final void Function({
+    required int openingHour,
+    required int closingHour,
+    required int slotsPerHour,
+  }) onSave;
 
   const WorkingHoursDialog({
     super.key,
@@ -49,7 +53,7 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizationsAr localizationsAr = AppLocalizationsAr();
+    final loc = AppLocalizations.of(context)!;
     return Dialog(
       backgroundColor: ColorManger.pureWhite,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -65,7 +69,7 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
               children: [
                 Expanded(
                   child: Text(
-                    "${localizationsAr.manage_working_hours} &\n${localizationsAr.appointment_slots}",
+                    "${loc.manage_working_hours} &\n${loc.appointment_slots}",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -80,7 +84,7 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
             ),
             const SizedBox(height: 4),
             Text(
-              localizationsAr.working_hours_subtitle,
+              loc.working_hours_subtitle,
               style: TextStyle(color: Colors.grey[600], fontSize: 13),
             ),
             const SizedBox(height: 16),
@@ -96,15 +100,14 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
                   style: TextStyle(color: Colors.black87, fontSize: 13),
                   children: [
                     TextSpan(
-                      text: localizationsAr.working_hours_tip,
+                      text: loc.working_hours_tip,
                       style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     TextSpan(
-                      text:
-                       localizationsAr.working_hours_tip_text,
+                      text: loc.working_hours_tip_text,
                     ),
                   ],
                 ),
@@ -116,7 +119,7 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
               children: [
                 Expanded(
                   child: LabeledDropdown(
-                    label: localizationsAr.opening_time,
+                    label: loc.opening_time,
                     value: _openingHour,
                     items: _timeItems(),
                     onChanged: (v) {
@@ -127,7 +130,7 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
                 const SizedBox(width: 16),
                 Expanded(
                   child: LabeledDropdown(
-                    label: localizationsAr.closing_time,
+                    label: loc.closing_time,
                     value: _closingHour,
                     items: _timeItems(),
                     onChanged: (v) {
@@ -140,7 +143,7 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
             const SizedBox(height: 20),
 
              Text(
-              localizationsAr.slots_per_hour,
+              loc.slots_per_hour,
               style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
             ),
             const SizedBox(height: 8),
@@ -178,7 +181,7 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
             ),
             const SizedBox(height: 6),
             Text(
-              localizationsAr.slots_per_hour_text,
+              loc.slots_per_hour_text,
               style: TextStyle(color: Colors.grey[600], fontSize: 12),
             ),
             const SizedBox(height: 20),
@@ -195,7 +198,7 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    localizationsAr.summary,
+                    loc.summary,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
@@ -203,20 +206,20 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    "${localizationsAr.operating_hours} ${_fmt(_openingHour)} - ${_fmt(_closingHour)}",
+                    "${loc.operating_hours} ${_fmt(_openingHour)} - ${_fmt(_closingHour)}",
                     style: const TextStyle(fontSize: 13),
                   ),
                   Text(
-                    "${localizationsAr.hours_per_day} $_hoursPerDay ${localizationsAr.measure_in_hours}",
+                    "${loc.hours_per_day} $_hoursPerDay ${loc.measure_in_hours}",
                     style: const TextStyle(fontSize: 13),
                   ),
                   Text(
-                    "${localizationsAr.slots_per_hour} $_slotsPerHour",
+                    "${loc.slots_per_hour} $_slotsPerHour",
                     style: const TextStyle(fontSize: 13),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    "${localizationsAr.total_daily_capacity} $_totalDailySlots ${localizationsAr.slots}",
+                    "${loc.total_daily_capacity} $_totalDailySlots ${loc.slots}",
                     style: const TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w600,
@@ -241,14 +244,18 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    child: Text(localizationsAr.cancel),
+                    child: Text(loc.cancel),
                   ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      widget.onSave(_openingHour, _closingHour, _slotsPerHour);
+                      widget.onSave(
+                        openingHour: _openingHour,
+                        closingHour: _closingHour,
+                        slotsPerHour: _slotsPerHour,
+                      );
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
@@ -259,7 +266,7 @@ class _WorkingHoursDialogState extends State<WorkingHoursDialog> {
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    child: Text(localizationsAr.saveChanges),
+                    child: Text(loc.saveChanges),
                   ),
                 ),
               ],

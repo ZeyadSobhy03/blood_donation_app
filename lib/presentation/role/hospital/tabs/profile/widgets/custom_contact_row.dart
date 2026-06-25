@@ -13,7 +13,13 @@ class CustomContactRow extends StatelessWidget {
         children: [
           Icon(icon, color: Colors.grey[600], size: 20),
           const SizedBox(width: 12),
-          Text(text, style: const TextStyle(fontSize: 15)),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 15),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ],
       ),
     );
