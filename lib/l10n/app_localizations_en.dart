@@ -3272,4 +3272,48 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get hospitalNotApproved =>
       'Your hospital account is not yet approved. Please contact support@lifelink.org.';
+
+  @override
+  String get invalidHospitalId => 'Invalid hospital ID.';
+
+  @override
+  String get invalidEmailOrPassword => 'Invalid email or password.';
+
+  @override
+  String activityRequestCreated(Object bloodTypes) {
+    return 'Request created - $bloodTypes';
+  }
+
+  @override
+  String activityRequestFulfilled(Object bloodTypes) {
+    return 'Request fulfilled - $bloodTypes';
+  }
+
+  @override
+  String activityDonorResponse(Object donorName) {
+    return 'New donor response - $donorName';
+  }
+
+  @override
+  String get activityDonorResponseFallback => 'New donor response - Donor';
+
+  @override
+  String activityUnitsNeeded(Object units) {
+    return 'units needed $units';
+  }
+
+  @override
+  String activityUnitsReceived(Object units) {
+    return 'units received $units';
+  }
+
+  @override
+  String activityDonorResponded(Object bloodType) {
+    return '$bloodType donor responded';
+  }
+
+  @override
+  String activityDonorRespondedFallback(Object bloodTypes) {
+    return '$bloodTypes donor responded';
+  }
 }

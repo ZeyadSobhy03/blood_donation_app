@@ -40,6 +40,15 @@ class _FindDonorState extends State<FindDonor> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final loc = AppLocalizations.of(context);
+    if (loc != null) {
+      context.read<FindDonorsCubit>().setAppLoc(loc);
+    }
+  }
+
+  @override
   void dispose() {
     _searchController.dispose();
     super.dispose();

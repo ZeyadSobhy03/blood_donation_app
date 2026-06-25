@@ -14,13 +14,14 @@ import '../../domain/use_cases/appointments_use_case.dart';
 class AppointmentsCubit extends Cubit<AppointmentsState> {
   final AppointmentsUseCase appointmentsUseCase;
   final HospitalLocalDataSource hospitalLocalDataSource;
-  final AppLocalizations? loc;
+  AppLocalizations? _loc;
 
   AppointmentsCubit({
     required this.appointmentsUseCase,
     required this.hospitalLocalDataSource,
-    this.loc,
   }) : super(AppointmentsInitialState());
+
+  void setAppLoc(AppLocalizations loc) => _loc = loc;
 
   List<AppointmentListItem> _appointments = [];
 
@@ -72,7 +73,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
         ));
       } else {
         emit(AppointmentDetailErrorState(
-          message: result.message ?? loc?.failedLoadAppointmentDetails ?? 'Failed to load appointment details.',
+          message: result.message ?? _loc?.failedLoadAppointmentDetails ?? 'Failed to load appointment details.',
         ));
       }
     } catch (e) {
@@ -102,7 +103,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
         emit(VerifyQrSuccessState(data: result.data!));
       } else {
         emit(VerifyQrErrorState(
-          message: result.message ?? loc?.qrVerificationFailed ?? 'QR verification failed.',
+          message: result.message ?? _loc?.qrVerificationFailed ?? 'QR verification failed.',
         ));
       }
     } catch (e) {
@@ -148,7 +149,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
         emit(VerifyAppointmentSuccessState(data: result.data!));
       } else {
         emit(VerifyAppointmentErrorState(
-          message: result.message ?? loc?.verificationFailed ?? 'Verification failed.',
+          message: result.message ?? _loc?.verificationFailed ?? 'Verification failed.',
         ));
       }
     } catch (e) {
@@ -188,7 +189,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
         emit(DonationCompleteSuccessState(data: result.data!));
       } else {
         emit(DonationCompleteErrorState(
-          message: result.message ?? loc?.failedCompleteDonation ?? 'Failed to complete donation.',
+          message: result.message ?? _loc?.failedCompleteDonation ?? 'Failed to complete donation.',
         ));
       }
     } catch (e) {
@@ -222,7 +223,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
         emit(AppointmentRejectSuccessState());
       } else {
         emit(AppointmentRejectErrorState(
-          message: result.message ?? loc?.failedRejectAppointment ?? 'Failed to reject appointment.',
+          message: result.message ?? _loc?.failedRejectAppointment ?? 'Failed to reject appointment.',
         ));
       }
     } catch (e) {
@@ -247,27 +248,27 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout')) return loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return _loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return loc?.noInternetConnection ?? 'No internet connection.';
+      return _loc?.noInternetConnection ?? 'No internet connection.';
     }
-    if (e.contains('unauthorized')) return loc?.sessionExpired ?? 'Session expired. Please log in again.';
-    if (e.contains('not_found')) return loc?.notFoundItem ?? 'Not found.';
-    if (e.contains('invalid_qr')) return loc?.invalidQrCode ?? 'Invalid QR code.';
-    if (e.contains('qr_expired')) return loc?.qrCodeExpired ?? 'This QR code has expired.';
+    if (e.contains('unauthorized')) return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
+    if (e.contains('not_found')) return _loc?.notFoundItem ?? 'Not found.';
+    if (e.contains('invalid_qr')) return _loc?.invalidQrCode ?? 'Invalid QR code.';
+    if (e.contains('qr_expired')) return _loc?.qrCodeExpired ?? 'This QR code has expired.';
     if (e.contains('validation_error')) {
-      return loc?.checkAllFields ?? 'Please check all fields and try again.';
+      return _loc?.checkAllFields ?? 'Please check all fields and try again.';
     }
     if (e.contains('access_denied') || e.contains('forbidden')) {
-      return loc?.accessDenied ?? 'Access denied.';
+      return _loc?.accessDenied ?? 'Access denied.';
     }
     if (e.contains('already_completed')) {
-      return loc?.donationAlreadyCompleted ?? 'This donation has already been completed.';
+      return _loc?.donationAlreadyCompleted ?? 'This donation has already been completed.';
     }
     if (e.contains('appointment_cancelled')) {
-      return loc?.appointmentCancelled ?? 'This appointment has been cancelled.';
+      return _loc?.appointmentCancelled ?? 'This appointment has been cancelled.';
     }
-    return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
+    return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 }
 

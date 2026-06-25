@@ -1090,5 +1090,50 @@
   "hospitalContactRequired": "يرجى تعيين رقم اتصال في ملفك الشخصي قبل إنشاء طلب.",
   "donationAlreadyCompleted": "تم إتمام هذا التبرع بالفعل.",
   "appointmentCancelled": "تم إلغاء هذا الموعد.",
-  "hospitalNotApproved": "حساب المستشفى الخاص بك لم يتم الموافقة عليه بعد. يرجى التواصل مع support@lifelink.org."
+  "hospitalNotApproved": "حساب المستشفى الخاص بك لم يتم الموافقة عليه بعد. يرجى التواصل مع support@lifelink.org.",
+  "invalidHospitalId": "معرف المستشفى غير صحيح.",
+  "invalidEmailOrPassword": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+  "activityRequestCreated": "تم إنشاء طلب - {bloodTypes}",
+  "@activityRequestCreated": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "activityRequestFulfilled": "تم تلبية الطلب - {bloodTypes}",
+  "@activityRequestFulfilled": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "activityDonorResponse": "استجابة متبرع جديدة - {donorName}",
+  "@activityDonorResponse": {
+    "placeholders": {
+      "donorName": {}
+    }
+  },
+  "activityDonorResponseFallback": "استجابة متبرع جديدة - متبرع",
+  "activityUnitsNeeded": "وحدات مطلوبة {units}",
+  "@activityUnitsNeeded": {
+    "placeholders": {
+      "units": {}
+    }
+  },
+  "activityUnitsReceived": "وحدات مستلمة {units}",
+  "@activityUnitsReceived": {
+    "placeholders": {
+      "units": {}
+    }
+  },
+  "activityDonorResponded": "متبرع فصيلة {bloodType} استجاب",
+  "@activityDonorResponded": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "activityDonorRespondedFallback": "متبرعون فصائل {bloodTypes} استجابوا",
+  "@activityDonorRespondedFallback": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  }
 }

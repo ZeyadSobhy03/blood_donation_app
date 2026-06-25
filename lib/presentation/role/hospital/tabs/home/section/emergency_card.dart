@@ -80,7 +80,6 @@ class EmergencyCard extends StatelessWidget {
                       ),
                       hospitalLocalDataSource:
                       context.read<HospitalHiveDataSource>(),
-                      loc: AppLocalizations.of(context),
                     ),
                     child: const EmergencyRequestDialog(),
                   ),

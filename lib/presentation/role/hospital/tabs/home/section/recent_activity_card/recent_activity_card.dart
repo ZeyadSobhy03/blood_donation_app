@@ -46,14 +46,71 @@ class RecentActivityCard extends StatelessWidget {
         }
     }
 
+    final loc = AppLocalizations.of(context)!;
+    final title = _localizeTitle(item.type, item.title, loc);
+    final subtitle = _localizeSubtitle(item.type, item.subtitle, loc);
+
     return ActivityItemModel(
-      title: item.title ?? '',
-      subtitle: item.subtitle ?? '',
+      title: title,
+      subtitle: subtitle,
       time: item.timestamp?.toTimeAgo(context) ?? '',
       dotColor: dotColor,
       status: status,
       contactNumber: item.donorPhone ?? '',
     );
+  }
+
+  String _localizeTitle(String? type, String? title, AppLocalizations loc) {
+    final raw = title ?? '';
+    switch (type) {
+      case 'request_created':
+        final bloodTypes = raw.startsWith('Request created - ')
+            ? raw.substring('Request created - '.length)
+            : '';
+        return bloodTypes.isNotEmpty
+            ? loc.activityRequestCreated(bloodTypes)
+            : loc.activityRequestCreated('');
+      case 'request_fulfilled':
+        final bloodTypes = raw.startsWith('Request fulfilled - ')
+            ? raw.substring('Request fulfilled - '.length)
+            : '';
+        return bloodTypes.isNotEmpty
+            ? loc.activityRequestFulfilled(bloodTypes)
+            : loc.activityRequestFulfilled('');
+      case 'donor_response':
+        final prefix = 'New donor response - ';
+        final donorName = raw.startsWith(prefix)
+            ? raw.substring(prefix.length)
+            : '';
+        return donorName.isNotEmpty && donorName != 'Donor'
+            ? loc.activityDonorResponse(donorName)
+            : loc.activityDonorResponseFallback;
+      default:
+        return raw;
+    }
+  }
+
+  String _localizeSubtitle(String? type, String? subtitle, AppLocalizations loc) {
+    final raw = subtitle ?? '';
+    final unitsPrefixNeeded = 'units needed ';
+    final unitsPrefixReceived = 'units received ';
+    final donorSuffix = ' donor responded';
+
+    if (raw.startsWith(unitsPrefixNeeded)) {
+      final units = raw.substring(unitsPrefixNeeded.length);
+      return loc.activityUnitsNeeded(units);
+    }
+    if (raw.startsWith(unitsPrefixReceived)) {
+      final units = raw.substring(unitsPrefixReceived.length);
+      return loc.activityUnitsReceived(units);
+    }
+    if (raw.endsWith(donorSuffix)) {
+      final bloodType = raw.substring(0, raw.length - donorSuffix.length);
+      return bloodType.contains(',')
+          ? loc.activityDonorRespondedFallback(bloodType)
+          : loc.activityDonorResponded(bloodType);
+    }
+    return raw;
   }
 
   @override

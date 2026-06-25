@@ -30,7 +30,6 @@ class ScanQr extends StatelessWidget {
           ),
         ),
         hospitalLocalDataSource: context.read<HospitalHiveDataSource>(),
-        loc: AppLocalizations.of(ctx),
       ),
       child: const _ScanQrView(),
     );

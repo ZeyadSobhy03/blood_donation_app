@@ -32,6 +32,16 @@ class _HomeState extends State<Home> {
     context.read<AppointmentsCubit>().loadAppointments();
   }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final loc = AppLocalizations.of(context);
+    if (loc != null) {
+      context.read<HomeCubit>().setAppLoc(loc);
+      context.read<AppointmentsCubit>().setAppLoc(loc);
+    }
+  }
+
   Future<void> _onRefresh() async {
     await context.read<HomeCubit>().loadHome();
   }

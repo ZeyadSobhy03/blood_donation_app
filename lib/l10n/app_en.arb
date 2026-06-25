@@ -1091,5 +1091,50 @@
   "hospitalContactRequired": "Please set a contact number in your profile before creating a request.",
   "donationAlreadyCompleted": "This donation has already been completed.",
   "appointmentCancelled": "This appointment has been cancelled.",
-  "hospitalNotApproved": "Your hospital account is not yet approved. Please contact support@lifelink.org."
+  "hospitalNotApproved": "Your hospital account is not yet approved. Please contact support@lifelink.org.",
+  "invalidHospitalId": "Invalid hospital ID.",
+  "invalidEmailOrPassword": "Invalid email or password.",
+  "activityRequestCreated": "Request created - {bloodTypes}",
+  "@activityRequestCreated": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "activityRequestFulfilled": "Request fulfilled - {bloodTypes}",
+  "@activityRequestFulfilled": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "activityDonorResponse": "New donor response - {donorName}",
+  "@activityDonorResponse": {
+    "placeholders": {
+      "donorName": {}
+    }
+  },
+  "activityDonorResponseFallback": "New donor response - Donor",
+  "activityUnitsNeeded": "units needed {units}",
+  "@activityUnitsNeeded": {
+    "placeholders": {
+      "units": {}
+    }
+  },
+  "activityUnitsReceived": "units received {units}",
+  "@activityUnitsReceived": {
+    "placeholders": {
+      "units": {}
+    }
+  },
+  "activityDonorResponded": "{bloodType} donor responded",
+  "@activityDonorResponded": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "activityDonorRespondedFallback": "{bloodTypes} donor responded",
+  "@activityDonorRespondedFallback": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  }
 }

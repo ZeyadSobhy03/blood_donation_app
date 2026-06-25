@@ -9,13 +9,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileUseCase profileUseCase;
   final HospitalLocalDataSource hospitalLocalDataSource;
-  final AppLocalizations? loc;
+  AppLocalizations? _loc;
 
   ProfileCubit({
     required this.profileUseCase,
     required this.hospitalLocalDataSource,
-    this.loc,
   }) : super(ProfileInitialState());
+
+  void setAppLoc(AppLocalizations loc) => _loc = loc;
 
   HospitalProfileData? _profile;
 
@@ -36,7 +37,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         emit(ProfileLoadedState(profile: result.data!));
       } else {
         emit(ProfileErrorState(
-          message: result.message ?? loc?.failedLoadProfile ?? 'Failed to load profile.',
+          message: result.message ?? _loc?.failedLoadProfile ?? 'Failed to load profile.',
         ));
       }
     } catch (e) {
@@ -73,7 +74,7 @@ class ProfileCubit extends Cubit<ProfileState> {
       if (isClosed) return;
 
       emit(ProfileActionSuccessState(
-        message: loc?.profileUpdatedSuccess ?? 'Profile updated successfully',
+        message: _loc?.profileUpdatedSuccess ?? 'Profile updated successfully',
       ));
       await loadProfile();
     } catch (e) {
@@ -104,7 +105,7 @@ class ProfileCubit extends Cubit<ProfileState> {
       if (isClosed) return;
 
       emit(ProfileActionSuccessState(
-        message: loc?.workingHoursUpdatedSuccess ?? 'Working hours updated successfully',
+        message: _loc?.workingHoursUpdatedSuccess ?? 'Working hours updated successfully',
       ));
       await loadProfile();
     } catch (e) {
@@ -186,28 +187,28 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout')) return loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return _loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return loc?.noInternetConnection ?? 'No internet connection.';
+      return _loc?.noInternetConnection ?? 'No internet connection.';
     }
-    if (e.contains('unauthorized')) return loc?.sessionExpired ?? 'Session expired. Please log in again.';
-    if (e.contains('not_found')) return loc?.profileNotFound ?? 'Profile not found.';
+    if (e.contains('unauthorized')) return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
+    if (e.contains('not_found')) return _loc?.profileNotFound ?? 'Profile not found.';
     if (e.contains('validation_error')) {
-      return loc?.checkAllFields ?? 'Please check all fields and try again.';
+      return _loc?.checkAllFields ?? 'Please check all fields and try again.';
     }
     if (e.contains('unknown_error') || e.contains('bad_response')) {
-      return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
+      return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
     }
     if (e.contains('access_denied') || e.contains('forbidden')) {
-      return loc?.accessDenied ?? 'Access denied.';
+      return _loc?.accessDenied ?? 'Access denied.';
     }
     if (e.contains('current_password_incorrect')) {
-      return loc?.currentPasswordIncorrect ?? 'Current password is incorrect.';
+      return _loc?.currentPasswordIncorrect ?? 'Current password is incorrect.';
     }
     if (e.contains('password_must_be_different')) {
-      return loc?.passwordMustBeDifferent ?? 'New password must be different from current password.';
+      return _loc?.passwordMustBeDifferent ?? 'New password must be different from current password.';
     }
-    return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
+    return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 }
 

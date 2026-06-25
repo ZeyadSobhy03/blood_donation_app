@@ -109,12 +109,17 @@ class HospitalCubit extends Cubit<HospitalState> {
       return _loc?.noInternetConnection ?? 'No internet connection.';
     } else if (e.contains('hospital_not_approved')) {
       return _loc?.hospitalNotApproved ?? 'Your hospital account is not yet approved. Please contact support@lifelink.org.';
-    } else if (e.contains('bad_response') || e.contains('server_error')) {
-      return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
-    } else if (e.contains('empty_response')) {
+    } else if (e.contains('bad_response') || e.contains('server_error') || e.contains('empty_response')) {
       return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
     } else if (e.contains('unauthorized')) {
       return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
+    }
+
+    if (e.contains('invalid hospital id')) {
+      return _loc?.invalidHospitalId ?? 'Invalid hospital ID.';
+    }
+    if (e.contains('invalid email or password') || e.contains('invalid credentials')) {
+      return _loc?.invalidEmailOrPassword ?? 'Invalid email or password.';
     }
 
     return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';

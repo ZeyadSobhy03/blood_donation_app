@@ -10,13 +10,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FindDonorsCubit extends Cubit<FindDonorsState> {
   final FindDonorsUseCase findDonorsUseCase;
   final HospitalLocalDataSource hospitalLocalDataSource;
-  final AppLocalizations? loc;
+  AppLocalizations? _loc;
 
   FindDonorsCubit({
     required this.findDonorsUseCase,
     required this.hospitalLocalDataSource,
-    this.loc,
   }) : super(FindDonorsInitialState());
+
+  void setAppLoc(AppLocalizations loc) => _loc = loc;
 
   int _currentPage = 1;
   static const int _pageSize = 20;
@@ -120,16 +121,16 @@ class FindDonorsCubit extends Cubit<FindDonorsState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout')) return loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return _loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return loc?.noInternetConnection ?? 'No internet connection.';
+      return _loc?.noInternetConnection ?? 'No internet connection.';
     }
-    if (e.contains('unauthorized')) return loc?.sessionExpired ?? 'Session expired. Please log in again.';
-    if (e.contains('access_denied')) return loc?.accessDenied ?? 'Access denied.';
+    if (e.contains('unauthorized')) return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
+    if (e.contains('access_denied')) return _loc?.accessDenied ?? 'Access denied.';
     if (e.contains('hospital_not_found')) {
-      return loc?.hospitalLocationNotSet ?? 'Hospital location not set. Please update your profile.';
+      return _loc?.hospitalLocationNotSet ?? 'Hospital location not set. Please update your profile.';
     }
-    return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
+    return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 
   void reset() => emit(FindDonorsInitialState());

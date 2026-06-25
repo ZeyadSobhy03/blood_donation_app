@@ -23,10 +23,19 @@ class _HistoryState extends State<History> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
-      context.read<HistoryCubit>().fetchHistory(
-        loc: AppLocalizations.of(context)!,
-      );
+      final loc = AppLocalizations.of(context)!;
+      context.read<HistoryCubit>().setAppLoc(loc);
+      context.read<HistoryCubit>().fetchHistory(loc: loc);
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final loc = AppLocalizations.of(context);
+    if (loc != null) {
+      context.read<HistoryCubit>().setAppLoc(loc);
+    }
   }
 
   @override

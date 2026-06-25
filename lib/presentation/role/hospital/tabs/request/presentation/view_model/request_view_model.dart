@@ -11,13 +11,14 @@ import 'package:intl/intl.dart';
 class RequestCubit extends Cubit<RequestState> {
   final RequestUseCase requestUseCase;
   final HospitalLocalDataSource hospitalLocalDataSource;
-  final AppLocalizations? loc;
+  AppLocalizations? _loc;
 
   RequestCubit({
     required this.requestUseCase,
     required this.hospitalLocalDataSource,
-    this.loc,
   }) : super(RequestInitialState());
+
+  void setAppLoc(AppLocalizations loc) => _loc = loc;
 
   Future<void> createRequest({
     required Set<String> selectedBloodTypes,
@@ -125,22 +126,22 @@ class RequestCubit extends Cubit<RequestState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout')) return loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return _loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return loc?.noInternetConnection ?? 'No internet connection.';
+      return _loc?.noInternetConnection ?? 'No internet connection.';
     }
-    if (e.contains('unauthorized')) return loc?.sessionExpired ?? 'Session expired. Please log in again.';
-    if (e.contains('validation_error')) return loc?.checkAllFields ?? 'Please check all fields and try again.';
+    if (e.contains('unauthorized')) return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
+    if (e.contains('validation_error')) return _loc?.checkAllFields ?? 'Please check all fields and try again.';
     if (e.contains('unknown_error') || e.contains('bad_response')) {
-      return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
+      return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
     }
     if (e.contains('access_denied') || e.contains('forbidden')) {
-      return loc?.accessDenied ?? 'Access denied.';
+      return _loc?.accessDenied ?? 'Access denied.';
     }
     if (e.contains('contact_required') || e.contains('hospital_contact')) {
-      return loc?.hospitalContactRequired ?? 'Please set a contact number in your profile before creating a request.';
+      return _loc?.hospitalContactRequired ?? 'Please set a contact number in your profile before creating a request.';
     }
-    return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
+    return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 }
 

@@ -86,10 +86,9 @@ class HospitalApiDataSource implements HospitalRemoteDataSource {
         return 'RECEIVE_TIMEOUT';
       case DioExceptionType.badResponse:
         final statusCode = e.response?.statusCode;
-        final responseBody = e.response?.data;
-        // Add this temporarily for debugging:
-        print('BAD_RESPONSE — status: $statusCode, body: $responseBody');
         if (statusCode == 403) return 'HOSPITAL_NOT_APPROVED';
+        final data = e.response?.data;
+        if (data is Map && data['message'] != null) return data['message'] as String;
         return 'BAD_RESPONSE';
       case DioExceptionType.cancel:
         return 'REQUEST_CANCELLED';

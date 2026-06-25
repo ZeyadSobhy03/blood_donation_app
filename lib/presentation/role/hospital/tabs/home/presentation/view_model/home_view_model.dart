@@ -16,13 +16,14 @@ import '../../domain/use_cases/home_use_case.dart';
 class HomeCubit extends Cubit<HomeState> {
   final HomeUseCase homeUseCase;
   final HospitalLocalDataSource hospitalLocalDataSource;
-  final AppLocalizations? loc;
+  AppLocalizations? _loc;
 
   HomeCubit({
     required this.homeUseCase,
     required this.hospitalLocalDataSource,
-    this.loc,
   }) : super(HomeInitialState());
+
+  void setAppLoc(AppLocalizations loc) => _loc = loc;
 
 
   HomeDashboardData? _dashboard;
@@ -135,7 +136,7 @@ class HomeCubit extends Cubit<HomeState> {
         emit(RequestDetailLoadedState(detail: result.data!, requestId: requestId));
       } else {
         emit(RequestDetailErrorState(
-          message: result.message ?? loc?.failedLoadRequestDetails ?? 'Failed to load request details.',
+          message: result.message ?? _loc?.failedLoadRequestDetails ?? 'Failed to load request details.',
         ));
       }
     } catch (e) {
@@ -165,12 +166,12 @@ class HomeCubit extends Cubit<HomeState> {
 
       if (result.success == true) {
         emit(RequestActionSuccessState(
-          message: result.message ?? loc?.requestUpdatedSuccess ?? 'Request updated successfully.',
+          message: result.message ?? _loc?.requestUpdatedSuccess ?? 'Request updated successfully.',
         ));
         await refreshRequests();
       } else {
         emit(RequestActionErrorState(
-          message: result.message ?? loc?.failedUpdateRequest ?? 'Failed to update request.',
+          message: result.message ?? _loc?.failedUpdateRequest ?? 'Failed to update request.',
         ));
       }
     } catch (e) {
@@ -214,12 +215,12 @@ class HomeCubit extends Cubit<HomeState> {
 
       if (result.success == true) {
         emit(RequestActionSuccessState(
-          message: result.message ?? loc?.requestUpdatedSuccess ?? 'Request updated successfully.',
+          message: result.message ?? _loc?.requestUpdatedSuccess ?? 'Request updated successfully.',
         ));
         await refreshRequests();
       } else {
         emit(RequestActionErrorState(
-          message: result.message ?? loc?.failedUpdateRequest ?? 'Failed to update request.',
+          message: result.message ?? _loc?.failedUpdateRequest ?? 'Failed to update request.',
         ));
       }
     } catch (e) {
@@ -242,7 +243,7 @@ class HomeCubit extends Cubit<HomeState> {
 
       _requests.removeWhere((r) => r.id == requestId);
 
-      emit(RequestActionSuccessState(message: loc?.requestCancelledSuccess ?? 'Request cancelled successfully.'));
+      emit(RequestActionSuccessState(message: _loc?.requestCancelledSuccess ?? 'Request cancelled successfully.'));
       emit(HomeLoadedState(
         dashboard: _dashboard,
         activity: _activity,
@@ -278,7 +279,7 @@ class HomeCubit extends Cubit<HomeState> {
         ));
       } else {
         emit(RequestResponsesErrorState(
-          message: result.message ?? loc?.failedLoadDonorResponses ?? 'Failed to load donor responses.',
+          message: result.message ?? _loc?.failedLoadDonorResponses ?? 'Failed to load donor responses.',
         ));
       }
     } catch (e) {
@@ -297,22 +298,22 @@ class HomeCubit extends Cubit<HomeState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout')) return loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return _loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return loc?.noInternetConnection ?? 'No internet connection.';
+      return _loc?.noInternetConnection ?? 'No internet connection.';
     }
-    if (e.contains('unauthorized')) return loc?.sessionExpired ?? 'Session expired. Please log in again.';
-    if (e.contains('not_found')) return loc?.requestNotFound ?? 'Request not found.';
+    if (e.contains('unauthorized')) return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
+    if (e.contains('not_found')) return _loc?.requestNotFound ?? 'Request not found.';
     if (e.contains('validation_error')) {
-      return loc?.checkAllFields ?? 'Please check all fields and try again.';
+      return _loc?.checkAllFields ?? 'Please check all fields and try again.';
     }
     if (e.contains('unknown_error') || e.contains('bad_response')) {
-      return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
+      return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
     }
     if (e.contains('access_denied') || e.contains('forbidden')) {
-      return loc?.accessDenied ?? 'Access denied.';
+      return _loc?.accessDenied ?? 'Access denied.';
     }
-    return loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
+    return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 }
 

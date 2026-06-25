@@ -3251,4 +3251,49 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get hospitalNotApproved =>
       'حساب المستشفى الخاص بك لم يتم الموافقة عليه بعد. يرجى التواصل مع support@lifelink.org.';
+
+  @override
+  String get invalidHospitalId => 'معرف المستشفى غير صحيح.';
+
+  @override
+  String get invalidEmailOrPassword =>
+      'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+
+  @override
+  String activityRequestCreated(Object bloodTypes) {
+    return 'تم إنشاء طلب - $bloodTypes';
+  }
+
+  @override
+  String activityRequestFulfilled(Object bloodTypes) {
+    return 'تم تلبية الطلب - $bloodTypes';
+  }
+
+  @override
+  String activityDonorResponse(Object donorName) {
+    return 'استجابة متبرع جديدة - $donorName';
+  }
+
+  @override
+  String get activityDonorResponseFallback => 'استجابة متبرع جديدة - متبرع';
+
+  @override
+  String activityUnitsNeeded(Object units) {
+    return 'وحدات مطلوبة $units';
+  }
+
+  @override
+  String activityUnitsReceived(Object units) {
+    return 'وحدات مستلمة $units';
+  }
+
+  @override
+  String activityDonorResponded(Object bloodType) {
+    return 'متبرع فصيلة $bloodType استجاب';
+  }
+
+  @override
+  String activityDonorRespondedFallback(Object bloodTypes) {
+    return 'متبرعون فصائل $bloodTypes استجابوا';
+  }
 }

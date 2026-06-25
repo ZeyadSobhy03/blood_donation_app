@@ -6241,6 +6241,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your hospital account is not yet approved. Please contact support@lifelink.org.'**
   String get hospitalNotApproved;
+
+  /// No description provided for @invalidHospitalId.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid hospital ID.'**
+  String get invalidHospitalId;
+
+  /// No description provided for @invalidEmailOrPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email or password.'**
+  String get invalidEmailOrPassword;
+
+  /// No description provided for @activityRequestCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Request created - {bloodTypes}'**
+  String activityRequestCreated(Object bloodTypes);
+
+  /// No description provided for @activityRequestFulfilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request fulfilled - {bloodTypes}'**
+  String activityRequestFulfilled(Object bloodTypes);
+
+  /// No description provided for @activityDonorResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'New donor response - {donorName}'**
+  String activityDonorResponse(Object donorName);
+
+  /// No description provided for @activityDonorResponseFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'New donor response - Donor'**
+  String get activityDonorResponseFallback;
+
+  /// No description provided for @activityUnitsNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'units needed {units}'**
+  String activityUnitsNeeded(Object units);
+
+  /// No description provided for @activityUnitsReceived.
+  ///
+  /// In en, this message translates to:
+  /// **'units received {units}'**
+  String activityUnitsReceived(Object units);
+
+  /// No description provided for @activityDonorResponded.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} donor responded'**
+  String activityDonorResponded(Object bloodType);
+
+  /// No description provided for @activityDonorRespondedFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodTypes} donor responded'**
+  String activityDonorRespondedFallback(Object bloodTypes);
 }
 
 class _AppLocalizationsDelegate

@@ -30,6 +30,15 @@ class _ProfileState extends State<Profile> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final loc = AppLocalizations.of(context);
+    if (loc != null) {
+      context.read<ProfileCubit>().setAppLoc(loc);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
 
