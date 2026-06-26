@@ -82,30 +82,30 @@
   "notSelected": "Not selected",
   "noEmail": "no email",
   "noPhone": "no phone",
-   "chooseTimeSlot": "Choose a time slot",
-   "timeSlotTime": "Time",
-   "timeSlotCapacity": "Capacity",
-   "timeSlotRemainingCapacity": "{remaining}/{total} slots available",
-   "@timeSlotRemainingCapacity": {
-     "placeholders": {
-       "remaining": {},
-       "total": {}
-     }
-   },
-   "timeSlotMaxCapacity": "Max Slots",
-   "timeSlotAvailable": "Available",
-   "timeSlotFull": "Full",
-   "timeSlotSlot": "slot",
-   "timeSlotSlots": "slots",
-   "timeSlotBookedLabel": "{time} - {remaining}/{max} available",
-   "@timeSlotBookedLabel": {
-     "placeholders": {
-       "time": {},
-       "remaining": {},
-       "max": {}
-     }
-   },
-   "confirmResponse": "Confirm Response",
+  "chooseTimeSlot": "Choose a time slot",
+  "timeSlotTime": "Time",
+  "timeSlotCapacity": "Capacity",
+  "timeSlotRemainingCapacity": "{remaining}/{total} slots available",
+  "@timeSlotRemainingCapacity": {
+    "placeholders": {
+      "remaining": {},
+      "total": {}
+    }
+  },
+  "timeSlotMaxCapacity": "Max Slots",
+  "timeSlotAvailable": "Available",
+  "timeSlotFull": "Full",
+  "timeSlotSlot": "slot",
+  "timeSlotSlots": "slots",
+  "timeSlotBookedLabel": "{time} - {remaining}/{max} available",
+  "@timeSlotBookedLabel": {
+    "placeholders": {
+      "time": {},
+      "remaining": {},
+      "max": {}
+    }
+  },
+  "confirmResponse": "Confirm Response",
   "emergencyRequestQuestion": "Are you available to respond to this emergency blood request?",
   "acceptButton": "Accept - I Can Help",
   "declineButton": "Decline - Not Available",
@@ -478,15 +478,15 @@
   "weeks_2_ago": "2 weeks ago",
   "referral_bonus": "Referral Bonus",
   "weeks_3_ago": "3 weeks ago",
-   "how_to_earn_points": "How To Earn Points?",
-   "donate_blood_points": "Blood Donation: 200 pts",
-   "emergency_response_points": "Emergency Response: 100 pts",
-   "refer_to_friends_points": "Refer a Friend: 150 pts",
-   "complete_profile_points": "Complete Profile: 50 pts",
-   "plasma_donation_points": "Plasma Donation: 150 pts",
-   "platelets_donation_points": "Platelet Donation: 175 pts",
-   "organ_donation_points": "Organ Donation: 500 pts",
-   "first_donation_bonus_points": "First Donation Bonus: 100 pts",
+  "how_to_earn_points": "How To Earn Points?",
+  "donate_blood_points": "Blood Donation: 200 pts",
+  "emergency_response_points": "Emergency Response: 100 pts",
+  "refer_to_friends_points": "Refer a Friend: 150 pts",
+  "complete_profile_points": "Complete Profile: 50 pts",
+  "plasma_donation_points": "Plasma Donation: 150 pts",
+  "platelets_donation_points": "Platelet Donation: 175 pts",
+  "organ_donation_points": "Organ Donation: 500 pts",
+  "first_donation_bonus_points": "First Donation Bonus: 100 pts",
   "your_badges": "Your Badges",
   "first_timer": "First Timer",
   "completed_first_donation": "Completed your first donation",
@@ -700,6 +700,7 @@
   "unitsCount": "{count} units",
   "pdfLoadError": "Failed to load PDF. Please try again later.",
   "retry": "Retry",
+  "loadMore": "Load More",
   "adminDashboard": "Admin Dashboard",
   "dashboardSubtitle": "System overview and analytics",
   "criticalAlerts": "Critical Alerts",
@@ -1095,29 +1096,28 @@
   "selectGender": "Select Gender",
   "selectGovernorate": "Select Governorate",
   "locationPermanentlyDenied": "Location permissions are permanently denied. Please enable them in settings.",
-   "openSettings": "Open Settings",
-   "waitingForLocation": "Waiting for location...",
-   "acquiringLocation": "Acquiring location...",
-   "locationUnavailable": "Location unavailable",
-   "platelet_donation": "Platelet Donation",
-   "first_donation_bonus": "First Donation Bonus",
-
-    "error_invalid_credentials": "Invalid email or password. Please check and try again.",
-    "error_invalid_email": "Invalid email address. Please check and try again.",
-    "error_invalid_password": "Invalid password. Please try again.",
-    "error_wrong_password": "Wrong password. Please check and try again.",
-    "error_incorrect_current_password": "Current password is incorrect. Please try again.",
-    "error_user_not_found": "user account not found. Please sign up first.",
-    "error_email_already_exists": "This email is already registered. Please log in or use a different email.",
-    "error_account_locked": "Your account has been locked. Please contact support.",
-    "error_account_disabled": "Your account has been disabled. Please contact support.",
-    "error_email_not_verified": "Please verify your email address first.",
-    "error_validation": "Please check your input and try again.",
-    "error_forbidden": "You do not have permission to perform this action.",
-    "error_token_expired": "Your session has expired. Please log in again.",
-    "unauthorized": "Unauthorized access. Please log in again.",
-    "email_error": "Invalid email address.",
-    "password_error": "Invalid password.",
+  "openSettings": "Open Settings",
+  "waitingForLocation": "Waiting for location...",
+  "acquiringLocation": "Acquiring location...",
+  "locationUnavailable": "Location unavailable",
+  "platelet_donation": "Platelet Donation",
+  "first_donation_bonus": "First Donation Bonus",
+  "error_invalid_credentials": "Invalid email or password. Please check and try again.",
+  "error_invalid_email": "Invalid email address. Please check and try again.",
+  "error_invalid_password": "Invalid password. Please try again.",
+  "error_wrong_password": "Wrong password. Please check and try again.",
+  "error_incorrect_current_password": "Current password is incorrect. Please try again.",
+  "error_user_not_found": "user account not found. Please sign up first.",
+  "error_email_already_exists": "This email is already registered. Please log in or use a different email.",
+  "error_account_locked": "Your account has been locked. Please contact support.",
+  "error_account_disabled": "Your account has been disabled. Please contact support.",
+  "error_email_not_verified": "Please verify your email address first.",
+  "error_validation": "Please check your input and try again.",
+  "error_forbidden": "You do not have permission to perform this action.",
+  "error_token_expired": "Your session has expired. Please log in again.",
+  "unauthorized": "Unauthorized access. Please log in again.",
+  "email_error": "Invalid email address.",
+  "password_error": "Invalid password.",
   "dateOfBirthRequired": "Date of birth is required",
   "minimumAge": "You must be at least 17 years old to donate",
   "invalidDateOfBirth": "Date of birth must be a valid past date",
@@ -1154,7 +1154,6 @@
   "alreadyCancelled": "Appointment Already Cancelled",
   "alreadyCancelledMessage": "This appointment has already been cancelled.",
   "ok": "OK",
-
   "rescheduleSuccess": "Appointment Rescheduled",
   "rescheduleSuccessMessage": "Your appointment has been updated successfully.",
   "rescheduleError": "Reschedule Failed",
@@ -1197,7 +1196,6 @@
   "error_hospital_suspended": "Hospital is currently suspended",
   "error_hospital_not_verified": "Hospital is not verified",
   "noAlerts": "You have no alerts at this time.",
-  "noInsightsAvailable": "No insights available at this time.",
   "suspended": "Suspended",
   "noRequestsFound": "No requests found",
   "noContactNumberAvailable": "No contact number available",
@@ -1233,14 +1231,9 @@
   "unban": "Unban",
   "aiPredictionDemandIncrease": "Blood demand expected to increase {percentage}% next month based on historical trends — consider scheduling additional donation drives and sending proactive alerts to O+ and A+ donors.",
   "aiPredictionDemandSteady": "Blood demand showing a steady {percentage}% weekly increase. Monitor inventory levels closely over the next 2 weeks.",
-  "aiPredictionDemandDecline": "Blood demand has declined {percentage}% in the past week. Consider reducing scheduled drive frequency and reviewing inventory redistribution across hospitals.",
-  "aiPredictionShortageCritical": "{bloodType} critically low — only {available} donors available against {needed} units needed. Launch emergency campaign within 48 hours.",
   "aiPredictionShortageRisk": "{bloodType} supply at risk with a {ratio}:1 demand-to-supply ratio. Proactive targeted outreach to {bloodType} donors recommended this week.",
   "aiPredictionRetentionDrop": "Donor return rate has dropped to {rate}% — consider launching a re-engagement campaign with bonus points for returning donors this month.",
   "aiPredictionRetentionImprove": "Donor retention has improved to {rate}% — current momentum is strong. Capitalize by introducing referral rewards to sustain growth.",
-  "aiPredictionPeakDay": "{day} shows {percentage}% higher donation activity — schedule more mobile drives and staff on this day to maximize collections.",
-  "aiPredictionWeekend": "Weekend donation drives show {percentage}% higher success rates compared to weekdays. Prioritize weekend scheduling for upcoming emergency campaigns.",
-
   "jan": "January",
   "feb": "February",
   "mar": "March",
@@ -1266,18 +1259,14 @@
   "capacity": "Capacity",
   "enterCapacity": "Enter bed capacity",
   "capacityInvalidError": "Please enter a valid capacity",
-
-
   "locationSelected": "Location selected",
   "bloodBanksAvailable": "Blood Banks Available",
   "selectAtLeastOneBloodBank": "Please select at least one blood type",
-
   "failedToCreateHospital": "Failed to create hospital",
   "copiedToClipboard": "Copied to clipboard",
   "share": "Share",
   "done": "Done",
   "copy": "Copy",
-
   "addNewReward": "Add New Reward",
   "addNewRewardSubtitle": "Fill in the details to add a new reward to the catalog.",
   "rewardName": "Reward Name",
@@ -1298,11 +1287,10 @@
       }
     }
   },
-
   "fieldRequired": "This field is required",
   "invalidNumber": "Please enter a valid number",
   "rewardSubtitle": "Reward Subtitle",
-  "admin" : "Admin",
+  "admin": "Admin",
   "superAdmin": "Super Admin",
   "inboundEmailsTitle": "Inbound Emails",
   "inboundEmailSearchHint": "Search emails...",
@@ -1313,7 +1301,11 @@
   "inboundEmailDeleteTitle": "Delete email",
   "inboundEmailDeleteConfirm": "Are you sure you want to delete \"{subject}\"? This cannot be undone.",
   "@inboundEmailDeleteConfirm": {
-    "placeholders": { "subject": { "type": "String" } }
+    "placeholders": {
+      "subject": {
+        "type": "String"
+      }
+    }
   },
   "inboundEmailCancel": "Cancel",
   "inboundEmailDelete": "Delete",
@@ -1321,7 +1313,11 @@
   "inboundEmailArchive": "Archive",
   "inboundEmailFrom": "From: {from}",
   "@inboundEmailFrom": {
-    "placeholders": { "from": { "type": "String" } }
+    "placeholders": {
+      "from": {
+        "type": "String"
+      }
+    }
   },
   "inboundEmailArchivedBadge": "Archived",
   "inboundEmailUnreadBadge": "Unread",
@@ -1338,33 +1334,30 @@
   "inboundEmailErrorNotFound": "Email not found.",
   "inboundEmailErrorRequestCancelled": "Request was cancelled.",
   "inboundEmails": "Inbound Emails",
-"admin_reset_password_title": "Reset Admin Password",
-"admin_reset_password_subtitle": "Enter a new password for the admin account.",
+  "admin_reset_password_title": "Reset Admin Password",
+  "admin_reset_password_subtitle": "Enter a new password for the admin account.",
   "hospital_reset_password_title": "Reset Hospital Password",
   "hospital_reset_password_subtitle": "Enter a new password for the hospital account.",
   "noMoreHospitals": "No more hospitals available",
   "acceptedRequestSectionTitle": "Accepted Requests",
-
   "requestedAt": "Requested at",
   "status": "Status",
   "notes": "Notes",
-"showDetails": "Show Details",
+  "showDetails": "Show Details",
   "adult": "Adult",
   "child": "Child",
-
   "urgent": "Urgent",
   "normal": "Normal",
   "emergency2Units": "2 units",
   "emergencyLabel": "Emergency",
   "loadingAcceptedRequestsMessage": "Loading accepted requests...",
   "noAcceptedRequestsMessage": "No accepted requests found.",
-
   "cancellingRequest": "Cancelling request...",
   "requestAlreadyCancelled": "This request has already been cancelled",
   "cancelConfirmationMessage": "Are you sure you want to cancel this request?",
   "addressNotAvailable": "Address not available",
   "acceptedRequestsLoadingMoreMessage": "Loading more requests...",
-"connection_timeout": "Connection timeout. Please check your internet connection.",
+  "connection_timeout": "Connection timeout. Please check your internet connection.",
   "request_cancelled": "Request was cancelled.",
   "no_internet": "No internet connection.",
   "unknown_error": "Unexpected network error occurred.",
@@ -1381,7 +1374,6 @@
   "cannotSpecifyAnotherDonorId": "You cannot specify another donor's ID — only your authenticated ID is used",
   "requestIdAndDonationTypeNotAccepted": "requestId and donationType parameters are not accepted on this endpoint",
   "authenticatedDonorIdNotFound": "Authenticated donor ID not found in authentication token",
-
   "activityTimelineRetrievedSuccessfully": "Activity timeline retrieved successfully",
   "pageMustBePositiveInteger": "Page must be a positive integer",
   "limitMustBePositiveInteger": "Limit must be a positive integer",
@@ -1475,7 +1467,6 @@
   "donationEligibility": "Donation Eligibility",
   "contact_support": "Contact Support",
   "contact_support_subtitle": "Fill out the form below to submit a support ticket.",
-
   "subject": "Subject",
   "select_category": "Select a category",
   "submit_ticket": "Submit Ticket",
@@ -1493,23 +1484,302 @@
   "please_enter_message": "Please enter a message",
   "network_timeout": "Network timeout. Please try again.",
   "not_found": "Resource not found.",
-  "rewardsPoint":   "Rewards Point",
+  "rewardsPoint": "Rewards Point",
   "donationProcess": "Donation Process",
   "technicalIssue": "Technical Issue",
   "accountManagement": "Account Management",
   "ticket_submitted_successfully": "Ticket submitted successfully",
-
-
   "editDonor": "Edit Donor",
   "editHospital": "Edit Hospital",
   "editAdmin": "Edit Admin",
-
-
-
   "phoneNumber": "Phone Number",
-
   "updateSuccess": "Updated successfully",
-  "updateFailed": "Update failed"
-
-
+  "updateFailed": "Update failed",
+  "participationAddedSuccessfully": "Participation added successfully",
+  "participationAddedFailed": "Participation added failed",
+  "activityAddedSuccessfully": "Activity added successfully",
+  "activityAddedFailed": "Activity added failed",
+  "noInsightsAvailable": "No insights available",
+  "topDonors": "Top Donors",
+  "growth": "Growth",
+  "isEligibleToDonate": "Eligible to Donate",
+  "isActive": "Active",
+  "isVerified": "Verified",
+  "healthStatus": "Health Status",
+  "isBanned": "Banned",
+  "donorRank": "Rank",
+  "memberSince": "Member Since",
+  "hospitalContact": "Contact",
+  "requiredBy": "Required By",
+  "title": "Alert",
+  "description": "Description",
+  "confidence": "Confidence",
+  "predictMatchPercentage": "Match Likelihood",
+  "summaryStats": "Summary Statistics",
+  "risingDemandTrend": "Rising Demand Trend",
+  "decliningDemand": "Declining Demand",
+  "supplyWarning": "Supply Warning",
+  "peakDayInsight": "Peak Day Insight",
+  "donorRetentionAlert": "Donor Retention Alert",
+  "donorGrowthPositive": "Donor Growth Positive",
+  "emergencyDemandSpike": "Emergency Demand Spike",
+  "risingDemandTrendDesc": "Blood requests are trending upward. Prepare additional resources.",
+  "decliningDemandDesc": "Blood requests are declining. Review inventory allocation.",
+  "supplyWarningDesc": "{bloodType} blood supply is approaching critical levels.",
+  "peakDayInsightDesc": "{dayName} shows {percentage}% higher donation activity. Consider scheduling more drives on this day.",
+  "donorRetentionAlertDesc": "Donor return rate has dropped significantly. Consider re-engagement campaigns.",
+  "donorGrowthPositiveDesc": "More donors are returning compared to last month. Momentum is strong.",
+  "emergencyDemandSpikeDesc": "Blood demand has surged unexpectedly in the last 3 days. Emergency response may be needed.",
+  "criticalNeed": "Critical need for {bloodTypes}",
+  "typeCritical": "Critical",
+  "typeWarning": "Warning",
+  "chronicConditions": "Chronic Conditions",
+  "booleanTrue": "Yes",
+  "booleanFalse": "No",
+  "monAbbr": "Mon",
+  "tueAbbr": "Tue",
+  "wedAbbr": "Wed",
+  "thuAbbr": "Thu",
+  "friAbbr": "Fri",
+  "alertTitle": "Critical need for {bloodTypes}",
+  "@alertTitle": {
+    "placeholders": {
+      "bloodTypes": {
+        "type": "String"
+      }
+    }
+  },
+  "alertDescription": "Critical request for {bloodTypes} blood type(s).",
+  "@alertDescription": {
+    "placeholders": {
+      "bloodTypes": {
+        "type": "String"
+      }
+    }
+  },
+  "satAbbr": "Sat",
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "wednesday": "Wednesday",
+  "thursday": "Thursday",
+  "friday": "Friday",
+  "saturday": "Saturday",
+  "sunday": "Sunday",
+  "aiPredictionTodaySpike": "Today shows a {percentage}% increase in demand.",
+  "@aiPredictionTodaySpike": {
+    "placeholders": {
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
+  "aiPredictionDemandDecline": "Blood demand has declined {percentage}% in the past week. Consider reducing scheduled drive frequency and reviewing inventory redistribution across hospitals.",
+  "@aiPredictionDemandDecline": {
+    "placeholders": {
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
+  "aiPredictionShortageCritical": "{bloodType} critically low — only {available} donors available against {needed} units needed. Launch emergency campaign within 48 hours.",
+  "@aiPredictionShortageCritical": {
+    "placeholders": {
+      "bloodType": {
+        "type": "String"
+      },
+      "available": {
+        "type": "String"
+      },
+      "needed": {
+        "type": "String"
+      }
+    }
+  },
+  "aiPredictionPeakDay": "{dayName} shows {percentage}% higher donation activity — schedule more mobile drives and staff on this day to maximize collections.",
+  "@aiPredictionPeakDay": {
+    "placeholders": {
+      "dayName": {
+        "type": "String"
+      },
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
+  "aiPredictionWeekend": "Weekend donation drives show {percentage}% higher success rates compared to weekdays. Prioritize weekend scheduling for upcoming emergency campaigns.",
+  "@aiPredictionWeekend": {
+    "placeholders": {
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
+  "rewardCoffeeVoucher": "Coffee Voucher",
+  "rewardCoffeeVoucherDesc": "Free coffee at partner cafes",
+  "rewardGymMembership": "Gym Membership",
+  "rewardPremiumBadge": "Premium Badge",
+  "rewardHealthCheckup": "Health Check-up",
+  "rewardRestaurantGiftCard": "Restaurant Gift Card",
+  "rewardMovieTickets": "Movie Tickets",
+  "rewardStatusActive": "Active",
+  "rewardStatusInactive": "Inactive",
+  "rewardCategoryHealth": "Health",
+  "rewardCategoryStatus": "Status",
+  "rewardCategoryFood": "Food",
+  "rewardCategoryEntertainment": "Entertainment",
+  "point": "Point",
+  "redeemed": "Redeemed",
+  "setRewardActive": "Set ACTIVE",
+  "setRewardInactive": "Set INACTIVE",
+  "profileUpdatedSuccessfully": "Profile updated successfully",
+  "confirmEmergencyShutdown": "Are you sure you want to shut down the system immediately? All users will be disconnected.",
+  "emergencyShutdownInitiated": "EMERGENCY SHUTDOWN INITIATED",
+  "systemRestored": "System Restored",
+  "statusOnline": "ONLINE",
+  "statusOffline": "OFFLINE / MAINTENANCE",
+  "disableMaintenanceMode": "Restore System & Disable Maintenance",
+  "system_status_updated_successfully": "System status updated successfully",
+  "auditLogs": "Audit Logs",
+  "filterByTargetType": "Filter by Target Type",
+  "isLoadingMore": "Loading more logs...",
+  "noAuditLogsFound": "No audit logs found",
+  "allTypes": "All Types",
+  "rotate_admin_key": "Rotate Key",
+  "rotate_admin_key_title": "Rotate Admin Key?",
+  "rotate_admin_key_confirm_message": "This will generate a new admin key and immediately invalidate the current one. This action cannot be undone. Are you sure you want to continue?",
+  "new_admin_key_title": "New Admin Key Generated",
+  "new_admin_key_warning": "This key is shown only once. Make sure to copy and store it securely before closing this dialog.",
+  "copied_to_clipboard": "Copied to clipboard",
+  "auditLogsTitle": "Audit logs",
+  "actionHospitalAdded": "Hospital Added",
+  "actionUserBanned": "User Banned",
+  "actionUserUnbanned": "User Unbanned",
+  "actionUserSuspended": "User Suspended",
+  "actionUserUnsuspended": "User Unsuspended",
+  "actionUserDeleted": "User Deleted",
+  "actionAdminAdded": "Admin Added",
+  "actionMaintenanceModeUpdated": "Maintenance Mode Updated",
+  "detailCreateHospital": "Added hospital account",
+  "detailBan": "Banned user account (ID: {targetId})",
+  "@detailBan": {
+    "placeholders": {
+      "targetId": {
+        "type": "String"
+      }
+    }
+  },
+  "detailUnban": "Unbanned user account (ID: {targetId})",
+  "@detailUnban": {
+    "placeholders": {
+      "targetId": {
+        "type": "String"
+      }
+    }
+  },
+  "detailSuspend": "Suspended user account (ID: {targetId})",
+  "@detailSuspend": {
+    "placeholders": {
+      "targetId": {
+        "type": "String"
+      }
+    }
+  },
+  "detailUnsuspend": "Unsuspended user account (ID: {targetId})",
+  "@detailUnsuspend": {
+    "placeholders": {
+      "targetId": {
+        "type": "String"
+      }
+    }
+  },
+  "detailDelete": "Soft-deleted user account (ID: {targetId})",
+  "@detailDelete": {
+    "placeholders": {
+      "targetId": {
+        "type": "String"
+      }
+    }
+  },
+  "detailCreateAdmin": "Created admin account (ID: {targetId})",
+  "@detailCreateAdmin": {
+    "placeholders": {
+      "targetId": {
+        "type": "String"
+      }
+    }
+  },
+  "detailMaintenance": "Updated system maintenance mode",
+  "detailDefault": "Performed action {action} on {targetType}",
+  "@detailDefault": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "targetType": {
+        "type": "String"
+      }
+    }
+  },
+  "targetTypeUser": "user",
+  "targetTypeRequest": "request",
+  "targetTypeDonation": "donation",
+  "targetTypeSystem": "system",
+  "actionDonorUpdated": "Donor Updated",
+  "actionHospitalUpdated": "Hospital Updated",
+  "actionAdminUpdated": "Admin Updated",
+  "actionAdminDeleted": "Admin Deleted",
+  "actionAdminKeyRotated": "Admin Key Rotated",
+  "actionProfileUpdated": "Profile Updated",
+  "actionBadgeUpdated": "Badge Updated",
+  "actionRewardsConfigUpdated": "Rewards Config Updated",
+  "actionRoleCreated": "Role Created",
+  "actionRoleUpdated": "Role Updated",
+  "actionRoleDeleted": "Role Deleted",
+  "actionHospitalCreated": "Hospital Created",
+  "supportTicketsTab": "Support Tickets",
+  "supportTicketStatus": "Status",
+  "supportTicketCategory": "Category",
+  "supportTicketFrom": "From",
+  "supportTicketCreatedAt": "Created",
+  "supportTicketReply": "Reply",
+  "supportTicketReplyHint": "Type your reply...",
+  "supportTicketSendReply": "Send Reply",
+  "supportTicketStatusOpen": "Open",
+  "supportTicketStatusClosed": "Closed",
+  "supportTicketStatusInProgress": "In Progress",
+  "supportTicketEmptyState": "No support tickets",
+  "supportTicketReplySentSnack": "Reply sent successfully",
+  "supportTicketReplyErrorSnack": "Failed to send reply",
+  "supportTicketAdminReply": "Admin Reply",
+  "supportTicketNoReply": "No reply yet",
+  "actionRequestFulfilled": "Request Fulfilled",
+  "actionRequestCancelled": "Request Cancelled",
+  "actionRequestBroadcasted": "Request Broadcasted",
+  "detailRequestAction": "{action} (ID: {id})",
+  "earningRulesSubtitle": "Manage your earning rules here",
+  "addRule": "Add Rule",
+  "totalRules": "Total Rules",
+  "activeRules": "Active Rules",
+  "inactiveRules": "Inactive Rules",
+  "noEarningRules": "No Earning Rules Found",
+  "noEarningRulesSubtitle": "Create a new rule to get started",
+  "earningRuleCategory": "Category",
+  "editPoints": "Edit Points",
+  "addEarningRule": "Add Earning Rule",
+  "addEarningRuleSubtitle": "Fill in the details to create a new rule",
+  "earningRuleType": "Rule Type",
+  "earningRuleTypeHint": "e.g., Donation",
+  "earningRuleTitle": "Rule Title",
+  "earningRuleTitleHint": "e.g., First Donation",
+  "earningRulePointsHint": "Enter points",
+  "earningRuleActiveStatus": "Is Active",
+  "deleteEarningRuleTitle": "Delete Earning Rule",
+  "deleteEarningRuleConfirmation": "Are you sure you want to delete this earning rule?",
+  "earningRulesTitle": "Earning Rules",
+  "activityType": "Activity Type",
+  "detailAdminUpdated": "Updated admin account (ID: {id})",
+  "detailAdminKeyRotated": "Rotated admin key (ID: {id})",
+  "detailHospitalUpdated": "Updated hospital account (ID: {id})",
+  "broadcastSent": "Broadcast Sent",
+  "requestFulfilled": "Request marked as fulfilled"
 }

@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
@@ -46,7 +45,6 @@ class _AnalyticsState extends State<Analytics> {
             }
 
             if (state is AnalyticsOverviewErrorState) {
-              log('AnalyticsOverviewErrorState: ${state.errorMessage}');
               return CustomErrorWidget(message: localizeError(state.errorMessage, loc), onRetry: (){
 
                 context.read<AnalyticsOverviewCubit>().getAnalyticsOverview();
@@ -56,6 +54,7 @@ class _AnalyticsState extends State<Analytics> {
 
             if (state is AnalyticsOverviewSuccessState) {
               final data = state.analyticsOverviewModel.data!;
+
               return SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

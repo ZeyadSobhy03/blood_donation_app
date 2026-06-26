@@ -4,10 +4,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../resources/colors/color_manger.dart';
-import '../../resources/fonts/font_manger.dart';
-import '../../widgets/custom_text.dart';
 
-/// Full-screen loading widget using skeletonizer
 class CustomSkeletonLoadingWidget extends StatelessWidget {
   final String? message;
   final double? containerHeight;
@@ -20,8 +17,6 @@ class CustomSkeletonLoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appLocalizations = AppLocalizations.of(context)!;
-
     return Skeletonizer(
       enabled: true,
       child: Center(
@@ -66,11 +61,7 @@ class CompactSkeletonLoading extends StatelessWidget {
   final double size;
   final Color? color;
 
-  const CompactSkeletonLoading({
-    super.key,
-    this.size = 50,
-    this.color,
-  });
+  const CompactSkeletonLoading({super.key, this.size = 50, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -94,10 +85,7 @@ class CompactSkeletonLoading extends StatelessWidget {
 class DialogSkeletonLoading extends StatelessWidget {
   final String? message;
 
-  const DialogSkeletonLoading({
-    super.key,
-    this.message,
-  });
+  const DialogSkeletonLoading({super.key, this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -145,4 +133,3 @@ class DialogSkeletonLoading extends StatelessWidget {
     );
   }
 }
-

@@ -2114,6 +2114,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get retry => 'إعادة المحاولة';
 
   @override
+  String get loadMore => 'تحميل المزيد';
+
+  @override
   String get adminDashboard => 'لوحة تحكم المسؤول';
 
   @override
@@ -3422,9 +3425,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noAlerts => 'لا توجد تنبيهات';
 
   @override
-  String get noInsightsAvailable => 'لا توجد تحليلات متاحة';
-
-  @override
   String get suspended => 'موقوف';
 
   @override
@@ -3540,20 +3540,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String aiPredictionDemandDecline(Object percentage) {
-    return 'انخفض الطلب على الدم بنسبة $percentage٪ في الأسبوع الماضي. ضع في اعتبارك تقليل تواتر حملات التبرع المجدولة ومراجعة إعادة توزيع المخزون عبر المستشفيات.';
-  }
-
-  @override
-  String aiPredictionShortageCritical(
-    Object available,
-    Object bloodType,
-    Object needed,
-  ) {
-    return 'فصيلة $bloodType منخفضة للغاية - يتوفر $available متبرع فقط مقابل $needed وحدة مطلوبة. ابدأ حملة طوارئ في غضون 48 ساعة.';
-  }
-
-  @override
   String aiPredictionShortageRisk(Object bloodType, Object ratio) {
     return 'مخزون فصيلة $bloodType معرض للخطر بنسبة طلب إلى عرض تبلغ $ratio:1. يوصى بالتواصل الهادف والاستباقي مع متبرعي $bloodType هذا الأسبوع.';
   }
@@ -3566,16 +3552,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String aiPredictionRetentionImprove(Object rate) {
     return 'تحسن معدل الاحتفاظ بالمتبرعين إلى $rate٪ - الزخم الحالي قوي. استفد من ذلك من خلال تقديم مكافآت الإحالة للحفاظ على النمو.';
-  }
-
-  @override
-  String aiPredictionPeakDay(Object day, Object percentage) {
-    return 'يظهر يوم $day نشاط تبرع أعلى بنسبة $percentage٪ - قم بجدولة المزيد من الحملات المتنقلة والموظفين في هذا اليوم لزيادة عمليات التجميع.';
-  }
-
-  @override
-  String aiPredictionWeekend(Object percentage) {
-    return 'تظهر حملات التبرع في عطلة نهاية الأسبوع معدلات نجاح أعلى بنسبة $percentage٪ مقارنة بأيام الأسبوع. حدد أولويات جدولة عطلة نهاية الأسبوع لحملات الطوارئ القادمة.';
   }
 
   @override
@@ -4162,4 +4138,588 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get updateFailed => 'فشل التحديث';
+
+  @override
+  String get participationAddedSuccessfully => 'تم إضافة المشاركة بنجاح';
+
+  @override
+  String get participationAddedFailed => 'فشل إضافة المشاركة';
+
+  @override
+  String get activityAddedSuccessfully => 'تم إضافة النشاط بنجاح';
+
+  @override
+  String get activityAddedFailed => 'فشل إضافة النشاط';
+
+  @override
+  String get noInsightsAvailable => 'لا توجد تحليلات متاحة';
+
+  @override
+  String get topDonors => 'أفضل المتبرعين';
+
+  @override
+  String get growth => 'النمو';
+
+  @override
+  String get isEligibleToDonate => 'مؤهل للتبرع';
+
+  @override
+  String get isActive => 'نشط';
+
+  @override
+  String get isVerified => 'تم التحقق';
+
+  @override
+  String get healthStatus => 'الحالة الصحية';
+
+  @override
+  String get isBanned => 'محظور';
+
+  @override
+  String get donorRank => 'الرتبة';
+
+  @override
+  String get memberSince => 'عضو منذ';
+
+  @override
+  String get hospitalContact => 'جهة الاتصال';
+
+  @override
+  String get requiredBy => 'مطلوب بواسطة';
+
+  @override
+  String get title => 'تنبيه';
+
+  @override
+  String get description => 'الوصف';
+
+  @override
+  String get confidence => 'الثقة';
+
+  @override
+  String get predictMatchPercentage => 'احتمالية المطابقة';
+
+  @override
+  String get summaryStats => 'إحصائيات الملخص';
+
+  @override
+  String get risingDemandTrend => 'اتجاه الطلب الصاعد';
+
+  @override
+  String get decliningDemand => 'تراجع الطلب';
+
+  @override
+  String get supplyWarning => 'تحذير الإمداد';
+
+  @override
+  String get peakDayInsight => 'رؤية يوم الذروة';
+
+  @override
+  String get donorRetentionAlert => 'تنبيه الاحتفاظ بالمتبرعين';
+
+  @override
+  String get donorGrowthPositive => 'نمو المتبرعين إيجابي';
+
+  @override
+  String get emergencyDemandSpike => 'ارتفاع الطلب الطارئ';
+
+  @override
+  String get risingDemandTrendDesc => 'طلبات الدم في ارتفاع. جهز موارد إضافية.';
+
+  @override
+  String get decliningDemandDesc => 'طلبات الدم في تراجع. راجع توزيع المخزون.';
+
+  @override
+  String supplyWarningDesc(Object bloodType) {
+    return 'إمداد الدم من فئة $bloodType يقترب من مستويات حرجة.';
+  }
+
+  @override
+  String peakDayInsightDesc(Object dayName, Object percentage) {
+    return 'يوم $dayName يُظهر نشاط تبرع أعلى بنسبة $percentage%. فكر في جدولة المزيد من الحملات في هذا اليوم.';
+  }
+
+  @override
+  String get donorRetentionAlertDesc =>
+      'انخفض معدل عودة المتبرعين بشكل كبير. فكر في حملات إعادة التفاعل.';
+
+  @override
+  String get donorGrowthPositiveDesc =>
+      'يعود عدد أكثر من المتبرعين مقارنة بالشهر الماضي. الزخم قوي.';
+
+  @override
+  String get emergencyDemandSpikeDesc =>
+      'زاد الطلب على الدم بشكل غير متوقع في آخر 3 أيام. قد يكون هناك حاجة للاستجابة الطارئة.';
+
+  @override
+  String criticalNeed(Object bloodTypes) {
+    return 'الحاجة الحرجة إلى $bloodTypes';
+  }
+
+  @override
+  String get typeCritical => 'حرج';
+
+  @override
+  String get typeWarning => 'تحذير';
+
+  @override
+  String get chronicConditions => 'أمراض مزمنة';
+
+  @override
+  String get booleanTrue => 'نعم';
+
+  @override
+  String get booleanFalse => 'لا';
+
+  @override
+  String get monAbbr => 'الاثنين';
+
+  @override
+  String get tueAbbr => 'الثلاثاء';
+
+  @override
+  String get wedAbbr => 'الأربعاء';
+
+  @override
+  String get thuAbbr => 'الخميس';
+
+  @override
+  String get friAbbr => 'الجمعة';
+
+  @override
+  String alertTitle(String bloodTypes) {
+    return 'حاجة ماسة لفصيلة $bloodTypes';
+  }
+
+  @override
+  String alertDescription(String bloodTypes) {
+    return 'طلب عاجل لفصيلة (فصائل) الدم $bloodTypes.';
+  }
+
+  @override
+  String get satAbbr => 'السبت';
+
+  @override
+  String get monday => 'الاثنين';
+
+  @override
+  String get tuesday => 'الثلاثاء';
+
+  @override
+  String get wednesday => 'الأربعاء';
+
+  @override
+  String get thursday => 'الخميس';
+
+  @override
+  String get friday => 'الجمعة';
+
+  @override
+  String get saturday => 'السبت';
+
+  @override
+  String get sunday => 'الأحد';
+
+  @override
+  String aiPredictionTodaySpike(String percentage) {
+    return 'يُظهر اليوم زيادة بنسبة $percentage% في الطلب.';
+  }
+
+  @override
+  String aiPredictionDemandDecline(String percentage) {
+    return 'انخفض طلب الدم بنسبة $percentage% في الأسبوع الماضي. يُرجى النظر في تقليل وتيرة حملات التبرع المجدولة ومراجعة إعادة توزيع المخزون عبر المستشفيات.';
+  }
+
+  @override
+  String aiPredictionShortageCritical(
+    String bloodType,
+    String available,
+    String needed,
+  ) {
+    return 'مخزون فصيلة $bloodType منخفض بشكل حرج — يوجد $available متبرع متاح فقط مقابل $needed وحدات مطلوبة. أطلق حملة طوارئ خلال 48 ساعة.';
+  }
+
+  @override
+  String aiPredictionPeakDay(String dayName, String percentage) {
+    return 'يُظهر يوم $dayName نشاط تبرع أعلى بنسبة $percentage% — قم بجدولة المزيد من حملات التبرع المتنقلة وتوفير الطواقم في هذا اليوم لزيادة التبرعات.';
+  }
+
+  @override
+  String aiPredictionWeekend(String percentage) {
+    return 'تُظهر حملات التبرع في عطلة نهاية الأسبوع معدلات نجاح أعلى بنسبة $percentage% مقارنة بأيام الأسبوع. أعطِ الأولوية لجدولة عطلة نهاية الأسبوع لحملات الطوارئ القادمة.';
+  }
+
+  @override
+  String get rewardCoffeeVoucher => 'قسيمة قهوة';
+
+  @override
+  String get rewardCoffeeVoucherDesc => 'قهوة مجانية في المقاهي الشريكة';
+
+  @override
+  String get rewardGymMembership => 'اشتراك صالة رياضية';
+
+  @override
+  String get rewardPremiumBadge => 'شارة مميزة';
+
+  @override
+  String get rewardHealthCheckup => 'فحص طبي شامل';
+
+  @override
+  String get rewardRestaurantGiftCard => 'بطاقة هدايا لمطعم';
+
+  @override
+  String get rewardMovieTickets => 'تذاكر سينما';
+
+  @override
+  String get rewardStatusActive => 'نشط';
+
+  @override
+  String get rewardStatusInactive => 'غير نشط';
+
+  @override
+  String get rewardCategoryHealth => 'صحة';
+
+  @override
+  String get rewardCategoryStatus => 'تميز';
+
+  @override
+  String get rewardCategoryFood => 'طعام';
+
+  @override
+  String get rewardCategoryEntertainment => 'ترفيه';
+
+  @override
+  String get point => 'نقطة';
+
+  @override
+  String get redeemed => 'تم الاسترداد';
+
+  @override
+  String get setRewardActive => 'تعيين كنشط';
+
+  @override
+  String get setRewardInactive => 'تعيين كغير نشط';
+
+  @override
+  String get profileUpdatedSuccessfully => 'تم تحديث الملف الشخصي بنجاح';
+
+  @override
+  String get confirmEmergencyShutdown =>
+      'هل أنت متأكد أنك تريد إيقاف تشغيل النظام فورًا؟ سيتم فصل جميع المستخدمين.';
+
+  @override
+  String get emergencyShutdownInitiated => 'تم بدء إيقاف تشغيل الطوارئ';
+
+  @override
+  String get systemRestored => 'تمت استعادة النظام';
+
+  @override
+  String get statusOnline => 'متصل';
+
+  @override
+  String get statusOffline => 'غير متصل / في وضع الصيانة';
+
+  @override
+  String get disableMaintenanceMode => 'استعادة النظام وإلغاء وضع الصيانة';
+
+  @override
+  String get system_status_updated_successfully => 'تم تحديث حالة النظام بنجاح';
+
+  @override
+  String get auditLogs => 'سجلات التدقيق';
+
+  @override
+  String get filterByTargetType => 'تصفية حسب نوع الهدف';
+
+  @override
+  String get isLoadingMore => 'جاري تحميل المزيد...';
+
+  @override
+  String get noAuditLogsFound => 'لم يتم العثور على سجلات تدقيق';
+
+  @override
+  String get allTypes => 'جميع الأنواع';
+
+  @override
+  String get rotate_admin_key => 'تدوير المفتاح';
+
+  @override
+  String get rotate_admin_key_title => 'تدوير مفتاح المسؤول؟';
+
+  @override
+  String get rotate_admin_key_confirm_message =>
+      'سيؤدي هذا إلى إنشاء مفتاح مسؤول جديد وإلغاء صلاحية المفتاح الحالي فورًا. لا يمكن التراجع عن هذا الإجراء. هل أنت متأكد أنك تريد الاستمرار؟';
+
+  @override
+  String get new_admin_key_title => 'تم إنشاء مفتاح مسؤول جديد';
+
+  @override
+  String get new_admin_key_warning =>
+      'يظهر هذا المفتاح مرة واحدة فقط. تأكد من نسخه وحفظه في مكان آمن قبل إغلاق هذه النافذة.';
+
+  @override
+  String get copied_to_clipboard => 'تم النسخ إلى الحافظة';
+
+  @override
+  String get auditLogsTitle => 'سجلات التدقيق';
+
+  @override
+  String get actionHospitalAdded => 'تمت إضافة مستشفى';
+
+  @override
+  String get actionUserBanned => 'تم حظر المستخدم';
+
+  @override
+  String get actionUserUnbanned => 'تم إلغاء حظر المستخدم';
+
+  @override
+  String get actionUserSuspended => 'تم تعليق المستخدم';
+
+  @override
+  String get actionUserUnsuspended => 'تم إلغاء تعليق المستخدم';
+
+  @override
+  String get actionUserDeleted => 'تم حذف المستخدم';
+
+  @override
+  String get actionAdminAdded => 'تمت إضافة مشرف';
+
+  @override
+  String get actionMaintenanceModeUpdated => 'تم تحديث وضع الصيانة';
+
+  @override
+  String get detailCreateHospital => 'تمت إضافة حساب مستشفى';
+
+  @override
+  String detailBan(String targetId) {
+    return 'تم حظر حساب المستخدم (المعرف: $targetId)';
+  }
+
+  @override
+  String detailUnban(String targetId) {
+    return 'تم إلغاء حظر حساب المستخدم (المعرف: $targetId)';
+  }
+
+  @override
+  String detailSuspend(String targetId) {
+    return 'تم تعليق حساب المستخدم (المعرف: $targetId)';
+  }
+
+  @override
+  String detailUnsuspend(String targetId) {
+    return 'تم إلغاء تعليق حساب المستخدم (المعرف: $targetId)';
+  }
+
+  @override
+  String detailDelete(String targetId) {
+    return 'تم حذف حساب المستخدم (المعرف: $targetId)';
+  }
+
+  @override
+  String detailCreateAdmin(String targetId) {
+    return 'تم إنشاء حساب مشرف (المعرف: $targetId)';
+  }
+
+  @override
+  String get detailMaintenance => 'تم تحديث وضع الصيانة للنظام';
+
+  @override
+  String detailDefault(String action, String targetType) {
+    return 'تم تنفيذ الإجراء $action على $targetType';
+  }
+
+  @override
+  String get targetTypeUser => 'مستخدم';
+
+  @override
+  String get targetTypeRequest => 'طلب';
+
+  @override
+  String get targetTypeDonation => 'تبرع';
+
+  @override
+  String get targetTypeSystem => 'نظام';
+
+  @override
+  String get actionDonorUpdated => 'تم تحديث المتبرع';
+
+  @override
+  String get actionHospitalUpdated => 'تم تحديث المستشفى';
+
+  @override
+  String get actionAdminUpdated => 'تم تحديث المشرف';
+
+  @override
+  String get actionAdminDeleted => 'تم حذف المشرف';
+
+  @override
+  String get actionAdminKeyRotated => 'تم تغيير مفتاح المشرف';
+
+  @override
+  String get actionProfileUpdated => 'تم تحديث الملف الشخصي';
+
+  @override
+  String get actionBadgeUpdated => 'تم تحديث الشارة';
+
+  @override
+  String get actionRewardsConfigUpdated => 'تم تحديث إعدادات المكافآت';
+
+  @override
+  String get actionRoleCreated => 'تم إنشاء الصلاحية';
+
+  @override
+  String get actionRoleUpdated => 'تم تحديث الصلاحية';
+
+  @override
+  String get actionRoleDeleted => 'تم حذف الصلاحية';
+
+  @override
+  String get actionHospitalCreated => 'تم إنشاء مستشفى';
+
+  @override
+  String get supportTicketsTab => 'تذاكر الدعم';
+
+  @override
+  String get supportTicketStatus => 'الحالة';
+
+  @override
+  String get supportTicketCategory => 'الفئة';
+
+  @override
+  String get supportTicketFrom => 'من';
+
+  @override
+  String get supportTicketCreatedAt => 'تاريخ الإنشاء';
+
+  @override
+  String get supportTicketReply => 'رد';
+
+  @override
+  String get supportTicketReplyHint => 'اكتب ردك...';
+
+  @override
+  String get supportTicketSendReply => 'إرسال الرد';
+
+  @override
+  String get supportTicketStatusOpen => 'مفتوح';
+
+  @override
+  String get supportTicketStatusClosed => 'مغلق';
+
+  @override
+  String get supportTicketStatusInProgress => 'قيد المعالجة';
+
+  @override
+  String get supportTicketEmptyState => 'لا توجد تذاكر دعم';
+
+  @override
+  String get supportTicketReplySentSnack => 'تم إرسال الرد بنجاح';
+
+  @override
+  String get supportTicketReplyErrorSnack => 'فشل إرسال الرد';
+
+  @override
+  String get supportTicketAdminReply => 'رد المسؤول';
+
+  @override
+  String get supportTicketNoReply => 'لا يوجد رد بعد';
+
+  @override
+  String get actionRequestFulfilled => 'تم تلبية الطلب';
+
+  @override
+  String get actionRequestCancelled => 'تم إلغاء الطلب';
+
+  @override
+  String get actionRequestBroadcasted => 'تم بث الطلب';
+
+  @override
+  String detailRequestAction(Object action, Object id) {
+    return '$action (المعرف: $id)';
+  }
+
+  @override
+  String get earningRulesSubtitle => 'إدارة قواعد الكسب هنا';
+
+  @override
+  String get addRule => 'إضافة قاعدة';
+
+  @override
+  String get totalRules => 'إجمالي القواعد';
+
+  @override
+  String get activeRules => 'القواعد النشطة';
+
+  @override
+  String get inactiveRules => 'القواعد غير النشطة';
+
+  @override
+  String get noEarningRules => 'لم يتم العثور على قواعد كسب';
+
+  @override
+  String get noEarningRulesSubtitle => 'أنشئ قاعدة جديدة للبدء';
+
+  @override
+  String get earningRuleCategory => 'الفئة';
+
+  @override
+  String get editPoints => 'تعديل النقاط';
+
+  @override
+  String get addEarningRule => 'إضافة قاعدة كسب';
+
+  @override
+  String get addEarningRuleSubtitle => 'املأ التفاصيل لإنشاء قاعدة جديدة';
+
+  @override
+  String get earningRuleType => 'نوع القاعدة';
+
+  @override
+  String get earningRuleTypeHint => 'مثال: تبرع';
+
+  @override
+  String get earningRuleTitle => 'عنوان القاعدة';
+
+  @override
+  String get earningRuleTitleHint => 'مثال: أول تبرع';
+
+  @override
+  String get earningRulePointsHint => 'أدخل النقاط';
+
+  @override
+  String get earningRuleActiveStatus => 'هل هي نشطة';
+
+  @override
+  String get deleteEarningRuleTitle => 'حذف قاعدة الكسب';
+
+  @override
+  String get deleteEarningRuleConfirmation =>
+      'هل أنت متأكد أنك تريد حذف قاعدة الكسب هذه؟';
+
+  @override
+  String get earningRulesTitle => 'قواعد الكسب';
+
+  @override
+  String get activityType => 'نوع النشاط';
+
+  @override
+  String detailAdminUpdated(Object id) {
+    return 'تم تحديث حساب المشرف (المعرف: $id)';
+  }
+
+  @override
+  String detailAdminKeyRotated(Object id) {
+    return 'تم تغيير مفتاح المشرف (المعرف: $id)';
+  }
+
+  @override
+  String detailHospitalUpdated(Object id) {
+    return 'تم تحديث حساب المستشفى (المعرف: $id)';
+  }
+
+  @override
+  String get broadcastSent => 'تم إرسال البث';
+
+  @override
+  String get requestFulfilled => 'تم تحديد الطلب كمكتمل';
 }

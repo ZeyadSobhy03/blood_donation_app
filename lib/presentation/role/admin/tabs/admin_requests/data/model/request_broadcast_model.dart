@@ -1,6 +1,6 @@
 /// success : true
 /// message : "Broadcast sent"
-/// data : {"donorsNotified":14,"pushTokenCount":11,"governorate":"Cairo","bloodType":"O-"}
+/// data : {"donorsNotified":9,"pushTokenCount":0,"governorate":"South Sinai","bloodType":["O+","A+","O-","B-","AB-"],"bloodTypeLabel":"O+, A+, O-, B-, AB-","radiusKm":60}
 
 class RequestBroadcastModel {
   RequestBroadcastModel({
@@ -29,28 +29,36 @@ class RequestBroadcastModel {
 
 }
 
-/// donorsNotified : 14
-/// pushTokenCount : 11
-/// governorate : "Cairo"
-/// bloodType : "O-"
+/// donorsNotified : 9
+/// pushTokenCount : 0
+/// governorate : "South Sinai"
+/// bloodType : ["O+","A+","O-","B-","AB-"]
+/// bloodTypeLabel : "O+, A+, O-, B-, AB-"
+/// radiusKm : 60
 
 class Data {
   Data({
       this.donorsNotified, 
       this.pushTokenCount, 
       this.governorate, 
-      this.bloodType,});
+      this.bloodType, 
+      this.bloodTypeLabel, 
+      this.radiusKm,});
 
   Data.fromJson(dynamic json) {
     donorsNotified = json['donorsNotified'];
     pushTokenCount = json['pushTokenCount'];
     governorate = json['governorate'];
-    bloodType = json['bloodType'];
+    bloodType = json['bloodType'] != null ? json['bloodType'].cast<String>() : [];
+    bloodTypeLabel = json['bloodTypeLabel'];
+    radiusKm = json['radiusKm'];
   }
   int? donorsNotified;
   int? pushTokenCount;
   String? governorate;
-  String? bloodType;
+  List<String>? bloodType;
+  String? bloodTypeLabel;
+  int? radiusKm;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -58,6 +66,8 @@ class Data {
     map['pushTokenCount'] = pushTokenCount;
     map['governorate'] = governorate;
     map['bloodType'] = bloodType;
+    map['bloodTypeLabel'] = bloodTypeLabel;
+    map['radiusKm'] = radiusKm;
     return map;
   }
 

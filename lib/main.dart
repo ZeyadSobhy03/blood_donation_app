@@ -27,18 +27,34 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/d
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/repositories/analytics/analytics_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/domain/use_case/analytics/analytics_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/presentation/view_model/analytics/analytics_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/audit_logs/audit_logs_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/change_password/admin_change_password_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/inbound_email/inbound_email_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/profile/admin_profile_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/rote_admin_key/rote_admin_key_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/system_health/system_health_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/system_maintenance/system_maintenance_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/admin_change_password/admin_change_password_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/audit_logs/audit_logs_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/inbound_email/inbound_email_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/profile/admin_profile_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/rote_admin_key/rote_admin_key_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/system_health/system_health_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/system_maintenance/system_maintenance_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/admin_change_password/admin_change_password_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/audit_logs/audit_logs_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/inbound_email/inbound_email_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/profile/admin_profile_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/rote_admin_key/rote_admin_key_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/system_health/system_health_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/system_maintenance/system_maintenance_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/admin_change_password/admin_change_password_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/audit_logs/audit_logs_view_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/inbound_email/inbound_email_view_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/profile/admin_profile_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/rote_admin_key/rote_admin_key_view_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/system_health/system_health_view_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/system_maintenance/system_maintenance_view_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/data_source/remote/users_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/repositories/users_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/domain/use_case/users_use_case.dart';
@@ -129,6 +145,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_ce/hive.dart';
+import 'blocs/language/language_bloc.dart';
 import 'firebase_options.dart';
 import 'notifications.dart';
 import 'package:path_provider/path_provider.dart';
@@ -138,6 +155,8 @@ void main() async {
   final dir = await getApplicationDocumentsDirectory();
 
   Hive.init(dir.path);
+
+  await Hive.openBox('app_settings');
 
   final authHiveDataSource = AuthHiveDataSource();
   await authHiveDataSource.init();
@@ -160,16 +179,162 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => AdminRewardsCubit(adminRewardsUseCase: AdminRewardsUseCase(adminRewardsRepositories: AdminRewardsRepositoriesImp(adminRewardsRemoteDataSource: AdminRewardsApiDataSource(dio, adminHiveDataSource)))),),
-        BlocProvider(create: (context) => SupportContactCubit(supportContactUseCase: SupportContactUseCase(supportContactRepositories: SupportContactRepositoriesImp(supportContactRemoteDataSource: SupportContactApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) =>  AcceptedRequestsCubit(acceptedRequestsUseCase: AcceptedRequestsUseCase(acceptedRequestsRepositories: AcceptedRequestsRepositoriesImp(acceptedRequestsRemoteDataSource: AcceptedRequestsApiDataSource(dio, authHiveDataSource)))),),
-        BlocProvider(create: (context) => InboundEmailCubit(inboundEmailUseCase: InboundEmailUseCase(inboundEmailRepositories: InboundEmailRepositoriesImp(inboundEmailRemoteDataSource: InboundEmailApiDataSource(dio, adminHiveDataSource)))),),
-        BlocProvider(create: (context) => UsersCubit(usersUseCase: UsersUseCase(usersRepositories: UsersRepositoriesImp(usersRemoteDataSource: UsersApiDataSource(dio, adminHiveDataSource)))),),
-        BlocProvider(create: (context) => AnalyticsOverviewCubit(analyticsOverviewUseCase: AnalyticsOverviewUseCase(analyticsOverviewRepositories: AnalyticsOverviewRepositoriesImp(analyticsOverviewRemoteDataSource: AnalyticsOverviewApiDataSource(dio, adminHiveDataSource)))),),
-        BlocProvider(create: (context) => AdminRequestsCubit(adminRequestsUseCase: AdminRequestsUseCase(adminRequestsRepositories: AdminRequestsRepositoriesImp(adminRequestsRemoteDataSource: AdminRequestsApiDataSource(dio, adminHiveDataSource)))),),
-        BlocProvider(create: (context) => AdminProfileCubit(adminProfileUseCase: AdminProfileUseCase(profileRepositories: AdminProfileRepositoriesImp(profileRemoteDataSource: AdminProfileApiDataSource(dio, adminHiveDataSource)))),),
-        BlocProvider(create: (context) => AnalyticsCubit(analyticsUseCase: AnalyticsUseCase(analyticsRepositories: AnalyticsRepositoriesImp(analyticsRemoteDataSource: AnalyticsApiDataSource(dio, adminHiveDataSource)))),),
-        BlocProvider(create: (context) => SystemHealthCubit(systemHealthUseCase: SystemHealthUseCase(systemHealthRepositories: SystemHealthRepositoriesImp(systemHealthRemoteDataSource: SystemHealthApiDataSource(dio, adminHiveDataSource)))),),
+        BlocProvider(create: (context) => AdminChangePasswordCubit(AdminChangePasswordUseCase(adminChangePasswordRepositories: AdminChangePasswordRepositoriesImp(remoteDataSource: AdminChangePasswordApiDataSource(dio, adminHiveDataSource))), authUseCase:AuthUseCase(authRepositories: AuthRepositoriesImp(authRemoteDataSource: AuthApiDataSource(dio, authHiveDataSource))) , authLocalDataSource: AdminHiveDataSource()),),
+        BlocProvider(
+          create: (context) => LanguageBloc()..add(InitializeLanguageEvent()),
+        ),
+        BlocProvider(
+          create: (context) => RoteAdminKeyCubit(
+            roteAdminKeyUseCase: RoteAdminKeyUseCase(
+              roteAdminKeyRepositories: RoteAdminKeyRepositoriesImp(
+                roteAdminKeyRemoteDataSource: RoteAdminKeyApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AuditLogsCubit(
+            auditLogsUseCase: AuditLogsUseCase(
+              auditLogsRepositories: AuditLogsRepositoriesImp(
+                auditLogsRemoteDataSource: AuditLogsApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SystemMaintenanceCubit(
+            systemMaintenanceUseCase: SystemMaintenanceUseCase(
+              systemMaintenanceRepositories: SystemMaintenanceRepositoriesImp(
+                systemMaintenanceRemoteDataSource:
+                    SystemMaintenanceApiDataSource(dio, adminHiveDataSource),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AdminRewardsCubit(
+            adminRewardsUseCase: AdminRewardsUseCase(
+              adminRewardsRepositories: AdminRewardsRepositoriesImp(
+                adminRewardsRemoteDataSource: AdminRewardsApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SupportContactCubit(
+            supportContactUseCase: SupportContactUseCase(
+              supportContactRepositories: SupportContactRepositoriesImp(
+                supportContactRemoteDataSource: SupportContactApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AcceptedRequestsCubit(
+            acceptedRequestsUseCase: AcceptedRequestsUseCase(
+              acceptedRequestsRepositories: AcceptedRequestsRepositoriesImp(
+                acceptedRequestsRemoteDataSource: AcceptedRequestsApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => InboundEmailCubit(
+            inboundEmailUseCase: InboundEmailUseCase(
+              inboundEmailRepositories: InboundEmailRepositoriesImp(
+                inboundEmailRemoteDataSource: InboundEmailApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => UsersCubit(
+            usersUseCase: UsersUseCase(
+              usersRepositories: UsersRepositoriesImp(
+                usersRemoteDataSource: UsersApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AnalyticsOverviewCubit(
+            analyticsOverviewUseCase: AnalyticsOverviewUseCase(
+              analyticsOverviewRepositories: AnalyticsOverviewRepositoriesImp(
+                analyticsOverviewRemoteDataSource:
+                    AnalyticsOverviewApiDataSource(dio, adminHiveDataSource),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AdminRequestsCubit(
+            adminRequestsUseCase: AdminRequestsUseCase(
+              adminRequestsRepositories: AdminRequestsRepositoriesImp(
+                adminRequestsRemoteDataSource: AdminRequestsApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AdminProfileCubit(
+            adminProfileUseCase: AdminProfileUseCase(
+              profileRepositories: AdminProfileRepositoriesImp(
+                profileRemoteDataSource: AdminProfileApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AnalyticsCubit(
+            analyticsUseCase: AnalyticsUseCase(
+              analyticsRepositories: AnalyticsRepositoriesImp(
+                analyticsRemoteDataSource: AnalyticsApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SystemHealthCubit(
+            systemHealthUseCase: SystemHealthUseCase(
+              systemHealthRepositories: SystemHealthRepositoriesImp(
+                systemHealthRemoteDataSource: SystemHealthApiDataSource(
+                  dio,
+                  adminHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
         BlocProvider(create: (context) => DonationScheduleCubit()),
         BlocProvider(create: (context) => MapCubit()),
 
@@ -451,7 +616,14 @@ void main() async {
         ),
         BlocProvider(
           create: (context) => ChangePasswordCubit(
-            authUseCase: AuthUseCase(authRepositories: AuthRepositoriesImp(authRemoteDataSource: AuthApiDataSource(dio, authHiveDataSource))),
+            authUseCase: AuthUseCase(
+              authRepositories: AuthRepositoriesImp(
+                authRemoteDataSource: AuthApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
             authLocalDataSource: authHiveDataSource,
             ChangePasswordUseCase(
               repository: ChangePasswordRepositoriesImp(
@@ -463,7 +635,18 @@ void main() async {
             ),
           ),
         ),
-        BlocProvider(create: (context) => DonationEligibilityCubit(DonationEligibilityUseCase(repository: DonationEligibilityRepositoriesImp(remoteDataSource: DonationEligibilityApiDataSource(dio, authHiveDataSource)))),)
+        BlocProvider(
+          create: (context) => DonationEligibilityCubit(
+            DonationEligibilityUseCase(
+              repository: DonationEligibilityRepositoriesImp(
+                remoteDataSource: DonationEligibilityApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
       ],
       child: const BloodDonationApp(),
     ),

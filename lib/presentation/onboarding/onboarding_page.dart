@@ -1,10 +1,11 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-
 import 'package:blood_donation_app/presentation/onboarding/model/onboarding_model.dart';
 import 'package:blood_donation_app/presentation/onboarding/section/onboarding_navigation_buttons.dart';
 import 'package:blood_donation_app/presentation/onboarding/section/onboarding_page_indicators.dart';
 import 'package:blood_donation_app/presentation/onboarding/section/onboarding_page_item.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/widgets/language_toggle.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key, required this.pages, required this.onDone});
@@ -67,6 +68,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 },
               ),
             ),
+            SizedBox(height: 16),
+            if (currentPage == 0) const LanguageToggle(),
+            SizedBox(height: 16),
+
             OnboardingPageIndicators(
               currentIndex: currentPage,
               total: widget.pages.length,
@@ -82,5 +87,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
   }
 }

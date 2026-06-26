@@ -18,11 +18,13 @@ class ChangePasswordDialog extends StatefulWidget {
     required this.currentController,
     required this.newController,
     required this.confirmController,
+       this.backgroundColor =ColorManger.brightRed,
   });
 
   final TextEditingController currentController;
   final TextEditingController newController;
   final TextEditingController confirmController;
+  final Color backgroundColor ;
 
   @override
   State<ChangePasswordDialog> createState() => _ChangePasswordDialogState();
@@ -34,6 +36,7 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
   String _confirmPasswordError = '';
   String _serverError = '';
   bool _isPasswordLoading = false;
+
 
   @override
   void initState() {
@@ -284,7 +287,7 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                               SizedBox(width: 8.w),
                               Expanded(
                                 child: CustomElevatedButton(
-                                  backgroundColor: ColorManger.brightRed,
+                                  backgroundColor:widget.backgroundColor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
@@ -319,7 +322,7 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                             child: CustomElevatedButton(
                               backgroundColor: _isPasswordLoading
                                   ? Colors.grey
-                                  : ColorManger.brightRed,
+                                  : widget.backgroundColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),

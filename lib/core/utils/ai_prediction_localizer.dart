@@ -2,6 +2,13 @@ import 'package:blood_donation_app/l10n/app_localizations.dart';
 
 String localizeAiPrediction(String raw, AppLocalizations loc) {
 
+  final todaySpike = RegExp(
+    r'Today shows a ([\d.]+)% increase in demand',
+  ).firstMatch(raw);
+  if (todaySpike != null) {
+    return loc.aiPredictionTodaySpike(todaySpike.group(1)!);
+  }
+
   final demandIncrease = RegExp(
     r'Blood demand expected to increase ([\d.]+)% next month',
   ).firstMatch(raw);
@@ -23,7 +30,6 @@ String localizeAiPrediction(String raw, AppLocalizations loc) {
     return loc.aiPredictionDemandDecline(demandDecline.group(1)!);
   }
 
-
   final shortageCritical = RegExp(
     r'^(.+?) critically low — only (\d+) donors available against (\d+) units needed',
   ).firstMatch(raw);
@@ -34,7 +40,6 @@ String localizeAiPrediction(String raw, AppLocalizations loc) {
       shortageCritical.group(3)!,
     );
   }
-
 
   final shortageRisk = RegExp(
     r'^(.+?) supply at risk with a ([\d.]+):1 demand-to-supply ratio',
@@ -64,12 +69,14 @@ String localizeAiPrediction(String raw, AppLocalizations loc) {
     r'^(\w+) shows ([\d.]+)% higher donation activity',
   ).firstMatch(raw);
   if (peakDay != null) {
+    final englishDay = peakDay.group(1)!;
+    final localizedDay = _getLocalizedDay(englishDay, loc);
+
     return loc.aiPredictionPeakDay(
-      peakDay.group(1)!,
+      localizedDay,
       peakDay.group(2)!,
     );
   }
-
 
   final weekend = RegExp(
     r'Weekend donation drives show ([\d.]+)% higher success rates',
@@ -83,4 +90,18 @@ String localizeAiPrediction(String raw, AppLocalizations loc) {
 
 List<String> localizeAiPredictions(List<String> raw, AppLocalizations loc) {
   return raw.map((p) => localizeAiPrediction(p, loc)).toList();
+}
+
+/// Helper method to translate English day names to the localized version
+String _getLocalizedDay(String englishDay, AppLocalizations loc) {
+  switch (englishDay.toLowerCase()) {
+    case 'monday': return loc.monday;
+    case 'tuesday': return loc.tuesday;
+    case 'wednesday': return loc.wednesday;
+    case 'thursday': return loc.thursday;
+    case 'friday': return loc.friday;
+    case 'saturday': return loc.saturday;
+    case 'sunday': return loc.sunday;
+    default: return englishDay; // Fallback just in case
+  }
 }

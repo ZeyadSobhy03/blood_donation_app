@@ -1,12 +1,9 @@
 /// success : true
 /// message : "System health"
-/// data : {"status":"healthy","uptime":86423.51,"database":"connected","memory":{"used":"96 MB","total":"128 MB"},"timestamp":"2026-05-18T09:15:00.000Z"}
+/// data : {"status":"healthy","uptime":"0d 0h 27m","lastChecked":"2026-06-25T23:27:15.363Z","services":{"database":"online"},"memory":"36MB / 40MB","nodeVersion":"v24.14.1","platform":"linux"}
 
 class SystemHealthModel {
-  SystemHealthModel({
-      this.success, 
-      this.message, 
-      this.data,});
+  SystemHealthModel({this.success, this.message, this.data});
 
   SystemHealthModel.fromJson(dynamic json) {
     success = json['success'];
@@ -26,70 +23,74 @@ class SystemHealthModel {
     }
     return map;
   }
-
 }
 
 /// status : "healthy"
-/// uptime : 86423.51
-/// database : "connected"
-/// memory : {"used":"96 MB","total":"128 MB"}
-/// timestamp : "2026-05-18T09:15:00.000Z"
+/// uptime : "0d 0h 27m"
+/// lastChecked : "2026-06-25T23:27:15.363Z"
+/// services : {"database":"online"}
+/// memory : "36MB / 40MB"
+/// nodeVersion : "v24.14.1"
+/// platform : "linux"
 
 class Data {
   Data({
-      this.status, 
-      this.uptime, 
-      this.database, 
-      this.memory, 
-      this.timestamp,});
+    this.status,
+    this.uptime,
+    this.lastChecked,
+    this.services,
+    this.memory,
+    this.nodeVersion,
+    this.platform,
+  });
 
   Data.fromJson(dynamic json) {
     status = json['status'];
     uptime = json['uptime'];
-    database = json['database'];
-    memory = json['memory'] != null ? Memory.fromJson(json['memory']) : null;
-    timestamp = json['timestamp'];
+    lastChecked = json['lastChecked'];
+    services = json['services'] != null
+        ? Services.fromJson(json['services'])
+        : null;
+    memory = json['memory'];
+    nodeVersion = json['nodeVersion'];
+    platform = json['platform'];
   }
   String? status;
-  double? uptime;
-  String? database;
-  Memory? memory;
-  String? timestamp;
+  String? uptime;
+  String? lastChecked;
+  Services? services;
+  String? memory;
+  String? nodeVersion;
+  String? platform;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['status'] = status;
     map['uptime'] = uptime;
-    map['database'] = database;
-    if (memory != null) {
-      map['memory'] = memory?.toJson();
+    map['lastChecked'] = lastChecked;
+    if (services != null) {
+      map['services'] = services?.toJson();
     }
-    map['timestamp'] = timestamp;
+    map['memory'] = memory;
+    map['nodeVersion'] = nodeVersion;
+    map['platform'] = platform;
     return map;
   }
-
 }
 
-/// used : "96 MB"
-/// total : "128 MB"
+/// database : "online"
 
-class Memory {
-  Memory({
-      this.used, 
-      this.total,});
+class Services {
+  Services({this.database});
 
-  Memory.fromJson(dynamic json) {
-    used = json['used'];
-    total = json['total'];
+  Services.fromJson(dynamic json) {
+    database = json['database'];
   }
-  String? used;
-  String? total;
+  String? database;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['used'] = used;
-    map['total'] = total;
+    map['database'] = database;
     return map;
   }
-
 }

@@ -1,12 +1,16 @@
+
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/data/model/admin_rewards_data_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/section/add_reward_catalog_dialog.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/section/reward_item.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view_model/admin_rewards_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../core/resources/colors/color_manger.dart';
+import '../../../../../../../../core/utils/rewards_localizer.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 
 class RewardCatalogCard extends StatelessWidget {
@@ -102,17 +106,32 @@ class RewardCatalogCard extends StatelessWidget {
               separatorBuilder: (context, index) => const Divider(height: 1),
               itemBuilder: (context, index) {
                 final reward = items[index];
+                final localizedReward = localizeReward(
+                  context,
+                  rawTitle: reward.rewardName ?? '',
+                  rawDescription: '',
+                  rawStatus: reward.status,
+                  rawCategory: reward.category,
+                );
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: RewardItem(
-                    rewardName: reward.rewardName ?? '',
-                    rewardCategory: reward.category ?? '',
+                    rewardId: reward.id ?? '',
+                    rewardName: localizedReward.title,
+                    rewardCategory: localizedReward.category,
                     rewardPoints: reward.pointsRequired ?? 0,
                     rewardRedeemed: reward.redeemedCount ?? 0,
                     initialStatus: reward.status == 'ACTIVE'
                         ? RewardStatus.active
                         : RewardStatus.inactive,
                     onStatusChanged: (status) {
+                      final statusStr = status == RewardStatus.active
+                          ? 'ACTIVE'
+                          : 'INACTIVE';
+                      context.read<AdminRewardsCubit>().updateRewardStatus(
+                        rewardId: reward.id ?? '',
+                        status: statusStr,
+                      );
                     },
                   ),
                 );

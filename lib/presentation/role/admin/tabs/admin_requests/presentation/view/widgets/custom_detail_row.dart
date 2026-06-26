@@ -21,8 +21,10 @@ class CustomDetailRow extends StatelessWidget {
         children: [
           CustomText(text: label,
               textStyle: TextStyle(fontSize: 14, color: Colors.grey.shade700)),
-          CustomText(text: value,
-              textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+          Expanded(
+            child: CustomText(text: value,
+                textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+          ),
         ],
       ),
     );

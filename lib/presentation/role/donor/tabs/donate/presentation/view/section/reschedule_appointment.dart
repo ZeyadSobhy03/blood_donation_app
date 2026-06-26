@@ -85,7 +85,7 @@ class _RescheduleDialogState extends State<RescheduleDialog> {
     };
 
     cubit.rescheduleAppointment(
-      appointmentId: widget.appointment.id!,
+      appointmentId: widget.appointment.appointmentId!,
       appointmentDate: dateString,
       donationType: donationTypeMap[selectedDonationType!]!,
       notes: widget.appointment.notes ?? '',

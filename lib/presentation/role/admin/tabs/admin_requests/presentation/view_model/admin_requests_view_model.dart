@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/data/model/admin_request_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -48,7 +51,8 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
     } on UnauthorizedException catch (e) {
       emit(AdminRequestsErrorState(e.message ?? 'unauthorized'));
     } on ServerException catch (e) {
-      emit(AdminRequestsErrorState(e.serverMessage ?? 'server_error'));
+      log('ServerException: ${e.serverMessage}');
+      emit(AdminRequestsErrorState(mapServerErrorToKey(e.serverMessage)));
     } on NotFoundException {
       emit(AdminRequestsErrorState('not_found'));
     } on RequestCancelledException {
@@ -120,7 +124,7 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
       );
 
       if (result.success == true) {
-        _removeRequestById(requestId);
+        _removeRequestById(requestId, markedFulfilled: true);
         emit(AdminRequestActionSuccessState(
           requestId: requestId,
           action: AdminRequestAction.markAsFulfilled,
@@ -199,7 +203,7 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
 
 
   Future<void> broadcastRequest({required String requestId}) async {
-    if (_currentModel == null) return;
+   // if (_currentModel == null) return;
 
     emit(AdminRequestActionInProgressState(
       requestId: requestId,
@@ -252,7 +256,7 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
     ));
   }
 
-  void _removeRequestById(String requestId) {
+  void _removeRequestById(String requestId, {bool markedFulfilled = false}) {
     final requests = _currentModel?.data?.requests;
     if (requests == null) return;
 
@@ -261,6 +265,13 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
     final currentTotal = _currentModel?.data?.total;
     if (currentTotal != null && currentTotal > 0) {
       _currentModel?.data?.total = currentTotal - 1;
+    }
+
+    if (markedFulfilled) {
+      final stats = _currentModel?.data?.stats;
+      if (stats?.byStatus != null) {
+        stats!.byStatus!.completed = (stats.byStatus!.completed ?? 0) + 1;
+      }
     }
 
     _updateLastPageFlag();
@@ -324,7 +335,6 @@ class AdminRequestActionSuccessState extends AdminRequestsState {
   });
 }
 
-/// Emitted when a per-request action fails.
 class AdminRequestActionErrorState extends AdminRequestsState {
   final String requestId;
   final AdminRequestAction action;

@@ -5,6 +5,7 @@ import 'package:blood_donation_app/presentation/onboarding/model/onboarding_mode
 import 'package:blood_donation_app/presentation/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_ce/hive.dart';
 
 import '../../l10n/app_localizations.dart';
 
@@ -174,7 +175,9 @@ class OnboardingPages extends StatelessWidget {
           ),
         ),
       ],
-      onDone: () {
+      onDone: () async {
+        final box = Hive.box('app_settings');
+        await box.put('has_seen_onboarding', true);
         Navigator.pushNamed(context, RouteManger.chooseRole);
       },
     );

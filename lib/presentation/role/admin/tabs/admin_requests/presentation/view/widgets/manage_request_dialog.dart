@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/utils/request_status_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/request_header.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +42,7 @@ class _ManageRequestDialogState extends State<ManageRequestDialog> {
   }
 
   void _showFeedback(String message, {bool isError = false}) {
+    log('Feedback: $message, isError: $isError');
     setState(() {
       _feedbackMessage = message;
       _isError = isError;
@@ -111,6 +115,7 @@ class _ManageRequestDialogState extends State<ManageRequestDialog> {
 
   @override
   Widget build(BuildContext context) {
+    log('Building ManageRequestDialog for request ID: ${widget.request.id}');
     final appLocalizations = AppLocalizations.of(context)!;
     final bool isCritical = _urgencyLevel.toLowerCase() == 'critical';
 
@@ -121,7 +126,8 @@ class _ManageRequestDialogState extends State<ManageRequestDialog> {
       listener: (context, state) {
         if (state is AdminRequestActionSuccessState &&
             state.requestId == widget.request.id) {
-          _showFeedback(state.message);
+          log('Success for request ID ${widget.request.id}: ${state.message}');
+          _showFeedback(RequestStatusLocalizer.localizeStatus(state.message, appLocalizations), isError: false);
 
           if (state.action == AdminRequestAction.markAsFulfilled ||
               state.action == AdminRequestAction.cancel) {
@@ -133,6 +139,7 @@ class _ManageRequestDialogState extends State<ManageRequestDialog> {
 
         if (state is AdminRequestActionErrorState &&
             state.requestId == widget.request.id) {
+          log('Error for request ID ${widget.request.id}: ${state.errorMessage}');
           _showFeedback(state.errorMessage, isError: true);
         }
       },
@@ -246,7 +253,7 @@ class _ManageRequestDialogState extends State<ManageRequestDialog> {
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
-                                  _feedbackMessage!,
+                                  _feedbackMessage??'',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: _isError

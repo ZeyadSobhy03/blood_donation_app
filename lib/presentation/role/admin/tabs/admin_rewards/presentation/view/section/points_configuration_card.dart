@@ -1,16 +1,22 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/section/add_reward_dialog.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/section/points_configuration_header.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/widgets/custom_reward_tile.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view_model/admin_rewards_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
+import '../../../data/model/admin_rewards_data_model.dart';
 
 class PointsConfigurationCard extends StatefulWidget {
-  const PointsConfigurationCard({super.key});
+  const PointsConfigurationCard({super.key, required this.items});
+
+  final List<Items> items;
 
   @override
   State<PointsConfigurationCard> createState() => _PointsConfigurationCardState();
@@ -19,52 +25,34 @@ class PointsConfigurationCard extends StatefulWidget {
 class _PointsConfigurationCardState extends State<PointsConfigurationCard> {
   bool _isEditing = false;
 
-  final List<Map<String, dynamic>> _rewardsData = [
-    {
-      'rewardName': 'Free Health Checkup',
-      'rewardSubtitle': 'Voucher',
-      'pointsRedeemed': 120,
-      'iconData': Icons.card_giftcard,
-      'iconColor': ColorManger.brightPurple,
-    },
-    {
-      'rewardName': 'Blood Donor T-Shirt',
-      'rewardSubtitle': 'Merchandise',
-      'pointsRedeemed': 95,
-      'iconData': Icons.bloodtype,
-      'iconColor': ColorManger.brightRed,
-    },
-    {
-      'rewardName': 'Pharmacy Discount',
-      'rewardSubtitle': '15% Off',
-      'pointsRedeemed': 80,
-      'iconData': Icons.local_pharmacy,
-      'iconColor': ColorManger.green,
-    },
-    {
-      'rewardName': 'Gym Membership',
-      'rewardSubtitle': '1 Month',
-      'pointsRedeemed': 60,
-      'iconData': Icons.fitness_center,
-      'iconColor': ColorManger.orange,
-    },
-    {
-      'rewardName': 'Coffee Shop Voucher',
-      'rewardSubtitle': 'Free Drink',
-      'pointsRedeemed': 45,
-      'iconData': Icons.local_cafe,
-      'iconColor': ColorManger.lightAmber,
-    },
-  ];
-
   late List<TextEditingController> _controllers;
 
   @override
   void initState() {
     super.initState();
-    _controllers = _rewardsData
-        .map((r) => TextEditingController(text: r['pointsRedeemed'].toString()))
+    _initControllers();
+  }
+
+  void _initControllers() {
+    _controllers = widget.items
+        .map((item) => TextEditingController(
+              text: (item.pointsRequired ?? 0).toString(),
+            ))
         .toList();
+  }
+
+  @override
+  void didUpdateWidget(covariant PointsConfigurationCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.items != widget.items) {
+      for (final c in _controllers) {
+        c.dispose();
+      }
+      _initControllers();
+      if (_isEditing) {
+        setState(() => _isEditing = false);
+      }
+    }
   }
 
   @override
@@ -80,22 +68,28 @@ class _PointsConfigurationCardState extends State<PointsConfigurationCard> {
   }
 
   void _cancelEdit() {
-    for (int i = 0; i < _rewardsData.length; i++) {
-      _controllers[i].text = _rewardsData[i]['pointsRedeemed'].toString();
+    for (int i = 0; i < widget.items.length; i++) {
+      _controllers[i].text = (widget.items[i].pointsRequired ?? 0).toString();
     }
     setState(() => _isEditing = false);
   }
 
   void _saveChanges() {
-    setState(() {
-      for (int i = 0; i < _rewardsData.length; i++) {
-        final parsed = int.tryParse(_controllers[i].text);
-        if (parsed != null) {
-          _rewardsData[i]['pointsRedeemed'] = parsed;
-        }
+    final List<Map<String, dynamic>> updates = [];
+    for (int i = 0; i < widget.items.length; i++) {
+      final parsed = int.tryParse(_controllers[i].text);
+      if (parsed != null && parsed != widget.items[i].pointsRequired) {
+        updates.add({
+          'rewardId': widget.items[i].id ?? '',
+          'pointsRequired': parsed,
+        });
       }
-      _isEditing = false;
-    });
+    }
+
+    if (updates.isNotEmpty) {
+      context.read<AdminRewardsCubit>().updateRewardPoints(updates: updates);
+    }
+    setState(() => _isEditing = false);
   }
 
   Future<void> _openAddRewardDialog() async {
@@ -104,122 +98,169 @@ class _PointsConfigurationCardState extends State<PointsConfigurationCard> {
       builder: (context) => const AddRewardDialog(),
     );
 
-    if (result == null) return;
+    if (result == null || !mounted) return;
 
-    setState(() {
-      _rewardsData.add({
-        'rewardName': result.rewardName,
-        'rewardSubtitle': result.rewardSubtitle,
-        'pointsRedeemed': result.pointsRedeemed,
+    context.read<AdminRewardsCubit>().createReward(
+      rewardName: result.rewardName,
+      rewardSubtitle: result.rewardSubtitle,
+      category: result.rewardSubtitle,
+      status: 'ACTIVE',
+      pointsRequired: result.pointsRedeemed,
+    );
+  }
 
-        'iconData': Icons.card_giftcard,
-        'iconColor': ColorManger.brightPurple,
-      });
-      _controllers.add(
-        TextEditingController(text: result.pointsRedeemed.toString()),
-      );
-    });
+  IconData _categoryIcon(String? category) {
+    switch (category?.toUpperCase()) {
+      case 'FOOD':
+        return Icons.local_cafe;
+      case 'ENTERTAINMENT':
+        return Icons.movie;
+      case 'HEALTH':
+        return Icons.card_giftcard;
+      case 'MERCHANDISE':
+        return Icons.bloodtype;
+      case 'FITNESS':
+        return Icons.fitness_center;
+      default:
+        return Icons.card_giftcard;
+    }
+  }
+
+  Color _categoryColor(String? category) {
+    switch (category?.toUpperCase()) {
+      case 'FOOD':
+        return ColorManger.lightAmber;
+      case 'ENTERTAINMENT':
+        return ColorManger.brightPurple;
+      case 'HEALTH':
+        return ColorManger.green;
+      case 'MERCHANDISE':
+        return ColorManger.brightRed;
+      case 'FITNESS':
+        return ColorManger.orange;
+      default:
+        return ColorManger.brightPurple;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
 
-    return Card(
-      color: ColorManger.pureWhite,
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(
-          color: ColorManger.lightPurple.withValues(alpha: 0.7),
-          width: 1.1,
+    return BlocListener<AdminRewardsCubit, AdminRewardsState>(
+      listener: (context, state) {
+        if (state is AdminRewardsPointsUpdateSuccessState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(loc.updateSuccess)),
+          );
+          context.read<AdminRewardsCubit>().getAdminRewardsData();
+        } else if (state is AdminRewardsCreateSuccessState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(loc.operationSuccessful)),
+          );
+          context.read<AdminRewardsCubit>().getAdminRewardsData();
+        } else if (state is AdminRewardsErrorState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(localizeError(state.error, loc))),
+          );
+        }
+      },
+      child: Card(
+        color: ColorManger.pureWhite,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(
+            color: ColorManger.lightPurple.withValues(alpha: 0.7),
+            width: 1.1,
+          ),
         ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            PointsConfigurationHeader(
-              isEditing: _isEditing,
-              onEditPressed: _enterEditMode,
-              onAddPressed: _openAddRewardDialog,
-            ),
-            const SizedBox(height: 16),
-            ListView.builder(
-              itemCount: _rewardsData.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                final reward = _rewardsData[index];
-
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: CustomRewardTile(
-                    rewardName: reward['rewardName'] as String,
-                    rewardSubtitle: reward['rewardSubtitle'] as String,
-                    pointsRedeemed: reward['pointsRedeemed'] as int,
-                    prefixWidget: Icon(
-                      reward['iconData'] as IconData,
-                      color: reward['iconColor'] as Color,
-                      size: 24,
-                    ),
-                    label: loc.points,
-                    isEditing: _isEditing,
-                    pointsController: _controllers[index],
-                  ),
-                );
-              },
-            ),
-            if (_isEditing) ...[
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              PointsConfigurationHeader(
+                isEditing: _isEditing,
+                onEditPressed: _enterEditMode,
+                onAddPressed: _openAddRewardDialog,
+              ),
               const SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(
-                    child: CustomElevatedButton(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),
-                        side: BorderSide(color: ColorManger.slateGrey.withValues(alpha: 0.4)),
+              ListView.builder(
+                itemCount: widget.items.length,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  final reward = widget.items[index];
 
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CustomRewardTile(
+                      rewardName: reward.rewardName ?? '',
+                      rewardSubtitle: reward.category ?? '',
+                      pointsRedeemed: reward.pointsRequired ?? 0,
+                      prefixWidget: Icon(
+                        _categoryIcon(reward.category),
+                        color: _categoryColor(reward.category),
+                        size: 24,
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                      onPressed: _cancelEdit,
-                      elevation: 0,
-                      backgroundColor: ColorManger.pureWhite,
-                      foregroundColor: ColorManger.black,
-                      child: CustomText(
-                        text: loc.cancel,
-                        textStyle: TextStyle(
-                          color: ColorManger.black,
-                          fontSize: FontSize.s12,
-                          fontWeight: FontWeightManager.semiBold,
+                      label: loc.points,
+                      isEditing: _isEditing,
+                      pointsController: _controllers[index],
+                    ),
+                  );
+                },
+              ),
+              if (_isEditing) ...[
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomElevatedButton(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(color: ColorManger.slateGrey.withValues(alpha: 0.4)),
+
                         ),
-                      ),),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: CustomElevatedButton(
-                        backgroundColor: ColorManger.brightPurple,
-                        foregroundColor: ColorManger.pureWhite,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                        onPressed: _saveChanges,
+                        onPressed: _cancelEdit,
+                        elevation: 0,
+                        backgroundColor: ColorManger.pureWhite,
+                        foregroundColor: ColorManger.black,
                         child: CustomText(
-                          text: loc.save,
+                          text: loc.cancel,
                           textStyle: TextStyle(
-                            color: ColorManger.pureWhite,
+                            color: ColorManger.black,
                             fontSize: FontSize.s12,
                             fontWeight: FontWeightManager.semiBold,
                           ),
-                        )
+                        ),),
                     ),
-                  )
-                ],
-              ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: CustomElevatedButton(
+                          backgroundColor: ColorManger.brightPurple,
+                          foregroundColor: ColorManger.pureWhite,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                          onPressed: _saveChanges,
+                          child: CustomText(
+                            text: loc.save,
+                            textStyle: TextStyle(
+                              color: ColorManger.pureWhite,
+                              fontSize: FontSize.s12,
+                              fontWeight: FontWeightManager.semiBold,
+                            ),
+                          )
+                      ),
+                    )
+                  ],
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
   }
-}
+}

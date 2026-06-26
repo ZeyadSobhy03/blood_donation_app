@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:blood_donation_app/core/extension/data_ex.dart';
 import 'package:blood_donation_app/core/resources/models/system_status.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
@@ -7,7 +10,6 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 import '../../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../view_model/system_health/system_health_view_model.dart';
@@ -16,11 +18,11 @@ class SystemHealthCheckDialog extends StatefulWidget {
   const SystemHealthCheckDialog({super.key});
 
   @override
-  State<SystemHealthCheckDialog> createState() => _SystemHealthCheckDialogState();
+  State<SystemHealthCheckDialog> createState() =>
+      _SystemHealthCheckDialogState();
 }
 
 class _SystemHealthCheckDialogState extends State<SystemHealthCheckDialog> {
-
   @override
   void initState() {
     super.initState();
@@ -49,45 +51,46 @@ class _SystemHealthCheckDialogState extends State<SystemHealthCheckDialog> {
     }
   }
 
-  List<SystemStatus> _buildStatusList(
-      BuildContext context,
-      Data data,
-      ) {
+  List<SystemStatus> _buildStatusList(BuildContext context, Data data) {
     final appLocalization = AppLocalizations.of(context)!;
 
-    final dbType = data.database == 'connected'
+    final dbStatus = data.services?.database?.toLowerCase() ?? 'offline';
+    final dbType = dbStatus == 'online'
         ? SystemStatusType.health
         : SystemStatusType.warning;
 
-    final serverType = data.status == 'healthy'
+    final serverType = (data.status?.toLowerCase() == 'healthy')
         ? SystemStatusType.health
         : SystemStatusType.warning;
 
     final memoryType = SystemStatusType.health;
+    final notificationStatus = SystemStatusType.warning;
 
-    final uptimeHours = data.uptime != null
-        ? '${(data.uptime! / 3600).toStringAsFixed(1)}h uptime'
-        : appLocalization.uptime99_9;
+    final uptimeText = data.uptime ?? appLocalization.uptime99_9;
 
-    final memoryText = (data.memory?.used != null && data.memory?.total != null)
-        ? '${data.memory!.used} / ${data.memory!.total}'
-        : appLocalization.usedStorage;
+    final memoryText = data.memory ?? appLocalization.usedStorage;
+
+    final lastCheckedText = data.lastChecked != null
+        ? 'Last checked: ${data.lastChecked}'
+        : appLocalization.responseTime45ms;
 
     return [
       SystemStatus(
         title: appLocalization.databaseConnection,
-        subtitle: data.database ?? appLocalization.responseTime45ms,
+        subtitle:
+            '${data.services?.database ?? 'Unknown'} - ${lastCheckedText.toFormattedDate()}.',
         type: dbType,
       ),
       SystemStatus(
         title: appLocalization.apiServer,
-        subtitle: uptimeHours,
+        subtitle: 'Status: ${data.status ?? 'Unknown'} | Uptime: $uptimeText',
         type: serverType,
       ),
       SystemStatus(
         title: appLocalization.notificationService,
-        type: SystemStatusType.warning,
-        subtitle: appLocalization.queue12Pending,
+        type: notificationStatus,
+        subtitle:
+            'Node: ${data.nodeVersion ?? 'N/A'} | Platform: ${data.platform ?? 'N/A'}',
       ),
       SystemStatus(
         title: appLocalization.gpsServices,
@@ -97,7 +100,7 @@ class _SystemHealthCheckDialogState extends State<SystemHealthCheckDialog> {
       SystemStatus(
         title: appLocalization.storage,
         type: memoryType,
-        subtitle: memoryText,
+        subtitle: 'Memory: $memoryText',
       ),
     ];
   }
@@ -127,7 +130,6 @@ class _SystemHealthCheckDialogState extends State<SystemHealthCheckDialog> {
                 ),
                 const SizedBox(height: 20),
 
-                // ─── BlocBuilder ──────────────────────────────────────
                 BlocBuilder<SystemHealthCubit, SystemHealthState>(
                   builder: (context, state) {
                     if (state is SystemHealthLoadingState) {
@@ -140,13 +142,17 @@ class _SystemHealthCheckDialogState extends State<SystemHealthCheckDialog> {
                     }
 
                     if (state is SystemHealthErrorState) {
+                      log('SystemHealthErrorState: ${state.errorKey}');
                       return Center(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 40),
                           child: Column(
                             children: [
-                              Icon(Icons.error_outline,
-                                  color: ColorManger.orange, size: 40),
+                              Icon(
+                                Icons.error_outline,
+                                color: ColorManger.orange,
+                                size: 40,
+                              ),
                               const SizedBox(height: 8),
                               Text(
                                 state.errorKey,
@@ -170,7 +176,8 @@ class _SystemHealthCheckDialogState extends State<SystemHealthCheckDialog> {
                         itemCount: statusList.length,
                         itemBuilder: (context, index) {
                           final item = statusList[index];
-                          final statusText = item.type == SystemStatusType.health
+                          final statusText =
+                              item.type == SystemStatusType.health
                               ? appLocalization.healthy
                               : appLocalization.warning;
                           final bgColor = getStatusBgColor(item.type);
@@ -200,10 +207,13 @@ class _SystemHealthCheckDialogState extends State<SystemHealthCheckDialog> {
                         elevation: 0,
                         backgroundColor: ColorManger.pureWhite,
                         foregroundColor: ColorManger.black,
-                        onPressed: () =>
-                            context.read<SystemHealthCubit>().fetchSystemHealth(),
+                        onPressed: () => context
+                            .read<SystemHealthCubit>()
+                            .fetchSystemHealth(),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 10),
+                          horizontal: 20,
+                          vertical: 10,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                           side: BorderSide(color: ColorManger.lightGrey),
@@ -226,11 +236,13 @@ class _SystemHealthCheckDialogState extends State<SystemHealthCheckDialog> {
                         foregroundColor: ColorManger.pureWhite,
                         onPressed: () => Navigator.pop(context),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 10),
+                          horizontal: 20,
+                          vertical: 10,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        child: CustomText(text: appLocalization.completeCheck),
+                        child: CustomText(text: appLocalization.cancel),
                       ),
                     ),
                   ],

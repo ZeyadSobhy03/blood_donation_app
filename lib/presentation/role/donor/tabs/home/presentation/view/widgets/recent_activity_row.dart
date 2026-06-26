@@ -30,29 +30,31 @@ class RecentActivityRow extends StatelessWidget {
             decoration: BoxDecoration(shape: BoxShape.circle, color: color),
           ),
           SizedBox(width: 12.w),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomText(
-                text: title,
-                textStyle: TextStyle(
-                  color: ColorManger.black,
-                  height: 1.4,
-                  fontSize: FontSize.s16,
-                  fontWeight: FontWeightManager.regular,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                  text: title,
+                  textStyle: TextStyle(
+                    color: ColorManger.black,
+                    height: 1.4,
+                    fontSize: FontSize.s16,
+                    fontWeight: FontWeightManager.regular,
+                  ),
                 ),
-              ),
-              SizedBox(height: 4.h),
-              CustomText(
-                text: subTitle,
-                textStyle: TextStyle(
-                  color: ColorManger.slateGrey,
-                  height: 1.4,
-                  fontSize: FontSize.s14,
-                  fontWeight: FontWeightManager.regular,
+                SizedBox(height: 4.h),
+                CustomText(
+                  text: subTitle,
+                  textStyle: TextStyle(
+                    color: ColorManger.slateGrey,
+                    height: 1.4,
+                    fontSize: FontSize.s14,
+                    fontWeight: FontWeightManager.regular,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Spacer(),
           Container(

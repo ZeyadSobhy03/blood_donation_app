@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:blood_donation_app/presentation/authentication/admin_authentication/presentation/view_model/admin_auth_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_ce/hive.dart';
 import '../../core/resources/assets_manger/assets_manger.dart';
 import '../../core/resources/colors/color_manger.dart';
 import '../../core/resources/fonts/font_manger.dart';
@@ -72,9 +73,17 @@ class _SplashScreenState extends State<SplashScreen>
   Future<void> _initializeApp() async {
     try {
       await Future.delayed(const Duration(milliseconds: 500));
+      final box = Hive.box('app_settings');
+      final hasSeenOnboarding = box.get('has_seen_onboarding', defaultValue: false);
+      if (!hasSeenOnboarding) {
+        await Future.delayed(const Duration(seconds: 3));
+        if (!mounted) return;
+        Navigator.pushReplacementNamed(context, RouteManger.onboarding);
+        return;
+      }
 
       final authCubit = context.read<AuthCubit>();
-      final adminCubit=context.read<AdminAuthCubit>();
+      final adminCubit = context.read<AdminAuthCubit>();
 
       log('Checking if user is logged in...');
       final donorIsLoggedIn = await authCubit.isUserLoggedIn();
@@ -84,13 +93,13 @@ class _SplashScreenState extends State<SplashScreen>
 
       if (donorIsLoggedIn || adminIsLoggedIn) {
         final donorRole = await authCubit.validateToken();
-        final adminRole=await adminCubit.validateToken();
+        final adminRole = await adminCubit.validateToken();
         final role = donorRole ?? adminRole;
         log('User role: $donorRole');
-          log('Admin role: $adminRole');
+        log('Admin role: $adminRole');
 
         if (role != null) {
-          if (role.toLowerCase() == 'admin' || role.toLowerCase()=='superadmin') {
+          if (role.toLowerCase() == 'admin' || role.toLowerCase() == 'superadmin') {
             await adminCubit.getMe();
           } else {
             await authCubit.getMe();

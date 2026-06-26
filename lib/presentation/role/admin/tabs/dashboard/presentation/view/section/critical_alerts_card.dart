@@ -97,6 +97,8 @@ class _CriticalAlertsState extends State<CriticalAlerts> {
                     itemCount: alerts.length,
                     itemBuilder: (context, index) {
                       final alert = alerts[index];
+
+
                       final normalizedType =
                           AlertStatus.normalizeType(alert.type ?? '');
 

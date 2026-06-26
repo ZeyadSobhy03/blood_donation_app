@@ -16,35 +16,38 @@ class QuickActionButton extends StatelessWidget {
   final Color backgroundColor;
   final Color foregroundColor;
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
 
   @override
   Widget build(BuildContext context) {
-    return CustomElevatedButton(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(
-          color: backgroundColor == Colors.transparent
-              ? ColorManger.slateGrey.withValues(alpha: 0.3)
-              : ColorManger.lightGrey.withValues(alpha: 0.65),
-          width: 1.1,
+    return SizedBox(
+      width: double.infinity,
+      child: CustomElevatedButton(
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(
+            color: backgroundColor == Colors.transparent
+                ? ColorManger.slateGrey.withValues(alpha: 0.3)
+                : ColorManger.lightGrey.withValues(alpha: 0.65),
+            width: 1.1,
+          ),
         ),
-      ),
-      padding: const EdgeInsets.symmetric(
-        vertical: 14,
-        horizontal: 20,
-      ),
-      backgroundColor: backgroundColor,
-      foregroundColor: foregroundColor,
-      onPressed: onPressed,
-      child: CustomText(
-        text: text,
-        textStyle: TextStyle(
-          color: foregroundColor,
-          fontSize: FontSize.s14,
-          fontWeight: FontWeightManager.semiBold,
+        padding: const EdgeInsets.symmetric(
+          vertical: 14,
+          horizontal: 20,
+        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        onPressed: onPressed,
+        child: CustomText(
+          text: text,
+          textStyle: TextStyle(
+            color: foregroundColor,
+            fontSize: FontSize.s14,
+            fontWeight: FontWeightManager.semiBold,
+          ),
         ),
       ),
     );

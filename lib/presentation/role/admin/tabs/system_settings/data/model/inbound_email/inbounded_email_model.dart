@@ -1,6 +1,6 @@
 /// success : true
 /// message : "Inbound emails retrieved successfully"
-/// data : {"inboundEmails":[{"_id":"66f700000000000000000001","provider":"resend","from":"donor.followup@lifelink.demo","to":["support@lifelink.demo"],"subject":"Donation follow-up","isRead":false,"isArchived":false,"receivedAt":"2026-05-18T08:30:00.000Z"}],"pagination":{"total":1,"page":1,"limit":20,"totalPages":1,"hasNextPage":false,"hasPrevPage":false}}
+/// data : {"inboundEmails":[{"_id":"66f700000000000000000001","provider":"resend","from":"donor.followup@lifelink.demo","to":["support@lifelink.demo"],"subject":"Donation follow-up","isRead":false,"isArchived":false,"receivedAt":"2026-05-18T08:30:00.000Z"}],"supportTickets":[{"_id":"670000000000000000000001","userId":"670000000000000000000000","fullName":"Mohamed Yaser","email":"donor@example.com","role":"donor","subject":"Need help with reward redemption","category":"REWARDS","status":"OPEN","adminReply":null,"createdAt":"2026-05-24T16:24:00.000Z"}],"pagination":{"total":1,"page":1,"limit":20,"totalPages":1,"hasNextPage":false,"hasPrevPage":false}}
 
 class InboundedEmailModel {
   InboundedEmailModel({
@@ -30,11 +30,13 @@ class InboundedEmailModel {
 }
 
 /// inboundEmails : [{"_id":"66f700000000000000000001","provider":"resend","from":"donor.followup@lifelink.demo","to":["support@lifelink.demo"],"subject":"Donation follow-up","isRead":false,"isArchived":false,"receivedAt":"2026-05-18T08:30:00.000Z"}]
+/// supportTickets : [{"_id":"670000000000000000000001","userId":"670000000000000000000000","fullName":"Mohamed Yaser","email":"donor@example.com","role":"donor","subject":"Need help with reward redemption","category":"REWARDS","status":"OPEN","adminReply":null,"createdAt":"2026-05-24T16:24:00.000Z"}]
 /// pagination : {"total":1,"page":1,"limit":20,"totalPages":1,"hasNextPage":false,"hasPrevPage":false}
 
 class Data {
   Data({
       this.inboundEmails, 
+      this.supportTickets, 
       this.pagination,});
 
   Data.fromJson(dynamic json) {
@@ -44,15 +46,25 @@ class Data {
         inboundEmails?.add(InboundEmails.fromJson(v));
       });
     }
+    if (json['supportTickets'] != null) {
+      supportTickets = [];
+      json['supportTickets'].forEach((v) {
+        supportTickets?.add(SupportTickets.fromJson(v));
+      });
+    }
     pagination = json['pagination'] != null ? Pagination.fromJson(json['pagination']) : null;
   }
   List<InboundEmails>? inboundEmails;
+  List<SupportTickets>? supportTickets;
   Pagination? pagination;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     if (inboundEmails != null) {
       map['inboundEmails'] = inboundEmails?.map((v) => v.toJson()).toList();
+    }
+    if (supportTickets != null) {
+      map['supportTickets'] = supportTickets?.map((v) => v.toJson()).toList();
     }
     if (pagination != null) {
       map['pagination'] = pagination?.toJson();
@@ -101,6 +113,70 @@ class Pagination {
     map['totalPages'] = totalPages;
     map['hasNextPage'] = hasNextPage;
     map['hasPrevPage'] = hasPrevPage;
+    return map;
+  }
+
+}
+
+/// _id : "670000000000000000000001"
+/// userId : "670000000000000000000000"
+/// fullName : "Mohamed Yaser"
+/// email : "donor@example.com"
+/// role : "donor"
+/// subject : "Need help with reward redemption"
+/// category : "REWARDS"
+/// status : "OPEN"
+/// adminReply : null
+/// createdAt : "2026-05-24T16:24:00.000Z"
+
+class SupportTickets {
+  SupportTickets({
+      this.id, 
+      this.userId, 
+      this.fullName, 
+      this.email, 
+      this.role, 
+      this.subject, 
+      this.category, 
+      this.status, 
+      this.adminReply, 
+      this.createdAt,});
+
+  SupportTickets.fromJson(dynamic json) {
+    id = json['_id'];
+    userId = json['userId'];
+    fullName = json['fullName'];
+    email = json['email'];
+    role = json['role'];
+    subject = json['subject'];
+    category = json['category'];
+    status = json['status'];
+    adminReply = json['adminReply'];
+    createdAt = json['createdAt'];
+  }
+  String? id;
+  String? userId;
+  String? fullName;
+  String? email;
+  String? role;
+  String? subject;
+  String? category;
+  String? status;
+  dynamic adminReply;
+  String? createdAt;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['_id'] = id;
+    map['userId'] = userId;
+    map['fullName'] = fullName;
+    map['email'] = email;
+    map['role'] = role;
+    map['subject'] = subject;
+    map['category'] = category;
+    map['status'] = status;
+    map['adminReply'] = adminReply;
+    map['createdAt'] = createdAt;
     return map;
   }
 

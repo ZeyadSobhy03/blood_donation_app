@@ -219,6 +219,15 @@ class Catalog {
     map['totalCount'] = totalCount;
     return map;
   }
+  Catalog copyWith({
+    List<Items>? items,
+    int? totalCount,
+  }) {
+    return Catalog(
+      items: items ?? this.items,
+      totalCount: totalCount ?? this.totalCount,
+    );
+  }
 
 }
 
@@ -262,6 +271,23 @@ class Items {
     map['redeemedCount'] = redeemedCount;
     map['status'] = status;
     return map;
+  }
+  Items copyWith({
+    String? id,
+    String? rewardName,
+    String? category,
+    int? pointsRequired,
+    int? redeemedCount,
+    String? status,
+  }) {
+    return Items(
+      id: id ?? this.id,
+      rewardName: rewardName ?? this.rewardName,
+      category: category ?? this.category,
+      pointsRequired: pointsRequired ?? this.pointsRequired,
+      redeemedCount: redeemedCount ?? this.redeemedCount,
+      status: status ?? this.status,
+    );
   }
 
 }

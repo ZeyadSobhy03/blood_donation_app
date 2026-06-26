@@ -8,7 +8,9 @@ import '../../../../../../../../../core/errors/app_exceptions.dart';
 import '../../../../../../../../core/utils/error_localizer.dart';
 import '../../../data/model/appointment/rescheduled_appointment_model.dart';
 import '../../../domain/use_case/appointments/appointments_use_case.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/appointment/appointment_model.dart' as appointment_model;
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/appointment/appointment_model.dart'
+    as appointment_model;
+
 class AppointmentsCubit extends Cubit<AppointmentsState> {
   final AppointmentsUseCase appointmentsUseCase;
 
@@ -17,9 +19,8 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
   bool _hasMoreAppointments = true;
   List<Appointments> _allAppointments = [];
 
-  AppointmentsCubit({
-    required this.appointmentsUseCase,
-  }) : super(AppointmentsInitialState());
+  AppointmentsCubit({required this.appointmentsUseCase})
+    : super(AppointmentsInitialState());
 
   bool get hasMore => _hasMoreAppointments;
   int get currentPage => _currentPage;
@@ -40,7 +41,6 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
         final newAppointments = response.data?.appointments ?? [];
         _allAppointments = newAppointments;
 
-        // Check if more appointments exist based on meta data
         if (response.data?.meta != null) {
           _hasMoreAppointments = response.data!.meta!.hasNextPage ?? false;
         } else {
@@ -114,7 +114,9 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
     } on NetworkTimeoutException {
       emit(AppointmentsPaginationErrorState('network_timeout'));
     } on ServerException catch (e) {
-      emit(AppointmentsPaginationErrorState(mapServerErrorToKey(e.serverMessage)));
+      emit(
+        AppointmentsPaginationErrorState(mapServerErrorToKey(e.serverMessage)),
+      );
     } on UnauthorizedException {
       emit(AppointmentsPaginationErrorState('unauthorized'));
     } on NotFoundException {
@@ -179,12 +181,17 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
         emit(RescheduleAppointmentSuccessState(result));
         await fetchAppointments();
       } else {
-        emit(RescheduleAppointmentErrorState('failed_to_reschedule_appointment'));
+        emit(
+          RescheduleAppointmentErrorState('failed_to_reschedule_appointment'),
+        );
       }
     } on NetworkTimeoutException {
       emit(RescheduleAppointmentErrorState('network_timeout'));
     } on ServerException catch (e) {
-      emit(RescheduleAppointmentErrorState(mapServerErrorToKey(e.serverMessage)));
+      log('${e.serverMessage}');
+      emit(
+        RescheduleAppointmentErrorState(mapServerErrorToKey(e.serverMessage)),
+      );
     } on UnauthorizedException {
       emit(RescheduleAppointmentErrorState('unauthorized'));
     } on NotFoundException {

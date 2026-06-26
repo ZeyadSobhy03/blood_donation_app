@@ -9,12 +9,8 @@ import 'package:intl/intl.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
 
-
 class DonationStatusCard extends StatelessWidget {
-  const DonationStatusCard({
-    super.key,
-    required this.bloodType,
-  });
+  const DonationStatusCard({super.key, required this.bloodType});
 
   final String bloodType;
 
@@ -61,7 +57,7 @@ class DonationStatusCard extends StatelessWidget {
       case 'eligibility.donorNotEligible':
         return l10n.donorNotEligible;
 
-    // Legacy cases (keeping for backward compatibility)
+      // Legacy cases (keeping for backward compatibility)
       case 'donorEligible':
         return l10n.donorEligible;
       case 'donorOrRequestNotFound':
@@ -95,7 +91,6 @@ class DonationStatusCard extends StatelessWidget {
       case 'requestNoLongerActive':
         return l10n.requestNoLongerActive;
 
-    // Plain text error messages (localized)
       case 'Donor account is deleted or inactive':
         return l10n.donorAccountDeletedOrInactive;
       case 'Invalid donor role':
@@ -117,7 +112,7 @@ class DonationStatusCard extends StatelessWidget {
       case 'Authenticated donor ID not found in authentication token':
         return l10n.authenticatedDonorIdNotFound;
 
-    // Dynamic error messages
+      // Dynamic error messages
       default:
         if (reason.startsWith('Error validating eligibility:')) {
           return reason; // Return as-is (already contains error details)
@@ -125,6 +120,7 @@ class DonationStatusCard extends StatelessWidget {
         return reason; // Fallback: return the reason as-is
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DonationEligibilityCubit, DonationEligibilityState>(
@@ -143,14 +139,19 @@ class DonationStatusCard extends StatelessWidget {
         return Card(
           color: isEligible ? ColorManger.brightRed : const Color(0xFFD32F2F),
           elevation: 6,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
           child: LayoutBuilder(
             builder: (context, constraints) {
               double minWidth = 300;
               double maxWidth = constraints.maxWidth;
 
               return ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: maxWidth, minWidth: minWidth),
+                constraints: BoxConstraints(
+                  maxWidth: maxWidth,
+                  minWidth: minWidth,
+                ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                   child: Column(
@@ -179,7 +180,9 @@ class DonationStatusCard extends StatelessWidget {
                                       height: 8,
                                       width: 8,
                                       decoration: BoxDecoration(
-                                        color: isEligible ? ColorManger.green : Colors.orange,
+                                        color: isEligible
+                                            ? ColorManger.green
+                                            : Colors.orange,
                                         shape: BoxShape.circle,
                                       ),
                                     ),
@@ -192,7 +195,8 @@ class DonationStatusCard extends StatelessWidget {
                                         textStyle: TextStyle(
                                           color: ColorManger.pureWhite,
                                           fontSize: FontSize.s14,
-                                          fontWeight: FontWeightManager.semiBold,
+                                          fontWeight:
+                                              FontWeightManager.semiBold,
                                         ),
                                       ),
                                     ),
@@ -206,7 +210,9 @@ class DonationStatusCard extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.all(10),
                                 decoration: BoxDecoration(
-                                  color: ColorManger.pureWhite.withValues(alpha: 0.15),
+                                  color: ColorManger.pureWhite.withValues(
+                                    alpha: 0.15,
+                                  ),
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(
@@ -228,7 +234,9 @@ class DonationStatusCard extends StatelessWidget {
                                 child: CustomText(
                                   text: '$bloodType ${appLocalizations.donor}',
                                   textStyle: TextStyle(
-                                    color: isEligible ? ColorManger.brightRed : const Color(0xFFD32F2F),
+                                    color: isEligible
+                                        ? ColorManger.brightRed
+                                        : const Color(0xFFD32F2F),
                                     fontSize: FontSize.s14,
                                     fontWeight: FontWeightManager.semiBold,
                                   ),
@@ -259,12 +267,16 @@ class DonationStatusCard extends StatelessWidget {
                                   fontWeight: FontWeightManager.medium,
                                 ),
                               ),
-                              if (lastDonationDate != null && lastDonationDate.isNotEmpty) ...[
+                              if (lastDonationDate != null &&
+                                  lastDonationDate.isNotEmpty) ...[
                                 SizedBox(height: 6),
                                 CustomText(
-                                  text: '${appLocalizations.lastDonation}: ${_formatDate(lastDonationDate)}',
+                                  text:
+                                      '${appLocalizations.lastDonation}: ${_formatDate(lastDonationDate)}',
                                   textStyle: TextStyle(
-                                    color: ColorManger.pureWhite.withValues(alpha: 0.8),
+                                    color: ColorManger.pureWhite.withValues(
+                                      alpha: 0.8,
+                                    ),
                                     fontSize: FontSize.s12,
                                     fontWeight: FontWeightManager.regular,
                                   ),
@@ -283,9 +295,11 @@ class DonationStatusCard extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              if (reason != null && reason.toString().isNotEmpty) ...[
+                              if (reason != null &&
+                                  reason.toString().isNotEmpty) ...[
                                 CustomText(
-                                  text: '${appLocalizations.reason}: ${_getLocalizedReason(reason.toString(), appLocalizations)}',
+                                  text:
+                                      '${appLocalizations.reason}: ${_getLocalizedReason(reason.toString(), appLocalizations)}',
                                   textStyle: TextStyle(
                                     color: ColorManger.pureWhite,
                                     fontSize: FontSize.s12,
@@ -294,9 +308,11 @@ class DonationStatusCard extends StatelessWidget {
                                 ),
                                 SizedBox(height: 6),
                               ],
-                              if (nextEligibleDate != null && nextEligibleDate.toString().isNotEmpty) ...[
+                              if (nextEligibleDate != null &&
+                                  nextEligibleDate.toString().isNotEmpty) ...[
                                 CustomText(
-                                  text: '${appLocalizations.canDonate}: ${_formatDate(nextEligibleDate.toString())}',
+                                  text:
+                                      '${appLocalizations.canDonate}: ${_formatDate(nextEligibleDate.toString())}',
                                   textStyle: TextStyle(
                                     color: ColorManger.pureWhite,
                                     fontSize: FontSize.s12,
@@ -315,9 +331,12 @@ class DonationStatusCard extends StatelessWidget {
                                     ),
                                     SizedBox(width: 6),
                                     CustomText(
-                                      text: '⏱ ${_getDaysRemainingText(daysRemaining)}',
+                                      text:
+                                          '⏱ ${_getDaysRemainingText(daysRemaining)}',
                                       textStyle: TextStyle(
-                                        color: ColorManger.pureWhite.withValues(alpha: 0.9),
+                                        color: ColorManger.pureWhite.withValues(
+                                          alpha: 0.9,
+                                        ),
                                         fontSize: FontSize.s12,
                                         fontWeight: FontWeightManager.semiBold,
                                       ),
@@ -325,12 +344,16 @@ class DonationStatusCard extends StatelessWidget {
                                   ],
                                 ),
                               ],
-                              if (lastDonationDate != null && lastDonationDate.isNotEmpty) ...[
+                              if (lastDonationDate != null &&
+                                  lastDonationDate.isNotEmpty) ...[
                                 SizedBox(height: 6),
                                 CustomText(
-                                  text: '${appLocalizations.lastDonation}: ${_formatDate(lastDonationDate)}',
+                                  text:
+                                      '${appLocalizations.lastDonation}: ${_formatDate(lastDonationDate)}',
                                   textStyle: TextStyle(
-                                    color: ColorManger.pureWhite.withValues(alpha: 0.8),
+                                    color: ColorManger.pureWhite.withValues(
+                                      alpha: 0.8,
+                                    ),
                                     fontSize: FontSize.s12,
                                     fontWeight: FontWeightManager.regular,
                                   ),

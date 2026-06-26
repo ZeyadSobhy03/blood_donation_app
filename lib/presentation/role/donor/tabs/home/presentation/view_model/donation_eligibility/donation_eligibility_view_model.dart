@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/donation_eligibility/donation_eligibility_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/donation_eligibility/participation_preference_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/domain/use_case/donation_eligibility/donation_eligibility_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,13 +13,13 @@ class DonationEligibilityCubit extends Cubit<DonationEligibilityState> {
   bool get currentParticipation => _currentParticipation;
 
   DonationEligibilityCubit(this.donationEligibilityUseCase)
-      : super(DonationEligibilityInitial());
+    : super(DonationEligibilityInitial());
 
   Future<void> fetchDonationEligibility() async {
     emit(DonationEligibilityLoading());
     try {
-      final donationEligibilityModel =
-      await donationEligibilityUseCase.fetchDonationEligibility();
+      final donationEligibilityModel = await donationEligibilityUseCase
+          .fetchDonationEligibility();
       _currentParticipation =
           donationEligibilityModel.data?.participationEnabled ?? false;
       emit(DonationEligibilitySuccess(donationEligibilityModel));
@@ -42,13 +43,15 @@ class DonationEligibilityCubit extends Cubit<DonationEligibilityState> {
   Future<void> setParticipation({required bool participation}) async {
     final currentState = state;
     if (currentState is DonationEligibilitySuccess) {
-      emit(DonationEligibilityParticipationLoading(
-        donationEligibilityModel: currentState.donationEligibilityModel,
-      ));
+      emit(
+        DonationEligibilityParticipationLoading(
+          donationEligibilityModel: currentState.donationEligibilityModel,
+        ),
+      );
     } else {
-      emit(DonationEligibilityParticipationLoading(
-        donationEligibilityModel: null,
-      ));
+      emit(
+        DonationEligibilityParticipationLoading(donationEligibilityModel: null),
+      );
     }
 
     try {
@@ -59,23 +62,14 @@ class DonationEligibilityCubit extends Cubit<DonationEligibilityState> {
       if (result.success == true) {
         _currentParticipation = result.data?.isOptedIn ?? false;
 
-        final currentModel = (currentState is DonationEligibilitySuccess)
-            ? currentState.donationEligibilityModel
-            : null;
-
-        if (currentModel != null) {
-          final updatedModel = currentModel.copyWith(
-            data: currentModel.data?.copyWith(
-              participationEnabled: result.data?.isOptedIn ?? participation,
-            ),
-          );
-          emit(DonationEligibilityParticipationSuccess(
-            donationEligibilityModel: updatedModel,
-            message: result.message ?? 'Participation updated successfully',
-          ));
-        } else {
-          await fetchDonationEligibility();
-        }
+        emit(
+          DonationEligibilityParticipationSuccess(
+            participationPreferenceModel: result,
+            donationEligibilityModel: currentState is DonationEligibilitySuccess
+                ? currentState.donationEligibilityModel
+                : null,
+          ),
+        );
       } else {
         emit(DonationEligibilityFailure('participation_update_failed'));
       }
@@ -104,8 +98,6 @@ class DonationEligibilityCubit extends Cubit<DonationEligibilityState> {
   }
 }
 
-// ==================== States ====================
-
 sealed class DonationEligibilityState {}
 
 class DonationEligibilityInitial extends DonationEligibilityState {}
@@ -127,12 +119,12 @@ class DonationEligibilitySuccess extends DonationEligibilityState {
 }
 
 class DonationEligibilityParticipationSuccess extends DonationEligibilityState {
-  final String message;
-  final DonationEligibilityModel donationEligibilityModel;
+  final ParticipationPreferenceModel participationPreferenceModel;
+  final DonationEligibilityModel? donationEligibilityModel;
 
   DonationEligibilityParticipationSuccess({
-    required this.donationEligibilityModel,
-    this.message = 'Participation updated successfully',
+    required this.participationPreferenceModel,
+    this.donationEligibilityModel,
   });
 }
 

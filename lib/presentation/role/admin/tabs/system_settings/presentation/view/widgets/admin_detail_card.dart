@@ -32,6 +32,11 @@ class _AdminDetailCardState extends State<AdminDetailCard> {
     final appLocalization = AppLocalizations.of(context)!;
 
     return BlocBuilder<AdminProfileCubit, ProfileState>(
+      buildWhen: (previous, current) =>
+      current is ProfileLoadingState ||
+          current is ProfileInitialState ||
+          current is ProfileSuccessState ||
+          current is ProfileErrorState,
       builder: (context, state) {
         if (state is ProfileLoadingState || state is ProfileInitialState) {
           return CustomLoadingWidget(
@@ -40,9 +45,12 @@ class _AdminDetailCardState extends State<AdminDetailCard> {
         }
 
         if (state is ProfileErrorState) {
-          return CustomErrorWidget(message: localizeError(state.errorKey,appLocalization), onRetry: (){
+          return CustomErrorWidget(
+            message: localizeError(state.errorKey, appLocalization),
+            onRetry: () {
               context.read<AdminProfileCubit>().fetchAdminProfile();
-          });
+            },
+          );
         }
 
         final admin = (state as ProfileSuccessState).profile.data?.admin;
@@ -63,16 +71,9 @@ class _AdminDetailCardState extends State<AdminDetailCard> {
           },
           {
             "label": appLocalization.admin_access_key,
-            "value": admin?.role?? '-',
+            "value": admin?.adminKey ?? '-',
             "icon": Icons.key_outlined,
           },
-          // {
-          //   "label": appLocalization.department,
-          //   "value": admin?. == true
-          //       ? appLocalization.suspended
-          //       : appLocalization.active,
-          //   "icon": Icons.apartment_outlined,
-          // },
         ];
 
         return Card(
@@ -188,11 +189,10 @@ class _AdminDetailCardState extends State<AdminDetailCard> {
                           ),
                         ),
                         SizedBox(width: 8),
-
                       ],
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

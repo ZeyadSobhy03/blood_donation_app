@@ -13,10 +13,12 @@ class QuickActionsCard extends StatelessWidget {
     super.key,
     required this.onEmergencyBroadcast,
     required this.hospitalContactNumber,
+    this.isLoading = false,
   });
 
-  final VoidCallback onEmergencyBroadcast;
+  final VoidCallback? onEmergencyBroadcast;
   final String hospitalContactNumber;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -46,25 +48,47 @@ class QuickActionsCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16),
+            // Emergency Broadcast Button
             ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: 48,
+              constraints: BoxConstraints(minHeight: 48,),
+              child: Stack(
 
-              ),
-              child: QuickActionButton(
-                backgroundColor: ColorManger.royalBlue,
-                foregroundColor: ColorManger.pureWhite,
-                text: appLocalization.sendEmergencyBroadcast,
-                onPressed: () {},
+                children: [
+                  QuickActionButton(
+                    backgroundColor: ColorManger.royalBlue,
+                    foregroundColor: ColorManger.pureWhite,
+                    text: appLocalization.sendEmergencyBroadcast,
+                    onPressed: isLoading ? null : onEmergencyBroadcast,
+                  ),
+                  if (isLoading)
+                    Positioned.fill(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Center(
+                          child: SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                ColorManger.pureWhite,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ),
             SizedBox(height: 12),
+            // Contact Hospital Button
             ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: 48,
-              ),
+              constraints: BoxConstraints(minHeight: 48),
               child: QuickActionButton(
-
                 backgroundColor: ColorManger.pureWhite,
                 foregroundColor: ColorManger.black,
                 text: appLocalization.contactHospital,
@@ -74,10 +98,9 @@ class QuickActionsCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12),
+            // Close Button
             ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: 48,
-              ),
+              constraints: BoxConstraints(minHeight: 48),
               child: QuickActionButton(
                 backgroundColor: ColorManger.pureWhite,
                 foregroundColor: ColorManger.black,

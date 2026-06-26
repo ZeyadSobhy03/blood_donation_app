@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 import '../../../../../../../../core/extension/data_ex.dart';
 import '../../../../../../../../core/utils/appointment_status_utils.dart';
 import '../../../../find_hospital/presentation/view/widgets/info_row.dart';
@@ -17,10 +16,7 @@ import '../../view_model/appointments/appointments_view_model.dart';
 import '../section/reschedule_appointment.dart';
 
 class DonationBookingCard extends StatelessWidget {
-  const DonationBookingCard({
-    super.key,
-    required this.appointment,
-  });
+  const DonationBookingCard({super.key, required this.appointment});
 
   final Appointments appointment;
 
@@ -46,10 +42,7 @@ class DonationBookingCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 12,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -73,7 +66,9 @@ class DonationBookingCard extends StatelessWidget {
 
                       Container(
                         decoration: BoxDecoration(
-                          color: AppointmentStatusUtils.statusBackgroundColor(appointment.status),
+                          color: AppointmentStatusUtils.statusBackgroundColor(
+                            appointment.status,
+                          ),
                           borderRadius: BorderRadius.circular(8.r),
                         ),
                         child: Padding(
@@ -82,7 +77,10 @@ class DonationBookingCard extends StatelessWidget {
                             vertical: 4,
                           ),
                           child: CustomText(
-                            text: AppointmentStatusUtils.localizeStatus(appointment.status, appLocalization),
+                            text: AppointmentStatusUtils.localizeStatus(
+                              appointment.status,
+                              appLocalization,
+                            ),
                             textStyle: TextStyle(
                               color: ColorManger.black,
                               height: 1.4,
@@ -99,7 +97,7 @@ class DonationBookingCard extends StatelessWidget {
 
                   CustomText(
                     text:
-                    appointment.hospitalId?.hospitalName ??
+                        appointment.hospitalId?.hospitalName ??
                         appLocalization.hospitalName,
                     textStyle: TextStyle(
                       color: ColorManger.slateGrey,
@@ -114,7 +112,10 @@ class DonationBookingCard extends StatelessWidget {
                     children: [
                       InfoRow(
                         icon: Icons.calendar_month,
-                        text: appointment.appointmentDate.toFormattedDate().isNotEmpty
+                        text:
+                            appointment.appointmentDate
+                                .toFormattedDate()
+                                .isNotEmpty
                             ? appointment.appointmentDate.toFormattedDate()
                             : appLocalization.noDataFound,
                       ),
@@ -123,10 +124,7 @@ class DonationBookingCard extends StatelessWidget {
 
                   SizedBox(height: 10.h),
 
-                  Divider(
-                    color: ColorManger.brightRed,
-                    thickness: 1.h,
-                  ),
+                  Divider(color: ColorManger.brightRed, thickness: 1.h),
 
                   SizedBox(height: 10.h),
 
@@ -186,13 +184,9 @@ class DonationBookingCard extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.r),
                             ),
-                            onPressed: () => _cancelAppointment(
-                              context,
-                              appLocalization,
-                            ),
-                            child: CustomText(
-                              text: appLocalization.cancel,
-                            ),
+                            onPressed: () =>
+                                _cancelAppointment(context, appLocalization),
+                            child: CustomText(text: appLocalization.cancel),
                           ),
                         ),
 
@@ -214,9 +208,7 @@ class DonationBookingCard extends StatelessWidget {
                               context,
                               appLocalization,
                             ),
-                            child: CustomText(
-                              text: appLocalization.reschedule,
-                            ),
+                            child: CustomText(text: appLocalization.reschedule),
                           ),
                         ),
                       ],
@@ -243,9 +235,9 @@ class DonationBookingCard extends StatelessWidget {
   }
 
   void _cancelAppointment(
-      BuildContext context,
-      AppLocalizations appLocalization,
-      ) {
+    BuildContext context,
+    AppLocalizations appLocalization,
+  ) {
     if (appointment.status?.toLowerCase() == 'cancelled') {
       showDialog(
         context: context,
@@ -325,17 +317,14 @@ class DonationBookingCard extends StatelessWidget {
                 backgroundColor: ColorManger.brightRed,
                 foregroundColor: ColorManger.pureWhite,
                 elevation: 4,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20.w,
-                  vertical: 10.h,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 onPressed: () {
                   Navigator.pop(context);
                   context.read<AppointmentsCubit>().cancelAppointment(
-                    appointment.id!,
+                    appointment.appointmentId!,
                   );
                 },
                 child: CustomText(text: appLocalization.confirm),
@@ -347,10 +336,7 @@ class DonationBookingCard extends StatelessWidget {
                 backgroundColor: ColorManger.pureWhite,
                 foregroundColor: ColorManger.black,
                 elevation: 4,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20.w,
-                  vertical: 10.h,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r),
                 ),
@@ -365,9 +351,9 @@ class DonationBookingCard extends StatelessWidget {
   }
 
   void _rescheduleAppointment(
-      BuildContext context,
-      AppLocalizations appLocalization,
-      ) {
+    BuildContext context,
+    AppLocalizations appLocalization,
+  ) {
     showDialog(
       context: context,
       builder: (_) => BlocProvider.value(

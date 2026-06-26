@@ -31,7 +31,9 @@ class PrivacyAndSecurity extends StatelessWidget {
       backgroundColor: ColorManger.pureWhite,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(children: [PasswordAndSecurityCard()]),
+          child: Column(children: [PasswordAndSecurityCard(
+
+          )]),
         ),
       ),
     );

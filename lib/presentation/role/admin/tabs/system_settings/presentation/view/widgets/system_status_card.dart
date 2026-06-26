@@ -32,28 +32,30 @@ class SystemStatusCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
         child: Row(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText(
-                  text: title,
-                  textStyle: TextStyle(
-                    color: ColorManger.black,
-                    fontWeight: FontWeightManager.bold,
-                    fontSize: FontSize.s16,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomText(
+                    text: title,
+                    textStyle: TextStyle(
+                      color: ColorManger.black,
+                      fontWeight: FontWeightManager.bold,
+                      fontSize: FontSize.s16,
+                    ),
                   ),
-                ),
-                SizedBox(height: 4),
-                CustomText(
-                  text: subtitle,
-                  textStyle: TextStyle(
-                    color: ColorManger.slateGrey,
-                    fontWeight: FontWeightManager.regular,
-                    fontSize: FontSize.s12,
-                    height: 1.4,
+                  SizedBox(height: 4),
+                  CustomText(
+                    text: subtitle,
+                    textStyle: TextStyle(
+                      color: ColorManger.slateGrey,
+                      fontWeight: FontWeightManager.regular,
+                      fontSize: FontSize.s12,
+                      height: 1.4,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             Spacer(),
             Container(

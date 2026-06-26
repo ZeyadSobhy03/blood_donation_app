@@ -26,11 +26,28 @@ class Notifications extends StatefulWidget {
 class _NotificationsState extends State<Notifications> {
   List<notification_model.Notifications> _cachedNotifications = [];
   int _cachedUnreadCount = 0;
+  bool _hasNextPage = false;
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    context.read<NotificationCubit>().fetchNotifications();
+    context.read<NotificationCubit>().fetchNotifications(isRefresh: true);
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 200) {
+      context.read<NotificationCubit>().fetchNotifications();
+    }
   }
 
   String _getNotificationTitle(
@@ -68,16 +85,24 @@ class _NotificationsState extends State<Notifications> {
     }
   }
 
+  void _updateCachedData(NotificationState state) {
+    if (state is NotificationSuccessState) {
+      _cachedNotifications = state.notifications;
+      _cachedUnreadCount = state.unreadCount;
+      _hasNextPage = state.hasNextPage;
+    } else if (state is NotificationPaginationLoadingState) {
+      _cachedNotifications = state.notifications;
+      _cachedUnreadCount = state.unreadCount;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
 
     return BlocBuilder<NotificationCubit, NotificationState>(
       builder: (context, state) {
-        if (state is NotificationSuccessState) {
-          _cachedNotifications = state.notifications.data?.notifications ?? [];
-          _cachedUnreadCount = state.notifications.data?.unreadCount ?? 0;
-        }
+        _updateCachedData(state);
 
         return Scaffold(
           backgroundColor: ColorManger.pureWhite,
@@ -189,7 +214,9 @@ class _NotificationsState extends State<Notifications> {
                           backgroundColor: Colors.green,
                         ),
                       );
-                      context.read<NotificationCubit>().fetchNotifications();
+                      context.read<NotificationCubit>().fetchNotifications(
+                        isRefresh: true,
+                      );
                     } else if (allReadState is NotificationAllReadErrorState) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -262,11 +289,11 @@ class _NotificationsState extends State<Notifications> {
       return const CustomLoadingWidget();
     }
 
-    if (state is NotificationErrorState) {
+    if (state is NotificationErrorState && notificationItems.isEmpty) {
       return CustomErrorWidget(
         message: localizeError(state.message, appLocalization),
         onRetry: () {
-          context.read<NotificationCubit>().fetchNotifications();
+          context.read<NotificationCubit>().fetchNotifications(isRefresh: true);
         },
       );
     }
@@ -275,11 +302,28 @@ class _NotificationsState extends State<Notifications> {
       return Center(child: Text(appLocalization.no_notifications));
     }
 
+    final bool isLoadingMore = state is NotificationPaginationLoadingState;
+
     return Stack(
       children: [
         ListView.builder(
-          itemCount: notificationItems.length,
+          controller: _scrollController,
+          itemCount: notificationItems.length + (isLoadingMore || _hasNextPage ? 1 : 0),
           itemBuilder: (context, index) {
+            // Bottom loading indicator
+            if (index == notificationItems.length) {
+              return isLoadingMore
+                  ? const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          color: ColorManger.brightRed,
+                        ),
+                      ),
+                    )
+                  : const SizedBox.shrink();
+            }
+
             final item = notificationItems[index];
             final String type = item.type ?? 'info';
             IconData icon;

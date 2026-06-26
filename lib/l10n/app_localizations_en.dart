@@ -2119,6 +2119,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get retry => 'Retry';
 
   @override
+  String get loadMore => 'Load More';
+
+  @override
   String get adminDashboard => 'Admin Dashboard';
 
   @override
@@ -3445,9 +3448,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noAlerts => 'You have no alerts at this time.';
 
   @override
-  String get noInsightsAvailable => 'No insights available at this time.';
-
-  @override
   String get suspended => 'Suspended';
 
   @override
@@ -3564,20 +3564,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String aiPredictionDemandDecline(Object percentage) {
-    return 'Blood demand has declined $percentage% in the past week. Consider reducing scheduled drive frequency and reviewing inventory redistribution across hospitals.';
-  }
-
-  @override
-  String aiPredictionShortageCritical(
-    Object available,
-    Object bloodType,
-    Object needed,
-  ) {
-    return '$bloodType critically low — only $available donors available against $needed units needed. Launch emergency campaign within 48 hours.';
-  }
-
-  @override
   String aiPredictionShortageRisk(Object bloodType, Object ratio) {
     return '$bloodType supply at risk with a $ratio:1 demand-to-supply ratio. Proactive targeted outreach to $bloodType donors recommended this week.';
   }
@@ -3590,16 +3576,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String aiPredictionRetentionImprove(Object rate) {
     return 'Donor retention has improved to $rate% — current momentum is strong. Capitalize by introducing referral rewards to sustain growth.';
-  }
-
-  @override
-  String aiPredictionPeakDay(Object day, Object percentage) {
-    return '$day shows $percentage% higher donation activity — schedule more mobile drives and staff on this day to maximize collections.';
-  }
-
-  @override
-  String aiPredictionWeekend(Object percentage) {
-    return 'Weekend donation drives show $percentage% higher success rates compared to weekdays. Prioritize weekend scheduling for upcoming emergency campaigns.';
   }
 
   @override
@@ -4188,4 +4164,593 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get updateFailed => 'Update failed';
+
+  @override
+  String get participationAddedSuccessfully =>
+      'Participation added successfully';
+
+  @override
+  String get participationAddedFailed => 'Participation added failed';
+
+  @override
+  String get activityAddedSuccessfully => 'Activity added successfully';
+
+  @override
+  String get activityAddedFailed => 'Activity added failed';
+
+  @override
+  String get noInsightsAvailable => 'No insights available';
+
+  @override
+  String get topDonors => 'Top Donors';
+
+  @override
+  String get growth => 'Growth';
+
+  @override
+  String get isEligibleToDonate => 'Eligible to Donate';
+
+  @override
+  String get isActive => 'Active';
+
+  @override
+  String get isVerified => 'Verified';
+
+  @override
+  String get healthStatus => 'Health Status';
+
+  @override
+  String get isBanned => 'Banned';
+
+  @override
+  String get donorRank => 'Rank';
+
+  @override
+  String get memberSince => 'Member Since';
+
+  @override
+  String get hospitalContact => 'Contact';
+
+  @override
+  String get requiredBy => 'Required By';
+
+  @override
+  String get title => 'Alert';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get confidence => 'Confidence';
+
+  @override
+  String get predictMatchPercentage => 'Match Likelihood';
+
+  @override
+  String get summaryStats => 'Summary Statistics';
+
+  @override
+  String get risingDemandTrend => 'Rising Demand Trend';
+
+  @override
+  String get decliningDemand => 'Declining Demand';
+
+  @override
+  String get supplyWarning => 'Supply Warning';
+
+  @override
+  String get peakDayInsight => 'Peak Day Insight';
+
+  @override
+  String get donorRetentionAlert => 'Donor Retention Alert';
+
+  @override
+  String get donorGrowthPositive => 'Donor Growth Positive';
+
+  @override
+  String get emergencyDemandSpike => 'Emergency Demand Spike';
+
+  @override
+  String get risingDemandTrendDesc =>
+      'Blood requests are trending upward. Prepare additional resources.';
+
+  @override
+  String get decliningDemandDesc =>
+      'Blood requests are declining. Review inventory allocation.';
+
+  @override
+  String supplyWarningDesc(Object bloodType) {
+    return '$bloodType blood supply is approaching critical levels.';
+  }
+
+  @override
+  String peakDayInsightDesc(Object dayName, Object percentage) {
+    return '$dayName shows $percentage% higher donation activity. Consider scheduling more drives on this day.';
+  }
+
+  @override
+  String get donorRetentionAlertDesc =>
+      'Donor return rate has dropped significantly. Consider re-engagement campaigns.';
+
+  @override
+  String get donorGrowthPositiveDesc =>
+      'More donors are returning compared to last month. Momentum is strong.';
+
+  @override
+  String get emergencyDemandSpikeDesc =>
+      'Blood demand has surged unexpectedly in the last 3 days. Emergency response may be needed.';
+
+  @override
+  String criticalNeed(Object bloodTypes) {
+    return 'Critical need for $bloodTypes';
+  }
+
+  @override
+  String get typeCritical => 'Critical';
+
+  @override
+  String get typeWarning => 'Warning';
+
+  @override
+  String get chronicConditions => 'Chronic Conditions';
+
+  @override
+  String get booleanTrue => 'Yes';
+
+  @override
+  String get booleanFalse => 'No';
+
+  @override
+  String get monAbbr => 'Mon';
+
+  @override
+  String get tueAbbr => 'Tue';
+
+  @override
+  String get wedAbbr => 'Wed';
+
+  @override
+  String get thuAbbr => 'Thu';
+
+  @override
+  String get friAbbr => 'Fri';
+
+  @override
+  String alertTitle(String bloodTypes) {
+    return 'Critical need for $bloodTypes';
+  }
+
+  @override
+  String alertDescription(String bloodTypes) {
+    return 'Critical request for $bloodTypes blood type(s).';
+  }
+
+  @override
+  String get satAbbr => 'Sat';
+
+  @override
+  String get monday => 'Monday';
+
+  @override
+  String get tuesday => 'Tuesday';
+
+  @override
+  String get wednesday => 'Wednesday';
+
+  @override
+  String get thursday => 'Thursday';
+
+  @override
+  String get friday => 'Friday';
+
+  @override
+  String get saturday => 'Saturday';
+
+  @override
+  String get sunday => 'Sunday';
+
+  @override
+  String aiPredictionTodaySpike(String percentage) {
+    return 'Today shows a $percentage% increase in demand.';
+  }
+
+  @override
+  String aiPredictionDemandDecline(String percentage) {
+    return 'Blood demand has declined $percentage% in the past week. Consider reducing scheduled drive frequency and reviewing inventory redistribution across hospitals.';
+  }
+
+  @override
+  String aiPredictionShortageCritical(
+    String bloodType,
+    String available,
+    String needed,
+  ) {
+    return '$bloodType critically low — only $available donors available against $needed units needed. Launch emergency campaign within 48 hours.';
+  }
+
+  @override
+  String aiPredictionPeakDay(String dayName, String percentage) {
+    return '$dayName shows $percentage% higher donation activity — schedule more mobile drives and staff on this day to maximize collections.';
+  }
+
+  @override
+  String aiPredictionWeekend(String percentage) {
+    return 'Weekend donation drives show $percentage% higher success rates compared to weekdays. Prioritize weekend scheduling for upcoming emergency campaigns.';
+  }
+
+  @override
+  String get rewardCoffeeVoucher => 'Coffee Voucher';
+
+  @override
+  String get rewardCoffeeVoucherDesc => 'Free coffee at partner cafes';
+
+  @override
+  String get rewardGymMembership => 'Gym Membership';
+
+  @override
+  String get rewardPremiumBadge => 'Premium Badge';
+
+  @override
+  String get rewardHealthCheckup => 'Health Check-up';
+
+  @override
+  String get rewardRestaurantGiftCard => 'Restaurant Gift Card';
+
+  @override
+  String get rewardMovieTickets => 'Movie Tickets';
+
+  @override
+  String get rewardStatusActive => 'Active';
+
+  @override
+  String get rewardStatusInactive => 'Inactive';
+
+  @override
+  String get rewardCategoryHealth => 'Health';
+
+  @override
+  String get rewardCategoryStatus => 'Status';
+
+  @override
+  String get rewardCategoryFood => 'Food';
+
+  @override
+  String get rewardCategoryEntertainment => 'Entertainment';
+
+  @override
+  String get point => 'Point';
+
+  @override
+  String get redeemed => 'Redeemed';
+
+  @override
+  String get setRewardActive => 'Set ACTIVE';
+
+  @override
+  String get setRewardInactive => 'Set INACTIVE';
+
+  @override
+  String get profileUpdatedSuccessfully => 'Profile updated successfully';
+
+  @override
+  String get confirmEmergencyShutdown =>
+      'Are you sure you want to shut down the system immediately? All users will be disconnected.';
+
+  @override
+  String get emergencyShutdownInitiated => 'EMERGENCY SHUTDOWN INITIATED';
+
+  @override
+  String get systemRestored => 'System Restored';
+
+  @override
+  String get statusOnline => 'ONLINE';
+
+  @override
+  String get statusOffline => 'OFFLINE / MAINTENANCE';
+
+  @override
+  String get disableMaintenanceMode => 'Restore System & Disable Maintenance';
+
+  @override
+  String get system_status_updated_successfully =>
+      'System status updated successfully';
+
+  @override
+  String get auditLogs => 'Audit Logs';
+
+  @override
+  String get filterByTargetType => 'Filter by Target Type';
+
+  @override
+  String get isLoadingMore => 'Loading more logs...';
+
+  @override
+  String get noAuditLogsFound => 'No audit logs found';
+
+  @override
+  String get allTypes => 'All Types';
+
+  @override
+  String get rotate_admin_key => 'Rotate Key';
+
+  @override
+  String get rotate_admin_key_title => 'Rotate Admin Key?';
+
+  @override
+  String get rotate_admin_key_confirm_message =>
+      'This will generate a new admin key and immediately invalidate the current one. This action cannot be undone. Are you sure you want to continue?';
+
+  @override
+  String get new_admin_key_title => 'New Admin Key Generated';
+
+  @override
+  String get new_admin_key_warning =>
+      'This key is shown only once. Make sure to copy and store it securely before closing this dialog.';
+
+  @override
+  String get copied_to_clipboard => 'Copied to clipboard';
+
+  @override
+  String get auditLogsTitle => 'Audit logs';
+
+  @override
+  String get actionHospitalAdded => 'Hospital Added';
+
+  @override
+  String get actionUserBanned => 'User Banned';
+
+  @override
+  String get actionUserUnbanned => 'User Unbanned';
+
+  @override
+  String get actionUserSuspended => 'User Suspended';
+
+  @override
+  String get actionUserUnsuspended => 'User Unsuspended';
+
+  @override
+  String get actionUserDeleted => 'User Deleted';
+
+  @override
+  String get actionAdminAdded => 'Admin Added';
+
+  @override
+  String get actionMaintenanceModeUpdated => 'Maintenance Mode Updated';
+
+  @override
+  String get detailCreateHospital => 'Added hospital account';
+
+  @override
+  String detailBan(String targetId) {
+    return 'Banned user account (ID: $targetId)';
+  }
+
+  @override
+  String detailUnban(String targetId) {
+    return 'Unbanned user account (ID: $targetId)';
+  }
+
+  @override
+  String detailSuspend(String targetId) {
+    return 'Suspended user account (ID: $targetId)';
+  }
+
+  @override
+  String detailUnsuspend(String targetId) {
+    return 'Unsuspended user account (ID: $targetId)';
+  }
+
+  @override
+  String detailDelete(String targetId) {
+    return 'Soft-deleted user account (ID: $targetId)';
+  }
+
+  @override
+  String detailCreateAdmin(String targetId) {
+    return 'Created admin account (ID: $targetId)';
+  }
+
+  @override
+  String get detailMaintenance => 'Updated system maintenance mode';
+
+  @override
+  String detailDefault(String action, String targetType) {
+    return 'Performed action $action on $targetType';
+  }
+
+  @override
+  String get targetTypeUser => 'user';
+
+  @override
+  String get targetTypeRequest => 'request';
+
+  @override
+  String get targetTypeDonation => 'donation';
+
+  @override
+  String get targetTypeSystem => 'system';
+
+  @override
+  String get actionDonorUpdated => 'Donor Updated';
+
+  @override
+  String get actionHospitalUpdated => 'Hospital Updated';
+
+  @override
+  String get actionAdminUpdated => 'Admin Updated';
+
+  @override
+  String get actionAdminDeleted => 'Admin Deleted';
+
+  @override
+  String get actionAdminKeyRotated => 'Admin Key Rotated';
+
+  @override
+  String get actionProfileUpdated => 'Profile Updated';
+
+  @override
+  String get actionBadgeUpdated => 'Badge Updated';
+
+  @override
+  String get actionRewardsConfigUpdated => 'Rewards Config Updated';
+
+  @override
+  String get actionRoleCreated => 'Role Created';
+
+  @override
+  String get actionRoleUpdated => 'Role Updated';
+
+  @override
+  String get actionRoleDeleted => 'Role Deleted';
+
+  @override
+  String get actionHospitalCreated => 'Hospital Created';
+
+  @override
+  String get supportTicketsTab => 'Support Tickets';
+
+  @override
+  String get supportTicketStatus => 'Status';
+
+  @override
+  String get supportTicketCategory => 'Category';
+
+  @override
+  String get supportTicketFrom => 'From';
+
+  @override
+  String get supportTicketCreatedAt => 'Created';
+
+  @override
+  String get supportTicketReply => 'Reply';
+
+  @override
+  String get supportTicketReplyHint => 'Type your reply...';
+
+  @override
+  String get supportTicketSendReply => 'Send Reply';
+
+  @override
+  String get supportTicketStatusOpen => 'Open';
+
+  @override
+  String get supportTicketStatusClosed => 'Closed';
+
+  @override
+  String get supportTicketStatusInProgress => 'In Progress';
+
+  @override
+  String get supportTicketEmptyState => 'No support tickets';
+
+  @override
+  String get supportTicketReplySentSnack => 'Reply sent successfully';
+
+  @override
+  String get supportTicketReplyErrorSnack => 'Failed to send reply';
+
+  @override
+  String get supportTicketAdminReply => 'Admin Reply';
+
+  @override
+  String get supportTicketNoReply => 'No reply yet';
+
+  @override
+  String get actionRequestFulfilled => 'Request Fulfilled';
+
+  @override
+  String get actionRequestCancelled => 'Request Cancelled';
+
+  @override
+  String get actionRequestBroadcasted => 'Request Broadcasted';
+
+  @override
+  String detailRequestAction(Object action, Object id) {
+    return '$action (ID: $id)';
+  }
+
+  @override
+  String get earningRulesSubtitle => 'Manage your earning rules here';
+
+  @override
+  String get addRule => 'Add Rule';
+
+  @override
+  String get totalRules => 'Total Rules';
+
+  @override
+  String get activeRules => 'Active Rules';
+
+  @override
+  String get inactiveRules => 'Inactive Rules';
+
+  @override
+  String get noEarningRules => 'No Earning Rules Found';
+
+  @override
+  String get noEarningRulesSubtitle => 'Create a new rule to get started';
+
+  @override
+  String get earningRuleCategory => 'Category';
+
+  @override
+  String get editPoints => 'Edit Points';
+
+  @override
+  String get addEarningRule => 'Add Earning Rule';
+
+  @override
+  String get addEarningRuleSubtitle =>
+      'Fill in the details to create a new rule';
+
+  @override
+  String get earningRuleType => 'Rule Type';
+
+  @override
+  String get earningRuleTypeHint => 'e.g., Donation';
+
+  @override
+  String get earningRuleTitle => 'Rule Title';
+
+  @override
+  String get earningRuleTitleHint => 'e.g., First Donation';
+
+  @override
+  String get earningRulePointsHint => 'Enter points';
+
+  @override
+  String get earningRuleActiveStatus => 'Is Active';
+
+  @override
+  String get deleteEarningRuleTitle => 'Delete Earning Rule';
+
+  @override
+  String get deleteEarningRuleConfirmation =>
+      'Are you sure you want to delete this earning rule?';
+
+  @override
+  String get earningRulesTitle => 'Earning Rules';
+
+  @override
+  String get activityType => 'Activity Type';
+
+  @override
+  String detailAdminUpdated(Object id) {
+    return 'Updated admin account (ID: $id)';
+  }
+
+  @override
+  String detailAdminKeyRotated(Object id) {
+    return 'Rotated admin key (ID: $id)';
+  }
+
+  @override
+  String detailHospitalUpdated(Object id) {
+    return 'Updated hospital account (ID: $id)';
+  }
+
+  @override
+  String get broadcastSent => 'Broadcast Sent';
+
+  @override
+  String get requestFulfilled => 'Request marked as fulfilled';
 }

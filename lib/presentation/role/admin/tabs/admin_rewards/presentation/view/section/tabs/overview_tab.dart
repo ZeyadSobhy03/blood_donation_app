@@ -27,34 +27,50 @@ class _OverviewTabState extends State<OverviewTab> {
     context.read<AdminRewardsCubit>().getAdminRewardsData();
   }
 
+  Widget _buildContent(BuildContext context, Data data) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          TotalPointsCard(
+            totalPoints: data.totalPoints ?? 0,
+            percentage: data.percentageChange ?? 0,
+          ),
+          const SizedBox(height: 8),
+          ActiveTierDistributionCard(tiers: data.tiers ?? []),
+          const SizedBox(height: 8),
+          TopRedeemedRewardsCard(topRedeemed: data.topRedeemed ?? []),
+          const SizedBox(height: 8),
+          RewardCatalogCard(catalog: data.catalog ?? Catalog()),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final app = AppLocalizations.of(context)!;
     return BlocBuilder<AdminRewardsCubit, AdminRewardsState>(
+      buildWhen: (previous, current) =>
+      current is AdminRewardsSuccessState ||
+          current is AdminRewardsLoadingState ||
+          current is AdminRewardsErrorState,
       builder: (context, state) {
+        final cubit = context.read<AdminRewardsCubit>();
+
         if (state is AdminRewardsLoadingState) {
-          return CustomLoadingWidget(indicatorColor: ColorManger.brightPurple);
+          if (cubit.currentData == null) {
+            return CustomLoadingWidget(
+              indicatorColor: ColorManger.brightPurple,
+            );
+          }
+          final data = cubit.currentData!.data;
+          if (data == null) return const SizedBox.shrink();
+          return _buildContent(context, data);
         } else if (state is AdminRewardsSuccessState) {
           final data = state.adminRewardsDataModel.data;
           if (data == null) return const SizedBox.shrink();
-
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                TotalPointsCard(
-                  totalPoints: data.totalPoints ?? 0,
-                  percentage: data.percentageChange ?? 0,
-                ),
-                const SizedBox(height: 8),
-                ActiveTierDistributionCard(tiers: data.tiers ?? []),
-                const SizedBox(height: 8),
-                TopRedeemedRewardsCard(topRedeemed: data.topRedeemed ?? []),
-                const SizedBox(height: 8),
-                RewardCatalogCard(catalog: data.catalog ?? Catalog()),
-              ],
-            ),
-          );
+          return _buildContent(context, data);
         } else if (state is AdminRewardsErrorState) {
           return CustomErrorWidget(
             message: localizeError(state.error, app),

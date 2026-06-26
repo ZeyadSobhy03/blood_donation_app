@@ -5,7 +5,9 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/data/m
 import 'package:flutter/material.dart';
 
 import '../../../../../../../../core/extension/data_ex.dart';
+import '../../../../../../../../core/utils/alert_localizer.dart';
 import '../../../../../../../../core/utils/alert_status.dart';
+import '../../../../../../../../l10n/app_localizations.dart';
 
 
 
@@ -26,6 +28,13 @@ class Alert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalization = AppLocalizations.of(context)!;
+    final localizedData = localizeAlert(
+      context,
+      alertModel.title ?? '',
+      alertModel.description ?? '',
+      alertModel.type ?? appLocalization.warning,
+    );
     return InkWell(
       onTap: onTap,
 
@@ -46,7 +55,7 @@ class Alert extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
-                      text: alertModel.title ?? '',
+                      text: localizedData.title,
                       textStyle: TextStyle(
                         color: ColorManger.black,
                         fontSize: FontSize.s14,

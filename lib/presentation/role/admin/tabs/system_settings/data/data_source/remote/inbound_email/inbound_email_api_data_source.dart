@@ -4,6 +4,7 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/model/inbound_email/delete_inbound_email_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/model/inbound_email/inbounded_email_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/model/inbound_email/mark_as_read_inbound_model.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/model/inbound_email/reply_support_ticket_model.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../../../../../../core/resources/api_manger/api_constants.dart';
@@ -85,6 +86,26 @@ class InboundEmailApiDataSource implements InboundEmailRemoteDataSource {
     } on DioException catch (e) {
       handleDioError(e);
     rethrow;
+    } catch (e) {
+      rethrow;
+    }
+  }
+  @override
+  Future<ReplySupportTicketModel> replyToSupportTicket({
+    required String ticketId,
+    required String reply,
+  }) async {
+    try {
+      final token = await adminHiveDataSource.getAccessToken();
+      final response = await dio.post(
+        ApiManger.replyToSupportTicketEndpoint(ticketId),
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+        data: {'reply': reply},
+      );
+      return ReplySupportTicketModel.fromJson(response.data);
+    } on DioException catch (e) {
+      handleDioError(e);
+      rethrow;
     } catch (e) {
       rethrow;
     }

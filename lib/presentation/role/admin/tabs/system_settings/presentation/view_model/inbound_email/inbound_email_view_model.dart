@@ -19,8 +19,10 @@ class InboundEmailCubit extends Cubit<InboundEmailState> {
   bool _isLoadingMore = false;
 
   List<InboundEmails> _allEmails = [];
+  List<SupportTickets> _allSupportTickets = [];
 
   List<InboundEmails> get allEmails => _allEmails;
+  List<SupportTickets> get allSupportTickets => _allSupportTickets;
   bool get hasNextPage => _hasNextPage;
 
   Future<void> fetchInboundEmails({
@@ -38,10 +40,12 @@ class InboundEmailCubit extends Cubit<InboundEmailState> {
       );
 
       _allEmails = inboundedEmailModel.data?.inboundEmails ?? [];
+      _allSupportTickets = inboundedEmailModel.data?.supportTickets ?? [];
       _hasNextPage = inboundedEmailModel.data?.pagination?.hasNextPage ?? false;
 
       emit(InboundEmailSuccessState(
         emails: List.from(_allEmails),
+        supportTickets: List.from(_allSupportTickets),
         hasNextPage: _hasNextPage,
       ));
     } on NetworkTimeoutException {
@@ -78,10 +82,12 @@ class InboundEmailCubit extends Cubit<InboundEmailState> {
 
       _currentPage = nextPage;
       _allEmails = [..._allEmails, ...(inboundedEmailModel.data?.inboundEmails ?? [])];
+      _allSupportTickets = inboundedEmailModel.data?.supportTickets ?? _allSupportTickets;
       _hasNextPage = inboundedEmailModel.data?.pagination?.hasNextPage ?? false;
 
       emit(InboundEmailSuccessState(
         emails: List.from(_allEmails),
+        supportTickets: List.from(_allSupportTickets),
         hasNextPage: _hasNextPage,
       ));
     } on NetworkTimeoutException {
@@ -278,6 +284,35 @@ class InboundEmailCubit extends Cubit<InboundEmailState> {
       ));
     }
   }
+
+  Future<void> replyToSupportTicket({
+    required String ticketId,
+    required String reply,
+  }) async {
+    emit(SupportTicketReplyLoadingState(ticketId: ticketId));
+    try {
+      await inboundEmailUseCase.replyToSupportTicket(
+        ticketId: ticketId,
+        reply: reply,
+      );
+      emit(SupportTicketReplySuccessState(ticketId: ticketId));
+      await refresh();
+    } on NetworkTimeoutException {
+      emit(SupportTicketReplyErrorState(ticketId: ticketId, errorKey: 'network_timeout'));
+    } on ServerException catch (e) {
+      emit(SupportTicketReplyErrorState(ticketId: ticketId, errorKey: e.serverMessage ?? 'server_error'));
+    } on UnauthorizedException {
+      emit(SupportTicketReplyErrorState(ticketId: ticketId, errorKey: 'unauthorized'));
+    } on NotFoundException {
+      emit(SupportTicketReplyErrorState(ticketId: ticketId, errorKey: 'not_found'));
+    } on RequestCancelledException {
+      emit(SupportTicketReplyErrorState(ticketId: ticketId, errorKey: 'request_cancelled'));
+    } on UnknownNetworkException {
+      emit(SupportTicketReplyErrorState(ticketId: ticketId, errorKey: 'unknown_error'));
+    } catch (e) {
+      emit(SupportTicketReplyErrorState(ticketId: ticketId, errorKey: 'unknown_error'));
+    }
+  }
 }
 
 sealed class InboundEmailState {}
@@ -293,9 +328,11 @@ class InboundEmailLoadingMoreState extends InboundEmailState {
 
 class InboundEmailSuccessState extends InboundEmailState {
   final List<InboundEmails> emails;
+  final List<SupportTickets> supportTickets;
   final bool hasNextPage;
   InboundEmailSuccessState({
     required this.emails,
+    required this.supportTickets,
     required this.hasNextPage,
   });
 }
@@ -304,7 +341,6 @@ class InboundEmailErrorState extends InboundEmailState {
   final String errorKey;
   InboundEmailErrorState({required this.errorKey});
 }
-
 
 class InboundEmailActionLoadingState extends InboundEmailState {
   final String emailId;
@@ -331,6 +367,25 @@ class InboundEmailActionErrorState extends InboundEmailState {
   InboundEmailActionErrorState({
     required this.emailId,
     required this.action,
+    required this.errorKey,
+  });
+}
+
+class SupportTicketReplyLoadingState extends InboundEmailState {
+  final String ticketId;
+  SupportTicketReplyLoadingState({required this.ticketId});
+}
+
+class SupportTicketReplySuccessState extends InboundEmailState {
+  final String ticketId;
+  SupportTicketReplySuccessState({required this.ticketId});
+}
+
+class SupportTicketReplyErrorState extends InboundEmailState {
+  final String ticketId;
+  final String errorKey;
+  SupportTicketReplyErrorState({
+    required this.ticketId,
     required this.errorKey,
   });
 }

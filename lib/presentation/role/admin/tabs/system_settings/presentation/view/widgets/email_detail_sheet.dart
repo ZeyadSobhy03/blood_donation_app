@@ -38,66 +38,69 @@ class EmailDetailSheet extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
           child: SingleChildScrollView(
             controller: scrollController,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Container(
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: ColorManger.grey300,
-                      borderRadius: BorderRadius.circular(10),
+            child: Container(
+              color: ColorManger.pureWhite,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Container(
+                      width: 40,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: ColorManger.grey300,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 16),
-                CustomText(
-                  text: email.subject ?? '',
-                  textStyle: TextStyle(
-                    fontSize: FontSize.s18,
-                    fontWeight: FontWeightManager.bold,
-                    color: ColorManger.black,
+                  const SizedBox(height: 16),
+                  CustomText(
+                    text: email.subject ?? '',
+                    textStyle: TextStyle(
+                      fontSize: FontSize.s18,
+                      fontWeight: FontWeightManager.bold,
+                      color: ColorManger.black,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                _infoRow(l10n.inboundEmailDetailFrom, email.from ?? ''),
-                _infoRow(l10n.inboundEmailDetailTo, (email.to ?? []).join(', ')),
-                _infoRow(l10n.inboundEmailDetailProvider, email.provider ?? ''),
-                _infoRow(l10n.inboundEmailDetailReceived, dateStr),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    if (email.isArchived != true)
+                  const SizedBox(height: 10),
+                  _infoRow(l10n.inboundEmailDetailFrom, email.from ?? ''),
+                  _infoRow(l10n.inboundEmailDetailTo, (email.to ?? []).join(', ')),
+                  _infoRow(l10n.inboundEmailDetailProvider, email.provider ?? ''),
+                  _infoRow(l10n.inboundEmailDetailReceived, dateStr),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      if (email.isArchived != true)
+                        Expanded(
+                          child: OutlinedButton.icon(
+                            onPressed: onArchive,
+                            icon: const Icon(Icons.archive_outlined),
+                            label: CustomText(text: l10n.inboundEmailArchive),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: ColorManger.darkBlue,
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                            ),
+                          ),
+                        ),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: OutlinedButton.icon(
-                          onPressed: onArchive,
-                          icon: const Icon(Icons.archive_outlined),
-                          label: CustomText(text: l10n.inboundEmailArchive),
+                          onPressed: onDelete,
+                          icon: Icon(Icons.delete_outline, color: ColorManger.brightRed),
+                          label: CustomText(
+                            text: l10n.inboundEmailDelete,
+                            textStyle: TextStyle(color: ColorManger.brightRed),
+                          ),
                           style: OutlinedButton.styleFrom(
-                            foregroundColor: ColorManger.darkBlue,
+                            side: BorderSide(color: ColorManger.brightRed),
                             padding: const EdgeInsets.symmetric(vertical: 12),
                           ),
                         ),
                       ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: OutlinedButton.icon(
-                        onPressed: onDelete,
-                        icon: Icon(Icons.delete_outline, color: ColorManger.brightRed),
-                        label: CustomText(
-                          text: l10n.inboundEmailDelete,
-                          textStyle: TextStyle(color: ColorManger.brightRed),
-                        ),
-                        style: OutlinedButton.styleFrom(
-                          side: BorderSide(color: ColorManger.brightRed),
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         );

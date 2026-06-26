@@ -6,12 +6,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
+import '../../../../../../admin/tabs/system_settings/presentation/view_model/admin_change_password/admin_change_password_view_model.dart';
 import '../../view_model/change_password/change_password_view_model.dart';
 import '../widgets/change_password_dialog.dart';
 import '../widgets/security_tile.dart';
 
 class PasswordAndSecurityCard extends StatefulWidget {
-  const PasswordAndSecurityCard({super.key});
+  const PasswordAndSecurityCard({super.key,  this.backgroundColor = ColorManger.brightRed, this.isDonor = true});
+  final Color backgroundColor;
+  final bool isDonor;
 
   @override
   State<PasswordAndSecurityCard> createState() =>
@@ -36,7 +39,7 @@ class _PasswordAndSecurityCardState extends State<PasswordAndSecurityCard> {
     final appLocations = AppLocalizations.of(context)!;
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      elevation: 6,
+      elevation: 0,
       color: ColorManger.pureWhite,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
@@ -57,7 +60,7 @@ class _PasswordAndSecurityCardState extends State<PasswordAndSecurityCard> {
               ],
             ),
             SizedBox(height: 16.h),
-            SecurityTile(
+           widget.isDonor? SecurityTile(
               icon: Icons.key,
               title: appLocations.changePassword,
               onTap: () {
@@ -66,6 +69,7 @@ class _PasswordAndSecurityCardState extends State<PasswordAndSecurityCard> {
                   builder: (context) => BlocProvider.value(
                     value: context.read<ChangePasswordCubit>(),
                     child: ChangePasswordDialog(
+                      backgroundColor: widget.backgroundColor,
                       currentController: currentController,
                       newController: newController,
                       confirmController: confirmController,
@@ -73,7 +77,24 @@ class _PasswordAndSecurityCardState extends State<PasswordAndSecurityCard> {
                   ),
                 );
               },
-            ),
+            ) :SecurityTile(
+             icon: Icons.key,
+             title: appLocations.changePassword,
+             onTap: () {
+               showDialog(
+                 context: context,
+                 builder: (context) => BlocProvider.value(
+                   value: context.read<AdminChangePasswordCubit>(),
+                   child: ChangePasswordDialog(
+                     backgroundColor: widget.backgroundColor,
+                     currentController: currentController,
+                     newController: newController,
+                     confirmController: confirmController,
+                   ),
+                 ),
+               );
+             },
+           ),
             SizedBox(height: 4.h),
           ],
         ),

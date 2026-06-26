@@ -3,11 +3,15 @@ import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../../../core/utils/rewards_localizer.dart';
+import '../../../../../../../../l10n/app_localizations.dart';
+
 enum RewardStatus { active, inactive }
 
 class RewardItem extends StatefulWidget {
   const RewardItem({
     super.key,
+    required this.rewardId,
     required this.rewardName,
     required this.rewardCategory,
     required this.rewardPoints,
@@ -16,6 +20,7 @@ class RewardItem extends StatefulWidget {
     this.onStatusChanged,
   });
 
+  final String rewardId;
   final String rewardName;
   final String rewardCategory;
   final int rewardPoints;
@@ -29,6 +34,7 @@ class RewardItem extends StatefulWidget {
 
 class _RewardItemState extends State<RewardItem> {
   late RewardStatus _status;
+  Offset? _tapPosition;
 
   @override
   void initState() {
@@ -43,14 +49,13 @@ class _RewardItemState extends State<RewardItem> {
     widget.onStatusChanged?.call(status);
   }
 
-  void _showStatusMenu(BuildContext context, Offset position) async {
+  void _showStatusMenu(BuildContext context, Offset position, AppLocalizations loc) async {
     final selected = await showMenu<RewardStatus>(
       color: ColorManger.pureWhite,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
         side: BorderSide(color: ColorManger.lightGrey),
       ),
-
       context: context,
       position: RelativeRect.fromLTRB(
         position.dx,
@@ -60,14 +65,13 @@ class _RewardItemState extends State<RewardItem> {
       ),
       items: [
         PopupMenuItem(
-
           value: RewardStatus.active,
           child: Row(
             children: [
               Icon(Icons.circle, size: 8, color: ColorManger.green),
               const SizedBox(width: 8),
               CustomText(
-                text: 'Set ACTIVE',
+                text: loc.setRewardActive,
                 textStyle: TextStyle(
                   color: ColorManger.black,
                   fontWeight: FontWeightManager.regular,
@@ -78,15 +82,13 @@ class _RewardItemState extends State<RewardItem> {
           ),
         ),
         PopupMenuItem(
-
-
           value: RewardStatus.inactive,
           child: Row(
             children: [
               Icon(Icons.circle, size: 8, color: Colors.grey),
               const SizedBox(width: 8),
               CustomText(
-                text: 'Set INACTIVE',
+                text: loc.setRewardInactive,
                 textStyle: TextStyle(
                   color: ColorManger.black,
                   fontWeight: FontWeightManager.regular,
@@ -106,6 +108,14 @@ class _RewardItemState extends State<RewardItem> {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
+
+    final localizedData = localizeReward(
+      context,
+      rawTitle: widget.rewardName,
+      rawCategory: widget.rewardCategory,
+    );
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
@@ -117,7 +127,7 @@ class _RewardItemState extends State<RewardItem> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomText(
-                  text: widget.rewardName,
+                  text: localizedData.title,
                   textStyle: TextStyle(
                     color: ColorManger.black,
                     fontWeight: FontWeightManager.regular,
@@ -140,7 +150,7 @@ class _RewardItemState extends State<RewardItem> {
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: CustomText(
-                        text: widget.rewardCategory,
+                        text: localizedData.category,
                         textStyle: TextStyle(
                           color: ColorManger.black,
                           fontWeight: FontWeightManager.regular,
@@ -150,7 +160,7 @@ class _RewardItemState extends State<RewardItem> {
                     ),
                     // Points
                     CustomText(
-                      text: '${widget.rewardPoints} pts',
+                      text: '${widget.rewardPoints} ${appLocalizations.point}',
                       textStyle: TextStyle(
                         color: ColorManger.brightPurple,
                         fontWeight: FontWeightManager.regular,
@@ -158,7 +168,7 @@ class _RewardItemState extends State<RewardItem> {
                       ),
                     ),
                     CustomText(
-                      text: '${widget.rewardRedeemed} redeemed',
+                      text: '${widget.rewardRedeemed} ${appLocalizations.redeemed}',
                       textStyle: TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeightManager.regular,
@@ -180,7 +190,7 @@ class _RewardItemState extends State<RewardItem> {
                 },
                 onTap: () {
                   if (_tapPosition != null) {
-                    _showStatusMenu(context, _tapPosition!);
+                    _showStatusMenu(context, _tapPosition!, appLocalizations);
                   }
                 },
                 child: Container(
@@ -204,7 +214,9 @@ class _RewardItemState extends State<RewardItem> {
                       ),
                       const SizedBox(width: 6),
                       CustomText(
-                        text: _isActive ? 'ACTIVE' : 'INACTIVE',
+                        text: _isActive
+                            ? appLocalizations.rewardStatusActive
+                            : appLocalizations.rewardStatusInactive,
                         textStyle: TextStyle(
                           color: _isActive ? Colors.green : Colors.grey,
                           fontWeight: FontWeightManager.regular,
@@ -227,6 +239,4 @@ class _RewardItemState extends State<RewardItem> {
       ),
     );
   }
-
-  Offset? _tapPosition;
 }

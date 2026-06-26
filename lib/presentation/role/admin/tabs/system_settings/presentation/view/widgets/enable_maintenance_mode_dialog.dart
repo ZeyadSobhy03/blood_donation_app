@@ -1,16 +1,16 @@
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/request_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
-import 'maintenance_note_card.dart';
+import '../../view_model/system_maintenance/system_maintenance_view_model.dart';
 import 'maintenance_warning_card.dart';
-
-
 
 class EnableMaintenanceModeDialog extends StatefulWidget {
   const EnableMaintenanceModeDialog({super.key});
@@ -22,22 +22,19 @@ class EnableMaintenanceModeDialog extends StatefulWidget {
 
 class _EnableMaintenanceModeDialogState
     extends State<EnableMaintenanceModeDialog> {
-  late TextEditingController _reasonCtrl;
-  late TextEditingController _durationCtrl;
+  late TextEditingController _messageCtrl;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
-    _reasonCtrl = TextEditingController();
-    _durationCtrl = TextEditingController();
+    _messageCtrl = TextEditingController();
   }
 
   @override
   void dispose() {
     super.dispose();
-    _reasonCtrl.dispose();
-    _durationCtrl.dispose();
+    _messageCtrl.dispose();
   }
 
   @override
@@ -57,91 +54,117 @@ class _EnableMaintenanceModeDialogState
         child: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+            child: BlocListener<SystemMaintenanceCubit, SystemMaintenanceState>(
+              listener: (context, state) {
+                if (state is SystemMaintenanceSuccessState) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.systemMaintenanceModel.message ?? 'Success'),
+                      backgroundColor: ColorManger.green,
+                    ),
+                  );
+                  Navigator.of(context).pop();
+                } else if (state is SystemMaintenanceErrorState) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(localizeError(state.errorKey, localizations)),
+                      backgroundColor: ColorManger.orange,
+                    ),
+                  );
+                }
+              },
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomDialogHeader(
+                      title: localizations.enableMaintenanceModeTitle,
+                      subtitle: localizations.enableMaintenanceModeSubtitle,
+                    ),
+                    const SizedBox(height: 16),
+                    MaintenanceWarningCard(),
+                    const SizedBox(height: 16),
+                    CustomLabel(text: localizations.reasonForMaintenanceMode),
+                    const SizedBox(height: 8),
+                    CustomTextFormField(
+                      maxLines: 3,
+                      keyboardType: TextInputType.multiline,
+                      hintText: localizations.enterReasonForMaintenance,
+                      validator: (value) => _requiredValidator(value, context),
+                      textEditingController: _messageCtrl,
+                    ),
+                    const SizedBox(height: 24),
+                    BlocBuilder<SystemMaintenanceCubit, SystemMaintenanceState>(
+                      builder: (context, state) {
+                        final isLoading = state is SystemMaintenanceLoadingState;
 
-            child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomDialogHeader(
-                    title: localizations.enableMaintenanceModeTitle,
-                    subtitle: localizations.enableMaintenanceModeSubtitle,
-                  ),
-                  SizedBox(height: 16),
-                  MaintenanceWarningCard(),
-                  CustomLabel(text: localizations.reasonForMaintenanceMode),
-                  SizedBox(height: 8),
-                  CustomTextFormField(
-                    maxLines: 3,
-                    keyboardType: TextInputType.multiline,
-                    hintText: localizations.enterReasonForMaintenance,
-                    validator: (value) => _requiredValidator(value, context),
-                    textEditingController: _reasonCtrl,
-                  ),
-                  SizedBox(height: 16),
-                  CustomLabel(text: localizations.estimatedDurationMinutes),
-                  SizedBox(height: 8),
-                  CustomTextFormField(
-                    maxLines: 1,
-                    keyboardType: TextInputType.number,
-                    hintText: localizations.enterEstimatedDuration,
-                    validator: (value) => _numberValidator(value, context),
-                    textEditingController: _durationCtrl,
-                  ),
-                  SizedBox(height: 16),
-                  MaintenanceNoteCard(),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: CustomElevatedButton(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 12,
-
-                          ),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            side: BorderSide(
-                              color: ColorManger.orange,
-                              width: 1.1,
-                            )
-                          ),
-                          backgroundColor: ColorManger.orange,
-                          foregroundColor: ColorManger.pureWhite,
-                          onPressed: () {
-                            if (_formKey.currentState?.validate() ?? false) {
-                              Navigator.of(context).pop();
-                            }
-                          },
-                          child: CustomText(text: localizations.enableMaintenanceButton,textStyle: TextStyle(
-                            fontSize: 12
-                          ),),
-                        ),
-                      ),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: CustomElevatedButton(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 12,
-
-                          ),
-
-                          backgroundColor: ColorManger.pureWhite,
-                          foregroundColor: ColorManger.black,
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            side: BorderSide(color: ColorManger.lightGrey),
-                          ),
-                          onPressed: () => Navigator.of(context).pop(),
-                          child: CustomText(text: localizations.cancel),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                        return Row(
+                          children: [
+                            Expanded(
+                              child: CustomElevatedButton(
+                                padding: const EdgeInsets.symmetric(vertical: 12),
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  side: const BorderSide(
+                                    color: ColorManger.orange,
+                                    width: 1.1,
+                                  ),
+                                ),
+                                backgroundColor: ColorManger.orange,
+                                foregroundColor: ColorManger.pureWhite,
+                                onPressed: isLoading
+                                    ? null
+                                    : () {
+                                  if (_formKey.currentState?.validate() ?? false) {
+                                    context.read<SystemMaintenanceCubit>()
+                                        .toggleSystemMaintenance(
+                                      enabled: true,
+                                      message: _messageCtrl.text.trim(),
+                                    );
+                                  }
+                                },
+                                child: isLoading
+                                    ? const SizedBox(
+                                  height: 20,
+                                  width: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    valueColor:
+                                    AlwaysStoppedAnimation<Color>(
+                                      ColorManger.pureWhite,
+                                    ),
+                                  ),
+                                )
+                                    : CustomText(
+                                  text: localizations.enableMaintenanceButton,
+                                  textStyle: const TextStyle(fontSize: 12),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: CustomElevatedButton(
+                                padding: const EdgeInsets.symmetric(vertical: 12),
+                                backgroundColor: ColorManger.pureWhite,
+                                foregroundColor: ColorManger.black,
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  side: BorderSide(color: ColorManger.lightGrey),
+                                ),
+                                onPressed: isLoading ? null : () => Navigator.of(context).pop(),
+                                child: CustomText(text: localizations.cancel),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -153,17 +176,6 @@ class _EnableMaintenanceModeDialogState
   String? _requiredValidator(String? value, BuildContext context) {
     if (value == null || value.trim().isEmpty) {
       return AppLocalizations.of(context)!.fieldIsRequired;
-    }
-    return null;
-  }
-
-  String? _numberValidator(String? value, BuildContext context) {
-    final localizations = AppLocalizations.of(context)!;
-    if (value == null || value.trim().isEmpty) {
-      return localizations.fieldIsRequired;
-    }
-    if (int.tryParse(value.trim()) == null) {
-      return localizations.pleaseEnterValidNumber;
     }
     return null;
   }

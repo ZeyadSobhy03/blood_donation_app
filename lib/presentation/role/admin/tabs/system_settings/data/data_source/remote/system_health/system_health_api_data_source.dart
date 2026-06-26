@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
 import 'package:blood_donation_app/presentation/authentication/admin_authentication/data/data_source/local/admin_hive_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/system_health/system_health_remote_data_source.dart';
@@ -15,7 +17,9 @@ class SystemHealthApiDataSource implements SystemHealthRemoteDataSource {
   @override
   Future<SystemHealthModel> getSystemHealth() async {
     try {
-      final token = adminHiveDataSource.getAccessToken();
+      final token = await adminHiveDataSource.getAccessToken();
+      log('Admin token: $token'); // add this temporarily
+
       final response = await dio.get(
         ApiManger.systemHealthEndpoint,
         options: Options(

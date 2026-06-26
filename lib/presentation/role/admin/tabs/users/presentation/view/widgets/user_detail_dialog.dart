@@ -236,6 +236,8 @@ class UserDetailDialog extends StatelessWidget {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          backgroundColor: ColorManger.pureWhite,
           title: CustomText(text: appLocalization.unbanUser),
           content: CustomText(
             text:
@@ -276,6 +278,8 @@ class UserDetailDialog extends StatelessWidget {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        backgroundColor: ColorManger.pureWhite,
         title: CustomText(text: appLocalization.banUser),
         content: Column(
           mainAxisSize: MainAxisSize.min,

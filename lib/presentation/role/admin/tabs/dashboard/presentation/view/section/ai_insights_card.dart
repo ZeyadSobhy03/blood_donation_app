@@ -7,6 +7,7 @@ import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/utils/insight_localizer.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../view_model/analytics/analytics_view_model.dart';
 import '../widgets/insight_card.dart';
@@ -89,11 +90,16 @@ class AiInsightsCard extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final insight = insights[index];
+                      final localizedData = localizeInsight(
+                        context,
+                        insight.title ?? '',
+                        insight.description ?? '',
+                      );
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 16.0),
                         child: InsightCard(
-                          title: insight.title ?? '',
-                          description: insight.description ?? '',
+                          title: localizedData.title,
+                          description: localizedData.description,
                           confidence: insight.confidence ?? 0,
                         ),
                       );
@@ -109,4 +115,8 @@ class AiInsightsCard extends StatelessWidget {
       ),
     );
   }
+
+    
+
+
 }

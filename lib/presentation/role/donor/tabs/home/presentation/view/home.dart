@@ -78,7 +78,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   void _onMapLoaded() {
     if (!mounted) return;
     final requestsState = context.read<RequestsCubit>().state;
-    final shouldFetch = requestsState is RequestsInitialState ||
+    final shouldFetch =
+        requestsState is RequestsInitialState ||
         requestsState is RequestsErrorState;
     if (shouldFetch) _fetchRequestsWithLocation();
   }
@@ -186,8 +187,9 @@ class _ProfileSection extends StatelessWidget {
           );
         }
 
-        final profileData =
-        state is ProfileSuccessState ? state.profileModel : null;
+        final profileData = state is ProfileSuccessState
+            ? state.profileModel
+            : null;
         final bloodType = profileData?.data?.bloodType ?? 'O+';
 
         return Skeletonizer(
@@ -207,8 +209,8 @@ class _ProfileSection extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    onPressed: () => Navigator.pushNamed(
-                        context, RouteManger.notifications),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, RouteManger.notifications),
                     icon: const Icon(
                       Icons.notifications,
                       color: ColorManger.brightRed,
@@ -239,10 +241,10 @@ class _DonationEligibilitySection extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: CustomText(
-                text: state.message,
+                text: appLocalizations.participationAddedSuccessfully,
                 textStyle: const TextStyle(color: ColorManger.pureWhite),
               ),
-              backgroundColor: ColorManger.brightRed,
+              backgroundColor: ColorManger.green,
               duration: const Duration(seconds: 2),
             ),
           );
@@ -260,24 +262,21 @@ class _DonationEligibilitySection extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        log('DonationEligibilityState: $state');
-
         final isParticipationLoading =
-        state is DonationEligibilityParticipationLoading;
+            state is DonationEligibilityParticipationLoading;
         final isInitialLoading = state is DonationEligibilityLoading;
         final isLoading = isInitialLoading;
 
-        final isSuccess = state is DonationEligibilitySuccess ||
+        final isSuccess =
+            state is DonationEligibilitySuccess ||
             state is DonationEligibilityParticipationLoading;
-        final isFailing = state is DonationEligibilityFailure &&
+        final isFailing =
+            state is DonationEligibilityFailure &&
             state is! DonationEligibilityParticipationLoading;
 
         if (isFailing && !isSuccess) {
           return CustomErrorWidget(
-            message: localizeError(
-              (state as DonationEligibilityFailure).errorMessage,
-              appLocalizations,
-            ),
+            message: localizeError(state.errorMessage, appLocalizations),
             onRetry: () => context
                 .read<DonationEligibilityCubit>()
                 .fetchDonationEligibility(),
@@ -377,133 +376,115 @@ class _ParticipationToggleButton extends StatelessWidget {
     return BlocBuilder<DonationEligibilityCubit, DonationEligibilityState>(
       builder: (context, state) {
         final isButtonLoading =
-        state is DonationEligibilityParticipationLoading;
+            state is DonationEligibilityParticipationLoading;
 
-        // ✅ FIX: Extract currentParticipation from the actual BLoC state
         bool currentParticipation = isParticipating;
         if (state is DonationEligibilitySuccess) {
           currentParticipation =
-              state.donationEligibilityModel.data?.participationEnabled ?? false;
+              state.donationEligibilityModel.data?.participationEnabled ??
+              false;
         } else if (state is DonationEligibilityParticipationLoading) {
           currentParticipation =
-              state.donationEligibilityModel?.data?.participationEnabled ?? isParticipating;
+              state.donationEligibilityModel?.data?.participationEnabled ??
+              isParticipating;
         } else if (state is DonationEligibilityParticipationSuccess) {
           currentParticipation =
-              state.donationEligibilityModel.data?.participationEnabled ?? false;
+              state.donationEligibilityModel?.data?.participationEnabled ??
+              isParticipating;
         }
 
-        return AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
-          child: Container(
+        final bool disabled = isButtonLoading || isLoading;
+
+        return GestureDetector(
+          onTap: disabled
+              ? null
+              : () {
+                  context.read<DonationEligibilityCubit>().setParticipation(
+                    participation: !currentParticipation,
+                  );
+                },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 350),
+            curve: Curves.easeInOut,
+            width: 64,
+            height: 34,
             decoration: BoxDecoration(
-              color: currentParticipation
-                  ? ColorManger.brightRed.withValues(alpha: 0.1)
-                  : Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(25),
-              border: Border.all(
-                color: currentParticipation
-                    ? ColorManger.brightRed
-                    : Colors.grey.shade400,
-                width: 1.5,
+              borderRadius: BorderRadius.circular(17),
+              gradient: LinearGradient(
+                colors: currentParticipation
+                    ? [const Color(0xFF43A047), const Color(0xFF66BB6A)]
+                    : [const Color(0xFFBDBDBD), const Color(0xFFE0E0E0)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-            ),
-            child: Row(
-              children: [
-                Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    onTap: isButtonLoading || isLoading
-                        ? null
-                        : () {
-                      context
-                          .read<DonationEligibilityCubit>()
-                          .setParticipation(participation: true);
-                    },
-                    borderRadius: BorderRadius.circular(25),
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 14,
-                        vertical: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        color: currentParticipation
-                            ? ColorManger.brightRed
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: isButtonLoading && currentParticipation
-                          ? SizedBox(
-                        width: 16,
-                        height: 16,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          valueColor: const AlwaysStoppedAnimation(
-                            ColorManger.pureWhite,
-                          ),
-                        ),
-                      )
-                          : AnimatedScale(
-                        scale: isButtonLoading ? 0.9 : 1.0,
-                        duration: const Duration(milliseconds: 200),
-                        child: Icon(
-                          Icons.check,
-                          size: 16,
-                          color: currentParticipation
-                              ? ColorManger.pureWhite
-                              : Colors.grey.shade600,
-                        ),
-                      ),
-                    ),
-                  ),
+              boxShadow: [
+                BoxShadow(
+                  color: currentParticipation
+                      ? const Color(0xFF43A047).withValues(alpha: 0.3)
+                      : Colors.grey.withValues(alpha: 0.2),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
                 ),
-                Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    onTap: isButtonLoading || isLoading
-                        ? null
-                        : () {
-                      context
-                          .read<DonationEligibilityCubit>()
-                          .setParticipation(participation: false);
-                    },
-                    borderRadius: BorderRadius.circular(25),
+              ],
+            ),
+            child: Stack(
+              children: [
+                AnimatedAlign(
+                  duration: const Duration(milliseconds: 350),
+                  curve: Curves.easeInOut,
+                  alignment: currentParticipation
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(3),
                     child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 350),
                       curve: Curves.easeInOut,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 14,
-                        vertical: 8,
-                      ),
+                      width: 28,
+                      height: 28,
                       decoration: BoxDecoration(
-                        color: !currentParticipation
-                            ? Colors.grey.shade300
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: isButtonLoading && !currentParticipation
-                          ? SizedBox(
-                        width: 16,
-                        height: 16,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          valueColor: const AlwaysStoppedAnimation(
-                            Colors.grey,
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.15),
+                            blurRadius: 4,
+                            offset: const Offset(0, 1),
                           ),
-                        ),
-                      )
-                          : AnimatedScale(
-                        scale: isButtonLoading ? 0.9 : 1.0,
-                        duration: const Duration(milliseconds: 200),
-                        child: Icon(
-                          Icons.close,
-                          size: 16,
-                          color: !currentParticipation
-                              ? Colors.white
-                              : Colors.grey.shade600,
-                        ),
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.05),
+                            blurRadius: 8,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Center(
+                        child: isButtonLoading
+                            ? SizedBox(
+                                width: 14,
+                                height: 14,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  valueColor: AlwaysStoppedAnimation(
+                                    currentParticipation
+                                        ? const Color(0xFF43A047)
+                                        : Colors.grey.shade500,
+                                  ),
+                                ),
+                              )
+                            : AnimatedSwitcher(
+                                duration: const Duration(milliseconds: 250),
+                                child: Icon(
+                                  currentParticipation
+                                      ? Icons.check_rounded
+                                      : Icons.close_rounded,
+                                  key: ValueKey(currentParticipation),
+                                  size: 16,
+                                  color: currentParticipation
+                                      ? const Color(0xFF43A047)
+                                      : Colors.grey.shade500,
+                                ),
+                              ),
                       ),
                     ),
                   ),
@@ -563,13 +544,16 @@ class _ActivitiesSection extends StatelessWidget {
     return BlocBuilder<ActivitiesCubit, ActivitiesState>(
       builder: (context, state) {
         final isLoading = state is ActivitiesLoadingState;
-        final List<Activities> activities =
-        state is ActivitiesSuccessState ? state.activities : [];
+        final List<Activities> activities = state is ActivitiesSuccessState
+            ? state.activities
+            : [];
 
         if (state is ActivitiesErrorState) {
           return CustomErrorWidget(
             message: localizeError(
-                state.message, AppLocalizations.of(context)!),
+              state.message,
+              AppLocalizations.of(context)!,
+            ),
             onRetry: () => context.read<ActivitiesCubit>().fetchActivities(),
           );
         }
@@ -615,7 +599,7 @@ class _ActivitiesSkeletonLoader extends StatelessWidget {
           SizedBox(height: 12.h),
           ...List.generate(
             3,
-                (_) => Column(
+            (_) => Column(
               children: [
                 Container(
                   height: 60,
@@ -656,8 +640,9 @@ class _RequestsSection extends StatelessWidget {
 
           if (state is RequestsErrorState) {
             return CustomErrorWidget(
-                message: localizeError(state.message, appLocalization),
-                onRetry: onRetry);
+              message: localizeError(state.message, appLocalization),
+              onRetry: onRetry,
+            );
           }
 
           if (requests.isEmpty && !isLoading) {
@@ -704,7 +689,7 @@ class _RequestsSection extends StatelessWidget {
           SizedBox(height: 12.h),
           ...List.generate(
             2,
-                (_) => Column(
+            (_) => Column(
               children: [
                 Container(
                   height: 80,

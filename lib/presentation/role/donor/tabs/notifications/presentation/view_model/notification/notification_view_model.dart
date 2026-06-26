@@ -16,6 +16,7 @@ class NotificationCubit extends Cubit<NotificationState> {
   bool _hasNextPage = true;
   bool _isFetching = false;
   final List<Notifications> _allNotifications = [];
+  int _unreadCount = 0;
 
   Future<void> fetchNotifications({bool isRefresh = false}) async {
     if (_isFetching) return;
@@ -23,7 +24,6 @@ class NotificationCubit extends Cubit<NotificationState> {
     if (isRefresh) {
       _currentPage = 1;
       _hasNextPage = true;
-
       _allNotifications.clear();
     }
 
@@ -33,14 +33,43 @@ class NotificationCubit extends Cubit<NotificationState> {
 
     if (_currentPage == 1) {
       emit(NotificationLoadingState());
+    } else {
+      // Emit current state with loading-more flag so UI can show a bottom loader
+      emit(
+        NotificationPaginationLoadingState(
+          notifications: List.from(_allNotifications),
+          unreadCount: _unreadCount,
+        ),
+      );
     }
 
     try {
-      final notifications = await notificationUseCase.getNotifications(
+      final response = await notificationUseCase.getNotifications(
         page: _currentPage,
         limit: _pageSize,
       );
-      emit(NotificationSuccessState(notifications));
+
+      final newNotifications = response.data?.notifications ?? [];
+      _unreadCount = response.data?.unreadCount ?? 0;
+
+      final pagination = response.data?.pagination;
+      _hasNextPage = (pagination?.page != null && pagination?.pages != null)
+          ? pagination!.page! < pagination.pages!
+          : false;
+
+      _allNotifications.addAll(newNotifications);
+
+      emit(
+        NotificationSuccessState(
+          notifications: List.from(_allNotifications),
+          unreadCount: _unreadCount,
+          hasNextPage: _hasNextPage,
+        ),
+      );
+
+      if (_hasNextPage) {
+        _currentPage++;
+      }
     } on NetworkTimeoutException {
       emit(NotificationErrorState('network_timeout'));
     } on ServerException catch (e) {
@@ -53,6 +82,8 @@ class NotificationCubit extends Cubit<NotificationState> {
       emit(NotificationErrorState('unknown_error'));
     } catch (e) {
       emit(NotificationErrorState('unknown_error'));
+    } finally {
+      _isFetching = false;
     }
   }
 }
@@ -63,10 +94,26 @@ class NotificationInitialState extends NotificationState {}
 
 class NotificationLoadingState extends NotificationState {}
 
-class NotificationSuccessState extends NotificationState {
-  final NotificationsModel notifications;
+class NotificationPaginationLoadingState extends NotificationState {
+  final List<Notifications> notifications;
+  final int unreadCount;
 
-  NotificationSuccessState(this.notifications);
+  NotificationPaginationLoadingState({
+    required this.notifications,
+    required this.unreadCount,
+  });
+}
+
+class NotificationSuccessState extends NotificationState {
+  final List<Notifications> notifications;
+  final int unreadCount;
+  final bool hasNextPage;
+
+  NotificationSuccessState({
+    required this.notifications,
+    required this.unreadCount,
+    required this.hasNextPage,
+  });
 }
 
 class NotificationErrorState extends NotificationState {
@@ -74,8 +121,6 @@ class NotificationErrorState extends NotificationState {
 
   NotificationErrorState(this.message);
 }
-
-////////////////////////////////////////
 
 class NotificationAllReadCubit extends Cubit<NotificationAllReadState> {
   final NotificationUseCase notificationUseCase;

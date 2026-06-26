@@ -4,6 +4,7 @@ import '../../../data/model/inbound_email/archived_inbound_email_model.dart';
 import '../../../data/model/inbound_email/delete_inbound_email_model.dart';
 import '../../../data/model/inbound_email/inbounded_email_model.dart';
 import '../../../data/model/inbound_email/mark_as_read_inbound_model.dart';
+import '../../../data/model/inbound_email/reply_support_ticket_model.dart';
 
 class InboundEmailUseCase {
   final InboundEmailRepositories inboundEmailRepositories;
@@ -38,5 +39,15 @@ class InboundEmailUseCase {
     required String emailId,
   }) {
     return inboundEmailRepositories.archivedInboundEmail(emailId: emailId);
+  }
+
+  Future<ReplySupportTicketModel> replyToSupportTicket({
+    required String ticketId,
+    required String reply,
+  }) {
+    return inboundEmailRepositories.replyToSupportTicket(
+      ticketId: ticketId,
+      reply: reply,
+    );
   }
 }

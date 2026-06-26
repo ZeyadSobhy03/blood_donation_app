@@ -7,6 +7,7 @@ import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/hospital_forget_password.dart';
 import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view/section/audit_logs_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donor_main_layout.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/notifications.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/request_screen.dart';
@@ -90,13 +91,19 @@ class RouteManger {
   static const String inboundEmailsScreen='/inboundEmailsScreen';
   static const String customResetPassword = '/customResetPassword';
   static const String acceptedRequestDetails='/acceptedRequestDetails';
-
+  static const String auditLogsScreen = '/auditLogsScreen';
   static Route router(RouteSettings settings) {
     switch (settings.name) {
       case splashScreen:
         return MaterialPageRoute(builder: (context) => SplashScreen());
       case onboarding:
         return MaterialPageRoute(builder: (context) => OnboardingPages());
+
+      case RouteManger.auditLogsScreen:
+        return MaterialPageRoute(
+    builder: (context) => AuditLogsScreen(),
+
+        );
 
       case banScreen:
         return MaterialPageRoute(

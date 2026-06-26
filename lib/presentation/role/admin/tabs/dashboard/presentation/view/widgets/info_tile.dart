@@ -36,28 +36,30 @@ class InfoTile extends StatelessWidget {
           children: [
             Icon(icon, color: iconColor, size: 20),
             const SizedBox(width: 12),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
 
-              children: [
-                CustomText(
-                  text: label,
-                  textStyle: TextStyle(
-                    color: ColorManger.slateGrey,
-                    fontSize: FontSize.s12,
-                    fontWeight: FontWeightManager.regular,
+                children: [
+                  CustomText(
+                    text: label,
+                    textStyle: TextStyle(
+                      color: ColorManger.slateGrey,
+                      fontSize: FontSize.s12,
+                      fontWeight: FontWeightManager.regular,
+                    ),
                   ),
-                ),
-                SizedBox(height: 4),
-                CustomText(
-                  text: value,
-                  textStyle: TextStyle(
-                    color: ColorManger.black,
-                    fontSize: FontSize.s14,
-                    fontWeight: FontWeightManager.semiBold,
+                  SizedBox(height: 4),
+                  CustomText(
+                    text: value,
+                    textStyle: TextStyle(
+                      color: ColorManger.black,
+                      fontSize: FontSize.s14,
+                      fontWeight: FontWeightManager.semiBold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),

@@ -26,10 +26,12 @@ class EmailTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final parsedDate =
-    email.receivedAt != null ? DateTime.tryParse(email.receivedAt!) : null;
-    final dateStr =
-    parsedDate != null ? DateFormat('MMM d, h:mm a').format(parsedDate) : '';
+    final parsedDate = email.receivedAt != null
+        ? DateTime.tryParse(email.receivedAt!)
+        : null;
+    final dateStr = parsedDate != null
+        ? DateFormat('MMM d, h:mm a').format(parsedDate)
+        : '';
     final unread = email.isRead != true;
     final archived = email.isArchived == true;
 
@@ -62,10 +64,12 @@ class EmailTile extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
+
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Subject + date
                     Row(
                       children: [
                         Expanded(
@@ -78,98 +82,111 @@ class EmailTile extends StatelessWidget {
                               fontWeight: unread
                                   ? FontWeightManager.bold
                                   : FontWeightManager.medium,
-                              color:
-                              unread ? ColorManger.black : ColorManger.grey800,
+                              color: unread
+                                  ? ColorManger.black
+                                  : ColorManger.grey800,
                             ),
                           ),
                         ),
                         const SizedBox(width: 6),
                         CustomText(
                           text: dateStr,
-                          textStyle:
-                          TextStyle(fontSize: FontSize.s12, color: ColorManger.grey600),
+                          textStyle: TextStyle(
+                            fontSize: FontSize.s12,
+                            color: ColorManger.grey600,
+                          ),
                         ),
                       ],
                     ),
                     const SizedBox(height: 4),
+
+                    // From
                     CustomText(
                       text: l10n.inboundEmailFrom(email.from ?? ''),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      textStyle:
-                      TextStyle(fontSize: FontSize.s13, color: ColorManger.grey600),
+                      textStyle: TextStyle(
+                        fontSize: FontSize.s13,
+                        color: ColorManger.grey600,
+                      ),
                     ),
                     const SizedBox(height: 8),
+
+                    // ── Badges + action icons ─────────────────────────
                     Row(
                       children: [
                         if (archived)
-                          _badge(l10n.inboundEmailArchivedBadge, ColorManger.orange),
+                          _badge(
+                            l10n.inboundEmailArchivedBadge,
+                            ColorManger.orange,
+                          ),
                         if (unread) ...[
                           if (archived) const SizedBox(width: 6),
-                          _badge(l10n.inboundEmailUnreadBadge, ColorManger.brightRed),
+                          _badge(
+                            l10n.inboundEmailUnreadBadge,
+                            ColorManger.brightRed,
+                          ),
                         ],
+                        const Spacer(),
+
+                        // Mark as read
+                        if (unread)
+                          _actionIcon(
+                            icon: Icons.mark_email_read_outlined,
+                            color: ColorManger.successColor,
+                            tooltip: l10n.inboundEmailMarkAsRead,
+                            onTap: onMarkRead,
+                          ),
+
+                        if (!archived) ...[
+                          const SizedBox(width: 4),
+                          _actionIcon(
+                            icon: Icons.archive_outlined,
+                            color: ColorManger.orange,
+                            tooltip: l10n.inboundEmailArchive,
+                            onTap: onArchive,
+                          ),
+                        ],
+
+
+                        const SizedBox(width: 4),
+                        _actionIcon(
+                          icon: Icons.delete_outline,
+                          color: ColorManger.brightRed,
+                          tooltip: l10n.inboundEmailDelete,
+                          onTap: onDelete,
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
-              PopupMenuButton<String>(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                color: ColorManger.pureWhite,
-                icon: Icon(Icons.more_vert, color: ColorManger.grey600),
-                onSelected: (value) {
-                  switch (value) {
-                    case 'read':
-                      onMarkRead();
-                      break;
-                    case 'archive':
-                      onArchive();
-                      break;
-                    case 'delete':
-                      onDelete();
-                      break;
-                  }
-                },
-                itemBuilder: (context) => [
-                  if (unread)
-                    PopupMenuItem(
-                      value: 'read',
-                      child: Row(
-                        children: [
-                          const Icon(Icons.mark_email_read_outlined, size: 18),
-                          const SizedBox(width: 8),
-                          CustomText(text: l10n.inboundEmailMarkAsRead),
-                        ],
-                      ),
-                    ),
-                  if (!archived)
-                    PopupMenuItem(
-                      value: 'archive',
-                      child: Row(
-                        children: [
-                          const Icon(Icons.archive_outlined, size: 18),
-                          const SizedBox(width: 8),
-                          CustomText(text: l10n.inboundEmailArchive),
-                        ],
-                      ),
-                    ),
-                  PopupMenuItem(
-                    value: 'delete',
-                    child: Row(
-                      children: [
-                        Icon(Icons.delete_outline, size: 18, color: ColorManger.brightRed),
-                        const SizedBox(width: 8),
-                        CustomText(
-                          text: l10n.inboundEmailDelete,
-                          textStyle: TextStyle(color: ColorManger.brightRed),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  // ── Stops tap from bubbling up to the tile's InkWell ──────────────────
+  Widget _actionIcon({
+    required IconData icon,
+    required Color color,
+    required String tooltip,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Tooltip(
+        message: tooltip,
+        child: Container(
+          decoration: BoxDecoration(
+            color: color.withValues(alpha: 0.10),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          padding: const EdgeInsets.all(7),
+          child: Icon(icon, size: 20, color: color),
         ),
       ),
     );

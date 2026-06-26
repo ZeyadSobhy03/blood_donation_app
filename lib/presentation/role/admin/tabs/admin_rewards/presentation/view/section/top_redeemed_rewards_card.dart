@@ -1,3 +1,4 @@
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
@@ -5,6 +6,7 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/da
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/widgets/custom_reward_tile.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../../../core/utils/rewards_localizer.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 
 class TopRedeemedRewardsCard extends StatelessWidget {
@@ -46,13 +48,20 @@ class TopRedeemedRewardsCard extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 final reward = topRedeemed[index];
+                final localizedReward = localizeReward(
+                  context,
+                  rawTitle: reward.rewardName ?? '',
+                  rawDescription: reward.rewardSubtitle ?? '',
+                  rawStatus: '',
+                  rawCategory: '',
+                );
                 final rank = index + 1;
 
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 6.0),
                   child: CustomRewardTile(
-                    rewardName: reward.rewardName ?? '',
-                    rewardSubtitle: reward.rewardSubtitle ?? '',
+                    rewardName: localizedReward.title,
+                    rewardSubtitle: localizedReward.description,
                     pointsRedeemed: reward.pointsRedeemed ?? 0,
                     prefixWidget: _RankBadge(rank: rank),
                     label: loc.redeem,

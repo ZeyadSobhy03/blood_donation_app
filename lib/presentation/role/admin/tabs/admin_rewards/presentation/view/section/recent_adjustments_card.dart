@@ -1,50 +1,37 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/data/model/admin_rewards_data_model.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/widgets/recent_adjustments_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 
 class RecentAdjustmentsCard extends StatelessWidget {
-  const RecentAdjustmentsCard({super.key});
+  const RecentAdjustmentsCard({super.key, required this.adjustments});
+
+  final List<Adjustments> adjustments;
+
+  String _formatDate(String? dateStr) {
+    if (dateStr == null || dateStr.isEmpty) return '';
+    try {
+      final date = DateTime.parse(dateStr);
+      final now = DateTime.now();
+      final diff = now.difference(date);
+
+      if (diff.inMinutes < 60) return '${diff.inMinutes}m ago';
+      if (diff.inHours < 24) return '${diff.inHours}h ago';
+      if (diff.inDays < 7) return '${diff.inDays}d ago';
+      return DateFormat('MMM d').format(date);
+    } catch (_) {
+      return dateStr;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
-
-    final List<Map<String, dynamic>> recentAdjustments = [
-      {
-        'userName': 'usr_482',
-        'reason': 'Demo bonus points',
-        'points': 100,
-        'date': '2h ago',
-      },
-      {
-        'userName': 'usr_201',
-        'reason': 'Points correction',
-        'points': -50,
-        'date': '1d ago',
-      },
-      {
-        'userName': 'usr_317',
-        'reason': 'Referral reward',
-        'points': 75,
-        'date': '2d ago',
-      },
-      {
-        'userName': 'usr_109',
-        'reason': 'Duplicate donation reversal',
-        'points': -120,
-        'date': '3d ago',
-      },
-      {
-        'userName': 'usr_654',
-        'reason': 'Manual admin adjustment',
-        'points': 200,
-        'date': '5d ago',
-      },
-    ];
 
     return Card(
       color: ColorManger.pureWhite,
@@ -70,23 +57,37 @@ class RecentAdjustmentsCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: recentAdjustments.length,
-              itemBuilder: (context, index) {
-                final adjustment = recentAdjustments[index];
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RecentAdjustmentsTile(
-                    userName: adjustment['userName'] as String,
-                    reason: adjustment['reason'] as String,
-                    points: adjustment['points'] as int,
-                    date: adjustment['date'] as String,
+            if (adjustments.isEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 24.0),
+                child: Center(
+                  child: CustomText(
+                    text: loc.noDataFound,
+                    textStyle: TextStyle(
+                      color: ColorManger.slateGrey,
+                      fontSize: FontSize.s14,
+                    ),
                   ),
-                );
-              },
-            ),
+                ),
+              )
+            else
+              ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: adjustments.length,
+                itemBuilder: (context, index) {
+                  final adjustment = adjustments[index];
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: RecentAdjustmentsTile(
+                      userName: adjustment.userName ?? '',
+                      reason: adjustment.reason ?? '',
+                      points: adjustment.points ?? 0,
+                      date: _formatDate(adjustment.date),
+                    ),
+                  );
+                },
+              ),
           ],
         ),
       ),

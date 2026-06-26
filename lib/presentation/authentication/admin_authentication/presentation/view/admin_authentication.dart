@@ -2,6 +2,7 @@ import 'package:blood_donation_app/core/extension/text_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_auth_box.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
 import 'package:blood_donation_app/core/widgets/custom_pin_code.dart';
@@ -79,7 +80,13 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
         if (state is AdminAuthLoginSuccessState) {
           // Show success message
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(appLocalization.login_successful )),
+            SnackBar(
+              backgroundColor: ColorManger.green,
+              content: Text(
+                appLocalization.login_successful,
+                style: TextStyle(color: ColorManger.pureWhite),
+              ),
+            ),
           );
           // Navigate to admin main layout
           Navigator.pushNamedAndRemoveUntil(
@@ -91,7 +98,7 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
           // Show error message
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(state.errorKey),
+              content: Text(localizeError(state.errorKey, appLocalization)),
               backgroundColor: Colors.red,
             ),
           );
@@ -102,7 +109,10 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
         body: SafeArea(
           child: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24.0,
+                vertical: 20.0,
+              ),
               child: BlocBuilder<AdminAuthCubit, AdminAuthState>(
                 builder: (context, state) {
                   final isLoading = state is AdminAuthLoadingState;
@@ -114,11 +124,22 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
                         Row(
                           children: [
                             IconButton(
-                              icon: const Icon(Icons.arrow_back, color: ColorManger.black),
-                              onPressed: isLoading ? null : () {Navigator.pop(context);}
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: ColorManger.black,
+                              ),
+                              onPressed: isLoading
+                                  ? null
+                                  : () {
+                                      Navigator.pop(context);
+                                    },
                             ),
                             const SizedBox(width: 8),
-                            const Icon(Icons.security_outlined, color: ColorManger.green, size: 32),
+                            const Icon(
+                              Icons.security_outlined,
+                              color: ColorManger.green,
+                              size: 32,
+                            ),
                             const SizedBox(width: 12),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,216 +168,240 @@ class _AdminAuthenticationState extends State<AdminAuthentication> {
 
                         CustomAuthBox(
                           child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                                  decoration: BoxDecoration(
-                                    color: ColorManger.lightYellow,
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(color: ColorManger.yellow),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Icon(Icons.warning_amber_rounded, color: ColorManger.darkOrange, size: 22),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        appLocalization.restricted_access_area,
-                                        style: TextStyle(
-                                          color: ColorManger.darkOrange,
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 12,
+                                  horizontal: 16,
                                 ),
-
-                                const SizedBox(height: 24),
-
-                                Text(
-                                  appLocalization.admin_authentication,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: ColorManger.black,
-                                  ),
+                                decoration: BoxDecoration(
+                                  color: ColorManger.lightYellow,
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: ColorManger.yellow),
                                 ),
-
-                                const SizedBox(height: 24),
-
-                                CustomLabel(text: appLocalization.admin_access_key),
-                                const SizedBox(height: 8),
-                                CustomTextField(
-                                  controller: _accessKeyController,
-                                  hint: "ADMIN-XXXXXXXX",
-                                  icon: Icons.vpn_key_outlined,
-                                  isPassword: false,
-                                  validator: (String? value){
-                                    if(value == null || value.isEmpty){
-                                      return appLocalization.please_enter_admin_access_key;
-                                    }
-                                    return null;
-                                  },
-                                ),
-
-                                const SizedBox(height: 16),
-
-                                CustomLabel(text: appLocalization.admin_email),
-                                const SizedBox(height: 8),
-                                CustomTextField(
-                                  controller: _emailController,
-                                  hint: "admin@lifelink.org",
-                                  icon: Icons.mail_outline,
-                                  isPassword: false,
-                                  validator: (value) => value?.emailValidator(context),
-                                ),
-
-                                const SizedBox(height: 16),
-
-                                CustomLabel(text: appLocalization.secure_password),
-                                const SizedBox(height: 8),
-                                CustomTextField(
-                                  controller: _passwordController,
-                                  hint: "••••••••",
-                                  icon: Icons.lock_outline,
-                                  isPassword: true,
-                                ),
-                                SizedBox(height: 8),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: TextButton(
-                                    onPressed: isLoading ? null : () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        RouteManger.adminForgetPassword,
-                                      );
-                                    },
-                                    child: Text(
-                                      appLocalization.donor_forget_password,
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.warning_amber_rounded,
+                                      color: ColorManger.darkOrange,
+                                      size: 22,
+                                    ),
+                                    SizedBox(width: 10),
+                                    Text(
+                                      appLocalization.restricted_access_area,
                                       style: TextStyle(
-                                        color: ColorManger.green,
+                                        color: ColorManger.darkOrange,
                                         fontWeight: FontWeight.w600,
+                                        fontSize: 14,
                                       ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              const SizedBox(height: 24),
+
+                              Text(
+                                appLocalization.admin_authentication,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorManger.black,
+                                ),
+                              ),
+
+                              const SizedBox(height: 24),
+
+                              CustomLabel(
+                                text: appLocalization.admin_access_key,
+                              ),
+                              const SizedBox(height: 8),
+                              CustomTextField(
+                                controller: _accessKeyController,
+                                hint: "ADMIN-XXXXXXXX",
+                                icon: Icons.vpn_key_outlined,
+                                isPassword: false,
+                                validator: (String? value) {
+                                  if (value == null || value.isEmpty) {
+                                    return appLocalization
+                                        .please_enter_admin_access_key;
+                                  }
+                                  return null;
+                                },
+                              ),
+
+                              const SizedBox(height: 16),
+
+                              CustomLabel(text: appLocalization.admin_email),
+                              const SizedBox(height: 8),
+                              CustomTextField(
+                                controller: _emailController,
+                                hint: "admin@lifelink.org",
+                                icon: Icons.mail_outline,
+                                isPassword: false,
+                                validator: (value) =>
+                                    value?.emailValidator(context),
+                              ),
+
+                              const SizedBox(height: 16),
+
+                              CustomLabel(
+                                text: appLocalization.secure_password,
+                              ),
+                              const SizedBox(height: 8),
+                              CustomTextField(
+                                controller: _passwordController,
+                                hint: "••••••••",
+                                icon: Icons.lock_outline,
+                                isPassword: true,
+                              ),
+                              SizedBox(height: 8),
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: TextButton(
+                                  onPressed: isLoading
+                                      ? null
+                                      : () {
+                                          Navigator.pushNamed(
+                                            context,
+                                            RouteManger.adminForgetPassword,
+                                          );
+                                        },
+                                  child: Text(
+                                    appLocalization.donor_forget_password,
+                                    style: TextStyle(
+                                      color: ColorManger.green,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ),
+                              ),
 
-                                const SizedBox(height: 24),
+                              const SizedBox(height: 24),
 
-                                SizedBox(
-                                  width: double.infinity,
-                                  height: 50,
-                                  child: ElevatedButton(
-                                    onPressed: isLoading ? null : _handleLoginPressed,
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: ColorManger.green,
-                                      foregroundColor: Colors.white,
-                                      elevation: 0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      disabledBackgroundColor: Colors.grey,
+                              SizedBox(
+                                width: double.infinity,
+                                height: 50,
+                                child: ElevatedButton(
+                                  onPressed: isLoading
+                                      ? null
+                                      : _handleLoginPressed,
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: ColorManger.green,
+                                    foregroundColor: Colors.white,
+                                    elevation: 0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
-                                    child: isLoading
-                                        ? SizedBox(
-                                            height: 20,
-                                            width: 20,
-                                            child: CircularProgressIndicator(
-                                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                                              strokeWidth: 2,
-                                            ),
-                                          )
-                                        : Text(
-                                            appLocalization.secure_admin_login,
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                    disabledBackgroundColor: Colors.grey,
+                                  ),
+                                  child: isLoading
+                                      ? SizedBox(
+                                          height: 20,
+                                          width: 20,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                                  Colors.white,
+                                                ),
+                                            strokeWidth: 2,
                                           ),
-                                  ),
-                                ),
-
-                                const SizedBox(height: 32),
-
-                                Container(
-                                  width: double.infinity,
-                                  padding: const EdgeInsets.all(16),
-                                  margin: const EdgeInsets.only(bottom: 16),
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xFFF8FAFC),
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(color: Colors.grey[200]!),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        appLocalization.security_notice,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: ColorManger.black,
-                                          fontSize: 14,
+                                        )
+                                      : Text(
+                                          appLocalization.secure_admin_login,
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
+                                ),
+                              ),
+
+                              const SizedBox(height: 32),
+
+                              Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.all(16),
+                                margin: const EdgeInsets.only(bottom: 16),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFF8FAFC),
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: Colors.grey[200]!),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      appLocalization.security_notice,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: ColorManger.black,
+                                        fontSize: 14,
                                       ),
-                                      const SizedBox(height: 6),
-                                      Text(
-                                        appLocalization.security_notice_desc,
+                                    ),
+                                    const SizedBox(height: 6),
+                                    Text(
+                                      appLocalization.security_notice_desc,
+                                      style: TextStyle(
+                                        color: Colors.grey[600],
+                                        fontSize: 13,
+                                        height: 1.4,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFF0FDF4),
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: ColorManger.green),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      appLocalization.need_access,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: ColorManger.green,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 6),
+                                    RichText(
+                                      text: TextSpan(
                                         style: TextStyle(
-                                          color: Colors.grey[600],
+                                          color: ColorManger.green,
                                           fontSize: 13,
                                           height: 1.4,
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-
-                                Container(
-                                  width: double.infinity,
-                                  padding: const EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xFFF0FDF4),
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(color: ColorManger.green),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        appLocalization.need_access,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: ColorManger.green,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 6),
-                                      RichText(
-                                        text: TextSpan(
-                                          style: TextStyle(
-                                            color: ColorManger.green,
-                                            fontSize: 13,
-                                            height: 1.4,
+                                        children: [
+                                          TextSpan(
+                                            text: appLocalization
+                                                .contact_system_admin,
                                           ),
-                                          children: [
-                                            TextSpan(text: appLocalization.contact_system_admin),
-                                            TextSpan(
-                                              text: "security@lifelink.org",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                decoration: TextDecoration.underline,
-                                              ),
+                                          TextSpan(
+                                            text: "security@lifelink.org",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              decoration:
+                                                  TextDecoration.underline,
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

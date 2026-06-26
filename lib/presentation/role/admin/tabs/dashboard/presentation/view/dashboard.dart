@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_trends_chart.dart';
@@ -34,10 +32,10 @@ class _DashboardState extends State<Dashboard> {
   }
 
   List<String> _buildXLabels(
-      List<String>? apiLabels,
-      int count,
-      AppLocalizations loc,
-      ) {
+    List<String>? apiLabels,
+    int count,
+    AppLocalizations loc,
+  ) {
     if (apiLabels != null && apiLabels.isNotEmpty) {
       if (loc.localeName.startsWith('ar')) {
         const Map<String, String> dayMap = {
@@ -82,7 +80,6 @@ class _DashboardState extends State<Dashboard> {
                 const SizedBox(height: 20),
                 BlocBuilder<AnalyticsCubit, AnalyticsState>(
                   builder: (context, state) {
-
                     if (state is AnalyticsLoadingState) {
                       return CustomLoadingWidget(
                         indicatorColor: ColorManger.royalBlue,
@@ -140,9 +137,10 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ];
 
-                    final weeklyValues = data?.weeklyTrends?.values
-                        ?.map((v) => v.toDouble())
-                        .toList() ??
+                    final weeklyValues =
+                        data?.weeklyTrends?.values
+                            ?.map((v) => v.toDouble())
+                            .toList() ??
                         [];
 
                     final xLabels = _buildXLabels(
@@ -158,11 +156,11 @@ class _DashboardState extends State<Dashboard> {
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: stateModels.length,
                           gridDelegate:
-                          SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisSpacing: 8,
-                            mainAxisSpacing: 8,
-                            crossAxisCount: screenWidth > 600 ? 4 : 2,
-                          ),
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
+                                crossAxisCount: screenWidth > 600 ? 4 : 2,
+                              ),
                           itemBuilder: (context, index) {
                             final stateModel = stateModels[index];
                             return StateCard(

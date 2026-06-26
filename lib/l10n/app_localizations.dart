@@ -4038,6 +4038,12 @@ abstract class AppLocalizations {
   /// **'Retry'**
   String get retry;
 
+  /// No description provided for @loadMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Load More'**
+  String get loadMore;
+
   /// No description provided for @adminDashboard.
   ///
   /// In en, this message translates to:
@@ -6498,12 +6504,6 @@ abstract class AppLocalizations {
   /// **'You have no alerts at this time.'**
   String get noAlerts;
 
-  /// No description provided for @noInsightsAvailable.
-  ///
-  /// In en, this message translates to:
-  /// **'No insights available at this time.'**
-  String get noInsightsAvailable;
-
   /// No description provided for @suspended.
   ///
   /// In en, this message translates to:
@@ -6714,22 +6714,6 @@ abstract class AppLocalizations {
   /// **'Blood demand showing a steady {percentage}% weekly increase. Monitor inventory levels closely over the next 2 weeks.'**
   String aiPredictionDemandSteady(Object percentage);
 
-  /// No description provided for @aiPredictionDemandDecline.
-  ///
-  /// In en, this message translates to:
-  /// **'Blood demand has declined {percentage}% in the past week. Consider reducing scheduled drive frequency and reviewing inventory redistribution across hospitals.'**
-  String aiPredictionDemandDecline(Object percentage);
-
-  /// No description provided for @aiPredictionShortageCritical.
-  ///
-  /// In en, this message translates to:
-  /// **'{bloodType} critically low — only {available} donors available against {needed} units needed. Launch emergency campaign within 48 hours.'**
-  String aiPredictionShortageCritical(
-    Object available,
-    Object bloodType,
-    Object needed,
-  );
-
   /// No description provided for @aiPredictionShortageRisk.
   ///
   /// In en, this message translates to:
@@ -6747,18 +6731,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Donor retention has improved to {rate}% — current momentum is strong. Capitalize by introducing referral rewards to sustain growth.'**
   String aiPredictionRetentionImprove(Object rate);
-
-  /// No description provided for @aiPredictionPeakDay.
-  ///
-  /// In en, this message translates to:
-  /// **'{day} shows {percentage}% higher donation activity — schedule more mobile drives and staff on this day to maximize collections.'**
-  String aiPredictionPeakDay(Object day, Object percentage);
-
-  /// No description provided for @aiPredictionWeekend.
-  ///
-  /// In en, this message translates to:
-  /// **'Weekend donation drives show {percentage}% higher success rates compared to weekdays. Prioritize weekend scheduling for upcoming emergency campaigns.'**
-  String aiPredictionWeekend(Object percentage);
 
   /// No description provided for @jan.
   ///
@@ -7845,6 +7817,1072 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update failed'**
   String get updateFailed;
+
+  /// No description provided for @participationAddedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Participation added successfully'**
+  String get participationAddedSuccessfully;
+
+  /// No description provided for @participationAddedFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Participation added failed'**
+  String get participationAddedFailed;
+
+  /// No description provided for @activityAddedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity added successfully'**
+  String get activityAddedSuccessfully;
+
+  /// No description provided for @activityAddedFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity added failed'**
+  String get activityAddedFailed;
+
+  /// No description provided for @noInsightsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No insights available'**
+  String get noInsightsAvailable;
+
+  /// No description provided for @topDonors.
+  ///
+  /// In en, this message translates to:
+  /// **'Top Donors'**
+  String get topDonors;
+
+  /// No description provided for @growth.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth'**
+  String get growth;
+
+  /// No description provided for @isEligibleToDonate.
+  ///
+  /// In en, this message translates to:
+  /// **'Eligible to Donate'**
+  String get isEligibleToDonate;
+
+  /// No description provided for @isActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get isActive;
+
+  /// No description provided for @isVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get isVerified;
+
+  /// No description provided for @healthStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Health Status'**
+  String get healthStatus;
+
+  /// No description provided for @isBanned.
+  ///
+  /// In en, this message translates to:
+  /// **'Banned'**
+  String get isBanned;
+
+  /// No description provided for @donorRank.
+  ///
+  /// In en, this message translates to:
+  /// **'Rank'**
+  String get donorRank;
+
+  /// No description provided for @memberSince.
+  ///
+  /// In en, this message translates to:
+  /// **'Member Since'**
+  String get memberSince;
+
+  /// No description provided for @hospitalContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get hospitalContact;
+
+  /// No description provided for @requiredBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Required By'**
+  String get requiredBy;
+
+  /// No description provided for @title.
+  ///
+  /// In en, this message translates to:
+  /// **'Alert'**
+  String get title;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @confidence.
+  ///
+  /// In en, this message translates to:
+  /// **'Confidence'**
+  String get confidence;
+
+  /// No description provided for @predictMatchPercentage.
+  ///
+  /// In en, this message translates to:
+  /// **'Match Likelihood'**
+  String get predictMatchPercentage;
+
+  /// No description provided for @summaryStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary Statistics'**
+  String get summaryStats;
+
+  /// No description provided for @risingDemandTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Rising Demand Trend'**
+  String get risingDemandTrend;
+
+  /// No description provided for @decliningDemand.
+  ///
+  /// In en, this message translates to:
+  /// **'Declining Demand'**
+  String get decliningDemand;
+
+  /// No description provided for @supplyWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Supply Warning'**
+  String get supplyWarning;
+
+  /// No description provided for @peakDayInsight.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak Day Insight'**
+  String get peakDayInsight;
+
+  /// No description provided for @donorRetentionAlert.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Retention Alert'**
+  String get donorRetentionAlert;
+
+  /// No description provided for @donorGrowthPositive.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Growth Positive'**
+  String get donorGrowthPositive;
+
+  /// No description provided for @emergencyDemandSpike.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Demand Spike'**
+  String get emergencyDemandSpike;
+
+  /// No description provided for @risingDemandTrendDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood requests are trending upward. Prepare additional resources.'**
+  String get risingDemandTrendDesc;
+
+  /// No description provided for @decliningDemandDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood requests are declining. Review inventory allocation.'**
+  String get decliningDemandDesc;
+
+  /// No description provided for @supplyWarningDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} blood supply is approaching critical levels.'**
+  String supplyWarningDesc(Object bloodType);
+
+  /// No description provided for @peakDayInsightDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'{dayName} shows {percentage}% higher donation activity. Consider scheduling more drives on this day.'**
+  String peakDayInsightDesc(Object dayName, Object percentage);
+
+  /// No description provided for @donorRetentionAlertDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor return rate has dropped significantly. Consider re-engagement campaigns.'**
+  String get donorRetentionAlertDesc;
+
+  /// No description provided for @donorGrowthPositiveDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'More donors are returning compared to last month. Momentum is strong.'**
+  String get donorGrowthPositiveDesc;
+
+  /// No description provided for @emergencyDemandSpikeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood demand has surged unexpectedly in the last 3 days. Emergency response may be needed.'**
+  String get emergencyDemandSpikeDesc;
+
+  /// No description provided for @criticalNeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical need for {bloodTypes}'**
+  String criticalNeed(Object bloodTypes);
+
+  /// No description provided for @typeCritical.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical'**
+  String get typeCritical;
+
+  /// No description provided for @typeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning'**
+  String get typeWarning;
+
+  /// No description provided for @chronicConditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Chronic Conditions'**
+  String get chronicConditions;
+
+  /// No description provided for @booleanTrue.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get booleanTrue;
+
+  /// No description provided for @booleanFalse.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get booleanFalse;
+
+  /// No description provided for @monAbbr.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get monAbbr;
+
+  /// No description provided for @tueAbbr.
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get tueAbbr;
+
+  /// No description provided for @wedAbbr.
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get wedAbbr;
+
+  /// No description provided for @thuAbbr.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get thuAbbr;
+
+  /// No description provided for @friAbbr.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get friAbbr;
+
+  /// No description provided for @alertTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical need for {bloodTypes}'**
+  String alertTitle(String bloodTypes);
+
+  /// No description provided for @alertDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical request for {bloodTypes} blood type(s).'**
+  String alertDescription(String bloodTypes);
+
+  /// No description provided for @satAbbr.
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get satAbbr;
+
+  /// No description provided for @monday.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday'**
+  String get monday;
+
+  /// No description provided for @tuesday.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday'**
+  String get tuesday;
+
+  /// No description provided for @wednesday.
+  ///
+  /// In en, this message translates to:
+  /// **'Wednesday'**
+  String get wednesday;
+
+  /// No description provided for @thursday.
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday'**
+  String get thursday;
+
+  /// No description provided for @friday.
+  ///
+  /// In en, this message translates to:
+  /// **'Friday'**
+  String get friday;
+
+  /// No description provided for @saturday.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday'**
+  String get saturday;
+
+  /// No description provided for @sunday.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get sunday;
+
+  /// No description provided for @aiPredictionTodaySpike.
+  ///
+  /// In en, this message translates to:
+  /// **'Today shows a {percentage}% increase in demand.'**
+  String aiPredictionTodaySpike(String percentage);
+
+  /// No description provided for @aiPredictionDemandDecline.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood demand has declined {percentage}% in the past week. Consider reducing scheduled drive frequency and reviewing inventory redistribution across hospitals.'**
+  String aiPredictionDemandDecline(String percentage);
+
+  /// No description provided for @aiPredictionShortageCritical.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} critically low — only {available} donors available against {needed} units needed. Launch emergency campaign within 48 hours.'**
+  String aiPredictionShortageCritical(
+    String bloodType,
+    String available,
+    String needed,
+  );
+
+  /// No description provided for @aiPredictionPeakDay.
+  ///
+  /// In en, this message translates to:
+  /// **'{dayName} shows {percentage}% higher donation activity — schedule more mobile drives and staff on this day to maximize collections.'**
+  String aiPredictionPeakDay(String dayName, String percentage);
+
+  /// No description provided for @aiPredictionWeekend.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekend donation drives show {percentage}% higher success rates compared to weekdays. Prioritize weekend scheduling for upcoming emergency campaigns.'**
+  String aiPredictionWeekend(String percentage);
+
+  /// No description provided for @rewardCoffeeVoucher.
+  ///
+  /// In en, this message translates to:
+  /// **'Coffee Voucher'**
+  String get rewardCoffeeVoucher;
+
+  /// No description provided for @rewardCoffeeVoucherDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Free coffee at partner cafes'**
+  String get rewardCoffeeVoucherDesc;
+
+  /// No description provided for @rewardGymMembership.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym Membership'**
+  String get rewardGymMembership;
+
+  /// No description provided for @rewardPremiumBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Badge'**
+  String get rewardPremiumBadge;
+
+  /// No description provided for @rewardHealthCheckup.
+  ///
+  /// In en, this message translates to:
+  /// **'Health Check-up'**
+  String get rewardHealthCheckup;
+
+  /// No description provided for @rewardRestaurantGiftCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurant Gift Card'**
+  String get rewardRestaurantGiftCard;
+
+  /// No description provided for @rewardMovieTickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Movie Tickets'**
+  String get rewardMovieTickets;
+
+  /// No description provided for @rewardStatusActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get rewardStatusActive;
+
+  /// No description provided for @rewardStatusInactive.
+  ///
+  /// In en, this message translates to:
+  /// **'Inactive'**
+  String get rewardStatusInactive;
+
+  /// No description provided for @rewardCategoryHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Health'**
+  String get rewardCategoryHealth;
+
+  /// No description provided for @rewardCategoryStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get rewardCategoryStatus;
+
+  /// No description provided for @rewardCategoryFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Food'**
+  String get rewardCategoryFood;
+
+  /// No description provided for @rewardCategoryEntertainment.
+  ///
+  /// In en, this message translates to:
+  /// **'Entertainment'**
+  String get rewardCategoryEntertainment;
+
+  /// No description provided for @point.
+  ///
+  /// In en, this message translates to:
+  /// **'Point'**
+  String get point;
+
+  /// No description provided for @redeemed.
+  ///
+  /// In en, this message translates to:
+  /// **'Redeemed'**
+  String get redeemed;
+
+  /// No description provided for @setRewardActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Set ACTIVE'**
+  String get setRewardActive;
+
+  /// No description provided for @setRewardInactive.
+  ///
+  /// In en, this message translates to:
+  /// **'Set INACTIVE'**
+  String get setRewardInactive;
+
+  /// No description provided for @profileUpdatedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated successfully'**
+  String get profileUpdatedSuccessfully;
+
+  /// No description provided for @confirmEmergencyShutdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to shut down the system immediately? All users will be disconnected.'**
+  String get confirmEmergencyShutdown;
+
+  /// No description provided for @emergencyShutdownInitiated.
+  ///
+  /// In en, this message translates to:
+  /// **'EMERGENCY SHUTDOWN INITIATED'**
+  String get emergencyShutdownInitiated;
+
+  /// No description provided for @systemRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'System Restored'**
+  String get systemRestored;
+
+  /// No description provided for @statusOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'ONLINE'**
+  String get statusOnline;
+
+  /// No description provided for @statusOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'OFFLINE / MAINTENANCE'**
+  String get statusOffline;
+
+  /// No description provided for @disableMaintenanceMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore System & Disable Maintenance'**
+  String get disableMaintenanceMode;
+
+  /// No description provided for @system_status_updated_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'System status updated successfully'**
+  String get system_status_updated_successfully;
+
+  /// No description provided for @auditLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Audit Logs'**
+  String get auditLogs;
+
+  /// No description provided for @filterByTargetType.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by Target Type'**
+  String get filterByTargetType;
+
+  /// No description provided for @isLoadingMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading more logs...'**
+  String get isLoadingMore;
+
+  /// No description provided for @noAuditLogsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No audit logs found'**
+  String get noAuditLogsFound;
+
+  /// No description provided for @allTypes.
+  ///
+  /// In en, this message translates to:
+  /// **'All Types'**
+  String get allTypes;
+
+  /// No description provided for @rotate_admin_key.
+  ///
+  /// In en, this message translates to:
+  /// **'Rotate Key'**
+  String get rotate_admin_key;
+
+  /// No description provided for @rotate_admin_key_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Rotate Admin Key?'**
+  String get rotate_admin_key_title;
+
+  /// No description provided for @rotate_admin_key_confirm_message.
+  ///
+  /// In en, this message translates to:
+  /// **'This will generate a new admin key and immediately invalidate the current one. This action cannot be undone. Are you sure you want to continue?'**
+  String get rotate_admin_key_confirm_message;
+
+  /// No description provided for @new_admin_key_title.
+  ///
+  /// In en, this message translates to:
+  /// **'New Admin Key Generated'**
+  String get new_admin_key_title;
+
+  /// No description provided for @new_admin_key_warning.
+  ///
+  /// In en, this message translates to:
+  /// **'This key is shown only once. Make sure to copy and store it securely before closing this dialog.'**
+  String get new_admin_key_warning;
+
+  /// No description provided for @copied_to_clipboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied to clipboard'**
+  String get copied_to_clipboard;
+
+  /// No description provided for @auditLogsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Audit logs'**
+  String get auditLogsTitle;
+
+  /// No description provided for @actionHospitalAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Added'**
+  String get actionHospitalAdded;
+
+  /// No description provided for @actionUserBanned.
+  ///
+  /// In en, this message translates to:
+  /// **'User Banned'**
+  String get actionUserBanned;
+
+  /// No description provided for @actionUserUnbanned.
+  ///
+  /// In en, this message translates to:
+  /// **'User Unbanned'**
+  String get actionUserUnbanned;
+
+  /// No description provided for @actionUserSuspended.
+  ///
+  /// In en, this message translates to:
+  /// **'User Suspended'**
+  String get actionUserSuspended;
+
+  /// No description provided for @actionUserUnsuspended.
+  ///
+  /// In en, this message translates to:
+  /// **'User Unsuspended'**
+  String get actionUserUnsuspended;
+
+  /// No description provided for @actionUserDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'User Deleted'**
+  String get actionUserDeleted;
+
+  /// No description provided for @actionAdminAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Added'**
+  String get actionAdminAdded;
+
+  /// No description provided for @actionMaintenanceModeUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintenance Mode Updated'**
+  String get actionMaintenanceModeUpdated;
+
+  /// No description provided for @detailCreateHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Added hospital account'**
+  String get detailCreateHospital;
+
+  /// No description provided for @detailBan.
+  ///
+  /// In en, this message translates to:
+  /// **'Banned user account (ID: {targetId})'**
+  String detailBan(String targetId);
+
+  /// No description provided for @detailUnban.
+  ///
+  /// In en, this message translates to:
+  /// **'Unbanned user account (ID: {targetId})'**
+  String detailUnban(String targetId);
+
+  /// No description provided for @detailSuspend.
+  ///
+  /// In en, this message translates to:
+  /// **'Suspended user account (ID: {targetId})'**
+  String detailSuspend(String targetId);
+
+  /// No description provided for @detailUnsuspend.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsuspended user account (ID: {targetId})'**
+  String detailUnsuspend(String targetId);
+
+  /// No description provided for @detailDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Soft-deleted user account (ID: {targetId})'**
+  String detailDelete(String targetId);
+
+  /// No description provided for @detailCreateAdmin.
+  ///
+  /// In en, this message translates to:
+  /// **'Created admin account (ID: {targetId})'**
+  String detailCreateAdmin(String targetId);
+
+  /// No description provided for @detailMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated system maintenance mode'**
+  String get detailMaintenance;
+
+  /// No description provided for @detailDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Performed action {action} on {targetType}'**
+  String detailDefault(String action, String targetType);
+
+  /// No description provided for @targetTypeUser.
+  ///
+  /// In en, this message translates to:
+  /// **'user'**
+  String get targetTypeUser;
+
+  /// No description provided for @targetTypeRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'request'**
+  String get targetTypeRequest;
+
+  /// No description provided for @targetTypeDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'donation'**
+  String get targetTypeDonation;
+
+  /// No description provided for @targetTypeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'system'**
+  String get targetTypeSystem;
+
+  /// No description provided for @actionDonorUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Updated'**
+  String get actionDonorUpdated;
+
+  /// No description provided for @actionHospitalUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Updated'**
+  String get actionHospitalUpdated;
+
+  /// No description provided for @actionAdminUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Updated'**
+  String get actionAdminUpdated;
+
+  /// No description provided for @actionAdminDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Deleted'**
+  String get actionAdminDeleted;
+
+  /// No description provided for @actionAdminKeyRotated.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Key Rotated'**
+  String get actionAdminKeyRotated;
+
+  /// No description provided for @actionProfileUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Updated'**
+  String get actionProfileUpdated;
+
+  /// No description provided for @actionBadgeUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge Updated'**
+  String get actionBadgeUpdated;
+
+  /// No description provided for @actionRewardsConfigUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards Config Updated'**
+  String get actionRewardsConfigUpdated;
+
+  /// No description provided for @actionRoleCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Role Created'**
+  String get actionRoleCreated;
+
+  /// No description provided for @actionRoleUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Role Updated'**
+  String get actionRoleUpdated;
+
+  /// No description provided for @actionRoleDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Role Deleted'**
+  String get actionRoleDeleted;
+
+  /// No description provided for @actionHospitalCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital Created'**
+  String get actionHospitalCreated;
+
+  /// No description provided for @supportTicketsTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Support Tickets'**
+  String get supportTicketsTab;
+
+  /// No description provided for @supportTicketStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get supportTicketStatus;
+
+  /// No description provided for @supportTicketCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get supportTicketCategory;
+
+  /// No description provided for @supportTicketFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get supportTicketFrom;
+
+  /// No description provided for @supportTicketCreatedAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Created'**
+  String get supportTicketCreatedAt;
+
+  /// No description provided for @supportTicketReply.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply'**
+  String get supportTicketReply;
+
+  /// No description provided for @supportTicketReplyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type your reply...'**
+  String get supportTicketReplyHint;
+
+  /// No description provided for @supportTicketSendReply.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Reply'**
+  String get supportTicketSendReply;
+
+  /// No description provided for @supportTicketStatusOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get supportTicketStatusOpen;
+
+  /// No description provided for @supportTicketStatusClosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed'**
+  String get supportTicketStatusClosed;
+
+  /// No description provided for @supportTicketStatusInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'In Progress'**
+  String get supportTicketStatusInProgress;
+
+  /// No description provided for @supportTicketEmptyState.
+  ///
+  /// In en, this message translates to:
+  /// **'No support tickets'**
+  String get supportTicketEmptyState;
+
+  /// No description provided for @supportTicketReplySentSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply sent successfully'**
+  String get supportTicketReplySentSnack;
+
+  /// No description provided for @supportTicketReplyErrorSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to send reply'**
+  String get supportTicketReplyErrorSnack;
+
+  /// No description provided for @supportTicketAdminReply.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Reply'**
+  String get supportTicketAdminReply;
+
+  /// No description provided for @supportTicketNoReply.
+  ///
+  /// In en, this message translates to:
+  /// **'No reply yet'**
+  String get supportTicketNoReply;
+
+  /// No description provided for @actionRequestFulfilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Fulfilled'**
+  String get actionRequestFulfilled;
+
+  /// No description provided for @actionRequestCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Cancelled'**
+  String get actionRequestCancelled;
+
+  /// No description provided for @actionRequestBroadcasted.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Broadcasted'**
+  String get actionRequestBroadcasted;
+
+  /// No description provided for @detailRequestAction.
+  ///
+  /// In en, this message translates to:
+  /// **'{action} (ID: {id})'**
+  String detailRequestAction(Object action, Object id);
+
+  /// No description provided for @earningRulesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your earning rules here'**
+  String get earningRulesSubtitle;
+
+  /// No description provided for @addRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Rule'**
+  String get addRule;
+
+  /// No description provided for @totalRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Rules'**
+  String get totalRules;
+
+  /// No description provided for @activeRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Rules'**
+  String get activeRules;
+
+  /// No description provided for @inactiveRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Inactive Rules'**
+  String get inactiveRules;
+
+  /// No description provided for @noEarningRules.
+  ///
+  /// In en, this message translates to:
+  /// **'No Earning Rules Found'**
+  String get noEarningRules;
+
+  /// No description provided for @noEarningRulesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a new rule to get started'**
+  String get noEarningRulesSubtitle;
+
+  /// No description provided for @earningRuleCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get earningRuleCategory;
+
+  /// No description provided for @editPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Points'**
+  String get editPoints;
+
+  /// No description provided for @addEarningRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Earning Rule'**
+  String get addEarningRule;
+
+  /// No description provided for @addEarningRuleSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill in the details to create a new rule'**
+  String get addEarningRuleSubtitle;
+
+  /// No description provided for @earningRuleType.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Type'**
+  String get earningRuleType;
+
+  /// No description provided for @earningRuleTypeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g., Donation'**
+  String get earningRuleTypeHint;
+
+  /// No description provided for @earningRuleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Title'**
+  String get earningRuleTitle;
+
+  /// No description provided for @earningRuleTitleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g., First Donation'**
+  String get earningRuleTitleHint;
+
+  /// No description provided for @earningRulePointsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter points'**
+  String get earningRulePointsHint;
+
+  /// No description provided for @earningRuleActiveStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Is Active'**
+  String get earningRuleActiveStatus;
+
+  /// No description provided for @deleteEarningRuleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Earning Rule'**
+  String get deleteEarningRuleTitle;
+
+  /// No description provided for @deleteEarningRuleConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this earning rule?'**
+  String get deleteEarningRuleConfirmation;
+
+  /// No description provided for @earningRulesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Earning Rules'**
+  String get earningRulesTitle;
+
+  /// No description provided for @activityType.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity Type'**
+  String get activityType;
+
+  /// No description provided for @detailAdminUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated admin account (ID: {id})'**
+  String detailAdminUpdated(Object id);
+
+  /// No description provided for @detailAdminKeyRotated.
+  ///
+  /// In en, this message translates to:
+  /// **'Rotated admin key (ID: {id})'**
+  String detailAdminKeyRotated(Object id);
+
+  /// No description provided for @detailHospitalUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated hospital account (ID: {id})'**
+  String detailHospitalUpdated(Object id);
+
+  /// No description provided for @broadcastSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Broadcast Sent'**
+  String get broadcastSent;
+
+  /// No description provided for @requestFulfilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request marked as fulfilled'**
+  String get requestFulfilled;
 }
 
 class _AppLocalizationsDelegate
