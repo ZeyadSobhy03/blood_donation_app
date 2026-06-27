@@ -94,6 +94,13 @@ class ApiManger {
   static const String getSettingEndpoint = "${baseUrl}donor/settings";
   static const String historyEndpoint = "${baseUrl}donor/history";
   static const String supportRequestsEndpoint = "${baseUrl}support/contact";
+  static const String donorSupportTicketsEndpoint = "${baseUrl}support/tickets";
+  static String donorSupportTicketDetailEndpoint(String ticketId) {
+    return "${baseUrl}support/tickets/$ticketId";
+  }
+  static String donorSupportTicketReplyEndpoint(String ticketId) {
+    return "${baseUrl}support/tickets/$ticketId/reply";
+  }
   static const String adminRewardsEndpoint = "${baseUrl}admin/rewards";
   // https://graduation-project-cy61.onrender.com/admin/users/donor/69f3df915f42685cbbbcbb18
   static const String createAdminReward = '${baseUrl}admin/rewards';

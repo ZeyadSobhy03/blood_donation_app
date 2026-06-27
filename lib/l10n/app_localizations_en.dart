@@ -4074,6 +4074,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get donationEligibility => 'Donation Eligibility';
 
   @override
+  String get donationAvailability => 'Donation Available';
+
+  @override
+  String get youAreAvailable => 'You are available for donation';
+
+  @override
+  String get youAreNotAvailable => 'You are not available for donation';
+
+  @override
   String get contact_support => 'Contact Support';
 
   @override
@@ -4753,4 +4762,112 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get requestFulfilled => 'Request marked as fulfilled';
+
+  @override
+  String get activityTierPromoted => 'Tier Promoted';
+
+  @override
+  String get activityBadgeUnlocked => 'Badge Unlocked';
+
+  @override
+  String get activityRewardRedeemed => 'Reward Redeemed';
+
+  @override
+  String get activityDonationCreated => 'Donation Created';
+
+  @override
+  String get activityDonationVerified => 'Donation Verified';
+
+  @override
+  String get activityDonationConfirmed => 'Donation Confirmed';
+
+  @override
+  String get activityTypeLabelDonation => 'Donation';
+
+  @override
+  String get activityTypeLabelReward => 'Reward';
+
+  @override
+  String get activityTypeLabelEmergencyResponse => 'Emergency Response';
+
+  @override
+  String get activityTypeLabelProfileUpdate => 'Profile Update';
+
+  @override
+  String get activityTypeLabelAppointment => 'Appointment';
+
+  @override
+  String get activityTypeLabelBadge => 'Badge';
+
+  @override
+  String get activityTypeLabelAchievement => 'Achievement';
+
+  @override
+  String get activityTypeLabelReferral => 'Referral';
+
+  @override
+  String get activityTypeLabelSubscription => 'Subscription';
+
+  @override
+  String get activityTypeLabelAdminAction => 'Admin Action';
+
+  @override
+  String get activityAppointmentRequested => 'Appointment Requested';
+
+  @override
+  String get activityPointsEarnedSimple => 'Points Earned';
+
+  @override
+  String get oneDayRemaining => '1 day remaining';
+
+  @override
+  String daysRemaining(Object count) {
+    return '$count days remaining';
+  }
+
+  @override
+  String get unknownEligibilityReason => 'Unknown eligibility reason';
+
+  @override
+  String get supportTickets => 'Support Tickets';
+
+  @override
+  String get noSupportTickets => 'No support tickets';
+
+  @override
+  String get ticketOpen => 'Open';
+
+  @override
+  String get ticketReviewed => 'Reviewed';
+
+  @override
+  String get ticketClosed => 'Closed';
+
+  @override
+  String get ticketDetails => 'Ticket Details';
+
+  @override
+  String get ticketDetailsSubtitle =>
+      'Full information for this support ticket';
+
+  @override
+  String get createdAt => 'Created At';
+
+  @override
+  String get messageLabel => 'Message';
+
+  @override
+  String get adminReply => 'Admin Reply';
+
+  @override
+  String get reply => 'Reply';
+
+  @override
+  String get replyToTicket => 'Reply to the admin\'s response';
+
+  @override
+  String get yourReply => 'Your Reply';
+
+  @override
+  String get replySubmitted => 'Reply submitted successfully';
 }

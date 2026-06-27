@@ -1,6 +1,7 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/donation_eligibility/donation_eligibility_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view_model/donation_eligibility/donation_eligibility_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,10 +25,10 @@ class DonationStatusCard extends StatelessWidget {
     }
   }
 
-  String _getDaysRemainingText(int? days) {
+  String _getDaysRemainingText(int? days, AppLocalizations l10n) {
     if (days == null || days <= 0) return '';
-    if (days == 1) return '1 day remaining';
-    return '$days days remaining';
+    if (days == 1) return l10n.oneDayRemaining;
+    return l10n.daysRemaining(days.toString());
   }
 
   String _getLocalizedReason(String? reason, AppLocalizations l10n) {
@@ -112,12 +113,11 @@ class DonationStatusCard extends StatelessWidget {
       case 'Authenticated donor ID not found in authentication token':
         return l10n.authenticatedDonorIdNotFound;
 
-      // Dynamic error messages
       default:
         if (reason.startsWith('Error validating eligibility:')) {
-          return reason; // Return as-is (already contains error details)
+          return reason;
         }
-        return reason; // Fallback: return the reason as-is
+        return l10n.unknownEligibilityReason;
     }
   }
 
@@ -126,10 +126,16 @@ class DonationStatusCard extends StatelessWidget {
     return BlocBuilder<DonationEligibilityCubit, DonationEligibilityState>(
       builder: (context, state) {
         final appLocalizations = AppLocalizations.of(context)!;
-        final eligibilityData = state is DonationEligibilitySuccess
-            ? state.donationEligibilityModel.data
-            : null;
+        DonationEligibilityModel? model;
+        if (state is DonationEligibilitySuccess) {
+          model = state.donationEligibilityModel;
+        } else if (state is DonationEligibilityParticipationLoading) {
+          model = state.donationEligibilityModel;
+        } else if (state is DonationEligibilityParticipationSuccess) {
+          model = state.donationEligibilityModel;
+        }
 
+        final eligibilityData = model?.data;
         final isEligible = eligibilityData?.isEligible ?? false;
         final reason = eligibilityData?.reason;
         final nextEligibleDate = eligibilityData?.nextEligibleDate;
@@ -332,7 +338,7 @@ class DonationStatusCard extends StatelessWidget {
                                     SizedBox(width: 6),
                                     CustomText(
                                       text:
-                                          '⏱ ${_getDaysRemainingText(daysRemaining)}',
+                                          '⏱ ${_getDaysRemainingText(daysRemaining, appLocalizations)}',
                                       textStyle: TextStyle(
                                         color: ColorManger.pureWhite.withValues(
                                           alpha: 0.9,

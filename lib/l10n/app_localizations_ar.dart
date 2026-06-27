@@ -4049,6 +4049,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get donationEligibility => 'أهلية التبرع';
 
   @override
+  String get donationAvailability => 'متاح للتبرع';
+
+  @override
+  String get youAreAvailable => 'أنت متاح للتبرع في الوقت الحالي';
+
+  @override
+  String get youAreNotAvailable => 'أنت غير متاح للتبرع في الوقت الحالي';
+
+  @override
   String get contact_support => 'التواصل مع الدعم';
 
   @override
@@ -4722,4 +4731,111 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get requestFulfilled => 'تم تحديد الطلب كمكتمل';
+
+  @override
+  String get activityTierPromoted => 'تم ترقية المستوى';
+
+  @override
+  String get activityBadgeUnlocked => 'تم فتح الشارة';
+
+  @override
+  String get activityRewardRedeemed => 'تم استبدال المكافأة';
+
+  @override
+  String get activityDonationCreated => 'تم إنشاء التبرع';
+
+  @override
+  String get activityDonationVerified => 'تم التحقق من التبرع';
+
+  @override
+  String get activityDonationConfirmed => 'تم تأكيد التبرع';
+
+  @override
+  String get activityTypeLabelDonation => 'تبرع';
+
+  @override
+  String get activityTypeLabelReward => 'مكافأة';
+
+  @override
+  String get activityTypeLabelEmergencyResponse => 'استجابة طارئة';
+
+  @override
+  String get activityTypeLabelProfileUpdate => 'تحديث الملف الشخصي';
+
+  @override
+  String get activityTypeLabelAppointment => 'موعد';
+
+  @override
+  String get activityTypeLabelBadge => 'شارة';
+
+  @override
+  String get activityTypeLabelAchievement => 'إنجاز';
+
+  @override
+  String get activityTypeLabelReferral => 'إحالة';
+
+  @override
+  String get activityTypeLabelSubscription => 'اشتراك';
+
+  @override
+  String get activityTypeLabelAdminAction => 'إجراء إداري';
+
+  @override
+  String get activityAppointmentRequested => 'تم طلب موعد';
+
+  @override
+  String get activityPointsEarnedSimple => 'نقاط مكتسبة';
+
+  @override
+  String get oneDayRemaining => 'يوم واحد متبقي';
+
+  @override
+  String daysRemaining(Object count) {
+    return '$count أيام متبقية';
+  }
+
+  @override
+  String get unknownEligibilityReason => 'سبب غير معروف لعدم الأهلية';
+
+  @override
+  String get supportTickets => 'تذاكر الدعم';
+
+  @override
+  String get noSupportTickets => 'لا توجد تذاكر دعم';
+
+  @override
+  String get ticketOpen => 'مفتوح';
+
+  @override
+  String get ticketReviewed => 'تمت المراجعة';
+
+  @override
+  String get ticketClosed => 'مغلق';
+
+  @override
+  String get ticketDetails => 'تفاصيل التذكرة';
+
+  @override
+  String get ticketDetailsSubtitle => 'معلومات كاملة لتذكرة الدعم هذه';
+
+  @override
+  String get createdAt => 'تاريخ الإنشاء';
+
+  @override
+  String get messageLabel => 'الرسالة';
+
+  @override
+  String get adminReply => 'رد الإدارة';
+
+  @override
+  String get reply => 'رد';
+
+  @override
+  String get replyToTicket => 'رد على رد الإدارة';
+
+  @override
+  String get yourReply => 'ردك';
+
+  @override
+  String get replySubmitted => 'تم إرسال الرد بنجاح';
 }

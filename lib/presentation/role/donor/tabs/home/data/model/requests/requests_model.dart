@@ -11,7 +11,7 @@ class RequestsModel {
 
   RequestsModel.fromJson(dynamic json) {
     success = json['success'];
-    message = json['message'];
+    message = json['message']?.toString();
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
@@ -226,7 +226,12 @@ class Hospital {
     id = json['id'];
     name = json['name'];
     contactNumber = json['contactNumber'];
-    address = json['address'];
+    final addr = json['address'];
+    if (addr is Map) {
+      address = addr.values.where((v) => v != null).join(', ');
+    } else {
+      address = addr?.toString();
+    }
     latitude = json['latitude'];
     longitude = json['longitude'];
   }

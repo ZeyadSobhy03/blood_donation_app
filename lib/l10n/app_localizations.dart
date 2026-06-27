@@ -7638,6 +7638,24 @@ abstract class AppLocalizations {
   /// **'Donation Eligibility'**
   String get donationEligibility;
 
+  /// No description provided for @donationAvailability.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Available'**
+  String get donationAvailability;
+
+  /// No description provided for @youAreAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'You are available for donation'**
+  String get youAreAvailable;
+
+  /// No description provided for @youAreNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'You are not available for donation'**
+  String get youAreNotAvailable;
+
   /// No description provided for @contact_support.
   ///
   /// In en, this message translates to:
@@ -8883,6 +8901,216 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Request marked as fulfilled'**
   String get requestFulfilled;
+
+  /// No description provided for @activityTierPromoted.
+  ///
+  /// In en, this message translates to:
+  /// **'Tier Promoted'**
+  String get activityTierPromoted;
+
+  /// No description provided for @activityBadgeUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge Unlocked'**
+  String get activityBadgeUnlocked;
+
+  /// No description provided for @activityRewardRedeemed.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward Redeemed'**
+  String get activityRewardRedeemed;
+
+  /// No description provided for @activityDonationCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Created'**
+  String get activityDonationCreated;
+
+  /// No description provided for @activityDonationVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Verified'**
+  String get activityDonationVerified;
+
+  /// No description provided for @activityDonationConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Confirmed'**
+  String get activityDonationConfirmed;
+
+  /// No description provided for @activityTypeLabelDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation'**
+  String get activityTypeLabelDonation;
+
+  /// No description provided for @activityTypeLabelReward.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward'**
+  String get activityTypeLabelReward;
+
+  /// No description provided for @activityTypeLabelEmergencyResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Response'**
+  String get activityTypeLabelEmergencyResponse;
+
+  /// No description provided for @activityTypeLabelProfileUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Update'**
+  String get activityTypeLabelProfileUpdate;
+
+  /// No description provided for @activityTypeLabelAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment'**
+  String get activityTypeLabelAppointment;
+
+  /// No description provided for @activityTypeLabelBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge'**
+  String get activityTypeLabelBadge;
+
+  /// No description provided for @activityTypeLabelAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement'**
+  String get activityTypeLabelAchievement;
+
+  /// No description provided for @activityTypeLabelReferral.
+  ///
+  /// In en, this message translates to:
+  /// **'Referral'**
+  String get activityTypeLabelReferral;
+
+  /// No description provided for @activityTypeLabelSubscription.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription'**
+  String get activityTypeLabelSubscription;
+
+  /// No description provided for @activityTypeLabelAdminAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Action'**
+  String get activityTypeLabelAdminAction;
+
+  /// No description provided for @activityAppointmentRequested.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Requested'**
+  String get activityAppointmentRequested;
+
+  /// No description provided for @activityPointsEarnedSimple.
+  ///
+  /// In en, this message translates to:
+  /// **'Points Earned'**
+  String get activityPointsEarnedSimple;
+
+  /// No description provided for @oneDayRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'1 day remaining'**
+  String get oneDayRemaining;
+
+  /// No description provided for @daysRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} days remaining'**
+  String daysRemaining(Object count);
+
+  /// No description provided for @unknownEligibilityReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown eligibility reason'**
+  String get unknownEligibilityReason;
+
+  /// No description provided for @supportTickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Support Tickets'**
+  String get supportTickets;
+
+  /// No description provided for @noSupportTickets.
+  ///
+  /// In en, this message translates to:
+  /// **'No support tickets'**
+  String get noSupportTickets;
+
+  /// No description provided for @ticketOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get ticketOpen;
+
+  /// No description provided for @ticketReviewed.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviewed'**
+  String get ticketReviewed;
+
+  /// No description provided for @ticketClosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed'**
+  String get ticketClosed;
+
+  /// No description provided for @ticketDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Ticket Details'**
+  String get ticketDetails;
+
+  /// No description provided for @ticketDetailsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Full information for this support ticket'**
+  String get ticketDetailsSubtitle;
+
+  /// No description provided for @createdAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Created At'**
+  String get createdAt;
+
+  /// No description provided for @messageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Message'**
+  String get messageLabel;
+
+  /// No description provided for @adminReply.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Reply'**
+  String get adminReply;
+
+  /// No description provided for @reply.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply'**
+  String get reply;
+
+  /// No description provided for @replyToTicket.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply to the admin\'s response'**
+  String get replyToTicket;
+
+  /// No description provided for @yourReply.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Reply'**
+  String get yourReply;
+
+  /// No description provided for @replySubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply submitted successfully'**
+  String get replySubmitted;
 }
 
 class _AppLocalizationsDelegate

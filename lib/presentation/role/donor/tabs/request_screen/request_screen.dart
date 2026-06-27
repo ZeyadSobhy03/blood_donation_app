@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/requests_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/widgets/blood_need_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/widgets/hospital_info_card.dart';
@@ -137,7 +138,7 @@ class _RequestScreenState extends State<RequestScreen> {
               Navigator.of(context, rootNavigator: true).pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(state.message),
+                  content: Text(localizeError(state.message, appLocalizations)),
                   backgroundColor: Colors.red,
                 ),
               );
@@ -169,7 +170,7 @@ class _RequestScreenState extends State<RequestScreen> {
               Navigator.of(context, rootNavigator: true).pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(state.message),
+                  content: Text(localizeError(state.message, appLocalizations)),
                   backgroundColor: Colors.red,
                 ),
               );
@@ -233,7 +234,7 @@ class _RequestScreenState extends State<RequestScreen> {
                   child: RequestDetailsSection(
                     posted: formatTimeAgo(_createdAt),
                     contact: urgentRequest?.hospital?.contactNumber ?? '',
-                    patientType: "urgentRequest?",
+                    patientType: localizeUrgency(urgentRequest?.urgency ?? '', appLocalizations),
                   ),
                 ),
 
@@ -267,7 +268,7 @@ class _RequestScreenState extends State<RequestScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child:  ResponseMattersSection(
                     bloodType: urgentRequest?.bloodType?? [],
-                    patientType: urgentRequest?.urgency ?? '',
+                    patientType: localizeUrgency(urgentRequest?.urgency ?? '', appLocalizations),
                     unitsNeeded: urgentRequest?.unitsNeeded ?? 0,
                   ),
                 ),
@@ -304,5 +305,22 @@ class _RequestScreenState extends State<RequestScreen> {
         ),
       ),
     );
+  }
+}
+
+String localizeUrgency(String urgency, AppLocalizations loc) {
+  switch (urgency.toLowerCase().trim()) {
+    case 'low':
+      return loc.urgency_low;
+    case 'medium':
+      return loc.urgency_medium;
+    case 'high':
+      return loc.urgency_high;
+    case 'critical':
+      return loc.criticalStatus;
+    case 'emergency':
+      return loc.emergencyLabel;
+    default:
+      return urgency;
   }
 }

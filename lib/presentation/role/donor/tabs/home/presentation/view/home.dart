@@ -21,7 +21,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../../../../core/cubits/map_cubit.dart';
 import '../../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../../core/utils/error_localizer.dart';
 import '../../../../../../../core/widgets/custom_text.dart';
@@ -50,7 +49,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       context.read<ProfileCubit>().fetchProfile();
       context.read<DonorStatesCubit>().fetchDonorStates();
       context.read<DonationEligibilityCubit>().fetchDonationEligibility();
-      _fetchRequestsWithLocation();
+      context.read<RequestsCubit>().fetchRequests(limit: 10, page: 1);
       context.read<ActivitiesCubit>().fetchActivities();
     });
   }
@@ -64,24 +63,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
     _animationController.repeat(reverse: true);
-  }
-
-  void _fetchRequestsWithLocation() {
-    if (!mounted) return;
-
-    final mapState = context.read<MapCubit>().state;
-    if (mapState is! MapLoaded) return;
-
-    context.read<RequestsCubit>().fetchRequests(limit: 10, page: 1);
-  }
-
-  void _onMapLoaded() {
-    if (!mounted) return;
-    final requestsState = context.read<RequestsCubit>().state;
-    final shouldFetch =
-        requestsState is RequestsInitialState ||
-        requestsState is RequestsErrorState;
-    if (shouldFetch) _fetchRequestsWithLocation();
   }
 
   @override
@@ -108,10 +89,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 SizedBox(height: 12.h),
                 _DonorStatsSection(),
                 SizedBox(height: 16.h),
-                _RequestsSection(
-                  onMapLoaded: _onMapLoaded,
-                  onRetry: _fetchRequestsWithLocation,
-                ),
+                const _RequestsSection(),
                 SizedBox(height: 8.h),
                 HomeNavigationButton(
                   onPressed: () => Navigator.pushNamed(
@@ -321,7 +299,7 @@ class _DonationEligibilitySection extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
-                            text: appLocalizations.donationEligibility,
+                            text: appLocalizations.donationAvailability,
                             textStyle: TextStyle(
                               fontWeight: FontWeightManager.bold,
                               fontSize: FontSize.s14,
@@ -330,9 +308,9 @@ class _DonationEligibilitySection extends StatelessWidget {
                           ),
                           SizedBox(height: 4.h),
                           CustomText(
-                            text: isEligible
-                                ? appLocalizations.youAreEligible
-                                : appLocalizations.youAreNotEligible,
+                            text: isParticipating
+                                ? appLocalizations.youAreAvailable
+                                : appLocalizations.youAreNotAvailable,
                             textStyle: TextStyle(
                               fontWeight: FontWeightManager.regular,
                               fontSize: FontSize.s12,
@@ -619,51 +597,45 @@ class _ActivitiesSkeletonLoader extends StatelessWidget {
 }
 
 class _RequestsSection extends StatelessWidget {
-  const _RequestsSection({required this.onMapLoaded, required this.onRetry});
-
-  final VoidCallback onMapLoaded;
-  final VoidCallback onRetry;
+  const _RequestsSection();
 
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
-    return BlocListener<MapCubit, MapState>(
-      listener: (context, mapState) {
-        if (mapState is MapLoaded) onMapLoaded();
-      },
-      child: BlocBuilder<RequestsCubit, RequestsState>(
-        builder: (context, state) {
-          final isLoading = state is RequestsLoadingState;
-          final List<Requests> requests = state is RequestsSuccessState
-              ? state.requestsModel.data?.requestsList ?? []
-              : [];
+    return BlocBuilder<RequestsCubit, RequestsState>(
+      builder: (context, state) {
+        final isLoading = state is RequestsLoadingState;
+        final List<Requests> requests = state is RequestsSuccessState
+            ? state.requestsModel.data?.requestsList ?? []
+            : [];
 
-          if (state is RequestsErrorState) {
-            return CustomErrorWidget(
-              message: localizeError(state.message, appLocalization),
-              onRetry: onRetry,
-            );
-          }
-
-          if (requests.isEmpty && !isLoading) {
-            return CustomText(
-              text: appLocalization.noRequestsFound,
-              textStyle: TextStyle(
-                fontWeight: FontWeightManager.regular,
-                fontSize: FontSize.s14,
-                color: ColorManger.slateGrey,
-              ),
-            );
-          }
-
-          return Skeletonizer(
-            enabled: isLoading,
-            child: isLoading
-                ? _buildSkeletonLoader()
-                : UrgentRequestsSection(requests: requests),
+        if (state is RequestsErrorState) {
+          log('[RequestsSection] Error: ${state.message}');
+          return CustomErrorWidget(
+            message: localizeError(state.message, appLocalization),
+            onRetry: () =>
+                context.read<RequestsCubit>().fetchRequests(limit: 10, page: 1),
           );
-        },
-      ),
+        }
+
+        if (requests.isEmpty && !isLoading) {
+          return CustomText(
+            text: appLocalization.noRequestsFound,
+            textStyle: TextStyle(
+              fontWeight: FontWeightManager.regular,
+              fontSize: FontSize.s14,
+              color: ColorManger.slateGrey,
+            ),
+          );
+        }
+
+        return Skeletonizer(
+          enabled: isLoading,
+          child: isLoading
+              ? _buildSkeletonLoader()
+              : UrgentRequestsSection(requests: requests),
+        );
+      },
     );
   }
 

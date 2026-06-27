@@ -133,6 +133,10 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presenta
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/profile/profile_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/setting/setting_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/support_contact/support_contact_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/support_tickets/support_tickets_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/repositories/support_tickets/support_tickets_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/domain/use_case/support_tickets/support_tickets_use_case.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/support_tickets/support_tickets_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/data/data_source/rewards_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/data/repositories/rewards_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/domain/use_case/rewards_use_case.dart';
@@ -382,6 +386,18 @@ void main() async {
             profileUseCase: ProfileUseCase(
               profileRepositories: ProfileRepositoriesImp(
                 profileRemoteDataSource: ProfileApiDataSource(
+                  dio,
+                  authHiveDataSource,
+                ),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SupportTicketsCubit(
+            supportTicketsUseCase: SupportTicketsUseCase(
+              supportTicketsRepositories: SupportTicketsRepositoriesImp(
+                supportTicketsRemoteDataSource: SupportTicketsApiDataSource(
                   dio,
                   authHiveDataSource,
                 ),
