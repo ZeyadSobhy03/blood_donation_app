@@ -52,7 +52,7 @@ class _OverviewTabState extends State<OverviewTab> {
     final app = AppLocalizations.of(context)!;
     return BlocBuilder<AdminRewardsCubit, AdminRewardsState>(
       buildWhen: (previous, current) =>
-      current is AdminRewardsSuccessState ||
+          current is AdminRewardsSuccessState ||
           current is AdminRewardsLoadingState ||
           current is AdminRewardsErrorState,
       builder: (context, state) {

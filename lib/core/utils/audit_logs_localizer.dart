@@ -24,7 +24,7 @@ class AuditLogsLocalizer {
       'create_admin': loc.actionAdminAdded,
       'admin added': loc.actionAdminAdded,
 
-      // Updates (From your screenshot)
+      // Updates
       'user.update_donor': loc.actionDonorUpdated,
       'donor updated': loc.actionDonorUpdated,
       'user.update_hospital': loc.actionHospitalUpdated,
@@ -32,7 +32,7 @@ class AuditLogsLocalizer {
       'user.update_admin': loc.actionAdminUpdated,
       'admin updated': loc.actionAdminUpdated,
 
-      // Deletions & Keys (From your screenshot)
+      // Deletions & Keys
       'user.delete_admin': loc.actionAdminDeleted,
       'admin deleted': loc.actionAdminDeleted,
       'user.rotate_admin_key': loc.actionAdminKeyRotated,
@@ -88,15 +88,17 @@ class AuditLogsLocalizer {
     if (lowerDetails.contains('request.fulfill') || lowerDetails == 'fulfilled request') return loc.actionRequestFulfilled;
     if (lowerDetails.contains('request.cancel') || lowerDetails == 'cancelled request') return loc.actionRequestCancelled;
     if (lowerDetails.contains('request.broadcast') || lowerDetails == 'broadcasted request') return loc.actionRequestBroadcasted;
-    if (lowerDetails.contains('hospital.create') || lowerDetails == 'added hospital account') return loc.detailCreateHospital;
+    // Updated this line to catch "created hospital account"
+    if (lowerDetails.contains('hospital.create') || lowerDetails == 'added hospital account' || lowerDetails == 'created hospital account') return loc.detailCreateHospital;
     if (lowerDetails.contains('system.maintenance') || lowerDetails == 'updated system maintenance mode') return loc.detailMaintenance;
+    if (lowerDetails.contains('updated admin profile')) return loc.detailProfileUpdated;
 
     // 2. Regex for Dynamic IDs (Case-Insensitive)
     final patterns = {
-      // From your screenshots
       RegExp(r'updated admin account \(id: (.+)\)', caseSensitive: false): (String id) => loc.detailAdminUpdated(id),
       RegExp(r'rotated admin key \(id: (.+)\)', caseSensitive: false): (String id) => loc.detailAdminKeyRotated(id),
-      RegExp(r'updated hospital account \(id: (.+)\)', caseSensitive: false): (String id) => loc.detailHospitalUpdated(id), // New!
+      RegExp(r'updated hospital account \(id: (.+)\)', caseSensitive: false): (String id) => loc.detailHospitalUpdated(id),
+      RegExp(r'updated donor account \(id: (.+)\)', caseSensitive: false): (String id) => loc.detailDonorUpdated(id), // NEW!
 
       // Requests
       RegExp(r'fulfilled request \(id: (.+)\)', caseSensitive: false): (String id) => loc.detailRequestAction(loc.actionRequestFulfilled, id),

@@ -54,7 +54,7 @@ class AdminProfileApiDataSource implements AdminProfileRemoteDataSource {
             'Authorization': 'Bearer $token',
           },
         ),
-        data: {'name': fullName, 'email': email, 'phone': phone},
+        data: {'fullName': fullName, 'email': email, 'phone': phone},
       );
       return AdminProfileUpdateModel.fromJson(response.data);
     } on DioException catch (e) {

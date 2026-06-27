@@ -170,6 +170,8 @@ class _AuditLogsScreenState extends State<AuditLogsScreen> {
                           }
         
                           final log = state.logs[index];
+
+                          debugPrint('Log action: ${log.action}, details: ${log.details}, targetType: ${log.targetType}');
         
         
         

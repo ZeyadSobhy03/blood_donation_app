@@ -7,8 +7,8 @@ class AdminProfileUseCase {
 
   final AdminProfileRepositories profileRepositories;
   AdminProfileUseCase({required this.profileRepositories});
-  Future<AdminProfileModel> getProfile() async {
-    return await profileRepositories.getProfile();
+  Future<AdminProfileModel> getProfile()  {
+    return  profileRepositories.getProfile();
   }
   Future<AdminProfileUpdateModel> updateProfile({
     required String fullName,

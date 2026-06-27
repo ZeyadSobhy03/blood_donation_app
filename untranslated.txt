@@ -1,1 +1,20 @@
-{}
+{
+  "ar": [
+    "error_authorization_required",
+    "error_account_suspended",
+    "error_reward_fields_required",
+    "error_status_required",
+    "error_invalid_status_value",
+    "error_reward_not_found",
+    "error_bulk_points_empty",
+    "error_bulk_points_invalid_update",
+    "error_adjustment_fields_required",
+    "error_amount_non_zero",
+    "error_only_donors_have_points",
+    "error_earning_rule_fields_required",
+    "error_points_non_negative",
+    "error_invalid_rule_type",
+    "error_earning_rule_exists",
+    "error_earning_rule_not_found"
+  ]
+}

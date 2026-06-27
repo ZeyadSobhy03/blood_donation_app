@@ -8,7 +8,7 @@ import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../data/model/inbound_email/inbounded_email_model.dart';
 
 class EmailDetailSheet extends StatelessWidget {
-  final InboundEmails email;
+  final Items  email;
   final VoidCallback onArchive;
   final VoidCallback onDelete;
 
@@ -23,7 +23,7 @@ class EmailDetailSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final parsedDate =
-    email.receivedAt != null ? DateTime.tryParse(email.receivedAt!) : null;
+    email.createdAt != null ? DateTime.tryParse(email.createdAt!) : null;
     final dateStr = parsedDate != null
         ? DateFormat('MMM d, yyyy • h:mm a').format(parsedDate)
         : '';
@@ -63,9 +63,9 @@ class EmailDetailSheet extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  _infoRow(l10n.inboundEmailDetailFrom, email.from ?? ''),
-                  _infoRow(l10n.inboundEmailDetailTo, (email.to ?? []).join(', ')),
-                  _infoRow(l10n.inboundEmailDetailProvider, email.provider ?? ''),
+                  _infoRow(l10n.inboundEmailDetailFrom, email.fullName ?? ''),
+                  _infoRow(l10n.inboundEmailDetailTo, email.email ?? ''),
+                  _infoRow(l10n.inboundEmailDetailProvider, email.role ?? ''),
                   _infoRow(l10n.inboundEmailDetailReceived, dateStr),
                   const SizedBox(height: 16),
                   Row(

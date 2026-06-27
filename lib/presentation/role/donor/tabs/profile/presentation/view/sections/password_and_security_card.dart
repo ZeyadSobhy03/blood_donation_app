@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
+import '../../../../../../admin/tabs/system_settings/presentation/view/widgets/admin_change_password_dialog.dart';
 import '../../../../../../admin/tabs/system_settings/presentation/view_model/admin_change_password/admin_change_password_view_model.dart';
 import '../../view_model/change_password/change_password_view_model.dart';
 import '../widgets/change_password_dialog.dart';
@@ -85,7 +86,7 @@ class _PasswordAndSecurityCardState extends State<PasswordAndSecurityCard> {
                  context: context,
                  builder: (context) => BlocProvider.value(
                    value: context.read<AdminChangePasswordCubit>(),
-                   child: ChangePasswordDialog(
+                   child: AdminChangePasswordDialog(
                      backgroundColor: widget.backgroundColor,
                      currentController: currentController,
                      newController: newController,

@@ -1,4 +1,3 @@
-import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/request_header.dart';
@@ -57,20 +56,7 @@ class _EnableMaintenanceModeDialogState
             child: BlocListener<SystemMaintenanceCubit, SystemMaintenanceState>(
               listener: (context, state) {
                 if (state is SystemMaintenanceSuccessState) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(state.systemMaintenanceModel.message ?? 'Success'),
-                      backgroundColor: ColorManger.green,
-                    ),
-                  );
                   Navigator.of(context).pop();
-                } else if (state is SystemMaintenanceErrorState) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(localizeError(state.errorKey, localizations)),
-                      backgroundColor: ColorManger.orange,
-                    ),
-                  );
                 }
               },
               child: Form(

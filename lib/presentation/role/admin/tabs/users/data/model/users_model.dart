@@ -1,12 +1,8 @@
-/// success : true
-/// message : "Users list"
-/// data : {"users":[{"_id":"6a3d1ffe24007870103c117d","fullName":"زياد","email":"zozozz@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-25T12:33:02.449Z","role":"admin","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":"01141935341","address":null,"position":null,"department":null,"createdAt":"2026-06-25T12:33:02.452Z","updatedAt":"2026-06-25T12:33:03.923Z","fullNameNormalized":"زياد","__v":0,"id":"6a3d1ffe24007870103c117d","name":"زياد","phoneNumber":"01141935341","bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-25T12:33:02.452Z","totalDonations":0},{"_id":"6a3cd1c3f384763be8d318d5","fullName":"ziyad spbhy","email":"ziyadss@gmail.xom","isEmailVerified":true,"emailVerifiedAt":"2026-06-25T06:59:15.864Z","role":"hospital","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":"cairo","position":null,"department":null,"__t":"hospital","type":"private","hospitalType":"General Hospital","workingHours":"9AM - 5PM","city":"cairo","state":"cairo","zipCode":"5535","hospitalId":"gggggg","licenseNumber":"ppppp","adminContactName":"ziyad","adminContactPhone":"01141935341","emergencyContact":"01141935341","bloodBanksAvailable":["A+","A-","B-"],"contactNumber":"01141935341","capacity":50,"lat":30.407366,"long":30.559354,"hospitalName":"ziyad spbhy","slotsPerHour":5,"workingHoursStart":9,"workingHoursEnd":17,"createdAt":"2026-06-25T06:59:15.865Z","updatedAt":"2026-06-25T06:59:15.865Z","fullNameNormalized":"ziyad spbhy","hospitalNameNormalized":"ziyad spbhy","__v":0,"id":"6a3cd1c3f384763be8d318d5","name":"ziyad spbhy","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-25T06:59:15.865Z","totalDonations":0},{"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"location":{"coordinates":{"lat":30.3653582,"lng":30.5234526},"city":"Unknown","governorate":"Unknown"},"_id":"6a3b0a0fca8d9db9e754bddf","fullName":"ziyad sobhy","email":"ziyadsobhy305@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-23T22:35:15.829Z","role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":"01141935341","address":null,"position":null,"department":null,"__t":"donor","phoneNumber":"01141935341","bloodType":"B+","dateOfBirth":"2000-01-23T00:00:00.000Z","gender":"male","weight":0,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"isOptedIn":true,"missedDonationCount":0,"missedDonationDates":[],"travelHistory":[],"createdAt":"2026-06-23T22:34:55.313Z","updatedAt":"2026-06-25T06:35:11.041Z","fullNameNormalized":"ziyad sobhy","__v":2,"lastDonationDate":"2026-06-25T03:01:36.855Z","isBanned":false,"isVerified":true,"id":"6a3b0a0fca8d9db9e754bddf","totalDonations":1,"completedDonations":1,"pointsBalance":300,"lifetimePointsEarned":300,"tier":"bronze","eligibilitySummary":{"eligible":false,"reason":"eligibility.donationCooldownActive","nextEligibleDate":"2026-09-17T03:01:36.855Z"},"name":"ziyad sobhy","isActive":true,"joinedAt":"2026-06-23T22:34:55.313Z"},{"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"location":{"coordinates":{"lat":38.9071928,"lng":-77.0368724},"city":"Unknown","governorate":"Unknown","lastUpdated":"2026-06-23T22:32:31.390Z"},"_id":"6a3b097fca8d9db9e754bdde","fullName":"ziyad","email":"zoooo@gmail.com","isEmailVerified":false,"emailVerifiedAt":null,"role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":"01091894915","address":null,"position":null,"department":null,"__t":"donor","phoneNumber":"01091894915","bloodType":"AB+","dateOfBirth":"2000-01-16T00:00:00.000Z","gender":"female","weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"isOptedIn":true,"missedDonationCount":0,"missedDonationDates":[],"travelHistory":[],"createdAt":"2026-06-23T22:32:31.403Z","updatedAt":"2026-06-25T06:55:07.282Z","fullNameNormalized":"ziyad","__v":0,"isBanned":false,"isVerified":false,"id":"6a3b097fca8d9db9e754bdde","totalDonations":0,"completedDonations":0,"pointsBalance":0,"lifetimePointsEarned":0,"tier":"bronze","eligibilitySummary":{"eligible":true,"reason":"eligibility.donorEligible","nextEligibleDate":null},"name":"ziyad","isActive":true,"joinedAt":"2026-06-23T22:32:31.403Z"},{"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"location":{"coordinates":{"lat":38.907193,"lng":-77.0368723},"city":"Unknown","governorate":"Unknown","lastUpdated":"2026-06-23T19:46:34.712Z"},"missedDonationCount":0,"missedDonationDates":[],"_id":"6a3ae29a9262a042ff1a6c84","fullName":"ziyad","email":"ziyadsobhy1010@gmail.com","isEmailVerified":false,"emailVerifiedAt":null,"role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":"01141935341","address":null,"position":null,"department":null,"__t":"donor","phoneNumber":"01141935341","bloodType":"B-","dateOfBirth":"2000-01-17T00:00:00.000Z","gender":"male","weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"isOptedIn":true,"travelHistory":[],"createdAt":"2026-06-23T19:46:34.739Z","updatedAt":"2026-06-23T19:46:35.493Z","fullNameNormalized":"ziyad","__v":0,"isBanned":false,"isVerified":false,"id":"6a3ae29a9262a042ff1a6c84","totalDonations":0,"completedDonations":0,"pointsBalance":0,"lifetimePointsEarned":0,"tier":"bronze","eligibilitySummary":{"eligible":true,"reason":"eligibility.donorEligible","nextEligibleDate":null},"name":"ziyad","isActive":true,"joinedAt":"2026-06-23T19:46:34.739Z"},{"_id":"6a3838cf044cabc1d7806b67","fullName":"cairo hospital","email":"ohighh@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-21T19:17:35.542Z","role":"hospital","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":"cairo","position":null,"department":null,"__t":"hospital","type":"private","hospitalType":"General Hospital","workingHours":"9AM - 5PM","city":"cairo","state":"cairo","zipCode":"58355","hospitalId":"zia1245","licenseNumber":"aaaa","adminContactName":"ziyad","adminContactPhone":"01141935341","emergencyContact":"01141935341","bloodBanksAvailable":["A+","A-","B+","AB+"],"contactNumber":"01141935341","capacity":700,"lat":30.419746,"long":30.563356,"hospitalName":"cairo hospital","slotsPerHour":5,"workingHoursStart":9,"workingHoursEnd":17,"createdAt":"2026-06-21T19:17:35.543Z","updatedAt":"2026-06-25T06:40:22.116Z","fullNameNormalized":"cairo hospital","hospitalNameNormalized":"cairo hospital","__v":1,"id":"6a3838cf044cabc1d7806b67","name":"cairo hospital","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-21T19:17:35.543Z","totalDonations":0},{"_id":"6a383804044cabc1d7806b65","fullName":"cairo","email":"ziyyyad@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-21T19:14:12.963Z","role":"hospital","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":"cairo","position":null,"department":null,"__t":"hospital","type":"specialized","hospitalType":"General Hospital","workingHours":"9AM - 5PM","city":"cairo","state":"cairo","zipCode":"5868","hospitalId":"gjcgh","licenseNumber":"dufhf","adminContactName":"cjchf","adminContactPhone":"01141935341","emergencyContact":"01141935641","bloodBanksAvailable":["A+","A-","B-"],"contactNumber":null,"capacity":80,"lat":30.404216,"long":30.554767,"hospitalName":"cairo","slotsPerHour":5,"workingHoursStart":9,"workingHoursEnd":17,"createdAt":"2026-06-21T19:14:12.964Z","updatedAt":"2026-06-22T17:17:58.311Z","fullNameNormalized":"cairo","hospitalNameNormalized":"cairo","__v":0,"id":"6a383804044cabc1d7806b65","name":"cairo","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-21T19:14:12.964Z","totalDonations":0},{"_id":"6a380a6df7410911492c1fe8","fullName":"cairo","email":"cairoaa@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-21T15:59:41.694Z","role":"hospital","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":"cairo","position":null,"department":null,"__t":"hospital","type":"private","hospitalType":"General Hospital","workingHours":"9AM - 5PM","city":"cairo","state":"cairo","zipCode":"286855","hospitalId":"pphhjoh","licenseNumber":"35354","adminContactName":"ziyad sobhy","adminContactPhone":"01141935341","emergencyContact":"01141935341","bloodBanksAvailable":["A-","A+","AB+","O+"],"contactNumber":null,"capacity":70,"lat":30.365123,"long":30.523868,"hospitalName":"cairo","slotsPerHour":5,"workingHoursStart":9,"workingHoursEnd":17,"createdAt":"2026-06-21T15:59:41.700Z","updatedAt":"2026-06-21T15:59:41.700Z","fullNameNormalized":"cairo","hospitalNameNormalized":"cairo","__v":0,"id":"6a380a6df7410911492c1fe8","name":"cairo","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-21T15:59:41.700Z","totalDonations":0},{"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"location":{"coordinates":{"lat":30.0444,"lng":31.2357},"city":"Test City","governorate":"Test Governorate"},"missedDonationCount":0,"missedDonationDates":[],"_id":"6a304066dfe0244ba04f9532","fullName":"Test Donor","email":"donor@test.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-15T18:11:49.744Z","role":"donor","isSuspended":true,"suspendedAt":"2026-06-22T17:18:24.947Z","suspendedReason":"ll","deletedAt":null,"fcmTokens":[],"phone":"01000000000","address":null,"position":null,"department":null,"__t":"donor","phoneNumber":"01000000000","bloodType":"O+","dateOfBirth":"1990-01-01T00:00:00.000Z","gender":"male","weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"isOptedIn":true,"travelHistory":[],"createdAt":"2026-06-15T18:11:50.632Z","updatedAt":"2026-06-22T17:18:24.948Z","fullNameNormalized":"test donor","__v":0,"isBanned":true,"isVerified":true,"id":"6a304066dfe0244ba04f9532","totalDonations":1,"completedDonations":1,"pointsBalance":0,"lifetimePointsEarned":0,"tier":"bronze","eligibilitySummary":{"eligible":false,"reason":"Donor account is suspended","nextEligibleDate":null},"name":"Test Donor","isActive":false,"joinedAt":"2026-06-15T18:11:50.632Z"},{"location":{"coordinates":{"lat":30.0444,"lng":31.2357},"city":"Cairo","governorate":"Cairo","lastUpdated":"2026-06-24T21:31:01.320Z"},"position":null,"department":null,"_id":"6a2ee06cbb03d3c6680fc479","fullName":"LifeLink Super Admin","email":"root@lifelink.demo","isEmailVerified":true,"emailVerifiedAt":"2026-06-24T21:31:01.320Z","role":"superadmin","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":null,"createdAt":"2026-06-14T17:10:04.154Z","updatedAt":"2026-06-24T21:31:06.836Z","fullNameNormalized":"lifelink super admin","__v":0,"id":"6a2ee06cbb03d3c6680fc479","name":"LifeLink Super Admin","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-14T17:10:04.154Z","totalDonations":0}],"pagination":{"total":37,"page":1,"currentPage":1,"limit":10,"totalPages":4,"hasNextPage":true,"hasPrevPage":false},"stats":{"totalUsers":37,"totalDonors":23,"totalHospitals":11,"totalAdmins":3,"verifiedUsers":32,"unverifiedUsers":5,"suspendedUsers":2,"totalUsersGrowth":"+136%","totalDonorsGrowth":"+56%","totalHospitalsGrowth":"+350%","verifiedUsersGrowth":"+100%","suspendedUsersGrowth":"+100%"}}
-
 class UsersModel {
   UsersModel({
-      this.success, 
-      this.message, 
-      this.data,});
+    this.success,
+    this.message,
+    this.data,});
 
   UsersModel.fromJson(dynamic json) {
     success = json['success'];
@@ -26,18 +22,13 @@ class UsersModel {
     }
     return map;
   }
-
 }
-
-/// users : [{"_id":"6a3d1ffe24007870103c117d","fullName":"زياد","email":"zozozz@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-25T12:33:02.449Z","role":"admin","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":"01141935341","address":null,"position":null,"department":null,"createdAt":"2026-06-25T12:33:02.452Z","updatedAt":"2026-06-25T12:33:03.923Z","fullNameNormalized":"زياد","__v":0,"id":"6a3d1ffe24007870103c117d","name":"زياد","phoneNumber":"01141935341","bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-25T12:33:02.452Z","totalDonations":0},{"_id":"6a3cd1c3f384763be8d318d5","fullName":"ziyad spbhy","email":"ziyadss@gmail.xom","isEmailVerified":true,"emailVerifiedAt":"2026-06-25T06:59:15.864Z","role":"hospital","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":"cairo","position":null,"department":null,"__t":"hospital","type":"private","hospitalType":"General Hospital","workingHours":"9AM - 5PM","city":"cairo","state":"cairo","zipCode":"5535","hospitalId":"gggggg","licenseNumber":"ppppp","adminContactName":"ziyad","adminContactPhone":"01141935341","emergencyContact":"01141935341","bloodBanksAvailable":["A+","A-","B-"],"contactNumber":"01141935341","capacity":50,"lat":30.407366,"long":30.559354,"hospitalName":"ziyad spbhy","slotsPerHour":5,"workingHoursStart":9,"workingHoursEnd":17,"createdAt":"2026-06-25T06:59:15.865Z","updatedAt":"2026-06-25T06:59:15.865Z","fullNameNormalized":"ziyad spbhy","hospitalNameNormalized":"ziyad spbhy","__v":0,"id":"6a3cd1c3f384763be8d318d5","name":"ziyad spbhy","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-25T06:59:15.865Z","totalDonations":0},{"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"location":{"coordinates":{"lat":30.3653582,"lng":30.5234526},"city":"Unknown","governorate":"Unknown"},"_id":"6a3b0a0fca8d9db9e754bddf","fullName":"ziyad sobhy","email":"ziyadsobhy305@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-23T22:35:15.829Z","role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":"01141935341","address":null,"position":null,"department":null,"__t":"donor","phoneNumber":"01141935341","bloodType":"B+","dateOfBirth":"2000-01-23T00:00:00.000Z","gender":"male","weight":0,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"isOptedIn":true,"missedDonationCount":0,"missedDonationDates":[],"travelHistory":[],"createdAt":"2026-06-23T22:34:55.313Z","updatedAt":"2026-06-25T06:35:11.041Z","fullNameNormalized":"ziyad sobhy","__v":2,"lastDonationDate":"2026-06-25T03:01:36.855Z","isBanned":false,"isVerified":true,"id":"6a3b0a0fca8d9db9e754bddf","totalDonations":1,"completedDonations":1,"pointsBalance":300,"lifetimePointsEarned":300,"tier":"bronze","eligibilitySummary":{"eligible":false,"reason":"eligibility.donationCooldownActive","nextEligibleDate":"2026-09-17T03:01:36.855Z"},"name":"ziyad sobhy","isActive":true,"joinedAt":"2026-06-23T22:34:55.313Z"},{"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"location":{"coordinates":{"lat":38.9071928,"lng":-77.0368724},"city":"Unknown","governorate":"Unknown","lastUpdated":"2026-06-23T22:32:31.390Z"},"_id":"6a3b097fca8d9db9e754bdde","fullName":"ziyad","email":"zoooo@gmail.com","isEmailVerified":false,"emailVerifiedAt":null,"role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":"01091894915","address":null,"position":null,"department":null,"__t":"donor","phoneNumber":"01091894915","bloodType":"AB+","dateOfBirth":"2000-01-16T00:00:00.000Z","gender":"female","weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"isOptedIn":true,"missedDonationCount":0,"missedDonationDates":[],"travelHistory":[],"createdAt":"2026-06-23T22:32:31.403Z","updatedAt":"2026-06-25T06:55:07.282Z","fullNameNormalized":"ziyad","__v":0,"isBanned":false,"isVerified":false,"id":"6a3b097fca8d9db9e754bdde","totalDonations":0,"completedDonations":0,"pointsBalance":0,"lifetimePointsEarned":0,"tier":"bronze","eligibilitySummary":{"eligible":true,"reason":"eligibility.donorEligible","nextEligibleDate":null},"name":"ziyad","isActive":true,"joinedAt":"2026-06-23T22:32:31.403Z"},{"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"location":{"coordinates":{"lat":38.907193,"lng":-77.0368723},"city":"Unknown","governorate":"Unknown","lastUpdated":"2026-06-23T19:46:34.712Z"},"missedDonationCount":0,"missedDonationDates":[],"_id":"6a3ae29a9262a042ff1a6c84","fullName":"ziyad","email":"ziyadsobhy1010@gmail.com","isEmailVerified":false,"emailVerifiedAt":null,"role":"donor","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":"01141935341","address":null,"position":null,"department":null,"__t":"donor","phoneNumber":"01141935341","bloodType":"B-","dateOfBirth":"2000-01-17T00:00:00.000Z","gender":"male","weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"isOptedIn":true,"travelHistory":[],"createdAt":"2026-06-23T19:46:34.739Z","updatedAt":"2026-06-23T19:46:35.493Z","fullNameNormalized":"ziyad","__v":0,"isBanned":false,"isVerified":false,"id":"6a3ae29a9262a042ff1a6c84","totalDonations":0,"completedDonations":0,"pointsBalance":0,"lifetimePointsEarned":0,"tier":"bronze","eligibilitySummary":{"eligible":true,"reason":"eligibility.donorEligible","nextEligibleDate":null},"name":"ziyad","isActive":true,"joinedAt":"2026-06-23T19:46:34.739Z"},{"_id":"6a3838cf044cabc1d7806b67","fullName":"cairo hospital","email":"ohighh@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-21T19:17:35.542Z","role":"hospital","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":"cairo","position":null,"department":null,"__t":"hospital","type":"private","hospitalType":"General Hospital","workingHours":"9AM - 5PM","city":"cairo","state":"cairo","zipCode":"58355","hospitalId":"zia1245","licenseNumber":"aaaa","adminContactName":"ziyad","adminContactPhone":"01141935341","emergencyContact":"01141935341","bloodBanksAvailable":["A+","A-","B+","AB+"],"contactNumber":"01141935341","capacity":700,"lat":30.419746,"long":30.563356,"hospitalName":"cairo hospital","slotsPerHour":5,"workingHoursStart":9,"workingHoursEnd":17,"createdAt":"2026-06-21T19:17:35.543Z","updatedAt":"2026-06-25T06:40:22.116Z","fullNameNormalized":"cairo hospital","hospitalNameNormalized":"cairo hospital","__v":1,"id":"6a3838cf044cabc1d7806b67","name":"cairo hospital","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-21T19:17:35.543Z","totalDonations":0},{"_id":"6a383804044cabc1d7806b65","fullName":"cairo","email":"ziyyyad@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-21T19:14:12.963Z","role":"hospital","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":"cairo","position":null,"department":null,"__t":"hospital","type":"specialized","hospitalType":"General Hospital","workingHours":"9AM - 5PM","city":"cairo","state":"cairo","zipCode":"5868","hospitalId":"gjcgh","licenseNumber":"dufhf","adminContactName":"cjchf","adminContactPhone":"01141935341","emergencyContact":"01141935641","bloodBanksAvailable":["A+","A-","B-"],"contactNumber":null,"capacity":80,"lat":30.404216,"long":30.554767,"hospitalName":"cairo","slotsPerHour":5,"workingHoursStart":9,"workingHoursEnd":17,"createdAt":"2026-06-21T19:14:12.964Z","updatedAt":"2026-06-22T17:17:58.311Z","fullNameNormalized":"cairo","hospitalNameNormalized":"cairo","__v":0,"id":"6a383804044cabc1d7806b65","name":"cairo","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-21T19:14:12.964Z","totalDonations":0},{"_id":"6a380a6df7410911492c1fe8","fullName":"cairo","email":"cairoaa@gmail.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-21T15:59:41.694Z","role":"hospital","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":"cairo","position":null,"department":null,"__t":"hospital","type":"private","hospitalType":"General Hospital","workingHours":"9AM - 5PM","city":"cairo","state":"cairo","zipCode":"286855","hospitalId":"pphhjoh","licenseNumber":"35354","adminContactName":"ziyad sobhy","adminContactPhone":"01141935341","emergencyContact":"01141935341","bloodBanksAvailable":["A-","A+","AB+","O+"],"contactNumber":null,"capacity":70,"lat":30.365123,"long":30.523868,"hospitalName":"cairo","slotsPerHour":5,"workingHoursStart":9,"workingHoursEnd":17,"createdAt":"2026-06-21T15:59:41.700Z","updatedAt":"2026-06-21T15:59:41.700Z","fullNameNormalized":"cairo","hospitalNameNormalized":"cairo","__v":0,"id":"6a380a6df7410911492c1fe8","name":"cairo","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-21T15:59:41.700Z","totalDonations":0},{"healthHistory":{"chronicConditions":[],"medications":[],"allergies":[],"recentIllness":"","notes":"","lastCheckupDate":null,"updatedAt":null},"settings":{"pushNotifications":true,"emergencyAlerts":true,"privacyMode":false,"language":"en"},"location":{"coordinates":{"lat":30.0444,"lng":31.2357},"city":"Test City","governorate":"Test Governorate"},"missedDonationCount":0,"missedDonationDates":[],"_id":"6a304066dfe0244ba04f9532","fullName":"Test Donor","email":"donor@test.com","isEmailVerified":true,"emailVerifiedAt":"2026-06-15T18:11:49.744Z","role":"donor","isSuspended":true,"suspendedAt":"2026-06-22T17:18:24.947Z","suspendedReason":"ll","deletedAt":null,"fcmTokens":[],"phone":"01000000000","address":null,"position":null,"department":null,"__t":"donor","phoneNumber":"01000000000","bloodType":"O+","dateOfBirth":"1990-01-01T00:00:00.000Z","gender":"male","weight":null,"hemoglobinLevel":null,"temporaryDeferralUntil":null,"lastDeferralReason":null,"isOptedIn":true,"travelHistory":[],"createdAt":"2026-06-15T18:11:50.632Z","updatedAt":"2026-06-22T17:18:24.948Z","fullNameNormalized":"test donor","__v":0,"isBanned":true,"isVerified":true,"id":"6a304066dfe0244ba04f9532","totalDonations":1,"completedDonations":1,"pointsBalance":0,"lifetimePointsEarned":0,"tier":"bronze","eligibilitySummary":{"eligible":false,"reason":"Donor account is suspended","nextEligibleDate":null},"name":"Test Donor","isActive":false,"joinedAt":"2026-06-15T18:11:50.632Z"},{"location":{"coordinates":{"lat":30.0444,"lng":31.2357},"city":"Cairo","governorate":"Cairo","lastUpdated":"2026-06-24T21:31:01.320Z"},"position":null,"department":null,"_id":"6a2ee06cbb03d3c6680fc479","fullName":"LifeLink Super Admin","email":"root@lifelink.demo","isEmailVerified":true,"emailVerifiedAt":"2026-06-24T21:31:01.320Z","role":"superadmin","isSuspended":false,"suspendedAt":null,"suspendedReason":null,"deletedAt":null,"fcmTokens":[],"phone":null,"address":null,"createdAt":"2026-06-14T17:10:04.154Z","updatedAt":"2026-06-24T21:31:06.836Z","fullNameNormalized":"lifelink super admin","__v":0,"id":"6a2ee06cbb03d3c6680fc479","name":"LifeLink Super Admin","phoneNumber":null,"bloodType":null,"isActive":true,"isVerified":true,"joinedAt":"2026-06-14T17:10:04.154Z","totalDonations":0}]
-/// pagination : {"total":37,"page":1,"currentPage":1,"limit":10,"totalPages":4,"hasNextPage":true,"hasPrevPage":false}
-/// stats : {"totalUsers":37,"totalDonors":23,"totalHospitals":11,"totalAdmins":3,"verifiedUsers":32,"unverifiedUsers":5,"suspendedUsers":2,"totalUsersGrowth":"+136%","totalDonorsGrowth":"+56%","totalHospitalsGrowth":"+350%","verifiedUsersGrowth":"+100%","suspendedUsersGrowth":"+100%"}
 
 class Data {
   Data({
-      this.users, 
-      this.pagination, 
-      this.stats,});
+    this.users,
+    this.pagination,
+    this.stats,});
 
   Data.fromJson(dynamic json) {
     if (json['users'] != null) {
@@ -66,36 +57,22 @@ class Data {
     }
     return map;
   }
-
 }
-
-/// totalUsers : 37
-/// totalDonors : 23
-/// totalHospitals : 11
-/// totalAdmins : 3
-/// verifiedUsers : 32
-/// unverifiedUsers : 5
-/// suspendedUsers : 2
-/// totalUsersGrowth : "+136%"
-/// totalDonorsGrowth : "+56%"
-/// totalHospitalsGrowth : "+350%"
-/// verifiedUsersGrowth : "+100%"
-/// suspendedUsersGrowth : "+100%"
 
 class Stats {
   Stats({
-      this.totalUsers, 
-      this.totalDonors, 
-      this.totalHospitals, 
-      this.totalAdmins, 
-      this.verifiedUsers, 
-      this.unverifiedUsers, 
-      this.suspendedUsers, 
-      this.totalUsersGrowth, 
-      this.totalDonorsGrowth, 
-      this.totalHospitalsGrowth, 
-      this.verifiedUsersGrowth, 
-      this.suspendedUsersGrowth,});
+    this.totalUsers,
+    this.totalDonors,
+    this.totalHospitals,
+    this.totalAdmins,
+    this.verifiedUsers,
+    this.unverifiedUsers,
+    this.suspendedUsers,
+    this.totalUsersGrowth,
+    this.totalDonorsGrowth,
+    this.totalHospitalsGrowth,
+    this.verifiedUsersGrowth,
+    this.suspendedUsersGrowth,});
 
   Stats.fromJson(dynamic json) {
     totalUsers = json['totalUsers'];
@@ -140,26 +117,17 @@ class Stats {
     map['suspendedUsersGrowth'] = suspendedUsersGrowth;
     return map;
   }
-
 }
-
-/// total : 37
-/// page : 1
-/// currentPage : 1
-/// limit : 10
-/// totalPages : 4
-/// hasNextPage : true
-/// hasPrevPage : false
 
 class Pagination {
   Pagination({
-      this.total, 
-      this.page, 
-      this.currentPage, 
-      this.limit, 
-      this.totalPages, 
-      this.hasNextPage, 
-      this.hasPrevPage,});
+    this.total,
+    this.page,
+    this.currentPage,
+    this.limit,
+    this.totalPages,
+    this.hasNextPage,
+    this.hasPrevPage,});
 
   Pagination.fromJson(dynamic json) {
     total = json['total'];
@@ -189,65 +157,78 @@ class Pagination {
     map['hasPrevPage'] = hasPrevPage;
     return map;
   }
-
 }
-
-/// _id : "6a3d1ffe24007870103c117d"
-/// fullName : "زياد"
-/// email : "zozozz@gmail.com"
-/// isEmailVerified : true
-/// emailVerifiedAt : "2026-06-25T12:33:02.449Z"
-/// role : "admin"
-/// isSuspended : false
-/// suspendedAt : null
-/// suspendedReason : null
-/// deletedAt : null
-/// fcmTokens : []
-/// phone : "01141935341"
-/// address : null
-/// position : null
-/// department : null
-/// createdAt : "2026-06-25T12:33:02.452Z"
-/// updatedAt : "2026-06-25T12:33:03.923Z"
-/// fullNameNormalized : "زياد"
-/// __v : 0
-/// id : "6a3d1ffe24007870103c117d"
-/// name : "زياد"
-/// phoneNumber : "01141935341"
-/// bloodType : null
-/// isActive : true
-/// isVerified : true
-/// joinedAt : "2026-06-25T12:33:02.452Z"
-/// totalDonations : 0
 
 class Users {
   Users({
-      this.id, 
-      this.fullName, 
-      this.email, 
-      this.isEmailVerified, 
-      this.emailVerifiedAt, 
-      this.role, 
-      this.isSuspended, 
-      this.suspendedAt, 
-      this.suspendedReason, 
-      this.deletedAt, 
-      this.fcmTokens, 
-      this.phone, 
-      this.address, 
-      this.position, 
-      this.department, 
-      this.createdAt, 
-      this.updatedAt, 
-      this.fullNameNormalized, 
-      this.v, 
-      this.name,
-      this.phoneNumber, 
-      this.bloodType, 
-      this.isActive, 
-      this.isVerified, 
-      this.joinedAt, 
-      this.totalDonations,});
+    this.id,
+    this.fullName,
+    this.email,
+    this.isEmailVerified,
+    this.emailVerifiedAt,
+    this.role,
+    this.isSuspended,
+    this.suspendedAt,
+    this.suspendedReason,
+    this.deletedAt,
+    this.fcmTokens,
+    this.phone,
+    this.address,
+    this.position,
+    this.department,
+    this.createdAt,
+    this.updatedAt,
+    this.fullNameNormalized,
+    this.v,
+    this.name,
+    this.phoneNumber,
+    this.bloodType,
+    this.isActive,
+    this.isVerified,
+    this.joinedAt,
+    this.totalDonations,
+    this.t,
+    this.type,
+    this.hospitalType,
+    this.workingHours,
+    this.city,
+    this.state,
+    this.zipCode,
+    this.hospitalId,
+    this.licenseNumber,
+    this.adminContactName,
+    this.adminContactPhone,
+    this.emergencyContact,
+    this.bloodBanksAvailable,
+    this.contactNumber,
+    this.capacity,
+    this.lat,
+    this.long,
+    this.hospitalName,
+    this.slotsPerHour,
+    this.workingHoursStart,
+    this.workingHoursEnd,
+    this.hospitalNameNormalized,
+    this.lastDonationDate,
+    this.isBanned,
+    this.completedDonations,
+    this.pointsBalance,
+    this.lifetimePointsEarned,
+    this.tier,
+    this.eligibilitySummary,
+    this.healthHistory,
+    this.settings,
+    this.location,
+    this.dateOfBirth,
+    this.gender,
+    this.weight,
+    this.hemoglobinLevel,
+    this.temporaryDeferralUntil,
+    this.lastDeferralReason,
+    this.isOptedIn,
+    this.missedDonationCount,
+    this.missedDonationDates,
+    this.travelHistory,});
 
   Users.fromJson(dynamic json) {
     id = json['_id'];
@@ -261,7 +242,10 @@ class Users {
     suspendedReason = json['suspendedReason'];
     deletedAt = json['deletedAt'];
     if (json['fcmTokens'] != null) {
-      fcmTokens = List<String>.from(json['fcmTokens']);
+      fcmTokens = [];
+      json['fcmTokens'].forEach((v) {
+        fcmTokens?.add(v);
+      });
     }
     phone = json['phone'];
     address = json['address'];
@@ -279,6 +263,63 @@ class Users {
     isVerified = json['isVerified'];
     joinedAt = json['joinedAt'];
     totalDonations = json['totalDonations'];
+    t = json['__t'];
+    type = json['type'];
+    hospitalType = json['hospitalType'];
+    workingHours = json['workingHours'];
+    city = json['city'];
+    state = json['state'];
+    zipCode = json['zipCode'];
+    hospitalId = json['hospitalId'];
+    licenseNumber = json['licenseNumber'];
+    adminContactName = json['adminContactName'];
+    adminContactPhone = json['adminContactPhone'];
+    emergencyContact = json['emergencyContact'];
+    if (json['bloodBanksAvailable'] != null) {
+      bloodBanksAvailable = [];
+      json['bloodBanksAvailable'].forEach((v) {
+        bloodBanksAvailable?.add(v);
+      });
+    }
+    contactNumber = json['contactNumber'];
+    capacity = json['capacity'];
+    lat = json['lat'];
+    long = json['long'];
+    hospitalName = json['hospitalName'];
+    slotsPerHour = json['slotsPerHour'];
+    workingHoursStart = json['workingHoursStart'];
+    workingHoursEnd = json['workingHoursEnd'];
+    hospitalNameNormalized = json['hospitalNameNormalized'];
+    lastDonationDate = json['lastDonationDate'];
+    isBanned = json['isBanned'];
+    completedDonations = json['completedDonations'];
+    pointsBalance = json['pointsBalance'];
+    lifetimePointsEarned = json['lifetimePointsEarned'];
+    tier = json['tier'];
+    eligibilitySummary = json['eligibilitySummary'] != null ? EligibilitySummary.fromJson(json['eligibilitySummary']) : null;
+    healthHistory = json['healthHistory'] != null ? HealthHistory.fromJson(json['healthHistory']) : null;
+    settings = json['settings'] != null ? Settings.fromJson(json['settings']) : null;
+    location = json['location'] != null ? Location.fromJson(json['location']) : null;
+    dateOfBirth = json['dateOfBirth'];
+    gender = json['gender'];
+    weight = json['weight'];
+    hemoglobinLevel = json['hemoglobinLevel'];
+    temporaryDeferralUntil = json['temporaryDeferralUntil'];
+    lastDeferralReason = json['lastDeferralReason'];
+    isOptedIn = json['isOptedIn'];
+    missedDonationCount = json['missedDonationCount'];
+    if (json['missedDonationDates'] != null) {
+      missedDonationDates = [];
+      json['missedDonationDates'].forEach((v) {
+        missedDonationDates?.add(v);
+      });
+    }
+    if (json['travelHistory'] != null) {
+      travelHistory = [];
+      json['travelHistory'].forEach((v) {
+        travelHistory?.add(v);
+      });
+    }
   }
   String? id;
   String? fullName;
@@ -306,6 +347,48 @@ class Users {
   bool? isVerified;
   String? joinedAt;
   int? totalDonations;
+  String? t;
+  String? type;
+  String? hospitalType;
+  String? workingHours;
+  String? city;
+  String? state;
+  String? zipCode;
+  String? hospitalId;
+  String? licenseNumber;
+  String? adminContactName;
+  String? adminContactPhone;
+  String? emergencyContact;
+  List<dynamic>? bloodBanksAvailable;
+  String? contactNumber;
+  int? capacity;
+  double? lat;
+  double? long;
+  String? hospitalName;
+  int? slotsPerHour;
+  int? workingHoursStart;
+  int? workingHoursEnd;
+  String? hospitalNameNormalized;
+  String? lastDonationDate;
+  bool? isBanned;
+  int? completedDonations;
+  int? pointsBalance;
+  int? lifetimePointsEarned;
+  String? tier;
+  EligibilitySummary? eligibilitySummary;
+  HealthHistory? healthHistory;
+  Settings? settings;
+  Location? location;
+  String? dateOfBirth;
+  String? gender;
+  int? weight;
+  double? hemoglobinLevel;
+  dynamic temporaryDeferralUntil;
+  dynamic lastDeferralReason;
+  bool? isOptedIn;
+  int? missedDonationCount;
+  List<dynamic>? missedDonationDates;
+  List<dynamic>? travelHistory;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -320,7 +403,7 @@ class Users {
     map['suspendedReason'] = suspendedReason;
     map['deletedAt'] = deletedAt;
     if (fcmTokens != null) {
-      map['fcmTokens'] = fcmTokens?.map((v) => v.toJson()).toList();
+      map['fcmTokens'] = fcmTokens;
     }
     map['phone'] = phone;
     map['address'] = address;
@@ -338,7 +421,218 @@ class Users {
     map['isVerified'] = isVerified;
     map['joinedAt'] = joinedAt;
     map['totalDonations'] = totalDonations;
+    map['__t'] = t;
+    map['type'] = type;
+    map['hospitalType'] = hospitalType;
+    map['workingHours'] = workingHours;
+    map['city'] = city;
+    map['state'] = state;
+    map['zipCode'] = zipCode;
+    map['hospitalId'] = hospitalId;
+    map['licenseNumber'] = licenseNumber;
+    map['adminContactName'] = adminContactName;
+    map['adminContactPhone'] = adminContactPhone;
+    map['emergencyContact'] = emergencyContact;
+    if (bloodBanksAvailable != null) {
+      map['bloodBanksAvailable'] = bloodBanksAvailable;
+    }
+    map['contactNumber'] = contactNumber;
+    map['capacity'] = capacity;
+    map['lat'] = lat;
+    map['long'] = long;
+    map['hospitalName'] = hospitalName;
+    map['slotsPerHour'] = slotsPerHour;
+    map['workingHoursStart'] = workingHoursStart;
+    map['workingHoursEnd'] = workingHoursEnd;
+    map['hospitalNameNormalized'] = hospitalNameNormalized;
+    map['lastDonationDate'] = lastDonationDate;
+    map['isBanned'] = isBanned;
+    map['completedDonations'] = completedDonations;
+    map['pointsBalance'] = pointsBalance;
+    map['lifetimePointsEarned'] = lifetimePointsEarned;
+    map['tier'] = tier;
+    if (eligibilitySummary != null) {
+      map['eligibilitySummary'] = eligibilitySummary?.toJson();
+    }
+    if (healthHistory != null) {
+      map['healthHistory'] = healthHistory?.toJson();
+    }
+    if (settings != null) {
+      map['settings'] = settings?.toJson();
+    }
+    if (location != null) {
+      map['location'] = location?.toJson();
+    }
+    map['dateOfBirth'] = dateOfBirth;
+    map['gender'] = gender;
+    map['weight'] = weight;
+    map['hemoglobinLevel'] = hemoglobinLevel;
+    map['temporaryDeferralUntil'] = temporaryDeferralUntil;
+    map['lastDeferralReason'] = lastDeferralReason;
+    map['isOptedIn'] = isOptedIn;
+    map['missedDonationCount'] = missedDonationCount;
+    if (missedDonationDates != null) {
+      map['missedDonationDates'] = missedDonationDates;
+    }
+    if (travelHistory != null) {
+      map['travelHistory'] = travelHistory;
+    }
     return map;
   }
+}
 
+class EligibilitySummary {
+  EligibilitySummary({
+    this.eligible,
+    this.reason,
+    this.nextEligibleDate,});
+
+  EligibilitySummary.fromJson(dynamic json) {
+    eligible = json['eligible'];
+    reason = json['reason'];
+    nextEligibleDate = json['nextEligibleDate'];
+  }
+  bool? eligible;
+  String? reason;
+  dynamic nextEligibleDate;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['eligible'] = eligible;
+    map['reason'] = reason;
+    map['nextEligibleDate'] = nextEligibleDate;
+    return map;
+  }
+}
+
+class HealthHistory {
+  HealthHistory({
+    this.chronicConditions,
+    this.medications,
+    this.allergies,
+    this.recentIllness,
+    this.notes,
+    this.lastCheckupDate,
+    this.updatedAt,});
+
+  HealthHistory.fromJson(dynamic json) {
+    chronicConditions = json['chronicConditions'] != null ? json['chronicConditions'].cast<String>() : [];
+    if (json['medications'] != null) {
+      medications = [];
+      json['medications'].forEach((v) {
+        medications?.add(v);
+      });
+    }
+    if (json['allergies'] != null) {
+      allergies = [];
+      json['allergies'].forEach((v) {
+        allergies?.add(v);
+      });
+    }
+    recentIllness = json['recentIllness'];
+    notes = json['notes'];
+    lastCheckupDate = json['lastCheckupDate'];
+    updatedAt = json['updatedAt'];
+  }
+  List<String>? chronicConditions;
+  List<dynamic>? medications;
+  List<dynamic>? allergies;
+  String? recentIllness;
+  String? notes;
+  String? lastCheckupDate;
+  String? updatedAt;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['chronicConditions'] = chronicConditions;
+    if (medications != null) {
+      map['medications'] = medications;
+    }
+    if (allergies != null) {
+      map['allergies'] = allergies;
+    }
+    map['recentIllness'] = recentIllness;
+    map['notes'] = notes;
+    map['lastCheckupDate'] = lastCheckupDate;
+    map['updatedAt'] = updatedAt;
+    return map;
+  }
+}
+
+class Settings {
+  Settings({
+    this.pushNotifications,
+    this.emergencyAlerts,
+    this.privacyMode,
+    this.language,});
+
+  Settings.fromJson(dynamic json) {
+    pushNotifications = json['pushNotifications'];
+    emergencyAlerts = json['emergencyAlerts'];
+    privacyMode = json['privacyMode'];
+    language = json['language'];
+  }
+  bool? pushNotifications;
+  bool? emergencyAlerts;
+  bool? privacyMode;
+  String? language;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['pushNotifications'] = pushNotifications;
+    map['emergencyAlerts'] = emergencyAlerts;
+    map['privacyMode'] = privacyMode;
+    map['language'] = language;
+    return map;
+  }
+}
+
+class Location {
+  Location({
+    this.coordinates,
+    this.city,
+    this.governorate,
+    this.lastUpdated,});
+
+  Location.fromJson(dynamic json) {
+    coordinates = json['coordinates'] != null ? Coordinates.fromJson(json['coordinates']) : null;
+    city = json['city'];
+    governorate = json['governorate'];
+    lastUpdated = json['lastUpdated'];
+  }
+  Coordinates? coordinates;
+  String? city;
+  String? governorate;
+  String? lastUpdated;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    if (coordinates != null) {
+      map['coordinates'] = coordinates?.toJson();
+    }
+    map['city'] = city;
+    map['governorate'] = governorate;
+    map['lastUpdated'] = lastUpdated;
+    return map;
+  }
+}
+
+class Coordinates {
+  Coordinates({
+    this.lat,
+    this.lng,});
+
+  Coordinates.fromJson(dynamic json) {
+    lat = json['lat'];
+    lng = json['lng'];
+  }
+  double? lat;
+  double? lng;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['lat'] = lat;
+    map['lng'] = lng;
+    return map;
+  }
 }

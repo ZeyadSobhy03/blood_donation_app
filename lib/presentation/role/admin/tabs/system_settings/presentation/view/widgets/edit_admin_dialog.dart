@@ -11,6 +11,9 @@ import '../../../../../../../../core/widgets/custom_label.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 import '../../view_model/profile/admin_profile_view_model.dart';
+import 'package:blood_donation_app/presentation/authentication/admin_authentication/presentation/view_model/admin_auth_view_model.dart';
+import 'package:blood_donation_app/presentation/authentication/donor_authentication/presentation/view_model/auth_view_model.dart';
+import 'package:blood_donation_app/core/service/firebase_notification_service.dart';
 
 class EditAdminDialog extends StatefulWidget {
   const EditAdminDialog({super.key});
@@ -23,6 +26,7 @@ class _EditAdminDialogState extends State<EditAdminDialog> {
   late TextEditingController nameController;
   late TextEditingController emailController;
   late TextEditingController phoneController;
+  String? initialEmail;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -32,6 +36,7 @@ class _EditAdminDialogState extends State<EditAdminDialog> {
     nameController = TextEditingController(text: admin?.fullName ?? '');
     emailController = TextEditingController(text: admin?.email ?? '');
     phoneController = TextEditingController(text: admin?.phone?.toString() ?? '');
+    initialEmail = admin?.email;
   }
 
   @override
@@ -47,8 +52,9 @@ class _EditAdminDialogState extends State<EditAdminDialog> {
     final loc = AppLocalizations.of(context)!;
 
     return BlocListener<AdminProfileCubit, ProfileState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is ProfileUpdateSuccessState) {
+          // Show success snackbar
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: CustomText(
@@ -59,9 +65,28 @@ class _EditAdminDialogState extends State<EditAdminDialog> {
               duration: const Duration(seconds: 2),
             ),
           );
-          Future.delayed(const Duration(milliseconds: 500), () {
-            if (context.mounted) Navigator.of(context).pop();
-          });
+
+          // Refetch the profile to ensure UI reflects updated data
+          context.read<AdminProfileCubit>().fetchAdminProfile();
+
+          final bool isEmailChanged = emailController.text.trim() != initialEmail;
+
+          if (isEmailChanged) {
+            final authCubit = context.read<AuthCubit>();
+            final adminCubit = context.read<AdminAuthCubit>();
+            final refreshToken = await adminCubit.adminHiveDataSource.getRefreshToken();
+            final fcmToken = await FirebaseNotificationService.getFCMToken();
+
+            if (context.mounted) {
+              authCubit.logOut(refreshToken: refreshToken ?? '', fcmToken: fcmToken ?? '');
+              await adminCubit.adminHiveDataSource.clearAllData();
+            }
+          } else {
+            // Close dialog after a short delay
+            Future.delayed(const Duration(milliseconds: 500), () {
+              if (context.mounted) Navigator.of(context).pop();
+            });
+          }
         } else if (state is ProfileErrorState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

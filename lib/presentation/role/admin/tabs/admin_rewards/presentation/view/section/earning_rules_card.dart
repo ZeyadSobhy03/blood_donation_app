@@ -1,15 +1,16 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
-import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/data/model/earning_rule_model.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view/section/add_earning_rule_dialog.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/admin_rewards/presentation/view_model/admin_rewards_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../../core/utils/earning_rule_localizer.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 
 class EarningRulesCard extends StatefulWidget {
@@ -101,20 +102,7 @@ class _EarningRulesCardState extends State<EarningRulesCard> {
     });
   }
 
-  Future<void> _openAddDialog() async {
-    final result = await showDialog<NewEarningRuleResult>(
-      context: context,
-      builder: (_) => const AddEarningRuleDialog(),
-    );
-    if (result == null || !mounted) return;
-    context.read<AdminRewardsCubit>().createEarningRule(
-          type: result.type,
-          title: result.title,
-          points: result.points,
-          category: result.category,
-          isActive: result.isActive,
-        );
-  }
+
 
   IconData _categoryIcon(String? category) {
     switch (category?.toLowerCase()) {
@@ -164,6 +152,8 @@ class _EarningRulesCardState extends State<EarningRulesCard> {
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
+    log('Building EarningRulesCard with ${widget.rules} rules');
+
 
     return BlocListener<AdminRewardsCubit, AdminRewardsState>(
       listener: (context, state) {
@@ -191,7 +181,7 @@ class _EarningRulesCardState extends State<EarningRulesCard> {
             ),
           );
           context.read<AdminRewardsCubit>().getEarningRules();
-        } else if (state is AdminRewardsErrorState) {
+        } else if (state is EarningRuleOperationErrorState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(localizeError(state.error, loc)),
@@ -243,32 +233,6 @@ class _EarningRulesCardState extends State<EarningRulesCard> {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  CustomElevatedButton(
-                    backgroundColor: ColorManger.brightPurple,
-                    foregroundColor: ColorManger.pureWhite,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    onPressed: _openAddDialog,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 14, vertical: 10),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(Icons.add, size: 16,
-                            color: ColorManger.pureWhite),
-                        const SizedBox(width: 6),
-                        CustomText(
-                          text: loc.addRule,
-                          textStyle: TextStyle(
-                            color: ColorManger.pureWhite,
-                            fontSize: FontSize.s13,
-                            fontWeight: FontWeightManager.semiBold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
               const SizedBox(height: 16),
@@ -277,7 +241,6 @@ class _EarningRulesCardState extends State<EarningRulesCard> {
               _StatsRow(rules: widget.rules, loc: loc),
               const SizedBox(height: 16),
 
-              // ─── Rules list ────────────────────────────────────────────
               if (widget.rules.isEmpty)
                 _EmptyState(loc: loc)
               else
@@ -290,7 +253,9 @@ class _EarningRulesCardState extends State<EarningRulesCard> {
                     color: ColorManger.lightPurple.withValues(alpha: 0.6),
                   ),
                   itemBuilder: (context, index) {
+
                     final rule = widget.rules[index];
+                    log('Building rule tile for: ${rule.title}, isActive: ${rule.isActive}, points: ${rule.points} , category: ${rule.category} , type: ${rule.type}');
                     final id = rule.id ?? '';
                     final isEditing = _editingIds.contains(id);
                     final controller = _controllerFor(rule);
@@ -535,7 +500,7 @@ class _EarningRuleTile extends StatelessWidget {
                     children: [
                       Expanded(
                         child: CustomText(
-                          text: rule.title ?? '',
+                          text: EarningRuleLocalizer.localizeTitle(rule.title, loc),
                           textStyle: TextStyle(
                             color: ColorManger.black,
                             fontSize: FontSize.s14,
@@ -568,8 +533,7 @@ class _EarningRuleTile extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    '${loc.type}: ${rule.type ?? ''}  •  ${loc.earningRuleCategory}: ${rule.category ?? ''}',
-                    style: TextStyle(
+                    '${loc.type}: ${EarningRuleLocalizer.localizeType(rule.type, loc)}  •  ${loc.earningRuleCategory}: ${EarningRuleLocalizer.localizeCategory(rule.category, loc)}',                    style: TextStyle(
                       color: ColorManger.slateGrey,
                       fontSize: FontSize.s12,
                       fontWeight: FontWeightManager.regular,

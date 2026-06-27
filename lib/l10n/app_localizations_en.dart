@@ -4753,4 +4753,124 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get requestFulfilled => 'Request marked as fulfilled';
+
+  @override
+  String get error_authorization_required => 'Authorization header is required';
+
+  @override
+  String get error_account_suspended => 'Account is suspended';
+
+  @override
+  String get error_reward_fields_required =>
+      'Reward name, category, and points required are mandatory';
+
+  @override
+  String get error_status_required => 'Status is required';
+
+  @override
+  String get error_invalid_status_value =>
+      'Status must be ACTIVE, INACTIVE, or LIMITED';
+
+  @override
+  String get error_reward_not_found => 'Reward not found';
+
+  @override
+  String get error_bulk_points_empty =>
+      'Updates array must have at least one entry';
+
+  @override
+  String get error_bulk_points_invalid_update =>
+      'Each update must have an ID and points required number';
+
+  @override
+  String get error_adjustment_fields_required =>
+      'Email, amount, and reason are required';
+
+  @override
+  String get error_amount_non_zero => 'Amount must be a non-zero number';
+
+  @override
+  String get error_only_donors_have_points => 'Only donor accounts have points';
+
+  @override
+  String get error_earning_rule_fields_required =>
+      'Type, title, points, and category are required';
+
+  @override
+  String get error_points_non_negative =>
+      'Points must be a non-negative number';
+
+  @override
+  String get error_invalid_rule_type =>
+      'Invalid rule type. Must be one of: bloodDonation, plasmaDonation, plateletsDonation, doubleRedCellsDonation, emergencyResponse, profileCompletion, referral, firstDonation';
+
+  @override
+  String get error_earning_rule_exists => 'This earning rule already exists';
+
+  @override
+  String get error_earning_rule_not_found => 'Earning rule not found';
+
+  @override
+  String get categoryDonation => 'Donation';
+
+  @override
+  String get categoryReferral => 'Referral';
+
+  @override
+  String get categoryRegistration => 'Registration';
+
+  @override
+  String get categoryOther => 'Other';
+
+  @override
+  String get ruleBloodDonation => 'Blood Donation';
+
+  @override
+  String get ruleDoubleRedCells => 'Double Red Cells Donation';
+
+  @override
+  String get rulePlasmaDonation => 'Plasma Donation';
+
+  @override
+  String get rulePlateletsDonation => 'Platelets Donation';
+
+  @override
+  String get detailProfileUpdated => 'Updated admin profile';
+
+  @override
+  String detailDonorUpdated(Object id) {
+    return 'Updated donor account (ID: $id)';
+  }
+
+  @override
+  String get error_current_new_password_required =>
+      'Current and new passwords are required';
+
+  @override
+  String get error_new_password_same_as_current =>
+      'New password cannot be the same as current';
+
+  @override
+  String get inboundEmailEmptyArchived => 'No archived emails here';
+
+  @override
+  String get inboundEmailEmptyUnread => 'No unread emails here';
+
+  @override
+  String get statusOpen => 'Open';
+
+  @override
+  String get statusReviewed => 'Reviewed';
+
+  @override
+  String get statusClosed => 'Closed';
+
+  @override
+  String get categoryTechnical => 'Technical';
+
+  @override
+  String get categoryAccount => 'Account';
+
+  @override
+  String get categoryRewards => 'Rewards';
 }

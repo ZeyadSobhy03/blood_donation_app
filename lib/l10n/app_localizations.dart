@@ -8883,6 +8883,222 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Request marked as fulfilled'**
   String get requestFulfilled;
+
+  /// No description provided for @error_authorization_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Authorization header is required'**
+  String get error_authorization_required;
+
+  /// No description provided for @error_account_suspended.
+  ///
+  /// In en, this message translates to:
+  /// **'Account is suspended'**
+  String get error_account_suspended;
+
+  /// No description provided for @error_reward_fields_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward name, category, and points required are mandatory'**
+  String get error_reward_fields_required;
+
+  /// No description provided for @error_status_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Status is required'**
+  String get error_status_required;
+
+  /// No description provided for @error_invalid_status_value.
+  ///
+  /// In en, this message translates to:
+  /// **'Status must be ACTIVE, INACTIVE, or LIMITED'**
+  String get error_invalid_status_value;
+
+  /// No description provided for @error_reward_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward not found'**
+  String get error_reward_not_found;
+
+  /// No description provided for @error_bulk_points_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Updates array must have at least one entry'**
+  String get error_bulk_points_empty;
+
+  /// No description provided for @error_bulk_points_invalid_update.
+  ///
+  /// In en, this message translates to:
+  /// **'Each update must have an ID and points required number'**
+  String get error_bulk_points_invalid_update;
+
+  /// No description provided for @error_adjustment_fields_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Email, amount, and reason are required'**
+  String get error_adjustment_fields_required;
+
+  /// No description provided for @error_amount_non_zero.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount must be a non-zero number'**
+  String get error_amount_non_zero;
+
+  /// No description provided for @error_only_donors_have_points.
+  ///
+  /// In en, this message translates to:
+  /// **'Only donor accounts have points'**
+  String get error_only_donors_have_points;
+
+  /// No description provided for @error_earning_rule_fields_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Type, title, points, and category are required'**
+  String get error_earning_rule_fields_required;
+
+  /// No description provided for @error_points_non_negative.
+  ///
+  /// In en, this message translates to:
+  /// **'Points must be a non-negative number'**
+  String get error_points_non_negative;
+
+  /// No description provided for @error_invalid_rule_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid rule type. Must be one of: bloodDonation, plasmaDonation, plateletsDonation, doubleRedCellsDonation, emergencyResponse, profileCompletion, referral, firstDonation'**
+  String get error_invalid_rule_type;
+
+  /// No description provided for @error_earning_rule_exists.
+  ///
+  /// In en, this message translates to:
+  /// **'This earning rule already exists'**
+  String get error_earning_rule_exists;
+
+  /// No description provided for @error_earning_rule_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Earning rule not found'**
+  String get error_earning_rule_not_found;
+
+  /// No description provided for @categoryDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation'**
+  String get categoryDonation;
+
+  /// No description provided for @categoryReferral.
+  ///
+  /// In en, this message translates to:
+  /// **'Referral'**
+  String get categoryReferral;
+
+  /// No description provided for @categoryRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get categoryRegistration;
+
+  /// No description provided for @categoryOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get categoryOther;
+
+  /// No description provided for @ruleBloodDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation'**
+  String get ruleBloodDonation;
+
+  /// No description provided for @ruleDoubleRedCells.
+  ///
+  /// In en, this message translates to:
+  /// **'Double Red Cells Donation'**
+  String get ruleDoubleRedCells;
+
+  /// No description provided for @rulePlasmaDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Plasma Donation'**
+  String get rulePlasmaDonation;
+
+  /// No description provided for @rulePlateletsDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Platelets Donation'**
+  String get rulePlateletsDonation;
+
+  /// No description provided for @detailProfileUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated admin profile'**
+  String get detailProfileUpdated;
+
+  /// No description provided for @detailDonorUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated donor account (ID: {id})'**
+  String detailDonorUpdated(Object id);
+
+  /// No description provided for @error_current_new_password_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Current and new passwords are required'**
+  String get error_current_new_password_required;
+
+  /// No description provided for @error_new_password_same_as_current.
+  ///
+  /// In en, this message translates to:
+  /// **'New password cannot be the same as current'**
+  String get error_new_password_same_as_current;
+
+  /// No description provided for @inboundEmailEmptyArchived.
+  ///
+  /// In en, this message translates to:
+  /// **'No archived emails here'**
+  String get inboundEmailEmptyArchived;
+
+  /// No description provided for @inboundEmailEmptyUnread.
+  ///
+  /// In en, this message translates to:
+  /// **'No unread emails here'**
+  String get inboundEmailEmptyUnread;
+
+  /// No description provided for @statusOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get statusOpen;
+
+  /// No description provided for @statusReviewed.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviewed'**
+  String get statusReviewed;
+
+  /// No description provided for @statusClosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed'**
+  String get statusClosed;
+
+  /// No description provided for @categoryTechnical.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical'**
+  String get categoryTechnical;
+
+  /// No description provided for @categoryAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get categoryAccount;
+
+  /// No description provided for @categoryRewards.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards'**
+  String get categoryRewards;
 }
 
 class _AppLocalizationsDelegate

@@ -77,15 +77,14 @@ class _UserEditSheetState extends State<UserEditSheet> {
       _hospitalPhoneController = TextEditingController(
         text: widget.user.phone ?? '',
       );
-      /*
-       _capacityController = TextEditingController(
-        text: widget.user.?.toString() ?? '',  // ✅ Load capacity
+
+      _capacityController = TextEditingController(
+        text: widget.user.capacity ?.toString() ?? '',
+
       );
       _selectedBloodBanks = List<String>.from(
-        widget.user.bloodBanksAvailable ?? [],  // ✅ Load blood banks
-       */
-      _capacityController = TextEditingController();
-      _selectedBloodBanks = [];
+        widget.user.bloodBanksAvailable ?? [],
+      );
     } else if (_isAdmin) {
       _isSuspended = widget.user.isSuspended ?? false;
     }

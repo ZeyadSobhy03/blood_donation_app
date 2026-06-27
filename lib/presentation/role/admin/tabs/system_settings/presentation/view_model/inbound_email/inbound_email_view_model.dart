@@ -18,12 +18,20 @@ class InboundEmailCubit extends Cubit<InboundEmailState> {
   bool _hasNextPage = true;
   bool _isLoadingMore = false;
 
-  List<InboundEmails> _allEmails = [];
-  List<SupportTickets> _allSupportTickets = [];
+  List<Items> _allEmails = [];
+  List<Items> _allSupportTickets = [];
 
-  List<InboundEmails> get allEmails => _allEmails;
-  List<SupportTickets> get allSupportTickets => _allSupportTickets;
+  List<Items> get allEmails => _allEmails;
+  List<Items> get allSupportTickets => _allSupportTickets;
   bool get hasNextPage => _hasNextPage;
+
+  // Splits the single `items` list into "support tickets" vs "plain emails"
+  // based on the `type` field, since the model only exposes one combined list.
+  List<Items> _filterSupportTickets(List<Items>? items) =>
+      items?.where((e) => e.type == 'supportTicket').toList() ?? [];
+
+  List<Items> _filterInboundEmails(List<Items>? items) =>
+      items?.where((e) => e.type != 'supportTicket').toList() ?? [];
 
   Future<void> fetchInboundEmails({
     int page = 1,
@@ -39,8 +47,9 @@ class InboundEmailCubit extends Cubit<InboundEmailState> {
         search: search,
       );
 
-      _allEmails = inboundedEmailModel.data?.inboundEmails ?? [];
-      _allSupportTickets = inboundedEmailModel.data?.supportTickets ?? [];
+      final items = inboundedEmailModel.data?.items;
+      _allEmails = _filterInboundEmails(items);
+      _allSupportTickets = _filterSupportTickets(items);
       _hasNextPage = inboundedEmailModel.data?.pagination?.hasNextPage ?? false;
 
       emit(InboundEmailSuccessState(
@@ -81,8 +90,10 @@ class InboundEmailCubit extends Cubit<InboundEmailState> {
       );
 
       _currentPage = nextPage;
-      _allEmails = [..._allEmails, ...(inboundedEmailModel.data?.inboundEmails ?? [])];
-      _allSupportTickets = inboundedEmailModel.data?.supportTickets ?? _allSupportTickets;
+      final newItems = inboundedEmailModel.data?.items;
+      _allEmails = [..._allEmails, ..._filterInboundEmails(newItems)];
+      final newTickets = _filterSupportTickets(newItems);
+      _allSupportTickets = newTickets.isNotEmpty ? newTickets : _allSupportTickets;
       _hasNextPage = inboundedEmailModel.data?.pagination?.hasNextPage ?? false;
 
       emit(InboundEmailSuccessState(
@@ -322,13 +333,13 @@ class InboundEmailInitialState extends InboundEmailState {}
 class InboundEmailLoadingState extends InboundEmailState {}
 
 class InboundEmailLoadingMoreState extends InboundEmailState {
-  final List<InboundEmails> emails;
+  final List<Items> emails;
   InboundEmailLoadingMoreState({required this.emails});
 }
 
 class InboundEmailSuccessState extends InboundEmailState {
-  final List<InboundEmails> emails;
-  final List<SupportTickets> supportTickets;
+  final List<Items> emails;
+  final List<Items> supportTickets;
   final bool hasNextPage;
   InboundEmailSuccessState({
     required this.emails,

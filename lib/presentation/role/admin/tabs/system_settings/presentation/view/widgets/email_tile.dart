@@ -8,7 +8,7 @@ import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../data/model/inbound_email/inbounded_email_model.dart';
 
 class EmailTile extends StatelessWidget {
-  final InboundEmails email;
+  final Items email;
   final VoidCallback onTap;
   final VoidCallback onMarkRead;
   final VoidCallback onArchive;
@@ -26,8 +26,8 @@ class EmailTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final parsedDate = email.receivedAt != null
-        ? DateTime.tryParse(email.receivedAt!)
+    final parsedDate = email.createdAt != null
+        ? DateTime.tryParse(email.createdAt!)
         : null;
     final dateStr = parsedDate != null
         ? DateFormat('MMM d, h:mm a').format(parsedDate)
@@ -49,117 +49,115 @@ class EmailTile extends StatelessWidget {
             border: Border.all(color: ColorManger.grey100),
           ),
           padding: const EdgeInsets.all(14),
-          child: Row(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CircleAvatar(
-                radius: 20,
-                backgroundColor: unread
-                    ? ColorManger.brightRed.withValues(alpha: 0.12)
-                    : ColorManger.grey100,
-                child: Icon(
-                  Icons.mail_outline,
-                  color: unread ? ColorManger.brightRed : ColorManger.grey600,
-                  size: 20,
-                ),
-              ),
-              const SizedBox(width: 12),
-
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Subject + date
-                    Row(
+              // First row: Avatar + Subject + Date
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundColor: unread
+                        ? ColorManger.brightRed.withValues(alpha: 0.12)
+                        : ColorManger.grey100,
+                    child: Icon(
+                      Icons.mail_outline,
+                      color: unread ? ColorManger.brightRed : ColorManger.grey600,
+                      size: 20,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: CustomText(
-                            text: email.subject ?? '',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            textStyle: TextStyle(
-                              fontSize: FontSize.s15,
-                              fontWeight: unread
-                                  ? FontWeightManager.bold
-                                  : FontWeightManager.medium,
-                              color: unread
-                                  ? ColorManger.black
-                                  : ColorManger.grey800,
-                            ),
+                        // Subject
+                        CustomText(
+                          text: email.subject ?? '',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          textStyle: TextStyle(
+                            fontSize: FontSize.s15,
+                            fontWeight: unread
+                                ? FontWeightManager.bold
+                                : FontWeightManager.medium,
+                            color: unread
+                                ? ColorManger.black
+                                : ColorManger.grey800,
                           ),
                         ),
-                        const SizedBox(width: 6),
+                        const SizedBox(height: 2),
+                        // From
                         CustomText(
-                          text: dateStr,
+                          text: l10n.inboundEmailFrom(email.fullName ?? ''),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           textStyle: TextStyle(
-                            fontSize: FontSize.s12,
+                            fontSize: FontSize.s13,
                             color: ColorManger.grey600,
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 4),
-
-                    // From
-                    CustomText(
-                      text: l10n.inboundEmailFrom(email.from ?? ''),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      textStyle: TextStyle(
-                        fontSize: FontSize.s13,
-                        color: ColorManger.grey600,
-                      ),
+                  ),
+                  const SizedBox(width: 8),
+                  CustomText(
+                    text: dateStr,
+                    textStyle: TextStyle(
+                      fontSize: FontSize.s12,
+                      color: ColorManger.grey600,
                     ),
-                    const SizedBox(height: 8),
-
-                    // ── Badges + action icons ─────────────────────────
-                    Row(
-                      children: [
-                        if (archived)
-                          _badge(
-                            l10n.inboundEmailArchivedBadge,
-                            ColorManger.orange,
-                          ),
-                        if (unread) ...[
-                          if (archived) const SizedBox(width: 6),
-                          _badge(
-                            l10n.inboundEmailUnreadBadge,
-                            ColorManger.brightRed,
-                          ),
-                        ],
-                        const Spacer(),
-
-                        // Mark as read
-                        if (unread)
-                          _actionIcon(
-                            icon: Icons.mark_email_read_outlined,
-                            color: ColorManger.successColor,
-                            tooltip: l10n.inboundEmailMarkAsRead,
-                            onTap: onMarkRead,
-                          ),
-
-                        if (!archived) ...[
-                          const SizedBox(width: 4),
-                          _actionIcon(
-                            icon: Icons.archive_outlined,
-                            color: ColorManger.orange,
-                            tooltip: l10n.inboundEmailArchive,
-                            onTap: onArchive,
-                          ),
-                        ],
-
-
-                        const SizedBox(width: 4),
-                        _actionIcon(
-                          icon: Icons.delete_outline,
-                          color: ColorManger.brightRed,
-                          tooltip: l10n.inboundEmailDelete,
-                          onTap: onDelete,
-                        ),
-                      ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              // Second row: Badges + Action buttons
+              Row(
+                children: [
+                  // Badges on left
+                  if (archived)
+                    _badge(
+                      l10n.inboundEmailArchivedBadge,
+                      ColorManger.orange,
+                    ),
+                  if (unread) ...[
+                    if (archived) const SizedBox(width: 6),
+                    _badge(
+                      l10n.inboundEmailUnreadBadge,
+                      ColorManger.brightRed,
                     ),
                   ],
-                ),
+                  const Spacer(),
+                  // Action buttons - ALWAYS VISIBLE, NEVER HIDDEN
+                  _actionIcon(
+                    icon: Icons.mark_email_read_outlined,
+                    color: unread
+                        ? ColorManger.successColor
+                        : ColorManger.grey300,
+                    tooltip: l10n.inboundEmailMarkAsRead,
+                    onTap: onMarkRead,
+                    isEnabled: unread,
+                  ),
+                  const SizedBox(width: 6),
+                  _actionIcon(
+                    icon: Icons.archive_outlined,
+                    color: !archived
+                        ? ColorManger.orange
+                        : ColorManger.grey300,
+                    tooltip: l10n.inboundEmailArchive,
+                    onTap: !archived ? onArchive : () {},
+                    isEnabled: !archived,
+                  ),
+                  const SizedBox(width: 6),
+                  _actionIcon(
+                    icon: Icons.delete_outline,
+                    color: ColorManger.brightRed,
+                    tooltip: l10n.inboundEmailDelete,
+                    onTap: onDelete,
+                    isEnabled: true,
+                  ),
+                ],
               ),
             ],
           ),
@@ -168,21 +166,21 @@ class EmailTile extends StatelessWidget {
     );
   }
 
-  // ── Stops tap from bubbling up to the tile's InkWell ──────────────────
   Widget _actionIcon({
     required IconData icon,
     required Color color,
     required String tooltip,
     required VoidCallback onTap,
+    bool isEnabled = true,
   }) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: onTap,
+      onTap: isEnabled ? onTap : null,
       child: Tooltip(
         message: tooltip,
         child: Container(
           decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.10),
+            color: color.withValues(alpha: 0.12),
             borderRadius: BorderRadius.circular(20),
           ),
           padding: const EdgeInsets.all(7),

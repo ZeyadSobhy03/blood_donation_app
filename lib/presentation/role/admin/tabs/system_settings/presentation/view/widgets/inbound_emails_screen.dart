@@ -3,13 +3,14 @@ import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
+import 'package:blood_donation_app/core/utils/email_localizer.dart';
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
+import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../data/model/inbound_email/inbounded_email_model.dart';
@@ -62,47 +63,66 @@ class _InboundEmailsScreenState extends State<InboundEmailsScreen> {
     });
   }
 
-  List<InboundEmails> _applyFilter(List<InboundEmails> emails) {
+  List<Items> _applyFilter(List<Items> items) {
     switch (_filter) {
       case EmailFilter.unread:
-        return emails
-            .where((e) => e.isRead != true && e.isArchived != true)
+        return items
+            .where((item) => item.isRead != true && item.isArchived != true)
             .toList();
       case EmailFilter.archived:
-        return emails.where((e) => e.isArchived == true).toList();
+        return items.where((item) => item.isArchived == true).toList();
       case EmailFilter.all:
-        return emails.where((e) => e.isArchived != true).toList();
+        return items.where((item) => item.isArchived != true).toList();
     }
   }
 
   void _showSnack(String msg) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(msg), duration: const Duration(seconds: 2)),
+      SnackBar(
+          backgroundColor: ColorManger.green,
+          content: Text(msg,style: TextStyle(
+color: ColorManger.pureWhite
+          ),), duration: const Duration(seconds: 2)),
     );
   }
 
   Future<void> _confirmDelete(
-      InboundEmails email,
+      Items email,
       AppLocalizations l10n,
       ) async {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => SafeArea(
         child: AlertDialog(
+          backgroundColor: ColorManger.pureWhite,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
           title: CustomText(text: l10n.inboundEmailDeleteTitle),
           content: CustomText(
             text: l10n.inboundEmailDeleteConfirm(email.subject ?? ''),
           ),
           actions: [
-            TextButton(
+            CustomElevatedButton(
+              backgroundColor: ColorManger.grey300,
+              foregroundColor: ColorManger.black,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              elevation: 0,
               onPressed: () => Navigator.pop(context, false),
               child: CustomText(text: l10n.inboundEmailCancel),
             ),
-            TextButton(
+            CustomElevatedButton(
+              backgroundColor: ColorManger.brightRed,
+              foregroundColor: ColorManger.pureWhite,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              elevation: 0,
               onPressed: () => Navigator.pop(context, true),
               child: CustomText(
                 text: l10n.inboundEmailDelete,
-                textStyle: TextStyle(color: ColorManger.brightRed),
               ),
             ),
           ],
@@ -114,44 +134,49 @@ class _InboundEmailsScreenState extends State<InboundEmailsScreen> {
     }
   }
 
-  void _openDetail(InboundEmails email) {
+  void _openDetail(Items email) {
     if (email.isRead != true && email.id != null) {
       context.read<InboundEmailCubit>().markAsReadInboundEmail(
         emailId: email.id!,
       );
     }
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) => SafeArea(
-        child: EmailDetailSheet(
 
-          email: email,
-          onArchive: () {
-            Navigator.pop(context);
-            if (email.id != null) {
-              context.read<InboundEmailCubit>().archivedInboundEmail(
-                emailId: email.id!,
-              );
-            }
-          },
-          onDelete: () {
-            Navigator.pop(context);
-            _confirmDelete(email, AppLocalizations.of(context)!);
-          },
+    if (email.type == 'supportTicket') {
+      _openTicketReplySheet(email, AppLocalizations.of(context)!);
+    } else {
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ),
-      ),
-    );
+        builder: (context) => SafeArea(
+          child: EmailDetailSheet(
+            email: email,
+            onArchive: () {
+              Navigator.pop(context);
+              if (email.id != null) {
+                context.read<InboundEmailCubit>().archivedInboundEmail(
+                  emailId: email.id!,
+                );
+              }
+            },
+            onDelete: () {
+              Navigator.pop(context);
+              _confirmDelete(email, AppLocalizations.of(context)!);
+            },
+          ),
+        ),
+      );
+    }
   }
 
-  void _openTicketReplySheet(SupportTickets ticket, AppLocalizations l10n) {
+  void _openTicketReplySheet(Items ticket, AppLocalizations l10n) {
     final replyController = TextEditingController(
       text: ticket.adminReply as String? ?? '',
     );
     showModalBottomSheet(
+      backgroundColor: ColorManger.pureWhite,
       context: context,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -193,10 +218,10 @@ class _InboundEmailsScreenState extends State<InboundEmailsScreen> {
                 l10n.supportTicketFrom,
                 ticket.fullName ?? ticket.email ?? '',
               ),
-              _ticketInfoRow(l10n.supportTicketCategory, ticket.category ?? ''),
+              _ticketInfoRow(l10n.supportTicketCategory, EmailLocalizer.localizeCategory(ticket.subject, l10n) ),
               _ticketInfoRow(
                 l10n.supportTicketStatus,
-                _localizeStatus(ticket.status, l10n),
+                EmailLocalizer.localizeStatus(ticket.status, l10n),
               ),
               const SizedBox(height: 12),
               if (ticket.adminReply != null &&
@@ -293,19 +318,6 @@ class _InboundEmailsScreenState extends State<InboundEmailsScreen> {
     }
   }
 
-  Color _statusColor(String? status) {
-    switch (status?.toUpperCase()) {
-      case 'OPEN':
-        return ColorManger.brightRed;
-      case 'CLOSED':
-        return ColorManger.successColor;
-      case 'IN_PROGRESS':
-        return ColorManger.orange;
-      default:
-        return ColorManger.grey500;
-    }
-  }
-
   Widget _ticketInfoRow(String label, String value) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 2),
@@ -342,12 +354,10 @@ class _InboundEmailsScreenState extends State<InboundEmailsScreen> {
 
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
-
       body: SafeArea(
         child: Column(
           children: [
             Row(
-        
               children: [
                 IconButton(
                   icon: const Icon(Icons.arrow_back),
@@ -433,20 +443,29 @@ class _InboundEmailsScreenState extends State<InboundEmailsScreen> {
                               },
                             );
                           }
-        
+
                           final cubit = context.read<InboundEmailCubit>();
-                          final emails = _applyFilter(cubit.allEmails);
-                          final tickets = cubit.allSupportTickets;
+
+                          // Apply filter to both emails and tickets
+                          final filteredEmails = _applyFilter(cubit.allEmails);
+                          final filteredTickets = _applyFilter(cubit.allSupportTickets);
+
+                          // Combine filtered emails and tickets in ONE list
+                          final allItems = <Items>[
+                            ...filteredEmails,
+                            ...filteredTickets,
+                          ];
+
                           final isLoadingMore = state is InboundEmailLoadingMoreState;
-        
-                          if (emails.isEmpty && tickets.isEmpty) {
+
+                          if (allItems.isEmpty) {
                             return _buildEmptyState(
                               l10n,
                               Icons.mark_email_read_outlined,
-                              l10n.inboundEmailEmptyState,
+                              _getEmptyStateMessage(l10n),
                             );
                           }
-        
+
                           return RefreshIndicator(
                             onRefresh: () => cubit.refresh(),
                             child: ListView(
@@ -456,52 +475,38 @@ class _InboundEmailsScreenState extends State<InboundEmailsScreen> {
                                 vertical: 8,
                               ),
                               children: [
-                                if (emails.isNotEmpty) ...[
-                                  _sectionHeader(l10n.inboundEmails),
-                                  const SizedBox(height: 8),
-                                  ...emails.map(
-                                        (email) => Padding(
-                                      padding: const EdgeInsets.only(bottom: 8),
-                                      child: EmailTile(
-                                        email: email,
-                                        onTap: () => _openDetail(email),
-                                        onMarkRead: () {
-                                          if (email.id != null) {
-                                            cubit.markAsReadInboundEmail(
-                                              emailId: email.id!,
-                                            );
-                                          }
-                                        },
-                                        onArchive: () {
-                                          if (email.id != null) {
-                                            cubit.archivedInboundEmail(
-                                              emailId: email.id!,
-                                            );
-                                          }
-                                        },
-                                        onDelete: () => _confirmDelete(email, l10n),
-                                      ),
+                                // Display all filtered items using EmailTile
+                                ...allItems.map((item) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: EmailTile(
+                                      email: item,
+                                      onTap: () => _openDetail(item),
+                                      onMarkRead: () {
+                                        if (item.id != null) {
+                                          cubit.markAsReadInboundEmail(
+                                            emailId: item.id!,
+                                          );
+                                        }
+                                      },
+                                      onArchive: () {
+                                        if (item.id != null) {
+                                          cubit.archivedInboundEmail(
+                                            emailId: item.id!,
+                                          );
+                                        }
+                                      },
+                                      onDelete: () => _confirmDelete(item, l10n),
+                                    ),
+                                  );
+                                }),
+                                if (isLoadingMore)
+                                  const Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 16),
+                                    child: CustomLoadingWidget(
+                                      indicatorColor: ColorManger.brightPurple,
                                     ),
                                   ),
-                                  if (isLoadingMore)
-                                    const Padding(
-                                      padding: EdgeInsets.symmetric(vertical: 16),
-                                      child: CustomLoadingWidget(
-                                        indicatorColor: ColorManger.brightPurple,
-                                      ),
-                                    ),
-                                  const SizedBox(height: 16),
-                                ],
-                                if (tickets.isNotEmpty) ...[
-                                  _sectionHeader(l10n.supportTicketsTab),
-                                  const SizedBox(height: 8),
-                                  ...tickets.map(
-                                        (ticket) => Padding(
-                                      padding: const EdgeInsets.only(bottom: 8),
-                                      child: _buildTicketCard(ticket, l10n),
-                                    ),
-                                  ),
-                                ],
                               ],
                             ),
                           );
@@ -518,181 +523,15 @@ class _InboundEmailsScreenState extends State<InboundEmailsScreen> {
     );
   }
 
-  Widget _sectionHeader(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: CustomText(
-        text: title,
-        textStyle: TextStyle(
-          fontSize: FontSize.s14,
-          fontWeight: FontWeightManager.bold,
-          color: ColorManger.grey700,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTicketCard(SupportTickets ticket, AppLocalizations l10n) {
-    final statusColor = _statusColor(ticket.status);
-    final parsedDate = ticket.createdAt != null
-        ? DateTime.tryParse(ticket.createdAt!)
-        : null;
-    final dateStr = parsedDate != null
-        ? DateFormat('MMM d, yyyy').format(parsedDate)
-        : '';
-    final hasReply =
-        ticket.adminReply != null &&
-            ticket.adminReply is String &&
-            (ticket.adminReply as String).isNotEmpty;
-
-    return Material(
-      color: ColorManger.pureWhite,
-      borderRadius: BorderRadius.circular(14),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(14),
-        onTap: () => _openTicketReplySheet(ticket, l10n),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: ColorManger.grey100),
-          ),
-          padding: const EdgeInsets.all(14),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    radius: 20,
-                    backgroundColor: statusColor.withValues(alpha: 0.12),
-                    child: Icon(
-                      Icons.support_agent_outlined,
-                      color: statusColor,
-                      size: 20,
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text: ticket.subject ?? '',
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          textStyle: TextStyle(
-                            fontSize: FontSize.s15,
-                            fontWeight: FontWeightManager.bold,
-                            color: ColorManger.black,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        CustomText(
-                          text: ticket.fullName ?? ticket.email ?? '',
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          textStyle: TextStyle(
-                            fontSize: FontSize.s13,
-                            color: ColorManger.grey600,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  CustomText(
-                    text: dateStr,
-                    textStyle: TextStyle(
-                      fontSize: FontSize.s12,
-                      color: ColorManger.grey500,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  _statusBadge(
-                    _localizeStatus(ticket.status, l10n),
-                    statusColor,
-                  ),
-                  const SizedBox(width: 8),
-                  if (ticket.category != null) _categoryBadge(ticket.category!),
-                  const Spacer(),
-                  if (hasReply) ...[
-                    Icon(
-                      Icons.check_circle_outline,
-                      size: 14,
-                      color: ColorManger.successColor,
-                    ),
-                    const SizedBox(width: 4),
-                    CustomText(
-                      text: l10n.supportTicketAdminReply,
-                      textStyle: TextStyle(
-                        fontSize: FontSize.s12,
-                        color: ColorManger.successColor,
-                        fontWeight: FontWeightManager.semiBold,
-                      ),
-                    ),
-                  ] else ...[
-                    Icon(
-                      Icons.hourglass_empty_outlined,
-                      size: 14,
-                      color: ColorManger.grey500,
-                    ),
-                    const SizedBox(width: 4),
-                    CustomText(
-                      text: l10n.supportTicketNoReply,
-                      textStyle: TextStyle(
-                        fontSize: FontSize.s12,
-                        color: ColorManger.grey500,
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _statusBadge(String label, Color color) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: CustomText(
-        text: label,
-        textStyle: TextStyle(
-          fontSize: FontSize.s12,
-          fontWeight: FontWeightManager.semiBold,
-          color: color,
-        ),
-      ),
-    );
-  }
-
-  Widget _categoryBadge(String category) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: ColorManger.brightPurple.withValues(alpha: 0.10),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: CustomText(
-        text: category,
-        textStyle: TextStyle(
-          fontSize: FontSize.s12,
-          fontWeight: FontWeightManager.semiBold,
-          color: ColorManger.brightPurple,
-        ),
-      ),
-    );
+  String _getEmptyStateMessage(AppLocalizations l10n) {
+    switch (_filter) {
+      case EmailFilter.unread:
+        return l10n.inboundEmailEmptyUnread;
+      case EmailFilter.archived:
+        return l10n.inboundEmailEmptyArchived;
+      case EmailFilter.all:
+        return l10n.inboundEmailEmptyState;
+    }
   }
 
   Widget _buildFilterChips(AppLocalizations l10n) {

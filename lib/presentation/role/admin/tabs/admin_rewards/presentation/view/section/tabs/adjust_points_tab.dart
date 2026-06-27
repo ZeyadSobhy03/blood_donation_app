@@ -24,6 +24,10 @@ class _AdjustPointsTabState extends State<AdjustPointsTab> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AdminRewardsCubit, AdminRewardsState>(
+      buildWhen: (previous, current) =>
+          current is AdminRewardsSuccessState ||
+          current is AdminRewardsLoadingState ||
+          current is AdminRewardsErrorState,
       builder: (context, state) {
         // Extract adjustments from the current data
         final cubit = context.read<AdminRewardsCubit>();

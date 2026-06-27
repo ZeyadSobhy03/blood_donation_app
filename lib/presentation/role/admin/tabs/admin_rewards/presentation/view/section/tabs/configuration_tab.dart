@@ -32,8 +32,16 @@ class _ConfigurationTabState extends State<ConfigurationTab> {
   Widget build(BuildContext context) {
     final app = AppLocalizations.of(context)!;
     return BlocBuilder<AdminRewardsCubit, AdminRewardsState>(
+      buildWhen: (previous, current) =>
+          current is EarningRuleLoadingState ||
+          current is EarningRuleErrorState ||
+          current is EarningRuleGetSuccessState ||
+          current is EarningRuleOperationErrorState ||
+          current is EarningRuleCreateSuccessState ||
+          current is EarningRuleDeletedSuccessState ||
+          current is EarningRuleUpdatedSuccessState,
       builder: (context, state) {
-        if (state is AdminRewardsLoadingState && _cachedRules.isEmpty) {
+        if (state is EarningRuleLoadingState && _cachedRules.isEmpty) {
           return CustomLoadingWidget(indicatorColor: ColorManger.brightPurple);
         }
 
@@ -41,7 +49,7 @@ class _ConfigurationTabState extends State<ConfigurationTab> {
           _cachedRules = state.earningRuleModel.data ?? [];
         }
 
-        if (state is AdminRewardsErrorState && _cachedRules.isEmpty) {
+        if (state is EarningRuleErrorState && _cachedRules.isEmpty) {
           log('Error fetching earning rules: ${state.error}');
           return CustomErrorWidget(
             message: localizeError(state.error, app),
@@ -57,7 +65,7 @@ class _ConfigurationTabState extends State<ConfigurationTab> {
               child: EarningRulesCard(rules: _cachedRules),
             ),
 
-            if (state is AdminRewardsLoadingState && _cachedRules.isNotEmpty)
+            if (state is EarningRuleLoadingState && _cachedRules.isNotEmpty)
               Positioned(
                 top: 0,
                 left: 0,

@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/errors/app_exceptions.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/users/data/model/users_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -76,9 +77,9 @@ class UsersCubit extends Cubit<UsersState> {
     } on NetworkTimeoutException {
       emit(UsersErrorState(errorMessage: 'network_timeout'));
     } on UnauthorizedException catch (e) {
-      emit(UsersErrorState(errorMessage: e.message ?? 'unauthorized'));
+      emit(UsersErrorState(errorMessage: mapServerErrorToKey(e.message)));
     } on ServerException catch (e) {
-      emit(UsersErrorState(errorMessage: e.serverMessage ?? 'server_error'));
+      emit(UsersErrorState(errorMessage: mapServerErrorToKey(e.serverMessage)));
     } on NotFoundException {
       emit(UsersErrorState(errorMessage: 'not_found'));
     } on RequestCancelledException {
@@ -176,10 +177,10 @@ class UsersCubit extends Cubit<UsersState> {
       result = const ActionResult.failure('network_timeout');
       _emitDeleteError(currentState, result.errorMessage!);
     } on UnauthorizedException catch (e) {
-      result = ActionResult.failure(e.message ?? 'unauthorized');
+      result = ActionResult.failure(mapServerErrorToKey(e.message));
       _emitDeleteError(currentState, result.errorMessage!);
     } on ServerException catch (e) {
-      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      result = ActionResult.failure(mapServerErrorToKey(e.serverMessage));
       _emitDeleteError(currentState, result.errorMessage!);
     } on NotFoundException {
       result = const ActionResult.failure('not_found');
@@ -234,10 +235,10 @@ class UsersCubit extends Cubit<UsersState> {
       result = const ActionResult.failure('network_timeout');
       _emitBanError(currentState, result.errorMessage!);
     } on UnauthorizedException catch (e) {
-      result = ActionResult.failure(e.message ?? 'unauthorized');
+      result = ActionResult.failure(mapServerErrorToKey(e.message));
       _emitBanError(currentState, result.errorMessage!);
     } on ServerException catch (e) {
-      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      result = ActionResult.failure(mapServerErrorToKey(e.serverMessage));
       _emitBanError(currentState, result.errorMessage!);
     } on NotFoundException {
       result = const ActionResult.failure('not_found');
@@ -292,10 +293,10 @@ class UsersCubit extends Cubit<UsersState> {
       result = const ActionResult.failure('network_timeout');
       _emitBanError(currentState, result.errorMessage!);
     } on UnauthorizedException catch (e) {
-      result = ActionResult.failure(e.message ?? 'unauthorized');
+      result = ActionResult.failure(mapServerErrorToKey(e.message));
       _emitBanError(currentState, result.errorMessage!);
     } on ServerException catch (e) {
-      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      result = ActionResult.failure(mapServerErrorToKey(e.serverMessage));
       _emitBanError(currentState, result.errorMessage!);
     } on NotFoundException {
       result = const ActionResult.failure('not_found');
@@ -351,10 +352,10 @@ class UsersCubit extends Cubit<UsersState> {
       result = const ActionResult.failure('network_timeout');
       _emitCreateHospitalError(currentState, result.errorMessage!);
     } on UnauthorizedException catch (e) {
-      result = ActionResult.failure(e.message ?? 'unauthorized');
+      result = ActionResult.failure(mapServerErrorToKey(e.message));
       _emitCreateHospitalError(currentState, result.errorMessage!);
     } on ServerException catch (e) {
-      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      result = ActionResult.failure(mapServerErrorToKey(e.serverMessage));
       _emitCreateHospitalError(currentState, result.errorMessage!);
     } on NotFoundException {
       result = const ActionResult.failure('not_found');
@@ -423,10 +424,10 @@ class UsersCubit extends Cubit<UsersState> {
       result = const ActionResult.failure('network_timeout');
       _emitCreateAdminError(currentState, result.errorMessage!);
     } on UnauthorizedException catch (e) {
-      result = ActionResult.failure(e.message ?? 'unauthorized');
+      result = ActionResult.failure(mapServerErrorToKey(e.message));
       _emitCreateAdminError(currentState, result.errorMessage!);
     } on ServerException catch (e) {
-      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      result = ActionResult.failure(mapServerErrorToKey(e.serverMessage));
       _emitCreateAdminError(currentState, result.errorMessage!);
     } on NotFoundException {
       result = const ActionResult.failure('not_found');
@@ -494,10 +495,10 @@ class UsersCubit extends Cubit<UsersState> {
       result = const ActionResult.failure('network_timeout');
       _emitUpdateDonorError(currentState, result.errorMessage!);
     } on UnauthorizedException catch (e) {
-      result = ActionResult.failure(e.message ?? 'unauthorized');
+      result = ActionResult.failure(mapServerErrorToKey(e.message));
       _emitUpdateDonorError(currentState, result.errorMessage!);
     } on ServerException catch (e) {
-      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      result = ActionResult.failure(mapServerErrorToKey(e.serverMessage));
       _emitUpdateDonorError(currentState, result.errorMessage!);
     } on NotFoundException {
       result = const ActionResult.failure('not_found');
@@ -570,10 +571,10 @@ class UsersCubit extends Cubit<UsersState> {
       result = const ActionResult.failure('network_timeout');
       _emitUpdateHospitalError(currentState, result.errorMessage!);
     } on UnauthorizedException catch (e) {
-      result = ActionResult.failure(e.message ?? 'unauthorized');
+      result = ActionResult.failure(mapServerErrorToKey(e.message));
       _emitUpdateHospitalError(currentState, result.errorMessage!);
     } on ServerException catch (e) {
-      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      result = ActionResult.failure(mapServerErrorToKey(e.serverMessage));
       _emitUpdateHospitalError(currentState, result.errorMessage!);
     } on NotFoundException {
       result = const ActionResult.failure('not_found');
@@ -641,10 +642,10 @@ class UsersCubit extends Cubit<UsersState> {
       result = const ActionResult.failure('network_timeout');
       _emitUpdateAdminError(currentState, result.errorMessage!);
     } on UnauthorizedException catch (e) {
-      result = ActionResult.failure(e.message ?? 'unauthorized');
+      result = ActionResult.failure(mapServerErrorToKey(e.message));
       _emitUpdateAdminError(currentState, result.errorMessage!);
     } on ServerException catch (e) {
-      result = ActionResult.failure(e.serverMessage ?? 'server_error');
+      result = ActionResult.failure(mapServerErrorToKey(e.serverMessage));
       _emitUpdateAdminError(currentState, result.errorMessage!);
     } on NotFoundException {
       result = const ActionResult.failure('not_found');

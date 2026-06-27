@@ -16,6 +16,7 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/wi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../../core/utils/error_localizer.dart';
 import '../../../../../../../l10n/app_localizations.dart';
 import '../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 import '../../data/model/users_model.dart';
@@ -112,7 +113,7 @@ class _UsersState extends State<Users> {
 
             if (state is UsersErrorState) {
               return CustomErrorWidget(
-                message: state.errorMessage,
+                message: localizeError(state.errorMessage, appLocalization),
                 onRetry: () => context.read<UsersCubit>().getUsers(),
               );
             }

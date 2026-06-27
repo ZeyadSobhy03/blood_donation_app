@@ -157,11 +157,16 @@ class _SystemSettingsState extends State<SystemSettings> {
               BlocConsumer<SystemMaintenanceCubit, SystemMaintenanceState>(
                 listener: (context, state) {
                   if (state is SystemMaintenanceSuccessState) {
-                    _isMaintenanceActive = state.systemMaintenanceModel.data?.maintenanceMode ?? true;
+                    setState(() {
+                      _isMaintenanceActive = state.systemMaintenanceModel.data?.maintenanceMode ?? true;
+                    });
 
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text(state.systemMaintenanceModel.message ?? appLocalization.system_status_updated_successfully),
+                        content: Text(localizeError(
+                          mapServerErrorToKey(state.systemMaintenanceModel.message),
+                          appLocalization,
+                        )),
                         backgroundColor: _isMaintenanceActive ? ColorManger.brightRed : ColorManger.green,
                       ),
                     );

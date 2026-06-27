@@ -5,7 +5,7 @@ class ApiManger {
   static const String nearbyHospitalsEndpoint = "${baseUrl}hospitals/nearby";
   static const String hospitalDetailsEndpoint = "${baseUrl}hospitals/";
   static const String notificationsEndpoint = "${baseUrl}notifications";
-
+static const String adminUpdatePasswordEndpoint = "${baseUrl}admin/profile/password";
   static String markOneAsReadEndpoint(String id) {
     return "${baseUrl}notifications/$id/read";
   }
@@ -191,7 +191,7 @@ class ApiManger {
   static const String inboundEmailsEndpoint = "${baseUrl}admin/inbound-emails";
   static const String adminSupportTicketsEndpoint = "${baseUrl}admin/support/tickets";
   static String replyToSupportTicketEndpoint(String ticketId) {
-    return "${baseUrl}admin/support/tickets/$ticketId/reply";
+    return "${baseUrl}admin/inbound-emails/$ticketId/reply";
   }
   static String deleteInboundEmailEndpoint(String emailId) {
     return "${baseUrl}admin/inbound-emails/$emailId";

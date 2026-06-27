@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/admin_change_password/admin_change_password_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,50 +12,56 @@ import '../../../../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../../../../../core/widgets/custom_text.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../../../../../authentication/donor_authentication/presentation/error_mapper.dart';
-import '../../../../donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
-import '../../view_model/change_password/change_password_view_model.dart';
+import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 
-class ChangePasswordDialog extends StatefulWidget {
-  const ChangePasswordDialog({
+class AdminChangePasswordDialog extends StatefulWidget {
+  const AdminChangePasswordDialog({
     super.key,
     required this.currentController,
     required this.newController,
     required this.confirmController,
-       this.backgroundColor =ColorManger.brightRed,
+    this.backgroundColor = ColorManger.brightRed,
   });
 
   final TextEditingController currentController;
   final TextEditingController newController;
   final TextEditingController confirmController;
-  final Color backgroundColor ;
+  final Color backgroundColor;
 
   @override
-  State<ChangePasswordDialog> createState() => _ChangePasswordDialogState();
+  State<AdminChangePasswordDialog> createState() => _AdminChangePasswordDialogState();
 }
 
-class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
+class _AdminChangePasswordDialogState extends State<AdminChangePasswordDialog> {
   String _currentPasswordError = '';
   String _newPasswordError = '';
   String _confirmPasswordError = '';
   String _serverError = '';
   bool _isPasswordLoading = false;
 
-
   @override
   void initState() {
     super.initState();
-    widget.currentController.addListener(() {
-      if (_serverError.isNotEmpty) {
-        setState(() {
-          _serverError = '';
-        });
-      }
-    });
+    // Clear server error when user starts typing
+    widget.currentController.addListener(_clearServerError);
+    widget.newController.addListener(_clearServerError);
+    widget.confirmController.addListener(_clearServerError);
   }
 
   @override
   void dispose() {
+    widget.currentController.removeListener(_clearServerError);
+    widget.newController.removeListener(_clearServerError);
+    widget.confirmController.removeListener(_clearServerError);
     super.dispose();
+  }
+
+  void _clearServerError() {
+    if (_serverError.isNotEmpty) {
+      setState(() {
+        _serverError = '';
+      });
+    }
   }
 
   bool _validateInputs(AppLocalizations appLocalization) {
@@ -61,11 +70,13 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
     _newPasswordError = '';
     _confirmPasswordError = '';
 
+    // Validate current password
     if (widget.currentController.text.isEmpty) {
       _currentPasswordError = appLocalization.currentPasswordRequired;
       isValid = false;
     }
 
+    // Validate new password
     if (widget.newController.text.isEmpty) {
       _newPasswordError = appLocalization.newPasswordRequired;
       isValid = false;
@@ -74,10 +85,11 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
       isValid = false;
     }
 
+    // Validate confirm password
     if (widget.confirmController.text.isEmpty) {
-      _confirmPasswordError = appLocalization.pleaseConfirmPassword;
+      _confirmPasswordError = appLocalization.please_confirm_password;
       isValid = false;
-    } else if (widget.newController.text != widget.confirmController.text) {
+    } else if (widget.confirmController.text != widget.newController.text) {
       _confirmPasswordError = appLocalization.passwordsDoNotMatch;
       isValid = false;
     }
@@ -91,50 +103,65 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
       return;
     }
 
-    context.read<ChangePasswordCubit>().changePassword(
+    log('Starting password change process');
+    context.read<AdminChangePasswordCubit>().changePassword(
       currentPassword: widget.currentController.text.trim(),
       newPassword: widget.newController.text.trim(),
-      confirmNewPassword: widget.confirmController.text.trim(),
     );
+  }
 
+  void _clearControllers() {
+    widget.currentController.clear();
+    widget.newController.clear();
+    widget.confirmController.clear();
+    setState(() {
+      _serverError = '';
+      _currentPasswordError = '';
+      _newPasswordError = '';
+      _confirmPasswordError = '';
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
 
-    return BlocListener<ChangePasswordCubit, ChangePasswordState>(
+    return BlocListener<AdminChangePasswordCubit, AdminChangePasswordState>(
       listener: (context, state) {
         if (state is ChangePasswordSuccessAndLoggedOutState) {
-          widget.currentController.clear();
-          widget.newController.clear();
-          widget.confirmController.clear();
+          log('Password changed successfully and user logged out');
+          _clearControllers();
 
+          // Navigate to role selection screen
           Navigator.pushNamedAndRemoveUntil(
             context,
             RouteManger.chooseRole,
                 (route) => false,
           );
 
+          // Show success message
           Future.delayed(const Duration(milliseconds: 300), () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: CustomText(
-                  text: appLocalization.passwordChangedSuccessfully,
-                  textStyle: TextStyle(color: ColorManger.pureWhite),
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: CustomText(
+                    text: appLocalization.passwordChangedSuccessfully,
+                    textStyle: TextStyle(color: ColorManger.pureWhite),
+                  ),
+                  backgroundColor: Colors.green,
+                  duration: const Duration(seconds: 3),
                 ),
-                backgroundColor: Colors.green,
-                duration: const Duration(seconds: 3),
-              ),
-            );
+              );
+            }
           });
         } else if (state is ChangePasswordErrorState) {
+          log('Password change error: ${state.errorMessage}');
           setState(() {
             _serverError = ErrorMapper.map(state.errorMessage, appLocalization);
           });
         }
       },
-      child: BlocBuilder<ChangePasswordCubit, ChangePasswordState>(
+      child: BlocBuilder<AdminChangePasswordCubit, AdminChangePasswordState>(
         builder: (context, state) {
           _isPasswordLoading = state is ChangePasswordLoadingState;
 
@@ -153,6 +180,7 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        // Header with title and close button
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -173,6 +201,8 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                           ],
                         ),
                         SizedBox(height: 8.h),
+
+                        // Description
                         CustomText(
                           text: appLocalization.changePasswordDescription,
                           textStyle: TextStyle(
@@ -182,6 +212,8 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                           ),
                         ),
                         SizedBox(height: 20.h),
+
+                        // Server error message
                         if (_serverError.isNotEmpty)
                           Container(
                             width: double.infinity,
@@ -213,6 +245,8 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                             ),
                           ),
                         if (_serverError.isNotEmpty) SizedBox(height: 16.h),
+
+                        // Current password field
                         CustomTextFormField(
                           textEditingController: widget.currentController,
                           hintText: appLocalization.currentPassword,
@@ -230,6 +264,8 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                             ),
                           ),
                         SizedBox(height: 12.h),
+
+                        // New password field
                         CustomTextFormField(
                           hintText: appLocalization.newPassword,
                           textEditingController: widget.newController,
@@ -247,6 +283,8 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                             ),
                           ),
                         SizedBox(height: 12.h),
+
+                        // Confirm password field
                         CustomTextFormField(
                           textEditingController: widget.confirmController,
                           hintText: appLocalization.confirmPassword,
@@ -264,7 +302,10 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                             ),
                           ),
                         SizedBox(height: 24.h),
+
+                        // Action buttons
                         if (_serverError.isNotEmpty)
+                        // Show Dismiss and Try Again buttons when there's a server error
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -288,7 +329,7 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                               SizedBox(width: 8.w),
                               Expanded(
                                 child: CustomElevatedButton(
-                                  backgroundColor:widget.backgroundColor,
+                                  backgroundColor: widget.backgroundColor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
@@ -297,8 +338,9 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                                     vertical: 12,
                                     horizontal: 8,
                                   ),
-                                  onPressed: () =>
-                                      _handleChangePassword(appLocalization),
+                                  onPressed: _isPasswordLoading
+                                      ? null
+                                      : () => _handleChangePassword(appLocalization),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: CustomText(
@@ -315,6 +357,7 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                             ],
                           )
                         else
+                        // Show main Change Password button
                           ConstrainedBox(
                             constraints: BoxConstraints(
                               maxWidth: 400.w,
@@ -334,32 +377,30 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
                               ),
                               onPressed: _isPasswordLoading
                                   ? null
-                                  : () =>
-                                        _handleChangePassword(appLocalization),
+                                  : () => _handleChangePassword(appLocalization),
                               child: Center(
                                 child: _isPasswordLoading
                                     ? SizedBox(
-                                        height: 20.h,
-                                        width: 20.w,
-                                        child: CircularProgressIndicator(
-                                          strokeWidth: 2,
-                                          valueColor: AlwaysStoppedAnimation(
-                                            ColorManger.pureWhite,
-                                          ),
-                                        ),
-                                      )
+                                  height: 20.h,
+                                  width: 20.w,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    valueColor: AlwaysStoppedAnimation(
+                                      ColorManger.pureWhite,
+                                    ),
+                                  ),
+                                )
                                     : Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: CustomText(
-                                          text: appLocalization.changePassword,
-                                          textStyle: TextStyle(
-                                            fontWeight:
-                                                FontWeightManager.semiBold,
-                                            fontSize: FontSize.s15,
-                                            color: ColorManger.pureWhite,
-                                          ),
-                                        ),
-                                      ),
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: CustomText(
+                                    text: appLocalization.changePassword,
+                                    textStyle: TextStyle(
+                                      fontWeight: FontWeightManager.semiBold,
+                                      fontSize: FontSize.s15,
+                                      color: ColorManger.pureWhite,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),

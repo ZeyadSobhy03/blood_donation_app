@@ -160,7 +160,7 @@ class UserDetailDialog extends StatelessWidget {
     } else {
       _showSnackBar(
         messenger,
-        result.errorMessage ?? appLocalization.updateFailed,
+        localizeError(result.errorMessage ?? 'unknown_error', appLocalization),
         isError: true,
       );
     }
@@ -347,7 +347,11 @@ class UserDetailDialog extends StatelessWidget {
             : '${user.fullName ?? user.name ?? ''} ${appLocalization.banUser}',
       );
     } else {
-      _showSnackBar(messenger, result.errorMessage ?? 'unknown_error', isError: true);
+      _showSnackBar(
+        messenger,
+        localizeError(result.errorMessage ?? 'unknown_error', appLocalization),
+        isError: true,
+      );
     }
   }
 

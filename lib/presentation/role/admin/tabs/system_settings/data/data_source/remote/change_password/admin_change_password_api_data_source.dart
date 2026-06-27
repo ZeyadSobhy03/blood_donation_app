@@ -12,16 +12,15 @@ class AdminChangePasswordApiDataSource implements AdminChangePasswordRemoteDataS
   AdminChangePasswordApiDataSource(this.dio, this.adminHiveDataSource);
 
   @override
-  Future<AdminChangePasswordModel> changePassword({required String currentPassword, required String newPassword, required String confirmNewPassword}) async{
+  Future<AdminChangePasswordModel> changePassword({required String currentPassword, required String newPassword,}) async{
 
     try {
       final token = await adminHiveDataSource.getAccessToken();
-      final response = await dio.post(
-        ApiManger.changePasswordEndpoint,
+      final response = await dio.put(
+        ApiManger.adminUpdatePasswordEndpoint,
         data: {
           "currentPassword": currentPassword,
           "newPassword": newPassword,
-          "confirmNewPassword": confirmNewPassword,
         },
         options: Options(
           headers: {

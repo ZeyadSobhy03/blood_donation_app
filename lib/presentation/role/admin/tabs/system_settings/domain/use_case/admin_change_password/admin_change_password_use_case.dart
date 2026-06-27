@@ -8,12 +8,10 @@ class AdminChangePasswordUseCase {
   Future<AdminChangePasswordModel> changePassword({
     required String currentPassword,
     required String newPassword,
-    required String confirmNewPassword,
   }) async {
     return await adminChangePasswordRepositories.changePassword(
       currentPassword: currentPassword,
       newPassword: newPassword,
-      confirmNewPassword: confirmNewPassword,
     );
   }
 }

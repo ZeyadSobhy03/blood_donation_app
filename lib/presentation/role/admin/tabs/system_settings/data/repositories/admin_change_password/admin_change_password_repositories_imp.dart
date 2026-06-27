@@ -8,8 +8,8 @@ class AdminChangePasswordRepositoriesImp implements AdminChangePasswordRepositor
   AdminChangePasswordRepositoriesImp({required this.remoteDataSource});
 
   @override
-  Future<AdminChangePasswordModel> changePassword({required String currentPassword, required String newPassword, required String confirmNewPassword}) {
-    return remoteDataSource.changePassword(currentPassword: currentPassword, newPassword: newPassword, confirmNewPassword: confirmNewPassword);
+  Future<AdminChangePasswordModel> changePassword({required String currentPassword, required String newPassword,}) {
+    return remoteDataSource.changePassword(currentPassword: currentPassword, newPassword: newPassword);
   }
 
 }

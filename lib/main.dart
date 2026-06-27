@@ -30,6 +30,7 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/dashboard/presen
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/audit_logs/audit_logs_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/change_password/admin_change_password_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/inbound_email/inbound_email_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/log_out/admin_log_out_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/profile/admin_profile_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/rote_admin_key/rote_admin_key_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/data_source/remote/system_health/system_health_api_data_source.dart';
@@ -37,6 +38,7 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/admin_change_password/admin_change_password_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/audit_logs/audit_logs_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/inbound_email/inbound_email_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/log_out/admin_log_out_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/profile/admin_profile_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/rote_admin_key/rote_admin_key_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/data/repositories/system_health/system_health_repositories_imp.dart';
@@ -44,6 +46,7 @@ import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/admin_change_password/admin_change_password_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/audit_logs/audit_logs_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/inbound_email/inbound_email_use_case.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/log_out/admin_log_out_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/profile/admin_profile_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/rote_admin_key/rote_admin_key_use_case.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/domain/use_case/system_health/system_health_use_case.dart';
@@ -179,7 +182,7 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => AdminChangePasswordCubit(AdminChangePasswordUseCase(adminChangePasswordRepositories: AdminChangePasswordRepositoriesImp(remoteDataSource: AdminChangePasswordApiDataSource(dio, adminHiveDataSource))), authUseCase:AuthUseCase(authRepositories: AuthRepositoriesImp(authRemoteDataSource: AuthApiDataSource(dio, authHiveDataSource))) , authLocalDataSource: AdminHiveDataSource()),),
+        BlocProvider(create: (context) => AdminChangePasswordCubit(AdminChangePasswordUseCase(adminChangePasswordRepositories: AdminChangePasswordRepositoriesImp(remoteDataSource: AdminChangePasswordApiDataSource(dio, adminHiveDataSource))), authUseCase:AdminLogOutUseCase(logOutRepositories: AdminLogOutRepositoriesImp(remoteDataSource: AdminLogOutApiDataSource(dio, adminHiveDataSource))) , authLocalDataSource: adminHiveDataSource),),
         BlocProvider(
           create: (context) => LanguageBloc()..add(InitializeLanguageEvent()),
         ),

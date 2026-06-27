@@ -74,16 +74,15 @@ class _ManualPointsAdjustmentCardState extends State<ManualPointsAdjustmentCard>
                 ),),),
           );
           context.read<AdminRewardsCubit>().getAdminRewardsData();
-        } else if (state is AdminRewardsErrorState) {
+        } else if (state is RewardOperationErrorState) {
           ScaffoldMessenger.of(context).showSnackBar(
-
             SnackBar(
               backgroundColor: ColorManger.brightRed,
-
-
-                content: Text(localizeError(state.error, loc),style: TextStyle(
-                  color: ColorManger.pureWhite
-                ),)),
+              content: Text(
+                localizeError(state.error, loc),
+                style: TextStyle(color: ColorManger.pureWhite),
+              ),
+            ),
           );
         }
       },
@@ -154,8 +153,12 @@ class _ManualPointsAdjustmentCardState extends State<ManualPointsAdjustmentCard>
                 ),
                 const SizedBox(height: 16),
                 BlocBuilder<AdminRewardsCubit, AdminRewardsState>(
+                  buildWhen: (previous, current) =>
+                      current is RewardOperationLoadingState ||
+                      current is RewardOperationErrorState ||
+                      current is AdminRewardsPointsAdjustSuccessState,
                   builder: (context, state) {
-                    final isLoading = state is AdminRewardsLoadingState;
+                    final isLoading = state is RewardOperationLoadingState;
                     return CustomElevatedButton(
                       elevation: 0,
                       shape: RoundedRectangleBorder(

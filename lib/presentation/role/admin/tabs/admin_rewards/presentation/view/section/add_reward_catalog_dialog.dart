@@ -87,17 +87,23 @@ class _AddRewardCatalogDialogState extends State<AddRewardCatalogDialog> {
         if (state is AdminRewardsCreateSuccessState) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
-
-            SnackBar(content: Text(loc.operationSuccessful,style: TextStyle(
-color: ColorManger.pureWhite
-            ),),backgroundColor: ColorManger.green,),
+            SnackBar(
+              content: Text(
+                loc.operationSuccessful,
+                style: TextStyle(color: ColorManger.pureWhite),
+              ),
+              backgroundColor: ColorManger.green,
+            ),
           );
           context.read<AdminRewardsCubit>().getAdminRewardsData();
-        } else if (state is AdminRewardsErrorState) {
-          log('AdminRewardsErrorState: ${state.error}');
+        } else if (state is RewardOperationErrorState) {
+          log('RewardOperationErrorState: ${state.error}');
 
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(localizeError(state.error, loc))),
+            SnackBar(
+              content: Text(localizeError(state.error, loc)),
+              backgroundColor: ColorManger.brightRed,
+            ),
           );
         }
       },
@@ -180,8 +186,12 @@ color: ColorManger.pureWhite
                     SizedBox(height: 20),
 
                     BlocBuilder<AdminRewardsCubit, AdminRewardsState>(
+                      buildWhen: (previous, current) =>
+                          current is RewardOperationLoadingState ||
+                          current is RewardOperationErrorState ||
+                          current is AdminRewardsCreateSuccessState,
                       builder: (context, state) {
-                        final isLoading = state is AdminRewardsLoadingState;
+                        final isLoading = state is RewardOperationLoadingState;
                         return Row(
                           children: [
                             Expanded(

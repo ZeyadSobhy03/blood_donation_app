@@ -7,6 +7,27 @@ String mapServerErrorToKey(String? errorMessage) {
 
   final lowerMessage = errorMessage.toLowerCase().trim();
 
+  // ── Password Update ──
+  if (lowerMessage.contains('currentpassword') && lowerMessage.contains('newpassword') &&
+      (lowerMessage.contains('required') || lowerMessage.contains('missing'))) {
+    return 'error_current_new_password_required';
+  }
+  if (lowerMessage.contains('new password must be different') ||
+      lowerMessage.contains('same old and new password')) {
+    return 'error_new_password_same_as_current';
+  }
+  if (lowerMessage.contains('current password is required') ||
+      lowerMessage.contains('currentpassword') && lowerMessage.contains('missing')) {
+    return 'currentPasswordRequired';
+  }
+  if (lowerMessage.contains('new password is required') ||
+      lowerMessage.contains('newpassword') && lowerMessage.contains('missing')) {
+    return 'newPasswordRequired';
+  }
+  if (lowerMessage.contains('password updated successfully')) {
+    return 'passwordChangedSuccessfully';
+  }
+
   if (lowerMessage.contains('incorrect') && lowerMessage.contains('current') &&
       lowerMessage.contains('password')) {
     return 'error_incorrect_current_password';
@@ -50,8 +71,14 @@ String mapServerErrorToKey(String? errorMessage) {
   if (lowerMessage.contains('token') && lowerMessage.contains('expired')) {
     return 'error_token_expired';
   }
+  if (lowerMessage.contains('authorization header is required')) {
+    return 'error_authorization_required';
+  }
+  if (lowerMessage.contains('account is suspended')) {
+    return 'error_account_suspended';
+  }
   if (lowerMessage.contains('unauthorized')) {
-    return 'unauthorized';
+    return 'error_unauthorized';
   }
   if (lowerMessage.contains('forbidden') || lowerMessage.contains('permission')) {
     return 'error_forbidden';
@@ -103,6 +130,10 @@ String mapServerErrorToKey(String? errorMessage) {
   if (lowerMessage.contains('request') && lowerMessage.contains('no longer active') ||
       lowerMessage.contains('linked request') && lowerMessage.contains('active')) {
     return 'error_request_no_longer_active';
+  }
+  if (lowerMessage.contains('request') && lowerMessage.contains('already cancelled') ||
+      lowerMessage.contains('already_cancelled')) {
+    return 'error_already_cancelled';
   }
   if (lowerMessage.contains('outside operating hours')) {
     return 'error_outside_operating_hours';
@@ -176,6 +207,53 @@ String mapServerErrorToKey(String? errorMessage) {
     return 'error_reschedule_max_days';
   }
 
+  // ── Reward & Points errors ──
+  if (lowerMessage.contains('reward') && lowerMessage.contains('name') &&
+      lowerMessage.contains('category') && lowerMessage.contains('mandatory')) {
+    return 'error_reward_fields_required';
+  }
+  if (lowerMessage.contains('status is required')) {
+    return 'error_status_required';
+  }
+  if (lowerMessage.contains('status must be active, inactive, or limited')) {
+    return 'error_invalid_status_value';
+  }
+  if (lowerMessage.contains('reward not found')) {
+    return 'error_reward_not_found';
+  }
+  if (lowerMessage.contains('updates array must have at least one entry')) {
+    return 'error_bulk_points_empty';
+  }
+  if (lowerMessage.contains('each update must have an id and points required number')) {
+    return 'error_bulk_points_invalid_update';
+  }
+  if (lowerMessage.contains('email, amount, and reason are required')) {
+    return 'error_adjustment_fields_required';
+  }
+  if (lowerMessage.contains('amount must be a non-zero number')) {
+    return 'error_amount_non_zero';
+  }
+  if (lowerMessage.contains('only donor accounts have points')) {
+    return 'error_only_donors_have_points';
+  }
+
+  // ── Earning Rule errors ──
+  if (lowerMessage.contains('type, title, points, and category are required')) {
+    return 'error_earning_rule_fields_required';
+  }
+  if (lowerMessage.contains('points must be a non-negative number')) {
+    return 'error_points_non_negative';
+  }
+  if (lowerMessage.contains('invalid rule type')) {
+    return 'error_invalid_rule_type';
+  }
+  if (lowerMessage.contains('earning rule already exists')) {
+    return 'error_earning_rule_exists';
+  }
+  if (lowerMessage.contains('earning rule not found')) {
+    return 'error_earning_rule_not_found';
+  }
+
   // ── Hospital status errors ──
   if (lowerMessage.contains('hospital') && lowerMessage.contains('suspended')) {
     return 'error_hospital_suspended';
@@ -202,6 +280,10 @@ String mapServerErrorToKey(String? errorMessage) {
   }
   if (lowerMessage.contains('not found')) {
     return 'error_not_found';
+  }
+
+  if (lowerMessage.contains('maintenance') && lowerMessage.contains('updated')) {
+    return 'system_status_updated_successfully';
   }
 
   // ── Validation / fallback ──
@@ -241,12 +323,26 @@ String localizeError(String errorKey, AppLocalizations loc) {
       return loc.error_account_locked;
     case 'error_account_disabled':
       return loc.error_account_disabled;
+    case 'error_current_new_password_required':
+      return loc.error_current_new_password_required;
+    case 'currentPasswordRequired':
+      return loc.currentPasswordRequired;
+    case 'newPasswordRequired':
+      return loc.newPasswordRequired;
+    case 'error_new_password_same_as_current':
+      return loc.error_new_password_same_as_current;
+    case 'passwordChangedSuccessfully':
+      return loc.passwordChangedSuccessfully;
+
+    case 'error_reschedule_same_details':
+      return loc.error_reschedule_same_details;
     case 'error_email_not_verified':
       return loc.error_email_not_verified;
     case 'error_token_expired':
       return loc.error_token_expired;
     case 'unauthorized':
-      return loc.unauthorized;
+    case 'error_unauthorized':
+      return loc.error_unauthorized;
     case 'error_forbidden':
       return loc.error_forbidden;
 
@@ -345,6 +441,50 @@ String localizeError(String errorKey, AppLocalizations loc) {
     case 'error_hospital_not_verified':
       return loc.error_hospital_not_verified;
 
+  // ── Auth & Account Errors ──
+    case 'error_authorization_required':
+      return loc.error_authorization_required;
+    case 'error_account_suspended':
+      return loc.error_account_suspended;
+
+  // ── Reward & Points Errors ──
+    case 'error_reward_fields_required':
+      return loc.error_reward_fields_required;
+    case 'error_status_required':
+      return loc.error_status_required;
+    case 'error_invalid_status_value':
+      return loc.error_invalid_status_value;
+    case 'error_reward_not_found':
+      return loc.error_reward_not_found;
+    case 'error_bulk_points_empty':
+      return loc.error_bulk_points_empty;
+    case 'error_bulk_points_invalid_update':
+      return loc.error_bulk_points_invalid_update;
+    case 'error_adjustment_fields_required':
+      return loc.error_adjustment_fields_required;
+    case 'error_amount_non_zero':
+      return loc.error_amount_non_zero;
+    case 'error_only_donors_have_points':
+      return loc.error_only_donors_have_points;
+
+  // ── Earning Rule Errors ──
+    case 'error_earning_rule_fields_required':
+      return loc.error_earning_rule_fields_required;
+    case 'error_points_non_negative':
+      return loc.error_points_non_negative;
+    case 'error_invalid_rule_type':
+      return loc.error_invalid_rule_type;
+    case 'error_earning_rule_exists':
+      return loc.error_earning_rule_exists;
+    case 'error_earning_rule_not_found':
+      return loc.error_earning_rule_not_found;
+
+  // ── Request Errors ──
+    case 'error_already_cancelled':
+      return loc.error_already_cancelled;
+
+    case 'system_status_updated_successfully':
+      return loc.system_status_updated_successfully;
 
     case 'server_error':
     case 'bad_response':

@@ -49,7 +49,7 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
     } on NetworkTimeoutException {
       emit(AdminRequestsErrorState('network_timeout'));
     } on UnauthorizedException catch (e) {
-      emit(AdminRequestsErrorState(e.message ?? 'unauthorized'));
+      emit(AdminRequestsErrorState(mapServerErrorToKey(e.message)));
     } on ServerException catch (e) {
       log('ServerException: ${e.serverMessage}');
       emit(AdminRequestsErrorState(mapServerErrorToKey(e.serverMessage)));
@@ -142,9 +142,9 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
     } on NetworkTimeoutException {
       _emitActionError(requestId, AdminRequestAction.markAsFulfilled, 'network_timeout');
     } on UnauthorizedException catch (e) {
-      _emitActionError(requestId, AdminRequestAction.markAsFulfilled, e.message ?? 'unauthorized');
+      _emitActionError(requestId, AdminRequestAction.markAsFulfilled, mapServerErrorToKey(e.message));
     } on ServerException catch (e) {
-      _emitActionError(requestId, AdminRequestAction.markAsFulfilled, e.serverMessage ?? 'server_error');
+      _emitActionError(requestId, AdminRequestAction.markAsFulfilled, mapServerErrorToKey(e.serverMessage));
     } on NotFoundException {
       _emitActionError(requestId, AdminRequestAction.markAsFulfilled, 'not_found');
     } on RequestCancelledException {
@@ -187,9 +187,9 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
     } on NetworkTimeoutException {
       _emitActionError(requestId, AdminRequestAction.cancel, 'network_timeout');
     } on UnauthorizedException catch (e) {
-      _emitActionError(requestId, AdminRequestAction.cancel, e.message ?? 'unauthorized');
+      _emitActionError(requestId, AdminRequestAction.cancel, mapServerErrorToKey(e.message));
     } on ServerException catch (e) {
-      _emitActionError(requestId, AdminRequestAction.cancel, e.serverMessage ?? 'server_error');
+      _emitActionError(requestId, AdminRequestAction.cancel, mapServerErrorToKey(e.serverMessage));
     } on NotFoundException {
       _emitActionError(requestId, AdminRequestAction.cancel, 'not_found');
     } on RequestCancelledException {
@@ -232,9 +232,9 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
     } on NetworkTimeoutException {
       _emitActionError(requestId, AdminRequestAction.broadcast, 'network_timeout');
     } on UnauthorizedException catch (e) {
-      _emitActionError(requestId, AdminRequestAction.broadcast, e.message ?? 'unauthorized');
+      _emitActionError(requestId, AdminRequestAction.broadcast, mapServerErrorToKey(e.message));
     } on ServerException catch (e) {
-      _emitActionError(requestId, AdminRequestAction.broadcast, e.serverMessage ?? 'server_error');
+      _emitActionError(requestId, AdminRequestAction.broadcast, mapServerErrorToKey(e.serverMessage));
     } on NotFoundException {
       _emitActionError(requestId, AdminRequestAction.broadcast, 'not_found');
     } on RequestCancelledException {

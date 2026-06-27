@@ -5,6 +5,6 @@ abstract class AdminChangePasswordRemoteDataSource {
   Future<AdminChangePasswordModel> changePassword({
     required String currentPassword,
     required String newPassword,
-    required String confirmNewPassword,
+
   });
 }

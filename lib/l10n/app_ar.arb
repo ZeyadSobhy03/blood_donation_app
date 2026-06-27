@@ -1668,5 +1668,25 @@
   "detailHospitalUpdated": "تم تحديث حساب المستشفى (المعرف: {id})",
   "noAuditLogsFound": "لم يتم العثور على سجلات تدقيق",
   "broadcastSent": "تم إرسال البث",
-  "requestFulfilled": "تم تحديد الطلب كمكتمل"
-}
+  "requestFulfilled": "تم تحديد الطلب كمكتمل",
+  "categoryDonation": "تبرع",
+  "categoryReferral": "إحالة",
+  "categoryRegistration": "تسجيل",
+  "categoryOther": "أخرى",
+  "ruleBloodDonation": "تبرع بالدم",
+  "ruleDoubleRedCells": "تبرع بخلايا الدم الحمراء المزدوجة",
+  "rulePlasmaDonation": "تبرع بالبلازما",
+  "rulePlateletsDonation": "تبرع بالصفائح الدموية",
+  "detailProfileUpdated": "تم تحديث الملف الشخصي للمشرف",
+  "detailDonorUpdated": "تم تحديث حساب المتبرع (المعرف: {id})",
+  "error_current_new_password_required": "كلمة المرور الحالية والجديدة مطلوبة",
+  "error_new_password_same_as_current": "لا يمكن أن تكون كلمة المرور الجديدة هي نفسها كلمة المرور الحالية",
+  "inboundEmailEmptyArchived": "لا توجد رسائل مؤرشفة",
+  "inboundEmailEmptyUnread": "لا توجد رسائل غير مقروءة",
+  "statusOpen": "مفتوح",
+  "statusReviewed": "تمت المراجعة",
+  "statusClosed": "مغلق",
+
+  "categoryTechnical": "تقني",
+  "categoryAccount": "حساب",
+  "categoryRewards": "مكافآت"}
