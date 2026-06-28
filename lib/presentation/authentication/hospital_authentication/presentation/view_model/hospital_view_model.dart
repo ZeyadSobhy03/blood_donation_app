@@ -111,22 +111,22 @@ class HospitalCubit extends Cubit<HospitalState> {
     final e = error.toLowerCase();
 
     if (e.contains('timeout') || e.contains('connection_timeout')) {
-      return _loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
+      return _loc?.connectionTimeout ?? 'Connection timed out. Please try again.';
     } else if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return _loc?.noInternetConnection ?? 'No internet connection.';
+      return _loc?.noInternet ?? 'No internet connection.';
     } else if (e.contains('hospital_not_approved')) {
-      return _loc?.hospitalNotApproved ?? 'Your hospital account is not yet approved. Please contact support@lifelink.org.';
+      return 'Your hospital account is not yet approved. Please contact support@lifelink.org.';
     } else if (e.contains('bad_response') || e.contains('server_error') || e.contains('empty_response')) {
       return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
     } else if (e.contains('unauthorized')) {
-      return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
+      return _loc?.error_token_expired ?? 'Session expired. Please log in again.';
     }
 
     if (e.contains('invalid hospital id')) {
-      return _loc?.invalidHospitalId ?? 'Invalid hospital ID.';
+      return 'Invalid hospital ID.';
     }
     if (e.contains('invalid email or password') || e.contains('invalid credentials')) {
-      return _loc?.invalidEmailOrPassword ?? 'Invalid email or password.';
+      return _loc?.error_invalid_credentials ?? 'Invalid email or password.';
     }
 
     return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';

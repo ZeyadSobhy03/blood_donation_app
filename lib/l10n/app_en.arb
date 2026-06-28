@@ -1866,8 +1866,8 @@
       "reason": {
         "type": "String"
       }
-    },
-
+    }
+  },
   "requestFulfilled": "Request marked as fulfilled",
   "activityTierPromoted": "Tier Promoted",
   "activityBadgeUnlocked": "Badge Unlocked",
@@ -2222,6 +2222,7 @@
       "pct": {}
     }
   },
+
   "notifications_analytics_retention_alert_title": "Donor Retention Alert",
   "notifications_analytics_retention_alert_body": "Donor return rate has dropped significantly. Consider re-engagement campaigns.",
   "notifications_analytics_growth_positive_title": "Donor Growth Positive",
@@ -2234,4 +2235,4 @@
   "notifications_delete_confirm": "Are you sure you want to delete all notifications?",
   "notifications_delete_success": "Notifications deleted successfully",
   "notifications_empty": "No notifications"
-}}
+}

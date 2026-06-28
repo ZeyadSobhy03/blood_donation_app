@@ -50,7 +50,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       context.read<ProfileCubit>().fetchProfile();
       context.read<DonorStatesCubit>().fetchDonorStates();
       context.read<DonationEligibilityCubit>().fetchDonationEligibility();
-      context.read<RequestsCubit>().fetchRequests(limit: 10, page: 1);
+      _fetchRequestsWithLocation();
       context.read<ActivitiesCubit>().fetchActivities();
     });
   }
@@ -64,6 +64,24 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
     _animationController.repeat(reverse: true);
+  }
+
+  void _fetchRequestsWithLocation() {
+    if (!mounted) return;
+
+    final mapState = context.read<MapCubit>().state;
+    if (mapState is! MapLoaded) return;
+
+    context.read<RequestsCubit>().fetchRequests(limit: 10, page: 1);
+  }
+
+  void _onMapLoaded() {
+    if (!mounted) return;
+    final requestsState = context.read<RequestsCubit>().state;
+    final shouldFetch =
+        requestsState is RequestsInitialState ||
+            requestsState is RequestsErrorState;
+    if (shouldFetch) _fetchRequestsWithLocation();
   }
 
   @override
@@ -90,7 +108,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 SizedBox(height: 12.h),
                 _DonorStatsSection(),
                 SizedBox(height: 16.h),
-                const _RequestsSection(),
+                _RequestsSection(
+                  onMapLoaded: _onMapLoaded,
+                  onRetry: _fetchRequestsWithLocation,
+                ),
                 SizedBox(height: 8.h),
                 HomeNavigationButton(
                   onPressed: () => Navigator.pushNamed(
@@ -242,16 +263,16 @@ class _DonationEligibilitySection extends StatelessWidget {
       },
       builder: (context, state) {
         final isParticipationLoading =
-            state is DonationEligibilityParticipationLoading;
+        state is DonationEligibilityParticipationLoading;
         final isInitialLoading = state is DonationEligibilityLoading;
         final isLoading = isInitialLoading;
 
         final isSuccess =
             state is DonationEligibilitySuccess ||
-            state is DonationEligibilityParticipationLoading;
+                state is DonationEligibilityParticipationLoading;
         final isFailing =
             state is DonationEligibilityFailure &&
-            state is! DonationEligibilityParticipationLoading;
+                state is! DonationEligibilityParticipationLoading;
 
         if (isFailing && !isSuccess) {
           return CustomErrorWidget(
@@ -300,7 +321,7 @@ class _DonationEligibilitySection extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
-                            text: appLocalizations.donationAvailability,
+                            text: appLocalizations.donationEligibility,
                             textStyle: TextStyle(
                               fontWeight: FontWeightManager.bold,
                               fontSize: FontSize.s14,
@@ -309,9 +330,9 @@ class _DonationEligibilitySection extends StatelessWidget {
                           ),
                           SizedBox(height: 4.h),
                           CustomText(
-                            text: isParticipating
-                                ? appLocalizations.youAreAvailable
-                                : appLocalizations.youAreNotAvailable,
+                            text: isEligible
+                                ? appLocalizations.youAreEligible
+                                : appLocalizations.youAreNotEligible,
                             textStyle: TextStyle(
                               fontWeight: FontWeightManager.regular,
                               fontSize: FontSize.s12,
@@ -355,21 +376,21 @@ class _ParticipationToggleButton extends StatelessWidget {
     return BlocBuilder<DonationEligibilityCubit, DonationEligibilityState>(
       builder: (context, state) {
         final isButtonLoading =
-            state is DonationEligibilityParticipationLoading;
+        state is DonationEligibilityParticipationLoading;
 
         bool currentParticipation = isParticipating;
         if (state is DonationEligibilitySuccess) {
           currentParticipation =
               state.donationEligibilityModel.data?.participationEnabled ??
-              false;
+                  false;
         } else if (state is DonationEligibilityParticipationLoading) {
           currentParticipation =
               state.donationEligibilityModel?.data?.participationEnabled ??
-              isParticipating;
+                  isParticipating;
         } else if (state is DonationEligibilityParticipationSuccess) {
           currentParticipation =
               state.donationEligibilityModel?.data?.participationEnabled ??
-              isParticipating;
+                  isParticipating;
         }
 
         final bool disabled = isButtonLoading || isLoading;
@@ -378,10 +399,10 @@ class _ParticipationToggleButton extends StatelessWidget {
           onTap: disabled
               ? null
               : () {
-                  context.read<DonationEligibilityCubit>().setParticipation(
-                    participation: !currentParticipation,
-                  );
-                },
+            context.read<DonationEligibilityCubit>().setParticipation(
+              participation: !currentParticipation,
+            );
+          },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 350),
             curve: Curves.easeInOut,
@@ -440,30 +461,30 @@ class _ParticipationToggleButton extends StatelessWidget {
                       child: Center(
                         child: isButtonLoading
                             ? SizedBox(
-                                width: 14,
-                                height: 14,
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2,
-                                  valueColor: AlwaysStoppedAnimation(
-                                    currentParticipation
-                                        ? const Color(0xFF43A047)
-                                        : Colors.grey.shade500,
-                                  ),
-                                ),
-                              )
+                          width: 14,
+                          height: 14,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            valueColor: AlwaysStoppedAnimation(
+                              currentParticipation
+                                  ? const Color(0xFF43A047)
+                                  : Colors.grey.shade500,
+                            ),
+                          ),
+                        )
                             : AnimatedSwitcher(
-                                duration: const Duration(milliseconds: 250),
-                                child: Icon(
-                                  currentParticipation
-                                      ? Icons.check_rounded
-                                      : Icons.close_rounded,
-                                  key: ValueKey(currentParticipation),
-                                  size: 16,
-                                  color: currentParticipation
-                                      ? const Color(0xFF43A047)
-                                      : Colors.grey.shade500,
-                                ),
-                              ),
+                          duration: const Duration(milliseconds: 250),
+                          child: Icon(
+                            currentParticipation
+                                ? Icons.check_rounded
+                                : Icons.close_rounded,
+                            key: ValueKey(currentParticipation),
+                            size: 16,
+                            color: currentParticipation
+                                ? const Color(0xFF43A047)
+                                : Colors.grey.shade500,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -578,7 +599,7 @@ class _ActivitiesSkeletonLoader extends StatelessWidget {
           SizedBox(height: 12.h),
           ...List.generate(
             3,
-            (_) => Column(
+                (_) => Column(
               children: [
                 Container(
                   height: 60,
@@ -609,7 +630,7 @@ class _RequestsSection extends StatefulWidget {
 
 class _RequestsSectionState extends State<_RequestsSection> {
   int currentPage = 1;
-  int pageSize = 10; // Adjust based on your API
+  int pageSize = 10;
   bool hasNextPage = false;
   final ScrollController _scrollController = ScrollController();
 
@@ -674,12 +695,6 @@ class _RequestsSectionState extends State<_RequestsSection> {
             totalRequests = state.requestsModel.data?.pagination?.total ?? 0;
             hasNextPage = state.requestsModel.data?.pagination?.hasNextPage ?? false;
           }
-    return BlocBuilder<RequestsCubit, RequestsState>(
-      builder: (context, state) {
-        final isLoading = state is RequestsLoadingState;
-        final List<Request> requests = state is RequestsSuccessState
-            ? state.requestsModel.data?.requestsList ?? []
-            : [];
 
           if (state is RequestsErrorState) {
             log('Requests error: ${state.message}');
@@ -688,25 +703,17 @@ class _RequestsSectionState extends State<_RequestsSection> {
               onRetry: _resetPagination,
             );
           }
-        if (state is RequestsErrorState) {
-          log('[RequestsSection] Error: ${state.message}');
-          return CustomErrorWidget(
-            message: localizeError(state.message, appLocalization),
-            onRetry: () =>
-                context.read<RequestsCubit>().fetchRequests(limit: 10, page: 1),
-          );
-        }
 
-        if (requests.isEmpty && !isLoading) {
-          return CustomText(
-            text: appLocalization.noRequestsFound,
-            textStyle: TextStyle(
-              fontWeight: FontWeightManager.regular,
-              fontSize: FontSize.s14,
-              color: ColorManger.slateGrey,
-            ),
-          );
-        }
+          if (requests.isEmpty && !isLoading) {
+            return CustomText(
+              text: appLocalization.noRequestsFound,
+              textStyle: TextStyle(
+                fontWeight: FontWeightManager.regular,
+                fontSize: FontSize.s14,
+                color: ColorManger.slateGrey,
+              ),
+            );
+          }
 
           return Skeletonizer(
             enabled: isLoading && currentPage == 1,
@@ -743,13 +750,6 @@ class _RequestsSectionState extends State<_RequestsSection> {
           );
         },
       ),
-        return Skeletonizer(
-          enabled: isLoading,
-          child: isLoading
-              ? _buildSkeletonLoader()
-              : UrgentRequestsSection(requests: requests),
-        );
-      },
     );
   }
 

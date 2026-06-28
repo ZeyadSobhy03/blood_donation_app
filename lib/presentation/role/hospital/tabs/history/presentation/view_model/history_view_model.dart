@@ -128,15 +128,15 @@ class HistoryCubit extends Cubit<HistoryState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout')) return _loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return _loc?.connectionTimeout ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return _loc?.noInternetConnection ?? 'No internet connection.';
+      return _loc?.noInternet ?? 'No internet connection.';
     }
     if (e.contains('unauthorized')) {
-      return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
+      return _loc?.error_token_expired ?? 'Session expired. Please log in again.';
     }
-    if (e.contains('access_denied')) return _loc?.accessDenied ?? 'Access denied.';
-    if (e.contains('invalid_status_filter')) return _loc?.invalidStatusFilter ?? 'Invalid status filter.';
+    if (e.contains('access_denied')) return _loc?.error_forbidden ?? 'Access denied.';
+    if (e.contains('invalid_status_filter')) return _loc?.error_validation ?? 'Invalid status filter.';
     return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
 

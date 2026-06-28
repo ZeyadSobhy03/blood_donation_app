@@ -66,7 +66,6 @@ class _RewardsTabState extends State<RewardsTab> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: CustomText(text: AppLocalizations.of(context)!.reward_redeemed_successfully),
-              content: CustomText(text: appLocalizations.reward_redeemed_successfully),
               backgroundColor: Colors.green,
             ),
           );

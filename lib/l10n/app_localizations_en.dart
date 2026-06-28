@@ -375,7 +375,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get posted => 'Posted';
 
   @override
-  String get patientType => 'Patient Type';
+  String get patientType => 'PatientType';
 
   @override
   String get contact => 'Contact';
@@ -526,7 +526,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sendMessage => 'Send Message';
 
   @override
-  String get cancel => 'cancel';
+  String get cancel => 'Cancel';
 
   @override
   String get donationMessage => 'Hello, I want to donate blood';
@@ -832,7 +832,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reschedule => 'Reschedule';
 
   @override
-  String get appointmentCancelled => 'Appointment cancelled';
+  String get appointmentCancelled => 'This appointment has been cancelled.';
 
   @override
   String get rescheduleAppointmentTitle => 'Reschedule Appointment';
@@ -2694,7 +2694,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error => 'Error';
 
   @override
-  String get somethingWentWrong => 'Oops! Something went wrong';
+  String get somethingWentWrong => 'Something went wrong. Please try again.';
 
   @override
   String get errorDetails => 'Error Details';
@@ -4066,6 +4066,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get donationEligibility => 'Donation Eligibility';
 
   @override
+  String get donationAvailability => 'Donation Available';
+
+  @override
+  String get youAreAvailable => 'You are available for donation';
+
+  @override
+  String get youAreNotAvailable => 'You are not available for donation';
+
+  @override
   String get contact_support => 'Contact Support';
 
   @override
@@ -4617,7 +4626,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get supportTicketReply => 'Reply';
 
   @override
-  String get supportTicketReplyHint => 'Type your reply...';
+  String get supportTicketReplyHint => 'Send reply';
 
   @override
   String get supportTicketSendReply => 'Send Reply';
@@ -4745,6 +4754,212 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get requestFulfilled => 'Request marked as fulfilled';
+
+  @override
+  String get error_authorization_required => 'Authorization header is required';
+
+  @override
+  String get error_account_suspended => 'Account is suspended';
+
+  @override
+  String get error_reward_fields_required =>
+      'Reward name, category, and points required are mandatory';
+
+  @override
+  String get error_status_required => 'Status is required';
+
+  @override
+  String get error_invalid_status_value =>
+      'Status must be ACTIVE, INACTIVE, or LIMITED';
+
+  @override
+  String get error_reward_not_found => 'Reward not found';
+
+  @override
+  String get error_bulk_points_empty =>
+      'Updates array must have at least one entry';
+
+  @override
+  String get error_bulk_points_invalid_update =>
+      'Each update must have an ID and points required number';
+
+  @override
+  String get error_adjustment_fields_required =>
+      'Email, amount, and reason are required';
+
+  @override
+  String get error_amount_non_zero => 'Amount must be a non-zero number';
+
+  @override
+  String get error_only_donors_have_points => 'Only donor accounts have points';
+
+  @override
+  String get error_earning_rule_fields_required =>
+      'Type, title, points, and category are required';
+
+  @override
+  String get error_points_non_negative =>
+      'Points must be a non-negative number';
+
+  @override
+  String get error_invalid_rule_type =>
+      'Invalid rule type. Must be one of: bloodDonation, plasmaDonation, plateletsDonation, doubleRedCellsDonation, emergencyResponse, profileCompletion, referral, firstDonation';
+
+  @override
+  String get error_earning_rule_exists => 'This earning rule already exists';
+
+  @override
+  String get error_earning_rule_not_found => 'Earning rule not found';
+
+  @override
+  String get categoryDonation => 'Donation';
+
+  @override
+  String get categoryReferral => 'Referral';
+
+  @override
+  String get categoryRegistration => 'Registration';
+
+  @override
+  String get categoryOther => 'Other';
+
+  @override
+  String get ruleBloodDonation => 'Blood Donation';
+
+  @override
+  String get ruleDoubleRedCells => 'Double Red Cells Donation';
+
+  @override
+  String get rulePlasmaDonation => 'Plasma Donation';
+
+  @override
+  String get rulePlateletsDonation => 'Platelets Donation';
+
+  @override
+  String get detailProfileUpdated => 'Updated admin profile';
+
+  @override
+  String detailDonorUpdated(Object id) {
+    return 'Updated donor account (ID: $id)';
+  }
+
+  @override
+  String get error_current_new_password_required =>
+      'Current and new passwords are required';
+
+  @override
+  String get error_new_password_same_as_current =>
+      'New password cannot be the same as current';
+
+  @override
+  String get inboundEmailEmptyArchived => 'No archived emails here';
+
+  @override
+  String get inboundEmailEmptyUnread => 'No unread emails here';
+
+  @override
+  String get statusOpen => 'Open';
+
+  @override
+  String get statusReviewed => 'Reviewed';
+
+  @override
+  String get statusClosed => 'Closed';
+
+  @override
+  String get categoryTechnical => 'Technical';
+
+  @override
+  String get categoryAccount => 'Account';
+
+  @override
+  String get categoryRewards => 'Rewards';
+
+  @override
+  String get support_reply_title => 'Support Reply Received';
+
+  @override
+  String get reward_redeemed_title => '🎁 Reward Redeemed!';
+
+  @override
+  String reward_redeemed_message(String rewardName, String confirmationCode) {
+    return 'Your $rewardName is confirmed. Code: $confirmationCode';
+  }
+
+  @override
+  String support_reply_message(String ticketSubject) {
+    return 'Your support request \"$ticketSubject\" has been answered.';
+  }
+
+  @override
+  String get noMoreRequests => 'No more requests available';
+
+  @override
+  String get success_request_fully_accepted =>
+      'Request fully accepted — all needed donors have pledged. Thank you for saving lives!';
+
+  @override
+  String get success_request_pledged =>
+      'You\'ve pledged to donate! Please arrive before the deadline and show your QR code at the hospital';
+
+  @override
+  String get error_already_pledged =>
+      'You\'ve already pledged to this request — you cannot pledge again. Check your accepted requests for details';
+
+  @override
+  String get error_only_donors_can_accept =>
+      'Access denied — only donors can accept blood requests';
+
+  @override
+  String get success_donation_cancelled_expired =>
+      'Your donation has been cancelled as the request has expired';
+
+  @override
+  String get success_pledge_withdrawn =>
+      'Your pledge has been withdrawn — this request is now open for other donors to help';
+
+  @override
+  String get error_cancel_wrong_stage =>
+      'You can only cancel your pledge while the request is pending, accepted, or expired';
+
+  @override
+  String get error_qr_already_scanned =>
+      'The hospital has already scanned your QR code — please complete the donation process or speak with the hospital staff';
+
+  @override
+  String get expired => 'Expired';
+
+  @override
+  String get accepted => 'Accepted';
+
+  @override
+  String arrivalDeadlineWarning(String time) {
+    return 'Please arrive at the hospital before $time.';
+  }
+
+  @override
+  String missedDonationWarning(int count) {
+    return 'Warning: you have $count missed-donation chance(s) left before restrictions apply.';
+  }
+
+  @override
+  String get supportTicketUserMessage => 'User Message';
+
+  @override
+  String get supportTicketDonorReply => 'Donor Reply';
+
+  @override
+  String get error_cannot_cancel_others_pledge =>
+      'You can only withdraw your own pledge — you cannot cancel another donor\'s commitment';
+
+  @override
+  String get error_invalid_patient_type =>
+      'Invalid patient type. Must be adult, child, or infant';
+
+  @override
+  String error_account_banned(String reason) {
+    return 'Your account has been banned. Reason: $reason';
+  }
 
   @override
   String get activityTierPromoted => 'Tier Promoted';
@@ -5568,219 +5783,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notifications_empty => 'No notifications';
-
-  @override
-  String get error_authorization_required => 'Authorization header is required';
-
-  @override
-  String get error_account_suspended => 'Account is suspended';
-
-  @override
-  String get error_reward_fields_required =>
-      'Reward name, category, and points required are mandatory';
-
-  @override
-  String get error_status_required => 'Status is required';
-
-  @override
-  String get error_invalid_status_value =>
-      'Status must be ACTIVE, INACTIVE, or LIMITED';
-
-  @override
-  String get error_reward_not_found => 'Reward not found';
-
-  @override
-  String get error_bulk_points_empty =>
-      'Updates array must have at least one entry';
-
-  @override
-  String get error_bulk_points_invalid_update =>
-      'Each update must have an ID and points required number';
-
-  @override
-  String get error_adjustment_fields_required =>
-      'Email, amount, and reason are required';
-
-  @override
-  String get error_amount_non_zero => 'Amount must be a non-zero number';
-
-  @override
-  String get error_only_donors_have_points => 'Only donor accounts have points';
-
-  @override
-  String get error_earning_rule_fields_required =>
-      'Type, title, points, and category are required';
-
-  @override
-  String get error_points_non_negative =>
-      'Points must be a non-negative number';
-
-  @override
-  String get error_invalid_rule_type =>
-      'Invalid rule type. Must be one of: bloodDonation, plasmaDonation, plateletsDonation, doubleRedCellsDonation, emergencyResponse, profileCompletion, referral, firstDonation';
-
-  @override
-  String get error_earning_rule_exists => 'This earning rule already exists';
-
-  @override
-  String get error_earning_rule_not_found => 'Earning rule not found';
-
-  @override
-  String get categoryDonation => 'Donation';
-
-  @override
-  String get categoryReferral => 'Referral';
-
-  @override
-  String get categoryRegistration => 'Registration';
-
-  @override
-  String get categoryOther => 'Other';
-
-  @override
-  String get ruleBloodDonation => 'Blood Donation';
-
-  @override
-  String get ruleDoubleRedCells => 'Double Red Cells Donation';
-
-  @override
-  String get rulePlasmaDonation => 'Plasma Donation';
-
-  @override
-  String get rulePlateletsDonation => 'Platelets Donation';
-
-  @override
-  String get detailProfileUpdated => 'Updated admin profile';
-
-  @override
-  String detailDonorUpdated(Object id) {
-    return 'Updated donor account (ID: $id)';
-  }
-
-  @override
-  String get error_current_new_password_required =>
-      'Current and new passwords are required';
-
-  @override
-  String get error_new_password_same_as_current =>
-      'New password cannot be the same as current';
-
-  @override
-  String get inboundEmailEmptyArchived => 'No archived emails here';
-
-  @override
-  String get inboundEmailEmptyUnread => 'No unread emails here';
-
-  @override
-  String get statusOpen => 'Open';
-
-  @override
-  String get statusReviewed => 'Reviewed';
-
-  @override
-  String get statusClosed => 'Closed';
-
-  @override
-  String get categoryTechnical => 'Technical';
-
-  @override
-  String get categoryAccount => 'Account';
-
-  @override
-  String get categoryRewards => 'Rewards';
-
-  @override
-  String get support_reply_title => 'Support Reply Received';
-
-  @override
-  String get reward_redeemed_title => '🎁 Reward Redeemed!';
-
-  @override
-  String reward_redeemed_message(String rewardName, String confirmationCode) {
-    return 'Your $rewardName is confirmed. Code: $confirmationCode';
-  }
-
-  @override
-  String support_reply_message(String ticketSubject) {
-    return 'Your support request \"$ticketSubject\" has been answered.';
-  }
-
-  @override
-  String get noMoreRequests => 'No more requests available';
-
-  @override
-  String get success_request_fully_accepted =>
-      'Request fully accepted — all needed donors have pledged. Thank you for saving lives!';
-
-  @override
-  String get success_request_pledged =>
-      'You\'ve pledged to donate! Please arrive before the deadline and show your QR code at the hospital';
-
-  @override
-  String get error_already_pledged =>
-      'You\'ve already pledged to this request — you cannot pledge again. Check your accepted requests for details';
-
-  @override
-  String get error_only_donors_can_accept =>
-      'Access denied — only donors can accept blood requests';
-
-  @override
-  String get success_donation_cancelled_expired =>
-      'Your donation has been cancelled as the request has expired';
-
-  @override
-  String get success_pledge_withdrawn =>
-      'Your pledge has been withdrawn — this request is now open for other donors to help';
-
-  @override
-  String get error_cancel_wrong_stage =>
-      'You can only cancel your pledge while the request is pending, accepted, or expired';
-
-  @override
-  String get error_qr_already_scanned =>
-      'The hospital has already scanned your QR code — please complete the donation process or speak with the hospital staff';
-
-  @override
-  String get expired => 'Expired';
-
-  @override
-  String get patientTypeAdult => 'Adult';
-
-  @override
-  String get patientTypeChild => 'Child';
-
-  @override
-  String get patientTypeInfant => 'Infant';
-
-  @override
-  String get accepted => 'Accepted';
-
-  @override
-  String arrivalDeadlineWarning(String time) {
-    return 'Please arrive at the hospital before $time.';
-  }
-
-  @override
-  String missedDonationWarning(int count) {
-    return 'Warning: you have $count missed-donation chance(s) left before restrictions apply.';
-  }
-
-  @override
-  String get supportTicketUserMessage => 'User Message';
-
-  @override
-  String get supportTicketDonorReply => 'Donor Reply';
-
-  @override
-  String get error_cannot_cancel_others_pledge =>
-      'You can only withdraw your own pledge — you cannot cancel another donor\'s commitment';
-
-  @override
-  String get error_invalid_patient_type =>
-      'Invalid patient type. Must be adult, child, or infant';
-
-  @override
-  String error_account_banned(String reason) {
-    return 'Your account has been banned. Reason: $reason';
-  }
 }

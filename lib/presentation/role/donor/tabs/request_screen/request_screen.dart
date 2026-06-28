@@ -78,7 +78,7 @@ class _RequestScreenState extends State<RequestScreen> {
   String _localizePatientType(String? patientType, AppLocalizations appLocalizations) {
     switch (patientType?.toLowerCase()) {
       case 'child':
-        return appLocalizations.chiz;
+        return appLocalizations.patientTypeChild;
       case 'infant':
         return appLocalizations.patientTypeInfant;
       case 'adult':

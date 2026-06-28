@@ -173,7 +173,7 @@ class _HistoryState extends State<History> {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      loc.noHistoryFound,
+                      loc.noRequestsFound,
                       style: TextStyle(color: ColorManger.slateGrey),
                     ),
                   ],

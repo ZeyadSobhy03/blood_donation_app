@@ -207,9 +207,9 @@ class HistoryRequestModel {
       case 'pending':
         return loc.pending;
       case 'accepted':
-        return loc.statusAccepted;
+        return loc.accepted;
       case 'expired':
-        return loc.statusExpired;
+        return loc.expired;
       default:
         return status ?? '';
     }

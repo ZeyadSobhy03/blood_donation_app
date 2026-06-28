@@ -121,14 +121,14 @@ class FindDonorsCubit extends Cubit<FindDonorsState> {
 
   String _parseError(String error) {
     final e = error.toLowerCase();
-    if (e.contains('timeout')) return _loc?.connectionTimedOut ?? 'Connection timed out. Please try again.';
+    if (e.contains('timeout')) return _loc?.connectionTimeout ?? 'Connection timed out. Please try again.';
     if (e.contains('no_internet') || e.contains('connectionerror')) {
-      return _loc?.noInternetConnection ?? 'No internet connection.';
+      return _loc?.noInternet ?? 'No internet connection.';
     }
-    if (e.contains('unauthorized')) return _loc?.sessionExpired ?? 'Session expired. Please log in again.';
-    if (e.contains('access_denied')) return _loc?.accessDenied ?? 'Access denied.';
+    if (e.contains('unauthorized')) return _loc?.error_token_expired ?? 'Session expired. Please log in again.';
+    if (e.contains('access_denied')) return _loc?.error_forbidden ?? 'Access denied.';
     if (e.contains('hospital_not_found')) {
-      return _loc?.hospitalLocationNotSet ?? 'Hospital location not set. Please update your profile.';
+      return _loc?.error_hospital_not_found ?? 'Hospital location not set. Please update your profile.';
     }
     return _loc?.somethingWentWrong ?? 'Something went wrong. Please try again.';
   }
