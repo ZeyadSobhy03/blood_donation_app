@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
+import 'package:blood_donation_app/core/service/firebase_notification_service.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/data/models/hospital_profile_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/presentation/view_model/profile_view_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widgets/capacity_row.dart';
@@ -12,8 +13,14 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widge
 import 'package:blood_donation_app/presentation/role/hospital/tabs/profile/widgets/working_hours_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/resources/colors/color_manger.dart';
+import '../../../../../core/resources/fonts/font_manger.dart';
+import '../../../../../core/widgets/custom_elevated_button.dart';
+import '../../../../../core/widgets/custom_text.dart';
 import '../../../../../l10n/app_localizations.dart';
+import '../../../../authentication/hospital_authentication/presentation/view_model/hospital_view_model.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -431,6 +438,54 @@ class _ProfileState extends State<Profile> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 24),
+                BlocListener<HospitalCubit, HospitalState>(
+                  listener: (context, state) {
+                    if (state is HospitalInitialState) {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        RouteManger.chooseRole,
+                        (route) => false,
+                      );
+                    }
+                  },
+                  child: CustomElevatedButton(
+                    onPressed: () async {
+                      final hospitalCubit = context.read<HospitalCubit>();
+                      final fcmToken = await FirebaseNotificationService.getFCMToken();
+                      if (context.mounted) {
+                        hospitalCubit.logout(fcmToken: fcmToken);
+                      }
+                    },
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(
+                        color: ColorManger.brightRed.withValues(alpha: 0.4),
+                        width: 1,
+                      ),
+                    ),
+                    elevation: 0,
+                    foregroundColor: ColorManger.brightRed,
+                    backgroundColor: ColorManger.pureWhite,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.logout, color: ColorManger.brightRed),
+                        const SizedBox(width: 8),
+                        CustomText(
+                          text: appLocalization.logout,
+                          textStyle: TextStyle(
+                            color: ColorManger.brightRed,
+                            fontSize: FontSize.s16,
+                            fontWeight: FontWeightManager.semiBold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 32.h),
               ],
             ),
           ),

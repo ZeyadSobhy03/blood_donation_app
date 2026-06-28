@@ -3296,4 +3296,213 @@ class AppLocalizationsAr extends AppLocalizations {
   String activityDonorRespondedFallback(Object bloodTypes) {
     return 'متبرعون فصائل $bloodTypes استجابوا';
   }
+
+  @override
+  String get notifications_match_title => 'تم مطابقة متبرع جديد';
+
+  @override
+  String notifications_match_body(Object requestLabel) {
+    return 'تطابق متبرع مع طلب $requestLabel الخاص بك';
+  }
+
+  @override
+  String get notifications_emergency_title => 'طلب دم طارئ';
+
+  @override
+  String notifications_emergency_body(Object bloodType, Object hospitalName) {
+    return 'دم من فصيلة $bloodType مطلوب بالقرب من $hospitalName';
+  }
+
+  @override
+  String notifications_milestone_title(Object achievementTitle) {
+    return 'إنجاز تم تحقيقه: $achievementTitle';
+  }
+
+  @override
+  String notifications_milestone_body(Object achievementTitle) {
+    return 'تهانينا! لقد حصلت على: $achievementTitle';
+  }
+
+  @override
+  String notifications_rewards_tier_upgraded(Object newTier) {
+    return 'تم ترقية المستوى إلى $newTier!';
+  }
+
+  @override
+  String notifications_rewards_badge_unlocked(Object badgeName) {
+    return 'تم فتح شارة: $badgeName';
+  }
+
+  @override
+  String get notifications_rewards_reward_redeemed => 'تم استلام المكافأة!';
+
+  @override
+  String get notifications_appointment_rescheduled => 'تم إعادة جدولة الموعد';
+
+  @override
+  String get notifications_appointment_donor_rescheduled =>
+      'المتبرع أعاد جدولة الموعد';
+
+  @override
+  String get notifications_appointment_new_booked => 'موعد جديد محجوز';
+
+  @override
+  String get notifications_appointment_cancelled_by_donor =>
+      'تم إلغاء الموعد من قبل المتبرع';
+
+  @override
+  String get notifications_activity_tier_promoted => 'تم ترقية المستوى';
+
+  @override
+  String get notifications_activity_badge_unlocked => 'تم فتح شارة';
+
+  @override
+  String get notifications_activity_redeemed_reward => 'تم استلام المكافأة';
+
+  @override
+  String get notifications_activity_donation_created => 'تم إنشاء تبرع';
+
+  @override
+  String get notifications_activity_donation_verified => 'تم التحقق من التبرع';
+
+  @override
+  String get notifications_activity_donation_confirmed => 'تم تأكيد التبرع';
+
+  @override
+  String get notifications_activity_donation_completed => 'تم إكمال التبرع';
+
+  @override
+  String get notifications_activity_donation_cancelled => 'تم إلغاء التبرع';
+
+  @override
+  String get notifications_activity_blood_donation_submitted =>
+      'تم تقديم التبرع بالدم';
+
+  @override
+  String get notifications_activity_request_cancelled => 'تم إلغاء الطلب';
+
+  @override
+  String get notifications_activity_request_rejected => 'تم رفض الطلب';
+
+  @override
+  String get notifications_admin_registrations_rising =>
+      'تسجيلات المتبرعين في ارتفاع';
+
+  @override
+  String get notifications_admin_registrations_declining =>
+      'تسجيلات المتبرعين في انخفاض';
+
+  @override
+  String get notifications_admin_verification_gap => 'تم اكتشاف فجوة في التحقق';
+
+  @override
+  String get notifications_admin_inactive_hospitals => 'مستشفيات غير نشطة';
+
+  @override
+  String get notifications_admin_donor_retention_alert =>
+      'تنبيه الاحتفاظ بالمتبرعين';
+
+  @override
+  String get notifications_admin_suspension_spike =>
+      'تم اكتشاف ارتفاع في التعليقات';
+
+  @override
+  String get notifications_admin_urgent_blood_request => 'طلب دم عاجل';
+
+  @override
+  String notifications_analytics_critical_need_title(Object bloodTypes) {
+    return 'حاجة ماسة لفصائل $bloodTypes';
+  }
+
+  @override
+  String get notifications_analytics_predicted_high_demand_title =>
+      'ارتفاع متوقع في الطلب';
+
+  @override
+  String notifications_analytics_predicted_high_demand_body(Object percent) {
+    return 'زيادة بنسبة $percent% في طلبات الدم متوقعة الأسبوع القادم.';
+  }
+
+  @override
+  String get notifications_analytics_rising_demand_title =>
+      'اتجاه الطلب في ارتفاع';
+
+  @override
+  String get notifications_analytics_rising_demand_body =>
+      'طلبات الدم في ارتفاع. يرجى تجهيز موارد إضافية.';
+
+  @override
+  String get notifications_analytics_declining_demand_title =>
+      'الطلب في انخفاض';
+
+  @override
+  String get notifications_analytics_declining_demand_body =>
+      'طلبات الدم في انخفاض. راجع توزيع المخزون.';
+
+  @override
+  String get notifications_analytics_shortage_risk_title => 'خطر نقص المخزون';
+
+  @override
+  String notifications_analytics_shortage_risk_body(Object bloodType) {
+    return 'مخزون دم فصيلة $bloodType من المتوقع أن ينفد خلال 4 أيام.';
+  }
+
+  @override
+  String get notifications_analytics_supply_warning_title => 'تحذير المخزون';
+
+  @override
+  String notifications_analytics_supply_warning_body(Object bloodType) {
+    return 'مخزون دم فصيلة $bloodType يقترب من المستويات الحرجة.';
+  }
+
+  @override
+  String get notifications_analytics_peak_day_title => 'رؤية يوم الذروة';
+
+  @override
+  String notifications_analytics_peak_day_body(Object peakDay, Object pct) {
+    return 'يوم $peakDay يُظهر نشاط تبرع أعلى بنسبة $pct%. فكر في جدولة المزيد من الحملات في هذا اليوم.';
+  }
+
+  @override
+  String get notifications_analytics_retention_alert_title =>
+      'تنبيه الاحتفاظ بالمتبرعين';
+
+  @override
+  String get notifications_analytics_retention_alert_body =>
+      'معدل عودة المتبرعين انخفض بشكل ملحوظ. فكر في حملات إعادة التواصل.';
+
+  @override
+  String get notifications_analytics_growth_positive_title =>
+      'نمو إيجابي للمتبرعين';
+
+  @override
+  String get notifications_analytics_growth_positive_body =>
+      'عدد المتبرعين العائدين أعلى مقارنة بالشهر الماضي. الزخم قوي.';
+
+  @override
+  String get notifications_analytics_emergency_spike_title =>
+      'ارتفاع طارئ في الطلب';
+
+  @override
+  String get notifications_analytics_emergency_spike_body =>
+      'ارتفع الطلب على الدم بشكل غير متوقع في الأيام الثلاثة الماضية. قد تكون هناك حاجة لاستجابة طارئة.';
+
+  @override
+  String get notifications_actions_accept => 'قبول';
+
+  @override
+  String get notifications_actions_view_details => 'عرض التفاصيل';
+
+  @override
+  String get notifications_delete_all => 'حذف جميع الإشعارات';
+
+  @override
+  String get notifications_delete_confirm =>
+      'هل أنت متأكد من حذف جميع الإشعارات؟';
+
+  @override
+  String get notifications_delete_success => 'تم حذف جميع الإشعارات بنجاح';
+
+  @override
+  String get notifications_empty => 'لا توجد إشعارات';
 }

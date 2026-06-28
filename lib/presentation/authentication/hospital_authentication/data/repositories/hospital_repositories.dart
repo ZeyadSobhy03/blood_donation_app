@@ -10,4 +10,9 @@ abstract class HospitalRepositories {
   Future<void> forgotPassword({
     required String email,
   });
+
+  Future<void> logOut({
+    required String refreshToken,
+    required String fcmToken,
+  });
 }

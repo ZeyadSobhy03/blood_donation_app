@@ -1,9 +1,15 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_ce/hive.dart';
 import '../../core/resources/assets_manger/assets_manger.dart';
 import '../../core/resources/colors/color_manger.dart';
 import '../../core/resources/fonts/font_manger.dart';
 import '../../core/resources/routes/route_manger.dart';
+import '../../core/service/firebase_notification_service.dart';
 import '../../core/widgets/custom_text.dart';
+import '../role/hospital/tabs/notifications/presentation/view_model/fcm/fcm_view_model.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -62,10 +68,55 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller.forward();
 
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () async {
       if (!mounted) return;
-      Navigator.pushReplacementNamed(context, RouteManger.chooseRole);
+
+      final navigator = Navigator.of(context);
+      final fcmCubit = context.read<FcmCubit>();
+
+      try {
+        final hospitalBox = await Hive.openBox('hospital_auth_box');
+        final token = hospitalBox.get('hospital_access_token') as String?;
+        final userData = hospitalBox.get('hospital_user_data');
+        log('SplashCheck: hospital token=${token?.isNotEmpty == true}, userData=${userData != null}');
+
+        if (token != null && token.isNotEmpty && userData != null) {
+          await _refreshFcmToken(fcmCubit, token);
+          if (!mounted) return;
+          navigator.pushReplacementNamed(RouteManger.hospitalMainLayout);
+          return;
+        }
+
+        final donorBox = await Hive.openBox('auth_box');
+        final donorToken = donorBox.get('access_token') as String?;
+        final donorUserData = donorBox.get('user_data');
+        log('SplashCheck: donor token=${donorToken?.isNotEmpty == true}, userData=${donorUserData != null}');
+
+        if (donorToken != null && donorToken.isNotEmpty && donorUserData != null) {
+          if (!mounted) return;
+          navigator.pushReplacementNamed(RouteManger.donorMainLayout);
+          return;
+        }
+      } catch (e) {
+        log('SplashCheck error: $e');
+      }
+
+      if (!mounted) return;
+      log('SplashCheck: no session, navigating to chooseRole');
+      navigator.pushReplacementNamed(RouteManger.chooseRole);
     });
+  }
+
+  Future<void> _refreshFcmToken(FcmCubit cubit, String token) async {
+    try {
+      final fcmToken = await FirebaseNotificationService.getFCMToken();
+      if (fcmToken == null) return;
+      cubit.saveFcmToken(
+        token: fcmToken,
+        accessToken: token,
+      );
+    } catch (_) {
+    }
   }
 
   @override

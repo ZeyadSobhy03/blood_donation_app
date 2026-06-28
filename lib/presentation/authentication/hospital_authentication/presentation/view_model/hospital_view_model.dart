@@ -89,11 +89,18 @@ class HospitalCubit extends Cubit<HospitalState> {
     }
   }
 
-  Future<void> logout() async {
+  Future<void> logout({String? fcmToken}) async {
     try {
-      await hospitalHiveDataSource.clearAllData();
+      final refreshToken = await hospitalHiveDataSource.getRefreshToken();
+      if (refreshToken != null && fcmToken != null) {
+        await hospitalUseCase.logOut(
+          refreshToken: refreshToken,
+          fcmToken: fcmToken,
+        );
+      }
     } catch (_) {
     } finally {
+      await hospitalHiveDataSource.clearAllData();
       emit(HospitalInitialState());
     }
   }

@@ -2,6 +2,7 @@ import 'package:blood_donation_app/core/extension/text_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/models/pin_verification_args.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
+import 'package:blood_donation_app/core/service/firebase_notification_service.dart';
 import 'package:blood_donation_app/core/widgets/custom_auth_box.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
 import 'package:blood_donation_app/core/widgets/custom_pin_code.dart';
@@ -9,6 +10,7 @@ import 'package:blood_donation_app/core/widgets/custom_text_field.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/presentation/view_model/hospital_view_model.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view_model/fcm/fcm_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -94,7 +96,18 @@ class _HospitalAuthenticationState extends State<HospitalAuthentication> {
             child: BlocListener<HospitalCubit, HospitalState>(
               listener: (context, state) async {
                 if (state is HospitalLoginSuccessState) {
-                  await _onLoginSuccess();
+                  await FirebaseNotificationService.requestPermission();
+                  final fcmToken = await FirebaseNotificationService.getFCMToken();
+                  if (fcmToken != null && context.mounted) {
+                    final token = state.accessToken;
+                    if (token != null) {
+                      context.read<FcmCubit>().saveFcmToken(
+                        token: fcmToken,
+                        accessToken: token,
+                      );
+                    }
+                  }
+                  if (context.mounted) await _onLoginSuccess();
                 }
 
                 if (state is HospitalErrorState) {

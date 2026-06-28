@@ -17,6 +17,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/profile/help_and
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/privacy_and_security/privacy_and_security.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/two_factor_authentication/screen/two_factor_authentication_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/request_screen.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view/notifications.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -78,6 +79,7 @@ class RouteManger {
       "/customPinVerificationScreen";
 
   static const String hospitalForgetPassword = '/hospitalForgetPassword';
+  static const String hospitalNotifications = '/hospitalNotifications';
 
   static const String adminForgetPassword = '/adminForgetPassword';
   static const String appointmentDetails = '/appointmentDetails';
@@ -202,6 +204,11 @@ class RouteManger {
         return MaterialPageRoute(
           builder: (context) => RequestScreen(),
           settings: settings,
+        );
+
+      case hospitalNotifications:
+        return MaterialPageRoute(
+          builder: (context) => const HospitalNotifications(),
         );
 
       case hospitalForgetPassword:

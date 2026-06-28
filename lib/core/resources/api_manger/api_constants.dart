@@ -21,6 +21,12 @@ class ApiManger {
   static String deleteOneNotificationEndpoint(String id) {
     return "${baseUrl}notifications/$id";
   }
+  static const String saveFcmTokenEndpoint = "${baseUrl}auth/fcm-token";
+  static const String deleteNotificationEndpoint = "${baseUrl}notifications/";
+  static const String logoutEndpoint = "${baseUrl}auth/logout";
+  static const String markAllNotificationsAsReadEndpoint =
+      "${baseUrl}notifications/read-all";
+  static const String changePasswordEndpoint = "${baseUrl}auth/change-password";
   static const String nearbyHospitalsEndpointWithQuery = "${baseUrl}hospitals/nearby?lat={lat}&lng={lng}";
 
   /////////////////////////////////////  donor endpoints  /////////////////////////////////////

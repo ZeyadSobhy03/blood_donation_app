@@ -66,6 +66,32 @@ class HospitalApiDataSource implements HospitalRemoteDataSource {
     }
   }
 
+  @override
+  Future<void> logOut({
+    required String refreshToken,
+    required String fcmToken,
+  }) async {
+    try {
+      final response = await dio.post(
+        ApiManger.logoutEndpoint,
+        data: {
+          'refreshToken': refreshToken,
+          'fcmToken': fcmToken,
+        },
+        options: Options(headers: _jsonHeaders),
+      );
+
+      if (!_isSuccess(response.statusCode)) {
+        throw Exception(_extractServerError(response));
+      }
+    } on DioException catch (e) {
+      throw Exception(_mapDioError(e));
+    } catch (e) {
+      if (e.toString().contains('Exception')) rethrow;
+      throw Exception('UNKNOWN_ERROR');
+    }
+  }
+
 
   bool _isSuccess(int? statusCode) =>
       statusCode != null && statusCode >= 200 && statusCode < 300;

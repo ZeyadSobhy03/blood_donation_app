@@ -3316,4 +3316,215 @@ class AppLocalizationsEn extends AppLocalizations {
   String activityDonorRespondedFallback(Object bloodTypes) {
     return '$bloodTypes donor responded';
   }
+
+  @override
+  String get notifications_match_title => 'New Donor Matched';
+
+  @override
+  String notifications_match_body(Object requestLabel) {
+    return 'A donor has matched your $requestLabel request';
+  }
+
+  @override
+  String get notifications_emergency_title => 'Emergency Blood Request';
+
+  @override
+  String notifications_emergency_body(Object bloodType, Object hospitalName) {
+    return 'Critical $bloodType blood needed near $hospitalName';
+  }
+
+  @override
+  String notifications_milestone_title(Object achievementTitle) {
+    return 'Achievement Unlocked: $achievementTitle';
+  }
+
+  @override
+  String notifications_milestone_body(Object achievementTitle) {
+    return 'Congratulations! You\'ve unlocked: $achievementTitle';
+  }
+
+  @override
+  String notifications_rewards_tier_upgraded(Object newTier) {
+    return 'Tier Upgraded to $newTier!';
+  }
+
+  @override
+  String notifications_rewards_badge_unlocked(Object badgeName) {
+    return 'Badge Unlocked: $badgeName';
+  }
+
+  @override
+  String get notifications_rewards_reward_redeemed => 'Reward Redeemed!';
+
+  @override
+  String get notifications_appointment_rescheduled => 'Appointment Rescheduled';
+
+  @override
+  String get notifications_appointment_donor_rescheduled =>
+      'Donor Rescheduled Appointment';
+
+  @override
+  String get notifications_appointment_new_booked => 'New Appointment Booked';
+
+  @override
+  String get notifications_appointment_cancelled_by_donor =>
+      'Appointment cancelled by donor';
+
+  @override
+  String get notifications_activity_tier_promoted => 'Tier Promoted';
+
+  @override
+  String get notifications_activity_badge_unlocked => 'Badge Unlocked';
+
+  @override
+  String get notifications_activity_redeemed_reward => 'Reward Redeemed';
+
+  @override
+  String get notifications_activity_donation_created => 'Donation Created';
+
+  @override
+  String get notifications_activity_donation_verified => 'Donation Verified';
+
+  @override
+  String get notifications_activity_donation_confirmed => 'Donation Confirmed';
+
+  @override
+  String get notifications_activity_donation_completed => 'Donation Completed';
+
+  @override
+  String get notifications_activity_donation_cancelled => 'Donation Cancelled';
+
+  @override
+  String get notifications_activity_blood_donation_submitted =>
+      'Blood Donation Submitted';
+
+  @override
+  String get notifications_activity_request_cancelled => 'Request cancelled';
+
+  @override
+  String get notifications_activity_request_rejected => 'Request rejected';
+
+  @override
+  String get notifications_admin_registrations_rising =>
+      'Donor Registrations Rising';
+
+  @override
+  String get notifications_admin_registrations_declining =>
+      'Donor Registrations Declining';
+
+  @override
+  String get notifications_admin_verification_gap =>
+      'Verification Gap Detected';
+
+  @override
+  String get notifications_admin_inactive_hospitals => 'Inactive Hospitals';
+
+  @override
+  String get notifications_admin_donor_retention_alert =>
+      'Donor Retention Alert';
+
+  @override
+  String get notifications_admin_suspension_spike =>
+      'Suspension Spike Detected';
+
+  @override
+  String get notifications_admin_urgent_blood_request => 'Urgent Blood Request';
+
+  @override
+  String notifications_analytics_critical_need_title(Object bloodTypes) {
+    return 'Critical need for $bloodTypes';
+  }
+
+  @override
+  String get notifications_analytics_predicted_high_demand_title =>
+      'Predicted High Demand';
+
+  @override
+  String notifications_analytics_predicted_high_demand_body(Object percent) {
+    return 'A $percent% increase in blood requests is predicted next week.';
+  }
+
+  @override
+  String get notifications_analytics_rising_demand_title =>
+      'Rising Demand Trend';
+
+  @override
+  String get notifications_analytics_rising_demand_body =>
+      'Blood requests are trending upward. Prepare additional resources.';
+
+  @override
+  String get notifications_analytics_declining_demand_title =>
+      'Declining Demand';
+
+  @override
+  String get notifications_analytics_declining_demand_body =>
+      'Blood requests are declining. Review inventory allocation.';
+
+  @override
+  String get notifications_analytics_shortage_risk_title => 'Shortage Risk';
+
+  @override
+  String notifications_analytics_shortage_risk_body(Object bloodType) {
+    return '$bloodType blood stock is expected to deplete within the next 4 days.';
+  }
+
+  @override
+  String get notifications_analytics_supply_warning_title => 'Supply Warning';
+
+  @override
+  String notifications_analytics_supply_warning_body(Object bloodType) {
+    return '$bloodType blood supply is approaching critical levels.';
+  }
+
+  @override
+  String get notifications_analytics_peak_day_title => 'Peak Day Insight';
+
+  @override
+  String notifications_analytics_peak_day_body(Object peakDay, Object pct) {
+    return '$peakDay shows $pct% higher donation activity. Consider scheduling more drives on this day.';
+  }
+
+  @override
+  String get notifications_analytics_retention_alert_title =>
+      'Donor Retention Alert';
+
+  @override
+  String get notifications_analytics_retention_alert_body =>
+      'Donor return rate has dropped significantly. Consider re-engagement campaigns.';
+
+  @override
+  String get notifications_analytics_growth_positive_title =>
+      'Donor Growth Positive';
+
+  @override
+  String get notifications_analytics_growth_positive_body =>
+      'More donors are returning compared to last month. Momentum is strong.';
+
+  @override
+  String get notifications_analytics_emergency_spike_title =>
+      'Emergency Demand Spike';
+
+  @override
+  String get notifications_analytics_emergency_spike_body =>
+      'Blood demand has surged unexpectedly in the last 3 days. Emergency response may be needed.';
+
+  @override
+  String get notifications_actions_accept => 'Accept';
+
+  @override
+  String get notifications_actions_view_details => 'View Details';
+
+  @override
+  String get notifications_delete_all => 'Delete all notifications';
+
+  @override
+  String get notifications_delete_confirm =>
+      'Are you sure you want to delete all notifications?';
+
+  @override
+  String get notifications_delete_success =>
+      'Notifications deleted successfully';
+
+  @override
+  String get notifications_empty => 'No notifications';
 }

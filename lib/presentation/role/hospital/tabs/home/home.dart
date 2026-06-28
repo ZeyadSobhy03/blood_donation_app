@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/active_requests/active_requests_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/appointments/appointments_section.dart';
@@ -99,7 +100,23 @@ class _HomeState extends State<Home> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      HomeTitle(hospitalName: hospitalName ?? ''),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: HomeTitle(hospitalName: hospitalName ?? ''),
+                          ),
+                          IconButton(
+                            onPressed: () => Navigator.pushNamed(
+                              context,
+                              RouteManger.hospitalNotifications,
+                            ),
+                            icon: const Icon(
+                              Icons.notifications,
+                              color: ColorManger.royalBlue,
+                            ),
+                          ),
+                        ],
+                      ),
                       SizedBox(height: 8.h),
                       DashboardStatsSection(
                         activeRequests: dashboard?.activeRequests ?? 0,

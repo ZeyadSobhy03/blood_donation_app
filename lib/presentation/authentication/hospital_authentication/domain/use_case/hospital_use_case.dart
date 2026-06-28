@@ -21,4 +21,14 @@ class HospitalUseCase {
   Future<void> forgotPassword({required String email}) {
     return hospitalRepositories.forgotPassword(email: email);
   }
+
+  Future<void> logOut({
+    required String refreshToken,
+    required String fcmToken,
+  }) {
+    return hospitalRepositories.logOut(
+      refreshToken: refreshToken,
+      fcmToken: fcmToken,
+    );
+  }
 }

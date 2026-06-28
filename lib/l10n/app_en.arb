@@ -1136,5 +1136,118 @@
     "placeholders": {
       "bloodTypes": {}
     }
-  }
+  },
+  "notifications_match_title": "New Donor Matched",
+  "notifications_match_body": "A donor has matched your {requestLabel} request",
+  "@notifications_match_body": {
+    "placeholders": {
+      "requestLabel": {}
+    }
+  },
+  "notifications_emergency_title": "Emergency Blood Request",
+  "notifications_emergency_body": "Critical {bloodType} blood needed near {hospitalName}",
+  "@notifications_emergency_body": {
+    "placeholders": {
+      "bloodType": {},
+      "hospitalName": {}
+    }
+  },
+  "notifications_milestone_title": "Achievement Unlocked: {achievementTitle}",
+  "@notifications_milestone_title": {
+    "placeholders": {
+      "achievementTitle": {}
+    }
+  },
+  "notifications_milestone_body": "Congratulations! You've unlocked: {achievementTitle}",
+  "@notifications_milestone_body": {
+    "placeholders": {
+      "achievementTitle": {}
+    }
+  },
+  "notifications_rewards_tier_upgraded": "Tier Upgraded to {newTier}!",
+  "@notifications_rewards_tier_upgraded": {
+    "placeholders": {
+      "newTier": {}
+    }
+  },
+  "notifications_rewards_badge_unlocked": "Badge Unlocked: {badgeName}",
+  "@notifications_rewards_badge_unlocked": {
+    "placeholders": {
+      "badgeName": {}
+    }
+  },
+  "notifications_rewards_reward_redeemed": "Reward Redeemed!",
+  "notifications_appointment_rescheduled": "Appointment Rescheduled",
+  "notifications_appointment_donor_rescheduled": "Donor Rescheduled Appointment",
+  "notifications_appointment_new_booked": "New Appointment Booked",
+  "notifications_appointment_cancelled_by_donor": "Appointment cancelled by donor",
+  "notifications_activity_tier_promoted": "Tier Promoted",
+  "notifications_activity_badge_unlocked": "Badge Unlocked",
+  "notifications_activity_redeemed_reward": "Reward Redeemed",
+  "notifications_activity_donation_created": "Donation Created",
+  "notifications_activity_donation_verified": "Donation Verified",
+  "notifications_activity_donation_confirmed": "Donation Confirmed",
+  "notifications_activity_donation_completed": "Donation Completed",
+  "notifications_activity_donation_cancelled": "Donation Cancelled",
+  "notifications_activity_blood_donation_submitted": "Blood Donation Submitted",
+  "notifications_activity_request_cancelled": "Request cancelled",
+  "notifications_activity_request_rejected": "Request rejected",
+  "notifications_admin_registrations_rising": "Donor Registrations Rising",
+  "notifications_admin_registrations_declining": "Donor Registrations Declining",
+  "notifications_admin_verification_gap": "Verification Gap Detected",
+  "notifications_admin_inactive_hospitals": "Inactive Hospitals",
+  "notifications_admin_donor_retention_alert": "Donor Retention Alert",
+  "notifications_admin_suspension_spike": "Suspension Spike Detected",
+  "notifications_admin_urgent_blood_request": "Urgent Blood Request",
+  "notifications_analytics_critical_need_title": "Critical need for {bloodTypes}",
+  "@notifications_analytics_critical_need_title": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "notifications_analytics_predicted_high_demand_title": "Predicted High Demand",
+  "notifications_analytics_predicted_high_demand_body": "A {percent}% increase in blood requests is predicted next week.",
+  "@notifications_analytics_predicted_high_demand_body": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "notifications_analytics_rising_demand_title": "Rising Demand Trend",
+  "notifications_analytics_rising_demand_body": "Blood requests are trending upward. Prepare additional resources.",
+  "notifications_analytics_declining_demand_title": "Declining Demand",
+  "notifications_analytics_declining_demand_body": "Blood requests are declining. Review inventory allocation.",
+  "notifications_analytics_shortage_risk_title": "Shortage Risk",
+  "notifications_analytics_shortage_risk_body": "{bloodType} blood stock is expected to deplete within the next 4 days.",
+  "@notifications_analytics_shortage_risk_body": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "notifications_analytics_supply_warning_title": "Supply Warning",
+  "notifications_analytics_supply_warning_body": "{bloodType} blood supply is approaching critical levels.",
+  "@notifications_analytics_supply_warning_body": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "notifications_analytics_peak_day_title": "Peak Day Insight",
+  "notifications_analytics_peak_day_body": "{peakDay} shows {pct}% higher donation activity. Consider scheduling more drives on this day.",
+  "@notifications_analytics_peak_day_body": {
+    "placeholders": {
+      "peakDay": {},
+      "pct": {}
+    }
+  },
+  "notifications_analytics_retention_alert_title": "Donor Retention Alert",
+  "notifications_analytics_retention_alert_body": "Donor return rate has dropped significantly. Consider re-engagement campaigns.",
+  "notifications_analytics_growth_positive_title": "Donor Growth Positive",
+  "notifications_analytics_growth_positive_body": "More donors are returning compared to last month. Momentum is strong.",
+  "notifications_analytics_emergency_spike_title": "Emergency Demand Spike",
+  "notifications_analytics_emergency_spike_body": "Blood demand has surged unexpectedly in the last 3 days. Emergency response may be needed.",
+  "notifications_actions_accept": "Accept",
+  "notifications_actions_view_details": "View Details",
+  "notifications_delete_all": "Delete all notifications",
+  "notifications_delete_confirm": "Are you sure you want to delete all notifications?",
+  "notifications_delete_success": "Notifications deleted successfully",
+  "notifications_empty": "No notifications"
 }

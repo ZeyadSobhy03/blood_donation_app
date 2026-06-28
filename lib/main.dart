@@ -24,6 +24,19 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/da
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/data/repositories/find_donors_repository_imp.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/domain/use_cases/find_donors_use_case.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/presentation/view_model/find_donors_view_model.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/data_source/fcm/fcm_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/data_source/notification/local/notification_local_data_source.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/data_source/notification/remote/notification_api_data_source.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/repositories/fcm/fcm_repositories_imp.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/repositories/notification/notification_repository_impl.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/domain/use_cases/fcm/fcm_use_case.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/domain/use_cases/notification/notification_use_case.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view_model/fcm/fcm_view_model.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view_model/notification/notification_view_model.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/remote_data_source/hospital_api_data_source.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/repositories/hospital_repositories_impl.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/domain/use_case/hospital_use_case.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/presentation/view_model/hospital_view_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,10 +59,19 @@ void main() async {
 
   await authHiveDataSource.init();
   await hospitalHiveDataSource.init();
+  final hiveNotificationDataSource = HiveNotificationDataSource();
+  await hiveNotificationDataSource.init();
   await getFCMToken();
   runApp(
-    RepositoryProvider<HospitalHiveDataSource>.value(
-      value: hospitalHiveDataSource,
+    MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<HospitalHiveDataSource>.value(
+          value: hospitalHiveDataSource,
+        ),
+        RepositoryProvider<AuthHiveDataSource>.value(
+          value: authHiveDataSource,
+        ),
+      ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => DonationScheduleCubit()),
@@ -107,6 +129,55 @@ void main() async {
                     dio,
                     authHiveDataSource,
                   ),
+                ),
+              ),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => HospitalCubit(
+              hospitalUseCase: HospitalUseCase(
+                hospitalRepositories: HospitalRepositoriesImp(
+                  hospitalRemoteDataSource: HospitalApiDataSource(dio),
+                ),
+              ),
+              hospitalHiveDataSource: hospitalHiveDataSource,
+            ),
+          ),
+          BlocProvider(
+            create: (context) => FcmCubit(
+              fcmUseCase: FcmUseCase(
+                repository: FcmRepositoriesImp(
+                  fcmRemoteDataSource: FcmApiDataSource(dio),
+                ),
+              ),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => NotificationCubit(
+              notificationUseCase: NotificationUseCase(
+                repository: NotificationRepositoryImpl(
+                  localDataSource: hiveNotificationDataSource,
+                  notificationRemoteDataSource: NotificationApiDataSource(dio),
+                ),
+              ),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => NotificationAllReadCubit(
+              notificationUseCase: NotificationUseCase(
+                repository: NotificationRepositoryImpl(
+                  localDataSource: hiveNotificationDataSource,
+                  notificationRemoteDataSource: NotificationApiDataSource(dio),
+                ),
+              ),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => NotificationDeleteCubit(
+              notificationUseCase: NotificationUseCase(
+                repository: NotificationRepositoryImpl(
+                  localDataSource: hiveNotificationDataSource,
+                  notificationRemoteDataSource: NotificationApiDataSource(dio),
                 ),
               ),
             ),

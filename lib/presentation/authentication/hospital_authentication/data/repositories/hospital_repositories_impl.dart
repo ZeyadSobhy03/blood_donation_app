@@ -24,4 +24,15 @@ class HospitalRepositoriesImp implements HospitalRepositories {
   Future<void> forgotPassword({required String email}) {
     return hospitalRemoteDataSource.forgotPassword(email: email);
   }
+
+  @override
+  Future<void> logOut({
+    required String refreshToken,
+    required String fcmToken,
+  }) {
+    return hospitalRemoteDataSource.logOut(
+      refreshToken: refreshToken,
+      fcmToken: fcmToken,
+    );
+  }
 }

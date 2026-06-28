@@ -77,7 +77,6 @@ class RequestApiDataSource implements RequestRemoteDataSource {
           'bloodType': bloodType,
           'unitsNeeded': unitsNeeded,
           'patientDetails': patientDetails,
-          'status': 'pending',
         },
         options: Options(
           headers: {

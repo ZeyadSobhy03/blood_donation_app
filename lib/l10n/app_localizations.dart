@@ -6301,6 +6301,342 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{bloodTypes} donor responded'**
   String activityDonorRespondedFallback(Object bloodTypes);
+
+  /// No description provided for @notifications_match_title.
+  ///
+  /// In en, this message translates to:
+  /// **'New Donor Matched'**
+  String get notifications_match_title;
+
+  /// No description provided for @notifications_match_body.
+  ///
+  /// In en, this message translates to:
+  /// **'A donor has matched your {requestLabel} request'**
+  String notifications_match_body(Object requestLabel);
+
+  /// No description provided for @notifications_emergency_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Blood Request'**
+  String get notifications_emergency_title;
+
+  /// No description provided for @notifications_emergency_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical {bloodType} blood needed near {hospitalName}'**
+  String notifications_emergency_body(Object bloodType, Object hospitalName);
+
+  /// No description provided for @notifications_milestone_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement Unlocked: {achievementTitle}'**
+  String notifications_milestone_title(Object achievementTitle);
+
+  /// No description provided for @notifications_milestone_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations! You\'ve unlocked: {achievementTitle}'**
+  String notifications_milestone_body(Object achievementTitle);
+
+  /// No description provided for @notifications_rewards_tier_upgraded.
+  ///
+  /// In en, this message translates to:
+  /// **'Tier Upgraded to {newTier}!'**
+  String notifications_rewards_tier_upgraded(Object newTier);
+
+  /// No description provided for @notifications_rewards_badge_unlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge Unlocked: {badgeName}'**
+  String notifications_rewards_badge_unlocked(Object badgeName);
+
+  /// No description provided for @notifications_rewards_reward_redeemed.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward Redeemed!'**
+  String get notifications_rewards_reward_redeemed;
+
+  /// No description provided for @notifications_appointment_rescheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Rescheduled'**
+  String get notifications_appointment_rescheduled;
+
+  /// No description provided for @notifications_appointment_donor_rescheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Rescheduled Appointment'**
+  String get notifications_appointment_donor_rescheduled;
+
+  /// No description provided for @notifications_appointment_new_booked.
+  ///
+  /// In en, this message translates to:
+  /// **'New Appointment Booked'**
+  String get notifications_appointment_new_booked;
+
+  /// No description provided for @notifications_appointment_cancelled_by_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment cancelled by donor'**
+  String get notifications_appointment_cancelled_by_donor;
+
+  /// No description provided for @notifications_activity_tier_promoted.
+  ///
+  /// In en, this message translates to:
+  /// **'Tier Promoted'**
+  String get notifications_activity_tier_promoted;
+
+  /// No description provided for @notifications_activity_badge_unlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge Unlocked'**
+  String get notifications_activity_badge_unlocked;
+
+  /// No description provided for @notifications_activity_redeemed_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward Redeemed'**
+  String get notifications_activity_redeemed_reward;
+
+  /// No description provided for @notifications_activity_donation_created.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Created'**
+  String get notifications_activity_donation_created;
+
+  /// No description provided for @notifications_activity_donation_verified.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Verified'**
+  String get notifications_activity_donation_verified;
+
+  /// No description provided for @notifications_activity_donation_confirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Confirmed'**
+  String get notifications_activity_donation_confirmed;
+
+  /// No description provided for @notifications_activity_donation_completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Completed'**
+  String get notifications_activity_donation_completed;
+
+  /// No description provided for @notifications_activity_donation_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Cancelled'**
+  String get notifications_activity_donation_cancelled;
+
+  /// No description provided for @notifications_activity_blood_donation_submitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation Submitted'**
+  String get notifications_activity_blood_donation_submitted;
+
+  /// No description provided for @notifications_activity_request_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request cancelled'**
+  String get notifications_activity_request_cancelled;
+
+  /// No description provided for @notifications_activity_request_rejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Request rejected'**
+  String get notifications_activity_request_rejected;
+
+  /// No description provided for @notifications_admin_registrations_rising.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Registrations Rising'**
+  String get notifications_admin_registrations_rising;
+
+  /// No description provided for @notifications_admin_registrations_declining.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Registrations Declining'**
+  String get notifications_admin_registrations_declining;
+
+  /// No description provided for @notifications_admin_verification_gap.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Gap Detected'**
+  String get notifications_admin_verification_gap;
+
+  /// No description provided for @notifications_admin_inactive_hospitals.
+  ///
+  /// In en, this message translates to:
+  /// **'Inactive Hospitals'**
+  String get notifications_admin_inactive_hospitals;
+
+  /// No description provided for @notifications_admin_donor_retention_alert.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Retention Alert'**
+  String get notifications_admin_donor_retention_alert;
+
+  /// No description provided for @notifications_admin_suspension_spike.
+  ///
+  /// In en, this message translates to:
+  /// **'Suspension Spike Detected'**
+  String get notifications_admin_suspension_spike;
+
+  /// No description provided for @notifications_admin_urgent_blood_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent Blood Request'**
+  String get notifications_admin_urgent_blood_request;
+
+  /// No description provided for @notifications_analytics_critical_need_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical need for {bloodTypes}'**
+  String notifications_analytics_critical_need_title(Object bloodTypes);
+
+  /// No description provided for @notifications_analytics_predicted_high_demand_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Predicted High Demand'**
+  String get notifications_analytics_predicted_high_demand_title;
+
+  /// No description provided for @notifications_analytics_predicted_high_demand_body.
+  ///
+  /// In en, this message translates to:
+  /// **'A {percent}% increase in blood requests is predicted next week.'**
+  String notifications_analytics_predicted_high_demand_body(Object percent);
+
+  /// No description provided for @notifications_analytics_rising_demand_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Rising Demand Trend'**
+  String get notifications_analytics_rising_demand_title;
+
+  /// No description provided for @notifications_analytics_rising_demand_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood requests are trending upward. Prepare additional resources.'**
+  String get notifications_analytics_rising_demand_body;
+
+  /// No description provided for @notifications_analytics_declining_demand_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Declining Demand'**
+  String get notifications_analytics_declining_demand_title;
+
+  /// No description provided for @notifications_analytics_declining_demand_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood requests are declining. Review inventory allocation.'**
+  String get notifications_analytics_declining_demand_body;
+
+  /// No description provided for @notifications_analytics_shortage_risk_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortage Risk'**
+  String get notifications_analytics_shortage_risk_title;
+
+  /// No description provided for @notifications_analytics_shortage_risk_body.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} blood stock is expected to deplete within the next 4 days.'**
+  String notifications_analytics_shortage_risk_body(Object bloodType);
+
+  /// No description provided for @notifications_analytics_supply_warning_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Supply Warning'**
+  String get notifications_analytics_supply_warning_title;
+
+  /// No description provided for @notifications_analytics_supply_warning_body.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} blood supply is approaching critical levels.'**
+  String notifications_analytics_supply_warning_body(Object bloodType);
+
+  /// No description provided for @notifications_analytics_peak_day_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak Day Insight'**
+  String get notifications_analytics_peak_day_title;
+
+  /// No description provided for @notifications_analytics_peak_day_body.
+  ///
+  /// In en, this message translates to:
+  /// **'{peakDay} shows {pct}% higher donation activity. Consider scheduling more drives on this day.'**
+  String notifications_analytics_peak_day_body(Object peakDay, Object pct);
+
+  /// No description provided for @notifications_analytics_retention_alert_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Retention Alert'**
+  String get notifications_analytics_retention_alert_title;
+
+  /// No description provided for @notifications_analytics_retention_alert_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor return rate has dropped significantly. Consider re-engagement campaigns.'**
+  String get notifications_analytics_retention_alert_body;
+
+  /// No description provided for @notifications_analytics_growth_positive_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Growth Positive'**
+  String get notifications_analytics_growth_positive_title;
+
+  /// No description provided for @notifications_analytics_growth_positive_body.
+  ///
+  /// In en, this message translates to:
+  /// **'More donors are returning compared to last month. Momentum is strong.'**
+  String get notifications_analytics_growth_positive_body;
+
+  /// No description provided for @notifications_analytics_emergency_spike_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Demand Spike'**
+  String get notifications_analytics_emergency_spike_title;
+
+  /// No description provided for @notifications_analytics_emergency_spike_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood demand has surged unexpectedly in the last 3 days. Emergency response may be needed.'**
+  String get notifications_analytics_emergency_spike_body;
+
+  /// No description provided for @notifications_actions_accept.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get notifications_actions_accept;
+
+  /// No description provided for @notifications_actions_view_details.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get notifications_actions_view_details;
+
+  /// No description provided for @notifications_delete_all.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete all notifications'**
+  String get notifications_delete_all;
+
+  /// No description provided for @notifications_delete_confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete all notifications?'**
+  String get notifications_delete_confirm;
+
+  /// No description provided for @notifications_delete_success.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications deleted successfully'**
+  String get notifications_delete_success;
+
+  /// No description provided for @notifications_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No notifications'**
+  String get notifications_empty;
 }
 
 class _AppLocalizationsDelegate

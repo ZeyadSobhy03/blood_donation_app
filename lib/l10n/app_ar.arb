@@ -1135,5 +1135,118 @@
     "placeholders": {
       "bloodTypes": {}
     }
-  }
+  },
+  "notifications_match_title": "تم مطابقة متبرع جديد",
+  "notifications_match_body": "تطابق متبرع مع طلب {requestLabel} الخاص بك",
+  "@notifications_match_body": {
+    "placeholders": {
+      "requestLabel": {}
+    }
+  },
+  "notifications_emergency_title": "طلب دم طارئ",
+  "notifications_emergency_body": "دم من فصيلة {bloodType} مطلوب بالقرب من {hospitalName}",
+  "@notifications_emergency_body": {
+    "placeholders": {
+      "bloodType": {},
+      "hospitalName": {}
+    }
+  },
+  "notifications_milestone_title": "إنجاز تم تحقيقه: {achievementTitle}",
+  "@notifications_milestone_title": {
+    "placeholders": {
+      "achievementTitle": {}
+    }
+  },
+  "notifications_milestone_body": "تهانينا! لقد حصلت على: {achievementTitle}",
+  "@notifications_milestone_body": {
+    "placeholders": {
+      "achievementTitle": {}
+    }
+  },
+  "notifications_rewards_tier_upgraded": "تم ترقية المستوى إلى {newTier}!",
+  "@notifications_rewards_tier_upgraded": {
+    "placeholders": {
+      "newTier": {}
+    }
+  },
+  "notifications_rewards_badge_unlocked": "تم فتح شارة: {badgeName}",
+  "@notifications_rewards_badge_unlocked": {
+    "placeholders": {
+      "badgeName": {}
+    }
+  },
+  "notifications_rewards_reward_redeemed": "تم استلام المكافأة!",
+  "notifications_appointment_rescheduled": "تم إعادة جدولة الموعد",
+  "notifications_appointment_donor_rescheduled": "المتبرع أعاد جدولة الموعد",
+  "notifications_appointment_new_booked": "موعد جديد محجوز",
+  "notifications_appointment_cancelled_by_donor": "تم إلغاء الموعد من قبل المتبرع",
+  "notifications_activity_tier_promoted": "تم ترقية المستوى",
+  "notifications_activity_badge_unlocked": "تم فتح شارة",
+  "notifications_activity_redeemed_reward": "تم استلام المكافأة",
+  "notifications_activity_donation_created": "تم إنشاء تبرع",
+  "notifications_activity_donation_verified": "تم التحقق من التبرع",
+  "notifications_activity_donation_confirmed": "تم تأكيد التبرع",
+  "notifications_activity_donation_completed": "تم إكمال التبرع",
+  "notifications_activity_donation_cancelled": "تم إلغاء التبرع",
+  "notifications_activity_blood_donation_submitted": "تم تقديم التبرع بالدم",
+  "notifications_activity_request_cancelled": "تم إلغاء الطلب",
+  "notifications_activity_request_rejected": "تم رفض الطلب",
+  "notifications_admin_registrations_rising": "تسجيلات المتبرعين في ارتفاع",
+  "notifications_admin_registrations_declining": "تسجيلات المتبرعين في انخفاض",
+  "notifications_admin_verification_gap": "تم اكتشاف فجوة في التحقق",
+  "notifications_admin_inactive_hospitals": "مستشفيات غير نشطة",
+  "notifications_admin_donor_retention_alert": "تنبيه الاحتفاظ بالمتبرعين",
+  "notifications_admin_suspension_spike": "تم اكتشاف ارتفاع في التعليقات",
+  "notifications_admin_urgent_blood_request": "طلب دم عاجل",
+  "notifications_analytics_critical_need_title": "حاجة ماسة لفصائل {bloodTypes}",
+  "@notifications_analytics_critical_need_title": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "notifications_analytics_predicted_high_demand_title": "ارتفاع متوقع في الطلب",
+  "notifications_analytics_predicted_high_demand_body": "زيادة بنسبة {percent}% في طلبات الدم متوقعة الأسبوع القادم.",
+  "@notifications_analytics_predicted_high_demand_body": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "notifications_analytics_rising_demand_title": "اتجاه الطلب في ارتفاع",
+  "notifications_analytics_rising_demand_body": "طلبات الدم في ارتفاع. يرجى تجهيز موارد إضافية.",
+  "notifications_analytics_declining_demand_title": "الطلب في انخفاض",
+  "notifications_analytics_declining_demand_body": "طلبات الدم في انخفاض. راجع توزيع المخزون.",
+  "notifications_analytics_shortage_risk_title": "خطر نقص المخزون",
+  "notifications_analytics_shortage_risk_body": "مخزون دم فصيلة {bloodType} من المتوقع أن ينفد خلال 4 أيام.",
+  "@notifications_analytics_shortage_risk_body": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "notifications_analytics_supply_warning_title": "تحذير المخزون",
+  "notifications_analytics_supply_warning_body": "مخزون دم فصيلة {bloodType} يقترب من المستويات الحرجة.",
+  "@notifications_analytics_supply_warning_body": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "notifications_analytics_peak_day_title": "رؤية يوم الذروة",
+  "notifications_analytics_peak_day_body": "يوم {peakDay} يُظهر نشاط تبرع أعلى بنسبة {pct}%. فكر في جدولة المزيد من الحملات في هذا اليوم.",
+  "@notifications_analytics_peak_day_body": {
+    "placeholders": {
+      "peakDay": {},
+      "pct": {}
+    }
+  },
+  "notifications_analytics_retention_alert_title": "تنبيه الاحتفاظ بالمتبرعين",
+  "notifications_analytics_retention_alert_body": "معدل عودة المتبرعين انخفض بشكل ملحوظ. فكر في حملات إعادة التواصل.",
+  "notifications_analytics_growth_positive_title": "نمو إيجابي للمتبرعين",
+  "notifications_analytics_growth_positive_body": "عدد المتبرعين العائدين أعلى مقارنة بالشهر الماضي. الزخم قوي.",
+  "notifications_analytics_emergency_spike_title": "ارتفاع طارئ في الطلب",
+  "notifications_analytics_emergency_spike_body": "ارتفع الطلب على الدم بشكل غير متوقع في الأيام الثلاثة الماضية. قد تكون هناك حاجة لاستجابة طارئة.",
+  "notifications_actions_accept": "قبول",
+  "notifications_actions_view_details": "عرض التفاصيل",
+  "notifications_delete_all": "حذف جميع الإشعارات",
+  "notifications_delete_confirm": "هل أنت متأكد من حذف جميع الإشعارات؟",
+  "notifications_delete_success": "تم حذف جميع الإشعارات بنجاح",
+  "notifications_empty": "لا توجد إشعارات"
 }
