@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/requests_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/widgets/blood_need_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/widgets/hospital_info_card.dart';
@@ -28,13 +29,13 @@ class RequestScreen extends StatefulWidget {
 }
 
 class _RequestScreenState extends State<RequestScreen> {
-  Requests? urgentRequest;
+  Request? urgentRequest;
   DateTime _createdAt = DateTime.now();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    urgentRequest = ModalRoute.of(context)!.settings.arguments as Requests;
+    urgentRequest = ModalRoute.of(context)!.settings.arguments as Request;
     _createdAt = urgentRequest?.createdAt != null
         ? DateTime.tryParse(urgentRequest!.createdAt!) ?? DateTime.now()
         : DateTime.now();
@@ -73,36 +74,18 @@ class _RequestScreenState extends State<RequestScreen> {
     context.read<AcceptRequestCubit>().acceptRequest(requestId: requestId);
   }
 
-  void _handleCancel(BuildContext context) {
-    final requestId = urgentRequest?.id ?? '';
-    log('Cancelling request with ID: $requestId');
-    if (requestId.isEmpty) return;
-
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.cancelRequest),
-        content: Text(AppLocalizations.of(context)!.cancelRequestConfirmation),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx),
-            child: Text(AppLocalizations.of(context)!.no),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.pop(ctx);
-              context
-                  .read<CancelRequestCubit>()
-                  .cancelRequest(requestId: requestId);
-            },
-            child: Text(
-              AppLocalizations.of(context)!.yes,
-              style: const TextStyle(color: Colors.red),
-            ),
-          ),
-        ],
-      ),
-    );
+  // Helper method to localize patient type
+  String _localizePatientType(String? patientType, AppLocalizations appLocalizations) {
+    switch (patientType?.toLowerCase()) {
+      case 'child':
+        return appLocalizations.patientTypeChild;
+      case 'infant':
+        return appLocalizations.patientTypeInfant;
+      case 'adult':
+      default:
+      // Defaulting to adult if null or unknown
+        return appLocalizations.patientTypeAdult;
+    }
   }
 
   @override
@@ -137,14 +120,13 @@ class _RequestScreenState extends State<RequestScreen> {
               Navigator.of(context, rootNavigator: true).pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(state.message),
+                  content: Text(localizeError(state.message, appLocalizations)),
                   backgroundColor: Colors.red,
                 ),
               );
             }
           },
         ),
-
         BlocListener<CancelRequestCubit, CancelRequestState>(
           listener: (context, state) {
             if (state is CancelRequestLoadingState) {
@@ -155,7 +137,6 @@ class _RequestScreenState extends State<RequestScreen> {
                 const Center(child: CircularProgressIndicator()),
               );
             } else if (state is CancelRequestSuccessState) {
-
               Navigator.of(context, rootNavigator: true).pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -209,40 +190,32 @@ class _RequestScreenState extends State<RequestScreen> {
                     ),
                   ),
                 ),
-
                 SizedBox(height: 8.h),
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: HospitalInfoCard(
-                    distance: urgentRequest?.hospital?.address ?? '',
-                    hospitalName: urgentRequest?.hospitalName ?? '',
-                    unitsNeeded:
-                    '${urgentRequest?.unitsNeeded ?? 0} ${appLocalizations.units}',
-                    onNavigate: _openDirections,
-                    iconColor: ColorManger.brightRed,
-                    location:
-                    urgentRequest?.hospital?.address?? '',
-                  ),
+                      distance: '${urgentRequest?.distance ?? 0}',
+                      hospitalName: urgentRequest?.hospitalName ?? '',
+                      unitsNeeded:
+                      '${urgentRequest?.unitsNeeded ?? 0} ${appLocalizations.units}',
+                      onNavigate: _openDirections,
+                      iconColor: ColorManger.brightRed,
+                      location:
+                      urgentRequest?.hospital?.address?.toString() ?? ''),
                 ),
-
                 SizedBox(height: 8.h),
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: RequestDetailsSection(
                     posted: formatTimeAgo(_createdAt),
                     contact: urgentRequest?.hospital?.contactNumber ?? '',
-                    patientType: "urgentRequest?",
+                    // UPDATED: Using the localization helper here
+                    patientType: _localizePatientType(
+                        urgentRequest?.patientType, appLocalizations),
                   ),
                 ),
-
                 SizedBox(height: 8.h),
-
-               // QrCodeCard(qrToken: urgentRequest?.qrToken ?? ''),
-
                 SizedBox(height: 8.h),
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: MapCard(
@@ -253,27 +226,22 @@ class _RequestScreenState extends State<RequestScreen> {
                         RouteManger.mapScreen,
                         arguments: Coordinates(
                           latitude: urgentRequest?.hospital?.latitude ?? 0.0,
-                          longitude:
-                          urgentRequest?.hospital?.longitude ?? 0.0,
+                          longitude: urgentRequest?.hospital?.longitude ?? 0.0,
                         ),
                       );
                     },
                   ),
                 ),
-
                 SizedBox(height: 8.h),
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child:  ResponseMattersSection(
-                    bloodType: urgentRequest?.bloodType?? [],
+                  child: ResponseMattersSection(
+                    bloodType: urgentRequest?.bloodType ?? [],
                     patientType: urgentRequest?.urgency ?? '',
                     unitsNeeded: urgentRequest?.unitsNeeded ?? 0,
                   ),
                 ),
-
                 SizedBox(height: 8.h),
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: BlocBuilder<AcceptRequestCubit, AcceptRequestState>(
@@ -291,7 +259,9 @@ class _RequestScreenState extends State<RequestScreen> {
                                 : () => _handleAccept(context),
                             cancel: isBusy
                                 ? null
-                                : () => _handleCancel(context),
+                                : () {
+                              Navigator.pop(context);
+                            },
                           );
                         },
                       );

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/errors/app_exceptions.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_accept_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/domain/use_case/requests/requests_use_case.dart';
@@ -19,6 +21,7 @@ class AcceptRequestCubit extends Cubit<AcceptRequestState> {
     } on NetworkTimeoutException {
       emit(AcceptRequestErrorState('network_timeout'));
     } on ServerException catch (e) {
+      log('Server error during acceptRequest: ${e.serverMessage}');
       emit(AcceptRequestErrorState(mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(AcceptRequestErrorState('unauthorized'));

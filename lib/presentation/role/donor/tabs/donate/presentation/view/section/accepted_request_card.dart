@@ -21,14 +21,13 @@ class AcceptedRequestCard extends StatelessWidget {
 
   final Requests request;
 
-
-
   void _showCancelConfirmationDialog(BuildContext context, String requestId) {
     final appLocalization = AppLocalizations.of(context)!;
 
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
+
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),
         ),
@@ -89,18 +88,23 @@ class AcceptedRequestCard extends StatelessWidget {
     );
   }
 
+  // UPDATED: Added Helper method to localize patient type
+  String _localizePatientType(String? patientType, AppLocalizations appLocalization) {
+    switch (patientType?.toLowerCase()) {
+      case 'child':
+        return appLocalization.patientTypeChild;
+      case 'infant':
+        return appLocalization.patientTypeInfant;
+      case 'adult':
+      default:
+      // Defaulting to adult if null or unknown
+        return appLocalization.patientTypeAdult;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
-
-    final addressParts = [
-      request.hospitalAddress?.district,
-      request.hospitalAddress?.city,
-      request.hospitalAddress?.governorate,
-    ].where((part) => part != null && part.isNotEmpty).toList();
-    final formattedAddress = addressParts.isNotEmpty
-        ? addressParts.join(', ')
-        : appLocalization.addressNotAvailable;
 
     return BlocListener<CancelRequestCubit, CancelRequestState>(
       listener: (context, state) {
@@ -126,6 +130,7 @@ class AcceptedRequestCard extends StatelessWidget {
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
+
               content: CustomText(
                 text: appLocalization.requestCancelledSuccessfully,
                 textStyle: TextStyle(
@@ -133,16 +138,11 @@ class AcceptedRequestCard extends StatelessWidget {
                   fontSize: FontSize.s14,
                 ),
               ),
-              backgroundColor: ColorManger.successBackground,
+              backgroundColor: ColorManger.green,
               duration: const Duration(seconds: 2),
             ),
           );
 
-          Future.delayed(const Duration(seconds: 2), () {
-            if (context.mounted) {
-              Navigator.pop(context);
-            }
-          });
         } else if (state is CancelRequestAlreadyCancelledState) {
           if (Navigator.canPop(context)) {
             Navigator.pop(context);
@@ -197,30 +197,32 @@ class AcceptedRequestCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Wrap(
-                    spacing: 6.w,
-                    children: (request.bloodType ?? [])
-                        .map(
-                          (bt) => Container(
-                            decoration: BoxDecoration(
-                              color: ColorManger.brightRed,
-                              borderRadius: BorderRadius.circular(6.r),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ),
-                            child: CustomText(
-                              text: bt,
-                              textStyle: TextStyle(
-                                color: ColorManger.pureWhite,
-                                fontSize: FontSize.s13,
-                                fontWeight: FontWeightManager.bold,
-                              ),
+                  Expanded(
+                    child: Wrap(
+                      spacing: 6.w,
+                      children: (request.bloodType ?? [])
+                          .map(
+                            (bt) => Container(
+                          decoration: BoxDecoration(
+                            color: ColorManger.brightRed,
+                            borderRadius: BorderRadius.circular(6.r),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          child: CustomText(
+                            text: bt,
+                            textStyle: TextStyle(
+                              color: ColorManger.pureWhite,
+                              fontSize: FontSize.s13,
+                              fontWeight: FontWeightManager.bold,
                             ),
                           ),
-                        )
-                        .toList(),
+                        ),
+                      )
+                          .toList(),
+                    ),
                   ),
                   SizedBox(width: 8.w),
                   Container(
@@ -263,7 +265,7 @@ class AcceptedRequestCard extends StatelessWidget {
                   SizedBox(width: 4.w),
                   Expanded(
                     child: CustomText(
-                      text: formattedAddress,
+                      text: request.hospitalAddress.toString(),
                       textStyle: TextStyle(
                         color: ColorManger.slateGrey,
                         fontSize: FontSize.s13,
@@ -281,11 +283,11 @@ class AcceptedRequestCard extends StatelessWidget {
                   _InfoChip(
                     icon: Icons.water_drop_outlined,
                     label:
-                        '${request.unitsNeeded ?? 1} ${appLocalization.units}',
+                    '${request.unitsNeeded ?? 1} ${appLocalization.units}',
                   ),
                   _InfoChip(
                     icon: Icons.person_outline,
-                    label: request.patientType ?? appLocalization.unknown,
+                    label: _localizePatientType(request.patientType, appLocalization),
                   ),
                   if (request.isEmergency == true)
                     _InfoChip(
@@ -298,10 +300,10 @@ class AcceptedRequestCard extends StatelessWidget {
               SizedBox(height: 10.h),
               Row(
                 children: [
-                  _StatusDot(status: request.status ?? appLocalization.pending),
+                  _StatusDot(status: request.status == 'accepted'? appLocalization.accepted : request.status == 'completed' ? appLocalization.completed : request.status == 'cancelled' ? appLocalization.cancelled : appLocalization.pending),
                   SizedBox(width: 6.w),
                   CustomText(
-                    text: request.status ?? appLocalization.pending,
+                    text: request.status == 'accepted'? appLocalization.accepted : request.status == 'completed' ? appLocalization.completed : request.status == 'cancelled' ? appLocalization.cancelled : appLocalization.pending,
                     textStyle: TextStyle(
                       color: ColorManger.slateGrey,
                       fontSize: FontSize.s13,
@@ -337,22 +339,22 @@ class AcceptedRequestCard extends StatelessWidget {
                           onPressed: isLoading
                               ? null
                               : () {
-                                  _showCancelConfirmationDialog(
-                                    context,
-                                    request.requestId ?? '',
-                                  );
-                                },
+                            _showCancelConfirmationDialog(
+                              context,
+                              request.requestId ?? '',
+                            );
+                          },
                           child: isLoading
                               ? SizedBox(
-                                  height: 16.h,
-                                  width: 16.h,
-                                  child: const CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      ColorManger.black,
-                                    ),
-                                  ),
-                                )
+                            height: 16.h,
+                            width: 16.h,
+                            child: const CircularProgressIndicator(
+                              strokeWidth: 2,
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                ColorManger.black,
+                              ),
+                            ),
+                          )
                               : CustomText(text: appLocalization.cancel),
                         );
                       },

@@ -1022,9 +1022,7 @@
       }
     }
   },
-  "reward_redeemed_title": "🎁 تم استرداد المكافأة!",
   "@reward_redeemed_title": {},
-  "reward_redeemed_message": "تم تأكيد {rewardName} الخاص بك. الرمز: {confirmationCode}",
   "@reward_redeemed_message": {
     "placeholders": {
       "rewardName": {
@@ -1689,4 +1687,61 @@
 
   "categoryTechnical": "تقني",
   "categoryAccount": "حساب",
-  "categoryRewards": "مكافآت"}
+  "error_reward_fields_required": "حقول المكافأة مطلوبة",
+  "error_status_required": "الحالة مطلوبة",
+  "error_invalid_status_value": "قيمة الحالة غير صالحة",
+  "error_reward_not_found": "المكافأة غير موجودة",
+  "error_bulk_points_empty": "قائمة النقاط المجمعة فارغة",
+  "error_bulk_points_invalid_update": "تحديث النقاط المجمعة غير صالح",
+  "error_adjustment_fields_required": "حقول التعديل مطلوبة",
+  "error_amount_non_zero": "يجب ألا يكون المبلغ صفراً",
+  "error_only_donors_have_points": "المتبرعون فقط هم من يملكون نقاطاً",
+  "error_earning_rule_fields_required": "حقول قاعدة الكسب مطلوبة",
+  "error_points_non_negative": "يجب ألا تكون النقاط سالبة",
+  "error_invalid_rule_type": "نوع القاعدة غير صالح",
+  "error_earning_rule_exists": "قاعدة الكسب موجودة بالفعل",
+  "error_earning_rule_not_found": "قاعدة الكسب غير موجودة",
+  "support_reply_title": "تم استلام رد الدعم",
+  "reward_redeemed_title": "🎁 تم استرداد المكافأة!",
+  "noMoreRequests": "لا توجد طلبات أخرى",
+  "support_reply_message": "تم الرد على طلب الدعم الخاص بك \"{ticketSubject}\".",
+  "error_authorization_required": "التفويض مطلوب",
+  "error_account_suspended": "تم تعليق الحساب",
+  "success_request_fully_accepted": "تم قبول الطلب بالكامل بنجاح",
+  "success_request_pledged": "تم التعهد بالطلب بنجاح",
+  "error_already_pledged": "تم التعهد مسبقاً",
+  "error_only_donors_can_accept": "يمكن للمتبرعين فقط قبول الطلبات",
+  "success_donation_cancelled_expired": "تم إلغاء التبرع لانتهاء صلاحيته",
+  "success_pledge_withdrawn": "تم سحب التعهد بنجاح",
+  "error_cancel_wrong_stage": "لا يمكن الإلغاء في هذه المرحلة",
+  "error_qr_already_scanned": "تم مسح رمز QR مسبقاً",
+  "patientTypeAdult": "بالغ",
+  "patientTypeChild": "طفل",
+  "accepted": "مقبول",
+  "arrivalDeadlineWarning": "يرجى الوصول إلى المستشفى قبل الساعة {time}.",
+  "@arrivalDeadlineWarning": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "missedDonationWarning": "تنبيه: لديك {count} فرصة متبقية قبل تطبيق القيود في حال عدم الحضور.",
+  "@missedDonationWarning": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "patientTypeInfant": "رضيع",
+  "expired": "منتهي الصلاحية",
+  "error_cannot_cancel_others_pledge": "لا يمكنك إلغاء تعهد شخص آخر",
+  "reward_redeemed_message": "تم تأكيد {rewardName} الخاص بك. الكود: {confirmationCode}",
+  "categoryRewards": "مكافآت",
+  "error_invalid_patient_type": "نوع المريض غير صالح. يجب أن يكون بالغ، طفل، أو رضيع",
+  "error_account_banned": "تم حظر حسابك. السبب: {reason}",
+  "@error_account_banned": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  }
+}

@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
+import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/data/model/admin_request_cancel.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/mark_all_as_read_button.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/notification_request.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/title.dart';
@@ -9,12 +12,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/data/models/notification/notifications_model.dart'
-    as notification_model;
+as notification_model;
 
 import '../../../../../../../core/utils/error_localizer.dart';
+// TODO: Update this import path to match exactly where you saved the helper file
+import '../../../../../../../core/utils/notification_helper.dart';
 import '../../../../../../../core/widgets/states/custom_loading_widget.dart';
 import '../../../home/presentation/view/bottom_sheet/confirm_response_bottom_sheet.dart';
 import '../../../home/presentation/view_model/requests/requests_view_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/requests_model.dart' as request_model;
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
@@ -27,6 +33,7 @@ class _NotificationsState extends State<Notifications> {
   List<notification_model.Notifications> _cachedNotifications = [];
   int _cachedUnreadCount = 0;
   bool _hasNextPage = false;
+  bool _isFetching = false;
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -44,44 +51,12 @@ class _NotificationsState extends State<Notifications> {
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels >=
-        _scrollController.position.maxScrollExtent - 200) {
+    final position = _scrollController.position;
+
+    if (position.pixels >= position.maxScrollExtent - 200 &&
+        _hasNextPage &&
+        !_isFetching) {
       context.read<NotificationCubit>().fetchNotifications();
-    }
-  }
-
-  String _getNotificationTitle(
-    notification_model.Notifications item,
-    AppLocalizations loc,
-  ) {
-    switch (item.type) {
-      case 'reward':
-        return loc.badge_unlocked_title(item.title ?? '');
-      case 'emergency':
-        return loc.emergency_request_title;
-      case 'achievement':
-        return loc.tier_up_title(item.title ?? '');
-      default:
-        return item.title ?? '';
-    }
-  }
-
-  String _getNotificationBody(
-    notification_model.Notifications item,
-    AppLocalizations loc,
-  ) {
-    switch (item.type) {
-      case 'emergency':
-        return loc.emergency_request_body(
-          item.data?.requestType ?? '',
-          item.data?.hospitalName ?? '',
-        );
-      case 'reward':
-        return loc.badge_unlocked_message(item.message ?? '');
-      case 'achievement':
-        return loc.tier_up_message(item.title ?? '');
-      default:
-        return item.message ?? '';
     }
   }
 
@@ -90,9 +65,15 @@ class _NotificationsState extends State<Notifications> {
       _cachedNotifications = state.notifications;
       _cachedUnreadCount = state.unreadCount;
       _hasNextPage = state.hasNextPage;
+      _isFetching = false;
     } else if (state is NotificationPaginationLoadingState) {
       _cachedNotifications = state.notifications;
       _cachedUnreadCount = state.unreadCount;
+      _isFetching = true;
+    } else if (state is NotificationLoadingState) {
+      _isFetching = true;
+    } else if (state is NotificationErrorState) {
+      _isFetching = false;
     }
   }
 
@@ -127,6 +108,7 @@ class _NotificationsState extends State<Notifications> {
                     setState(() {
                       _cachedNotifications = [];
                       _cachedUnreadCount = 0;
+                      _hasNextPage = false;
                     });
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -144,46 +126,46 @@ class _NotificationsState extends State<Notifications> {
                   }
                 },
                 child:
-                    BlocBuilder<
-                      NotificationDeleteCubit,
-                      NotificationDeleteState
-                    >(
-                      builder: (context, deleteState) {
-                         if (deleteState is NotificationDeleteLoadingState) {
-                           return Padding(
-                             padding: const EdgeInsets.all(12.0),
-                             child: SizedBox(
-                               width: 20,
-                               height: 20,
-                               child: Skeletonizer(
-                                 enabled: true,
-                                 child: Container(
-                                   decoration: const BoxDecoration(
-                                     color: ColorManger.pureWhite,
-                                     shape: BoxShape.circle,
-                                   ),
-                                 ),
-                               ),
-                             ),
-                           );
-                         }
-                         return IconButton(
-                          onPressed: _cachedNotifications.isEmpty
-                              ? null
-                              : () => _showDeleteConfirmDialog(
-                                  context,
-                                  appLocalization,
-                                ),
-                          icon: Icon(
-                            Icons.delete_outline,
-                            color: _cachedNotifications.isEmpty
-                                ? ColorManger.pureWhite.withValues(alpha: 0.4)
-                                : ColorManger.pureWhite,
+                BlocBuilder<
+                    NotificationDeleteCubit,
+                    NotificationDeleteState
+                >(
+                  builder: (context, deleteState) {
+                    if (deleteState is NotificationDeleteLoadingState) {
+                      return Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: Skeletonizer(
+                            enabled: true,
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: ColorManger.pureWhite,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
                           ),
-                          tooltip: 'Delete all notifications',
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    }
+                    return IconButton(
+                      onPressed: _cachedNotifications.isEmpty
+                          ? null
+                          : () => _showDeleteConfirmDialog(
+                        context,
+                        appLocalization,
+                      ),
+                      icon: Icon(
+                        Icons.delete_outline,
+                        color: _cachedNotifications.isEmpty
+                            ? ColorManger.pureWhite.withValues(alpha: 0.4)
+                            : ColorManger.pureWhite,
+                      ),
+                      tooltip: 'Delete all notifications',
+                    );
+                  },
+                ),
               ),
               IconButton(
                 onPressed: () => Navigator.pop(context),
@@ -203,8 +185,8 @@ class _NotificationsState extends State<Notifications> {
             child: LayoutBuilder(
               builder: (context, constraints) {
                 return BlocListener<
-                  NotificationAllReadCubit,
-                  NotificationAllReadState
+                    NotificationAllReadCubit,
+                    NotificationAllReadState
                 >(
                   listener: (context, allReadState) {
                     if (allReadState is NotificationAllReadSuccessState) {
@@ -229,13 +211,13 @@ class _NotificationsState extends State<Notifications> {
                   child: MarkAllAsReadButton(
                     text: appLocalization.mark_all_as_read,
                     onPressed:
-                        _cachedUnreadCount == 0 || _cachedNotifications.isEmpty
+                    _cachedUnreadCount == 0 || _cachedNotifications.isEmpty
                         ? null
                         : () {
-                            context
-                                .read<NotificationAllReadCubit>()
-                                .markAllAsRead();
-                          },
+                      context
+                          .read<NotificationAllReadCubit>()
+                          .markAllAsRead();
+                    },
                   ),
                 );
               },
@@ -247,9 +229,9 @@ class _NotificationsState extends State<Notifications> {
   }
 
   void _showDeleteConfirmDialog(
-    BuildContext context,
-    AppLocalizations appLocalization,
-  ) {
+      BuildContext context,
+      AppLocalizations appLocalization,
+      ) {
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
@@ -280,11 +262,11 @@ class _NotificationsState extends State<Notifications> {
   }
 
   Widget _buildBody(
-    BuildContext context,
-    NotificationState state,
-    AppLocalizations appLocalization,
-    List<notification_model.Notifications> notificationItems,
-  ) {
+      BuildContext context,
+      NotificationState state,
+      AppLocalizations appLocalization,
+      List<notification_model.Notifications> notificationItems,
+      ) {
     if (state is NotificationLoadingState && notificationItems.isEmpty) {
       return const CustomLoadingWidget();
     }
@@ -308,77 +290,76 @@ class _NotificationsState extends State<Notifications> {
       children: [
         ListView.builder(
           controller: _scrollController,
-          itemCount: notificationItems.length + (isLoadingMore || _hasNextPage ? 1 : 0),
+          itemCount: notificationItems.length + (isLoadingMore ? 1 : 0),
           itemBuilder: (context, index) {
-            // Bottom loading indicator
+
             if (index == notificationItems.length) {
               return isLoadingMore
                   ? const Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Center(
-                        child: CircularProgressIndicator(
-                          color: ColorManger.brightRed,
-                        ),
-                      ),
-                    )
+                padding: EdgeInsets.all(16.0),
+                child: Center(
+                  child: CircularProgressIndicator(
+                    color: ColorManger.brightRed,
+                  ),
+                ),
+              )
                   : const SizedBox.shrink();
             }
 
             final item = notificationItems[index];
-            final String type = item.type ?? 'info';
-            IconData icon;
-            Color iconColor;
 
-            switch (type) {
-              case 'reward':
-                icon = Icons.workspace_premium;
-                iconColor = ColorManger.gold;
-                break;
-              case 'info':
-                icon = Icons.access_time;
-                iconColor = ColorManger.skyBlue;
-                break;
-              case 'achievement':
-                icon = Icons.emoji_events;
-                iconColor = ColorManger.brightRed;
-                break;
-              case 'emergency':
-                icon = Icons.error_outline;
-                iconColor = ColorManger.brightRed;
-                break;
-              default:
-                icon = Icons.notifications;
-                iconColor = ColorManger.skyBlue;
-            }
+            final String type = item.type ?? 'info';
 
             return NotificationRequest(
               bloodRequest: type == 'emergency',
               isEmergency: type == 'emergency',
-              icon: icon,
-              iconColor: iconColor,
+              icon: NotificationHelper.getIcon(type),
+              iconColor: NotificationHelper.getIconColor(type),
               notification: item,
-              titleOverride: _getNotificationTitle(item, appLocalization),
-              bodyOverride: _getNotificationBody(item, appLocalization),
+              titleOverride: NotificationHelper.getTitle(item, appLocalization),
+              bodyOverride: NotificationHelper.getBody(item, appLocalization),
               onPressed: type == 'emergency'
                   ? () async {
-                      final requestId = item.data?.requestId;
-                      if (requestId == null) return;
+                final requestId = item.data?.requestId;
+                if (requestId == null) return;
+                log('Fetching request details for requestId: $requestId');
 
-                      final request = await context
-                          .read<RequestsCubit>()
-                          .fetchRequestById(requestId: requestId);
+                final requestById = await context
+                    .read<RequestsCubit>()
+                    .fetchRequestById(requestId: requestId);
+                final request= request_model.Request(
 
-                      if (context.mounted && request != null) {
-                        showConfirmResponseBottomSheet(context, request);
-                      }
-                    }
+                  requestId: requestById?.data?.requestId,
+                  createdAt: requestById?.data?.createdAt,
+                  hospital: request_model.Hospital(
+                    name: requestById?.data?.hospitalName,
+                    contactNumber: requestById?.data?.hospitalContact,
+                    address: request_model.Address(
+                      raw: requestById?.data?.hospital?.address?.toString(),
+                    ),
+                  ),
+                  hospitalName: requestById?.data?.hospitalName,
+                  distanceKm: requestById?.data?.distanceKm,
+                  bloodType: requestById?.data?.bloodType,
+                  unitsNeeded: requestById?.data?.unitsNeeded,
+                  isEmergency: requestById?.data?.isEmergency,
+                  contactNumber: requestById?.data?.contactNumber,
+                  hospitalContact: requestById?.data?.hospitalContact,
+
+                );
+                log('Fetched request details: ${request.toJson()}');
+
+                if (context.mounted) {
+                  showConfirmResponseBottomSheet(context, request);
+                }
+              }
                   : null,
             );
           },
         ),
 
         if (state is NotificationLoadingState)
-          Positioned(
+          const Positioned(
             top: 0,
             left: 0,
             right: 0,
@@ -387,5 +368,4 @@ class _NotificationsState extends State<Notifications> {
       ],
     );
   }
-
 }

@@ -618,30 +618,89 @@ class _ActivitiesSkeletonLoader extends StatelessWidget {
   }
 }
 
-class _RequestsSection extends StatelessWidget {
+class _RequestsSection extends StatefulWidget {
   const _RequestsSection({required this.onMapLoaded, required this.onRetry});
 
   final VoidCallback onMapLoaded;
   final VoidCallback onRetry;
 
   @override
+  State<_RequestsSection> createState() => _RequestsSectionState();
+}
+
+class _RequestsSectionState extends State<_RequestsSection> {
+  int currentPage = 1;
+  int pageSize = 10; // Adjust based on your API
+  bool hasNextPage = false;
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      if (hasNextPage) {
+        currentPage++;
+        _fetchNextPage();
+      }
+    }
+  }
+
+  void _fetchNextPage() {
+    context.read<RequestsCubit>().fetchRequests(
+      limit: pageSize,
+      page: currentPage,
+    );
+  }
+
+  void _resetPagination() {
+    setState(() {
+      currentPage = 1;
+      hasNextPage = false;
+    });
+    widget.onRetry();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
+
     return BlocListener<MapCubit, MapState>(
       listener: (context, mapState) {
-        if (mapState is MapLoaded) onMapLoaded();
+        if (mapState is MapLoaded) widget.onMapLoaded();
       },
       child: BlocBuilder<RequestsCubit, RequestsState>(
         builder: (context, state) {
           final isLoading = state is RequestsLoadingState;
-          final List<Requests> requests = state is RequestsSuccessState
-              ? state.requestsModel.data?.requestsList ?? []
-              : [];
+
+          List<Request> requests = [];
+          int totalRequests = 0;
+
+          if (state is RequestsSuccessState) {
+            requests = state.requestsModel.data?.matches
+                ?.map((match) => match.request)
+                .whereType<Request>()
+                .toList() ?? [];
+
+            totalRequests = state.requestsModel.data?.pagination?.total ?? 0;
+            hasNextPage = state.requestsModel.data?.pagination?.hasNextPage ?? false;
+          }
 
           if (state is RequestsErrorState) {
+            log('Requests error: ${state.message}');
             return CustomErrorWidget(
               message: localizeError(state.message, appLocalization),
-              onRetry: onRetry,
+              onRetry: _resetPagination,
             );
           }
 
@@ -657,10 +716,37 @@ class _RequestsSection extends StatelessWidget {
           }
 
           return Skeletonizer(
-            enabled: isLoading,
-            child: isLoading
+            enabled: isLoading && currentPage == 1,
+            child: isLoading && currentPage == 1
                 ? _buildSkeletonLoader()
-                : UrgentRequestsSection(requests: requests),
+                : SingleChildScrollView(
+              controller: _scrollController,
+              child: Column(
+                children: [
+                  if (requests.isNotEmpty)
+                    UrgentRequestsSection(requests: requests),
+                  if (isLoading && currentPage > 1)
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                    ),
+                  if (requests.isNotEmpty && !hasNextPage && !isLoading)
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: CustomText(
+                        text: appLocalization.noMoreRequests,
+                        textStyle: TextStyle(
+                          fontWeight: FontWeightManager.regular,
+                          fontSize: FontSize.s12,
+                          color: ColorManger.slateGrey,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
           );
         },
       ),
@@ -689,7 +775,7 @@ class _RequestsSection extends StatelessWidget {
           SizedBox(height: 12.h),
           ...List.generate(
             2,
-            (_) => Column(
+                (_) => Column(
               children: [
                 Container(
                   height: 80,

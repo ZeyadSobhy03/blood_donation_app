@@ -13,7 +13,7 @@ import '../widgets/request_card.dart';
 class UrgentRequestsSection extends StatefulWidget {
   const UrgentRequestsSection({super.key, required this.requests});
 
-  final List<Requests> requests;
+  final List<Request> requests;
 
   @override
   State<UrgentRequestsSection> createState() => _UrgentRequestsSectionState();
@@ -133,8 +133,7 @@ class _UrgentRequestsSectionState extends State<UrgentRequestsSection> {
                       ? ColorManger.brightRed
                       : ColorManger.orange,
                   title: request.hospitalName ?? '',
-                  location: request.hospital?.address ??
-                      AppLocalizations.of(context)!.gettingDistance,
+                  location:'${ request.hospital?.address} ',
                   time: formatTimeAgo(createdAt),
                   buttonBackgroundColor: isEmergency
                       ? ColorManger.brightRed
