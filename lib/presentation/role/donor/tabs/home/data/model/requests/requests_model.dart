@@ -106,8 +106,8 @@ class Matches {
   });
 
   Matches.fromJson(dynamic json) {
-    score = json['score'];
-    locationScore = json['locationScore'];
+    score = (json['score'] as num?)?.toDouble();
+    locationScore = (json['locationScore'] as num?)?.toDouble();
     compatibility = json['compatibility'] != null
         ? Compatibility.fromJson(json['compatibility'])
         : null;
@@ -232,8 +232,8 @@ class Hospital {
     } else {
       address = addr?.toString();
     }
-    latitude = json['latitude'];
-    longitude = json['longitude'];
+    latitude = (json['latitude'] as num?)?.toDouble();
+    longitude = (json['longitude'] as num?)?.toDouble();
   }
 
   String? id;
@@ -262,8 +262,8 @@ class LocationHospital {
   });
 
   LocationHospital.fromJson(dynamic json) {
-    latitude = json['latitude'];
-    longitude = json['longitude'];
+    latitude = (json['latitude'] as num?)?.toDouble();
+    longitude = (json['longitude'] as num?)?.toDouble();
   }
 
   double? latitude;
@@ -287,7 +287,7 @@ class Compatibility {
   Compatibility.fromJson(dynamic json) {
     bloodTypeMatch = json['bloodTypeMatch'];
     eligible = json['eligible'];
-    distanceKm = json['distanceKm'];
+    distanceKm = (json['distanceKm'] as num?)?.toDouble();
   }
 
   bool? bloodTypeMatch;

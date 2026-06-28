@@ -158,6 +158,7 @@ class _SupportTicketsSectionState extends State<SupportTicketsSection> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Card(
+        color: ColorManger.pureWhite,
         elevation: 2,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
@@ -233,7 +234,7 @@ class _SupportTicketsSectionState extends State<SupportTicketsSection> {
                 width: double.infinity,
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    side: BorderSide(color: ColorManger.brightRed.withValues(alpha: 0.5)),
+                    backgroundColor: Colors.blueAccent,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -242,7 +243,7 @@ class _SupportTicketsSectionState extends State<SupportTicketsSection> {
                   child: CustomText(
                     text: loc.viewDetails,
                     textStyle: TextStyle(
-                      color: ColorManger.brightRed,
+                      color: ColorManger.pureWhite,
                       fontSize: FontSize.s13,
                     ),
                   ),
