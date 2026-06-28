@@ -45,51 +45,60 @@ class DonationRecordTile extends StatelessWidget {
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           leading,
-          const SizedBox(width: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-
-            children: [
-              CustomText(
-                text: donationType,
-                textStyle: TextStyle(
-                  fontSize: FontSize.s16,
-                  fontWeight: FontWeightManager.semiBold,
-                  color: ColorManger.black,
-                ),
-              ),
-              const SizedBox(height: 8),
-              CustomText(
-                text: hospitalName,
-                textStyle: TextStyle(
-                  fontSize: FontSize.s14,
-                  fontWeight: FontWeightManager.medium,
-                  color: ColorManger.slateGrey,
-                ),
-              ),
-              const SizedBox(height: 6),
-              Row(
-                children: [
-                  Icon(
-                    Icons.calendar_today_outlined,
-                    color: ColorManger.slateGrey.withValues(alpha: 0.7),
-                    size: 14,
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                  text: donationType,
+                  textStyle: TextStyle(
+                    fontSize: FontSize.s16,
+                    fontWeight: FontWeightManager.semiBold,
+                    color: ColorManger.black,
                   ),
-                  const SizedBox(width: 6),
-                  CustomText(
-                    text: date,
-                    textStyle: TextStyle(
-                      fontSize: FontSize.s13,
-                      fontWeight: FontWeightManager.regular,
-                      color: ColorManger.slateGrey,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 8),
+                CustomText(
+                  text: hospitalName,
+                  textStyle: TextStyle(
+                    fontSize: FontSize.s14,
+                    fontWeight: FontWeightManager.medium,
+                    color: ColorManger.slateGrey,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.calendar_today_outlined,
+                      color: ColorManger.slateGrey.withValues(alpha: 0.7),
+                      size: 14,
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    const SizedBox(width: 6),
+                    Flexible(
+                      child: CustomText(
+                        text: date,
+                        textStyle: TextStyle(
+                          fontSize: FontSize.s13,
+                          fontWeight: FontWeightManager.regular,
+                          color: ColorManger.slateGrey,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           const SizedBox(width: 8),
           Column(

@@ -2165,6 +2165,51 @@
   "notifications_appointment_donor_rescheduled": "Donor Rescheduled Appointment",
   "notifications_appointment_new_booked": "New Appointment Booked",
   "notifications_appointment_cancelled_by_donor": "Appointment cancelled by donor",
+  "notifications_donor_response_title": "New donor response",
+  "notifications_appointment_confirmed_body": "Your {hospitalName} donation appointment is confirmed!",
+  "@notifications_appointment_confirmed_body": {
+    "placeholders": {
+      "hospitalName": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications_appointment_cancelled_body": "{donorName} cancelled their appointment on {date}",
+  "@notifications_appointment_cancelled_body": {
+    "placeholders": {
+      "donorName": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications_donor_pledged_body": "{donorName} pledged {amount} unit(s) for {bloodTypes}. {moreNeeded} more needed",
+  "@notifications_donor_pledged_body": {
+    "placeholders": {
+      "donorName": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "bloodTypes": {
+        "type": "String"
+      },
+      "moreNeeded": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications_appointment_booked_body": "A donor has booked an appointment for {date}",
+  "@notifications_appointment_booked_body": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "notifications_activity_tier_promoted": "Tier Promoted",
   "notifications_activity_badge_unlocked": "Badge Unlocked",
   "notifications_activity_redeemed_reward": "Reward Redeemed",

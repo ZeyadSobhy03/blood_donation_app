@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../core/resources/colors/color_manger.dart';
+import '../../../../../../../core/utils/notification_helper.dart';
 import '../../../../../../../core/widgets/states/custom_error_widget.dart';
 import '../../../../../../../core/widgets/states/custom_loading_widget.dart';
 import '../../../../../../../l10n/app_localizations.dart';
@@ -63,10 +64,6 @@ class _HospitalNotificationsState extends State<HospitalNotifications> {
   String _getNotificationTitle(notif_model.NotificationItem item, AppLocalizations loc) {
     final r = item.dataRaw;
     switch (item.type) {
-      case 'match':
-        return loc.notifications_match_title;
-      case 'emergency':
-        return loc.notifications_emergency_title;
       case 'milestone':
       case 'achievement':
         return loc.notifications_milestone_title(r?['achievementTitle'] ?? '');
@@ -80,10 +77,6 @@ class _HospitalNotificationsState extends State<HospitalNotifications> {
         return loc.notifications_appointment_rescheduled;
       case 'appointment_donor_rescheduled':
         return loc.notifications_appointment_donor_rescheduled;
-      case 'appointment_new_booked':
-        return loc.notifications_appointment_new_booked;
-      case 'appointment_cancelled':
-        return loc.notifications_appointment_cancelled_by_donor;
       case 'activity_tier_promoted':
         return loc.notifications_activity_tier_promoted;
       case 'activity_badge_unlocked':
@@ -150,20 +143,19 @@ class _HospitalNotificationsState extends State<HospitalNotifications> {
           }
           return loc.notifications_rewards_reward_redeemed;
         }
-        return item.title ?? '';
+        return NotificationHelper.getTitleFromFields(
+          type: item.type,
+          title: item.title,
+          message: item.message,
+          dataRaw: item.dataRaw,
+          loc: loc,
+        );
     }
   }
 
   String _getNotificationBody(notif_model.NotificationItem item, AppLocalizations loc) {
     final r = item.dataRaw;
     switch (item.type) {
-      case 'match':
-        return loc.notifications_match_body(r?['requestLabel'] ?? '');
-      case 'emergency':
-        return loc.notifications_emergency_body(
-          r?['bloodType'] ?? '',
-          r?['hospitalName'] ?? item.data?.hospitalName ?? '',
-        );
       case 'milestone':
       case 'achievement':
         return loc.notifications_milestone_body(r?['achievementTitle'] ?? '');
@@ -188,7 +180,13 @@ class _HospitalNotificationsState extends State<HospitalNotifications> {
       case 'analytics_declining_demand':
         return loc.notifications_analytics_declining_demand_body;
       default:
-        return item.message ?? '';
+        return NotificationHelper.getBodyFromFields(
+          type: item.type,
+          title: item.title,
+          message: item.message,
+          dataRaw: item.dataRaw,
+          loc: loc,
+        );
     }
   }
 
@@ -409,36 +407,12 @@ class _HospitalNotificationsState extends State<HospitalNotifications> {
 
             final item = notificationItems[index];
             final String type = item.type ?? 'info';
-            IconData icon;
-            Color iconColor;
-
-            switch (type) {
-              case 'reward':
-                icon = Icons.workspace_premium;
-                iconColor = ColorManger.gold;
-                break;
-              case 'info':
-                icon = Icons.access_time;
-                iconColor = ColorManger.skyBlue;
-                break;
-              case 'achievement':
-                icon = Icons.emoji_events;
-                iconColor = ColorManger.brightRed;
-                break;
-              case 'emergency':
-                icon = Icons.error_outline;
-                iconColor = ColorManger.brightRed;
-                break;
-              default:
-                icon = Icons.notifications;
-                iconColor = ColorManger.skyBlue;
-            }
 
             return NotificationRequest(
               bloodRequest: type == 'emergency',
               isEmergency: type == 'emergency',
-              icon: icon,
-              iconColor: iconColor,
+              icon: NotificationHelper.getIcon(type),
+              iconColor: NotificationHelper.getIconColor(type),
               notification: item,
               titleOverride: _getNotificationTitle(item, appLocalization),
               bodyOverride: _getNotificationBody(item, appLocalization),

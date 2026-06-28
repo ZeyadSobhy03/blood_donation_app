@@ -4,8 +4,8 @@ import '../../../models/notification/notifications_model.dart';
 import 'notification_hive_data_source.dart';
 
 class HiveNotificationDataSource implements LocalNotificationDataSource {
-  static const String _boxName = 'notifications_box';
-  static const String _key = 'notifications';
+  static const String _boxName = 'hospital_notifications_box';
+  static const String _key = 'hospital_notifications';
 
   late Box _box;
 

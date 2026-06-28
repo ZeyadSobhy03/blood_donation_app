@@ -125,8 +125,8 @@ class Matches {
 
   Matches.fromJson(dynamic json) {
     request = json['request'] != null ? Request.fromJson(json['request']) : null;
-    score = json['score'];
-    locationScore = json['locationScore'];
+    score = (json['score'] as num?)?.toDouble();
+    locationScore = (json['locationScore'] as num?)?.toDouble();
     compatibility = json['compatibility'] != null ? Compatibility.fromJson(json['compatibility']) : null;
   }
   Request? request;
@@ -162,7 +162,7 @@ class Compatibility {
   Compatibility.fromJson(dynamic json) {
     bloodTypeMatch = json['bloodTypeMatch'];
     eligible = json['eligible'];
-    distanceKm = json['distanceKm'];
+    distanceKm = (json['distanceKm'] as num?)?.toDouble();
   }
   bool? bloodTypeMatch;
   bool? eligible;
@@ -253,13 +253,13 @@ class Request {
     patientDetails = json['patientDetails'];
     locationHospital = json['locationHospital'] != null ? LocationHospital.fromJson(json['locationHospital']) : null;
     hospital = json['hospital'] != null ? Hospital.fromJson(json['hospital']) : null;
-    distanceKm = json['distanceKm'];
+    distanceKm = (json['distanceKm'] as num?)?.toDouble();
     distanceMeters = json['distanceMeters'];
     distance = json['distance'];
     estimatedTime = json['estimatedTime'];
     posted = json['posted'];
-    hospitalLatitude = json['hospitalLatitude'];
-    hospitalLongitude = json['hospitalLongitude'];
+    hospitalLatitude = (json['hospitalLatitude'] as num?)?.toDouble();
+    hospitalLongitude = (json['hospitalLongitude'] as num?)?.toDouble();
   }
   String? id;
   String? requestId;
@@ -345,8 +345,8 @@ class Hospital {
     name = json['name'];
     contactNumber = json['contactNumber'];
     address = json['address'] != null ? Address.fromJson(json['address']) : null;
-    latitude = json['latitude'];
-    longitude = json['longitude'];
+    latitude = (json['latitude'] as num?)?.toDouble();
+    longitude = (json['longitude'] as num?)?.toDouble();
   }
   String? id;
   String? name;
@@ -427,8 +427,8 @@ class LocationHospital {
     this.longitude,});
 
   LocationHospital.fromJson(dynamic json) {
-    latitude = json['latitude'];
-    longitude = json['longitude'];
+    latitude = (json['latitude'] as num?)?.toDouble();
+    longitude = (json['longitude'] as num?)?.toDouble();
   }
   double? latitude;
   double? longitude;
