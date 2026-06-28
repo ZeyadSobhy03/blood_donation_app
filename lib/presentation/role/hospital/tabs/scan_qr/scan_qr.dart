@@ -15,8 +15,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import '../../../../../l10n/app_localizations.dart';
-
 class ScanQr extends StatelessWidget {
   const ScanQr({super.key});
 

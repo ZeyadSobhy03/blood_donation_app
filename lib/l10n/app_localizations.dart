@@ -8665,7 +8665,7 @@ abstract class AppLocalizations {
   /// No description provided for @supportTicketReplyHint.
   ///
   /// In en, this message translates to:
-  /// **'Type your reply...'**
+  /// **'Send reply'**
   String get supportTicketReplyHint;
 
   /// No description provided for @supportTicketSendReply.

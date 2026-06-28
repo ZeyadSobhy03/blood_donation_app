@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/widgets/custom_drop_down_button_form_field.dart';
 import '../../../../../../core/widgets/custom_label.dart';
 import '../../../../../../l10n/app_localizations.dart';
-import '../../../../donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
 import '../data/model/request_enum_mapper.dart';
 
 class EmergencyRequestBody extends StatelessWidget {

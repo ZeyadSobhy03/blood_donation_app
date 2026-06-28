@@ -10,8 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../../l10n/app_localizations.dart';
-import '../../../../donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
-import '../../../../donor/tabs/donate/schedule_donation/widgets/input_label.dart';
+import '../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/input_label.dart';
 import '../data/model/request_enum_mapper.dart';
 
 class RequestDetailBody extends StatefulWidget {
@@ -45,8 +45,8 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
     super.dispose();
   }
 
-  Future<void> _pickDate() async {
-    final picked = await showDatePicker(
+  Future<void> _pickDateTime() async {
+    final pickedDate = await showDatePicker(
       context: context,
       initialDate: _requiredByDate ?? DateTime.now(),
       firstDate: DateTime.now(),
@@ -62,7 +62,31 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
         child: child!,
       ),
     );
-    if (picked != null) setState(() => _requiredByDate = picked);
+    if (pickedDate == null) return;
+    final pickedTime = await showTimePicker(
+      context: context,
+      initialTime: _requiredByDate != null
+          ? TimeOfDay.fromDateTime(_requiredByDate!)
+          : TimeOfDay.now(),
+      builder: (context, child) => Theme(
+        data: Theme.of(context).copyWith(
+          colorScheme: ColorScheme.light(
+            primary: ColorManger.skyBlue,
+            onPrimary: ColorManger.pureWhite,
+            surface: ColorManger.pureWhite,
+          ),
+        ),
+        child: child!,
+      ),
+    );
+    if (pickedTime == null) return;
+    setState(() => _requiredByDate = DateTime(
+      pickedDate.year,
+      pickedDate.month,
+      pickedDate.day,
+      pickedTime.hour,
+      pickedTime.minute,
+    ));
   }
 
   void _submit(AppLocalizations loc) {
@@ -282,7 +306,7 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
                   InputLabel(label: loc.requiredBy),
                   SizedBox(height: 8.h),
                   GestureDetector(
-                    onTap: isLoading ? null : _pickDate,
+                    onTap: isLoading ? null : _pickDateTime,
                     child: Container(
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(
@@ -302,7 +326,7 @@ class _RequestDetailBodyState extends State<RequestDetailBody> {
                           const SizedBox(width: 10),
                           CustomText(
                             text: _requiredByDate != null
-                                ? DateFormat('dd / MM / yyyy')
+                                ? DateFormat('dd / MM / yyyy  HH:mm')
                                 .format(_requiredByDate!)
                                 : loc.selectDateLabel,
                             textStyle: TextStyle(

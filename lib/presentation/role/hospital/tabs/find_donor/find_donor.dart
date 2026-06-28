@@ -11,11 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/resources/fonts/font_manger.dart';
-import '../../../../../core/resources/models/donor.dart';
-import '../../../donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
-import '../../../donor/tabs/find_hospital/section/blood_filter.dart';
-import '../../../donor/tabs/find_hospital/widgets/custom_hospital_button.dart';
+import '../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../donor/tabs/find_hospital/presentation/view/section/blood_filter.dart';
+import '../../../donor/tabs/find_hospital/presentation/view/widgets/custom_hospital_button.dart';
 
 class FindDonor extends StatefulWidget {
   const FindDonor({super.key});

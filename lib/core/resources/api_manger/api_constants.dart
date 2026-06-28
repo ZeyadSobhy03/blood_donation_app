@@ -82,7 +82,6 @@ class ApiManger {
 
   static const String verifyForgetPasswordOtp = "${baseUrl}auth/verify-otp";
   static const String resetPasswordEndpoint = "${baseUrl}auth/reset-password";
-  static const String forgetPasswordEndpoint = "${baseUrl}auth/forgot-password";
   static const String logoutEndpoint = "${baseUrl}auth/logout";
   static const String changePasswordEndpoint = "${baseUrl}auth/change-password";
   static const String editProfileEndpoint = "${baseUrl}donor/profile";

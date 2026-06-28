@@ -1631,7 +1631,7 @@
   "supportTicketFrom": "من",
   "supportTicketCreatedAt": "تاريخ الإنشاء",
   "supportTicketReply": "رد",
-  "supportTicketReplyHint": "اكتب ردك...",
+  "supportTicketReplyHint": "أرسل ردًا",
   "supportTicketSendReply": "إرسال الرد",
   "supportTicketStatusOpen": "مفتوح",
   "supportTicketStatusClosed": "مغلق",

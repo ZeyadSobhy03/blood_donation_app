@@ -4604,7 +4604,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get supportTicketReply => 'رد';
 
   @override
-  String get supportTicketReplyHint => 'اكتب ردك...';
+  String get supportTicketReplyHint => 'أرسل ردًا';
 
   @override
   String get supportTicketSendReply => 'إرسال الرد';

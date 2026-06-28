@@ -1745,7 +1745,7 @@
   "supportTicketFrom": "From",
   "supportTicketCreatedAt": "Created",
   "supportTicketReply": "Reply",
-  "supportTicketReplyHint": "Type your reply...",
+  "supportTicketReplyHint": "Send reply",
   "supportTicketSendReply": "Send Reply",
   "supportTicketStatusOpen": "Open",
   "supportTicketStatusClosed": "Closed",

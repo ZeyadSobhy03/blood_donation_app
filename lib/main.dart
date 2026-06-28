@@ -113,6 +113,10 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/do
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/domain/use_cases/notification/notification_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view_model/fcm/fcm_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view_model/notification/notification_view_model.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/data_source/fcm/fcm_api_data_source.dart' as hospital_fcm_api;
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/repositories/fcm/fcm_repositories_imp.dart' as hospital_fcm_repo;
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/domain/use_cases/fcm/fcm_use_case.dart' as hospital_fcm_uc;
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view_model/fcm/fcm_view_model.dart' as hospital_fcm;
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/change_password/change_password_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/profile/profile_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/setting/setting_api_data_source.dart';
@@ -145,27 +149,11 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/presenta
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/presentation/view_model/rewards_view_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/presentation/view_model/user_points_view_model.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/local_data_source/hospital_hive_data_source.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/data/data_source/schedule_donation_api_data_source.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/data/repositories/schedule_donation_repositories_imp.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/domain/use_cases/schedule_donation_use_case.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/schedule_donation/presentation/view_model/schedule_donation_view_model.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/data/data_source/find_donors_api_data_source.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/data/repositories/find_donors_repository_imp.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/domain/use_cases/find_donors_use_case.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/presentation/view_model/find_donors_view_model.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/data_source/fcm/fcm_api_data_source.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/data_source/notification/local/notification_local_data_source.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/data_source/notification/remote/notification_api_data_source.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/repositories/fcm/fcm_repositories_imp.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/repositories/notification/notification_repository_impl.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/domain/use_cases/fcm/fcm_use_case.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/domain/use_cases/notification/notification_use_case.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view_model/fcm/fcm_view_model.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view_model/notification/notification_view_model.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/remote_data_source/hospital_api_data_source.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/repositories/hospital_repositories_impl.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/domain/use_case/hospital_use_case.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/presentation/view_model/hospital_view_model.dart';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -423,7 +411,6 @@ void main() async {
         RepositoryProvider<AuthHiveDataSource>.value(
           value: authHiveDataSource,
         ),
-        ),
         BlocProvider(
           create: (context) => SupportTicketsCubit(
             supportTicketsUseCase: SupportTicketsUseCase(
@@ -526,6 +513,25 @@ void main() async {
                 fcmRemoteDataSource: FcmApiDataSource(dio, authHiveDataSource),
               ),
             ),
+          ),
+        ),
+        BlocProvider<hospital_fcm.FcmCubit>(
+          create: (context) => hospital_fcm.FcmCubit(
+            fcmUseCase: hospital_fcm_uc.FcmUseCase(
+              repository: hospital_fcm_repo.FcmRepositoriesImp(
+                fcmRemoteDataSource: hospital_fcm_api.FcmApiDataSource(dio),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => HospitalCubit(
+            hospitalUseCase: HospitalUseCase(
+              hospitalRepositories: HospitalRepositoriesImp(
+                hospitalRemoteDataSource: HospitalApiDataSource(dio),
+              ),
+            ),
+            hospitalHiveDataSource: context.read<HospitalHiveDataSource>(),
           ),
         ),
         BlocProvider(

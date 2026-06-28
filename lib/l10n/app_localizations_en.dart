@@ -4634,7 +4634,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get supportTicketReply => 'Reply';
 
   @override
-  String get supportTicketReplyHint => 'Type your reply...';
+  String get supportTicketReplyHint => 'Send reply';
 
   @override
   String get supportTicketSendReply => 'Send Reply';
