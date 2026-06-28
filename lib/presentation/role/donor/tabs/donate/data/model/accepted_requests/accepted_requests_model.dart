@@ -1,9 +1,12 @@
+/// success : true
+/// message : "Accepted requests retrieved successfully"
+/// data : {"requests":[{"requestId":"6a130e82f9830f9b4aeb1494","donationId":"6a130e83f9830f9b4aeb149f","status":"accepted","donationStatus":"pending","acceptedAt":"2026-06-25T22:30:49.147Z","qrToken":null,"arrivalDeadline":null,"qrExpiresAt":null,"qrExpired":true,"arrivalDeadlinePassed":false,"bloodType":["O+","B-"],"bloodTypeLabel":"O+, B-","urgency":"critical","unitsNeeded":3,"unitsAccepted":0,"fullyAccepted":false,"patientType":"adult","patientDetails":null,"isEmergency":true,"hospitalName":"Cairo Care Operations","contactNumber":"1044444444","hospitalId":"6a130e820b339a45a51addb4","hospitalAddress":{"city":"Cairo","governorate":"Cairo","district":"Garden City"}}],"pagination":{"total":1,"page":1,"currentPage":1,"limit":20,"totalPages":1,"hasNextPage":false,"hasPrevPage":false}}
 
 class AcceptedRequestsModel {
   AcceptedRequestsModel({
-      this.success, 
-      this.message, 
-      this.data,});
+    this.success,
+    this.message,
+    this.data,});
 
   AcceptedRequestsModel.fromJson(dynamic json) {
     success = json['success'];
@@ -26,11 +29,13 @@ class AcceptedRequestsModel {
 
 }
 
+/// requests : [{"requestId":"6a130e82f9830f9b4aeb1494", ... ,"hospitalAddress":{"city":"Cairo","governorate":"Cairo","district":"Garden City"}}]
+/// pagination : {"total":1,"page":1,"currentPage":1,"limit":20,"totalPages":1,"hasNextPage":false,"hasPrevPage":false}
 
 class Data {
   Data({
-      this.requests, 
-      this.pagination,});
+    this.requests,
+    this.pagination,});
 
   Data.fromJson(dynamic json) {
     if (json['requests'] != null) {
@@ -67,13 +72,13 @@ class Data {
 
 class Pagination {
   Pagination({
-      this.total, 
-      this.page, 
-      this.currentPage, 
-      this.limit, 
-      this.totalPages, 
-      this.hasNextPage, 
-      this.hasPrevPage,});
+    this.total,
+    this.page,
+    this.currentPage,
+    this.limit,
+    this.totalPages,
+    this.hasNextPage,
+    this.hasPrevPage,});
 
   Pagination.fromJson(dynamic json) {
     total = json['total'];
@@ -106,51 +111,55 @@ class Pagination {
 
 }
 
-/// requestId : "6a130e83f9830f9b4aeb149d"
-/// donationId : "6a1b1f26b61716677456fc66"
+/// requestId : "6a130e82f9830f9b4aeb1494"
+/// donationId : "6a130e83f9830f9b4aeb149f"
 /// status : "accepted"
 /// donationStatus : "pending"
-/// acceptedAt : "2026-06-20T20:14:07.722Z"
+/// acceptedAt : "2026-06-25T22:30:49.147Z"
 /// qrToken : null
 /// arrivalDeadline : null
 /// qrExpiresAt : null
 /// qrExpired : true
 /// arrivalDeadlinePassed : false
-/// bloodType : ["O+","A+"]
-/// bloodTypeLabel : "O+, A+"
+/// bloodType : ["O+","B-"]
+/// bloodTypeLabel : "O+, B-"
 /// urgency : "critical"
-/// unitsNeeded : 2
+/// unitsNeeded : 3
+/// unitsAccepted : 0
+/// fullyAccepted : false
 /// patientType : "adult"
 /// patientDetails : null
 /// isEmergency : true
-/// hospitalName : "Cairo Care Hospital"
+/// hospitalName : "Cairo Care Operations"
 /// contactNumber : "1044444444"
 /// hospitalId : "6a130e820b339a45a51addb4"
 /// hospitalAddress : {"city":"Cairo","governorate":"Cairo","district":"Garden City"}
 
 class Requests {
   Requests({
-      this.requestId, 
-      this.donationId, 
-      this.status, 
-      this.donationStatus, 
-      this.acceptedAt, 
-      this.qrToken, 
-      this.arrivalDeadline, 
-      this.qrExpiresAt, 
-      this.qrExpired, 
-      this.arrivalDeadlinePassed, 
-      this.bloodType, 
-      this.bloodTypeLabel, 
-      this.urgency, 
-      this.unitsNeeded, 
-      this.patientType, 
-      this.patientDetails, 
-      this.isEmergency, 
-      this.hospitalName, 
-      this.contactNumber, 
-      this.hospitalId, 
-      this.hospitalAddress,});
+    this.requestId,
+    this.donationId,
+    this.status,
+    this.donationStatus,
+    this.acceptedAt,
+    this.qrToken,
+    this.arrivalDeadline,
+    this.qrExpiresAt,
+    this.qrExpired,
+    this.arrivalDeadlinePassed,
+    this.bloodType,
+    this.bloodTypeLabel,
+    this.urgency,
+    this.unitsNeeded,
+    this.unitsAccepted,
+    this.fullyAccepted,
+    this.patientType,
+    this.patientDetails,
+    this.isEmergency,
+    this.hospitalName,
+    this.contactNumber,
+    this.hospitalId,
+    this.hospitalAddress,});
 
   Requests.fromJson(dynamic json) {
     requestId = json['requestId'];
@@ -167,13 +176,15 @@ class Requests {
     bloodTypeLabel = json['bloodTypeLabel'];
     urgency = json['urgency'];
     unitsNeeded = json['unitsNeeded'];
+    unitsAccepted = json['unitsAccepted'];
+    fullyAccepted = json['fullyAccepted'];
     patientType = json['patientType'];
     patientDetails = json['patientDetails'];
     isEmergency = json['isEmergency'];
     hospitalName = json['hospitalName'];
     contactNumber = json['contactNumber'];
     hospitalId = json['hospitalId'];
-    hospitalAddress = json['hospitalAddress'] != null ? HospitalAddress.fromJson(json['hospitalAddress']) : null;
+    hospitalAddress = HospitalAddress.parse(json['hospitalAddress']);
   }
   String? requestId;
   String? donationId;
@@ -189,6 +200,8 @@ class Requests {
   String? bloodTypeLabel;
   String? urgency;
   int? unitsNeeded;
+  int? unitsAccepted;
+  bool? fullyAccepted;
   String? patientType;
   dynamic patientDetails;
   bool? isEmergency;
@@ -213,15 +226,15 @@ class Requests {
     map['bloodTypeLabel'] = bloodTypeLabel;
     map['urgency'] = urgency;
     map['unitsNeeded'] = unitsNeeded;
+    map['unitsAccepted'] = unitsAccepted;
+    map['fullyAccepted'] = fullyAccepted;
     map['patientType'] = patientType;
     map['patientDetails'] = patientDetails;
     map['isEmergency'] = isEmergency;
     map['hospitalName'] = hospitalName;
     map['contactNumber'] = contactNumber;
     map['hospitalId'] = hospitalId;
-    if (hospitalAddress != null) {
-      map['hospitalAddress'] = hospitalAddress?.toJson();
-    }
+    map['hospitalAddress'] = hospitalAddress?.toJson();
     return map;
   }
 
@@ -230,21 +243,46 @@ class Requests {
 /// city : "Cairo"
 /// governorate : "Cairo"
 /// district : "Garden City"
-
+///
+/// The backend has been observed to send this field either as an object
+/// ({"city": ..., "governorate": ..., "district": ...}) or, in older/other
+/// responses, as a plain string (e.g. "Cairo, Garden City"). HospitalAddress
+/// safely handles both via the [parse] factory so the app never crashes
+/// regardless of which shape the API returns.
 class HospitalAddress {
   HospitalAddress({
-      this.city, 
-      this.governorate, 
-      this.district,});
+    this.city,
+    this.governorate,
+    this.district,
+    this.raw,});
 
   HospitalAddress.fromJson(dynamic json) {
     city = json['city'];
     governorate = json['governorate'];
     district = json['district'];
   }
+
+  /// Builds a [HospitalAddress] from either a Map or a String, or returns
+  /// null if the value is null/unsupported. Use this instead of calling
+  /// HospitalAddress.fromJson directly when the source field's type isn't
+  /// guaranteed.
+  static HospitalAddress? parse(dynamic json) {
+    if (json == null) return null;
+    if (json is Map) {
+      return HospitalAddress.fromJson(json);
+    }
+    if (json is String) {
+      return HospitalAddress(raw: json);
+    }
+    return null;
+  }
+
   String? city;
   String? governorate;
   String? district;
+
+  /// Populated only when the API sent a plain string instead of an object.
+  String? raw;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -254,4 +292,14 @@ class HospitalAddress {
     return map;
   }
 
+  /// Human-readable representation, e.g. "Garden City, Cairo, Cairo".
+  /// Falls back to [raw] if the API sent a plain string.
+  @override
+  String toString() {
+    if (raw != null && raw!.isNotEmpty) return raw!;
+    final parts = [district, city, governorate]
+        .where((e) => e != null && e.isNotEmpty)
+        .toList();
+    return parts.join(', ');
+  }
 }

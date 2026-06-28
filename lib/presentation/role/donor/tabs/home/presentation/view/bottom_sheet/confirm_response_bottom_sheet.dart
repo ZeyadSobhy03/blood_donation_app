@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:blood_donation_app/core/utils/error_localizer.dart';
+import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,7 +33,7 @@ String formatTimeAgo(DateTime dateTime, BuildContext context) {
 
 void showConfirmResponseBottomSheet(
     BuildContext context,
-    Requests request,
+    Request request,
     ) {
   final createdAt = request.createdAt != null
       ? DateTime.tryParse(request.createdAt!) ?? DateTime.now()
@@ -43,7 +47,7 @@ void showConfirmResponseBottomSheet(
     context: context,
     backgroundColor: ColorManger.pureWhite,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+      borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
     ),
     builder: (sheetContext) {
       final appLocalizations = AppLocalizations.of(sheetContext)!;
@@ -65,19 +69,71 @@ void showConfirmResponseBottomSheet(
                     const Center(child: CircularProgressIndicator()),
                   );
                 } else if (state is AcceptRequestSuccessState) {
-                  Navigator.of(ctx, rootNavigator: true).pop();
-                  Navigator.pop(ctx);
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(appLocalizations.requestAcceptedSuccessfully),
-                      backgroundColor: Colors.green,
-                    ),
+                  Navigator.of(ctx, rootNavigator: true).pop(); // close loading dialog
+                  Navigator.pop(ctx); // close bottom sheet
+
+                  final data = state.requestAcceptModel.data;
+                  final deadline = data?.arrivalDeadline != null
+                      ? DateTime.tryParse(data!.arrivalDeadline!)
+                      : null;
+                  final remaining = data?.missedDonationRemaining;
+
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (dialogCtx) {
+                      return AlertDialog(
+                        title: Text(appLocalizations.requestAcceptedSuccessfully),
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (deadline != null)
+                              Text(
+                                appLocalizations.arrivalDeadlineWarning(
+                                  '${deadline.hour.toString().padLeft(2, '0')}:${deadline.minute.toString().padLeft(2, '0')}',
+                                ),
+                              ),
+                            SizedBox(height: 8.h),
+                            if (remaining != null)
+                              Text(
+                                appLocalizations.missedDonationWarning(remaining),
+                                style: TextStyle(
+                                  color: remaining <= 1 ? Colors.red : Colors.orange,
+                                  fontWeight: FontWeightManager.bold,
+                                ),
+                              ),
+                          ],
+                        ),
+                        actions: [
+                          CustomElevatedButton(
+                            elevation: 0,
+                            backgroundColor: ColorManger.brightRed,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                            foregroundColor: ColorManger.pureWhite,
+
+
+
+
+
+
+                            onPressed: () => Navigator.pop(dialogCtx),
+
+                            child: Text(appLocalizations.ok),
+                          ),
+                        ],
+                      );
+                    },
                   );
                 } else if (state is AcceptRequestErrorState) {
-                  Navigator.of(ctx, rootNavigator: true).pop();
+                  log('AcceptRequestErrorState: ${state.message}');
+                  Navigator.of(ctx, rootNavigator: true).pop(); // close loading dialog
+                  Navigator.pop(ctx); // close the bottom sheet
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(state.message),
+                      content: Text(localizeError(state.message, appLocalizations)),
                       backgroundColor: Colors.red,
                     ),
                   );
@@ -104,7 +160,8 @@ void showConfirmResponseBottomSheet(
                     ),
                   );
                 } else if (state is CancelRequestErrorState) {
-                  Navigator.of(ctx, rootNavigator: true).pop();
+                  Navigator.of(ctx, rootNavigator: true).pop(); // close loading dialog
+                  Navigator.pop(ctx); // close the bottom sheet
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(state.message),
@@ -163,8 +220,7 @@ void showConfirmResponseBottomSheet(
                       backgroundColor: ColorManger.lightRed,
                       dotColor: ColorManger.brightRed,
                       title: request.hospitalName ?? '',
-                      location: request.hospital?.address ?? '',
-                      time: formatTimeAgo(createdAt, sheetContext),
+                      location: request.hospital?.address?.toString() ?? '',                      time: formatTimeAgo(createdAt, sheetContext),
                       buttonBackgroundColor: ColorManger.brightRed,
                     ),
                     SizedBox(height: 12.h),
@@ -187,14 +243,16 @@ void showConfirmResponseBottomSheet(
                             final isBusy =
                                 acceptState is AcceptRequestLoadingState ||
                                     cancelState is CancelRequestLoadingState;
-                            final requestId = request.id ?? '';
+                            final requestId = request.requestId ?? '';
+                            log('requestId: $requestId');
 
                             return ConfirmNavigationButtons(
                               cancel: isBusy
                                   ? null
-                                  : () => cancelCubit.cancelRequest(
-                                requestId: requestId,
-                              ),
+                                  : (){
+                                Navigator.pop(context);
+                              },
+
                               accept: isBusy
                                   ? null
                                   : () => acceptCubit.acceptRequest(

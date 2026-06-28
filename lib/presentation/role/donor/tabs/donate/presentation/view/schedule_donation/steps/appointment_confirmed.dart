@@ -64,14 +64,14 @@ class AppointmentConfirmed extends StatelessWidget {
                 text: appLocalization.backToHome,
               ),
               SizedBox(height: 4.h),
-              NavigationButton(
-                foregroundColor: ColorManger.black,
-                backgroundColor: ColorManger.pureWhite,
-                nextStep: () {
-                  Navigator.pushNamed(context, RouteManger.donorMainLayout);
-                },
-                text: appLocalization.addToCalendar,
-              ),
+              // NavigationButton(
+              //   foregroundColor: ColorManger.black,
+              //   backgroundColor: ColorManger.pureWhite,
+              //   nextStep: () {
+              //     Navigator.pushNamed(context, RouteManger.donorMainLayout);
+              //   },
+              //   text: appLocalization.addToCalendar,
+              // ),
             ],
           ),
         ),

@@ -23,7 +23,6 @@ class AppointmentCard extends StatefulWidget {
 }
 
 class _AppointmentCardState extends State<AppointmentCard> {
-  bool _isFirstLoad = true;
   List<Appointments> _cachedAppointments = [];
 
   @override
@@ -45,19 +44,16 @@ class _AppointmentCardState extends State<AppointmentCard> {
     final appLocalization = AppLocalizations.of(context)!;
 
     return BlocListener<AppointmentsCubit, AppointmentsState>(
-      listenWhen: (previous, current) => current is AppointmentsSuccessState,
+      listenWhen: (previous, current) =>
+      current is AppointmentsSuccessState && current.fromCancellation,
       listener: (context, state) {
-        if (state is AppointmentsSuccessState) {
-          if (_isFirstLoad) {
-            _isFirstLoad = false;
-          } else {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: CustomText(text: appLocalization.appointmentCancelled),
-                backgroundColor: Colors.green.shade600,
-              ),
-            );
-          }
+        if (state is AppointmentsSuccessState && state.fromCancellation) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: CustomText(text: appLocalization.appointmentCancelled),
+              backgroundColor: Colors.green.shade600,
+            ),
+          );
         }
       },
       child: Card(
@@ -85,7 +81,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
 
               BlocBuilder<AppointmentsCubit, AppointmentsState>(
                 buildWhen: (previous, current) =>
-                    current is AppointmentsLoadingState ||
+                current is AppointmentsLoadingState ||
                     current is AppointmentsSuccessState ||
                     current is AppointmentsErrorState ||
                     current is AppointmentsPaginationLoadingState ||
@@ -123,7 +119,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
 
                   final cubit = context.read<AppointmentsCubit>();
                   final bool isLoadingMore =
-                      state is AppointmentsPaginationLoadingState;
+                  state is AppointmentsPaginationLoadingState;
                   final bool hasMore = cubit.hasMore;
 
                   return Column(

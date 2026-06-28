@@ -9,7 +9,7 @@ import '../../../../../../../../core/utils/error_localizer.dart';
 import '../../../data/model/appointment/rescheduled_appointment_model.dart';
 import '../../../domain/use_case/appointments/appointments_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/appointment/appointment_model.dart'
-    as appointment_model;
+as appointment_model;
 
 class AppointmentsCubit extends Cubit<AppointmentsState> {
   final AppointmentsUseCase appointmentsUseCase;
@@ -20,7 +20,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
   List<Appointments> _allAppointments = [];
 
   AppointmentsCubit({required this.appointmentsUseCase})
-    : super(AppointmentsInitialState());
+      : super(AppointmentsInitialState());
 
   bool get hasMore => _hasMoreAppointments;
   int get currentPage => _currentPage;
@@ -28,7 +28,10 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
   List<Appointments> get allAppointments => _allAppointments;
 
   // Initial fetch
-  Future<void> fetchAppointments({int page = 1}) async {
+  Future<void> fetchAppointments({
+    int page = 1,
+    bool fromCancellation = false,
+  }) async {
     emit(AppointmentsLoadingState());
     _currentPage = page;
     _allAppointments = [];
@@ -47,7 +50,12 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
           _hasMoreAppointments = newAppointments.length >= _limit;
         }
 
-        emit(AppointmentsSuccessState(response));
+        emit(
+          AppointmentsSuccessState(
+            response,
+            fromCancellation: fromCancellation,
+          ),
+        );
       } else {
         emit(AppointmentsErrorState('failed_to_load_appointments'));
       }
@@ -139,7 +147,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
         appointmentId: appointmentId,
       );
       if (result.success == true) {
-        await fetchAppointments();
+        await fetchAppointments(fromCancellation: true);
       } else {
         emit(CancelAppointmentErrorState('failed_to_cancel_appointment'));
       }
@@ -268,7 +276,8 @@ class AppointmentsLoadingState extends AppointmentsState {}
 
 class AppointmentsSuccessState extends AppointmentsState {
   final AppointmentModel appointments;
-  AppointmentsSuccessState(this.appointments);
+  final bool fromCancellation;
+  AppointmentsSuccessState(this.appointments, {this.fromCancellation = false});
 }
 
 class AppointmentsErrorState extends AppointmentsState {

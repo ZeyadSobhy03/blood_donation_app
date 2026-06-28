@@ -3007,14 +3007,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get reward_redeemed_title => '🎁 Reward Redeemed!';
-
-  @override
-  String reward_redeemed_message(String rewardName, String confirmationCode) {
-    return 'Your $rewardName is confirmed. Code: $confirmationCode';
-  }
-
-  @override
   String get emergency_request_title => '🚨 Emergency Blood Request';
 
   @override
@@ -4873,4 +4865,93 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get categoryRewards => 'Rewards';
+
+  @override
+  String get support_reply_title => 'Support Reply Received';
+
+  @override
+  String get reward_redeemed_title => '🎁 Reward Redeemed!';
+
+  @override
+  String reward_redeemed_message(String rewardName, String confirmationCode) {
+    return 'Your $rewardName is confirmed. Code: $confirmationCode';
+  }
+
+  @override
+  String support_reply_message(String ticketSubject) {
+    return 'Your support request \"$ticketSubject\" has been answered.';
+  }
+
+  @override
+  String get noMoreRequests => 'No more requests available';
+
+  @override
+  String get success_request_fully_accepted =>
+      'Request fully accepted — all needed donors have pledged. Thank you for saving lives!';
+
+  @override
+  String get success_request_pledged =>
+      'You\'ve pledged to donate! Please arrive before the deadline and show your QR code at the hospital';
+
+  @override
+  String get error_already_pledged =>
+      'You\'ve already pledged to this request — you cannot pledge again. Check your accepted requests for details';
+
+  @override
+  String get error_only_donors_can_accept =>
+      'Access denied — only donors can accept blood requests';
+
+  @override
+  String get success_donation_cancelled_expired =>
+      'Your donation has been cancelled as the request has expired';
+
+  @override
+  String get success_pledge_withdrawn =>
+      'Your pledge has been withdrawn — this request is now open for other donors to help';
+
+  @override
+  String get error_cancel_wrong_stage =>
+      'You can only cancel your pledge while the request is pending, accepted, or expired';
+
+  @override
+  String get error_qr_already_scanned =>
+      'The hospital has already scanned your QR code — please complete the donation process or speak with the hospital staff';
+
+  @override
+  String get expired => 'Expired';
+
+  @override
+  String get patientTypeAdult => 'Adult';
+
+  @override
+  String get patientTypeChild => 'Child';
+
+  @override
+  String get patientTypeInfant => 'Infant';
+
+  @override
+  String get accepted => 'Accepted';
+
+  @override
+  String arrivalDeadlineWarning(String time) {
+    return 'Please arrive at the hospital before $time.';
+  }
+
+  @override
+  String missedDonationWarning(int count) {
+    return 'Warning: you have $count missed-donation chance(s) left before restrictions apply.';
+  }
+
+  @override
+  String get error_cannot_cancel_others_pledge =>
+      'You can only withdraw your own pledge — you cannot cancel another donor\'s commitment';
+
+  @override
+  String get error_invalid_patient_type =>
+      'Invalid patient type. Must be adult, child, or infant';
+
+  @override
+  String error_account_banned(String reason) {
+    return 'Your account has been banned. Reason: $reason';
+  }
 }

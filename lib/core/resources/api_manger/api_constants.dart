@@ -67,7 +67,7 @@ static const String adminUpdatePasswordEndpoint = "${baseUrl}admin/profile/passw
 
   static const String requestsEndPoint = "${baseUrl}donor/requests";
   static String acceptRequestEndpoint(String requestId) {
-    return "${baseUrl}donor/respond/$requestId";
+    return "${baseUrl}requests/$requestId/accept";
   }
 
   static const String requestAcceptEndpoint = "${baseUrl}requests/accepted";

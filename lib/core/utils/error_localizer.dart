@@ -135,6 +135,48 @@ String mapServerErrorToKey(String? errorMessage) {
       lowerMessage.contains('already_cancelled')) {
     return 'error_already_cancelled';
   }
+
+  // ── Blood Request Accept/Cancel ──
+  if (lowerMessage.contains('request fully accepted')) {
+    return 'success_request_fully_accepted';
+  }
+  if (lowerMessage.contains("you've pledged to donate")) {
+    return 'success_request_pledged';
+  }
+  if (lowerMessage.contains('already pledged to this request')) {
+    return 'error_already_pledged';
+  }
+  if (lowerMessage.contains('only donors can accept blood requests')) {
+    return 'error_only_donors_can_accept';
+  }
+  if (lowerMessage.contains('donation has been cancelled') && lowerMessage.contains('expired')) {
+    return 'success_donation_cancelled_expired';
+  }
+  if (lowerMessage.contains('pledge has been withdrawn')) {
+    return 'success_pledge_withdrawn';
+  }
+  if (lowerMessage.contains('only cancel') && lowerMessage.contains('pending, accepted, or expired')) {
+    return 'error_cancel_wrong_stage';
+  }
+  if (lowerMessage.contains('hospital') && lowerMessage.contains('scanned your qr code')) {
+    return 'error_qr_already_scanned';
+  }
+  if (lowerMessage.contains('patient type must be one of')) {
+    return 'error_invalid_patient_type';
+  }
+  if (lowerMessage.contains('only withdraw your own pledge')) {
+    return 'error_cannot_cancel_others_pledge';
+  }
+
+  if (lowerMessage.contains('account banned')) {
+    final reasonIndex = lowerMessage.indexOf('reason:');
+    if (reasonIndex != -1) {
+      final reason = errorMessage.substring(reasonIndex + 7).trim();
+      return 'error_account_banned|$reason';
+    }
+    return 'error_account_banned';
+  }
+
   if (lowerMessage.contains('outside operating hours')) {
     return 'error_outside_operating_hours';
   }
@@ -412,8 +454,7 @@ String localizeError(String errorKey, AppLocalizations loc) {
       return loc.error_only_pending_confirmed_reschedule;
     case 'error_reschedule_date_future':
       return loc.error_reschedule_date_future;
-    case 'error_reschedule_same_details':
-      return loc.error_reschedule_same_details;
+    
     case 'error_max_reschedules_reached':
       return loc.error_max_reschedules_reached;
     case 'error_hospital_no_rescheduling':
@@ -482,6 +523,34 @@ String localizeError(String errorKey, AppLocalizations loc) {
   // ── Request Errors ──
     case 'error_already_cancelled':
       return loc.error_already_cancelled;
+    case 'success_request_fully_accepted':
+      return loc.success_request_fully_accepted;
+    case 'success_request_pledged':
+      return loc.success_request_pledged;
+    case 'error_already_pledged':
+      return loc.error_already_pledged;
+    case 'error_only_donors_can_accept':
+      return loc.error_only_donors_can_accept;
+    case 'success_donation_cancelled_expired':
+      return loc.success_donation_cancelled_expired;
+    case 'success_pledge_withdrawn':
+      return loc.success_pledge_withdrawn;
+    case 'error_cancel_wrong_stage':
+      return loc.error_cancel_wrong_stage;
+    case 'error_qr_already_scanned':
+      return loc.error_qr_already_scanned;
+    case 'error_invalid_patient_type':
+      return loc.error_invalid_patient_type;
+    case 'error_cannot_cancel_others_pledge':
+      return loc.error_cannot_cancel_others_pledge;
+    case 'error_account_banned':
+      // Extract reason if present: "Account banned. Reason: [reason]"
+      final parts = errorKey.split('|');
+      String reason = 'No reason provided';
+      if (parts.length > 1) {
+        reason = parts[1];
+      }
+      return loc.error_account_banned(reason);
 
     case 'system_status_updated_successfully':
       return loc.system_status_updated_successfully;

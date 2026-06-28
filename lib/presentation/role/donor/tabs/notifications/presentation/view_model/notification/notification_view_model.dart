@@ -1,3 +1,4 @@
+
 import 'package:blood_donation_app/core/errors/app_exceptions.dart';
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/data/models/notification/notifications_model.dart';
@@ -9,7 +10,7 @@ class NotificationCubit extends Cubit<NotificationState> {
   final NotificationUseCase notificationUseCase;
 
   NotificationCubit({required this.notificationUseCase})
-    : super(NotificationInitialState());
+      : super(NotificationInitialState());
 
   int _currentPage = 1;
   final int _pageSize = 10;
@@ -25,16 +26,16 @@ class NotificationCubit extends Cubit<NotificationState> {
       _currentPage = 1;
       _hasNextPage = true;
       _allNotifications.clear();
+      _unreadCount = 0;
     }
 
-    if (!_hasNextPage) return;
+    if (!_hasNextPage && !isRefresh) return;
 
     _isFetching = true;
 
     if (_currentPage == 1) {
       emit(NotificationLoadingState());
     } else {
-      // Emit current state with loading-more flag so UI can show a bottom loader
       emit(
         NotificationPaginationLoadingState(
           notifications: List.from(_allNotifications),
@@ -53,11 +54,38 @@ class NotificationCubit extends Cubit<NotificationState> {
       _unreadCount = response.data?.unreadCount ?? 0;
 
       final pagination = response.data?.pagination;
-      _hasNextPage = (pagination?.page != null && pagination?.pages != null)
-          ? pagination!.page! < pagination.pages!
-          : false;
 
-      _allNotifications.addAll(newNotifications);
+      // Calculate if there's a next page
+      if (pagination != null) {
+        if (pagination.pages != null) {
+          _hasNextPage = pagination.page! < pagination.pages!;
+        } else if (pagination.total != null && pagination.limit != null) {
+          final totalPages = (pagination.total! / pagination.limit!).ceil();
+          _hasNextPage = pagination.page! < totalPages;
+        } else {
+          _hasNextPage = newNotifications.length >= _pageSize;
+        }
+      } else {
+        _hasNextPage = false;
+      }
+
+      // For first page, clear and add new notifications
+      if (_currentPage == 1) {
+        _allNotifications.clear();
+      }
+
+      // Remove duplicates before adding
+      final existingIds = _allNotifications.map((n) => n.id).toSet();
+      final uniqueNewNotifications = newNotifications
+          .where((n) => !existingIds.contains(n.id))
+          .toList();
+
+      _allNotifications.addAll(uniqueNewNotifications);
+
+      // Increment page BEFORE emitting
+      if (_hasNextPage) {
+        _currentPage++;
+      }
 
       emit(
         NotificationSuccessState(
@@ -66,10 +94,6 @@ class NotificationCubit extends Cubit<NotificationState> {
           hasNextPage: _hasNextPage,
         ),
       );
-
-      if (_hasNextPage) {
-        _currentPage++;
-      }
     } on NetworkTimeoutException {
       emit(NotificationErrorState('network_timeout'));
     } on ServerException catch (e) {
@@ -126,7 +150,7 @@ class NotificationAllReadCubit extends Cubit<NotificationAllReadState> {
   final NotificationUseCase notificationUseCase;
 
   NotificationAllReadCubit({required this.notificationUseCase})
-    : super(NotificationAllReadInitialState());
+      : super(NotificationAllReadInitialState());
 
   Future<void> markAllAsRead() async {
     emit(NotificationAllReadLoadingState());
@@ -167,13 +191,11 @@ class NotificationAllReadErrorState extends NotificationAllReadState {
   NotificationAllReadErrorState(this.message);
 }
 
-////////////////////////////////////////
-
 class NotificationDeleteCubit extends Cubit<NotificationDeleteState> {
   final NotificationUseCase notificationUseCase;
 
   NotificationDeleteCubit({required this.notificationUseCase})
-    : super(NotificationDeleteInitialState());
+      : super(NotificationDeleteInitialState());
 
   Future<void> deleteNotifications() async {
     emit(NotificationDeleteLoadingState());

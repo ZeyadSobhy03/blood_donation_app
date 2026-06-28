@@ -1,3 +1,5 @@
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_by_id_model.dart';
+
 import '../../model/requests/request_accept_model.dart';
 import '../../model/requests/request_cancel_model.dart';
 import '../../model/requests/requests_model.dart';
@@ -12,7 +14,7 @@ abstract class RequestsRepositories {
   });
   Future<RequestAcceptModel>acceptRequest({required String requestId});
   Future<RequestCancelModel> cancelRequest({required String requestId});
-  Future<Requests>getRequestById({
+  Future<RequestByIdModel>getRequestById({
     required String requestId,
 
   });

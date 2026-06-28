@@ -13,7 +13,13 @@ class AppointmentStatusUtils {
         return loc.confirmed;
       case 'completed':
         return loc.completed;
+
+
+     case 'expired':
+        return loc.expired;
       case 'cancelled':
+
+
         return loc.cancelled;
       case 'rescheduled':
         return loc.rescheduled;

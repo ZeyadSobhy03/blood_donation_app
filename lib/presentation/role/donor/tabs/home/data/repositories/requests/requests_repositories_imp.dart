@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_accept_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_by_id_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_cancel_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/requests_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/repositories/requests/requests_repositories.dart';
@@ -25,7 +26,7 @@ return requestsRemoteDataSource.getRequests(limit: limit, page: page);
   }
 
   @override
-  Future<Requests> getRequestById({required String requestId}) {
+  Future<RequestByIdModel> getRequestById({required String requestId}) {
     return requestsRemoteDataSource.getRequestById(requestId: requestId);
   }
 

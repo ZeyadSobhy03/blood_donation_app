@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/extension/data_ex.dart';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
@@ -98,7 +99,7 @@ class NotificationRequest extends StatelessWidget {
                         ),
                         SizedBox(width: 4.w),
                         CustomText(
-                          text: createdAt,
+                          text: createdAt.toFormattedDate(),
                           textStyle: TextStyle(
                             color: ColorManger.slateGrey,
                             height: 1.4,

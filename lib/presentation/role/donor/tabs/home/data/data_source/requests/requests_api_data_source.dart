@@ -5,6 +5,7 @@ import 'package:blood_donation_app/core/utils/dio_error_handler.dart';
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/data/data_source/local_data_source/auth_hive_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/data_source/requests/requests_remote_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_accept_model.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_by_id_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_cancel_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/requests_model.dart';
 
@@ -80,14 +81,14 @@ class RequestsApiDataSource implements RequestsRemoteDataSource {
   }
 
   @override
-  Future<Requests> getRequestById({required String requestId}) async {
+  Future<RequestByIdModel> getRequestById({required String requestId}) async {
     try {
       final token = await authLocalDataSource.getAccessToken();
       final response = await dio.get(
         ApiManger.fetchByRequestIdEndpoint(requestId),
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
-      return Requests.fromJson(response.data);
+      return RequestByIdModel.fromJson(response.data);
     } on DioException catch (e) {
       handleDioError(e);
       rethrow;

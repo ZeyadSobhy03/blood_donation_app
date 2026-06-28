@@ -1,6 +1,6 @@
 /// success : true
-/// message : "Response submitted successfully"
-/// data : {"donorId":"6a135b739b8ee66bb0201e26","appointmentId":null,"requestId":"6a130e83f9830f9b4aeb149d","status":"pending","quantity":3,"unitsCollected":null,"hemoglobinLevel":null,"weight":null,"verifiedAt":null,"qrToken":null,"qrExpires":null,"_id":"6a1b1f26b61716677456fc66","createdAt":"2026-05-30T17:32:22.080Z","updatedAt":"2026-05-30T17:32:22.080Z","__v":0}
+/// message : "Response submitted"
+/// data : {"requestId":"69fe540565ff7785a031314f","donationId":"69fe540565ff7785a031314a","status":"accepted","qrToken":"a18df3083c83f3a8c1d90a61d6c70a0f5316897f4feefdc9611b32ad7dd114e2","qrExpiresAt":"2026-05-18T11:45:00.000Z","acceptedAt":"2026-05-18T09:45:00.000Z","arrivalDeadline":"2026-05-18T11:45:00.000Z","unitsAccepted":3,"unitsNeeded":3,"fullyAccepted":true,"missedDonationCount":0,"missedDonationRemaining":3}
 
 class RequestAcceptModel {
   RequestAcceptModel({
@@ -29,90 +29,75 @@ class RequestAcceptModel {
 
 }
 
-/// donorId : "6a135b739b8ee66bb0201e26"
-/// appointmentId : null
-/// requestId : "6a130e83f9830f9b4aeb149d"
-/// status : "pending"
-/// quantity : 3
-/// unitsCollected : null
-/// hemoglobinLevel : null
-/// weight : null
-/// verifiedAt : null
-/// qrToken : null
-/// qrExpires : null
-/// _id : "6a1b1f26b61716677456fc66"
-/// createdAt : "2026-05-30T17:32:22.080Z"
-/// updatedAt : "2026-05-30T17:32:22.080Z"
-/// __v : 0
+/// requestId : "69fe540565ff7785a031314f"
+/// donationId : "69fe540565ff7785a031314a"
+/// status : "accepted"
+/// qrToken : "a18df3083c83f3a8c1d90a61d6c70a0f5316897f4feefdc9611b32ad7dd114e2"
+/// qrExpiresAt : "2026-05-18T11:45:00.000Z"
+/// acceptedAt : "2026-05-18T09:45:00.000Z"
+/// arrivalDeadline : "2026-05-18T11:45:00.000Z"
+/// unitsAccepted : 3
+/// unitsNeeded : 3
+/// fullyAccepted : true
+/// missedDonationCount : 0
+/// missedDonationRemaining : 3
 
 class Data {
   Data({
-      this.donorId, 
-      this.appointmentId, 
       this.requestId, 
+      this.donationId, 
       this.status, 
-      this.quantity, 
-      this.unitsCollected, 
-      this.hemoglobinLevel, 
-      this.weight, 
-      this.verifiedAt, 
       this.qrToken, 
-      this.qrExpires, 
-      this.id, 
-      this.createdAt, 
-      this.updatedAt, 
-      this.v,});
+      this.qrExpiresAt, 
+      this.acceptedAt, 
+      this.arrivalDeadline, 
+      this.unitsAccepted, 
+      this.unitsNeeded, 
+      this.fullyAccepted, 
+      this.missedDonationCount, 
+      this.missedDonationRemaining,});
 
   Data.fromJson(dynamic json) {
-    donorId = json['donorId'];
-    appointmentId = json['appointmentId'];
     requestId = json['requestId'];
+    donationId = json['donationId'];
     status = json['status'];
-    quantity = json['quantity'];
-    unitsCollected = json['unitsCollected'];
-    hemoglobinLevel = json['hemoglobinLevel'];
-    weight = json['weight'];
-    verifiedAt = json['verifiedAt'];
     qrToken = json['qrToken'];
-    qrExpires = json['qrExpires'];
-    id = json['_id'];
-    createdAt = json['createdAt'];
-    updatedAt = json['updatedAt'];
-    v = json['__v'];
+    qrExpiresAt = json['qrExpiresAt'];
+    acceptedAt = json['acceptedAt'];
+    arrivalDeadline = json['arrivalDeadline'];
+    unitsAccepted = json['unitsAccepted'];
+    unitsNeeded = json['unitsNeeded'];
+    fullyAccepted = json['fullyAccepted'];
+    missedDonationCount = json['missedDonationCount'];
+    missedDonationRemaining = json['missedDonationRemaining'];
   }
-  String? donorId;
-  dynamic appointmentId;
   String? requestId;
+  String? donationId;
   String? status;
-  int? quantity;
-  dynamic unitsCollected;
-  dynamic hemoglobinLevel;
-  dynamic weight;
-  dynamic verifiedAt;
-  dynamic qrToken;
-  dynamic qrExpires;
-  String? id;
-  String? createdAt;
-  String? updatedAt;
-  int? v;
+  String? qrToken;
+  String? qrExpiresAt;
+  String? acceptedAt;
+  String? arrivalDeadline;
+  int? unitsAccepted;
+  int? unitsNeeded;
+  bool? fullyAccepted;
+  int? missedDonationCount;
+  int? missedDonationRemaining;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['donorId'] = donorId;
-    map['appointmentId'] = appointmentId;
     map['requestId'] = requestId;
+    map['donationId'] = donationId;
     map['status'] = status;
-    map['quantity'] = quantity;
-    map['unitsCollected'] = unitsCollected;
-    map['hemoglobinLevel'] = hemoglobinLevel;
-    map['weight'] = weight;
-    map['verifiedAt'] = verifiedAt;
     map['qrToken'] = qrToken;
-    map['qrExpires'] = qrExpires;
-    map['_id'] = id;
-    map['createdAt'] = createdAt;
-    map['updatedAt'] = updatedAt;
-    map['__v'] = v;
+    map['qrExpiresAt'] = qrExpiresAt;
+    map['acceptedAt'] = acceptedAt;
+    map['arrivalDeadline'] = arrivalDeadline;
+    map['unitsAccepted'] = unitsAccepted;
+    map['unitsNeeded'] = unitsNeeded;
+    map['fullyAccepted'] = fullyAccepted;
+    map['missedDonationCount'] = missedDonationCount;
+    map['missedDonationRemaining'] = missedDonationRemaining;
     return map;
   }
 

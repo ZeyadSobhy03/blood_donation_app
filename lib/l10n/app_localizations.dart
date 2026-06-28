@@ -5724,18 +5724,6 @@ abstract class AppLocalizations {
   /// **'Congratulations! You\'ve reached {tier} tier. Keep donating to unlock more rewards!'**
   String tier_up_message(String tier);
 
-  /// No description provided for @reward_redeemed_title.
-  ///
-  /// In en, this message translates to:
-  /// **'🎁 Reward Redeemed!'**
-  String get reward_redeemed_title;
-
-  /// No description provided for @reward_redeemed_message.
-  ///
-  /// In en, this message translates to:
-  /// **'Your {rewardName} is confirmed. Code: {confirmationCode}'**
-  String reward_redeemed_message(String rewardName, String confirmationCode);
-
   /// No description provided for @emergency_request_title.
   ///
   /// In en, this message translates to:
@@ -9099,6 +9087,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rewards'**
   String get categoryRewards;
+
+  /// No description provided for @support_reply_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Support Reply Received'**
+  String get support_reply_title;
+
+  /// No description provided for @reward_redeemed_title.
+  ///
+  /// In en, this message translates to:
+  /// **'🎁 Reward Redeemed!'**
+  String get reward_redeemed_title;
+
+  /// No description provided for @reward_redeemed_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Your {rewardName} is confirmed. Code: {confirmationCode}'**
+  String reward_redeemed_message(String rewardName, String confirmationCode);
+
+  /// No description provided for @support_reply_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Your support request \"{ticketSubject}\" has been answered.'**
+  String support_reply_message(String ticketSubject);
+
+  /// No description provided for @noMoreRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'No more requests available'**
+  String get noMoreRequests;
+
+  /// No description provided for @success_request_fully_accepted.
+  ///
+  /// In en, this message translates to:
+  /// **'Request fully accepted — all needed donors have pledged. Thank you for saving lives!'**
+  String get success_request_fully_accepted;
+
+  /// No description provided for @success_request_pledged.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve pledged to donate! Please arrive before the deadline and show your QR code at the hospital'**
+  String get success_request_pledged;
+
+  /// No description provided for @error_already_pledged.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve already pledged to this request — you cannot pledge again. Check your accepted requests for details'**
+  String get error_already_pledged;
+
+  /// No description provided for @error_only_donors_can_accept.
+  ///
+  /// In en, this message translates to:
+  /// **'Access denied — only donors can accept blood requests'**
+  String get error_only_donors_can_accept;
+
+  /// No description provided for @success_donation_cancelled_expired.
+  ///
+  /// In en, this message translates to:
+  /// **'Your donation has been cancelled as the request has expired'**
+  String get success_donation_cancelled_expired;
+
+  /// No description provided for @success_pledge_withdrawn.
+  ///
+  /// In en, this message translates to:
+  /// **'Your pledge has been withdrawn — this request is now open for other donors to help'**
+  String get success_pledge_withdrawn;
+
+  /// No description provided for @error_cancel_wrong_stage.
+  ///
+  /// In en, this message translates to:
+  /// **'You can only cancel your pledge while the request is pending, accepted, or expired'**
+  String get error_cancel_wrong_stage;
+
+  /// No description provided for @error_qr_already_scanned.
+  ///
+  /// In en, this message translates to:
+  /// **'The hospital has already scanned your QR code — please complete the donation process or speak with the hospital staff'**
+  String get error_qr_already_scanned;
+
+  /// No description provided for @expired.
+  ///
+  /// In en, this message translates to:
+  /// **'Expired'**
+  String get expired;
+
+  /// No description provided for @patientTypeAdult.
+  ///
+  /// In en, this message translates to:
+  /// **'Adult'**
+  String get patientTypeAdult;
+
+  /// No description provided for @patientTypeChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Child'**
+  String get patientTypeChild;
+
+  /// No description provided for @patientTypeInfant.
+  ///
+  /// In en, this message translates to:
+  /// **'Infant'**
+  String get patientTypeInfant;
+
+  /// No description provided for @accepted.
+  ///
+  /// In en, this message translates to:
+  /// **'Accepted'**
+  String get accepted;
+
+  /// No description provided for @arrivalDeadlineWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Please arrive at the hospital before {time}.'**
+  String arrivalDeadlineWarning(String time);
+
+  /// No description provided for @missedDonationWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning: you have {count} missed-donation chance(s) left before restrictions apply.'**
+  String missedDonationWarning(int count);
+
+  /// No description provided for @error_cannot_cancel_others_pledge.
+  ///
+  /// In en, this message translates to:
+  /// **'You can only withdraw your own pledge — you cannot cancel another donor\'s commitment'**
+  String get error_cannot_cancel_others_pledge;
+
+  /// No description provided for @error_invalid_patient_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid patient type. Must be adult, child, or infant'**
+  String get error_invalid_patient_type;
+
+  /// No description provided for @error_account_banned.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account has been banned. Reason: {reason}'**
+  String error_account_banned(String reason);
 }
 
 class _AppLocalizationsDelegate

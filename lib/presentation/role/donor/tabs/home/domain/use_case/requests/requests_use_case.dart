@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_by_id_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/repositories/requests/requests_repositories.dart';
 
 import '../../../data/model/requests/request_accept_model.dart';
@@ -25,7 +26,7 @@ class RequestsUseCase {
   Future<RequestCancelModel> cancelRequest({required String requestId}) {
     return repository.cancelRequest(requestId: requestId);
   }
-  Future<Requests>getRequestById({
+  Future<RequestByIdModel>getRequestById({
     required String requestId,
 
   })  {

@@ -1022,19 +1022,8 @@
       }
     }
   },
-  "reward_redeemed_title": "🎁 Reward Redeemed!",
   "@reward_redeemed_title": {},
-  "reward_redeemed_message": "Your {rewardName} is confirmed. Code: {confirmationCode}",
-  "@reward_redeemed_message": {
-    "placeholders": {
-      "rewardName": {
-        "type": "String"
-      },
-      "confirmationCode": {
-        "type": "String"
-      }
-    }
-  },
+
   "emergency_request_title": "🚨 Emergency Blood Request",
   "@emergency_request_title": {},
   "emergency_request_body": "Critical {bloodType} blood needed near {hospitalName}",
@@ -1818,5 +1807,63 @@
 
   "categoryTechnical": "Technical",
   "categoryAccount": "Account",
-  "categoryRewards": "Rewards"
+  "categoryRewards": "Rewards",
+  "support_reply_title": "Support Reply Received",
+  "reward_redeemed_title": "🎁 Reward Redeemed!",
+
+  "reward_redeemed_message": "Your {rewardName} is confirmed. Code: {confirmationCode}",
+  "@reward_redeemed_message": {
+    "placeholders": {
+      "rewardName": {
+        "type": "String"
+      },
+      "confirmationCode": {
+        "type": "String"
+      }
+    }
+  },
+  "support_reply_message": "Your support request \"{ticketSubject}\" has been answered.",
+  "@support_reply_message": {
+    "placeholders": {
+      "ticketSubject": {
+        "type": "String"
+      }
+    }
+  },
+  "noMoreRequests": "No more requests available",
+  "success_request_fully_accepted": "Request fully accepted — all needed donors have pledged. Thank you for saving lives!",
+  "success_request_pledged": "You've pledged to donate! Please arrive before the deadline and show your QR code at the hospital",
+  "error_already_pledged": "You've already pledged to this request — you cannot pledge again. Check your accepted requests for details",
+  "error_only_donors_can_accept": "Access denied — only donors can accept blood requests",
+  "success_donation_cancelled_expired": "Your donation has been cancelled as the request has expired",
+  "success_pledge_withdrawn": "Your pledge has been withdrawn — this request is now open for other donors to help",
+  "error_cancel_wrong_stage": "You can only cancel your pledge while the request is pending, accepted, or expired",
+  "error_qr_already_scanned": "The hospital has already scanned your QR code — please complete the donation process or speak with the hospital staff",
+  "expired": "Expired",
+  "patientTypeAdult": "Adult",
+  "patientTypeChild": "Child",
+  "patientTypeInfant": "Infant",
+  "accepted": "Accepted",
+  "arrivalDeadlineWarning": "Please arrive at the hospital before {time}.",
+  "@arrivalDeadlineWarning": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "missedDonationWarning": "Warning: you have {count} missed-donation chance(s) left before restrictions apply.",
+  "@missedDonationWarning": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "error_cannot_cancel_others_pledge": "You can only withdraw your own pledge — you cannot cancel another donor's commitment",
+  "error_invalid_patient_type": "Invalid patient type. Must be adult, child, or infant",
+  "error_account_banned": "Your account has been banned. Reason: {reason}",
+  "@error_account_banned": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  }
 }

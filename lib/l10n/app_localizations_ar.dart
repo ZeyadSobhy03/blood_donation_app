@@ -2994,14 +2994,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get reward_redeemed_title => '🎁 تم استرداد المكافأة!';
-
-  @override
-  String reward_redeemed_message(String rewardName, String confirmationCode) {
-    return 'تم تأكيد $rewardName الخاص بك. الرمز: $confirmationCode';
-  }
-
-  @override
   String get emergency_request_title => '🚨 طلب دم طارئ';
 
   @override
@@ -4724,60 +4716,54 @@ class AppLocalizationsAr extends AppLocalizations {
   String get requestFulfilled => 'تم تحديد الطلب كمكتمل';
 
   @override
-  String get error_authorization_required => 'Authorization header is required';
+  String get error_authorization_required => 'التفويض مطلوب';
 
   @override
-  String get error_account_suspended => 'Account is suspended';
+  String get error_account_suspended => 'تم تعليق الحساب';
 
   @override
-  String get error_reward_fields_required =>
-      'Reward name, category, and points required are mandatory';
+  String get error_reward_fields_required => 'حقول المكافأة مطلوبة';
 
   @override
-  String get error_status_required => 'Status is required';
+  String get error_status_required => 'الحالة مطلوبة';
 
   @override
-  String get error_invalid_status_value =>
-      'Status must be ACTIVE, INACTIVE, or LIMITED';
+  String get error_invalid_status_value => 'قيمة الحالة غير صالحة';
 
   @override
-  String get error_reward_not_found => 'Reward not found';
+  String get error_reward_not_found => 'المكافأة غير موجودة';
 
   @override
-  String get error_bulk_points_empty =>
-      'Updates array must have at least one entry';
+  String get error_bulk_points_empty => 'قائمة النقاط المجمعة فارغة';
 
   @override
   String get error_bulk_points_invalid_update =>
-      'Each update must have an ID and points required number';
+      'تحديث النقاط المجمعة غير صالح';
 
   @override
-  String get error_adjustment_fields_required =>
-      'Email, amount, and reason are required';
+  String get error_adjustment_fields_required => 'حقول التعديل مطلوبة';
 
   @override
-  String get error_amount_non_zero => 'Amount must be a non-zero number';
+  String get error_amount_non_zero => 'يجب ألا يكون المبلغ صفراً';
 
   @override
-  String get error_only_donors_have_points => 'Only donor accounts have points';
+  String get error_only_donors_have_points =>
+      'المتبرعون فقط هم من يملكون نقاطاً';
 
   @override
-  String get error_earning_rule_fields_required =>
-      'Type, title, points, and category are required';
+  String get error_earning_rule_fields_required => 'حقول قاعدة الكسب مطلوبة';
 
   @override
-  String get error_points_non_negative =>
-      'Points must be a non-negative number';
+  String get error_points_non_negative => 'يجب ألا تكون النقاط سالبة';
 
   @override
-  String get error_invalid_rule_type =>
-      'Invalid rule type. Must be one of: bloodDonation, plasmaDonation, plateletsDonation, doubleRedCellsDonation, emergencyResponse, profileCompletion, referral, firstDonation';
+  String get error_invalid_rule_type => 'نوع القاعدة غير صالح';
 
   @override
-  String get error_earning_rule_exists => 'This earning rule already exists';
+  String get error_earning_rule_exists => 'قاعدة الكسب موجودة بالفعل';
 
   @override
-  String get error_earning_rule_not_found => 'Earning rule not found';
+  String get error_earning_rule_not_found => 'قاعدة الكسب غير موجودة';
 
   @override
   String get categoryDonation => 'تبرع';
@@ -4842,4 +4828,85 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get categoryRewards => 'مكافآت';
+
+  @override
+  String get support_reply_title => 'تم استلام رد الدعم';
+
+  @override
+  String get reward_redeemed_title => '🎁 تم استرداد المكافأة!';
+
+  @override
+  String reward_redeemed_message(String rewardName, String confirmationCode) {
+    return 'تم تأكيد $rewardName الخاص بك. الكود: $confirmationCode';
+  }
+
+  @override
+  String support_reply_message(String ticketSubject) {
+    return 'تم الرد على طلب الدعم الخاص بك \"$ticketSubject\".';
+  }
+
+  @override
+  String get noMoreRequests => 'لا توجد طلبات أخرى';
+
+  @override
+  String get success_request_fully_accepted => 'تم قبول الطلب بالكامل بنجاح';
+
+  @override
+  String get success_request_pledged => 'تم التعهد بالطلب بنجاح';
+
+  @override
+  String get error_already_pledged => 'تم التعهد مسبقاً';
+
+  @override
+  String get error_only_donors_can_accept => 'يمكن للمتبرعين فقط قبول الطلبات';
+
+  @override
+  String get success_donation_cancelled_expired =>
+      'تم إلغاء التبرع لانتهاء صلاحيته';
+
+  @override
+  String get success_pledge_withdrawn => 'تم سحب التعهد بنجاح';
+
+  @override
+  String get error_cancel_wrong_stage => 'لا يمكن الإلغاء في هذه المرحلة';
+
+  @override
+  String get error_qr_already_scanned => 'تم مسح رمز QR مسبقاً';
+
+  @override
+  String get expired => 'منتهي الصلاحية';
+
+  @override
+  String get patientTypeAdult => 'بالغ';
+
+  @override
+  String get patientTypeChild => 'طفل';
+
+  @override
+  String get patientTypeInfant => 'رضيع';
+
+  @override
+  String get accepted => 'مقبول';
+
+  @override
+  String arrivalDeadlineWarning(String time) {
+    return 'يرجى الوصول إلى المستشفى قبل الساعة $time.';
+  }
+
+  @override
+  String missedDonationWarning(int count) {
+    return 'تنبيه: لديك $count فرصة متبقية قبل تطبيق القيود في حال عدم الحضور.';
+  }
+
+  @override
+  String get error_cannot_cancel_others_pledge => 'لا يمكنك إلغاء تعهد شخص آخر';
+
+  @override
+  String get error_invalid_patient_type =>
+      'نوع المريض غير صالح. يجب أن يكون بالغ، طفل، أو رضيع';
+
+  @override
+  String error_account_banned(String reason) {
+    return 'تم حظر حسابك. السبب: $reason';
+  }
 }

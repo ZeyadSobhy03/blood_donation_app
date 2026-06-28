@@ -1,5 +1,6 @@
 
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_note_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view_model/appointments/appointments_view_model.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +51,7 @@ class _ReviewAndConfirmState extends State<ReviewAndConfirm> {
               backgroundColor: Colors.red,
             ),
           );
+          Navigator.pushNamed(context, RouteManger.donorMainLayout);
         } else if (state is RescheduleAppointmentErrorState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

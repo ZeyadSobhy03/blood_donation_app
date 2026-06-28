@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/errors/app_exceptions.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_by_id_model.dart' hide Data;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../core/utils/error_localizer.dart';
@@ -12,20 +15,47 @@ class RequestsCubit extends Cubit<RequestsState> {
 
   Future<void> fetchRequests({
     required int limit,
-    required int  page,
-
+    required int page,
   }) async {
-    emit(RequestsLoadingState());
+    // Only emit loading on first page
+    if (page == 1) {
+      emit(RequestsLoadingState());
+    }
+
     try {
       final requestsModel = await requestsUseCase.getRequests(
         limit: limit,
         page: page,
       );
-      emit(RequestsSuccessState(requestsModel));
+
+      if (page == 1) {
+        // First page: emit fresh state
+        emit(RequestsSuccessState(requestsModel));
+      } else {
+        // Subsequent pages: merge with existing data
+        final currentState = state;
+        if (currentState is RequestsSuccessState) {
+          final existingMatches = currentState.requestsModel.data?.matches ?? [];
+          final newMatches = requestsModel.data?.matches ?? [];
+
+          final mergedMatches = [...existingMatches, ...newMatches];
+
+          final updatedModel = RequestsModel(
+            success: requestsModel.success,
+            message: requestsModel.message,
+            data: Data(
+              matches: mergedMatches,
+              pagination: requestsModel.data?.pagination,
+            ),
+          );
+
+          emit(RequestsSuccessState(updatedModel));
+        }
+      }
     } on NetworkTimeoutException {
       emit(RequestsErrorState('network_timeout'));
     } on ServerException catch (e) {
-
+      log('Server error during fetchRequests: ${e.serverMessage}');
       emit(RequestsErrorState(mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(RequestsErrorState('unauthorized'));
@@ -36,28 +66,38 @@ class RequestsCubit extends Cubit<RequestsState> {
     } on UnknownNetworkException {
       emit(RequestsErrorState('unknown_error'));
     } catch (e) {
+      log('Unknown error during fetchRequests: $e');
       emit(RequestsErrorState('unknown_error'));
     }
   }
 
-  Future<Requests?> fetchRequestById({
+  Future<RequestByIdModel?> fetchRequestById({
     required String requestId,
   }) async {
     try {
       return await requestsUseCase.getRequestById(requestId: requestId);
     } catch (e) {
+      log('Error fetching request by ID: $e');
       return null;
     }
+  }
+
+  void resetRequests() {
+    emit(RequestsInitialState());
   }
 }
 
 sealed class RequestsState {}
+
 class RequestsInitialState extends RequestsState {}
+
 class RequestsLoadingState extends RequestsState {}
+
 class RequestsSuccessState extends RequestsState {
   final RequestsModel requestsModel;
   RequestsSuccessState(this.requestsModel);
 }
+
 class RequestsErrorState extends RequestsState {
   final String message;
   RequestsErrorState(this.message);

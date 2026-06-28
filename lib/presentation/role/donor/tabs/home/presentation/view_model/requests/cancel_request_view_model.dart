@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/errors/app_exceptions.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/request_cancel_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/domain/use_case/requests/requests_use_case.dart';
@@ -21,6 +23,7 @@ class CancelRequestCubit extends Cubit<CancelRequestState> {
     } on NetworkTimeoutException {
       emit(CancelRequestErrorState('network_timeout'));
     } on ServerException catch (e) {
+      log('Server error during cancelRequest: ${e.serverMessage}');
       emit(CancelRequestErrorState(mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(CancelRequestErrorState('unauthorized'));
@@ -31,6 +34,7 @@ class CancelRequestCubit extends Cubit<CancelRequestState> {
     } on UnknownNetworkException {
       emit(CancelRequestErrorState('unknown_error'));
     } catch (e) {
+      log('Unknown error during cancelRequest: $e');
       emit(CancelRequestErrorState('unknown_error'));
     }
   }

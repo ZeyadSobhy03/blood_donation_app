@@ -24,6 +24,28 @@ class DonationBookingCard extends StatelessWidget {
     return appointment.status?.toLowerCase() == 'cancelled';
   }
 
+  // Helper method to localize the donation type
+  String _localizeDonationType(String? type, AppLocalizations appLocalization) {
+    if (type == null) return '';
+
+    // Normalize the string to lowercase and remove spaces/underscores for easier matching
+    final normalizedType = type.toLowerCase().replaceAll(' ', '').replaceAll('_', '');
+
+    switch (normalizedType) {
+      case 'wholeblood':
+        return appLocalization.wholeBlood;
+      case 'plasma':
+        return appLocalization.plasma;
+      case 'platelets':
+        return appLocalization.platelets;
+      case 'doubleredcells':
+        return appLocalization.doubleRedCells;
+      default:
+      // Fallback to the raw string if it doesn't match known types
+        return type;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
@@ -52,7 +74,8 @@ class DonationBookingCard extends StatelessWidget {
                     children: [
                       Expanded(
                         child: CustomText(
-                          text: appointment.donationType ?? '',
+                          // UPDATED: Using the new localization helper
+                          text: _localizeDonationType(appointment.donationType, appLocalization),
                           textStyle: TextStyle(
                             color: ColorManger.black,
                             height: 1.4,
@@ -97,7 +120,7 @@ class DonationBookingCard extends StatelessWidget {
 
                   CustomText(
                     text:
-                        appointment.hospitalId?.hospitalName ??
+                    appointment.hospitalId?.hospitalName ??
                         appLocalization.hospitalName,
                     textStyle: TextStyle(
                       color: ColorManger.slateGrey,
@@ -113,9 +136,9 @@ class DonationBookingCard extends StatelessWidget {
                       InfoRow(
                         icon: Icons.calendar_month,
                         text:
-                            appointment.appointmentDate
-                                .toFormattedDate()
-                                .isNotEmpty
+                        appointment.appointmentDate
+                            .toFormattedDate()
+                            .isNotEmpty
                             ? appointment.appointmentDate.toFormattedDate()
                             : appLocalization.noDataFound,
                       ),
@@ -235,9 +258,9 @@ class DonationBookingCard extends StatelessWidget {
   }
 
   void _cancelAppointment(
-    BuildContext context,
-    AppLocalizations appLocalization,
-  ) {
+      BuildContext context,
+      AppLocalizations appLocalization,
+      ) {
     if (appointment.status?.toLowerCase() == 'cancelled') {
       showDialog(
         context: context,
@@ -351,9 +374,9 @@ class DonationBookingCard extends StatelessWidget {
   }
 
   void _rescheduleAppointment(
-    BuildContext context,
-    AppLocalizations appLocalization,
-  ) {
+      BuildContext context,
+      AppLocalizations appLocalization,
+      ) {
     showDialog(
       context: context,
       builder: (_) => BlocProvider.value(
