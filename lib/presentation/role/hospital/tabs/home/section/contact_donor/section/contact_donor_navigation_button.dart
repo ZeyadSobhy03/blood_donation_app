@@ -13,8 +13,8 @@ class ContactDonorNavigationButton extends StatelessWidget {
     required this.message,
   });
 
-  final VoidCallback contact;
-  final VoidCallback message;
+  final VoidCallback? contact;
+  final VoidCallback? message;
 
   @override
   Widget build(BuildContext context) {

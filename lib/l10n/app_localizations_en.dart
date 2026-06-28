@@ -375,7 +375,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get posted => 'Posted';
 
   @override
-  String get patientType => 'Patient Type';
+  String get patientType => 'PatientType';
 
   @override
   String get contact => 'Contact';
@@ -526,7 +526,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sendMessage => 'Send Message';
 
   @override
-  String get cancel => 'cancel';
+  String get cancel => 'Cancel';
 
   @override
   String get donationMessage => 'Hello, I want to donate blood';
@@ -832,7 +832,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reschedule => 'Reschedule';
 
   @override
-  String get appointmentCancelled => 'Appointment cancelled';
+  String get appointmentCancelled => 'This appointment has been cancelled.';
 
   @override
   String get rescheduleAppointmentTitle => 'Reschedule Appointment';
@@ -2694,7 +2694,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error => 'Error';
 
   @override
-  String get somethingWentWrong => 'Oops! Something went wrong';
+  String get somethingWentWrong => 'Something went wrong. Please try again.';
 
   @override
   String get errorDetails => 'Error Details';
@@ -4870,4 +4870,719 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get replySubmitted => 'Reply submitted successfully';
+
+  @override
+  String get working_hours_and_slots => 'Working Hours & Slots';
+
+  @override
+  String get measure_in_hours => 'hours';
+
+  @override
+  String get slots => 'slots';
+
+  @override
+  String get manage_working_hours => 'Manage Working Hours';
+
+  @override
+  String get appointment_slots => 'Appointment Slots';
+
+  @override
+  String get working_hours_subtitle =>
+      'Configure your hospital\'s operating hours and appointment capacity';
+
+  @override
+  String get working_hours_tip => 'Tip: ';
+
+  @override
+  String get working_hours_tip_text =>
+      'Set your working hours and slots per hour. The same slot capacity will be applied to all hours.';
+
+  @override
+  String get opening_time => 'Opening Time';
+
+  @override
+  String get closing_time => 'Closing Time';
+
+  @override
+  String get slots_per_hour => 'Slots Per Hour';
+
+  @override
+  String get slots_per_hour_text =>
+      'This value will be applied to every hour between opening and closing time.';
+
+  @override
+  String get summary => 'Summary';
+
+  @override
+  String get operating_hours => 'Operating Hours: ';
+
+  @override
+  String get hours_per_day => 'Hours Per Day: ';
+
+  @override
+  String get total_daily_capacity => 'Total Daily Capacity: ';
+
+  @override
+  String get totalDailySlots => 'Total Daily Slots';
+
+  @override
+  String get availableForScheduling => 'Available For Scheduling';
+
+  @override
+  String get uniformAcrossAllHours => 'Uniform Across All Hours';
+
+  @override
+  String get patientTypeAdult => 'Adult';
+
+  @override
+  String get patientTypeChild => 'Child';
+
+  @override
+  String get patientTypeInfant => 'Infant';
+
+  @override
+  String get bloodTypeNeededMulti => 'Blood Types Needed (Select one or more)';
+
+  @override
+  String get selected => 'Selected';
+
+  @override
+  String get selectPatientType => 'Select Patient Type';
+
+  @override
+  String get contactNumber => 'Contact Number';
+
+  @override
+  String get contactNumberHint => 'e.g: 015980089';
+
+  @override
+  String get patientDetailsHint => 'e.g: needed for surgery';
+
+  @override
+  String get noHistoryFound => 'No History Found';
+
+  @override
+  String get invalidUnits => 'Invalid Units';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get updateRequest => 'Update Request';
+
+  @override
+  String get updateRequestSubtitle =>
+      'Edit the details for this blood request, then save your changes';
+
+  @override
+  String get keepRequest => 'Keep Request';
+
+  @override
+  String get yesCancelRequest => 'Yes, Cancel Request';
+
+  @override
+  String get patientDetailsSurgery => 'Surgery';
+
+  @override
+  String get patientDetailsCardiacSurgery => 'Cardiac Surgery';
+
+  @override
+  String get patientDetailsAccident => 'Accident';
+
+  @override
+  String get patientDetailsBurns => 'Burns';
+
+  @override
+  String get patientDetailsCancer => 'Cancer';
+
+  @override
+  String get patientDetailsLeukemia => 'Leukemia';
+
+  @override
+  String get patientDetailsMaternity => 'Maternity';
+
+  @override
+  String get patientDetailsChronicIllness => 'Chronic Illness';
+
+  @override
+  String get patientDetailsHemophilia => 'Hemophilia';
+
+  @override
+  String get patientDetailsThalassemia => 'Thalassemia';
+
+  @override
+  String get patientDetailsDialysis => 'Dialysis';
+
+  @override
+  String get patientDetailsGastrointestinalBleeding =>
+      'Gastrointestinal Bleeding';
+
+  @override
+  String get patientDetailsOrganTransplant => 'Organ Transplant';
+
+  @override
+  String get patientDetailsPediatric => 'Pediatric';
+
+  @override
+  String get patientDetailsEmergency => 'Emergency';
+
+  @override
+  String get patientDetailsGeneral => 'General';
+
+  @override
+  String get statusAccepted => 'Accepted';
+
+  @override
+  String get statusInProgress => 'In Progress';
+
+  @override
+  String get statusExpired => 'Expired';
+
+  @override
+  String get requestStatusLabel => 'Request Status';
+
+  @override
+  String get updateStatus => 'Update Status';
+
+  @override
+  String get selectStatus => 'Select Status';
+
+  @override
+  String activeRequestsCount(Object count) {
+    return '$count Active Requests';
+  }
+
+  @override
+  String responsesTodayCount(Object count) {
+    return '$count Responses Today';
+  }
+
+  @override
+  String get noActiveRequests => 'No active requests right now';
+
+  @override
+  String get noRecentActivity => 'No recent activity';
+
+  @override
+  String get noNearbyDonorsFound => 'No nearby donors found';
+
+  @override
+  String get nearestDonor => 'Nearest';
+
+  @override
+  String donorsCountLabel(Object count) {
+    return '$count donors';
+  }
+
+  @override
+  String get cancelRequestSuccess => 'Request cancelled successfully';
+
+  @override
+  String get updateRequestSuccess => 'Request updated successfully';
+
+  @override
+  String get failedToLoadDashboard => 'Failed to load dashboard data';
+
+  @override
+  String get failedToLoadRequests => 'Failed to load requests';
+
+  @override
+  String get failedToLoadActivity => 'Failed to load recent activity';
+
+  @override
+  String get failedToLoadNearbyDonors => 'Failed to load nearby donors';
+
+  @override
+  String get failedToLoadResponses => 'Failed to load donor responses';
+
+  @override
+  String get noResponsesYet => 'No donors have responded yet';
+
+  @override
+  String get donorResponseStatusDeclined => 'Declined';
+
+  @override
+  String get scanQrInstructionTitle => 'Point camera at donor\'s QR code';
+
+  @override
+  String get verifyingQrCode => 'Verifying QR code...';
+
+  @override
+  String get qrVerificationFailed => 'QR verification failed';
+
+  @override
+  String get donationConfirmedSuccessTitle => 'Donation Confirmed!';
+
+  @override
+  String donationConfirmedSuccessMessage(Object donorName) {
+    return '$donorName\'s donation has been verified and recorded.';
+  }
+
+  @override
+  String get scanAnotherCode => 'Scan Another Code';
+
+  @override
+  String get invalidQrCode => 'Invalid QR code';
+
+  @override
+  String get qrCodeExpired => 'This QR code has expired';
+
+  @override
+  String get doneButton => 'Done';
+
+  @override
+  String get allAppointments => 'All Appointments';
+
+  @override
+  String get noAppointmentsFound => 'No appointments found.';
+
+  @override
+  String get enterCodeManually => 'Enter Code Manually';
+
+  @override
+  String get manualEntry => 'Manual Entry';
+
+  @override
+  String get enterDonationCode => 'Enter the donation code';
+
+  @override
+  String get donationCodeLabel => 'Donation Code';
+
+  @override
+  String get verifyCode => 'Verify Code';
+
+  @override
+  String get scanQrInstead => 'Scan QR Code instead';
+
+  @override
+  String get appointmentDateLabel => 'Appointment Date';
+
+  @override
+  String get rejectVerification => 'Reject Verification';
+
+  @override
+  String get rejectConfirmation =>
+      'Are you sure you want to reject this verification?';
+
+  @override
+  String get reasonLabel => 'Reason';
+
+  @override
+  String get reject => 'Reject';
+
+  @override
+  String get verificationRejected => 'Verification rejected';
+
+  @override
+  String get pleaseEnterReason => 'Please enter a reason';
+
+  @override
+  String get pleaseCompleteChecklist => 'Please complete all checklist items';
+
+  @override
+  String get eligibilityChecklist => 'Eligibility Checklist';
+
+  @override
+  String get verificationChecklist => 'Verification Checklist';
+
+  @override
+  String get idVerified => 'ID Verified';
+
+  @override
+  String get questionnaireCompleted => 'Questionnaire Completed';
+
+  @override
+  String get consentSigned => 'Consent Signed';
+
+  @override
+  String get diseaseScreening => 'Disease Screening';
+
+  @override
+  String get screeningCompleted =>
+      'Screening Completed (No disqualifying diseases)';
+
+  @override
+  String get disqualifyingDiseaseFound => 'Disqualifying Disease Found';
+
+  @override
+  String get addDisease => 'Add disease';
+
+  @override
+  String get addToList => 'Add to list';
+
+  @override
+  String get additionalNotes => 'Additional notes...';
+
+  @override
+  String get submitVerification => 'Submit Verification';
+
+  @override
+  String get pleaseFillRequiredFields => 'Please fill all required fields';
+
+  @override
+  String get donationCompletion => 'Donation Completion';
+
+  @override
+  String get donationCompletedSuccessfully =>
+      'Donation Completed Successfully!';
+
+  @override
+  String pointsEarned(Object count) {
+    return 'Points earned: $count';
+  }
+
+  @override
+  String get recordDonorData => 'Record Donor Data';
+
+  @override
+  String get enterDonorReadings => 'Enter the donor\'s medical readings below';
+
+  @override
+  String get hemoglobinLevel => 'Hemoglobin Level (g/dL)';
+
+  @override
+  String get unitsCollected => 'Units Collected';
+
+  @override
+  String get donationCodeHint => 'Enter donation code';
+
+  @override
+  String get verificationFailed => 'Verification failed.';
+
+  @override
+  String get connectionTimedOut => 'Connection timed out. Please try again.';
+
+  @override
+  String get noInternetConnection => 'No internet connection.';
+
+  @override
+  String get sessionExpired => 'Session expired. Please log in again.';
+
+  @override
+  String get notFoundItem => 'Not found.';
+
+  @override
+  String get checkAllFields => 'Please check all fields and try again.';
+
+  @override
+  String get profileNotFound => 'Profile not found.';
+
+  @override
+  String get accessDenied => 'Access denied.';
+
+  @override
+  String get hospitalLocationNotSet =>
+      'Hospital location not set. Please update your profile.';
+
+  @override
+  String get invalidStatusFilter => 'Invalid status filter.';
+
+  @override
+  String get failedLoadAppointmentDetails =>
+      'Failed to load appointment details.';
+
+  @override
+  String get failedCompleteDonation => 'Failed to complete donation.';
+
+  @override
+  String get failedRejectAppointment => 'Failed to reject appointment.';
+
+  @override
+  String get failedLoadRequestDetails => 'Failed to load request details.';
+
+  @override
+  String get requestUpdatedSuccess => 'Request updated successfully.';
+
+  @override
+  String get failedUpdateRequest => 'Failed to update request.';
+
+  @override
+  String get requestCancelledSuccess => 'Request cancelled successfully.';
+
+  @override
+  String get failedLoadDonorResponses => 'Failed to load donor responses.';
+
+  @override
+  String get failedLoadProfile => 'Failed to load profile.';
+
+  @override
+  String get profileUpdatedSuccess => 'Profile updated successfully.';
+
+  @override
+  String get workingHoursUpdatedSuccess =>
+      'Working hours updated successfully.';
+
+  @override
+  String get currentPasswordIncorrect => 'Current password is incorrect.';
+
+  @override
+  String get passwordMustBeDifferent =>
+      'New password must be different from current password.';
+
+  @override
+  String get hospitalContactRequired =>
+      'Please set a contact number in your profile before creating a request.';
+
+  @override
+  String get donationAlreadyCompleted =>
+      'This donation has already been completed.';
+
+  @override
+  String get hospitalNotApproved =>
+      'Your hospital account is not yet approved. Please contact support@lifelink.org.';
+
+  @override
+  String get invalidHospitalId => 'Invalid hospital ID.';
+
+  @override
+  String get invalidEmailOrPassword => 'Invalid email or password.';
+
+  @override
+  String activityRequestCreated(Object bloodTypes) {
+    return 'Request created - $bloodTypes';
+  }
+
+  @override
+  String activityRequestFulfilled(Object bloodTypes) {
+    return 'Request fulfilled - $bloodTypes';
+  }
+
+  @override
+  String activityDonorResponse(Object donorName) {
+    return 'New donor response - $donorName';
+  }
+
+  @override
+  String get activityDonorResponseFallback => 'New donor response - Donor';
+
+  @override
+  String activityUnitsNeeded(Object units) {
+    return 'units needed $units';
+  }
+
+  @override
+  String activityUnitsReceived(Object units) {
+    return 'units received $units';
+  }
+
+  @override
+  String activityDonorResponded(Object bloodType) {
+    return '$bloodType donor responded';
+  }
+
+  @override
+  String activityDonorRespondedFallback(Object bloodTypes) {
+    return '$bloodTypes donor responded';
+  }
+
+  @override
+  String get notifications_match_title => 'New Donor Matched';
+
+  @override
+  String notifications_match_body(Object requestLabel) {
+    return 'A donor has matched your $requestLabel request';
+  }
+
+  @override
+  String get notifications_emergency_title => 'Emergency Blood Request';
+
+  @override
+  String notifications_emergency_body(Object bloodType, Object hospitalName) {
+    return 'Critical $bloodType blood needed near $hospitalName';
+  }
+
+  @override
+  String notifications_milestone_title(Object achievementTitle) {
+    return 'Achievement Unlocked: $achievementTitle';
+  }
+
+  @override
+  String notifications_milestone_body(Object achievementTitle) {
+    return 'Congratulations! You\'ve unlocked: $achievementTitle';
+  }
+
+  @override
+  String notifications_rewards_tier_upgraded(Object newTier) {
+    return 'Tier Upgraded to $newTier!';
+  }
+
+  @override
+  String notifications_rewards_badge_unlocked(Object badgeName) {
+    return 'Badge Unlocked: $badgeName';
+  }
+
+  @override
+  String get notifications_rewards_reward_redeemed => 'Reward Redeemed!';
+
+  @override
+  String get notifications_appointment_rescheduled => 'Appointment Rescheduled';
+
+  @override
+  String get notifications_appointment_donor_rescheduled =>
+      'Donor Rescheduled Appointment';
+
+  @override
+  String get notifications_appointment_new_booked => 'New Appointment Booked';
+
+  @override
+  String get notifications_appointment_cancelled_by_donor =>
+      'Appointment cancelled by donor';
+
+  @override
+  String get notifications_activity_tier_promoted => 'Tier Promoted';
+
+  @override
+  String get notifications_activity_badge_unlocked => 'Badge Unlocked';
+
+  @override
+  String get notifications_activity_redeemed_reward => 'Reward Redeemed';
+
+  @override
+  String get notifications_activity_donation_created => 'Donation Created';
+
+  @override
+  String get notifications_activity_donation_verified => 'Donation Verified';
+
+  @override
+  String get notifications_activity_donation_confirmed => 'Donation Confirmed';
+
+  @override
+  String get notifications_activity_donation_completed => 'Donation Completed';
+
+  @override
+  String get notifications_activity_donation_cancelled => 'Donation Cancelled';
+
+  @override
+  String get notifications_activity_blood_donation_submitted =>
+      'Blood Donation Submitted';
+
+  @override
+  String get notifications_activity_request_cancelled => 'Request cancelled';
+
+  @override
+  String get notifications_activity_request_rejected => 'Request rejected';
+
+  @override
+  String get notifications_admin_registrations_rising =>
+      'Donor Registrations Rising';
+
+  @override
+  String get notifications_admin_registrations_declining =>
+      'Donor Registrations Declining';
+
+  @override
+  String get notifications_admin_verification_gap =>
+      'Verification Gap Detected';
+
+  @override
+  String get notifications_admin_inactive_hospitals => 'Inactive Hospitals';
+
+  @override
+  String get notifications_admin_donor_retention_alert =>
+      'Donor Retention Alert';
+
+  @override
+  String get notifications_admin_suspension_spike =>
+      'Suspension Spike Detected';
+
+  @override
+  String get notifications_admin_urgent_blood_request => 'Urgent Blood Request';
+
+  @override
+  String notifications_analytics_critical_need_title(Object bloodTypes) {
+    return 'Critical need for $bloodTypes';
+  }
+
+  @override
+  String get notifications_analytics_predicted_high_demand_title =>
+      'Predicted High Demand';
+
+  @override
+  String notifications_analytics_predicted_high_demand_body(Object percent) {
+    return 'A $percent% increase in blood requests is predicted next week.';
+  }
+
+  @override
+  String get notifications_analytics_rising_demand_title =>
+      'Rising Demand Trend';
+
+  @override
+  String get notifications_analytics_rising_demand_body =>
+      'Blood requests are trending upward. Prepare additional resources.';
+
+  @override
+  String get notifications_analytics_declining_demand_title =>
+      'Declining Demand';
+
+  @override
+  String get notifications_analytics_declining_demand_body =>
+      'Blood requests are declining. Review inventory allocation.';
+
+  @override
+  String get notifications_analytics_shortage_risk_title => 'Shortage Risk';
+
+  @override
+  String notifications_analytics_shortage_risk_body(Object bloodType) {
+    return '$bloodType blood stock is expected to deplete within the next 4 days.';
+  }
+
+  @override
+  String get notifications_analytics_supply_warning_title => 'Supply Warning';
+
+  @override
+  String notifications_analytics_supply_warning_body(Object bloodType) {
+    return '$bloodType blood supply is approaching critical levels.';
+  }
+
+  @override
+  String get notifications_analytics_peak_day_title => 'Peak Day Insight';
+
+  @override
+  String notifications_analytics_peak_day_body(Object peakDay, Object pct) {
+    return '$peakDay shows $pct% higher donation activity. Consider scheduling more drives on this day.';
+  }
+
+  @override
+  String get notifications_analytics_retention_alert_title =>
+      'Donor Retention Alert';
+
+  @override
+  String get notifications_analytics_retention_alert_body =>
+      'Donor return rate has dropped significantly. Consider re-engagement campaigns.';
+
+  @override
+  String get notifications_analytics_growth_positive_title =>
+      'Donor Growth Positive';
+
+  @override
+  String get notifications_analytics_growth_positive_body =>
+      'More donors are returning compared to last month. Momentum is strong.';
+
+  @override
+  String get notifications_analytics_emergency_spike_title =>
+      'Emergency Demand Spike';
+
+  @override
+  String get notifications_analytics_emergency_spike_body =>
+      'Blood demand has surged unexpectedly in the last 3 days. Emergency response may be needed.';
+
+  @override
+  String get notifications_actions_accept => 'Accept';
+
+  @override
+  String get notifications_actions_view_details => 'View Details';
+
+  @override
+  String get notifications_delete_all => 'Delete all notifications';
+
+  @override
+  String get notifications_delete_confirm =>
+      'Are you sure you want to delete all notifications?';
+
+  @override
+  String get notifications_delete_success =>
+      'Notifications deleted successfully';
+
+  @override
+  String get notifications_empty => 'No notifications';
 }

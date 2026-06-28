@@ -831,7 +831,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reschedule => 'إعادة الجدولة';
 
   @override
-  String get appointmentCancelled => 'تم إلغاء الموعد';
+  String get appointmentCancelled => 'تم إلغاء هذا الموعد.';
 
   @override
   String get rescheduleAppointmentTitle => 'إعادة جدولة الموعد';
@@ -4838,4 +4838,711 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get replySubmitted => 'تم إرسال الرد بنجاح';
+
+  @override
+  String get working_hours_and_slots => 'ساعات العمل والأماكن الشاغرة';
+
+  @override
+  String get measure_in_hours => 'ساعات';
+
+  @override
+  String get slots => 'أماكن شاغرة';
+
+  @override
+  String get manage_working_hours => 'إدارة ساعات العمل';
+
+  @override
+  String get appointment_slots => 'الأماكن الشاغرة.';
+
+  @override
+  String get working_hours_subtitle =>
+      'حدد ساعات العمل الخاصة بالمستشفى والطاقة الاستيعابية لها';
+
+  @override
+  String get working_hours_tip => 'تلميح: ';
+
+  @override
+  String get working_hours_tip_text =>
+      'حدد ساعات العمل والأماكن الشاغرة في كل ساعة، سيتم تطبيق السعة نفسها لكل الساعات';
+
+  @override
+  String get opening_time => 'وقت البداية';
+
+  @override
+  String get closing_time => 'وقت الإغلاق';
+
+  @override
+  String get slots_per_hour => 'الأماكن الشاغرة في الساعة: ';
+
+  @override
+  String get slots_per_hour_text =>
+      'هذه القيمة ستطبق على كل ساعة من وقت البداية حتى وقت الإغلاق';
+
+  @override
+  String get summary => 'الملخص';
+
+  @override
+  String get operating_hours => 'ساعات العمل: ';
+
+  @override
+  String get hours_per_day => 'الساعات في اليوم: ';
+
+  @override
+  String get total_daily_capacity => 'الطاقة الاستيعابية الكلية لليوم: ';
+
+  @override
+  String get totalDailySlots => 'الوحدات الاستيعابية الكلية الشاغرة لليوم: ';
+
+  @override
+  String get availableForScheduling => 'متاح للجدولة';
+
+  @override
+  String get uniformAcrossAllHours => 'موحد على مدار جميع الساعات';
+
+  @override
+  String get patientTypeAdult => 'بالغ';
+
+  @override
+  String get patientTypeChild => 'طفل';
+
+  @override
+  String get patientTypeInfant => 'رضيع';
+
+  @override
+  String get bloodTypeNeededMulti => 'وحدات الدم المطلوبة: اختر واحدة أو أكثر';
+
+  @override
+  String get selected => 'تم اختيارها';
+
+  @override
+  String get selectPatientType => 'اختيار عمر المريض';
+
+  @override
+  String get contactNumber => 'رقم التواصل';
+
+  @override
+  String get contactNumberHint => 'مثال: 015980089';
+
+  @override
+  String get patientDetailsHint => 'مثال: مطلوب لعمل جراحي';
+
+  @override
+  String get noHistoryFound => 'لم يتم العثور على سجلات';
+
+  @override
+  String get invalidUnits => 'لم يتم اختيار وحدات';
+
+  @override
+  String get update => 'تعديل';
+
+  @override
+  String get updateRequest => 'تعديل الطلب';
+
+  @override
+  String get updateRequestSubtitle => 'عدل بيانات هذا الطلب، ثم احفظ التعديلات';
+
+  @override
+  String get keepRequest => 'أبقي الطلب';
+
+  @override
+  String get yesCancelRequest => 'نعم، ألغي الطلب';
+
+  @override
+  String get patientDetailsSurgery => 'عملية جراحية';
+
+  @override
+  String get patientDetailsCardiacSurgery => 'جراحة قلب';
+
+  @override
+  String get patientDetailsAccident => 'حادث';
+
+  @override
+  String get patientDetailsBurns => 'حروق';
+
+  @override
+  String get patientDetailsCancer => 'سرطان';
+
+  @override
+  String get patientDetailsLeukemia => 'سرطان الدم';
+
+  @override
+  String get patientDetailsMaternity => 'أمومة';
+
+  @override
+  String get patientDetailsChronicIllness => 'مرض مزمن';
+
+  @override
+  String get patientDetailsHemophilia => 'هيموفيليا';
+
+  @override
+  String get patientDetailsThalassemia => 'ثالاسيميا';
+
+  @override
+  String get patientDetailsDialysis => 'غسيل الكلى';
+
+  @override
+  String get patientDetailsGastrointestinalBleeding => 'نزيف الجهاز الهضمي';
+
+  @override
+  String get patientDetailsOrganTransplant => 'زرع الأعضاء';
+
+  @override
+  String get patientDetailsPediatric => 'طب الأطفال';
+
+  @override
+  String get patientDetailsEmergency => 'طارئ';
+
+  @override
+  String get patientDetailsGeneral => 'عام';
+
+  @override
+  String get statusAccepted => 'تم القبول';
+
+  @override
+  String get statusInProgress => 'قيد العمل';
+
+  @override
+  String get statusExpired => 'انتهت المدة';
+
+  @override
+  String get requestStatusLabel => 'حالة الطلب';
+
+  @override
+  String get updateStatus => 'تعديل الحالة';
+
+  @override
+  String get selectStatus => 'اختيار الحالة';
+
+  @override
+  String activeRequestsCount(Object count) {
+    return '$count طلبات نشطة';
+  }
+
+  @override
+  String responsesTodayCount(Object count) {
+    return '$count ردود لليوم';
+  }
+
+  @override
+  String get noActiveRequests => 'لا يوجد طلبات نشطة حتى الآن';
+
+  @override
+  String get noRecentActivity => 'لا توجد أنشطة حديثة حتى الآن';
+
+  @override
+  String get noNearbyDonorsFound => 'لم يتم العثور على متبرعين قريبين';
+
+  @override
+  String get nearestDonor => 'الأقرب';
+
+  @override
+  String donorsCountLabel(Object count) {
+    return '$count متبرعين';
+  }
+
+  @override
+  String get cancelRequestSuccess => 'تم إلغاء الطلب بنجاح';
+
+  @override
+  String get updateRequestSuccess => 'تم تعديل الطلب بنجاح';
+
+  @override
+  String get failedToLoadDashboard => 'فشل تحميل بيانات الإحصائيات';
+
+  @override
+  String get failedToLoadRequests => 'فشل تحميل الطلبات';
+
+  @override
+  String get failedToLoadActivity => 'فشل تحميل الأنشطة الحديثة';
+
+  @override
+  String get failedToLoadNearbyDonors => 'فشل تحميل المتبرعين القريبين';
+
+  @override
+  String get failedToLoadResponses => 'فشل تحميل المتبرعين الذين ردوا';
+
+  @override
+  String get noResponsesYet => 'لم يرد أي متبرع حتى الآن';
+
+  @override
+  String get donorResponseStatusDeclined => 'مرفوض';
+
+  @override
+  String get scanQrInstructionTitle => 'وجه الكاميرا إلى الQR الخاص بالمتبرع';
+
+  @override
+  String get verifyingQrCode => 'جاري التأكد من الرمز...';
+
+  @override
+  String get qrVerificationFailed => 'فشل التحقق من رمز QR.';
+
+  @override
+  String get donationConfirmedSuccessTitle => 'تم تأكيد التبرع!';
+
+  @override
+  String donationConfirmedSuccessMessage(Object donorName) {
+    return 'لقد تم تسجيل التبرع الخاص ب $donorName والتأكد منه';
+  }
+
+  @override
+  String get scanAnotherCode => 'امسح رمزا آخر';
+
+  @override
+  String get invalidQrCode => 'رمز QR غير صالح.';
+
+  @override
+  String get qrCodeExpired => 'انتهت صلاحية رمز QR هذا.';
+
+  @override
+  String get doneButton => 'انتهاء';
+
+  @override
+  String get allAppointments => 'جميع المواعيد';
+
+  @override
+  String get noAppointmentsFound => 'لم يتم العثور على مواعيد';
+
+  @override
+  String get enterCodeManually => 'أدخل الرمز يدوياً';
+
+  @override
+  String get manualEntry => 'إدخال يدوي';
+
+  @override
+  String get enterDonationCode => 'أدخل رمز التبرع';
+
+  @override
+  String get donationCodeLabel => 'رمز التبرع';
+
+  @override
+  String get verifyCode => 'تأكيد الرمز';
+
+  @override
+  String get scanQrInstead => 'مسح رمز QR بدلاً من ذلك';
+
+  @override
+  String get appointmentDateLabel => 'تاريخ الموعد';
+
+  @override
+  String get rejectVerification => 'رفض التحقق';
+
+  @override
+  String get rejectConfirmation => 'هل أنت متأكد أنك تريد رفض هذا التحقق؟';
+
+  @override
+  String get reasonLabel => 'السبب';
+
+  @override
+  String get reject => 'رفض';
+
+  @override
+  String get verificationRejected => 'تم رفض التحقق';
+
+  @override
+  String get pleaseEnterReason => 'يرجى إدخال سبب';
+
+  @override
+  String get pleaseCompleteChecklist => 'يرجى إكمال جميع عناصر القائمة';
+
+  @override
+  String get eligibilityChecklist => 'قائمة التحقق من الأهلية';
+
+  @override
+  String get verificationChecklist => 'قائمة التحقق';
+
+  @override
+  String get idVerified => 'تم التحقق من الهوية';
+
+  @override
+  String get questionnaireCompleted => 'تم إكمال الاستبيان';
+
+  @override
+  String get consentSigned => 'تم التوقيع على الموافقة';
+
+  @override
+  String get diseaseScreening => 'فحص الأمراض';
+
+  @override
+  String get screeningCompleted => 'اكتمل الفحص (لا توجد أمراض مانعة)';
+
+  @override
+  String get disqualifyingDiseaseFound => 'تم العثور على مرض مانع';
+
+  @override
+  String get addDisease => 'إضافة مرض';
+
+  @override
+  String get addToList => 'إضافة إلى القائمة';
+
+  @override
+  String get additionalNotes => 'ملاحظات إضافية...';
+
+  @override
+  String get submitVerification => 'إرسال التحقق';
+
+  @override
+  String get pleaseFillRequiredFields => 'يرجى ملء جميع الحقول المطلوبة';
+
+  @override
+  String get donationCompletion => 'إتمام التبرع';
+
+  @override
+  String get donationCompletedSuccessfully => 'تم إتمام التبرع بنجاح!';
+
+  @override
+  String pointsEarned(Object count) {
+    return 'النقاط المكتسبة: $count';
+  }
+
+  @override
+  String get recordDonorData => 'تسجيل بيانات المتبرع';
+
+  @override
+  String get enterDonorReadings => 'أدخل القراءات الطبية للمتبرع أدناه';
+
+  @override
+  String get hemoglobinLevel => 'مستوى الهيموجلوبين (جم/ديسيلتر)';
+
+  @override
+  String get unitsCollected => 'الوحدات المجمعة';
+
+  @override
+  String get donationCodeHint => 'أدخل رمز التبرع';
+
+  @override
+  String get verificationFailed => 'فشل التحقق.';
+
+  @override
+  String get connectionTimedOut =>
+      'انتهت مهلة الاتصال. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get noInternetConnection => 'لا يوجد اتصال بالإنترنت.';
+
+  @override
+  String get sessionExpired => 'انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى.';
+
+  @override
+  String get notFoundItem => 'غير موجود.';
+
+  @override
+  String get checkAllFields => 'يرجى التحقق من جميع الحقول والمحاولة مرة أخرى.';
+
+  @override
+  String get profileNotFound => 'الملف الشخصي غير موجود.';
+
+  @override
+  String get accessDenied => 'تم رفض الوصول.';
+
+  @override
+  String get hospitalLocationNotSet =>
+      'لم يتم تعيين موقع المستشفى. يرجى تحديث ملفك الشخصي.';
+
+  @override
+  String get invalidStatusFilter => 'فلتر حالة غير صالح.';
+
+  @override
+  String get failedLoadAppointmentDetails => 'فشل تحميل تفاصيل الموعد.';
+
+  @override
+  String get failedCompleteDonation => 'فشل إتمام التبرع.';
+
+  @override
+  String get failedRejectAppointment => 'فشل رفض الموعد.';
+
+  @override
+  String get failedLoadRequestDetails => 'فشل تحميل تفاصيل الطلب.';
+
+  @override
+  String get requestUpdatedSuccess => 'تم تحديث الطلب بنجاح.';
+
+  @override
+  String get failedUpdateRequest => 'فشل تحديث الطلب.';
+
+  @override
+  String get requestCancelledSuccess => 'تم إلغاء الطلب بنجاح.';
+
+  @override
+  String get failedLoadDonorResponses => 'فشل تحميل ردود المتبرعين.';
+
+  @override
+  String get failedLoadProfile => 'فشل تحميل الملف الشخصي.';
+
+  @override
+  String get profileUpdatedSuccess => 'تم تحديث الملف الشخصي بنجاح.';
+
+  @override
+  String get workingHoursUpdatedSuccess => 'تم تحديث ساعات العمل بنجاح.';
+
+  @override
+  String get currentPasswordIncorrect => 'كلمة المرور الحالية غير صحيحة.';
+
+  @override
+  String get passwordMustBeDifferent =>
+      'يجب أن تختلف كلمة المرور الجديدة عن الحالية.';
+
+  @override
+  String get hospitalContactRequired =>
+      'يرجى تعيين رقم اتصال في ملفك الشخصي قبل إنشاء طلب.';
+
+  @override
+  String get donationAlreadyCompleted => 'تم إتمام هذا التبرع بالفعل.';
+
+  @override
+  String get hospitalNotApproved =>
+      'حساب المستشفى الخاص بك لم يتم الموافقة عليه بعد. يرجى التواصل مع support@lifelink.org.';
+
+  @override
+  String get invalidHospitalId => 'معرف المستشفى غير صحيح.';
+
+  @override
+  String get invalidEmailOrPassword =>
+      'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+
+  @override
+  String activityRequestCreated(Object bloodTypes) {
+    return 'تم إنشاء طلب - $bloodTypes';
+  }
+
+  @override
+  String activityRequestFulfilled(Object bloodTypes) {
+    return 'تم تلبية الطلب - $bloodTypes';
+  }
+
+  @override
+  String activityDonorResponse(Object donorName) {
+    return 'استجابة متبرع جديدة - $donorName';
+  }
+
+  @override
+  String get activityDonorResponseFallback => 'استجابة متبرع جديدة - متبرع';
+
+  @override
+  String activityUnitsNeeded(Object units) {
+    return 'وحدات مطلوبة $units';
+  }
+
+  @override
+  String activityUnitsReceived(Object units) {
+    return 'وحدات مستلمة $units';
+  }
+
+  @override
+  String activityDonorResponded(Object bloodType) {
+    return 'متبرع فصيلة $bloodType استجاب';
+  }
+
+  @override
+  String activityDonorRespondedFallback(Object bloodTypes) {
+    return 'متبرعون فصائل $bloodTypes استجابوا';
+  }
+
+  @override
+  String get notifications_match_title => 'تم مطابقة متبرع جديد';
+
+  @override
+  String notifications_match_body(Object requestLabel) {
+    return 'تطابق متبرع مع طلب $requestLabel الخاص بك';
+  }
+
+  @override
+  String get notifications_emergency_title => 'طلب دم طارئ';
+
+  @override
+  String notifications_emergency_body(Object bloodType, Object hospitalName) {
+    return 'دم من فصيلة $bloodType مطلوب بالقرب من $hospitalName';
+  }
+
+  @override
+  String notifications_milestone_title(Object achievementTitle) {
+    return 'إنجاز تم تحقيقه: $achievementTitle';
+  }
+
+  @override
+  String notifications_milestone_body(Object achievementTitle) {
+    return 'تهانينا! لقد حصلت على: $achievementTitle';
+  }
+
+  @override
+  String notifications_rewards_tier_upgraded(Object newTier) {
+    return 'تم ترقية المستوى إلى $newTier!';
+  }
+
+  @override
+  String notifications_rewards_badge_unlocked(Object badgeName) {
+    return 'تم فتح شارة: $badgeName';
+  }
+
+  @override
+  String get notifications_rewards_reward_redeemed => 'تم استلام المكافأة!';
+
+  @override
+  String get notifications_appointment_rescheduled => 'تم إعادة جدولة الموعد';
+
+  @override
+  String get notifications_appointment_donor_rescheduled =>
+      'المتبرع أعاد جدولة الموعد';
+
+  @override
+  String get notifications_appointment_new_booked => 'موعد جديد محجوز';
+
+  @override
+  String get notifications_appointment_cancelled_by_donor =>
+      'تم إلغاء الموعد من قبل المتبرع';
+
+  @override
+  String get notifications_activity_tier_promoted => 'تم ترقية المستوى';
+
+  @override
+  String get notifications_activity_badge_unlocked => 'تم فتح شارة';
+
+  @override
+  String get notifications_activity_redeemed_reward => 'تم استلام المكافأة';
+
+  @override
+  String get notifications_activity_donation_created => 'تم إنشاء تبرع';
+
+  @override
+  String get notifications_activity_donation_verified => 'تم التحقق من التبرع';
+
+  @override
+  String get notifications_activity_donation_confirmed => 'تم تأكيد التبرع';
+
+  @override
+  String get notifications_activity_donation_completed => 'تم إكمال التبرع';
+
+  @override
+  String get notifications_activity_donation_cancelled => 'تم إلغاء التبرع';
+
+  @override
+  String get notifications_activity_blood_donation_submitted =>
+      'تم تقديم التبرع بالدم';
+
+  @override
+  String get notifications_activity_request_cancelled => 'تم إلغاء الطلب';
+
+  @override
+  String get notifications_activity_request_rejected => 'تم رفض الطلب';
+
+  @override
+  String get notifications_admin_registrations_rising =>
+      'تسجيلات المتبرعين في ارتفاع';
+
+  @override
+  String get notifications_admin_registrations_declining =>
+      'تسجيلات المتبرعين في انخفاض';
+
+  @override
+  String get notifications_admin_verification_gap => 'تم اكتشاف فجوة في التحقق';
+
+  @override
+  String get notifications_admin_inactive_hospitals => 'مستشفيات غير نشطة';
+
+  @override
+  String get notifications_admin_donor_retention_alert =>
+      'تنبيه الاحتفاظ بالمتبرعين';
+
+  @override
+  String get notifications_admin_suspension_spike =>
+      'تم اكتشاف ارتفاع في التعليقات';
+
+  @override
+  String get notifications_admin_urgent_blood_request => 'طلب دم عاجل';
+
+  @override
+  String notifications_analytics_critical_need_title(Object bloodTypes) {
+    return 'حاجة ماسة لفصائل $bloodTypes';
+  }
+
+  @override
+  String get notifications_analytics_predicted_high_demand_title =>
+      'ارتفاع متوقع في الطلب';
+
+  @override
+  String notifications_analytics_predicted_high_demand_body(Object percent) {
+    return 'زيادة بنسبة $percent% في طلبات الدم متوقعة الأسبوع القادم.';
+  }
+
+  @override
+  String get notifications_analytics_rising_demand_title =>
+      'اتجاه الطلب في ارتفاع';
+
+  @override
+  String get notifications_analytics_rising_demand_body =>
+      'طلبات الدم في ارتفاع. يرجى تجهيز موارد إضافية.';
+
+  @override
+  String get notifications_analytics_declining_demand_title =>
+      'الطلب في انخفاض';
+
+  @override
+  String get notifications_analytics_declining_demand_body =>
+      'طلبات الدم في انخفاض. راجع توزيع المخزون.';
+
+  @override
+  String get notifications_analytics_shortage_risk_title => 'خطر نقص المخزون';
+
+  @override
+  String notifications_analytics_shortage_risk_body(Object bloodType) {
+    return 'مخزون دم فصيلة $bloodType من المتوقع أن ينفد خلال 4 أيام.';
+  }
+
+  @override
+  String get notifications_analytics_supply_warning_title => 'تحذير المخزون';
+
+  @override
+  String notifications_analytics_supply_warning_body(Object bloodType) {
+    return 'مخزون دم فصيلة $bloodType يقترب من المستويات الحرجة.';
+  }
+
+  @override
+  String get notifications_analytics_peak_day_title => 'رؤية يوم الذروة';
+
+  @override
+  String notifications_analytics_peak_day_body(Object peakDay, Object pct) {
+    return 'يوم $peakDay يُظهر نشاط تبرع أعلى بنسبة $pct%. فكر في جدولة المزيد من الحملات في هذا اليوم.';
+  }
+
+  @override
+  String get notifications_analytics_retention_alert_title =>
+      'تنبيه الاحتفاظ بالمتبرعين';
+
+  @override
+  String get notifications_analytics_retention_alert_body =>
+      'معدل عودة المتبرعين انخفض بشكل ملحوظ. فكر في حملات إعادة التواصل.';
+
+  @override
+  String get notifications_analytics_growth_positive_title =>
+      'نمو إيجابي للمتبرعين';
+
+  @override
+  String get notifications_analytics_growth_positive_body =>
+      'عدد المتبرعين العائدين أعلى مقارنة بالشهر الماضي. الزخم قوي.';
+
+  @override
+  String get notifications_analytics_emergency_spike_title =>
+      'ارتفاع طارئ في الطلب';
+
+  @override
+  String get notifications_analytics_emergency_spike_body =>
+      'ارتفع الطلب على الدم بشكل غير متوقع في الأيام الثلاثة الماضية. قد تكون هناك حاجة لاستجابة طارئة.';
+
+  @override
+  String get notifications_actions_accept => 'قبول';
+
+  @override
+  String get notifications_actions_view_details => 'عرض التفاصيل';
+
+  @override
+  String get notifications_delete_all => 'حذف جميع الإشعارات';
+
+  @override
+  String get notifications_delete_confirm =>
+      'هل أنت متأكد من حذف جميع الإشعارات؟';
+
+  @override
+  String get notifications_delete_success => 'تم حذف جميع الإشعارات بنجاح';
+
+  @override
+  String get notifications_empty => 'لا توجد إشعارات';
 }

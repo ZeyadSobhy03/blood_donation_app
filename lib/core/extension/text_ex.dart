@@ -4,7 +4,7 @@ import 'package:blood_donation_app/l10n/app_localizations.dart';
 extension StringEx on String {
   static final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
   static final RegExp passwordRegex = RegExp(
-    r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$',
+    r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_#^~])[A-Za-z\d@$!%*?&_#^~]{8,}$',
   );
   static final RegExp phoneRegex = RegExp(r'^(010|011|012|015)[0-9]{8}$');
   static final RegExp nameRegex = RegExp(r'^[a-zA-Z\u0621-\u064A ]+$');

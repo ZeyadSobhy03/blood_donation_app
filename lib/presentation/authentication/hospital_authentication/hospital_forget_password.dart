@@ -1,19 +1,13 @@
-import 'package:blood_donation_app/core/resources/models/reset_password_args.dart';
+import 'package:blood_donation_app/core/extension/text_ex.dart';
+import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/widgets/custom_auth_box.dart';
+import 'package:blood_donation_app/core/widgets/custom_label.dart';
+import 'package:blood_donation_app/core/widgets/custom_text_field.dart';
+import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
+import 'package:blood_donation_app/l10n/app_localizations.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/presentation/view_model/hospital_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../core/extension/text_ex.dart';
-import '../../../core/resources/colors/color_manger.dart';
-import '../../../core/resources/models/pin_verification_args.dart';
-import '../../../core/resources/routes/route_manger.dart';
-import '../../../core/widgets/custom_auth_box.dart';
-import '../../../core/widgets/custom_label.dart';
-import '../../../core/widgets/custom_pin_code.dart';
-import '../../../core/widgets/custom_text_field.dart';
-import '../../../core/widgets/states/custom_loading_widget.dart';
-import '../../../l10n/app_localizations.dart';
-import '../../authentication/donor_authentication/presentation/error_mapper.dart';
-import '../../authentication/donor_authentication/presentation/view_model/auth_view_model.dart';
 
 class HospitalForgetPassword extends StatefulWidget {
   const HospitalForgetPassword({super.key});
@@ -27,6 +21,16 @@ class _HospitalForgetPasswordState extends State<HospitalForgetPassword> {
   final TextEditingController _emailController = TextEditingController();
   late String _verificationEmail;
 
+  void _handleSendOtp() {
+    if (!_formKey.currentState!.validate()) return;
+    FocusScope.of(context).unfocus();
+    final loc = AppLocalizations.of(context)!;
+    context.read<HospitalCubit>().forgotPassword(
+      email: _emailController.text.trim(),
+      loc: loc,
+    );
+  }
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -37,89 +41,46 @@ class _HospitalForgetPasswordState extends State<HospitalForgetPassword> {
   Widget build(BuildContext context) {
     final appLocalization = AppLocalizations.of(context)!;
 
-    return BlocListener<AuthCubit, AuthState>(
-      listener: (context, state) {
-        if (state is AuthForgetPasswordSuccessState) {
-          _verificationEmail = _emailController.text.trim();
-          final authCubit = context.read<AuthCubit>();
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(appLocalization.forget_password_success),
-              backgroundColor: ColorManger.successColor,
-              behavior: SnackBarBehavior.floating,
+    return Scaffold(
+      backgroundColor: ColorManger.veryLightBlue,
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 20.0,
             ),
-          );
+            child: BlocListener<HospitalCubit, HospitalState>(
+              listener: (context, state) {
+                if (state is HospitalForgotPasswordSuccessState) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'A verification code has been sent to your registered email.',
+                      ),
+                      backgroundColor: Colors.green,
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                  // TODO: Navigate to OTP verification screen when available.
+                }
 
-          Navigator.pushNamed(
-            context,
-            RouteManger.customPinVerificationScreen,
-            arguments: PinVerificationArgs(
-              title: appLocalization.donor_pin_verification_title,
-              subtitle: appLocalization.donor_pin_verification_subtitle,
-              submitText: appLocalization.confirm,
-              cancelText: appLocalization.cancel,
-              invalidPinText: appLocalization.invalidPin,
-              role: AuthPinRole.hospital,
-              pinLength: 6,
-              onSubmit: (otp) async {
-                final isValid = await authCubit.verifyForgetPasswordOtp(
-                  email: _verificationEmail,
-                  otp: otp,
-                );
-                return isValid;
+                if (state is HospitalErrorState) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message),
+                      backgroundColor: Colors.red,
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                }
               },
-              onResend: () async {
-                authCubit.forgetPassword(email: _verificationEmail);
-              },
-            ),
-          );
-        }
-
-        if (state is AuthVerifyOtpSuccessState) {
-          if (state.verified) {
-            Navigator.pop(context);
-            Future.delayed(const Duration(milliseconds: 100), () {
-              Navigator.pushNamed(
-                context,
-                RouteManger.customResetPassword,
-                arguments: ResetPasswordArgs(
-                  email: _verificationEmail,
-                  otp: state.otp ?? '',
-                  primaryColor: ColorManger.skyBlue,
-                  backgroundColor: ColorManger.veryLightBlue,
-                  successRoute: RouteManger.hospitalAuth,
-                  title: appLocalization.hospital_reset_password_title,
-                  subtitle: appLocalization.hospital_reset_password_subtitle,
-                ),
-              );
-            });
-          }
-        }
-
-        if (state is AuthErrorState) {
-          final message = ErrorMapper.map(state.errorKey, appLocalization);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(message),
-              backgroundColor: Colors.red,
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
-        }
-      },
-      child: Scaffold(
-        backgroundColor: ColorManger.veryLightBlue,
-        body: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
-              child: BlocBuilder<AuthCubit, AuthState>(
+              child: BlocBuilder<HospitalCubit, HospitalState>(
                 builder: (context, state) {
-                  if (state is AuthLoadingState) {
+                  if (state is HospitalLoadingState) {
                     return CustomLoadingWidget(
-                      indicatorColor: ColorManger.skyBlue,
                       message: appLocalization.processingRequest,
+                      indicatorColor: Colors.blueAccent,
                     );
                   }
 
@@ -130,11 +91,18 @@ class _HospitalForgetPasswordState extends State<HospitalForgetPassword> {
                         Row(
                           children: [
                             IconButton(
-                              icon: const Icon(Icons.arrow_back, color: ColorManger.black),
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: ColorManger.black,
+                              ),
                               onPressed: () => Navigator.pop(context),
                             ),
                             const SizedBox(width: 8),
-                            const Icon(Icons.favorite_border, color: ColorManger.brightRed, size: 32),
+                            const Icon(
+                              Icons.favorite_border,
+                              color: ColorManger.brightRed,
+                              size: 32,
+                            ),
                             const SizedBox(width: 12),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,13 +155,13 @@ class _HospitalForgetPasswordState extends State<HospitalForgetPassword> {
                               const SizedBox(height: 24),
 
                               CustomLabel(text: appLocalization.donor_email),
-
                               const SizedBox(height: 8),
 
                               CustomTextField(
                                 controller: _emailController,
-                                validator: (value) => value?.emailValidator(context),
-                                hint: "someone@example.com",
+                                validator: (value) =>
+                                    value?.emailValidator(context),
+                                hint: 'admin@hospital.org',
                                 icon: Icons.email_outlined,
                                 isPassword: false,
                               ),
@@ -204,13 +172,7 @@ class _HospitalForgetPasswordState extends State<HospitalForgetPassword> {
                                 width: double.infinity,
                                 height: 50,
                                 child: ElevatedButton(
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      context.read<AuthCubit>().forgetPassword(
-                                        email: _emailController.text.trim(),
-                                      );
-                                    }
-                                  },
+                                  onPressed: _handleSendOtp,
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: ColorManger.skyBlue,
                                     foregroundColor: Colors.white,

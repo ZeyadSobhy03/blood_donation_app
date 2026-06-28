@@ -797,7 +797,7 @@ abstract class AppLocalizations {
   /// No description provided for @patientType.
   ///
   /// In en, this message translates to:
-  /// **'Patient Type'**
+  /// **'PatientType'**
   String get patientType;
 
   /// No description provided for @contact.
@@ -1077,7 +1077,7 @@ abstract class AppLocalizations {
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
-  /// **'cancel'**
+  /// **'Cancel'**
   String get cancel;
 
   /// No description provided for @donationMessage.
@@ -1659,7 +1659,7 @@ abstract class AppLocalizations {
   /// No description provided for @appointmentCancelled.
   ///
   /// In en, this message translates to:
-  /// **'Appointment cancelled'**
+  /// **'This appointment has been cancelled.'**
   String get appointmentCancelled;
 
   /// No description provided for @rescheduleAppointmentTitle.
@@ -5133,7 +5133,7 @@ abstract class AppLocalizations {
   /// No description provided for @somethingWentWrong.
   ///
   /// In en, this message translates to:
-  /// **'Oops! Something went wrong'**
+  /// **'Something went wrong. Please try again.'**
   String get somethingWentWrong;
 
   /// No description provided for @errorDetails.
@@ -9111,6 +9111,1272 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reply submitted successfully'**
   String get replySubmitted;
+
+  /// No description provided for @working_hours_and_slots.
+  ///
+  /// In en, this message translates to:
+  /// **'Working Hours & Slots'**
+  String get working_hours_and_slots;
+
+  /// No description provided for @measure_in_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'hours'**
+  String get measure_in_hours;
+
+  /// No description provided for @slots.
+  ///
+  /// In en, this message translates to:
+  /// **'slots'**
+  String get slots;
+
+  /// No description provided for @manage_working_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage Working Hours'**
+  String get manage_working_hours;
+
+  /// No description provided for @appointment_slots.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Slots'**
+  String get appointment_slots;
+
+  /// No description provided for @working_hours_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure your hospital\'s operating hours and appointment capacity'**
+  String get working_hours_subtitle;
+
+  /// No description provided for @working_hours_tip.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip: '**
+  String get working_hours_tip;
+
+  /// No description provided for @working_hours_tip_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your working hours and slots per hour. The same slot capacity will be applied to all hours.'**
+  String get working_hours_tip_text;
+
+  /// No description provided for @opening_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Opening Time'**
+  String get opening_time;
+
+  /// No description provided for @closing_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Closing Time'**
+  String get closing_time;
+
+  /// No description provided for @slots_per_hour.
+  ///
+  /// In en, this message translates to:
+  /// **'Slots Per Hour'**
+  String get slots_per_hour;
+
+  /// No description provided for @slots_per_hour_text.
+  ///
+  /// In en, this message translates to:
+  /// **'This value will be applied to every hour between opening and closing time.'**
+  String get slots_per_hour_text;
+
+  /// No description provided for @summary.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary'**
+  String get summary;
+
+  /// No description provided for @operating_hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Operating Hours: '**
+  String get operating_hours;
+
+  /// No description provided for @hours_per_day.
+  ///
+  /// In en, this message translates to:
+  /// **'Hours Per Day: '**
+  String get hours_per_day;
+
+  /// No description provided for @total_daily_capacity.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Daily Capacity: '**
+  String get total_daily_capacity;
+
+  /// No description provided for @totalDailySlots.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Daily Slots'**
+  String get totalDailySlots;
+
+  /// No description provided for @availableForScheduling.
+  ///
+  /// In en, this message translates to:
+  /// **'Available For Scheduling'**
+  String get availableForScheduling;
+
+  /// No description provided for @uniformAcrossAllHours.
+  ///
+  /// In en, this message translates to:
+  /// **'Uniform Across All Hours'**
+  String get uniformAcrossAllHours;
+
+  /// No description provided for @patientTypeAdult.
+  ///
+  /// In en, this message translates to:
+  /// **'Adult'**
+  String get patientTypeAdult;
+
+  /// No description provided for @patientTypeChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Child'**
+  String get patientTypeChild;
+
+  /// No description provided for @patientTypeInfant.
+  ///
+  /// In en, this message translates to:
+  /// **'Infant'**
+  String get patientTypeInfant;
+
+  /// No description provided for @bloodTypeNeededMulti.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Types Needed (Select one or more)'**
+  String get bloodTypeNeededMulti;
+
+  /// No description provided for @selected.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected'**
+  String get selected;
+
+  /// No description provided for @selectPatientType.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Patient Type'**
+  String get selectPatientType;
+
+  /// No description provided for @contactNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Number'**
+  String get contactNumber;
+
+  /// No description provided for @contactNumberHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g: 015980089'**
+  String get contactNumberHint;
+
+  /// No description provided for @patientDetailsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g: needed for surgery'**
+  String get patientDetailsHint;
+
+  /// No description provided for @noHistoryFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No History Found'**
+  String get noHistoryFound;
+
+  /// No description provided for @invalidUnits.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Units'**
+  String get invalidUnits;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
+
+  /// No description provided for @updateRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Request'**
+  String get updateRequest;
+
+  /// No description provided for @updateRequestSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit the details for this blood request, then save your changes'**
+  String get updateRequestSubtitle;
+
+  /// No description provided for @keepRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep Request'**
+  String get keepRequest;
+
+  /// No description provided for @yesCancelRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, Cancel Request'**
+  String get yesCancelRequest;
+
+  /// No description provided for @patientDetailsSurgery.
+  ///
+  /// In en, this message translates to:
+  /// **'Surgery'**
+  String get patientDetailsSurgery;
+
+  /// No description provided for @patientDetailsCardiacSurgery.
+  ///
+  /// In en, this message translates to:
+  /// **'Cardiac Surgery'**
+  String get patientDetailsCardiacSurgery;
+
+  /// No description provided for @patientDetailsAccident.
+  ///
+  /// In en, this message translates to:
+  /// **'Accident'**
+  String get patientDetailsAccident;
+
+  /// No description provided for @patientDetailsBurns.
+  ///
+  /// In en, this message translates to:
+  /// **'Burns'**
+  String get patientDetailsBurns;
+
+  /// No description provided for @patientDetailsCancer.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancer'**
+  String get patientDetailsCancer;
+
+  /// No description provided for @patientDetailsLeukemia.
+  ///
+  /// In en, this message translates to:
+  /// **'Leukemia'**
+  String get patientDetailsLeukemia;
+
+  /// No description provided for @patientDetailsMaternity.
+  ///
+  /// In en, this message translates to:
+  /// **'Maternity'**
+  String get patientDetailsMaternity;
+
+  /// No description provided for @patientDetailsChronicIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'Chronic Illness'**
+  String get patientDetailsChronicIllness;
+
+  /// No description provided for @patientDetailsHemophilia.
+  ///
+  /// In en, this message translates to:
+  /// **'Hemophilia'**
+  String get patientDetailsHemophilia;
+
+  /// No description provided for @patientDetailsThalassemia.
+  ///
+  /// In en, this message translates to:
+  /// **'Thalassemia'**
+  String get patientDetailsThalassemia;
+
+  /// No description provided for @patientDetailsDialysis.
+  ///
+  /// In en, this message translates to:
+  /// **'Dialysis'**
+  String get patientDetailsDialysis;
+
+  /// No description provided for @patientDetailsGastrointestinalBleeding.
+  ///
+  /// In en, this message translates to:
+  /// **'Gastrointestinal Bleeding'**
+  String get patientDetailsGastrointestinalBleeding;
+
+  /// No description provided for @patientDetailsOrganTransplant.
+  ///
+  /// In en, this message translates to:
+  /// **'Organ Transplant'**
+  String get patientDetailsOrganTransplant;
+
+  /// No description provided for @patientDetailsPediatric.
+  ///
+  /// In en, this message translates to:
+  /// **'Pediatric'**
+  String get patientDetailsPediatric;
+
+  /// No description provided for @patientDetailsEmergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency'**
+  String get patientDetailsEmergency;
+
+  /// No description provided for @patientDetailsGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get patientDetailsGeneral;
+
+  /// No description provided for @statusAccepted.
+  ///
+  /// In en, this message translates to:
+  /// **'Accepted'**
+  String get statusAccepted;
+
+  /// No description provided for @statusInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'In Progress'**
+  String get statusInProgress;
+
+  /// No description provided for @statusExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Expired'**
+  String get statusExpired;
+
+  /// No description provided for @requestStatusLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Status'**
+  String get requestStatusLabel;
+
+  /// No description provided for @updateStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Status'**
+  String get updateStatus;
+
+  /// No description provided for @selectStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Status'**
+  String get selectStatus;
+
+  /// No description provided for @activeRequestsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Active Requests'**
+  String activeRequestsCount(Object count);
+
+  /// No description provided for @responsesTodayCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Responses Today'**
+  String responsesTodayCount(Object count);
+
+  /// No description provided for @noActiveRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'No active requests right now'**
+  String get noActiveRequests;
+
+  /// No description provided for @noRecentActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'No recent activity'**
+  String get noRecentActivity;
+
+  /// No description provided for @noNearbyDonorsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No nearby donors found'**
+  String get noNearbyDonorsFound;
+
+  /// No description provided for @nearestDonor.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearest'**
+  String get nearestDonor;
+
+  /// No description provided for @donorsCountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} donors'**
+  String donorsCountLabel(Object count);
+
+  /// No description provided for @cancelRequestSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Request cancelled successfully'**
+  String get cancelRequestSuccess;
+
+  /// No description provided for @updateRequestSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Request updated successfully'**
+  String get updateRequestSuccess;
+
+  /// No description provided for @failedToLoadDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load dashboard data'**
+  String get failedToLoadDashboard;
+
+  /// No description provided for @failedToLoadRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load requests'**
+  String get failedToLoadRequests;
+
+  /// No description provided for @failedToLoadActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load recent activity'**
+  String get failedToLoadActivity;
+
+  /// No description provided for @failedToLoadNearbyDonors.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load nearby donors'**
+  String get failedToLoadNearbyDonors;
+
+  /// No description provided for @failedToLoadResponses.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load donor responses'**
+  String get failedToLoadResponses;
+
+  /// No description provided for @noResponsesYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No donors have responded yet'**
+  String get noResponsesYet;
+
+  /// No description provided for @donorResponseStatusDeclined.
+  ///
+  /// In en, this message translates to:
+  /// **'Declined'**
+  String get donorResponseStatusDeclined;
+
+  /// No description provided for @scanQrInstructionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Point camera at donor\'s QR code'**
+  String get scanQrInstructionTitle;
+
+  /// No description provided for @verifyingQrCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Verifying QR code...'**
+  String get verifyingQrCode;
+
+  /// No description provided for @qrVerificationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'QR verification failed'**
+  String get qrVerificationFailed;
+
+  /// No description provided for @donationConfirmedSuccessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Confirmed!'**
+  String get donationConfirmedSuccessTitle;
+
+  /// No description provided for @donationConfirmedSuccessMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'{donorName}\'s donation has been verified and recorded.'**
+  String donationConfirmedSuccessMessage(Object donorName);
+
+  /// No description provided for @scanAnotherCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan Another Code'**
+  String get scanAnotherCode;
+
+  /// No description provided for @invalidQrCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid QR code'**
+  String get invalidQrCode;
+
+  /// No description provided for @qrCodeExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'This QR code has expired'**
+  String get qrCodeExpired;
+
+  /// No description provided for @doneButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get doneButton;
+
+  /// No description provided for @allAppointments.
+  ///
+  /// In en, this message translates to:
+  /// **'All Appointments'**
+  String get allAppointments;
+
+  /// No description provided for @noAppointmentsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No appointments found.'**
+  String get noAppointmentsFound;
+
+  /// No description provided for @enterCodeManually.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Code Manually'**
+  String get enterCodeManually;
+
+  /// No description provided for @manualEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual Entry'**
+  String get manualEntry;
+
+  /// No description provided for @enterDonationCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the donation code'**
+  String get enterDonationCode;
+
+  /// No description provided for @donationCodeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Code'**
+  String get donationCodeLabel;
+
+  /// No description provided for @verifyCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify Code'**
+  String get verifyCode;
+
+  /// No description provided for @scanQrInstead.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan QR Code instead'**
+  String get scanQrInstead;
+
+  /// No description provided for @appointmentDateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Date'**
+  String get appointmentDateLabel;
+
+  /// No description provided for @rejectVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject Verification'**
+  String get rejectVerification;
+
+  /// No description provided for @rejectConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to reject this verification?'**
+  String get rejectConfirmation;
+
+  /// No description provided for @reasonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get reasonLabel;
+
+  /// No description provided for @reject.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject'**
+  String get reject;
+
+  /// No description provided for @verificationRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification rejected'**
+  String get verificationRejected;
+
+  /// No description provided for @pleaseEnterReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a reason'**
+  String get pleaseEnterReason;
+
+  /// No description provided for @pleaseCompleteChecklist.
+  ///
+  /// In en, this message translates to:
+  /// **'Please complete all checklist items'**
+  String get pleaseCompleteChecklist;
+
+  /// No description provided for @eligibilityChecklist.
+  ///
+  /// In en, this message translates to:
+  /// **'Eligibility Checklist'**
+  String get eligibilityChecklist;
+
+  /// No description provided for @verificationChecklist.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Checklist'**
+  String get verificationChecklist;
+
+  /// No description provided for @idVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'ID Verified'**
+  String get idVerified;
+
+  /// No description provided for @questionnaireCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Questionnaire Completed'**
+  String get questionnaireCompleted;
+
+  /// No description provided for @consentSigned.
+  ///
+  /// In en, this message translates to:
+  /// **'Consent Signed'**
+  String get consentSigned;
+
+  /// No description provided for @diseaseScreening.
+  ///
+  /// In en, this message translates to:
+  /// **'Disease Screening'**
+  String get diseaseScreening;
+
+  /// No description provided for @screeningCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Screening Completed (No disqualifying diseases)'**
+  String get screeningCompleted;
+
+  /// No description provided for @disqualifyingDiseaseFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Disqualifying Disease Found'**
+  String get disqualifyingDiseaseFound;
+
+  /// No description provided for @addDisease.
+  ///
+  /// In en, this message translates to:
+  /// **'Add disease'**
+  String get addDisease;
+
+  /// No description provided for @addToList.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to list'**
+  String get addToList;
+
+  /// No description provided for @additionalNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Additional notes...'**
+  String get additionalNotes;
+
+  /// No description provided for @submitVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Verification'**
+  String get submitVerification;
+
+  /// No description provided for @pleaseFillRequiredFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill all required fields'**
+  String get pleaseFillRequiredFields;
+
+  /// No description provided for @donationCompletion.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Completion'**
+  String get donationCompletion;
+
+  /// No description provided for @donationCompletedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Completed Successfully!'**
+  String get donationCompletedSuccessfully;
+
+  /// No description provided for @pointsEarned.
+  ///
+  /// In en, this message translates to:
+  /// **'Points earned: {count}'**
+  String pointsEarned(Object count);
+
+  /// No description provided for @recordDonorData.
+  ///
+  /// In en, this message translates to:
+  /// **'Record Donor Data'**
+  String get recordDonorData;
+
+  /// No description provided for @enterDonorReadings.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the donor\'s medical readings below'**
+  String get enterDonorReadings;
+
+  /// No description provided for @hemoglobinLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hemoglobin Level (g/dL)'**
+  String get hemoglobinLevel;
+
+  /// No description provided for @unitsCollected.
+  ///
+  /// In en, this message translates to:
+  /// **'Units Collected'**
+  String get unitsCollected;
+
+  /// No description provided for @donationCodeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter donation code'**
+  String get donationCodeHint;
+
+  /// No description provided for @verificationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification failed.'**
+  String get verificationFailed;
+
+  /// No description provided for @connectionTimedOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection timed out. Please try again.'**
+  String get connectionTimedOut;
+
+  /// No description provided for @noInternetConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection.'**
+  String get noInternetConnection;
+
+  /// No description provided for @sessionExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Session expired. Please log in again.'**
+  String get sessionExpired;
+
+  /// No description provided for @notFoundItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Not found.'**
+  String get notFoundItem;
+
+  /// No description provided for @checkAllFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check all fields and try again.'**
+  String get checkAllFields;
+
+  /// No description provided for @profileNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile not found.'**
+  String get profileNotFound;
+
+  /// No description provided for @accessDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Access denied.'**
+  String get accessDenied;
+
+  /// No description provided for @hospitalLocationNotSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Hospital location not set. Please update your profile.'**
+  String get hospitalLocationNotSet;
+
+  /// No description provided for @invalidStatusFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid status filter.'**
+  String get invalidStatusFilter;
+
+  /// No description provided for @failedLoadAppointmentDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load appointment details.'**
+  String get failedLoadAppointmentDetails;
+
+  /// No description provided for @failedCompleteDonation.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to complete donation.'**
+  String get failedCompleteDonation;
+
+  /// No description provided for @failedRejectAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to reject appointment.'**
+  String get failedRejectAppointment;
+
+  /// No description provided for @failedLoadRequestDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load request details.'**
+  String get failedLoadRequestDetails;
+
+  /// No description provided for @requestUpdatedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Request updated successfully.'**
+  String get requestUpdatedSuccess;
+
+  /// No description provided for @failedUpdateRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update request.'**
+  String get failedUpdateRequest;
+
+  /// No description provided for @requestCancelledSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Request cancelled successfully.'**
+  String get requestCancelledSuccess;
+
+  /// No description provided for @failedLoadDonorResponses.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load donor responses.'**
+  String get failedLoadDonorResponses;
+
+  /// No description provided for @failedLoadProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load profile.'**
+  String get failedLoadProfile;
+
+  /// No description provided for @profileUpdatedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated successfully.'**
+  String get profileUpdatedSuccess;
+
+  /// No description provided for @workingHoursUpdatedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Working hours updated successfully.'**
+  String get workingHoursUpdatedSuccess;
+
+  /// No description provided for @currentPasswordIncorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'Current password is incorrect.'**
+  String get currentPasswordIncorrect;
+
+  /// No description provided for @passwordMustBeDifferent.
+  ///
+  /// In en, this message translates to:
+  /// **'New password must be different from current password.'**
+  String get passwordMustBeDifferent;
+
+  /// No description provided for @hospitalContactRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please set a contact number in your profile before creating a request.'**
+  String get hospitalContactRequired;
+
+  /// No description provided for @donationAlreadyCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'This donation has already been completed.'**
+  String get donationAlreadyCompleted;
+
+  /// No description provided for @hospitalNotApproved.
+  ///
+  /// In en, this message translates to:
+  /// **'Your hospital account is not yet approved. Please contact support@lifelink.org.'**
+  String get hospitalNotApproved;
+
+  /// No description provided for @invalidHospitalId.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid hospital ID.'**
+  String get invalidHospitalId;
+
+  /// No description provided for @invalidEmailOrPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email or password.'**
+  String get invalidEmailOrPassword;
+
+  /// No description provided for @activityRequestCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Request created - {bloodTypes}'**
+  String activityRequestCreated(Object bloodTypes);
+
+  /// No description provided for @activityRequestFulfilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request fulfilled - {bloodTypes}'**
+  String activityRequestFulfilled(Object bloodTypes);
+
+  /// No description provided for @activityDonorResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'New donor response - {donorName}'**
+  String activityDonorResponse(Object donorName);
+
+  /// No description provided for @activityDonorResponseFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'New donor response - Donor'**
+  String get activityDonorResponseFallback;
+
+  /// No description provided for @activityUnitsNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'units needed {units}'**
+  String activityUnitsNeeded(Object units);
+
+  /// No description provided for @activityUnitsReceived.
+  ///
+  /// In en, this message translates to:
+  /// **'units received {units}'**
+  String activityUnitsReceived(Object units);
+
+  /// No description provided for @activityDonorResponded.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} donor responded'**
+  String activityDonorResponded(Object bloodType);
+
+  /// No description provided for @activityDonorRespondedFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodTypes} donor responded'**
+  String activityDonorRespondedFallback(Object bloodTypes);
+
+  /// No description provided for @notifications_match_title.
+  ///
+  /// In en, this message translates to:
+  /// **'New Donor Matched'**
+  String get notifications_match_title;
+
+  /// No description provided for @notifications_match_body.
+  ///
+  /// In en, this message translates to:
+  /// **'A donor has matched your {requestLabel} request'**
+  String notifications_match_body(Object requestLabel);
+
+  /// No description provided for @notifications_emergency_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Blood Request'**
+  String get notifications_emergency_title;
+
+  /// No description provided for @notifications_emergency_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical {bloodType} blood needed near {hospitalName}'**
+  String notifications_emergency_body(Object bloodType, Object hospitalName);
+
+  /// No description provided for @notifications_milestone_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement Unlocked: {achievementTitle}'**
+  String notifications_milestone_title(Object achievementTitle);
+
+  /// No description provided for @notifications_milestone_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations! You\'ve unlocked: {achievementTitle}'**
+  String notifications_milestone_body(Object achievementTitle);
+
+  /// No description provided for @notifications_rewards_tier_upgraded.
+  ///
+  /// In en, this message translates to:
+  /// **'Tier Upgraded to {newTier}!'**
+  String notifications_rewards_tier_upgraded(Object newTier);
+
+  /// No description provided for @notifications_rewards_badge_unlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge Unlocked: {badgeName}'**
+  String notifications_rewards_badge_unlocked(Object badgeName);
+
+  /// No description provided for @notifications_rewards_reward_redeemed.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward Redeemed!'**
+  String get notifications_rewards_reward_redeemed;
+
+  /// No description provided for @notifications_appointment_rescheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment Rescheduled'**
+  String get notifications_appointment_rescheduled;
+
+  /// No description provided for @notifications_appointment_donor_rescheduled.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Rescheduled Appointment'**
+  String get notifications_appointment_donor_rescheduled;
+
+  /// No description provided for @notifications_appointment_new_booked.
+  ///
+  /// In en, this message translates to:
+  /// **'New Appointment Booked'**
+  String get notifications_appointment_new_booked;
+
+  /// No description provided for @notifications_appointment_cancelled_by_donor.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment cancelled by donor'**
+  String get notifications_appointment_cancelled_by_donor;
+
+  /// No description provided for @notifications_activity_tier_promoted.
+  ///
+  /// In en, this message translates to:
+  /// **'Tier Promoted'**
+  String get notifications_activity_tier_promoted;
+
+  /// No description provided for @notifications_activity_badge_unlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Badge Unlocked'**
+  String get notifications_activity_badge_unlocked;
+
+  /// No description provided for @notifications_activity_redeemed_reward.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward Redeemed'**
+  String get notifications_activity_redeemed_reward;
+
+  /// No description provided for @notifications_activity_donation_created.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Created'**
+  String get notifications_activity_donation_created;
+
+  /// No description provided for @notifications_activity_donation_verified.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Verified'**
+  String get notifications_activity_donation_verified;
+
+  /// No description provided for @notifications_activity_donation_confirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Confirmed'**
+  String get notifications_activity_donation_confirmed;
+
+  /// No description provided for @notifications_activity_donation_completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Completed'**
+  String get notifications_activity_donation_completed;
+
+  /// No description provided for @notifications_activity_donation_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Cancelled'**
+  String get notifications_activity_donation_cancelled;
+
+  /// No description provided for @notifications_activity_blood_donation_submitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood Donation Submitted'**
+  String get notifications_activity_blood_donation_submitted;
+
+  /// No description provided for @notifications_activity_request_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request cancelled'**
+  String get notifications_activity_request_cancelled;
+
+  /// No description provided for @notifications_activity_request_rejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Request rejected'**
+  String get notifications_activity_request_rejected;
+
+  /// No description provided for @notifications_admin_registrations_rising.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Registrations Rising'**
+  String get notifications_admin_registrations_rising;
+
+  /// No description provided for @notifications_admin_registrations_declining.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Registrations Declining'**
+  String get notifications_admin_registrations_declining;
+
+  /// No description provided for @notifications_admin_verification_gap.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Gap Detected'**
+  String get notifications_admin_verification_gap;
+
+  /// No description provided for @notifications_admin_inactive_hospitals.
+  ///
+  /// In en, this message translates to:
+  /// **'Inactive Hospitals'**
+  String get notifications_admin_inactive_hospitals;
+
+  /// No description provided for @notifications_admin_donor_retention_alert.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Retention Alert'**
+  String get notifications_admin_donor_retention_alert;
+
+  /// No description provided for @notifications_admin_suspension_spike.
+  ///
+  /// In en, this message translates to:
+  /// **'Suspension Spike Detected'**
+  String get notifications_admin_suspension_spike;
+
+  /// No description provided for @notifications_admin_urgent_blood_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent Blood Request'**
+  String get notifications_admin_urgent_blood_request;
+
+  /// No description provided for @notifications_analytics_critical_need_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical need for {bloodTypes}'**
+  String notifications_analytics_critical_need_title(Object bloodTypes);
+
+  /// No description provided for @notifications_analytics_predicted_high_demand_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Predicted High Demand'**
+  String get notifications_analytics_predicted_high_demand_title;
+
+  /// No description provided for @notifications_analytics_predicted_high_demand_body.
+  ///
+  /// In en, this message translates to:
+  /// **'A {percent}% increase in blood requests is predicted next week.'**
+  String notifications_analytics_predicted_high_demand_body(Object percent);
+
+  /// No description provided for @notifications_analytics_rising_demand_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Rising Demand Trend'**
+  String get notifications_analytics_rising_demand_title;
+
+  /// No description provided for @notifications_analytics_rising_demand_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood requests are trending upward. Prepare additional resources.'**
+  String get notifications_analytics_rising_demand_body;
+
+  /// No description provided for @notifications_analytics_declining_demand_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Declining Demand'**
+  String get notifications_analytics_declining_demand_title;
+
+  /// No description provided for @notifications_analytics_declining_demand_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood requests are declining. Review inventory allocation.'**
+  String get notifications_analytics_declining_demand_body;
+
+  /// No description provided for @notifications_analytics_shortage_risk_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortage Risk'**
+  String get notifications_analytics_shortage_risk_title;
+
+  /// No description provided for @notifications_analytics_shortage_risk_body.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} blood stock is expected to deplete within the next 4 days.'**
+  String notifications_analytics_shortage_risk_body(Object bloodType);
+
+  /// No description provided for @notifications_analytics_supply_warning_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Supply Warning'**
+  String get notifications_analytics_supply_warning_title;
+
+  /// No description provided for @notifications_analytics_supply_warning_body.
+  ///
+  /// In en, this message translates to:
+  /// **'{bloodType} blood supply is approaching critical levels.'**
+  String notifications_analytics_supply_warning_body(Object bloodType);
+
+  /// No description provided for @notifications_analytics_peak_day_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak Day Insight'**
+  String get notifications_analytics_peak_day_title;
+
+  /// No description provided for @notifications_analytics_peak_day_body.
+  ///
+  /// In en, this message translates to:
+  /// **'{peakDay} shows {pct}% higher donation activity. Consider scheduling more drives on this day.'**
+  String notifications_analytics_peak_day_body(Object peakDay, Object pct);
+
+  /// No description provided for @notifications_analytics_retention_alert_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Retention Alert'**
+  String get notifications_analytics_retention_alert_title;
+
+  /// No description provided for @notifications_analytics_retention_alert_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor return rate has dropped significantly. Consider re-engagement campaigns.'**
+  String get notifications_analytics_retention_alert_body;
+
+  /// No description provided for @notifications_analytics_growth_positive_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Growth Positive'**
+  String get notifications_analytics_growth_positive_title;
+
+  /// No description provided for @notifications_analytics_growth_positive_body.
+  ///
+  /// In en, this message translates to:
+  /// **'More donors are returning compared to last month. Momentum is strong.'**
+  String get notifications_analytics_growth_positive_body;
+
+  /// No description provided for @notifications_analytics_emergency_spike_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Demand Spike'**
+  String get notifications_analytics_emergency_spike_title;
+
+  /// No description provided for @notifications_analytics_emergency_spike_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood demand has surged unexpectedly in the last 3 days. Emergency response may be needed.'**
+  String get notifications_analytics_emergency_spike_body;
+
+  /// No description provided for @notifications_actions_accept.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get notifications_actions_accept;
+
+  /// No description provided for @notifications_actions_view_details.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get notifications_actions_view_details;
+
+  /// No description provided for @notifications_delete_all.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete all notifications'**
+  String get notifications_delete_all;
+
+  /// No description provided for @notifications_delete_confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete all notifications?'**
+  String get notifications_delete_confirm;
+
+  /// No description provided for @notifications_delete_success.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications deleted successfully'**
+  String get notifications_delete_success;
+
+  /// No description provided for @notifications_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No notifications'**
+  String get notifications_empty;
 }
 
 class _AppLocalizationsDelegate

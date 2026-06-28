@@ -174,7 +174,7 @@
   "deleteUser": "Delete User",
   "deleteUserConfirm": "Are you sure you want to delete this user?",
   "sendMessage": "Send Message",
-  "cancel": "cancel",
+  "cancel": "Cancel",
   "donationMessage": "Hello, I want to donate blood",
   "available": "Available",
   "distanceKm": "{distance} km",
@@ -1822,5 +1822,332 @@
   "replyToTicket": "Reply to the admin's response",
   "yourReply": "Your Reply",
   "close": "Close",
-  "replySubmitted": "Reply submitted successfully"
+  "replySubmitted": "Reply submitted successfully",
+  "working_hours_and_slots": "Working Hours & Slots",
+  "measure_in_hours": "hours",
+  "slots": "slots",
+  "manage_working_hours": "Manage Working Hours",
+  "appointment_slots": "Appointment Slots",
+  "working_hours_subtitle": "Configure your hospital's operating hours and appointment capacity",
+  "working_hours_tip": "Tip: ",
+  "working_hours_tip_text": "Set your working hours and slots per hour. The same slot capacity will be applied to all hours.",
+  "opening_time": "Opening Time",
+  "closing_time": "Closing Time",
+  "slots_per_hour": "Slots Per Hour",
+  "slots_per_hour_text": "This value will be applied to every hour between opening and closing time.",
+  "summary": "Summary",
+  "operating_hours": "Operating Hours: ",
+  "hours_per_day": "Hours Per Day: ",
+  "total_daily_capacity": "Total Daily Capacity: ",
+  "totalDailySlots": "Total Daily Slots",
+  "availableForScheduling": "Available For Scheduling",
+  "uniformAcrossAllHours": "Uniform Across All Hours",
+  "loadMore": "Load More",
+  "patientTypeAdult": "Adult",
+  "patientTypeChild": "Child",
+  "patientTypeInfant": "Infant",
+  "bloodTypeNeededMulti": "Blood Types Needed (Select one or more)",
+  "selected": "Selected",
+  "patientType": "PatientType",
+  "selectPatientType": "Select Patient Type",
+  "contactNumber": "Contact Number",
+  "contactNumberHint": "e.g: 015980089",
+  "patientDetailsHint": "e.g: needed for surgery",
+  "noHistoryFound": "No History Found",
+  "invalidUnits": "Invalid Units",
+  "update": "Update",
+  "updateRequest": "Update Request",
+  "updateRequestSubtitle": "Edit the details for this blood request, then save your changes",
+  "keepRequest": "Keep Request",
+  "yesCancelRequest": "Yes, Cancel Request",
+  "patientDetailsSurgery": "Surgery",
+  "patientDetailsCardiacSurgery": "Cardiac Surgery",
+  "patientDetailsAccident": "Accident",
+  "patientDetailsBurns": "Burns",
+  "patientDetailsCancer": "Cancer",
+  "patientDetailsLeukemia": "Leukemia",
+  "patientDetailsMaternity": "Maternity",
+  "patientDetailsChronicIllness": "Chronic Illness",
+  "patientDetailsHemophilia": "Hemophilia",
+  "patientDetailsThalassemia": "Thalassemia",
+  "patientDetailsDialysis": "Dialysis",
+  "patientDetailsGastrointestinalBleeding": "Gastrointestinal Bleeding",
+  "patientDetailsOrganTransplant": "Organ Transplant",
+  "patientDetailsPediatric": "Pediatric",
+  "patientDetailsEmergency": "Emergency",
+  "patientDetailsGeneral": "General",
+  "statusAccepted": "Accepted",
+  "statusInProgress": "In Progress",
+  "statusExpired": "Expired",
+  "requestStatusLabel": "Request Status",
+  "updateStatus": "Update Status",
+  "selectStatus": "Select Status",
+  "activeRequestsCount": "{count} Active Requests",
+  "@activeRequestsCount": {
+      "placeholders": {
+        "count": {}
+      }
+    },
+  "responsesTodayCount": "{count} Responses Today",
+    "@responsesTodayCount": {
+      "placeholders": {
+        "count": {}
+      }
+    },
+  "noActiveRequests": "No active requests right now",
+  "noRecentActivity": "No recent activity",
+  "noNearbyDonorsFound": "No nearby donors found",
+  "nearestDonor": "Nearest",
+  "donorsCountLabel": "{count} donors",
+  "@donorsCountLabel": {
+      "placeholders": {
+        "count": {}
+      }
+    },
+  "cancelRequestSuccess": "Request cancelled successfully",
+  "updateRequestSuccess": "Request updated successfully",
+  "failedToLoadDashboard": "Failed to load dashboard data",
+  "failedToLoadRequests": "Failed to load requests",
+  "failedToLoadActivity": "Failed to load recent activity",
+  "failedToLoadNearbyDonors": "Failed to load nearby donors",
+  "failedToLoadResponses": "Failed to load donor responses",
+  "noResponsesYet": "No donors have responded yet",
+  "donorResponseStatusDeclined": "Declined",
+  "scanQrInstructionTitle": "Point camera at donor's QR code",
+  "verifyingQrCode": "Verifying QR code...",
+  "qrVerificationFailed": "QR verification failed",
+  "donationConfirmedSuccessTitle": "Donation Confirmed!",
+  "donationConfirmedSuccessMessage": "{donorName}'s donation has been verified and recorded.",
+  "@donationConfirmedSuccessMessage": {
+      "placeholders": {
+        "donorName": {}
+      }
+    },
+  "scanAnotherCode": "Scan Another Code",
+  "invalidQrCode": "Invalid QR code",
+  "qrCodeExpired": "This QR code has expired",
+  "doneButton": "Done",
+  "allAppointments": "All Appointments",
+  "noAppointmentsFound": "No appointments found.",
+  "enterCodeManually": "Enter Code Manually",
+  "manualEntry": "Manual Entry",
+  "enterDonationCode": "Enter the donation code",
+  "donationCodeLabel": "Donation Code",
+  "verifyCode": "Verify Code",
+  "scanQrInstead": "Scan QR Code instead",
+  "appointmentDateLabel": "Appointment Date",
+  "rejectVerification": "Reject Verification",
+  "rejectConfirmation": "Are you sure you want to reject this verification?",
+  "reasonLabel": "Reason",
+  "reject": "Reject",
+  "verificationRejected": "Verification rejected",
+  "pleaseEnterReason": "Please enter a reason",
+  "pleaseCompleteChecklist": "Please complete all checklist items",
+  "eligibilityChecklist": "Eligibility Checklist",
+  "verificationChecklist": "Verification Checklist",
+  "idVerified": "ID Verified",
+  "questionnaireCompleted": "Questionnaire Completed",
+  "consentSigned": "Consent Signed",
+  "diseaseScreening": "Disease Screening",
+  "screeningCompleted": "Screening Completed (No disqualifying diseases)",
+  "disqualifyingDiseaseFound": "Disqualifying Disease Found",
+  "addDisease": "Add disease",
+  "addToList": "Add to list",
+  "additionalNotes": "Additional notes...",
+  "submitVerification": "Submit Verification",
+  "pleaseFillRequiredFields": "Please fill all required fields",
+  "donationCompletion": "Donation Completion",
+  "donationCompletedSuccessfully": "Donation Completed Successfully!",
+  "pointsEarned": "Points earned: {count}",
+  "recordDonorData": "Record Donor Data",
+  "enterDonorReadings": "Enter the donor's medical readings below",
+  "hemoglobinLevel": "Hemoglobin Level (g/dL)",
+  "unitsCollected": "Units Collected",
+  "donationCodeHint": "Enter donation code",
+  "verificationFailed": "Verification failed.",
+  "connectionTimedOut": "Connection timed out. Please try again.",
+  "noInternetConnection": "No internet connection.",
+  "sessionExpired": "Session expired. Please log in again.",
+  "notFoundItem": "Not found.",
+  "checkAllFields": "Please check all fields and try again.",
+  "profileNotFound": "Profile not found.",
+  "somethingWentWrong": "Something went wrong. Please try again.",
+  "accessDenied": "Access denied.",
+  "hospitalLocationNotSet": "Hospital location not set. Please update your profile.",
+  "invalidStatusFilter": "Invalid status filter.",
+  "failedLoadAppointmentDetails": "Failed to load appointment details.",
+  "failedCompleteDonation": "Failed to complete donation.",
+  "failedRejectAppointment": "Failed to reject appointment.",
+  "failedLoadRequestDetails": "Failed to load request details.",
+  "requestUpdatedSuccess": "Request updated successfully.",
+  "failedUpdateRequest": "Failed to update request.",
+  "requestCancelledSuccess": "Request cancelled successfully.",
+  "failedLoadDonorResponses": "Failed to load donor responses.",
+  "failedLoadProfile": "Failed to load profile.",
+  "profileUpdatedSuccess": "Profile updated successfully.",
+  "workingHoursUpdatedSuccess": "Working hours updated successfully.",
+  "currentPasswordIncorrect": "Current password is incorrect.",
+  "passwordMustBeDifferent": "New password must be different from current password.",
+  "hospitalContactRequired": "Please set a contact number in your profile before creating a request.",
+  "donationAlreadyCompleted": "This donation has already been completed.",
+  "appointmentCancelled": "This appointment has been cancelled.",
+  "hospitalNotApproved": "Your hospital account is not yet approved. Please contact support@lifelink.org.",
+  "invalidHospitalId": "Invalid hospital ID.",
+  "invalidEmailOrPassword": "Invalid email or password.",
+  "activityRequestCreated": "Request created - {bloodTypes}",
+  "@activityRequestCreated": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "activityRequestFulfilled": "Request fulfilled - {bloodTypes}",
+  "@activityRequestFulfilled": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "activityDonorResponse": "New donor response - {donorName}",
+  "@activityDonorResponse": {
+    "placeholders": {
+      "donorName": {}
+    }
+  },
+  "activityDonorResponseFallback": "New donor response - Donor",
+  "activityUnitsNeeded": "units needed {units}",
+  "@activityUnitsNeeded": {
+    "placeholders": {
+      "units": {}
+    }
+  },
+  "activityUnitsReceived": "units received {units}",
+  "@activityUnitsReceived": {
+    "placeholders": {
+      "units": {}
+    }
+  },
+  "activityDonorResponded": "{bloodType} donor responded",
+  "@activityDonorResponded": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "activityDonorRespondedFallback": "{bloodTypes} donor responded",
+  "@activityDonorRespondedFallback": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "notifications_match_title": "New Donor Matched",
+  "notifications_match_body": "A donor has matched your {requestLabel} request",
+  "@notifications_match_body": {
+    "placeholders": {
+      "requestLabel": {}
+    }
+  },
+  "notifications_emergency_title": "Emergency Blood Request",
+  "notifications_emergency_body": "Critical {bloodType} blood needed near {hospitalName}",
+  "@notifications_emergency_body": {
+    "placeholders": {
+      "bloodType": {},
+      "hospitalName": {}
+    }
+  },
+  "notifications_milestone_title": "Achievement Unlocked: {achievementTitle}",
+  "@notifications_milestone_title": {
+    "placeholders": {
+      "achievementTitle": {}
+    }
+  },
+  "notifications_milestone_body": "Congratulations! You've unlocked: {achievementTitle}",
+  "@notifications_milestone_body": {
+    "placeholders": {
+      "achievementTitle": {}
+    }
+  },
+  "notifications_rewards_tier_upgraded": "Tier Upgraded to {newTier}!",
+  "@notifications_rewards_tier_upgraded": {
+    "placeholders": {
+      "newTier": {}
+    }
+  },
+  "notifications_rewards_badge_unlocked": "Badge Unlocked: {badgeName}",
+  "@notifications_rewards_badge_unlocked": {
+    "placeholders": {
+      "badgeName": {}
+    }
+  },
+  "notifications_rewards_reward_redeemed": "Reward Redeemed!",
+  "notifications_appointment_rescheduled": "Appointment Rescheduled",
+  "notifications_appointment_donor_rescheduled": "Donor Rescheduled Appointment",
+  "notifications_appointment_new_booked": "New Appointment Booked",
+  "notifications_appointment_cancelled_by_donor": "Appointment cancelled by donor",
+  "notifications_activity_tier_promoted": "Tier Promoted",
+  "notifications_activity_badge_unlocked": "Badge Unlocked",
+  "notifications_activity_redeemed_reward": "Reward Redeemed",
+  "notifications_activity_donation_created": "Donation Created",
+  "notifications_activity_donation_verified": "Donation Verified",
+  "notifications_activity_donation_confirmed": "Donation Confirmed",
+  "notifications_activity_donation_completed": "Donation Completed",
+  "notifications_activity_donation_cancelled": "Donation Cancelled",
+  "notifications_activity_blood_donation_submitted": "Blood Donation Submitted",
+  "notifications_activity_request_cancelled": "Request cancelled",
+  "notifications_activity_request_rejected": "Request rejected",
+  "notifications_admin_registrations_rising": "Donor Registrations Rising",
+  "notifications_admin_registrations_declining": "Donor Registrations Declining",
+  "notifications_admin_verification_gap": "Verification Gap Detected",
+  "notifications_admin_inactive_hospitals": "Inactive Hospitals",
+  "notifications_admin_donor_retention_alert": "Donor Retention Alert",
+  "notifications_admin_suspension_spike": "Suspension Spike Detected",
+  "notifications_admin_urgent_blood_request": "Urgent Blood Request",
+  "notifications_analytics_critical_need_title": "Critical need for {bloodTypes}",
+  "@notifications_analytics_critical_need_title": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "notifications_analytics_predicted_high_demand_title": "Predicted High Demand",
+  "notifications_analytics_predicted_high_demand_body": "A {percent}% increase in blood requests is predicted next week.",
+  "@notifications_analytics_predicted_high_demand_body": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "notifications_analytics_rising_demand_title": "Rising Demand Trend",
+  "notifications_analytics_rising_demand_body": "Blood requests are trending upward. Prepare additional resources.",
+  "notifications_analytics_declining_demand_title": "Declining Demand",
+  "notifications_analytics_declining_demand_body": "Blood requests are declining. Review inventory allocation.",
+  "notifications_analytics_shortage_risk_title": "Shortage Risk",
+  "notifications_analytics_shortage_risk_body": "{bloodType} blood stock is expected to deplete within the next 4 days.",
+  "@notifications_analytics_shortage_risk_body": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "notifications_analytics_supply_warning_title": "Supply Warning",
+  "notifications_analytics_supply_warning_body": "{bloodType} blood supply is approaching critical levels.",
+  "@notifications_analytics_supply_warning_body": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "notifications_analytics_peak_day_title": "Peak Day Insight",
+  "notifications_analytics_peak_day_body": "{peakDay} shows {pct}% higher donation activity. Consider scheduling more drives on this day.",
+  "@notifications_analytics_peak_day_body": {
+    "placeholders": {
+      "peakDay": {},
+      "pct": {}
+    }
+  },
+  "notifications_analytics_retention_alert_title": "Donor Retention Alert",
+  "notifications_analytics_retention_alert_body": "Donor return rate has dropped significantly. Consider re-engagement campaigns.",
+  "notifications_analytics_growth_positive_title": "Donor Growth Positive",
+  "notifications_analytics_growth_positive_body": "More donors are returning compared to last month. Momentum is strong.",
+  "notifications_analytics_emergency_spike_title": "Emergency Demand Spike",
+  "notifications_analytics_emergency_spike_body": "Blood demand has surged unexpectedly in the last 3 days. Emergency response may be needed.",
+  "notifications_actions_accept": "Accept",
+  "notifications_actions_view_details": "View Details",
+  "notifications_delete_all": "Delete all notifications",
+  "notifications_delete_confirm": "Are you sure you want to delete all notifications?",
+  "notifications_delete_success": "Notifications deleted successfully",
+  "notifications_empty": "No notifications"
 }

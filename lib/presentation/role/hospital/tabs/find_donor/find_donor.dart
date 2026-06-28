@@ -1,16 +1,21 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
+import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
+import 'package:blood_donation_app/core/resources/models/donor.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/presentation/view_model/find_donors_view_model.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/section/find_nearby_donors_card.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/find_donor/widgets/hospital_title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../core/resources/models/donor.dart';
-import '../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
-import '../../../donor/tabs/find_hospital/presentation/view/section/blood_filter.dart';
-import '../../../donor/tabs/find_hospital/presentation/view/widgets/custom_hospital_button.dart';
+import '../../../donor/tabs/donate/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../donor/tabs/find_hospital/section/blood_filter.dart';
+import '../../../donor/tabs/find_hospital/widgets/custom_hospital_button.dart';
 
 class FindDonor extends StatefulWidget {
   const FindDonor({super.key});
@@ -20,160 +25,74 @@ class FindDonor extends StatefulWidget {
 }
 
 class _FindDonorState extends State<FindDonor> {
+
   String _searchQuery = '';
   final TextEditingController _searchController = TextEditingController();
   String? _selectedBloodType;
-  final List<String> bloodTypes = [
-    'A+',
-    'A-',
-    'B+',
-    'B-',
-    'AB+',
-    'AB-',
-    'O+',
-    'O-',
-  ];
-  late List<DonorModel> filteredDonors;
-  bool showFilter = false;
-  bool isAscending = true;
+  bool _showFilter = false;
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    _searchController.dispose();
-  }
+  bool _isAscending = true;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    filteredDonors = donors;
-  }
-
-  void _applyFilters() {
-    filteredDonors = donors.where((donor) {
-      final matchesName = donor.name.toLowerCase().contains(
-        _searchQuery.toLowerCase(),
-      );
-      final matchesBlood =
-          _selectedBloodType == null || donor.bloodType == _selectedBloodType;
-      return matchesName && matchesBlood;
-    }).toList();
-  }
-
-  void filterByBloodType(String? bloodType) {
-    setState(() {
-      _selectedBloodType = bloodType;
-      _applyFilters();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<FindDonorsCubit>().fetchDonors();
     });
   }
 
-  void sortByDistance() {
-    filteredDonors.sort((a, b) {
-      return isAscending
-          ? a.location.compareTo(b.location)
-          : b.location.compareTo(a.location);
-    });
-
-    setState(() {
-      isAscending = !isAscending;
-    });
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final loc = AppLocalizations.of(context);
+    if (loc != null) {
+      context.read<FindDonorsCubit>().setAppLoc(loc);
+    }
   }
 
-  final List<DonorModel> donors = [
-    DonorModel(
-      donorRank: 3,
-      id: '1',
-      name: 'Ahmed Mohamed',
-      email: 'ahmed@gmail.com',
-      phoneNumber: '01012345678',
-      bloodType: 'A+',
-      totalDonations: 5,
-      points: 120,
-      isEligibleToDonate: true,
-      location: 'Alexandria',
-      isActive: true,
-      isVerified: true,
-      gender: 'Male',
-      age: 25,
-      weight: 75,
-      healthStatus: 'Good',
-      isBanned: false,
-      isOnline: true,
-      createdAt: DateTime.now(),
-    ),
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
-    DonorModel(
-      donorRank: 4,
-      id: '2',
-      name: 'Sara Ali',
-      email: 'sara@gmail.com',
-      phoneNumber: '01123456789',
-      bloodType: 'O-',
-      totalDonations: 3,
-      points: 80,
-      isEligibleToDonate: true,
-      location: 'Cairo',
-      isActive: true,
-      isVerified: true,
-      gender: 'Female',
-      age: 23,
-      weight: 60,
-      healthStatus: 'Very Good',
-      isBanned: false,
-      isOnline: false,
-      createdAt: DateTime.now(),
-    ),
+  List<DonorModel> _applyNameFilter(List<DonorModel> donors) {
+    if (_searchQuery.isEmpty) return donors;
+    return donors
+        .where((d) =>
+        d.name.toLowerCase().contains(_searchQuery.toLowerCase()))
+        .toList();
+  }
 
-    DonorModel(
-      donorRank: 5,
-      id: '3',
-      name: 'Omar Hassan',
-      email: 'omar@gmail.com',
-      phoneNumber: '01234567890',
-      bloodType: 'B+',
-      totalDonations: 7,
-      points: 200,
-      isEligibleToDonate: false,
-      location: 'Giza',
-      isActive: true,
-      isVerified: false,
-      gender: 'Male',
-      age: 30,
-      weight: 82,
-      healthStatus: 'Excellent',
-      isBanned: false,
-      isOnline: true,
-      createdAt: DateTime.now(),
-    ),
+  List<DonorModel> _applySorting(List<DonorModel> donors) {
+    final sorted = List<DonorModel>.from(donors);
+    sorted.sort((a, b) {
+      final da = a.distanceInKm ?? double.maxFinite;
+      final db = b.distanceInKm ?? double.maxFinite;
+      return _isAscending ? da.compareTo(db) : db.compareTo(da);
+    });
+    return sorted;
+  }
 
-    DonorModel(
-      donorRank: 6,
-      id: '4',
-      name: 'Mona Adel',
-      email: 'mona@gmail.com',
-      phoneNumber: '01598765432',
-      bloodType: 'AB+',
-      totalDonations: 2,
-      points: 40,
-      isEligibleToDonate: true,
-      location: 'Tanta',
-      isActive: false,
-      isVerified: true,
-      gender: 'Female',
-      age: 28,
-      weight: 65,
-      healthStatus: 'Good',
-      isBanned: false,
-      isOnline: false,
-      createdAt: DateTime.now(),
-    ),
-  ];
+  List<DonorModel> _processedDonors(List<DonorModel> raw) {
+    return _applySorting(_applyNameFilter(raw));
+  }
+
+  void _onBloodTypeChanged(String? bloodType) {
+    setState(() => _selectedBloodType = bloodType);
+    context.read<FindDonorsCubit>().fetchDonors(
+      bloodType: bloodType,
+    );
+  }
+
+  void _onSortPressed() {
+    setState(() => _isAscending = !_isAscending);
+  }
 
   @override
   Widget build(BuildContext context) {
-    final appLocalization = AppLocalizations.of(context)!;
+    final loc = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: ColorManger.pureWhite,
       body: SafeArea(
@@ -187,96 +106,220 @@ class _FindDonorState extends State<FindDonor> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomTitle(
-                  title: appLocalization.find_donors,
-                  subTitle: appLocalization.find_donors_dec,
+                  title: loc.find_donors,
+                  subTitle: loc.find_donors_dec,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
+
                 CustomTextFormField(
-                  onChanged: (value) {
-                    setState(() {
-                      _searchQuery = value;
-                      _applyFilters();
-                    });
-
-
-                  },
-
-                  prefixIcon: Icon(Icons.search, color: ColorManger.slateGrey),
-                  hintText: appLocalization.searchHint,
+                  textEditingController: _searchController,
+                  onChanged: (value) => setState(() => _searchQuery = value),
+                  prefixIcon:
+                  Icon(Icons.search, color: ColorManger.slateGrey),
+                  hintText: loc.searchHint,
                   suffixIcon: IconButton(
-                    onPressed: () {
-                      setState(() {
-
-                        showFilter = !showFilter;
-
-                      });
-                    },
+                    onPressed: () =>
+                        setState(() => _showFilter = !_showFilter),
                     icon: Icon(
                       Icons.filter_alt_outlined,
-                      color: showFilter
+                      color: _showFilter
                           ? ColorManger.brightRed
                           : ColorManger.slateGrey,
                     ),
                   ),
                 ),
+
                 SizedBox(height: 8.h),
-                showFilter
-                    ? BloodFilter(
-                        onBloodTypeChanged: filterByBloodType,
-                        onClear: () {
-                          filterByBloodType(null);
-                        },
-                      )
+
+                _showFilter ? BloodFilter(
+                  onBloodTypeChanged: _onBloodTypeChanged,
+                  onClear: () => _onBloodTypeChanged(null),
+                )
                     : SizedBox(height: 12.h),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      text: appLocalization.donors_found(filteredDonors.length),
-                      textStyle: TextStyle(
-                        color: ColorManger.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s15,
-                      ),
-                    ),
-                    CustomHospitalButton(
-                      widget: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Transform.rotate(
-                            angle: -0.785,
-                            child: Icon(
-                              Icons.send_rounded,
+                BlocBuilder<FindDonorsCubit, FindDonorsState>(
+                  builder: (context, state) {
+                    if (state is FindDonorsLoadingState) {
+                      return const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 60),
+                        child: Center(child: CustomLoadingWidget(indicatorColor: Colors.blueAccent,)),
+                      );
+                    }
 
-                              color: ColorManger.black,
+                    if (state is FindDonorsErrorState) {
+                      return _ErrorView(
+                        message: state.message,
+                        onRetry: () => context
+                            .read<FindDonorsCubit>()
+                            .fetchDonors(bloodType: _selectedBloodType),
+                      );
+                    }
+
+                    if (state is FindDonorsEmptyState) {
+                      return _EmptyView(message: loc.noDonorsFound);
+                    }
+
+                    final rawDonors = switch (state) {
+                      FindDonorsSuccessState s => s.donors,
+                      FindDonorsPaginatingState s => s.currentDonors,
+                      _ => <DonorModel>[],
+                    };
+
+                    final isPaginating = state is FindDonorsPaginatingState;
+                    final hasMore = state is FindDonorsSuccessState
+                        ? state.hasMore
+                        : false;
+
+                    final displayed = _processedDonors(rawDonors);
+
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomText(
+                              text: loc.donors_found(displayed.length),
+                              textStyle: TextStyle(
+                                color: ColorManger.black,
+                                fontWeight: FontWeightManager.medium,
+                                fontSize: FontSize.s15,
+                              ),
+                            ),
+                            CustomHospitalButton(
+                              onPressed: _onSortPressed,
+                              widget: Row(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Transform.rotate(
+                                    angle: -0.785,
+                                    child: Icon(
+                                      _isAscending
+                                          ? Icons.send_rounded
+                                          : Icons.send_rounded,
+                                      color: ColorManger.black,
+                                    ),
+                                  ),
+                                  CustomText(
+                                    text: loc.sortByDistance,
+                                    textStyle:
+                                    TextStyle(fontSize: FontSize.s14),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(height: 8.h),
+
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: displayed.length,
+                          itemBuilder: (context, index) =>
+                              FindNearbyDonorsCard(donor: displayed[index]),
+                        ),
+
+                        if (isPaginating)
+                          const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            child: Center(child: CircularProgressIndicator()),
+                          ),
+
+                        if (hasMore && !isPaginating)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            child: Center(
+                              child: TextButton(
+                                onPressed: () => context
+                                    .read<FindDonorsCubit>()
+                                    .loadMore(
+                                    bloodType: _selectedBloodType),
+                                child: Text(
+                                  loc.loadMore,
+                                  style: TextStyle(
+                                    color: ColorManger.brightRed,
+                                    fontWeight: FontWeightManager.semiBold,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-
-                          CustomText(
-                            text: appLocalization.sortByDistance,
-                            textStyle: TextStyle(fontSize: FontSize.s14),
-                          ),
-                        ],
-                      ),
-                      onPressed: sortByDistance,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8.h),
-
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: filteredDonors.length,
-                  itemBuilder: (context, index) {
-                    final donors = filteredDonors[index];
-                    return FindNearbyDonorsCard(donor: donors);
+                      ],
+                    );
                   },
                 ),
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class _ErrorView extends StatelessWidget {
+  final String message;
+  final VoidCallback onRetry;
+
+  const _ErrorView({required this.message, required this.onRetry});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 60),
+      child: Center(
+        child: Column(
+          children: [
+            Icon(Icons.error_outline,
+                size: 48, color: ColorManger.brightRed),
+            const SizedBox(height: 12),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: ColorManger.slateGrey),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: onRetry,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: ColorManger.brightRed,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
+              ),
+              child: Text(AppLocalizations.of(context)!.retry),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _EmptyView extends StatelessWidget {
+  final String message;
+
+  const _EmptyView({required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 60),
+      child: Center(
+        child: Column(
+          children: [
+            Icon(Icons.person_search,
+                size: 56, color: ColorManger.slateGrey.withValues(alpha: 0.5)),
+            const SizedBox(height: 12),
+            Text(
+              message,
+              style: TextStyle(color: ColorManger.slateGrey),
+            ),
+          ],
         ),
       ),
     );

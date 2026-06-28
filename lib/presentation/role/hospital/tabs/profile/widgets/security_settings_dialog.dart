@@ -7,7 +7,13 @@ import 'package:flutter/material.dart';
 import '../../../../../../l10n/app_localizations.dart';
 
 class SecuritySettingsDialog extends StatefulWidget {
-  const SecuritySettingsDialog({super.key});
+  final void Function({
+    required String currentPassword,
+    required String newPassword,
+    required String confirmPassword,
+  }) onSave;
+
+  const SecuritySettingsDialog({super.key, required this.onSave});
 
   @override
   State<SecuritySettingsDialog> createState() => _SecuritySettingsDialogState();
@@ -18,11 +24,16 @@ class _SecuritySettingsDialogState extends State<SecuritySettingsDialog> {
   final TextEditingController newPassword = TextEditingController();
   final TextEditingController confirmPassword = TextEditingController();
 
-  bool twoFactorAuth = false;
+  @override
+  void dispose() {
+    currentPassword.dispose();
+    newPassword.dispose();
+    confirmPassword.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-
     final loc = AppLocalizations.of(context)!;
 
     return Dialog(
@@ -36,8 +47,6 @@ class _SecuritySettingsDialogState extends State<SecuritySettingsDialog> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-              /// Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -61,10 +70,7 @@ class _SecuritySettingsDialogState extends State<SecuritySettingsDialog> {
                   ),
                 ],
               ),
-
               const SizedBox(height: 20),
-
-              /// Info Box
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -81,107 +87,42 @@ class _SecuritySettingsDialogState extends State<SecuritySettingsDialog> {
                   ),
                 ),
               ),
-
               const SizedBox(height: 20),
-
-              /// Current Password
               Text(
                 loc.currentPassword,
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
-
               CustomTextField(
                 controller: currentPassword,
                 isPassword: true,
                 hint: loc.enterCurrentPassword,
               ),
-
               const SizedBox(height: 16),
-
-              /// New Password
               Text(
                 loc.newPassword,
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
-
               CustomTextField(
                 controller: newPassword,
                 isPassword: true,
                 hint: loc.enterNewPassword,
               ),
-
               const SizedBox(height: 16),
-
-              /// Confirm Password
               Text(
                 loc.confirmNewPassword,
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
-
               CustomTextField(
                 controller: confirmPassword,
                 isPassword: true,
                 hint: loc.confirmNewPasswordHint,
               ),
-
-              const SizedBox(height: 20),
-
-              /// Two Factor
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade200),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-
-                          Text(
-                            loc.twoFactorAuth,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-
-                          const SizedBox(height: 2),
-
-                          Text(
-                            loc.extraSecurityLayer,
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.grey.shade600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    Switch(
-                      activeThumbColor: ColorManger.royalBlue,
-                      inactiveTrackColor: ColorManger.slateGrey.withValues(alpha: 0.4),
-                      value: twoFactorAuth,
-                      onChanged: (val) => setState(() => twoFactorAuth = val),
-                    ),
-                  ],
-                ),
-              ),
-
               const SizedBox(height: 24),
-
-              /// Buttons
               Row(
                 children: [
-
                   Expanded(
                     child: CustomElevatedButton(
                       foregroundColor: ColorManger.black,
@@ -191,22 +132,24 @@ class _SecuritySettingsDialogState extends State<SecuritySettingsDialog> {
                           color: ColorManger.slateGrey.withValues(alpha: 0.4),
                         ),
                         borderRadius: BorderRadiusGeometry.circular(12),
-
                       ),
-
                       onPressed: ()=> Navigator.pop(context),
                       child: CustomText(text: loc.cancel),
                     ),
-                  )
-
-
-                  ,const SizedBox(width: 12),
-
+                  ),
+                  const SizedBox(width: 12),
                   Expanded(
                     child: CustomElevatedButton(
                       backgroundColor: ColorManger.royalBlue,
                       foregroundColor: ColorManger.pureWhite,
-                      onPressed: (){},
+                      onPressed: () {
+                        widget.onSave(
+                          currentPassword: currentPassword.text.trim(),
+                          newPassword: newPassword.text.trim(),
+                          confirmPassword: confirmPassword.text.trim(),
+                        );
+                        Navigator.pop(context);
+                      },
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
                           color: ColorManger.royalBlue.withValues(alpha: 0.2),
@@ -215,9 +158,7 @@ class _SecuritySettingsDialogState extends State<SecuritySettingsDialog> {
                       ),
                       child: CustomText(text: loc.updatePassword),
                     ),
-                  )
-
-
+                  ),
                 ],
               ),
             ],
