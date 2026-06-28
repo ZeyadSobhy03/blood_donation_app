@@ -1457,6 +1457,9 @@
   "reward_redeemed_successfully": "تم استبدال المكافأة بنجاح",
   "participationUpdated": "تم تحديث المشاركة بنجاح",
   "donationEligibility": "أهلية التبرع",
+  "donationAvailability": "متاح للتبرع",
+  "youAreAvailable": "أنت متاح للتبرع في الوقت الحالي",
+  "youAreNotAvailable": "أنت غير متاح للتبرع في الوقت الحالي",
   "youAreNotEligible": "أنت غير مؤهل للتبرع في الوقت الحالي",
   "youAreEligible": "أنت مؤهل للتبرع في الوقت الحالي",
   "contact_support": "التواصل مع الدعم",
@@ -1626,7 +1629,7 @@
   "supportTicketFrom": "من",
   "supportTicketCreatedAt": "تاريخ الإنشاء",
   "supportTicketReply": "رد",
-  "supportTicketReplyHint": "اكتب ردك...",
+  "supportTicketReplyHint": "أرسل ردًا",
   "supportTicketSendReply": "إرسال الرد",
   "supportTicketStatusOpen": "مفتوح",
   "supportTicketStatusClosed": "مغلق",
@@ -1715,8 +1718,6 @@
   "success_pledge_withdrawn": "تم سحب التعهد بنجاح",
   "error_cancel_wrong_stage": "لا يمكن الإلغاء في هذه المرحلة",
   "error_qr_already_scanned": "تم مسح رمز QR مسبقاً",
-  "patientTypeAdult": "بالغ",
-  "patientTypeChild": "طفل",
   "accepted": "مقبول",
   "arrivalDeadlineWarning": "يرجى الوصول إلى المستشفى قبل الساعة {time}.",
   "@arrivalDeadlineWarning": {
@@ -1730,7 +1731,6 @@
       "count": { "type": "int" }
     }
   },
-  "patientTypeInfant": "رضيع",
   "expired": "منتهي الصلاحية",
   "supportTicketDonorReply": "رد المتبرع",
   "supportTicketUserMessage": "رسالة المستخدم",  "error_cannot_cancel_others_pledge": "لا يمكنك إلغاء تعهد شخص آخر",
@@ -1745,4 +1745,365 @@
       }
     }
   }
+,
+  "activityTierPromoted": "تم ترقية المستوى",
+  "activityBadgeUnlocked": "تم فتح الشارة",
+  "activityRewardRedeemed": "تم استبدال المكافأة",
+  "activityDonationCreated": "تم إنشاء التبرع",
+  "activityDonationVerified": "تم التحقق من التبرع",
+  "activityDonationConfirmed": "تم تأكيد التبرع",
+  "activityTypeLabelDonation": "تبرع",
+  "activityTypeLabelReward": "مكافأة",
+  "activityTypeLabelEmergencyResponse": "استجابة طارئة",
+  "activityTypeLabelProfileUpdate": "تحديث الملف الشخصي",
+  "activityTypeLabelAppointment": "موعد",
+  "activityTypeLabelBadge": "شارة",
+  "activityTypeLabelAchievement": "إنجاز",
+  "activityTypeLabelReferral": "إحالة",
+  "activityTypeLabelSubscription": "اشتراك",
+  "activityTypeLabelAdminAction": "إجراء إداري",
+  "activityAppointmentRequested": "تم طلب موعد",
+  "activityPointsEarnedSimple": "نقاط مكتسبة",
+  "oneDayRemaining": "يوم واحد متبقي",
+  "daysRemaining": "{count} أيام متبقية",
+  "unknownEligibilityReason": "سبب غير معروف لعدم الأهلية",
+  "supportTickets": "تذاكر الدعم",
+  "noSupportTickets": "لا توجد تذاكر دعم",
+  "ticketOpen": "مفتوح",
+  "ticketReviewed": "تمت المراجعة",
+  "ticketClosed": "مغلق",
+  "ticketDetails": "تفاصيل التذكرة",
+  "ticketDetailsSubtitle": "معلومات كاملة لتذكرة الدعم هذه",
+  "createdAt": "تاريخ الإنشاء",
+  "messageLabel": "الرسالة",
+  "adminReply": "رد الإدارة",
+  "reply": "رد",
+  "replyToTicket": "رد على رد الإدارة",
+  "yourReply": "ردك",
+  "replySubmitted": "تم إرسال الرد بنجاح",
+  "working_hours_and_slots": "ساعات العمل والأماكن الشاغرة",
+  "measure_in_hours": "ساعات",
+  "slots": "أماكن شاغرة",
+  "manage_working_hours": "إدارة ساعات العمل",
+  "appointment_slots": "الأماكن الشاغرة.",
+  "working_hours_subtitle": "حدد ساعات العمل الخاصة بالمستشفى والطاقة الاستيعابية لها",
+  "working_hours_tip": "تلميح: ",
+  "working_hours_tip_text": "حدد ساعات العمل والأماكن الشاغرة في كل ساعة، سيتم تطبيق السعة نفسها لكل الساعات",
+  "opening_time": "وقت البداية",
+  "closing_time": "وقت الإغلاق",
+  "slots_per_hour": "الأماكن الشاغرة في الساعة: ",
+  "slots_per_hour_text": "هذه القيمة ستطبق على كل ساعة من وقت البداية حتى وقت الإغلاق",
+  "summary": "الملخص",
+  "operating_hours": "ساعات العمل: ",
+  "hours_per_day": "الساعات في اليوم: ",
+  "total_daily_capacity": "الطاقة الاستيعابية الكلية لليوم: ",
+  "totalDailySlots": "الوحدات الاستيعابية الكلية الشاغرة لليوم: ",
+  "availableForScheduling": "متاح للجدولة",
+  "uniformAcrossAllHours": "موحد على مدار جميع الساعات",
+
+
+  "patientTypeAdult": "بالغ",
+  "patientTypeChild": "طفل",
+  "patientTypeInfant": "رضيع",
+  "bloodTypeNeededMulti": "وحدات الدم المطلوبة: اختر واحدة أو أكثر",
+  "selected": "تم اختيارها",
+  "selectPatientType": "اختيار عمر المريض",
+  "contactNumber": "رقم التواصل",
+  "contactNumberHint": "مثال: 015980089",
+  "patientDetailsHint": "مثال: مطلوب لعمل جراحي",
+  "noHistoryFound": "لم يتم العثور على سجلات",
+  "invalidUnits": "لم يتم اختيار وحدات",
+  "update": "تعديل",
+  "updateRequest": "تعديل الطلب",
+  "updateRequestSubtitle": "عدل بيانات هذا الطلب، ثم احفظ التعديلات",
+  "keepRequest": "أبقي الطلب",
+  "yesCancelRequest": "نعم، ألغي الطلب",
+  "patientDetailsSurgery": "عملية جراحية",
+  "patientDetailsCardiacSurgery": "جراحة قلب",
+  "patientDetailsAccident": "حادث",
+  "patientDetailsBurns": "حروق",
+  "patientDetailsCancer": "سرطان",
+  "patientDetailsLeukemia": "سرطان الدم",
+  "patientDetailsMaternity": "أمومة",
+  "patientDetailsChronicIllness": "مرض مزمن",
+  "patientDetailsHemophilia": "هيموفيليا",
+  "patientDetailsThalassemia": "ثالاسيميا",
+  "patientDetailsDialysis": "غسيل الكلى",
+  "patientDetailsGastrointestinalBleeding": "نزيف الجهاز الهضمي",
+  "patientDetailsOrganTransplant": "زرع الأعضاء",
+  "patientDetailsPediatric": "طب الأطفال",
+  "patientDetailsEmergency": "طارئ",
+  "patientDetailsGeneral": "عام",
+  "statusAccepted": "تم القبول",
+  "statusInProgress": "قيد العمل",
+  "statusExpired": "انتهت المدة",
+  "requestStatusLabel": "حالة الطلب",
+  "updateStatus": "تعديل الحالة",
+  "selectStatus": "اختيار الحالة",
+  "activeRequestsCount": "{count} طلبات نشطة",
+  "@activeRequestsCount": {
+        "placeholders": {
+          "count": {}
+        }
+      },
+  "responsesTodayCount": "{count} ردود لليوم",
+      "@responsesTodayCount": {
+        "placeholders": {
+          "count": {}
+        }
+      },
+  "noActiveRequests": "لا يوجد طلبات نشطة حتى الآن",
+  "noRecentActivity": "لا توجد أنشطة حديثة حتى الآن",
+  "noNearbyDonorsFound": "لم يتم العثور على متبرعين قريبين",
+  "nearestDonor": "الأقرب",
+  "donorsCountLabel": "{count} متبرعين",
+  "@donorsCountLabel": {
+        "placeholders": {
+          "count": {}
+        }
+      },
+  "cancelRequestSuccess": "تم إلغاء الطلب بنجاح",
+  "updateRequestSuccess": "تم تعديل الطلب بنجاح",
+  "failedToLoadDashboard": "فشل تحميل بيانات الإحصائيات",
+  "failedToLoadRequests": "فشل تحميل الطلبات",
+  "failedToLoadActivity": "فشل تحميل الأنشطة الحديثة",
+  "failedToLoadNearbyDonors": "فشل تحميل المتبرعين القريبين",
+  "failedToLoadResponses": "فشل تحميل المتبرعين الذين ردوا",
+  "noResponsesYet": "لم يرد أي متبرع حتى الآن",
+  "donorResponseStatusDeclined": "مرفوض",
+  "scanQrInstructionTitle": "وجه الكاميرا إلى الQR الخاص بالمتبرع",
+  "verifyingQrCode": "جاري التأكد من الرمز...",
+  "donationConfirmedSuccessTitle": "تم تأكيد التبرع!",
+  "donationConfirmedSuccessMessage": "لقد تم تسجيل التبرع الخاص ب {donorName} والتأكد منه",
+  "@donationConfirmedSuccessMessage": {
+        "placeholders": {
+          "donorName": {}
+        }
+      },
+  "scanAnotherCode": "امسح رمزا آخر",
+  "doneButton": "انتهاء",
+  "allAppointments": "جميع المواعيد",
+  "noAppointmentsFound": "لم يتم العثور على مواعيد",
+  "enterCodeManually": "أدخل الرمز يدوياً",
+  "manualEntry": "إدخال يدوي",
+  "enterDonationCode": "أدخل رمز التبرع",
+  "donationCodeLabel": "رمز التبرع",
+  "verifyCode": "تأكيد الرمز",
+  "scanQrInstead": "مسح رمز QR بدلاً من ذلك",
+  "appointmentDateLabel": "تاريخ الموعد",
+  "rejectVerification": "رفض التحقق",
+  "rejectConfirmation": "هل أنت متأكد أنك تريد رفض هذا التحقق؟",
+  "reasonLabel": "السبب",
+  "reject": "رفض",
+  "verificationRejected": "تم رفض التحقق",
+  "pleaseEnterReason": "يرجى إدخال سبب",
+  "pleaseCompleteChecklist": "يرجى إكمال جميع عناصر القائمة",
+  "eligibilityChecklist": "قائمة التحقق من الأهلية",
+  "verificationChecklist": "قائمة التحقق",
+  "idVerified": "تم التحقق من الهوية",
+  "questionnaireCompleted": "تم إكمال الاستبيان",
+  "consentSigned": "تم التوقيع على الموافقة",
+  "diseaseScreening": "فحص الأمراض",
+  "screeningCompleted": "اكتمل الفحص (لا توجد أمراض مانعة)",
+  "disqualifyingDiseaseFound": "تم العثور على مرض مانع",
+  "addDisease": "إضافة مرض",
+  "addToList": "إضافة إلى القائمة",
+  "additionalNotes": "ملاحظات إضافية...",
+  "submitVerification": "إرسال التحقق",
+  "pleaseFillRequiredFields": "يرجى ملء جميع الحقول المطلوبة",
+  "donationCompletion": "إتمام التبرع",
+  "donationCompletedSuccessfully": "تم إتمام التبرع بنجاح!",
+  "pointsEarned": "النقاط المكتسبة: {count}",
+  "recordDonorData": "تسجيل بيانات المتبرع",
+  "enterDonorReadings": "أدخل القراءات الطبية للمتبرع أدناه",
+  "hemoglobinLevel": "مستوى الهيموجلوبين (جم/ديسيلتر)",
+  "unitsCollected": "الوحدات المجمعة",
+  "donationCodeHint": "أدخل رمز التبرع",
+  "verificationFailed": "فشل التحقق.",
+  "connectionTimedOut": "انتهت مهلة الاتصال. يرجى المحاولة مرة أخرى.",
+  "noInternetConnection": "لا يوجد اتصال بالإنترنت.",
+  "sessionExpired": "انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى.",
+  "notFoundItem": "غير موجود.",
+  "invalidQrCode": "رمز QR غير صالح.",
+  "qrCodeExpired": "انتهت صلاحية رمز QR هذا.",
+  "checkAllFields": "يرجى التحقق من جميع الحقول والمحاولة مرة أخرى.",
+  "profileNotFound": "الملف الشخصي غير موجود.",
+  "accessDenied": "تم رفض الوصول.",
+  "hospitalLocationNotSet": "لم يتم تعيين موقع المستشفى. يرجى تحديث ملفك الشخصي.",
+  "invalidStatusFilter": "فلتر حالة غير صالح.",
+  "failedLoadAppointmentDetails": "فشل تحميل تفاصيل الموعد.",
+  "qrVerificationFailed": "فشل التحقق من رمز QR.",
+  "failedCompleteDonation": "فشل إتمام التبرع.",
+  "failedRejectAppointment": "فشل رفض الموعد.",
+  "failedLoadRequestDetails": "فشل تحميل تفاصيل الطلب.",
+  "requestUpdatedSuccess": "تم تحديث الطلب بنجاح.",
+  "failedUpdateRequest": "فشل تحديث الطلب.",
+  "requestCancelledSuccess": "تم إلغاء الطلب بنجاح.",
+  "failedLoadDonorResponses": "فشل تحميل ردود المتبرعين.",
+  "failedLoadProfile": "فشل تحميل الملف الشخصي.",
+  "profileUpdatedSuccess": "تم تحديث الملف الشخصي بنجاح.",
+  "workingHoursUpdatedSuccess": "تم تحديث ساعات العمل بنجاح.",
+  "currentPasswordIncorrect": "كلمة المرور الحالية غير صحيحة.",
+  "passwordMustBeDifferent": "يجب أن تختلف كلمة المرور الجديدة عن الحالية.",
+  "hospitalContactRequired": "يرجى تعيين رقم اتصال في ملفك الشخصي قبل إنشاء طلب.",
+  "donationAlreadyCompleted": "تم إتمام هذا التبرع بالفعل.",
+  "hospitalNotApproved": "حساب المستشفى الخاص بك لم يتم الموافقة عليه بعد. يرجى التواصل مع support@lifelink.org.",
+  "invalidHospitalId": "معرف المستشفى غير صحيح.",
+  "invalidEmailOrPassword": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+  "activityRequestCreated": "تم إنشاء طلب - {bloodTypes}",
+  "@activityRequestCreated": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "activityRequestFulfilled": "تم تلبية الطلب - {bloodTypes}",
+  "@activityRequestFulfilled": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "activityDonorResponse": "استجابة متبرع جديدة - {donorName}",
+  "@activityDonorResponse": {
+    "placeholders": {
+      "donorName": {}
+    }
+  },
+  "activityDonorResponseFallback": "استجابة متبرع جديدة - متبرع",
+  "activityUnitsNeeded": "وحدات مطلوبة {units}",
+  "@activityUnitsNeeded": {
+    "placeholders": {
+      "units": {}
+    }
+  },
+  "activityUnitsReceived": "وحدات مستلمة {units}",
+  "@activityUnitsReceived": {
+    "placeholders": {
+      "units": {}
+    }
+  },
+  "activityDonorResponded": "متبرع فصيلة {bloodType} استجاب",
+  "@activityDonorResponded": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "activityDonorRespondedFallback": "متبرعون فصائل {bloodTypes} استجابوا",
+  "@activityDonorRespondedFallback": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "notifications_match_title": "تم مطابقة متبرع جديد",
+  "notifications_match_body": "تطابق متبرع مع طلب {requestLabel} الخاص بك",
+  "@notifications_match_body": {
+    "placeholders": {
+      "requestLabel": {}
+    }
+  },
+  "notifications_emergency_title": "طلب دم طارئ",
+  "notifications_emergency_body": "دم من فصيلة {bloodType} مطلوب بالقرب من {hospitalName}",
+  "@notifications_emergency_body": {
+    "placeholders": {
+      "bloodType": {},
+      "hospitalName": {}
+    }
+  },
+  "notifications_milestone_title": "إنجاز تم تحقيقه: {achievementTitle}",
+  "@notifications_milestone_title": {
+    "placeholders": {
+      "achievementTitle": {}
+    }
+  },
+  "notifications_milestone_body": "تهانينا! لقد حصلت على: {achievementTitle}",
+  "@notifications_milestone_body": {
+    "placeholders": {
+      "achievementTitle": {}
+    }
+  },
+  "notifications_rewards_tier_upgraded": "تم ترقية المستوى إلى {newTier}!",
+  "@notifications_rewards_tier_upgraded": {
+    "placeholders": {
+      "newTier": {}
+    }
+  },
+  "notifications_rewards_badge_unlocked": "تم فتح شارة: {badgeName}",
+  "@notifications_rewards_badge_unlocked": {
+    "placeholders": {
+      "badgeName": {}
+    }
+  },
+  "notifications_rewards_reward_redeemed": "تم استلام المكافأة!",
+  "notifications_appointment_rescheduled": "تم إعادة جدولة الموعد",
+  "notifications_appointment_donor_rescheduled": "المتبرع أعاد جدولة الموعد",
+  "notifications_appointment_new_booked": "موعد جديد محجوز",
+  "notifications_appointment_cancelled_by_donor": "تم إلغاء الموعد من قبل المتبرع",
+  "notifications_activity_tier_promoted": "تم ترقية المستوى",
+  "notifications_activity_badge_unlocked": "تم فتح شارة",
+  "notifications_activity_redeemed_reward": "تم استلام المكافأة",
+  "notifications_activity_donation_created": "تم إنشاء تبرع",
+  "notifications_activity_donation_verified": "تم التحقق من التبرع",
+  "notifications_activity_donation_confirmed": "تم تأكيد التبرع",
+  "notifications_activity_donation_completed": "تم إكمال التبرع",
+  "notifications_activity_donation_cancelled": "تم إلغاء التبرع",
+  "notifications_activity_blood_donation_submitted": "تم تقديم التبرع بالدم",
+  "notifications_activity_request_cancelled": "تم إلغاء الطلب",
+  "notifications_activity_request_rejected": "تم رفض الطلب",
+  "notifications_admin_registrations_rising": "تسجيلات المتبرعين في ارتفاع",
+  "notifications_admin_registrations_declining": "تسجيلات المتبرعين في انخفاض",
+  "notifications_admin_verification_gap": "تم اكتشاف فجوة في التحقق",
+  "notifications_admin_inactive_hospitals": "مستشفيات غير نشطة",
+  "notifications_admin_donor_retention_alert": "تنبيه الاحتفاظ بالمتبرعين",
+  "notifications_admin_suspension_spike": "تم اكتشاف ارتفاع في التعليقات",
+  "notifications_admin_urgent_blood_request": "طلب دم عاجل",
+  "notifications_analytics_critical_need_title": "حاجة ماسة لفصائل {bloodTypes}",
+  "@notifications_analytics_critical_need_title": {
+    "placeholders": {
+      "bloodTypes": {}
+    }
+  },
+  "notifications_analytics_predicted_high_demand_title": "ارتفاع متوقع في الطلب",
+  "notifications_analytics_predicted_high_demand_body": "زيادة بنسبة {percent}% في طلبات الدم متوقعة الأسبوع القادم.",
+  "@notifications_analytics_predicted_high_demand_body": {
+    "placeholders": {
+      "percent": {}
+    }
+  },
+  "notifications_analytics_rising_demand_title": "اتجاه الطلب في ارتفاع",
+  "notifications_analytics_rising_demand_body": "طلبات الدم في ارتفاع. يرجى تجهيز موارد إضافية.",
+  "notifications_analytics_declining_demand_title": "الطلب في انخفاض",
+  "notifications_analytics_declining_demand_body": "طلبات الدم في انخفاض. راجع توزيع المخزون.",
+  "notifications_analytics_shortage_risk_title": "خطر نقص المخزون",
+  "notifications_analytics_shortage_risk_body": "مخزون دم فصيلة {bloodType} من المتوقع أن ينفد خلال 4 أيام.",
+  "@notifications_analytics_shortage_risk_body": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "notifications_analytics_supply_warning_title": "تحذير المخزون",
+  "notifications_analytics_supply_warning_body": "مخزون دم فصيلة {bloodType} يقترب من المستويات الحرجة.",
+  "@notifications_analytics_supply_warning_body": {
+    "placeholders": {
+      "bloodType": {}
+    }
+  },
+  "notifications_analytics_peak_day_title": "رؤية يوم الذروة",
+  "notifications_analytics_peak_day_body": "يوم {peakDay} يُظهر نشاط تبرع أعلى بنسبة {pct}%. فكر في جدولة المزيد من الحملات في هذا اليوم.",
+  "@notifications_analytics_peak_day_body": {
+    "placeholders": {
+      "peakDay": {},
+      "pct": {}
+    }
+  },
+  "notifications_analytics_retention_alert_title": "تنبيه الاحتفاظ بالمتبرعين",
+  "notifications_analytics_retention_alert_body": "معدل عودة المتبرعين انخفض بشكل ملحوظ. فكر في حملات إعادة التواصل.",
+  "notifications_analytics_growth_positive_title": "نمو إيجابي للمتبرعين",
+  "notifications_analytics_growth_positive_body": "عدد المتبرعين العائدين أعلى مقارنة بالشهر الماضي. الزخم قوي.",
+  "notifications_analytics_emergency_spike_title": "ارتفاع طارئ في الطلب",
+  "notifications_analytics_emergency_spike_body": "ارتفع الطلب على الدم بشكل غير متوقع في الأيام الثلاثة الماضية. قد تكون هناك حاجة لاستجابة طارئة.",
+  "notifications_actions_accept": "قبول",
+  "notifications_actions_view_details": "عرض التفاصيل",
+  "notifications_delete_all": "حذف جميع الإشعارات",
+  "notifications_delete_confirm": "هل أنت متأكد من حذف جميع الإشعارات؟",
+  "notifications_delete_success": "تم حذف جميع الإشعارات بنجاح",
+  "notifications_empty": "لا توجد إشعارات"
 }

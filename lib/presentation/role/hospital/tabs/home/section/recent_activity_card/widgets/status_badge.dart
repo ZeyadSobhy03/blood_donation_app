@@ -16,7 +16,7 @@ class StatusBadge extends StatelessWidget {
   });
 
   final ActivityStatus status;
-  final String donorPhoneNumber;
+  final String? donorPhoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,6 @@ class StatusBadge extends StatelessWidget {
           ),
           child: CustomText(
             text: appLocalizations.complete,
-
             textStyle: TextStyle(
               color: ColorManger.pureWhite,
               fontSize: FontSize.s12,
@@ -49,14 +48,15 @@ class StatusBadge extends StatelessWidget {
           ),
         );
       case ActivityStatus.contact:
+        final phone = donorPhoneNumber;
         return CustomElevatedButton(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: ColorManger.pureWhite,
           foregroundColor: ColorManger.black,
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          onPressed: () {
-            callDonor(donorPhoneNumber);
-          },
+          onPressed: (phone == null || phone.isEmpty)
+              ? null
+              : () => callDonor(phone),
           child: Row(
             children: [
               const Icon(Icons.phone, size: 16),
@@ -81,7 +81,6 @@ class StatusBadge extends StatelessWidget {
           ),
           child: CustomText(
             text: appLocalizations.active,
-
             textStyle: TextStyle(
               color: ColorManger.black,
               fontSize: FontSize.s12,

@@ -78,7 +78,7 @@ class _RequestScreenState extends State<RequestScreen> {
   String _localizePatientType(String? patientType, AppLocalizations appLocalizations) {
     switch (patientType?.toLowerCase()) {
       case 'child':
-        return appLocalizations.patientTypeChild;
+        return appLocalizations.chiz;
       case 'infant':
         return appLocalizations.patientTypeInfant;
       case 'adult':
@@ -150,7 +150,7 @@ class _RequestScreenState extends State<RequestScreen> {
               Navigator.of(context, rootNavigator: true).pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(state.message),
+                  content: Text(localizeError(state.message, appLocalizations)),
                   backgroundColor: Colors.red,
                 ),
               );
@@ -203,7 +203,9 @@ class _RequestScreenState extends State<RequestScreen> {
                       location:
                       urgentRequest?.hospital?.address?.toString() ?? ''),
                 ),
+
                 SizedBox(height: 8.h),
+
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: RequestDetailsSection(
@@ -274,5 +276,22 @@ class _RequestScreenState extends State<RequestScreen> {
         ),
       ),
     );
+  }
+}
+
+String localizeUrgency(String urgency, AppLocalizations loc) {
+  switch (urgency.toLowerCase().trim()) {
+    case 'low':
+      return loc.urgency_low;
+    case 'medium':
+      return loc.urgency_medium;
+    case 'high':
+      return loc.urgency_high;
+    case 'critical':
+      return loc.criticalStatus;
+    case 'emergency':
+      return loc.emergencyLabel;
+    default:
+      return urgency;
   }
 }

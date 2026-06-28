@@ -79,6 +79,8 @@ void handleDioError(DioException e) {
 
     case DioExceptionType.cancel:
       throw const RequestCancelledException();
+    case DioExceptionType.connectionError:
+      throw const NetworkConnectionException();
     default:
       throw UnknownNetworkException(message: e.message);
   }

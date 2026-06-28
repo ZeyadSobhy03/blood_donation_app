@@ -165,7 +165,7 @@ class HospitalId {
   String? id;
   String? fullName;
   String? hospitalName;
-  dynamic address;
+  String? address;
   Location? location;
   String? contactNumber;
 
@@ -182,7 +182,12 @@ class HospitalId {
     id = json['_id'];
     fullName = json['fullName'];
     hospitalName = json['hospitalName'];
-    address = json['address'];
+    final addr = json['address'];
+    if (addr is Map) {
+      address = addr.values.where((v) => v != null).join(', ');
+    } else {
+      address = addr?.toString();
+    }
 
     location = json['location'] != null
         ? Location.fromJson(json['location'])

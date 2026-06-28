@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../../core/resources/fonts/font_manger.dart';
+import '../../../../../../../../core/utils/error_localizer.dart';
 import '../../../../../../../../core/widgets/custom_text.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../data/model/requests/requests_model.dart';
@@ -164,7 +165,7 @@ void showConfirmResponseBottomSheet(
                   Navigator.pop(ctx); // close the bottom sheet
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(state.message),
+                      content: Text(localizeError(state.message, appLocalizations)),
                       backgroundColor: Colors.red,
                     ),
                   );

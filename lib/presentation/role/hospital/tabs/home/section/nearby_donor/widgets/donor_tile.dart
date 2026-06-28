@@ -10,10 +10,13 @@ class DonorTile extends StatelessWidget {
     super.key,
     required this.bloodType,
     required this.numberOfDonor,
+    this.nearestDistanceKm,
   });
 
   final String bloodType;
   final int numberOfDonor;
+
+  final double? nearestDistanceKm;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,9 @@ class DonorTile extends StatelessWidget {
         ),
         SizedBox(height: 4),
         CustomText(
-          text: appLocalizations.donor_available(5),
+          text: nearestDistanceKm != null
+              ? appLocalizations.donor_available(nearestDistanceKm!)
+              : '-',
           textStyle: TextStyle(
             color: ColorManger.slateGrey,
             fontSize: FontSize.s12,

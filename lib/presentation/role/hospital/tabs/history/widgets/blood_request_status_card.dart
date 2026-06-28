@@ -46,9 +46,10 @@ class BloodRequestStatusCard extends StatelessWidget {
                         size: 24,
                       ),
                 SizedBox(width: 6),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                     CustomText(
                       text: '$bloodType ${appLocalization.bloodRequest}',
                       textStyle: TextStyle(
@@ -66,7 +67,8 @@ class BloodRequestStatusCard extends StatelessWidget {
                         color: ColorManger.slateGrey,
                       ),
                     ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),

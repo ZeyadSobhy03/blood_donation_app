@@ -50,7 +50,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       context.read<ProfileCubit>().fetchProfile();
       context.read<DonorStatesCubit>().fetchDonorStates();
       context.read<DonationEligibilityCubit>().fetchDonationEligibility();
-      _fetchRequestsWithLocation();
+      context.read<RequestsCubit>().fetchRequests(limit: 10, page: 1);
       context.read<ActivitiesCubit>().fetchActivities();
     });
   }
@@ -64,24 +64,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
     _animationController.repeat(reverse: true);
-  }
-
-  void _fetchRequestsWithLocation() {
-    if (!mounted) return;
-
-    final mapState = context.read<MapCubit>().state;
-    if (mapState is! MapLoaded) return;
-
-    context.read<RequestsCubit>().fetchRequests(limit: 10, page: 1);
-  }
-
-  void _onMapLoaded() {
-    if (!mounted) return;
-    final requestsState = context.read<RequestsCubit>().state;
-    final shouldFetch =
-        requestsState is RequestsInitialState ||
-        requestsState is RequestsErrorState;
-    if (shouldFetch) _fetchRequestsWithLocation();
   }
 
   @override
@@ -108,10 +90,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 SizedBox(height: 12.h),
                 _DonorStatsSection(),
                 SizedBox(height: 16.h),
-                _RequestsSection(
-                  onMapLoaded: _onMapLoaded,
-                  onRetry: _fetchRequestsWithLocation,
-                ),
+                const _RequestsSection(),
                 SizedBox(height: 8.h),
                 HomeNavigationButton(
                   onPressed: () => Navigator.pushNamed(
@@ -321,7 +300,7 @@ class _DonationEligibilitySection extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
-                            text: appLocalizations.donationEligibility,
+                            text: appLocalizations.donationAvailability,
                             textStyle: TextStyle(
                               fontWeight: FontWeightManager.bold,
                               fontSize: FontSize.s14,
@@ -330,9 +309,9 @@ class _DonationEligibilitySection extends StatelessWidget {
                           ),
                           SizedBox(height: 4.h),
                           CustomText(
-                            text: isEligible
-                                ? appLocalizations.youAreEligible
-                                : appLocalizations.youAreNotEligible,
+                            text: isParticipating
+                                ? appLocalizations.youAreAvailable
+                                : appLocalizations.youAreNotAvailable,
                             textStyle: TextStyle(
                               fontWeight: FontWeightManager.regular,
                               fontSize: FontSize.s12,
@@ -695,6 +674,12 @@ class _RequestsSectionState extends State<_RequestsSection> {
             totalRequests = state.requestsModel.data?.pagination?.total ?? 0;
             hasNextPage = state.requestsModel.data?.pagination?.hasNextPage ?? false;
           }
+    return BlocBuilder<RequestsCubit, RequestsState>(
+      builder: (context, state) {
+        final isLoading = state is RequestsLoadingState;
+        final List<Request> requests = state is RequestsSuccessState
+            ? state.requestsModel.data?.requestsList ?? []
+            : [];
 
           if (state is RequestsErrorState) {
             log('Requests error: ${state.message}');
@@ -703,17 +688,25 @@ class _RequestsSectionState extends State<_RequestsSection> {
               onRetry: _resetPagination,
             );
           }
+        if (state is RequestsErrorState) {
+          log('[RequestsSection] Error: ${state.message}');
+          return CustomErrorWidget(
+            message: localizeError(state.message, appLocalization),
+            onRetry: () =>
+                context.read<RequestsCubit>().fetchRequests(limit: 10, page: 1),
+          );
+        }
 
-          if (requests.isEmpty && !isLoading) {
-            return CustomText(
-              text: appLocalization.noRequestsFound,
-              textStyle: TextStyle(
-                fontWeight: FontWeightManager.regular,
-                fontSize: FontSize.s14,
-                color: ColorManger.slateGrey,
-              ),
-            );
-          }
+        if (requests.isEmpty && !isLoading) {
+          return CustomText(
+            text: appLocalization.noRequestsFound,
+            textStyle: TextStyle(
+              fontWeight: FontWeightManager.regular,
+              fontSize: FontSize.s14,
+              color: ColorManger.slateGrey,
+            ),
+          );
+        }
 
           return Skeletonizer(
             enabled: isLoading && currentPage == 1,
@@ -750,6 +743,13 @@ class _RequestsSectionState extends State<_RequestsSection> {
           );
         },
       ),
+        return Skeletonizer(
+          enabled: isLoading,
+          child: isLoading
+              ? _buildSkeletonLoader()
+              : UrgentRequestsSection(requests: requests),
+        );
+      },
     );
   }
 

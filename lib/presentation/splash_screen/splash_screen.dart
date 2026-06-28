@@ -8,8 +8,10 @@ import '../../core/resources/assets_manger/assets_manger.dart';
 import '../../core/resources/colors/color_manger.dart';
 import '../../core/resources/fonts/font_manger.dart';
 import '../../core/resources/routes/route_manger.dart';
+import '../../core/service/firebase_notification_service.dart';
 import '../../core/widgets/custom_text.dart';
 import '../../presentation/authentication/donor_authentication/presentation/view_model/auth_view_model.dart';
+import '../role/hospital/tabs/notifications/presentation/view_model/fcm/fcm_view_model.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -82,6 +84,20 @@ class _SplashScreenState extends State<SplashScreen>
         return;
       }
 
+      final hospitalBox = await Hive.openBox('hospital_auth_box');
+      final hospitalToken = hospitalBox.get('hospital_access_token') as String?;
+      final hospitalUserData = hospitalBox.get('hospital_user_data');
+      log('Hospital logged in: ${hospitalToken != null && hospitalToken.isNotEmpty && hospitalUserData != null}');
+
+      if (hospitalToken != null && hospitalToken.isNotEmpty && hospitalUserData != null) {
+        final fcmCubit = context.read<FcmCubit>();
+        await _refreshFcmToken(fcmCubit, hospitalToken);
+        await Future.delayed(const Duration(seconds: 3));
+        if (!mounted) return;
+        Navigator.pushReplacementNamed(context, RouteManger.hospitalMainLayout);
+        return;
+      }
+
       final authCubit = context.read<AuthCubit>();
       final adminCubit = context.read<AdminAuthCubit>();
 
@@ -147,6 +163,18 @@ class _SplashScreenState extends State<SplashScreen>
       default:
         log('Unknown role: $role → going to chooseRole');
         Navigator.pushReplacementNamed(context, RouteManger.chooseRole);
+    }
+  }
+
+  Future<void> _refreshFcmToken(FcmCubit cubit, String token) async {
+    try {
+      final fcmToken = await FirebaseNotificationService.getFCMToken();
+      if (fcmToken == null) return;
+      cubit.saveFcmToken(
+        token: fcmToken,
+        accessToken: token,
+      );
+    } catch (_) {
     }
   }
 

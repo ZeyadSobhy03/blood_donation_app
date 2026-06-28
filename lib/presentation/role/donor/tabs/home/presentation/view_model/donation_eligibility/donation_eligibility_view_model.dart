@@ -42,16 +42,11 @@ class DonationEligibilityCubit extends Cubit<DonationEligibilityState> {
 
   Future<void> setParticipation({required bool participation}) async {
     final currentState = state;
+    DonationEligibilityModel? previousModel;
     if (currentState is DonationEligibilitySuccess) {
-      emit(
-        DonationEligibilityParticipationLoading(
-          donationEligibilityModel: currentState.donationEligibilityModel,
-        ),
-      );
-    } else {
-      emit(
-        DonationEligibilityParticipationLoading(donationEligibilityModel: null),
-      );
+      previousModel = currentState.donationEligibilityModel;
+    } else if (currentState is DonationEligibilityParticipationSuccess) {
+      previousModel = currentState.donationEligibilityModel;
     }
 
     try {
@@ -60,14 +55,18 @@ class DonationEligibilityCubit extends Cubit<DonationEligibilityState> {
       );
 
       if (result.success == true) {
-        _currentParticipation = result.data?.isOptedIn ?? false;
+        _currentParticipation = result.data?.isOptedIn ?? participation;
+
+        final updatedModel = previousModel?.copyWith(
+          data: previousModel.data?.copyWith(
+            participationEnabled: _currentParticipation,
+          ),
+        );
 
         emit(
           DonationEligibilityParticipationSuccess(
             participationPreferenceModel: result,
-            donationEligibilityModel: currentState is DonationEligibilitySuccess
-                ? currentState.donationEligibilityModel
-                : null,
+            donationEligibilityModel: updatedModel,
           ),
         );
       } else {

@@ -1,16 +1,17 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
-import 'package:blood_donation_app/core/widgets/custom_elevated_button.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
-import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/nearby_donor/section/change_location_dialog.dart';
 import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/nearby_donor/widgets/donor_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../l10n/app_localizations.dart';
+import '../../data/models/home_nearby_donors_model.dart';
 
 class NearbyDonorCard extends StatelessWidget {
-  const NearbyDonorCard({super.key});
+  const NearbyDonorCard({super.key, required this.groups});
+
+  final List<BloodTypeDonorGroup> groups;
 
   static const double _mobileBreakpoint = 600;
   static const double _tabletBreakpoint = 900;
@@ -46,7 +47,6 @@ class NearbyDonorCard extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final width = constraints.maxWidth;
-        final isTablet = width >= _mobileBreakpoint;
         final isDesktop = width >= _tabletBreakpoint;
         final hPadding = _getHorizontalPadding(width);
 
@@ -64,85 +64,49 @@ class NearbyDonorCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomText(
-                        text: appLocalizations.nearby_donor,
-                        textStyle: TextStyle(
-                          color: ColorManger.black,
-                          fontWeight: FontWeightManager.semiBold,
-                          fontSize: _getTitleFontSize(width),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: isDesktop ? 200 : (isTablet ? 180 : null),
-                      child: CustomElevatedButton(
-                        backgroundColor: ColorManger.pureWhite,
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (_) => const ChangeLocationDialog(),
-                          );
-                        },
-                        padding: EdgeInsets.symmetric(
-                          horizontal: isDesktop ? 16 : 12,
-                          vertical: isDesktop ? 8 : 6,
-                        ),
-                        foregroundColor: ColorManger.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                          BorderRadius.circular(isDesktop ? 10 : 8.r),
-                          side: BorderSide(
-                            color: ColorManger.lightGrey,
-                            width: 1,
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.location_on_outlined,
-                              size: isDesktop ? 18 : 16,
-                            ),
-                            SizedBox(width: isDesktop ? 6 : 4),
-                            Flexible(
-                              child: CustomText(
-                                text: appLocalizations.change_location,
-                                textStyle: TextStyle(
-                                  color: ColorManger.black,
-                                  fontSize:
-                                  isDesktop ? FontSize.s13 : FontSize.s12,
-                                  fontWeight: FontWeightManager.regular,
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                CustomText(
+                  text: appLocalizations.nearby_donor,
+                  textStyle: TextStyle(
+                    color: ColorManger.black,
+                    fontWeight: FontWeightManager.semiBold,
+                    fontSize: _getTitleFontSize(width),
+                  ),
                 ),
-
                 SizedBox(height: isDesktop ? 20 : 16),
-
-                GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: _getCrossAxisCount(width),
-                    mainAxisSpacing: isDesktop ? 16 : 12,
-                    crossAxisSpacing: isDesktop ? 16 : 12,
-                    childAspectRatio: _getChildAspectRatio(width),
+                if (groups.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Center(
+                      child: CustomText(
+                        text: appLocalizations.noNearbyDonorsFound,
+                        textStyle: TextStyle(
+                          color: ColorManger.slateGrey,
+                          fontSize: FontSize.s14,
+                          fontWeight: FontWeightManager.regular,
+                        ),
+                      ),
+                    ),
+                  )
+                else
+                  GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: _getCrossAxisCount(width),
+                      mainAxisSpacing: isDesktop ? 16 : 12,
+                      crossAxisSpacing: isDesktop ? 16 : 12,
+                      childAspectRatio: _getChildAspectRatio(width),
+                    ),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: groups.length,
+                    itemBuilder: (context, index) {
+                      final group = groups[index];
+                      return DonorTile(
+                        bloodType: group.bloodType ?? '',
+                        numberOfDonor: group.count ?? 0,
+                        nearestDistanceKm: group.nearestDistanceKm,
+                      );
+                    },
                   ),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 6,
-                  itemBuilder: (context, index) => DonorTile(
-                    bloodType: 'A+',
-                    numberOfDonor: 5,
-                  ),
-                ),
               ],
             ),
           ),

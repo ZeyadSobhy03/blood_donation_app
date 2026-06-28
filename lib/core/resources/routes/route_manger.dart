@@ -4,13 +4,20 @@ import 'package:blood_donation_app/core/resources/models/pin_verification_args.d
 import 'package:blood_donation_app/core/resources/models/reset_password_args.dart';
 import 'package:blood_donation_app/core/widgets/custom_ban_screen.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/local_data_source/hospital_hive_data_source.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/data_source/remote_data_source/hospital_api_data_source.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/data/repositories/hospital_repositories_impl.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/domain/use_case/hospital_use_case.dart';
 import 'package:blood_donation_app/presentation/authentication/hospital_authentication/hospital_forget_password.dart';
+import 'package:blood_donation_app/presentation/authentication/hospital_authentication/presentation/view_model/hospital_view_model.dart';
 import 'package:blood_donation_app/presentation/choose_role/choose_role.dart';
 import 'package:blood_donation_app/presentation/onboarding/onboarding_pages.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view/section/audit_logs_screen.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donor_main_layout.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/notifications.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/request_screen/request_screen.dart';
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view/notifications.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -83,6 +90,7 @@ class RouteManger {
       "/customPinVerificationScreen";
 
   static const String hospitalForgetPassword = '/hospitalForgetPassword';
+  static const String hospitalNotifications = '/hospitalNotifications';
 
   static const String adminForgetPassword = '/adminForgetPassword';
   static const String appointmentDetails = '/appointmentDetails';
@@ -236,7 +244,17 @@ class RouteManger {
 
       case hospitalAuth:
         return MaterialPageRoute(
-          builder: (context) => HospitalAuthentication(),
+          builder: (_) => BlocProvider(
+            create: (context) => HospitalCubit(
+              hospitalUseCase: HospitalUseCase(
+                hospitalRepositories: HospitalRepositoriesImp(
+                  hospitalRemoteDataSource: HospitalApiDataSource(Dio()),
+                ),
+              ),
+              hospitalHiveDataSource: HospitalHiveDataSource()..init(),
+            ),
+            child: const HospitalAuthentication(),
+          ),
         );
 
       case adminAuth:
@@ -254,9 +272,24 @@ class RouteManger {
           settings: settings,
         );
 
+      case hospitalNotifications:
+        return MaterialPageRoute(
+          builder: (context) => const HospitalNotifications(),
+        );
+
       case hospitalForgetPassword:
         return MaterialPageRoute(
-          builder: (context) => HospitalForgetPassword(),
+          builder: (_) => BlocProvider(
+            create: (context) => HospitalCubit(
+              hospitalUseCase: HospitalUseCase(
+                hospitalRepositories: HospitalRepositoriesImp(
+                  hospitalRemoteDataSource: HospitalApiDataSource(Dio()),
+                ),
+              ),
+              hospitalHiveDataSource: HospitalHiveDataSource()..init(),
+            ),
+            child: const HospitalForgetPassword(),
+          ),
         );
 
       case adminForgetPassword:

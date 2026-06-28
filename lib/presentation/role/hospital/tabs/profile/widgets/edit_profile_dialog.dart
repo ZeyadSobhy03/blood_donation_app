@@ -5,7 +5,28 @@ import 'package:flutter/material.dart';
 import '../../../../../../l10n/app_localizations.dart';
 
 class EditHospitalProfileDialog extends StatefulWidget {
-  const EditHospitalProfileDialog({super.key});
+  final String hospitalName;
+  final String department;
+  final String contactNumber;
+  final String email;
+  final String address;
+  final void Function({
+    required String hospitalName,
+    required String department,
+    required String contactNumber,
+    required String email,
+    required String address,
+  }) onSave;
+
+  const EditHospitalProfileDialog({
+    super.key,
+    required this.hospitalName,
+    required this.department,
+    required this.contactNumber,
+    required this.email,
+    required this.address,
+    required this.onSave,
+  });
 
   @override
   State<EditHospitalProfileDialog> createState() =>
@@ -13,7 +34,6 @@ class EditHospitalProfileDialog extends StatefulWidget {
 }
 
 class _EditHospitalProfileDialogState extends State<EditHospitalProfileDialog> {
-
   late TextEditingController _nameController;
   late TextEditingController _deptController;
   late TextEditingController _phoneController;
@@ -24,12 +44,11 @@ class _EditHospitalProfileDialogState extends State<EditHospitalProfileDialog> {
   void initState() {
     super.initState();
 
-    _nameController = TextEditingController(text: "Metro General Hospital");
-    _deptController = TextEditingController(text: "Emergency Department");
-    _phoneController = TextEditingController(text: "+1 (555) 987-6543");
-    _emailController = TextEditingController(text: "emergency@metrohealth.com");
-    _addressController =
-        TextEditingController(text: "123 Medical Center Dr, City");
+    _nameController = TextEditingController(text: widget.hospitalName);
+    _deptController = TextEditingController(text: widget.department);
+    _phoneController = TextEditingController(text: widget.contactNumber);
+    _emailController = TextEditingController(text: widget.email);
+    _addressController = TextEditingController(text: widget.address);
   }
 
   @override
@@ -44,29 +63,22 @@ class _EditHospitalProfileDialogState extends State<EditHospitalProfileDialog> {
 
   @override
   Widget build(BuildContext context) {
-
     final loc = AppLocalizations.of(context)!;
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.white,
       insetPadding: const EdgeInsets.all(20),
-
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
-
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
-
             children: [
-
-              /// Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
                   Text(
                     loc.editProfile,
                     style: const TextStyle(
@@ -74,7 +86,6 @@ class _EditHospitalProfileDialogState extends State<EditHospitalProfileDialog> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-
                   GestureDetector(
                     onTap: () => Navigator.pop(context),
                     child: const Icon(
@@ -85,62 +96,42 @@ class _EditHospitalProfileDialogState extends State<EditHospitalProfileDialog> {
                   ),
                 ],
               ),
-
               const SizedBox(height: 24),
-
-              /// Hospital Name
               CustomLabel(text: loc.hospitalName),
               CustomTextField(
                 controller: _nameController,
                 isPassword: false,
               ),
-
               const SizedBox(height: 16),
-
-              /// Department
               CustomLabel(text: loc.department),
               CustomTextField(
                 controller: _deptController,
                 isPassword: false,
               ),
-
               const SizedBox(height: 16),
-
-              /// Phone
               CustomLabel(text: loc.phone),
               CustomTextField(
                 controller: _phoneController,
                 isPassword: false,
               ),
-
               const SizedBox(height: 16),
-
-              /// Email
               CustomLabel(text: loc.email),
               CustomTextField(
                 controller: _emailController,
                 isPassword: false,
               ),
-
               const SizedBox(height: 16),
-
-              /// Address
               CustomLabel(text: loc.address),
               CustomTextField(
                 controller: _addressController,
                 isPassword: false,
               ),
-
               const SizedBox(height: 24),
-
-              /// Buttons
               Row(
                 children: [
-
                   Expanded(
                     child: SizedBox(
                       height: 48,
-
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                           foregroundColor: Colors.black,
@@ -149,9 +140,7 @@ class _EditHospitalProfileDialogState extends State<EditHospitalProfileDialog> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-
                         onPressed: () => Navigator.pop(context),
-
                         child: Text(
                           loc.cancel,
                           style: const TextStyle(
@@ -161,13 +150,10 @@ class _EditHospitalProfileDialogState extends State<EditHospitalProfileDialog> {
                       ),
                     ),
                   ),
-
                   const SizedBox(width: 12),
-
                   Expanded(
                     child: SizedBox(
                       height: 48,
-
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF3B82F6),
@@ -177,11 +163,16 @@ class _EditHospitalProfileDialogState extends State<EditHospitalProfileDialog> {
                           ),
                           elevation: 0,
                         ),
-
                         onPressed: () {
+                          widget.onSave(
+                            hospitalName: _nameController.text.trim(),
+                            department: _deptController.text.trim(),
+                            contactNumber: _phoneController.text.trim(),
+                            email: _emailController.text.trim(),
+                            address: _addressController.text.trim(),
+                          );
                           Navigator.pop(context);
                         },
-
                         child: Text(
                           loc.saveChanges,
                           style: const TextStyle(
@@ -192,7 +183,7 @@ class _EditHospitalProfileDialogState extends State<EditHospitalProfileDialog> {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

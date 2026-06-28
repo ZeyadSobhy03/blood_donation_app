@@ -113,7 +113,7 @@ class RequestCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Spacer(),
+              SizedBox(width: 8.w),
               isButtonExist
                   ? CustomElevatedButton(
                       shape: RoundedRectangleBorder(

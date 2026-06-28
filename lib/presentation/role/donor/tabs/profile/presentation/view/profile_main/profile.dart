@@ -20,6 +20,7 @@ import '../sections/log_out_button.dart';
 import '../sections/personal_information_card.dart';
 import '../sections/points_card.dart';
 import '../sections/setting.dart';
+import '../sections/support_tickets_section.dart';
 import '../sections/thanks_card.dart';
 import '../widgets/user_profile_tile.dart';
 import '../../../../donation_history/presentation/view_model/donation_history_view_model.dart';
@@ -236,6 +237,8 @@ class _ProfileState extends State<Profile> {
                         updatedAt: updatedAt,
                       ),
                     ),
+                    const SizedBox(height: 16),
+                    const SupportTicketsSection(),
                     const SizedBox(height: 16),
                     const DonationHistoryCard(),
                     const SizedBox(height: 16),

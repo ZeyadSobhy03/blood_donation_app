@@ -17,7 +17,7 @@ class ConfirmedColum extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CustomText(
-          text: '1',
+          text: '$confirmed',
           textStyle: TextStyle(
             fontSize: FontSize.s14,
             fontWeight: FontWeightManager.bold,
