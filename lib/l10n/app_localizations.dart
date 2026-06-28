@@ -9208,6 +9208,18 @@ abstract class AppLocalizations {
   /// **'Warning: you have {count} missed-donation chance(s) left before restrictions apply.'**
   String missedDonationWarning(int count);
 
+  /// No description provided for @supportTicketUserMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'User Message'**
+  String get supportTicketUserMessage;
+
+  /// No description provided for @supportTicketDonorReply.
+  ///
+  /// In en, this message translates to:
+  /// **'Donor Reply'**
+  String get supportTicketDonorReply;
+
   /// No description provided for @error_cannot_cancel_others_pledge.
   ///
   /// In en, this message translates to:

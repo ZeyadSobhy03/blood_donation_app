@@ -96,7 +96,7 @@ class CustomRequestCard extends StatelessWidget {
                           child: CustomText(
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
-                            text: request.location ?? '',
+                           text: _formatAddress(request.hospital),
                             textStyle: TextStyle(
                               color: Colors.grey.shade600,
                               fontSize: 14,
@@ -230,5 +230,19 @@ class CustomRequestCard extends StatelessWidget {
         ),
       ),
     );
+  }
+  String _formatAddress(Hospital? hospital) {
+    if (hospital == null) return '';
+    if (hospital.addressRaw != null && hospital.addressRaw!.isNotEmpty) {
+      return hospital.addressRaw!;
+    }
+    final address = hospital.address;
+    if (address == null) return '';
+    final parts = [
+      address.district,
+      address.city,
+      address.governorate,
+    ].where((p) => p != null && p.isNotEmpty).toList();
+    return parts.join(', ');
   }
 }

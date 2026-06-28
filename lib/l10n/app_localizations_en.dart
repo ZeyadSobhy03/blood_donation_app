@@ -4943,6 +4943,12 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get supportTicketUserMessage => 'User Message';
+
+  @override
+  String get supportTicketDonorReply => 'Donor Reply';
+
+  @override
   String get error_cannot_cancel_others_pledge =>
       'You can only withdraw your own pledge — you cannot cancel another donor\'s commitment';
 

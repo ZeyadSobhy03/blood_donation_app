@@ -4899,6 +4899,12 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get supportTicketUserMessage => 'رسالة المستخدم';
+
+  @override
+  String get supportTicketDonorReply => 'رد المتبرع';
+
+  @override
   String get error_cannot_cancel_others_pledge => 'لا يمكنك إلغاء تعهد شخص آخر';
 
   @override

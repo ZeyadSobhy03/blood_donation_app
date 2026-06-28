@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
@@ -66,6 +68,7 @@ class _AdminRequestState extends State<AdminRequest> {
             }
 
             if (state is AdminRequestsErrorState) {
+              log('AdminRequestsErrorState: ${state.errorMessage}');
               return CustomErrorWidget(
                 message: localizeError(state.errorMessage, appLocalizations),
                 onRetry: () {

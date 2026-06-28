@@ -2,7 +2,8 @@ class InboundedEmailModel {
   InboundedEmailModel({
     this.success,
     this.message,
-    this.data,});
+    this.data,
+  });
 
   InboundedEmailModel.fromJson(dynamic json) {
     success = json['success'];
@@ -27,7 +28,8 @@ class InboundedEmailModel {
 class Data {
   Data({
     this.items,
-    this.pagination,});
+    this.pagination,
+  });
 
   Data.fromJson(dynamic json) {
     if (json['items'] != null) {
@@ -61,7 +63,8 @@ class Pagination {
     this.limit,
     this.totalPages,
     this.hasNextPage,
-    this.hasPrevPage,});
+    this.hasPrevPage,
+  });
 
   Pagination.fromJson(dynamic json) {
     total = json['total'];
@@ -108,12 +111,16 @@ class Items {
     this.adminReply,
     this.adminReplyAt,
     this.adminReplyBy,
+    this.donorReply,
+    this.donorReplyAt,
+    this.replies,
     this.createdAt,
     this.updatedAt,
     this.v,
     this.isRead,
     this.isArchived,
-    this.type,});
+    this.type,
+  });
 
   Items.fromJson(dynamic json) {
     id = json['_id'];
@@ -134,6 +141,14 @@ class Items {
     adminReply = json['adminReply'];
     adminReplyAt = json['adminReplyAt'];
     adminReplyBy = json['adminReplyBy'];
+    donorReply = json['donorReply'];
+    donorReplyAt = json['donorReplyAt'];
+    if (json['replies'] != null) {
+      replies = [];
+      json['replies'].forEach((v) {
+        replies?.add(TicketReply.fromJson(v));
+      });
+    }
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     v = json['__v'];
@@ -154,6 +169,9 @@ class Items {
   dynamic adminReply;
   dynamic adminReplyAt;
   dynamic adminReplyBy;
+  dynamic donorReply;
+  dynamic donorReplyAt;
+  List<TicketReply>? replies;
   String? createdAt;
   String? updatedAt;
   int? v;
@@ -178,12 +196,46 @@ class Items {
     map['adminReply'] = adminReply;
     map['adminReplyAt'] = adminReplyAt;
     map['adminReplyBy'] = adminReplyBy;
+    map['donorReply'] = donorReply;
+    map['donorReplyAt'] = donorReplyAt;
+    if (replies != null) {
+      map['replies'] = replies?.map((v) => v.toJson()).toList();
+    }
     map['createdAt'] = createdAt;
     map['updatedAt'] = updatedAt;
     map['__v'] = v;
     map['isRead'] = isRead;
     map['isArchived'] = isArchived;
     map['type'] = type;
+    return map;
+  }
+}
+
+class TicketReply {
+  TicketReply({
+    this.sender,
+    this.senderId,
+    this.text,
+    this.createdAt,
+  });
+
+  TicketReply.fromJson(dynamic json) {
+    sender = json['sender'];
+    senderId = json['senderId'];
+    text = json['text'];
+    createdAt = json['createdAt'];
+  }
+  String? sender;
+  String? senderId;
+  String? text;
+  String? createdAt;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['sender'] = sender;
+    map['senderId'] = senderId;
+    map['text'] = text;
+    map['createdAt'] = createdAt;
     return map;
   }
 }

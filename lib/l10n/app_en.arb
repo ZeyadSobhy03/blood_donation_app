@@ -1856,6 +1856,8 @@
       "count": { "type": "int" }
     }
   },
+  "supportTicketUserMessage": "User Message",
+  "supportTicketDonorReply": "Donor Reply",
   "error_cannot_cancel_others_pledge": "You can only withdraw your own pledge — you cannot cancel another donor's commitment",
   "error_invalid_patient_type": "Invalid patient type. Must be adult, child, or infant",
   "error_account_banned": "Your account has been banned. Reason: {reason}",

@@ -60,6 +60,7 @@ class AdminRequestsCubit extends Cubit<AdminRequestsState> {
     } on UnknownNetworkException {
       emit(AdminRequestsErrorState('unknown_error'));
     } catch (e) {
+      log('Unknown error: $e');
       emit(AdminRequestsErrorState('unknown_error'));
     }
   }

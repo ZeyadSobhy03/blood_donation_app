@@ -1,9 +1,8 @@
-
 class AdminRequestModel {
   AdminRequestModel({
-      this.success, 
-      this.message, 
-      this.data,});
+    this.success,
+    this.message,
+    this.data,});
 
   AdminRequestModel.fromJson(dynamic json) {
     success = json['success'];
@@ -23,16 +22,15 @@ class AdminRequestModel {
     }
     return map;
   }
-
 }
 
 class Data {
   Data({
-      this.requests, 
-      this.total, 
-      this.page, 
-      this.limit, 
-      this.stats,});
+    this.requests,
+    this.total,
+    this.page,
+    this.limit,
+    this.stats,});
 
   Data.fromJson(dynamic json) {
     if (json['requests'] != null) {
@@ -65,15 +63,14 @@ class Data {
     }
     return map;
   }
-
 }
 
 class Stats {
   Stats({
-      this.total, 
-      this.byStatus, 
-      this.byUrgency, 
-      this.byBloodType,});
+    this.total,
+    this.byStatus,
+    this.byUrgency,
+    this.byBloodType,});
 
   Stats.fromJson(dynamic json) {
     total = json['total'];
@@ -100,18 +97,15 @@ class Stats {
     }
     return map;
   }
-
 }
-
 
 class ByBloodType {
   ByBloodType({
-      this.ab, 
-      this.a, 
-      this.o, 
-
-      this.b, 
-     });
+    this.ab,
+    this.a,
+    this.o,
+    this.b,
+  });
 
   ByBloodType.fromJson(dynamic json) {
     ab = json['AB+'];
@@ -136,20 +130,14 @@ class ByBloodType {
     map['A+'] = a;
     return map;
   }
-
 }
-
-/// low : 2
-/// high : 2
-/// medium : 2
-/// critical : 4
 
 class ByUrgency {
   ByUrgency({
-      this.low, 
-      this.high, 
-      this.medium, 
-      this.critical,});
+    this.low,
+    this.high,
+    this.medium,
+    this.critical,});
 
   ByUrgency.fromJson(dynamic json) {
     low = json['low'];
@@ -170,16 +158,14 @@ class ByUrgency {
     map['critical'] = critical;
     return map;
   }
-
 }
-
 
 class ByStatus {
   ByStatus({
-      this.accepted, 
-      this.cancelled, 
-      this.pending, 
-      this.completed,});
+    this.accepted,
+    this.cancelled,
+    this.pending,
+    this.completed,});
 
   ByStatus.fromJson(dynamic json) {
     accepted = json['accepted'];
@@ -200,125 +186,66 @@ class ByStatus {
     map['completed'] = completed;
     return map;
   }
-
 }
-
-/// locationHospital : {"latitude":30.0511,"longitude":31.2435}
-/// hospitalLocationGeo : {"type":"Point","coordinates":[31.2435,30.0511]}
-/// hospitalLocation : {"lat":30.0511,"lng":31.2435}
-/// patientType : "general"
-/// _id : "6a2ebf149be69755f14bce16"
-/// notes : "[demo-seed] cairo-available-medium-o-positive"
-/// hospitalId : {"location":{"coordinates":{"lat":30.0511,"lng":31.2435},"city":"Cairo","governorate":"Cairo","lastUpdated":"2026-06-14T17:27:02.232Z"},"_id":"6a130e820b339a45a51addb4","fullName":"Cairo Care Operations","email":"ops@cairocare.demo","address":{"city":"Cairo","governorate":"Cairo","district":"Garden City"},"__t":"hospital","hospitalName":"Cairo Care Hospital","contactNumber":"1044444444"}
-/// __v : 0
-/// acceptanceDeadline : null
-/// acceptedAt : null
-/// acceptedBy : null
-/// acceptedByBloodType : null
-/// acceptedByName : null
-/// acceptedByPhoneNumber : null
-/// acceptedDonationId : null
-/// arrivalDeadline : null
-/// bloodType : ["O+","O-","B+"]
-/// cancelledAt : null
-/// cause : "Active medium-priority request for nearby list demos"
-/// completedAt : null
-/// createdAt : "2026-06-14T14:47:48.908Z"
-/// escalationLevel : 3
-/// hospitalContact : "1044444444"
-/// hospitalName : "Cairo Care Hospital"
-/// isEmergency : false
-/// lastBroadcastAt : "2026-06-14T22:52:04.975Z"
-/// manualInterventionFlag : false
-/// qrCreatedAt : null
-/// qrExpiresAt : null
-/// quantity : 1
-/// requiredBy : "2026-06-21T07:00:00.000Z"
-/// status : "pending"
-/// type : "blood"
-/// unitsNeeded : 1
-/// updatedAt : "2026-06-14T22:52:07.539Z"
-/// urgency : "medium"
-/// bloodTypes : ["O+","O-","B+"]
-/// isFulfilled : false
-/// location : "Cairo, Cairo"
-/// urgencyLevel : "medium"
-/// unitsRequested : 1
-/// completionTimeInHours : 152
-/// id : "6a2ebf149be69755f14bce16"
-/// requestId : "6a2ebf149be69755f14bce16"
-/// bloodTypeLabel : "O+, O-, B+"
-/// contactNumber : "1044444444"
-/// requestStatus : "pending"
-/// qrToken : null
-/// hospital : {"id":"6a130e820b339a45a51addb4","name":"Cairo Care Hospital","contactNumber":"1044444444","address":{"city":"Cairo","governorate":"Cairo","district":"Garden City"},"latitude":30.0511,"longitude":31.2435}
-/// distanceKm : null
-/// distanceMeters : null
-/// distance : null
-/// estimatedTime : null
-/// donationCount : 0
-/// donorsConfirmed : 0
-/// donorsContacted : 10
-/// timeline : [{"event":"REQUEST_CREATED","timestamp":"2026-06-14T14:47:48.908Z","actorType":"system","actorId":null,"metadata":{"status":"pending","urgency":"medium"}}]
 
 class Requests {
   Requests({
-      this.locationHospital, 
-      this.hospitalLocationGeo, 
-      this.hospitalLocation, 
-      this.patientType, 
-      this.id, 
-      this.notes, 
-      this.hospitalId, 
-      this.v, 
-      this.acceptanceDeadline, 
-      this.acceptedAt, 
-      this.acceptedBy, 
-      this.acceptedByBloodType, 
-      this.acceptedByName, 
-      this.acceptedByPhoneNumber, 
-      this.acceptedDonationId, 
-      this.arrivalDeadline, 
-      this.bloodType, 
-      this.cancelledAt, 
-      this.cause, 
-      this.completedAt, 
-      this.createdAt, 
-      this.escalationLevel, 
-      this.hospitalContact, 
-      this.hospitalName, 
-      this.isEmergency, 
-      this.lastBroadcastAt, 
-      this.manualInterventionFlag, 
-      this.qrCreatedAt, 
-      this.qrExpiresAt, 
-      this.quantity, 
-      this.requiredBy, 
-      this.status, 
-      this.type, 
-      this.unitsNeeded, 
-      this.updatedAt, 
-      this.urgency, 
-      this.bloodTypes, 
-      this.isFulfilled, 
-      this.location, 
-      this.urgencyLevel, 
-      this.unitsRequested, 
-      this.completionTimeInHours, 
-      this.requestId,
-      this.bloodTypeLabel, 
-      this.contactNumber, 
-      this.requestStatus, 
-      this.qrToken, 
-      this.hospital, 
-      this.distanceKm, 
-      this.distanceMeters, 
-      this.distance, 
-      this.estimatedTime, 
-      this.donationCount, 
-      this.donorsConfirmed, 
-      this.donorsContacted, 
-      this.timeline,});
+    this.locationHospital,
+    this.hospitalLocationGeo,
+    this.hospitalLocation,
+    this.patientType,
+    this.id,
+    this.notes,
+    this.hospitalId,
+    this.v,
+    this.acceptanceDeadline,
+    this.acceptedAt,
+    this.acceptedBy,
+    this.acceptedByBloodType,
+    this.acceptedByName,
+    this.acceptedByPhoneNumber,
+    this.acceptedDonationId,
+    this.arrivalDeadline,
+    this.bloodType,
+    this.cancelledAt,
+    this.cause,
+    this.completedAt,
+    this.createdAt,
+    this.escalationLevel,
+    this.hospitalContact,
+    this.hospitalName,
+    this.isEmergency,
+    this.lastBroadcastAt,
+    this.manualInterventionFlag,
+    this.qrCreatedAt,
+    this.qrExpiresAt,
+    this.quantity,
+    this.requiredBy,
+    this.status,
+    this.type,
+    this.unitsNeeded,
+    this.updatedAt,
+    this.urgency,
+    this.bloodTypes,
+    this.isFulfilled,
+    this.location,
+    this.urgencyLevel,
+    this.unitsRequested,
+    this.completionTimeInHours,
+    this.requestId,
+    this.bloodTypeLabel,
+    this.contactNumber,
+    this.requestStatus,
+    this.qrToken,
+    this.hospital,
+    this.distanceKm,
+    this.distanceMeters,
+    this.distance,
+    this.estimatedTime,
+    this.donationCount,
+    this.donorsConfirmed,
+    this.donorsContacted,
+    this.timeline,});
 
   Requests.fromJson(dynamic json) {
     locationHospital = json['locationHospital'] != null ? LocationHospital.fromJson(json['locationHospital']) : null;
@@ -514,22 +441,15 @@ class Requests {
     }
     return map;
   }
-
 }
-
-/// event : "REQUEST_CREATED"
-/// timestamp : "2026-06-14T14:47:48.908Z"
-/// actorType : "system"
-/// actorId : null
-/// metadata : {"status":"pending","urgency":"medium"}
 
 class Timeline {
   Timeline({
-      this.event, 
-      this.timestamp, 
-      this.actorType, 
-      this.actorId, 
-      this.metadata,});
+    this.event,
+    this.timestamp,
+    this.actorType,
+    this.actorId,
+    this.metadata,});
 
   Timeline.fromJson(dynamic json) {
     event = json['event'];
@@ -555,16 +475,12 @@ class Timeline {
     }
     return map;
   }
-
 }
-
-/// status : "pending"
-/// urgency : "medium"
 
 class Metadata {
   Metadata({
-      this.status, 
-      this.urgency,});
+    this.status,
+    this.urgency,});
 
   Metadata.fromJson(dynamic json) {
     status = json['status'];
@@ -579,30 +495,27 @@ class Metadata {
     map['urgency'] = urgency;
     return map;
   }
-
 }
-
-/// id : "6a130e820b339a45a51addb4"
-/// name : "Cairo Care Hospital"
-/// contactNumber : "1044444444"
-/// address : {"city":"Cairo","governorate":"Cairo","district":"Garden City"}
-/// latitude : 30.0511
-/// longitude : 31.2435
 
 class Hospital {
   Hospital({
-      this.id, 
-      this.name, 
-      this.contactNumber, 
-      this.address, 
-      this.latitude, 
-      this.longitude,});
+    this.id,
+    this.name,
+    this.contactNumber,
+    this.address,
+    this.addressRaw,
+    this.latitude,
+    this.longitude,});
 
   Hospital.fromJson(dynamic json) {
     id = json['id'];
     name = json['name'];
     contactNumber = json['contactNumber'];
-    address = json['address'] != null ? Address.fromJson(json['address']) : null;
+    if (json['address'] is Map) {
+      address = Address.fromJson(json['address']);
+    } else if (json['address'] is String) {
+      addressRaw = json['address'];
+    }
     latitude = json['latitude'];
     longitude = json['longitude'];
   }
@@ -610,6 +523,7 @@ class Hospital {
   String? name;
   String? contactNumber;
   Address? address;
+  String? addressRaw;
   double? latitude;
   double? longitude;
 
@@ -620,23 +534,20 @@ class Hospital {
     map['contactNumber'] = contactNumber;
     if (address != null) {
       map['address'] = address?.toJson();
+    } else if (addressRaw != null) {
+      map['address'] = addressRaw;
     }
     map['latitude'] = latitude;
     map['longitude'] = longitude;
     return map;
   }
-
 }
-
-/// city : "Cairo"
-/// governorate : "Cairo"
-/// district : "Garden City"
 
 class Address {
   Address({
-      this.city, 
-      this.governorate, 
-      this.district,});
+    this.city,
+    this.governorate,
+    this.district,});
 
   Address.fromJson(dynamic json) {
     city = json['city'];
@@ -654,35 +565,30 @@ class Address {
     map['district'] = district;
     return map;
   }
-
 }
-
-/// location : {"coordinates":{"lat":30.0511,"lng":31.2435},"city":"Cairo","governorate":"Cairo","lastUpdated":"2026-06-14T17:27:02.232Z"}
-/// _id : "6a130e820b339a45a51addb4"
-/// fullName : "Cairo Care Operations"
-/// email : "ops@cairocare.demo"
-/// address : {"city":"Cairo","governorate":"Cairo","district":"Garden City"}
-/// __t : "hospital"
-/// hospitalName : "Cairo Care Hospital"
-/// contactNumber : "1044444444"
 
 class HospitalId {
   HospitalId({
-      this.location, 
-      this.id, 
-      this.fullName, 
-      this.email, 
-      this.address, 
-      this.t, 
-      this.hospitalName, 
-      this.contactNumber,});
+    this.location,
+    this.id,
+    this.fullName,
+    this.email,
+    this.address,
+    this.addressRaw,
+    this.t,
+    this.hospitalName,
+    this.contactNumber,});
 
   HospitalId.fromJson(dynamic json) {
     location = json['location'] != null ? Location.fromJson(json['location']) : null;
     id = json['_id'];
     fullName = json['fullName'];
     email = json['email'];
-    address = json['address'] != null ? Address.fromJson(json['address']) : null;
+    if (json['address'] is Map) {
+      address = Address.fromJson(json['address']);
+    } else if (json['address'] is String) {
+      addressRaw = json['address'];
+    }
     t = json['__t'];
     hospitalName = json['hospitalName'];
     contactNumber = json['contactNumber'];
@@ -692,6 +598,7 @@ class HospitalId {
   String? fullName;
   String? email;
   Address? address;
+  String? addressRaw;
   String? t;
   String? hospitalName;
   String? contactNumber;
@@ -706,31 +613,22 @@ class HospitalId {
     map['email'] = email;
     if (address != null) {
       map['address'] = address?.toJson();
+    } else if (addressRaw != null) {
+      map['address'] = addressRaw;
     }
     map['__t'] = t;
     map['hospitalName'] = hospitalName;
     map['contactNumber'] = contactNumber;
     return map;
   }
-
 }
-
-/// city : "Cairo"
-/// governorate : "Cairo"
-/// district : "Garden City"
-
-
-/// coordinates : {"lat":30.0511,"lng":31.2435}
-/// city : "Cairo"
-/// governorate : "Cairo"
-/// lastUpdated : "2026-06-14T17:27:02.232Z"
 
 class Location {
   Location({
-      this.coordinates, 
-      this.city, 
-      this.governorate, 
-      this.lastUpdated,});
+    this.coordinates,
+    this.city,
+    this.governorate,
+    this.lastUpdated,});
 
   Location.fromJson(dynamic json) {
     coordinates = json['coordinates'] != null ? Coordinates.fromJson(json['coordinates']) : null;
@@ -753,16 +651,12 @@ class Location {
     map['lastUpdated'] = lastUpdated;
     return map;
   }
-
 }
-
-/// lat : 30.0511
-/// lng : 31.2435
 
 class Coordinates {
   Coordinates({
-      this.lat, 
-      this.lng,});
+    this.lat,
+    this.lng,});
 
   Coordinates.fromJson(dynamic json) {
     lat = json['lat'];
@@ -777,16 +671,12 @@ class Coordinates {
     map['lng'] = lng;
     return map;
   }
-
 }
-
-/// lat : 30.0511
-/// lng : 31.2435
 
 class HospitalLocation {
   HospitalLocation({
-      this.lat, 
-      this.lng,});
+    this.lat,
+    this.lng,});
 
   HospitalLocation.fromJson(dynamic json) {
     lat = json['lat'];
@@ -801,20 +691,18 @@ class HospitalLocation {
     map['lng'] = lng;
     return map;
   }
-
 }
-
-/// type : "Point"
-/// coordinates : [31.2435,30.0511]
 
 class HospitalLocationGeo {
   HospitalLocationGeo({
-      this.type, 
-      this.coordinates,});
+    this.type,
+    this.coordinates,});
 
   HospitalLocationGeo.fromJson(dynamic json) {
     type = json['type'];
-    coordinates = json['coordinates'] != null ? json['coordinates'].cast<double>() : [];
+    coordinates = json['coordinates'] != null
+        ? List<double>.from(json['coordinates'].map((v) => (v as num).toDouble()))
+        : [];
   }
   String? type;
   List<double>? coordinates;
@@ -825,16 +713,12 @@ class HospitalLocationGeo {
     map['coordinates'] = coordinates;
     return map;
   }
-
 }
-
-/// latitude : 30.0511
-/// longitude : 31.2435
 
 class LocationHospital {
   LocationHospital({
-      this.latitude, 
-      this.longitude,});
+    this.latitude,
+    this.longitude,});
 
   LocationHospital.fromJson(dynamic json) {
     latitude = json['latitude'];
@@ -849,5 +733,4 @@ class LocationHospital {
     map['longitude'] = longitude;
     return map;
   }
-
 }

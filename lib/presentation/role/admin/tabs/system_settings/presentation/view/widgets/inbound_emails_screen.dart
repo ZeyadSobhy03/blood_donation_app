@@ -19,7 +19,13 @@ import 'email_detail_sheet.dart';
 import 'email_tile.dart';
 
 enum EmailFilter { all, unread, archived }
+class _ChatBubbleData {
+  final String text;
+  final bool isAdmin;
+  final String? time;
 
+  _ChatBubbleData({required this.text, required this.isAdmin, this.time});
+}
 class InboundEmailsScreen extends StatefulWidget {
   const InboundEmailsScreen({super.key});
 
@@ -172,9 +178,65 @@ color: ColorManger.pureWhite
   }
 
   void _openTicketReplySheet(Items ticket, AppLocalizations l10n) {
-    final replyController = TextEditingController(
-      text: ticket.adminReply as String? ?? '',
-    );
+    final replyController = TextEditingController();
+
+    // Build chat-like list of messages in chronological order
+    final List<_ChatBubbleData> chatMessages = [];
+
+    if (ticket.message != null && ticket.message!.isNotEmpty) {
+      chatMessages.add(
+        _ChatBubbleData(
+          text: ticket.message!,
+          isAdmin: false,
+          time: ticket.createdAt,
+        ),
+      );
+    }
+
+    if (ticket.replies != null && ticket.replies!.isNotEmpty) {
+      for (final reply in ticket.replies!) {
+        if (reply.text != null && reply.text!.isNotEmpty) {
+          chatMessages.add(
+            _ChatBubbleData(
+              text: reply.text!,
+              isAdmin: reply.sender == 'admin',
+              time: reply.createdAt,
+            ),
+          );
+        }
+      }
+    } else {
+      if (ticket.adminReply != null &&
+          ticket.adminReply is String &&
+          (ticket.adminReply as String).isNotEmpty) {
+        chatMessages.add(
+          _ChatBubbleData(
+            text: ticket.adminReply as String,
+            isAdmin: true,
+            time: ticket.adminReplyAt as String?,
+          ),
+        );
+      }
+      if (ticket.donorReply != null &&
+          ticket.donorReply is String &&
+          (ticket.donorReply as String).isNotEmpty) {
+        chatMessages.add(
+          _ChatBubbleData(
+            text: ticket.donorReply as String,
+            isAdmin: false,
+            time: ticket.donorReplyAt as String?,
+          ),
+        );
+      }
+    }
+
+    chatMessages.sort((a, b) {
+      final ta = a.time != null ? DateTime.tryParse(a.time!) : null;
+      final tb = b.time != null ? DateTime.tryParse(b.time!) : null;
+      if (ta == null || tb == null) return 0;
+      return ta.compareTo(tb);
+    });
+
     showModalBottomSheet(
       backgroundColor: ColorManger.pureWhite,
       context: context,
@@ -182,129 +244,168 @@ color: ColorManger.pureWhite
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (ctx) => Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(ctx).viewInsets.bottom,
-          left: 20,
-          right: 20,
-          top: 16,
+      builder: (ctx) {
+        // StatefulBuilder lets us rebuild just this sheet when a new reply is sent
+        return StatefulBuilder(
+          builder: (ctx, setSheetState) {
+            return BlocListener<InboundEmailCubit, InboundEmailState>(
+              listener: (context, state) {
+                if (state is SupportTicketReplySuccessState) {
+                  _showSnack(l10n.supportTicketReplySentSnack);
+                } else if (state is SupportTicketReplyErrorState) {
+                  _showSnack(l10n.supportTicketReplyErrorSnack);
+                }
+              },
+              child: Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(ctx).viewInsets.bottom,
+                  left: 20,
+                  right: 20,
+                  top: 16,
+                ),
+                child: SafeArea(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Container(
+                            width: 40,
+                            height: 4,
+                            decoration: BoxDecoration(
+                              color: ColorManger.grey300,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        CustomText(
+                          text: ticket.subject ?? '',
+                          textStyle: TextStyle(
+                            fontSize: FontSize.s16,
+                            fontWeight: FontWeightManager.bold,
+                            color: ColorManger.black,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        _ticketInfoRow(
+                          l10n.supportTicketFrom,
+                          ticket.fullName ?? ticket.email ?? '',
+                        ),
+                        _ticketInfoRow(
+                          l10n.supportTicketCategory,
+                          EmailLocalizer.localizeCategory(ticket.subject, l10n),
+                        ),
+                        _ticketInfoRow(
+                          l10n.supportTicketStatus,
+                          EmailLocalizer.localizeStatus(ticket.status, l10n),
+                        ),
+                        const SizedBox(height: 12),
+
+                        // ---- Chat-style conversation ----
+                        ...chatMessages.map((msg) => _chatBubble(msg)),
+
+                        const SizedBox(height: 12),
+                        TextField(
+                          controller: replyController,
+                          maxLines: 3,
+                          decoration: InputDecoration(
+                            hintText: l10n.supportTicketReplyHint,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            isDense: true,
+                            contentPadding: const EdgeInsets.all(12),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: ColorManger.brightRed,
+                              foregroundColor: ColorManger.pureWhite,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                            ),
+                            onPressed: () {
+                              final replyText = replyController.text.trim();
+                              if (replyText.isEmpty) return;
+
+                              // 1. Optimistically add the new admin reply to the
+                              //    chat list and rebuild the sheet in place —
+                              //    this is what replaces "old" with "new" visually.
+                              setSheetState(() {
+                                chatMessages.add(
+                                  _ChatBubbleData(
+                                    text: replyText,
+                                    isAdmin: true,
+                                    time: DateTime.now().toIso8601String(),
+                                  ),
+                                );
+                                replyController.clear();
+                              });
+
+                              // 2. Send it to the backend (sheet stays open)
+                              if (ticket.id != null) {
+                                context.read<InboundEmailCubit>().replyToSupportTicket(
+                                  ticketId: ticket.id!,
+                                  reply: replyText,
+                                );
+                              }
+                            },
+                            child: CustomText(
+                              text: l10n.supportTicketSendReply,
+                              textStyle: TextStyle(
+                                color: ColorManger.pureWhite,
+                                fontWeight: FontWeightManager.semiBold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+  Widget _chatBubble(_ChatBubbleData msg) {
+    final isAdmin = msg.isAdmin;
+    return Align(
+      alignment: isAdmin ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 8),
+        constraints: const BoxConstraints(maxWidth: 280),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        decoration: BoxDecoration(
+          color: isAdmin ? ColorManger.lightBlue : ColorManger.grey100,
+          borderRadius: BorderRadius.only(
+            topLeft: const Radius.circular(12),
+            topRight: const Radius.circular(12),
+            bottomLeft: Radius.circular(isAdmin ? 12 : 2),
+            bottomRight: Radius.circular(isAdmin ? 2 : 12),
+          ),
         ),
-        child: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Container(
-                  width: 40,
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: ColorManger.grey300,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              CustomText(
-                text: ticket.subject ?? '',
-                textStyle: TextStyle(
-                  fontSize: FontSize.s16,
-                  fontWeight: FontWeightManager.bold,
-                  color: ColorManger.black,
-                ),
-              ),
-              const SizedBox(height: 4),
-              _ticketInfoRow(
-                l10n.supportTicketFrom,
-                ticket.fullName ?? ticket.email ?? '',
-              ),
-              _ticketInfoRow(l10n.supportTicketCategory, EmailLocalizer.localizeCategory(ticket.subject, l10n) ),
-              _ticketInfoRow(
-                l10n.supportTicketStatus,
-                EmailLocalizer.localizeStatus(ticket.status, l10n),
-              ),
-              const SizedBox(height: 12),
-              if (ticket.adminReply != null &&
-                  ticket.adminReply is String &&
-                  (ticket.adminReply as String).isNotEmpty) ...[
-                CustomText(
-                  text: l10n.supportTicketAdminReply,
-                  textStyle: TextStyle(
-                    fontSize: FontSize.s13,
-                    fontWeight: FontWeightManager.semiBold,
-                    color: ColorManger.grey600,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: ColorManger.lightBlue,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: CustomText(
-                    text: ticket.adminReply as String,
-                    textStyle: TextStyle(
-                      fontSize: FontSize.s13,
-                      color: ColorManger.darkBlue,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 12),
-              ],
-              TextField(
-                controller: replyController,
-                maxLines: 3,
-                decoration: InputDecoration(
-                  hintText: l10n.supportTicketReplyHint,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  isDense: true,
-                  contentPadding: const EdgeInsets.all(12),
-                ),
-              ),
-              const SizedBox(height: 12),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorManger.brightRed,
-                    foregroundColor: ColorManger.pureWhite,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                  ),
-                  onPressed: () {
-                    final replyText = replyController.text.trim();
-                    if (replyText.isEmpty) return;
-                    Navigator.pop(ctx);
-                    if (ticket.id != null) {
-                      context.read<InboundEmailCubit>().replyToSupportTicket(
-                        ticketId: ticket.id!,
-                        reply: replyText,
-                      );
-                    }
-                  },
-                  child: CustomText(
-                    text: l10n.supportTicketSendReply,
-                    textStyle: TextStyle(
-                      color: ColorManger.pureWhite,
-                      fontWeight: FontWeightManager.semiBold,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-            ],
+        child: CustomText(
+          text: msg.text,
+          textStyle: TextStyle(
+            fontSize: FontSize.s14,
+            height: 1.4,
+            color: isAdmin ? ColorManger.darkBlue : ColorManger.black,
           ),
         ),
       ),
     );
   }
-
   String _localizeStatus(String? status, AppLocalizations l10n) {
     switch (status?.toUpperCase()) {
       case 'OPEN':
