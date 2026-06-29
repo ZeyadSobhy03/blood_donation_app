@@ -1037,6 +1037,39 @@
       }
     }
   },
+  "request_reopened_title": "Request Reopened",
+  "@request_reopened_title": {},
+  "request_reopened_body": "A donation slot has opened up for {patientType} at {hospitalName}.",
+  "@request_reopened_body": {
+    "placeholders": {
+      "patientType": {
+        "type": "String"
+      },
+      "hospitalName": {
+        "type": "String"
+      }
+    }
+  },
+  "request_cancelled_title": "Request Cancelled",
+  "@request_cancelled_title": {},
+  "request_cancelled_body": "Donation cancelled by donor",
+  "@request_cancelled_body": {},
+  "donation_confirmed_title": "Donation Confirmed",
+  "@donation_confirmed_title": {},
+  "donation_confirmed_body": "You've been assigned to {hospitalName} for {bloodTypes}. Arrive by {deadline}. Open the request to view your QR code.",
+  "@donation_confirmed_body": {
+    "placeholders": {
+      "hospitalName": {
+        "type": "String"
+      },
+      "bloodTypes": {
+        "type": "String"
+      },
+      "deadline": {
+        "type": "String"
+      }
+    }
+  },
   "urgent_request_accepted_title": "Urgent Request Accepted",
   "@urgent_request_accepted_title": {},
   "urgent_request_accepted_message": "You accepted an urgent {requestType} request with {urgency} urgency.",

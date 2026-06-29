@@ -3015,6 +3015,32 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get request_reopened_title => 'Request Reopened';
+
+  @override
+  String request_reopened_body(String patientType, String hospitalName) {
+    return 'A donation slot has opened up for $patientType at $hospitalName.';
+  }
+
+  @override
+  String get request_cancelled_title => 'Request Cancelled';
+
+  @override
+  String get request_cancelled_body => 'Donation cancelled by donor';
+
+  @override
+  String get donation_confirmed_title => 'Donation Confirmed';
+
+  @override
+  String donation_confirmed_body(
+    String hospitalName,
+    String bloodTypes,
+    String deadline,
+  ) {
+    return 'You\'ve been assigned to $hospitalName for $bloodTypes. Arrive by $deadline. Open the request to view your QR code.';
+  }
+
+  @override
   String get urgent_request_accepted_title => 'Urgent Request Accepted';
 
   @override

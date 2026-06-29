@@ -3002,6 +3002,32 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get request_reopened_title => 'تم إعادة فتح الطلب';
+
+  @override
+  String request_reopened_body(String patientType, String hospitalName) {
+    return 'تم فتح موعد تبرع لـ $patientType في $hospitalName.';
+  }
+
+  @override
+  String get request_cancelled_title => 'تم إلغاء الطلب';
+
+  @override
+  String get request_cancelled_body => 'تم إلغاء التبرع من قبل المتبرع';
+
+  @override
+  String get donation_confirmed_title => 'تم تأكيد التبرع';
+
+  @override
+  String donation_confirmed_body(
+    String hospitalName,
+    String bloodTypes,
+    String deadline,
+  ) {
+    return 'تم تعيينك في $hospitalName لـ $bloodTypes. يرجى الوصول بحلول $deadline. افتح الطلب لعرض رمز QR الخاص بك.';
+  }
+
+  @override
   String get urgent_request_accepted_title => 'تم قبول الطلب العاجل';
 
   @override

@@ -1046,6 +1046,39 @@
       }
     }
   },
+  "request_reopened_title": "تم إعادة فتح الطلب",
+  "@request_reopened_title": {},
+  "request_reopened_body": "تم فتح موعد تبرع لـ {patientType} في {hospitalName}.",
+  "@request_reopened_body": {
+    "placeholders": {
+      "patientType": {
+        "type": "String"
+      },
+      "hospitalName": {
+        "type": "String"
+      }
+    }
+  },
+  "request_cancelled_title": "تم إلغاء الطلب",
+  "@request_cancelled_title": {},
+  "request_cancelled_body": "تم إلغاء التبرع من قبل المتبرع",
+  "@request_cancelled_body": {},
+  "donation_confirmed_title": "تم تأكيد التبرع",
+  "@donation_confirmed_title": {},
+  "donation_confirmed_body": "تم تعيينك في {hospitalName} لـ {bloodTypes}. يرجى الوصول بحلول {deadline}. افتح الطلب لعرض رمز QR الخاص بك.",
+  "@donation_confirmed_body": {
+    "placeholders": {
+      "hospitalName": {
+        "type": "String"
+      },
+      "bloodTypes": {
+        "type": "String"
+      },
+      "deadline": {
+        "type": "String"
+      }
+    }
+  },
   "urgent_request_accepted_title": "تم قبول الطلب العاجل",
   "@urgent_request_accepted_title": {},
   "urgent_request_accepted_message": "لقد قبلت طلب {requestType} العاجل بدرجة إلحاح {urgency}.",

@@ -260,30 +260,32 @@ class _AcceptedRequestDetailsState extends State<AcceptedRequestDetails> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Wrap(
-                      spacing: 6.w,
-                      children: (request.bloodType ?? [])
-                          .map(
-                            (bt) => Container(
-                          decoration: BoxDecoration(
-                            color: ColorManger.brightRed,
-                            borderRadius: BorderRadius.circular(6.r),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          child: CustomText(
-                            text: bt,
-                            textStyle: TextStyle(
-                              color: ColorManger.pureWhite,
-                              fontSize: FontSize.s13,
-                              fontWeight: FontWeightManager.bold,
+                    Expanded(
+                      child: Wrap(
+                        spacing: 6.w,
+                        children: (request.bloodType ?? [])
+                            .map(
+                              (bt) => Container(
+                            decoration: BoxDecoration(
+                              color: ColorManger.brightRed,
+                              borderRadius: BorderRadius.circular(6.r),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 4,
+                            ),
+                            child: CustomText(
+                              text: bt,
+                              textStyle: TextStyle(
+                                color: ColorManger.pureWhite,
+                                fontSize: FontSize.s13,
+                                fontWeight: FontWeightManager.bold,
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                          .toList(),
+                        )
+                            .toList(),
+                      ),
                     ),
                     Container(
                       decoration: BoxDecoration(

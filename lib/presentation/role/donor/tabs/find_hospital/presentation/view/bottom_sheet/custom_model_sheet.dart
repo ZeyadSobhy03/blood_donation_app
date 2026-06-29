@@ -59,20 +59,22 @@ void showModelSheet({
                     children: [
                       prefixWidget,
                       SizedBox(width: 16.w),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(
-                            text: text,
-                            textStyle: TextStyle(
-                              color: ColorManger.black,
-                              fontWeight: FontWeightManager.medium,
-                              fontSize: FontSize.s15,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomText(
+                              text: text,
+                              textStyle: TextStyle(
+                                color: ColorManger.black,
+                                fontWeight: FontWeightManager.medium,
+                                fontSize: FontSize.s15,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 4.h),
-                          subTitleWidget
-                        ],
+                            SizedBox(height: 4.h),
+                            subTitleWidget
+                          ],
+                        ),
                       ),
                     ],
                   ),

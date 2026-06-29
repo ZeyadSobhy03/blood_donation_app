@@ -309,6 +309,7 @@ class _NotificationsState extends State<Notifications> {
             final item = notificationItems[index];
 
             final String type = item.type ?? 'info';
+            log('${item.toJson()}');
 
             return NotificationRequest(
               bloodRequest: type == 'emergency',

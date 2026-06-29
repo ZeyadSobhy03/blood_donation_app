@@ -547,6 +547,8 @@ class _ActivitiesSection extends StatelessWidget {
         final List<Activities> activities = state is ActivitiesSuccessState
             ? state.activities
             : [];
+        log('ActivitiesState: $activities');
+        log('ActivitiesState: $state');
 
         if (state is ActivitiesErrorState) {
           return CustomErrorWidget(
@@ -556,10 +558,6 @@ class _ActivitiesSection extends StatelessWidget {
             ),
             onRetry: () => context.read<ActivitiesCubit>().fetchActivities(),
           );
-        }
-
-        if (activities.isEmpty && !isLoading) {
-          return const SizedBox.shrink();
         }
 
         return Skeletonizer(

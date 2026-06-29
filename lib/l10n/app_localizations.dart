@@ -5736,6 +5736,46 @@ abstract class AppLocalizations {
   /// **'Critical {bloodType} blood needed near {hospitalName}'**
   String emergency_request_body(String bloodType, String hospitalName);
 
+  /// No description provided for @request_reopened_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Reopened'**
+  String get request_reopened_title;
+
+  /// No description provided for @request_reopened_body.
+  ///
+  /// In en, this message translates to:
+  /// **'A donation slot has opened up for {patientType} at {hospitalName}.'**
+  String request_reopened_body(String patientType, String hospitalName);
+
+  /// No description provided for @request_cancelled_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Cancelled'**
+  String get request_cancelled_title;
+
+  /// No description provided for @request_cancelled_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation cancelled by donor'**
+  String get request_cancelled_body;
+
+  /// No description provided for @donation_confirmed_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation Confirmed'**
+  String get donation_confirmed_title;
+
+  /// No description provided for @donation_confirmed_body.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve been assigned to {hospitalName} for {bloodTypes}. Arrive by {deadline}. Open the request to view your QR code.'**
+  String donation_confirmed_body(
+    String hospitalName,
+    String bloodTypes,
+    String deadline,
+  );
+
   /// No description provided for @urgent_request_accepted_title.
   ///
   /// In en, this message translates to:

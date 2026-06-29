@@ -38,6 +38,7 @@ class _DonationHistoryState extends State<DonationHistory> {
         child: BlocBuilder<DonationHistoryCubit, DonationHistoryState>(
           builder: (context, state) {
             if (state is DonationHistoryError) {
+
               return CustomErrorWidget(
                 message: localizeError(state.message, appLocalization),
                 onRetry: () =>

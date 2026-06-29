@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/errors/app_exceptions.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donation_history/data/model/donation_history_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donation_history/domain/use_case/donation_history_use_case.dart';
@@ -32,6 +34,7 @@ class DonationHistoryCubit extends Cubit<DonationHistoryState> {
     } on UnknownNetworkException {
       emit(DonationHistoryError('unknown_error'));
     } catch (e) {
+      log('DonationHistoryCubit: getDonationHistory: $e');
       emit(DonationHistoryError('unknown_error'));
     }
   }

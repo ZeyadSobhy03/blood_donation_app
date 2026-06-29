@@ -11,6 +11,16 @@ class NotificationHelper {
       AppLocalizations loc,
       ) {
     switch (item.type) {
+      case 'request':
+        final title = item.title?.toLowerCase() ?? '';
+        if (title.contains('reopened')) {
+          return loc.request_reopened_title;
+        } else if (title.contains('cancelled')) {
+          return loc.request_cancelled_title;
+        } else if (title.contains('confirmed')) {
+          return loc.donation_confirmed_title;
+        }
+        return item.title ?? '';
       case 'reward':
         return loc.badge_unlocked_title(item.title ?? '');
       case 'emergency':
@@ -71,6 +81,51 @@ class NotificationHelper {
           }
         }
         return item.message ?? '';
+      case 'request':
+        if (item.message == null) return '';
+        final msg = item.message!;
+
+        // Handle Reopened: "A donation slot has opened up for adult at Sadat City Emergency Hospital."
+        if (msg.contains('donation slot has opened up')) {
+          final RegExp regex =
+              RegExp(r'A donation slot has opened up for (.*?) at (.*?)\.');
+          final match = regex.firstMatch(msg);
+          if (match != null && match.groupCount >= 2) {
+            String patientType = match.group(1) ?? '';
+            final hospitalName = match.group(2) ?? '';
+
+            if (patientType.toLowerCase() == 'adult') {
+              patientType = loc.patientTypeAdult;
+            } else if (patientType.toLowerCase() == 'child') {
+              patientType = loc.patientTypeChild;
+            } else if (patientType.toLowerCase() == 'infant') {
+              patientType = loc.patientTypeInfant;
+            }
+
+            return loc.request_reopened_body(patientType, hospitalName);
+          }
+        }
+
+        // Handle Confirmed: "You've been assigned to Sadat City Specialized Medical Center for A+, A-, B+, B-, AB+, AB-, O+, O-. Arrive by 6/29/2026, 11:17:30 PM. Open the request to view your QR code."
+        if (msg.contains("assigned to")) {
+          final RegExp regex = RegExp(
+              r"You've been assigned to (.*?) for (.*?)\. Arrive by (.*?)\. Open the request to view your QR code\.");
+          final match = regex.firstMatch(msg);
+          if (match != null && match.groupCount >= 3) {
+            final hospitalName = match.group(1) ?? '';
+            final bloodTypes = match.group(2) ?? '';
+            final deadline = match.group(3) ?? '';
+            return loc.donation_confirmed_body(
+                hospitalName, bloodTypes, deadline);
+          }
+        }
+
+        // Handle Cancelled: "Donation cancelled by donor"
+        if (msg.contains('cancelled by donor')) {
+          return loc.request_cancelled_body;
+        }
+
+        return msg;
       default:
         return item.message ?? '';
     }
@@ -91,6 +146,8 @@ class NotificationHelper {
         return Icons.support_agent;
       case 'system':
         return Icons.card_giftcard;
+      case 'request':
+        return Icons.event_available;
       default:
         return Icons.notifications;
     }
@@ -111,6 +168,8 @@ class NotificationHelper {
         return ColorManger.darkBlue;
       case 'system':
         return ColorManger.gold;
+      case 'request':
+        return ColorManger.darkBlue;
       default:
         return ColorManger.skyBlue;
     }
