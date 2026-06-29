@@ -5653,6 +5653,37 @@ class AppLocalizationsEn extends AppLocalizations {
       'Appointment cancelled by donor';
 
   @override
+  String get notifications_donor_response_title => 'New donor response';
+
+  @override
+  String notifications_appointment_confirmed_body(String hospitalName) {
+    return 'Your $hospitalName donation appointment is confirmed!';
+  }
+
+  @override
+  String notifications_appointment_cancelled_body(
+    String donorName,
+    String date,
+  ) {
+    return '$donorName cancelled their appointment on $date';
+  }
+
+  @override
+  String notifications_donor_pledged_body(
+    String donorName,
+    String amount,
+    String bloodTypes,
+    String moreNeeded,
+  ) {
+    return '$donorName pledged $amount unit(s) for $bloodTypes. $moreNeeded more needed';
+  }
+
+  @override
+  String notifications_appointment_booked_body(String date) {
+    return 'A donor has booked an appointment for $date';
+  }
+
+  @override
   String get notifications_activity_tier_promoted => 'Tier Promoted';
 
   @override

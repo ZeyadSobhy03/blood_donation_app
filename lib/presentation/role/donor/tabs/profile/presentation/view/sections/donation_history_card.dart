@@ -114,14 +114,20 @@ class DonationHistoryCard extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final donation = donationHistory[index];
                   final String rawStatus = donation.status ?? 'pending';
-                  final hospitalName =
-                  donation.requestId?.hospitalId is Map
-                      ? donation.requestId
-                      ?.hospitalId['hospitalName'] ??
-                      appLocation.hospital
-                      : appLocation.hospital;
-                  final bloodType =
-                      donation.requestId?.bloodType ?? appLocation.unknown;
+                  final requestIdMap = donation.requestId;
+                  final hospitalName = requestIdMap is Map
+                      ? (requestIdMap['hospitalId'] is Map
+                          ? (requestIdMap['hospitalId'] as Map)['hospitalName']?.toString() ??
+                              (requestIdMap['hospitalId'] as Map)['fullName']?.toString() ??
+                              donation.hospitalName?.toString() ??
+                              appLocation.hospital
+                          : donation.hospitalName?.toString() ??
+                              appLocation.hospital)
+                      : donation.hospitalName?.toString() ??
+                          appLocation.hospital;
+                  final bloodType = requestIdMap is Map
+                      ? (requestIdMap['bloodType']?.toString() ?? appLocation.unknown)
+                      : appLocation.unknown;
                   final date = donation.createdAt != null
                       ? donation.createdAt!.substring(0, 10)
                       : appLocation.unknown;

@@ -5601,6 +5601,37 @@ class AppLocalizationsAr extends AppLocalizations {
       'تم إلغاء الموعد من قبل المتبرع';
 
   @override
+  String get notifications_donor_response_title => 'استجابة متبرع جديدة';
+
+  @override
+  String notifications_appointment_confirmed_body(String hospitalName) {
+    return 'تم تأكيد موعد التبرع في $hospitalName!';
+  }
+
+  @override
+  String notifications_appointment_cancelled_body(
+    String donorName,
+    String date,
+  ) {
+    return '$donorName ألغى موعده في $date';
+  }
+
+  @override
+  String notifications_donor_pledged_body(
+    String donorName,
+    String amount,
+    String bloodTypes,
+    String moreNeeded,
+  ) {
+    return '$donorName تعهد بـ $amount وحدة من فصيلة $bloodTypes. نحتاج $moreNeeded وحدات إضافية';
+  }
+
+  @override
+  String notifications_appointment_booked_body(String date) {
+    return 'قام متبرع بحجز موعد في $date';
+  }
+
+  @override
   String get notifications_activity_tier_promoted => 'تم ترقية المستوى';
 
   @override

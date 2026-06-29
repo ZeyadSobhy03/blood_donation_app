@@ -2070,6 +2070,51 @@
   "notifications_appointment_donor_rescheduled": "المتبرع أعاد جدولة الموعد",
   "notifications_appointment_new_booked": "موعد جديد محجوز",
   "notifications_appointment_cancelled_by_donor": "تم إلغاء الموعد من قبل المتبرع",
+  "notifications_donor_response_title": "استجابة متبرع جديدة",
+  "notifications_appointment_confirmed_body": "تم تأكيد موعد التبرع في {hospitalName}!",
+  "@notifications_appointment_confirmed_body": {
+    "placeholders": {
+      "hospitalName": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications_appointment_cancelled_body": "{donorName} ألغى موعده في {date}",
+  "@notifications_appointment_cancelled_body": {
+    "placeholders": {
+      "donorName": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications_donor_pledged_body": "{donorName} تعهد بـ {amount} وحدة من فصيلة {bloodTypes}. نحتاج {moreNeeded} وحدات إضافية",
+  "@notifications_donor_pledged_body": {
+    "placeholders": {
+      "donorName": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "bloodTypes": {
+        "type": "String"
+      },
+      "moreNeeded": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications_appointment_booked_body": "قام متبرع بحجز موعد في {date}",
+  "@notifications_appointment_booked_body": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "notifications_activity_tier_promoted": "تم ترقية المستوى",
   "notifications_activity_badge_unlocked": "تم فتح شارة",
   "notifications_activity_redeemed_reward": "تم استلام المكافأة",

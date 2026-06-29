@@ -10496,6 +10496,44 @@ abstract class AppLocalizations {
   /// **'Appointment cancelled by donor'**
   String get notifications_appointment_cancelled_by_donor;
 
+  /// No description provided for @notifications_donor_response_title.
+  ///
+  /// In en, this message translates to:
+  /// **'New donor response'**
+  String get notifications_donor_response_title;
+
+  /// No description provided for @notifications_appointment_confirmed_body.
+  ///
+  /// In en, this message translates to:
+  /// **'Your {hospitalName} donation appointment is confirmed!'**
+  String notifications_appointment_confirmed_body(String hospitalName);
+
+  /// No description provided for @notifications_appointment_cancelled_body.
+  ///
+  /// In en, this message translates to:
+  /// **'{donorName} cancelled their appointment on {date}'**
+  String notifications_appointment_cancelled_body(
+    String donorName,
+    String date,
+  );
+
+  /// No description provided for @notifications_donor_pledged_body.
+  ///
+  /// In en, this message translates to:
+  /// **'{donorName} pledged {amount} unit(s) for {bloodTypes}. {moreNeeded} more needed'**
+  String notifications_donor_pledged_body(
+    String donorName,
+    String amount,
+    String bloodTypes,
+    String moreNeeded,
+  );
+
+  /// No description provided for @notifications_appointment_booked_body.
+  ///
+  /// In en, this message translates to:
+  /// **'A donor has booked an appointment for {date}'**
+  String notifications_appointment_booked_body(String date);
+
   /// No description provided for @notifications_activity_tier_promoted.
   ///
   /// In en, this message translates to:

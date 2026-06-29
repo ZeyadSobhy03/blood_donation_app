@@ -120,6 +120,11 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications
 import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/repositories/fcm/fcm_repositories_imp.dart' as hospital_fcm_repo;
 import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/domain/use_cases/fcm/fcm_use_case.dart' as hospital_fcm_uc;
 import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view_model/fcm/fcm_view_model.dart' as hospital_fcm;
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/data_source/notification/local/notification_local_data_source.dart' as hospital_notif;
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/data_source/notification/remote/notification_api_data_source.dart' as hospital_notif_api;
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/data/repositories/notification/notification_repository_impl.dart' as hospital_notif_repo;
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/domain/use_cases/notification/notification_use_case.dart' as hospital_notif_uc;
+import 'package:blood_donation_app/presentation/role/hospital/tabs/notifications/presentation/view_model/notification/notification_view_model.dart' as hospital_notif_vm;
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/change_password/change_password_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/profile/profile_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/data/data_source/remote/setting/setting_api_data_source.dart';
@@ -190,10 +195,12 @@ void main() async {
   final hiveDonorStatesDataSource = HiveDonorStatesDataSource();
   final hiveNotificationDataSource = HiveNotificationDataSource();
   final hospitalHiveDataSource = HospitalHiveDataSource();
+  final hospitalHiveNotificationDataSource = hospital_notif.HiveNotificationDataSource();
 
   await hiveNotificationDataSource.init();
   await hiveDonorStatesDataSource.init();
   await hospitalHiveDataSource.init();
+  await hospitalHiveNotificationDataSource.init();
   await getFCMToken();
   runApp(
     MultiRepositoryProvider(
@@ -535,6 +542,36 @@ void main() async {
               ),
             ),
             hospitalHiveDataSource: context.read<HospitalHiveDataSource>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => hospital_notif_vm.NotificationCubit(
+            notificationUseCase: hospital_notif_uc.NotificationUseCase(
+              repository: hospital_notif_repo.NotificationRepositoryImpl(
+                localDataSource: hospitalHiveNotificationDataSource,
+                notificationRemoteDataSource: hospital_notif_api.NotificationApiDataSource(dio),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => hospital_notif_vm.NotificationAllReadCubit(
+            notificationUseCase: hospital_notif_uc.NotificationUseCase(
+              repository: hospital_notif_repo.NotificationRepositoryImpl(
+                localDataSource: hospitalHiveNotificationDataSource,
+                notificationRemoteDataSource: hospital_notif_api.NotificationApiDataSource(dio),
+              ),
+            ),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => hospital_notif_vm.NotificationDeleteCubit(
+            notificationUseCase: hospital_notif_uc.NotificationUseCase(
+              repository: hospital_notif_repo.NotificationRepositoryImpl(
+                localDataSource: hospitalHiveNotificationDataSource,
+                notificationRemoteDataSource: hospital_notif_api.NotificationApiDataSource(dio),
+              ),
+            ),
           ),
         ),
         BlocProvider(
