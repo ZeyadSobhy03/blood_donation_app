@@ -56,7 +56,9 @@ class _HomeState extends State<Home> {
         child: BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {
             if (state is HomeLoadingState || state is HomeInitialState) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator(
+                color: ColorManger.royalBlue,
+              ));
             }
 
             if (state is HomeErrorState) {

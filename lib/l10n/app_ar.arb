@@ -1,4 +1,5 @@
 {
+
   "onboarding_1_title": "مرحباً بك في LifeLink",
   "onboarding_1_subTitle": "تطبيق ذكي للتبرع بالدم",
   "onboarding_1_desc_1": "ربط المتبرعين بالمحتاجين، وإنقاذ الأرواح من خلال كل تبرع.",
@@ -450,7 +451,7 @@
   "birthDate": "تاريخ الميلاد",
   "gender": "النوع",
   "thanksHero": "شكرًا لكونك بطلًا! 🎉",
-  "thanksHeroDesc": "تبرعاتك الـ {donationsCount} ساعدت في إنقاذ حوالي {livesSaved} حياة. كل تبرع يحدث فرقًا!",
+  "thanksHeroDesc": "{donationsCount, plural, =0{لم تقم بأي تبرعات بعد.} =1{تبرع واحد منك ساعد في إنقاذ {livesSaved, plural, =0{لا توجد} =1{1} other{{livesSaved}}} حياة.} other{تبرعاتك الـ {donationsCount} ساعدت في إنقاذ حوالي {livesSaved} حياة.}} كل تبرع يحدث فرقًا!",
   "logout": "تسجيل الخروج",
   "rewards_and_achievements": "المكافآت والإنجازات",
   "your_points": "نقاطك",
@@ -1750,8 +1751,9 @@
   "success_donation_cancelled_expired": "تم إلغاء التبرع لانتهاء صلاحيته",
   "success_pledge_withdrawn": "تم سحب التعهد بنجاح",
   "error_cancel_wrong_stage": "لا يمكن الإلغاء في هذه المرحلة",
-  "error_qr_already_scanned": "تم مسح رمز QR مسبقاً",
-  "accepted": "مقبول",
+   "error_qr_already_scanned": "تم مسح رمز QR مسبقاً",
+   "error_duplicate_qr_token": "تم استخدام رمز QR هذا بالفعل. إذا اعتقدت أن هذا خطأ، يرجى التواصل مع الادمن  للحصول على المساعدة",
+   "accepted": "مقبول",
   "arrivalDeadlineWarning": "يرجى الوصول إلى المستشفى قبل الساعة {time}.",
   "@arrivalDeadlineWarning": {
     "placeholders": {
@@ -2180,8 +2182,16 @@
   "notifications_analytics_emergency_spike_body": "ارتفع الطلب على الدم بشكل غير متوقع في الأيام الثلاثة الماضية. قد تكون هناك حاجة لاستجابة طارئة.",
   "notifications_actions_accept": "قبول",
   "notifications_actions_view_details": "عرض التفاصيل",
-  "notifications_delete_all": "حذف جميع الإشعارات",
-  "notifications_delete_confirm": "هل أنت متأكد من حذف جميع الإشعارات؟",
-  "notifications_delete_success": "تم حذف جميع الإشعارات بنجاح",
-  "notifications_empty": "لا توجد إشعارات"
+   "notifications_delete_all": "حذف جميع الإشعارات",
+   "notifications_delete_confirm": "هل أنت متأكد من حذف جميع الإشعارات؟",
+   "notifications_delete_success": "تم حذف جميع الإشعارات بنجاح",
+   "notifications_empty": "لا توجد إشعارات",
+
+   "chatbot_title": "مساعد LifeLink",
+   "chatbot_initial_greeting": "مرحباً! 👋 أنا مساعد LifeLink. كيف يمكنني مساعدتك اليوم؟",
+   "chatbot_status_typing": "جاري الكتابة...",
+   "chatbot_status_idle": "أنا هنا لمساعدتك دائماً",
+   "chatbot_message_placeholder": "اكتب رسالتك هنا...",
+   "chatbot_error_message": "⚠️ عذراً، حدث خطأ ما. يرجى المحاولة مجددا",
+  "language": "اللغة"
 }

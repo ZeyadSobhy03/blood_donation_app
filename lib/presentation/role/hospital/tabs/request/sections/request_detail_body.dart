@@ -10,8 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../../l10n/app_localizations.dart';
-import '../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
-import '../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/input_label.dart';
+import '../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
+import '../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/input_label.dart';
 import '../data/model/request_enum_mapper.dart';
 
 class RequestDetailBody extends StatefulWidget {

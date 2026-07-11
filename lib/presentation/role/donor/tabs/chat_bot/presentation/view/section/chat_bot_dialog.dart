@@ -3,14 +3,16 @@ import 'dart:developer';
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/presentation/view_model/ask_view_model.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/voice_call_screen.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/widgets/bot_message.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/widgets/user_message.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
+import '../widgets/bot_message.dart';
+import '../widgets/user_message.dart';
+
 
 class ChatBotDialog extends StatefulWidget {
   final String userId;
@@ -31,6 +33,7 @@ class _ChatBotDialogState extends State<ChatBotDialog>
 
   // ── Messages ─────────────────────────────
   late List<Map<String, String>> messages;
+  bool _messagesInitialized = false;
 
   // ─────────────────────────────────────────
   // LIFECYCLE
@@ -42,16 +45,24 @@ class _ChatBotDialogState extends State<ChatBotDialog>
     _messageController = TextEditingController();
     _scrollController  = ScrollController();
 
+  }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
 
-    messages = [
-      {
-        'type': 'bot',
-        'message': 'Hello! 👋 I\'m LifeLink Assistant. How can I help you today?',
-        'time': _formatTime(DateTime.now()),
-      },
-    ];
-
+    final appLocalizations = AppLocalizations.of(context)!;
+    if (!_messagesInitialized ||
+        (messages.length == 1 && messages.first['type'] == 'bot')) {
+      messages = [
+        {
+          'type': 'bot',
+          'message': appLocalizations.chatbot_initial_greeting,
+          'time': _formatTime(DateTime.now()),
+        },
+      ];
+      _messagesInitialized = true;
+    }
   }
 
   @override
@@ -96,30 +107,30 @@ class _ChatBotDialogState extends State<ChatBotDialog>
   // OPEN VOICE CALL
   // ─────────────────────────────────────────
 
-  void _openVoiceCall() {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (_, animation, __) => BlocProvider.value(
-          value: context.read<AskCubit>(),
-          child: VoiceCallScreen(userId: widget.userId),
-        ),
-        transitionsBuilder: (_, animation, __, child) {
-          return SlideTransition(
-            position: Tween<Offset>(
-              begin: const Offset(0, 1),
-              end: Offset.zero,
-            ).animate(CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeOut,
-            )),
-            child: child,
-          );
-        },
-        transitionDuration: const Duration(milliseconds: 350),
-      ),
-    );
-  }
+  // void _openVoiceCall() {
+  //   Navigator.push(
+  //     context,
+  //     PageRouteBuilder(
+  //       pageBuilder: (_, animation, __) => BlocProvider.value(
+  //         value: context.read<AskCubit>(),
+  //         child: VoiceCallScreen(userId: widget.userId),
+  //       ),
+  //       transitionsBuilder: (_, animation, __, child) {
+  //         return SlideTransition(
+  //           position: Tween<Offset>(
+  //             begin: const Offset(0, 1),
+  //             end: Offset.zero,
+  //           ).animate(CurvedAnimation(
+  //             parent: animation,
+  //             curve: Curves.easeOut,
+  //           )),
+  //           child: child,
+  //         );
+  //       },
+  //       transitionDuration: const Duration(milliseconds: 350),
+  //     ),
+  //   );
+  // }
 
 
   String _formatTime(DateTime dt) {
@@ -176,12 +187,12 @@ class _ChatBotDialogState extends State<ChatBotDialog>
 
         } else if (state is AskErrorState) {
           log(state.error);
+          final errorMsg = AppLocalizations.of(context)!.chatbot_error_message;
           setState(() {
             messages.removeWhere((m) => m['type'] == 'streaming');
             messages.add({
               'type': 'bot',
-              'message':
-              '⚠️ Sorry, something went wrong. Please try again.',
+              'message': errorMsg,
               'time': _formatTime(DateTime.now()),
             });
           });
@@ -228,7 +239,7 @@ class _ChatBotDialogState extends State<ChatBotDialog>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
-                            text: "LifeLink Assistant",
+                            text: AppLocalizations.of(context)!.chatbot_title,
                             textStyle: TextStyle(
                               fontSize: FontSize.s16,
                               fontWeight: FontWeightManager.bold,
@@ -238,12 +249,13 @@ class _ChatBotDialogState extends State<ChatBotDialog>
                           const SizedBox(height: 4),
                           BlocBuilder<AskCubit, AskState>(
                             builder: (context, state) {
+                              final appLocalizations = AppLocalizations.of(context)!;
                               final label = switch (state) {
                                 AskLoadingState()   =>
-                                "Typing...",
+                                appLocalizations.chatbot_status_typing,
                                 AskStreamingState() =>
-                                "Typing...",
-                                _ => "Always here to help",
+                                appLocalizations.chatbot_status_typing,
+                                _ => appLocalizations.chatbot_status_idle,
                               };
                               return CustomText(
                                 text: label,
@@ -261,23 +273,23 @@ class _ChatBotDialogState extends State<ChatBotDialog>
 
                       const Spacer(),
 
-                      Container(
-                        margin: const EdgeInsets.only(right: 4),
-                        decoration: BoxDecoration(
-                          color: ColorManger.pureWhite
-                              .withValues(alpha: 0.2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: IconButton(
-                          onPressed: _openVoiceCall,
-                          icon: const Icon(
-                            Icons.call_rounded,
-                            color: ColorManger.pureWhite,
-                            size: 22,
-                          ),
-                          tooltip: 'Voice Call',
-                        ),
-                      ),
+                      // Container(
+                      //   margin: const EdgeInsets.only(right: 4),
+                      //   decoration: BoxDecoration(
+                      //     color: ColorManger.pureWhite
+                      //         .withValues(alpha: 0.2),
+                      //     shape: BoxShape.circle,
+                      //   ),
+                      //   child: IconButton(
+                      //     onPressed: _openVoiceCall,
+                      //     icon: const Icon(
+                      //       Icons.call_rounded,
+                      //       color: ColorManger.pureWhite,
+                      //       size: 22,
+                      //     ),
+                      //     tooltip: 'Voice Call',
+                      //   ),
+                      // ),
 
                       // Close button
                       Container(
@@ -354,7 +366,7 @@ class _ChatBotDialogState extends State<ChatBotDialog>
                     Expanded(
                       child: CustomTextFormField(
                         textEditingController: _messageController,
-                        hintText: "Type your message...",
+                        hintText: AppLocalizations.of(context)!.chatbot_message_placeholder,
                         keyboardType: TextInputType.text,
                         maxLines: 1,
                       ),

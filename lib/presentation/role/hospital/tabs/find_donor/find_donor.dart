@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 import '../../../donor/tabs/find_hospital/presentation/view/section/blood_filter.dart';
 import '../../../donor/tabs/find_hospital/presentation/view/widgets/custom_hospital_button.dart';
 

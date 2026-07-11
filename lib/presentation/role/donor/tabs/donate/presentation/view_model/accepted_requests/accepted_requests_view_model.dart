@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -52,10 +51,8 @@ class AcceptedRequestsCubit extends Cubit<AcceptedRequestsState> {
     } on UnauthorizedException catch (e) {
       emit(AcceptedRequestsErrorState(e.message ?? 'unauthorized'));
     } on ServerException catch (e) {
-      log('Server error during getAcceptedRequests: ${e.serverMessage}');
       emit(AcceptedRequestsErrorState(mapServerErrorToKey(e.serverMessage)));
     } catch (e) {
-      log('Unknown error during getAcceptedRequests: $e');
       emit(AcceptedRequestsErrorState('unknown_error'));
     }
   }
@@ -103,13 +100,11 @@ class AcceptedRequestsCubit extends Cubit<AcceptedRequestsState> {
         emit(AcceptedRequestsErrorState(e.message ?? 'unauthorized'));
       }
     } on ServerException catch (e) {
-      log('Server error during loadMoreRequests: ${e.serverMessage}');
       _isFetchingMore = false;
       if (_currentModel != null) {
         emit(AcceptedRequestsErrorState(mapServerErrorToKey(e.serverMessage)));
       }
     } catch (e) {
-      log('Unknown error during loadMoreRequests: $e');
       _isFetchingMore = false;
       if (_currentModel != null) {
         emit(AcceptedRequestsSuccessState(_currentModel!));

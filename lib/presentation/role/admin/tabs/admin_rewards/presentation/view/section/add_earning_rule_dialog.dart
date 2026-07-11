@@ -5,7 +5,7 @@ import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
-import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 
 class NewEarningRuleResult {
   const NewEarningRuleResult({
@@ -189,7 +189,7 @@ class _AddEarningRuleDialogState extends State<AddEarningRuleDialog> {
                   ),
                 ),
                 child: DropdownButtonFormField<String>(
-                  value: _selectedCategory,
+                  initialValue: _selectedCategory,
                   dropdownColor: ColorManger.pureWhite,
                   style: TextStyle(
                     color: ColorManger.black,

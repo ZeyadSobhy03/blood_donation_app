@@ -375,7 +375,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get posted => 'Posted';
 
   @override
-  String get patientType => 'PatientType';
+  String get patientType => 'Patient Type';
 
   @override
   String get contact => 'Contact';
@@ -830,9 +830,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reschedule => 'Reschedule';
-
-  @override
-  String get appointmentCancelled => 'This appointment has been cancelled.';
 
   @override
   String get rescheduleAppointmentTitle => 'Reschedule Appointment';
@@ -1294,8 +1291,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get thanksHero => 'Thank You for Being a Hero! 🎉';
 
   @override
-  String thanksHeroDesc(Object donationsCount, Object livesSaved) {
-    return 'Your $donationsCount donations have helped save approximately $livesSaved lives. Every donation makes a difference!';
+  String thanksHeroDesc(num donationsCount, num livesSaved) {
+    String _temp0 = intl.Intl.pluralLogic(
+      livesSaved,
+      locale: localeName,
+      other: '$livesSaved lives',
+      one: '1 life',
+      zero: 'no lives',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      livesSaved,
+      locale: localeName,
+      other: '$livesSaved lives',
+      one: '1 life',
+      zero: 'no lives',
+    );
+    String _temp2 = intl.Intl.pluralLogic(
+      donationsCount,
+      locale: localeName,
+      other:
+          'Your $donationsCount donations have helped save approximately $_temp0.',
+      one: 'Your 1 donation has helped save approximately $_temp1.',
+      zero: 'You haven\'t donated yet.',
+    );
+    return '$_temp2 Every donation makes a difference!';
   }
 
   @override
@@ -1328,9 +1347,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get you_have_successfully_redeemed =>
       'You have successfully redeemed your reward';
-
-  @override
-  String get close => 'Close';
 
   @override
   String get redeem_reward => 'Redeem Reward';
@@ -1977,9 +1993,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bloodRequest => 'Blood Request';
-
-  @override
-  String get viewDetails => 'View Details';
 
   @override
   String get high => 'High';
@@ -2692,9 +2705,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get error => 'Error';
-
-  @override
-  String get somethingWentWrong => 'Something went wrong. Please try again.';
 
   @override
   String get errorDetails => 'Error Details';
@@ -3710,9 +3720,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get enterRewardName => 'Enter reward name';
-
-  @override
-  String get category => 'Category';
 
   @override
   String get enterRewardCategory => 'Enter reward category';
@@ -4779,9 +4786,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get broadcastSent => 'Broadcast Sent';
 
   @override
-  String get requestFulfilled => 'Request marked as fulfilled';
-
-  @override
   String get error_authorization_required => 'Authorization header is required';
 
   @override
@@ -4953,6 +4957,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'The hospital has already scanned your QR code — please complete the donation process or speak with the hospital staff';
 
   @override
+  String get error_duplicate_qr_token =>
+      'This QR code has already been used. If you believe this is an error, please contact admin  for assistance';
+
+  @override
   String get expired => 'Expired';
 
   @override
@@ -4986,6 +4994,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String error_account_banned(String reason) {
     return 'Your account has been banned. Reason: $reason';
   }
+
+  @override
+  String get requestFulfilled => 'Request marked as fulfilled';
 
   @override
   String get activityTierPromoted => 'Tier Promoted';
@@ -5068,11 +5079,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ticketClosed => 'Closed';
 
   @override
+  String get viewDetails => 'View Details';
+
+  @override
   String get ticketDetails => 'Ticket Details';
 
   @override
   String get ticketDetailsSubtitle =>
       'Full information for this support ticket';
+
+  @override
+  String get category => 'Category';
 
   @override
   String get createdAt => 'Created At';
@@ -5091,6 +5108,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get yourReply => 'Your Reply';
+
+  @override
+  String get close => 'Close';
 
   @override
   String get replySubmitted => 'Reply submitted successfully';
@@ -5492,6 +5512,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileNotFound => 'Profile not found.';
 
   @override
+  String get somethingWentWrong => 'Something went wrong. Please try again.';
+
+  @override
   String get accessDenied => 'Access denied.';
 
   @override
@@ -5550,6 +5573,9 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get donationAlreadyCompleted =>
       'This donation has already been completed.';
+
+  @override
+  String get appointmentCancelled => 'This appointment has been cancelled.';
 
   @override
   String get hospitalNotApproved =>
@@ -5840,4 +5866,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notifications_empty => 'No notifications';
+
+  @override
+  String get chatbot_title => 'LifeLink Assistant';
+
+  @override
+  String get chatbot_initial_greeting =>
+      'Hello! 👋 I\'m LifeLink Assistant. How can I help you today?';
+
+  @override
+  String get chatbot_status_typing => 'Typing...';
+
+  @override
+  String get chatbot_status_idle => 'Always here to help';
+
+  @override
+  String get chatbot_message_placeholder => 'Type your message...';
+
+  @override
+  String get chatbot_error_message =>
+      '⚠️ Sorry, something went wrong. Please try again.';
+
+  @override
+  String get language => 'Language';
 }

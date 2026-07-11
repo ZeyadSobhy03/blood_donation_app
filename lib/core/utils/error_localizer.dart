@@ -161,6 +161,14 @@ String mapServerErrorToKey(String? errorMessage) {
   if (lowerMessage.contains('hospital') && lowerMessage.contains('scanned your qr code')) {
     return 'error_qr_already_scanned';
   }
+  if (lowerMessage.contains('qr code already used') ||
+      lowerMessage.contains('qr already used') ||
+      lowerMessage.contains('already used qr code')) {
+    return 'error_qr_already_scanned';
+  }
+  if (lowerMessage.contains('duplicate') && lowerMessage.contains('qrtoken')) {
+    return 'error_duplicate_qr_token';
+  }
   if (lowerMessage.contains('patient type must be one of')) {
     return 'error_invalid_patient_type';
   }
@@ -537,9 +545,11 @@ String localizeError(String errorKey, AppLocalizations loc) {
       return loc.success_pledge_withdrawn;
     case 'error_cancel_wrong_stage':
       return loc.error_cancel_wrong_stage;
-    case 'error_qr_already_scanned':
-      return loc.error_qr_already_scanned;
-    case 'error_invalid_patient_type':
+     case 'error_qr_already_scanned':
+       return loc.error_qr_already_scanned;
+     case 'error_duplicate_qr_token':
+       return loc.error_duplicate_qr_token;
+     case 'error_invalid_patient_type':
       return loc.error_invalid_patient_type;
     case 'error_cannot_cancel_others_pledge':
       return loc.error_cannot_cancel_others_pledge;

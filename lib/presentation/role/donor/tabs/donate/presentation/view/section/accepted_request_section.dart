@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
@@ -54,22 +53,22 @@ class _AcceptedRequestSectionState extends State<AcceptedRequestSection> {
             SizedBox(height: 8.h),
             BlocBuilder<AcceptedRequestsCubit, AcceptedRequestsState>(
               builder: (context, state) {
-                log('AcceptedRequestSection state: $state');
 
                 if (state is AcceptedRequestsLoadingState) {
                   return CustomLoadingWidget(
+                    indicatorColor: ColorManger.brightRed,
                     message: appLocalization.loadingAcceptedRequestsMessage,
                   );
                 }
 
                 else if (state is AcceptedRequestsInitialState) {
                   return CustomLoadingWidget(
+                    indicatorColor: ColorManger.brightRed,
                     message: appLocalization.loadingAcceptedRequestsMessage,
                   );
                 }
 
                 else if (state is AcceptedRequestsErrorState) {
-                  log('Error in AcceptedRequestSection: ${state.errorMessage}');
                   return CustomErrorWidget(
                     message: localizeError(state.errorMessage, appLocalization),
                     onRetry: () {

@@ -18,7 +18,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../core/utils/error_localizer.dart';
 import '../../../../../../../l10n/app_localizations.dart';
-import '../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 import '../../data/model/users_model.dart';
 import '../view_model/users_view_model.dart';
 

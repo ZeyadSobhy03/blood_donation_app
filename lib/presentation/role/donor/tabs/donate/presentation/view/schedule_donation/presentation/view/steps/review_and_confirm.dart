@@ -8,9 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../../../../../../core/utils/error_localizer.dart';
-import '../../../../../../../../../l10n/app_localizations.dart';
-import '../cubit/donation_schedule.dart';
+import '../../../../../../../../../../../core/cubits/donation_schedule.dart';
+import '../../../../../../../../../../../core/utils/error_localizer.dart';
+import '../../../../../../../../../../../l10n/app_localizations.dart';
 import '../widgets/navigation_button.dart';
 import '../widgets/review_card.dart';
 import '../widgets/title_step.dart';

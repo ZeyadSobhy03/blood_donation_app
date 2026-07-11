@@ -2,7 +2,6 @@ import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/constant/constant_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/models/user_role.dart';
-import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view/sections/contact_support_dialog.dart';
@@ -62,18 +61,7 @@ class GetHelpSection extends StatelessWidget {
                 );
               },
             ),
-            HelpOptionTile(
-              icon: Icons.description_outlined,
-              title: appLocalization.documentation,
-              subtitle: appLocalization.userGuides,
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  RouteManger.pdfViewer,
-                  arguments: userRole,
-                );
-              },
-            ),
+
           ],
         ),
       ),

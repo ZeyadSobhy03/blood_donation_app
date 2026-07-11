@@ -1,5 +1,4 @@
 
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_drop_down_button_form_field.dart';
@@ -12,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
-import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 import '../../../../../../hospital/tabs/home/section/request_header.dart';
 
 class AddRewardCatalogDialog extends StatefulWidget {
@@ -97,7 +96,6 @@ class _AddRewardCatalogDialogState extends State<AddRewardCatalogDialog> {
           );
           context.read<AdminRewardsCubit>().getAdminRewardsData();
         } else if (state is RewardOperationErrorState) {
-          log('RewardOperationErrorState: ${state.error}');
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

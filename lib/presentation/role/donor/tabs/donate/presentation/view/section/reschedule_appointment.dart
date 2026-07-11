@@ -14,7 +14,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 import '../../view_model/appointments/appointments_view_model.dart';
-import '../schedule_donation/widgets/donation_type_picker.dart';
+import '../schedule_donation/presentation/view/widgets/donation_type_picker.dart';
 
 class RescheduleDialog extends StatefulWidget {
   const RescheduleDialog({super.key, required this.appointment});

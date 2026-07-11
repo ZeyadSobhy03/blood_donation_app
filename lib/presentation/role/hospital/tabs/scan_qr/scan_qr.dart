@@ -1,3 +1,6 @@
+// ...existing code...
+import 'dart:developer';
+
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
@@ -12,7 +15,11 @@ import 'package:blood_donation_app/presentation/role/hospital/tabs/home/section/
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../../core/utils/error_localizer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 class ScanQr extends StatelessWidget {
@@ -47,6 +54,7 @@ class _ScanQrViewState extends State<_ScanQrView>
 
   bool _scanned = false;
   bool _torchOn = false;
+  String? _lastScannedToken;
 
   late AnimationController _animationController;
 
@@ -60,17 +68,65 @@ class _ScanQrViewState extends State<_ScanQrView>
     )..repeat(reverse: true);
   }
 
+  bool _appLocSet = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_appLocSet) {
+      final loc = AppLocalizations.of(context)!;
+      try {
+        context.read<AppointmentsCubit>().setAppLoc(loc);
+      } catch (_) {}
+      _appLocSet = true;
+    }
+  }
+
   void _detectBarcode(BarcodeCapture capture) {
     if (_scanned) return;
+
+    // Guard: onDetect can fire with an empty barcodes list (e.g. a frame
+    // with nothing decodable). Calling .first on an empty list throws a
+    // StateError and crashes the scanner, so bail out early instead.
+    if (capture.barcodes.isEmpty) return;
 
     final barcode = capture.barcodes.first;
     final String? qrToken = barcode.rawValue;
 
     if (qrToken != null && qrToken.isNotEmpty) {
+      final scanned = _normalizeQrToken(qrToken);
+      _lastScannedToken = scanned;
+      log('Normalized QR token: $scanned');
+      if (kDebugMode) {
+        // ignore: avoid_print
+        print('Scanned QR token: $scanned');
+      }
       setState(() => _scanned = true);
       _controller.stop();
-      context.read<AppointmentsCubit>().verifyQrCode(qrToken);
+      context.read<AppointmentsCubit>().verifyQrCode(scanned);
     }
+  }
+
+
+  String _normalizeQrToken(String rawValue) {
+    final trimmed = rawValue.trim();
+
+    final uri = Uri.tryParse(trimmed);
+    if (uri == null) return trimmed;
+
+    final queryToken = uri.queryParameters['qrToken'] ?? uri.queryParameters['token'];
+    if (queryToken != null && queryToken.isNotEmpty) {
+      return queryToken.trim();
+    }
+
+    if (uri.pathSegments.isNotEmpty) {
+      final lastSegment = uri.pathSegments.last.trim();
+      if (lastSegment.isNotEmpty) {
+        return lastSegment;
+      }
+    }
+
+    return trimmed;
   }
 
   void _resumeScanning() {
@@ -124,9 +180,68 @@ class _ScanQrViewState extends State<_ScanQrView>
               ),
             );
           } else if (state is VerifyQrErrorState) {
+            final loc = AppLocalizations.of(context)!;
+            final localized = localizeError(state.message, loc);
+            final snackText = kDebugMode ? '$localized — raw: ${state.message}' : localized;
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.message)),
+              SnackBar(content: Text(snackText)),
             );
+            // In debug mode, try fetching hospital appointments and searching for the scanned QR token
+            if (kDebugMode && _lastScannedToken != null) {
+              () async {
+                try {
+                  final hospitalLocal = context.read<HospitalHiveDataSource>();
+                  final token = await hospitalLocal.getAccessToken();
+                  if (token == null) return;
+                  final dio = Dio();
+                  final response = await dio.get(ApiManger.hospitalAppointmentsEndpoint,
+                      options: Options(headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer $token',
+                      }));
+                  // raw data may be Map with data.appointments array
+                  final data = response.data;
+                  // Search recursively for qrToken field in the response
+                  bool found = false;
+                  dynamic foundItem;
+                  void search(dynamic node) {
+                    if (node == null) return;
+                    if (node is Map) {
+                      if (node['qrToken'] != null && node['qrToken'] == _lastScannedToken) {
+                        found = true;
+                        foundItem = node;
+                        return;
+                      }
+                      node.values.forEach(search);
+                    } else if (node is List) {
+                      for (final e in node) {
+                        if (found) break;
+                        search(e);
+                      }
+                    }
+                  }
+                  search(data);
+                  if (found) {
+                    // show a helpful snack and print details
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Debug: token found in hospital appointments. See console for details.')),
+                    );
+                    // ignore: avoid_print
+                    print('DEBUG: Found appointment for token: $_lastScannedToken');
+                    // ignore: avoid_print
+                    print(foundItem);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Debug: token not found in hospital appointments.')),
+                    );
+                  }
+                } catch (e) {
+                  // ignore: avoid_print
+                  print('Debug fetch appointments error: $e');
+                }
+              }();
+            }
             Future.delayed(const Duration(seconds: 2), () {
               if (mounted) _resumeScanning();
             });
@@ -239,6 +354,46 @@ class _ScanQrViewState extends State<_ScanQrView>
                   ),
                 ),
               ),
+              // Debug overlay: show last scanned token and copy button in debug mode
+              if (kDebugMode && _lastScannedToken != null)
+                Positioned(
+                  top: 48,
+                  right: 12,
+                  child: GestureDetector(
+                    onTap: () async {
+                      try {
+                        await Clipboard.setData(ClipboardData(text: _lastScannedToken!));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Scanned token copied to clipboard')),
+                        );
+                      } catch (_) {}
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: ColorManger.black.withValues(alpha: 0.6),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(Icons.qr_code, color: Colors.white, size: 16),
+                          const SizedBox(width: 6),
+                          SizedBox(
+                            width: 180,
+                            child: Text(
+                              _lastScannedToken!,
+                              style: const TextStyle(color: Colors.white, fontSize: 12),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          const SizedBox(width: 6),
+                          const Icon(Icons.copy, color: Colors.white, size: 14),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
             ],
           );
         },

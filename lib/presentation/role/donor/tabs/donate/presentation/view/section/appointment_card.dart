@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
@@ -92,12 +91,13 @@ class _AppointmentCardState extends State<AppointmentCard> {
 
                   if (state is AppointmentsLoadingState &&
                       _cachedAppointments.isEmpty) {
-                    return const CustomLoadingWidget();
+                    return const CustomLoadingWidget(
+                      indicatorColor: ColorManger.brightRed,
+                    );
                   }
 
                   if (state is AppointmentsErrorState &&
                       _cachedAppointments.isEmpty) {
-                    log('AppointmentsErrorState: ${state.error}');
                     return CustomErrorWidget(
                       message: ErrorMapper.map(state.error, appLocalization),
                       onRetry: () {

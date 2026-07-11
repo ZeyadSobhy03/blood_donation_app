@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../model/donation_schedule.dart';
+import '../resources/models/donation_schedule.dart';
 
 class DonationScheduleCubit extends Cubit<DonationScheduleState> {
   DonationScheduleCubit()

@@ -1,4 +1,3 @@
-
 import 'package:blood_donation_app/core/resources/models/donor.dart';
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/utils/tier_utils.dart';
@@ -53,7 +52,9 @@ class _ProfileState extends State<Profile> {
         child: BlocBuilder<ProfileCubit, ProfileViewState>(
           builder: (context, state) {
             if (state is ProfileLoadingState) {
-              return const CustomLoadingWidget();
+              return const CustomLoadingWidget(
+                indicatorColor: ColorManger.brightRed,
+              );
             }
 
             if (state is ProfileErrorState) {
@@ -73,21 +74,27 @@ class _ProfileState extends State<Profile> {
               final createdAt = DateTime.tryParse(data?.createdAt ?? '');
               final updatedAt = DateTime.tryParse(data?.updatedAt ?? '');
 
-               final phone = data?.phoneNumber ?? '-';
-               final weight = data?.weight != null
-                   ? (data!.weight is num ? data.weight.toString() : data.weight.toString())
-                   : '0';
-               final age = data?.age != null ? data!.age.toString() : '0';
-               final genderValue = data?.gender ?? 'Male';
-               final gender = genderValue.toString().toLowerCase() == 'male' ? 'Male' : 'Female';
-               final city = data?.location?.city ?? '-';
-               final governorate = data?.location?.governorate ?? '-';
-               final location = '$city, $governorate';
+              final phone = data?.phoneNumber ?? '-';
+              final weight = data?.weight != null
+                  ? (data!.weight is num
+                        ? data.weight.toString()
+                        : data.weight.toString())
+                  : '0';
+              final age = data?.age != null ? data!.age.toString() : '0';
+              final genderValue = data?.gender ?? 'Male';
+              final gender = genderValue.toString().toLowerCase() == 'male'
+                  ? 'Male'
+                  : 'Female';
+              final city = data?.location?.city ?? '-';
+              final governorate = data?.location?.governorate ?? '-';
+              final location = '$city, $governorate';
 
-               DateTime? birthDate;
-               if (data?.dateOfBirth != null && data!.dateOfBirth != null && data.dateOfBirth!.isNotEmpty) {
-                 birthDate = DateTime.tryParse(data.dateOfBirth!);
-               }
+              DateTime? birthDate;
+              if (data?.dateOfBirth != null &&
+                  data!.dateOfBirth != null &&
+                  data.dateOfBirth!.isNotEmpty) {
+                birthDate = DateTime.tryParse(data.dateOfBirth!);
+              }
 
               return SingleChildScrollView(
                 child: Column(
@@ -114,10 +121,10 @@ class _ProfileState extends State<Profile> {
                             points: points,
                             livesSaved: livesSaved,
                             textColor: ColorManger.pureWhite,
-                            backgroundColor:
-                            ColorManger.pureWhite.withAlpha(0x33),
-                            borderColor:
-                            ColorManger.pureWhite.withAlpha(0x33),
+                            backgroundColor: ColorManger.pureWhite.withAlpha(
+                              0x33,
+                            ),
+                            borderColor: ColorManger.pureWhite.withAlpha(0x33),
                             elevation: 0,
                           ),
                         ],
@@ -162,24 +169,24 @@ class _ProfileState extends State<Profile> {
 
                         final tierColors = {
                           'bronze': (
-                          bg: ColorManger.lightBronze,
-                          border: ColorManger.bronze,
-                          icon: ColorManger.bronzeDark,
+                            bg: ColorManger.lightBronze,
+                            border: ColorManger.bronze,
+                            icon: ColorManger.bronzeDark,
                           ),
                           'silver': (
-                          bg: ColorManger.lightSilver,
-                          border: ColorManger.silverDark,
-                          icon: ColorManger.silverDark,
+                            bg: ColorManger.lightSilver,
+                            border: ColorManger.silverDark,
+                            icon: ColorManger.silverDark,
                           ),
                           'gold': (
-                          bg: ColorManger.lightGold,
-                          border: ColorManger.goldDark,
-                          icon: ColorManger.goldDark,
+                            bg: ColorManger.lightGold,
+                            border: ColorManger.goldDark,
+                            icon: ColorManger.goldDark,
                           ),
                           'platinum': (
-                          bg: ColorManger.lightDiamond,
-                          border: ColorManger.diamond,
-                          icon: ColorManger.diamondDark,
+                            bg: ColorManger.lightDiamond,
+                            border: ColorManger.diamond,
+                            icon: ColorManger.diamondDark,
                           ),
                         };
 
@@ -227,8 +234,8 @@ class _ProfileState extends State<Profile> {
                         age: data?.age ?? 0,
                         weight: (data?.weight as num?)?.toDouble() ?? 0,
                         healthStatus:
-                        data?.healthHistory?.recentIllness?.isNotEmpty ==
-                            true
+                            data?.healthHistory?.recentIllness?.isNotEmpty ==
+                                true
                             ? data!.healthHistory!.recentIllness!
                             : '-',
                         isBanned: data?.isBanned ?? false,
@@ -258,7 +265,9 @@ class _ProfileState extends State<Profile> {
               );
             }
 
-            return const CustomLoadingWidget();
+            return const CustomLoadingWidget(
+              indicatorColor: ColorManger.brightRed,
+            );
           },
         ),
       ),

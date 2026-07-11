@@ -18,58 +18,62 @@ class RecentActivitySection extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
     return Card(
+
       elevation: 6,
       color: ColorManger.pureWhite,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomText(
-              text: appLocalizations.recent_activity,
-              textStyle: TextStyle(
-                fontWeight: FontWeightManager.regular,
-                fontSize: FontSize.s16,
-                height: 1.4,
-                color: ColorManger.black,
-              ),
-            ),
-            SizedBox(height: 16.h),
-            activities.isEmpty
-                ? Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.h),
-              child: CustomText(
-                text: appLocalizations.noActivitiesFound,
+      child: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomText(
+                text: appLocalizations.recent_activity,
                 textStyle: TextStyle(
                   fontWeight: FontWeightManager.regular,
-                  fontSize: FontSize.s14,
-                  color: ColorManger.slateGrey,
+                  fontSize: FontSize.s16,
+                  height: 1.4,
+                  color: ColorManger.black,
                 ),
               ),
-            )
-                : ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: activities.length,
-              itemBuilder: (context, index) {
-                final activity = activities[index];
-                final localized = localizeActivity(
-                  context,
-                  title: activity.title ?? '',
-                  type: activity.type ?? '',
-                  status: activity.status ?? '',
-                  relativeTime: activity.relativeTime,
-                );
-                return RecentActivityRow(
-                  points: activity.points ?? 0,
-                  title: localized.title,
-                  subTitle: localized.relativeTime,
-                  color: _getActivityColor(activity.status),
-                );
-              },
-            ),
-          ],
+              SizedBox(height: 16.h),
+              activities.isEmpty
+                  ? Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.h),
+                child: CustomText(
+                  text: appLocalizations.noActivitiesFound,
+                  textStyle: TextStyle(
+                    fontWeight: FontWeightManager.regular,
+                    fontSize: FontSize.s14,
+                    color: ColorManger.slateGrey,
+                  ),
+                ),
+              )
+                  : ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: activities.length,
+                itemBuilder: (context, index) {
+                  final activity = activities[index];
+                  final localized = localizeActivity(
+                    context,
+                    title: activity.title ?? '',
+                    type: activity.type ?? '',
+                    status: activity.status ?? '',
+                    relativeTime: activity.relativeTime,
+                  );
+                  return RecentActivityRow(
+                    points: activity.points ?? 0,
+                    title: localized.title,
+                    subTitle: localized.relativeTime,
+                    color: _getActivityColor(activity.status),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

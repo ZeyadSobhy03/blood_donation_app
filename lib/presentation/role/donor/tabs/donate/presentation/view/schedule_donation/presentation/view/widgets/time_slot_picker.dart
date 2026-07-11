@@ -2,8 +2,10 @@ import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_drop_down_button_form_field.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../../../../l10n/app_localizations.dart';
-import '../data/models/time_slots/time_slots_model.dart';
+import '../../../../../../../../../../../l10n/app_localizations.dart';
+import '../../../data/models/time_slots/time_slots_model.dart';
+
+
 
 
 class TimeSlotPicker extends StatefulWidget {
@@ -62,7 +64,9 @@ class _TimeSlotPickerState extends State<TimeSlotPicker> {
       return const Padding(
         padding: EdgeInsets.symmetric(vertical: 12),
         child: Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator(
+            color: ColorManger.brightRed,
+          ),
         ),
       );
     }

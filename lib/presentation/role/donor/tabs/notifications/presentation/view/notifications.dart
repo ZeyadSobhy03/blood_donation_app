@@ -1,9 +1,7 @@
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
 import 'package:blood_donation_app/l10n/app_localizations.dart';
-import 'package:blood_donation_app/presentation/role/admin/tabs/admin_requests/data/model/admin_request_cancel.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/mark_all_as_read_button.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/notification_request.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/presentation/view/widgets/title.dart';
@@ -15,7 +13,6 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/notifications/da
 as notification_model;
 
 import '../../../../../../../core/utils/error_localizer.dart';
-// TODO: Update this import path to match exactly where you saved the helper file
 import '../../../../../../../core/utils/notification_helper.dart';
 import '../../../../../../../core/widgets/states/custom_loading_widget.dart';
 import '../../../home/presentation/view/bottom_sheet/confirm_response_bottom_sheet.dart';
@@ -268,7 +265,9 @@ class _NotificationsState extends State<Notifications> {
       List<notification_model.Notifications> notificationItems,
       ) {
     if (state is NotificationLoadingState && notificationItems.isEmpty) {
-      return const CustomLoadingWidget();
+      return const CustomLoadingWidget(
+        indicatorColor: ColorManger.brightRed,
+      );
     }
 
     if (state is NotificationErrorState && notificationItems.isEmpty) {
@@ -309,7 +308,6 @@ class _NotificationsState extends State<Notifications> {
             final item = notificationItems[index];
 
             final String type = item.type ?? 'info';
-            log('${item.toJson()}');
 
             return NotificationRequest(
               bloodRequest: type == 'emergency',
@@ -323,7 +321,6 @@ class _NotificationsState extends State<Notifications> {
                   ? () async {
                 final requestId = item.data?.requestId;
                 if (requestId == null) return;
-                log('Fetching request details for requestId: $requestId');
 
                 final requestById = await context
                     .read<RequestsCubit>()
@@ -348,7 +345,6 @@ class _NotificationsState extends State<Notifications> {
                   hospitalContact: requestById?.data?.hospitalContact,
 
                 );
-                log('Fetched request details: ${request.toJson()}');
 
                 if (context.mounted) {
                   showConfirmResponseBottomSheet(context, request);

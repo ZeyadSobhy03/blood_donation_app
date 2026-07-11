@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:blood_donation_app/core/widgets/custom_label.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
-import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 
 class HospitalFormField extends StatelessWidget {
   final String label;

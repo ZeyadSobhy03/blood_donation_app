@@ -1,9 +1,9 @@
+
 import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/chat_bot/chat_bot_dialog.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/activities/activities_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/data/model/requests/requests_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/home/presentation/view/section/donation_status_section.dart';
@@ -26,6 +26,7 @@ import '../../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../../core/utils/error_localizer.dart';
 import '../../../../../../../core/widgets/custom_text.dart';
 import '../../../../../../../l10n/app_localizations.dart';
+import '../../../chat_bot/presentation/view/section/chat_bot_dialog.dart';
 import '../../data/model/donation_eligibility/donation_eligibility_model.dart';
 import '../view_model/donor_states/donor_states_view_model.dart';
 
@@ -104,8 +105,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               children: [
                 _ProfileSection(),
                 SizedBox(height: 12.h),
-                _DonationEligibilitySection(),
-                SizedBox(height: 12.h),
+                //_DonationEligibilitySection(),
+                //SizedBox(height: 12.h),
                 _DonorStatsSection(),
                 SizedBox(height: 16.h),
                 _RequestsSection(
@@ -175,11 +176,9 @@ class _ProfileSection extends StatelessWidget {
 
     return BlocBuilder<ProfileCubit, ProfileViewState>(
       builder: (context, state) {
-        log('ProfileViewState: $state');
         final isLoading = state is ProfileLoadingState;
 
         if (state is ProfileErrorState) {
-          log('Profile error: ${state.error}');
           return CustomErrorWidget(
             message: localizeError(state.error, appLocalizations),
             onRetry: () => context.read<ProfileCubit>().fetchProfile(),
@@ -547,8 +546,7 @@ class _ActivitiesSection extends StatelessWidget {
         final List<Activities> activities = state is ActivitiesSuccessState
             ? state.activities
             : [];
-        log('ActivitiesState: $activities');
-        log('ActivitiesState: $state');
+
 
         if (state is ActivitiesErrorState) {
           return CustomErrorWidget(
@@ -690,12 +688,13 @@ class _RequestsSectionState extends State<_RequestsSection> {
                 .whereType<Request>()
                 .toList() ?? [];
 
+            log("Fetched ${requests.length} requests on page $currentPage");
+
             totalRequests = state.requestsModel.data?.pagination?.total ?? 0;
             hasNextPage = state.requestsModel.data?.pagination?.hasNextPage ?? false;
           }
 
           if (state is RequestsErrorState) {
-            log('Requests error: ${state.message}');
             return CustomErrorWidget(
               message: localizeError(state.message, appLocalization),
               onRetry: _resetPagination,

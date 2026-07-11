@@ -3,6 +3,7 @@ import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/core/utils/error_localizer.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
+import 'package:blood_donation_app/core/widgets/language_toggle.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/profile/presentation/view_model/setting/setting_view_model.dart';
 import 'package:flutter/material.dart';
@@ -75,13 +76,15 @@ class _SettingState extends State<Setting> {
       },
       builder: (context, state) {
         if (state is SettingLoadingState && !_initialized) {
-          return const CustomLoadingWidget();
+          return const CustomLoadingWidget(
+            indicatorColor: ColorManger.brightRed,
+          );
         }
 
         if (state is SettingErrorState && !_initialized) {
           return Center(
             child: CustomText(
-              text: state.error,
+              text: localizeError(state.error, appLocalization),
               textStyle: TextStyle(color: ColorManger.brightRed),
             ),
           );
@@ -151,7 +154,23 @@ class _SettingState extends State<Setting> {
                       RouteManger.privacyAndSecurity,
                     ),
                   ),
-
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon( Icons.language_outlined, color: ColorManger.slateGrey),
+                        SizedBox(width: 16),
+                        CustomText(text: appLocalization.language, textStyle: TextStyle(fontSize: FontSize.s14, color: ColorManger.black)),
+                        Spacer(),
+                        LanguageToggle(
+                           activeColor: ColorManger.brightPurple,
+                        )
+                      ],
+                    ),
+                  )
+,
                   SettingsTile(
                     title: appLocalization.helpAndSupport,
                     icon: Icons.help_outline,

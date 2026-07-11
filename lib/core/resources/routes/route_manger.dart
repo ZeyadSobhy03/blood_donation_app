@@ -36,12 +36,11 @@ import '../../../presentation/role/admin/tabs/dashboard/presentation/view/dashbo
 import '../../../presentation/role/admin/tabs/system_settings/presentation/view/system_settings.dart';
 import '../../../presentation/role/admin/tabs/system_settings/presentation/view/widgets/inbound_emails_screen.dart';
 import '../../../presentation/role/admin/tabs/users/presentation/view/users.dart';
-import '../../../presentation/role/donor/tabs/donate/presentation/view/schedule_donation/cubit/donation_schedule.dart';
-import '../../../presentation/role/donor/tabs/donate/presentation/view/schedule_donation/schedule_donation.dart';
+import '../../cubits/donation_schedule.dart';
+import '../../../presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/schedule_donation.dart';
 import '../../../presentation/role/donor/tabs/donate/presentation/view/section/accepted_request_details.dart';
 import '../../../presentation/role/donor/tabs/donate/presentation/view/section/appointment_details.dart';
 import '../../../presentation/role/donor/tabs/donation_history/presentation/view/donation_history.dart';
-import '../../../presentation/role/donor/tabs/profile/confirm_donation/confirm_donation.dart';
 import '../../../presentation/role/donor/tabs/profile/presentation/view/help_and_support/screen/help_and_support_screen.dart';
 import '../../../presentation/role/donor/tabs/profile/presentation/view/help_and_support/screen/pdf_viewer_screen.dart';
 import '../../../presentation/role/donor/tabs/profile/presentation/view/privacy_and_security/privacy_and_security.dart';
@@ -158,8 +157,6 @@ class RouteManger {
           builder: (context) => const HelpAndSupportHospital(),
         );
 
-      case confirmDonation:
-        return MaterialPageRoute(builder: (context) => const ConfirmDonation());
 
       case analytics:
         return MaterialPageRoute(builder: (context) => const Analytics());

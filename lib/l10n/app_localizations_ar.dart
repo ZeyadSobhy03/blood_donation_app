@@ -831,9 +831,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reschedule => 'إعادة الجدولة';
 
   @override
-  String get appointmentCancelled => 'تم إلغاء الموعد';
-
-  @override
   String get rescheduleAppointmentTitle => 'إعادة جدولة الموعد';
 
   @override
@@ -1294,8 +1291,23 @@ class AppLocalizationsAr extends AppLocalizations {
   String get thanksHero => 'شكرًا لكونك بطلًا! 🎉';
 
   @override
-  String thanksHeroDesc(Object donationsCount, Object livesSaved) {
-    return 'تبرعاتك الـ $donationsCount ساعدت في إنقاذ حوالي $livesSaved حياة. كل تبرع يحدث فرقًا!';
+  String thanksHeroDesc(num donationsCount, num livesSaved) {
+    String _temp0 = intl.Intl.pluralLogic(
+      livesSaved,
+      locale: localeName,
+      other: '$livesSaved',
+      one: '1',
+      zero: 'لا توجد',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      donationsCount,
+      locale: localeName,
+      other:
+          'تبرعاتك الـ $donationsCount ساعدت في إنقاذ حوالي $livesSaved حياة.',
+      one: 'تبرع واحد منك ساعد في إنقاذ $_temp0 حياة.',
+      zero: 'لم تقم بأي تبرعات بعد.',
+    );
+    return '$_temp1 كل تبرع يحدث فرقًا!';
   }
 
   @override
@@ -1329,9 +1341,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get you_have_successfully_redeemed =>
       'لقد تمت عملية المطالبة بالمكافأة بنجاح';
-
-  @override
-  String get close => 'إغلاق';
 
   @override
   String get redeem_reward => 'المطالبة بالمكافأة';
@@ -1972,9 +1981,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get bloodRequest => 'طلب دم';
-
-  @override
-  String get viewDetails => 'عرض التفاصيل';
 
   @override
   String get high => 'عالي';
@@ -2679,9 +2685,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get error => 'خطأ';
-
-  @override
-  String get somethingWentWrong => 'حدث خطأ ما';
 
   @override
   String get errorDetails => 'تفاصيل الخطأ';
@@ -3686,9 +3689,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enterRewardName => 'أدخل اسم المكافأة';
-
-  @override
-  String get category => 'الفئة';
 
   @override
   String get enterRewardCategory => 'أدخل فئة المكافأة';
@@ -4748,9 +4748,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get broadcastSent => 'تم إرسال البث';
 
   @override
-  String get requestFulfilled => 'تم تحديد الطلب كمكتمل';
-
-  @override
   String get error_authorization_required => 'التفويض مطلوب';
 
   @override
@@ -4909,6 +4906,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get error_qr_already_scanned => 'تم مسح رمز QR مسبقاً';
 
   @override
+  String get error_duplicate_qr_token =>
+      'تم استخدام رمز QR هذا بالفعل. إذا اعتقدت أن هذا خطأ، يرجى التواصل مع الادمن  للحصول على المساعدة';
+
+  @override
   String get expired => 'منتهي الصلاحية';
 
   @override
@@ -4941,6 +4942,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String error_account_banned(String reason) {
     return 'تم حظر حسابك. السبب: $reason';
   }
+
+  @override
+  String get requestFulfilled => 'تم تحديد الطلب كمكتمل';
 
   @override
   String get activityTierPromoted => 'تم ترقية المستوى';
@@ -5023,10 +5027,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ticketClosed => 'مغلق';
 
   @override
+  String get viewDetails => 'عرض التفاصيل';
+
+  @override
   String get ticketDetails => 'تفاصيل التذكرة';
 
   @override
   String get ticketDetailsSubtitle => 'معلومات كاملة لتذكرة الدعم هذه';
+
+  @override
+  String get category => 'الفئة';
 
   @override
   String get createdAt => 'تاريخ الإنشاء';
@@ -5045,6 +5055,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get yourReply => 'ردك';
+
+  @override
+  String get close => 'إغلاق';
 
   @override
   String get replySubmitted => 'تم إرسال الرد بنجاح';
@@ -5442,6 +5455,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileNotFound => 'الملف الشخصي غير موجود.';
 
   @override
+  String get somethingWentWrong => 'حدث خطأ ما';
+
+  @override
   String get accessDenied => 'تم رفض الوصول.';
 
   @override
@@ -5497,6 +5513,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get donationAlreadyCompleted => 'تم إتمام هذا التبرع بالفعل.';
+
+  @override
+  String get appointmentCancelled => 'تم إلغاء الموعد';
 
   @override
   String get hospitalNotApproved =>
@@ -5786,4 +5805,27 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get notifications_empty => 'لا توجد إشعارات';
+
+  @override
+  String get chatbot_title => 'مساعد LifeLink';
+
+  @override
+  String get chatbot_initial_greeting =>
+      'مرحباً! 👋 أنا مساعد LifeLink. كيف يمكنني مساعدتك اليوم؟';
+
+  @override
+  String get chatbot_status_typing => 'جاري الكتابة...';
+
+  @override
+  String get chatbot_status_idle => 'أنا هنا لمساعدتك دائماً';
+
+  @override
+  String get chatbot_message_placeholder => 'اكتب رسالتك هنا...';
+
+  @override
+  String get chatbot_error_message =>
+      '⚠️ عذراً، حدث خطأ ما. يرجى المحاولة مجددا';
+
+  @override
+  String get language => 'اللغة';
 }

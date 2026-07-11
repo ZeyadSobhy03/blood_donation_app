@@ -24,19 +24,20 @@ class AppointmentDetailDialog extends StatefulWidget {
 }
 
 class _AppointmentDetailDialogState extends State<AppointmentDetailDialog> {
+  late final AppointmentsCubit _appointmentsCubit;
+
   @override
   void initState() {
     super.initState();
+    _appointmentsCubit = context.read<AppointmentsCubit>();
     if (widget.appointmentId.isNotEmpty) {
-      context
-          .read<AppointmentsCubit>()
-          .fetchAppointmentDetail(widget.appointmentId);
+      _appointmentsCubit.fetchAppointmentDetail(widget.appointmentId);
     }
   }
 
   @override
   void dispose() {
-    context.read<AppointmentsCubit>().resetToAppointments();
+    _appointmentsCubit.resetToAppointments();
     super.dispose();
   }
 
@@ -158,7 +159,7 @@ class _AppointmentDetailDialogState extends State<AppointmentDetailDialog> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (_) => BlocProvider.value(
-                                    value: context.read<AppointmentsCubit>(),
+                                    value: _appointmentsCubit,
                                     child: const AppointmentScanFlowScreen(),
                                   ),
                                 ),

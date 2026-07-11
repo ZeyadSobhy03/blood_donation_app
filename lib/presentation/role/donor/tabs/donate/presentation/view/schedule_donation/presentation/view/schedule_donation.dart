@@ -1,10 +1,11 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/section/schedule_linear_progress_indicator.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/section/schedule_upper_title.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/steps/appointment_confirmed.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/steps/date_time_step.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/steps/location_step.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/steps/review_and_confirm.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/section/schedule_linear_progress_indicator.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/section/schedule_upper_title.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/steps/appointment_confirmed.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/steps/date_time_step.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/steps/location_step.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/steps/review_and_confirm.dart';
+
 import 'package:flutter/material.dart';
 
 class ScheduleDonation extends StatefulWidget {

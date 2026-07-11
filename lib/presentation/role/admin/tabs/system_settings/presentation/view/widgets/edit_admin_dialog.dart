@@ -9,7 +9,7 @@ import '../../../../../../../../core/extension/text_ex.dart';
 import '../../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../../core/widgets/custom_label.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
-import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 import '../../view_model/profile/admin_profile_view_model.dart';
 import 'package:blood_donation_app/presentation/authentication/admin_authentication/presentation/view_model/admin_auth_view_model.dart';
 import 'package:blood_donation_app/presentation/authentication/donor_authentication/presentation/view_model/auth_view_model.dart';

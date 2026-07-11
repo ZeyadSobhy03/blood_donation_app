@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../../../core/resources/colors/color_manger.dart';
+import '../../../../../../../../../../../core/resources/colors/color_manger.dart';
 
 
 class ScheduleLinearProgressIndicator extends StatelessWidget {

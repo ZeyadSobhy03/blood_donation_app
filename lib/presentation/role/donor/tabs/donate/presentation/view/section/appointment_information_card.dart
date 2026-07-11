@@ -4,7 +4,7 @@ import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../../l10n/app_localizations.dart';
-import '../schedule_donation/widgets/review_row.dart';
+import '../schedule_donation/presentation/view/widgets/review_row.dart';
 
 class AppointmentInformationCard extends StatelessWidget {
   const AppointmentInformationCard({

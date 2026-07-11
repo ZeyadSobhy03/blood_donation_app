@@ -1,12 +1,8 @@
-/// success : true
-/// message : "Donation history retrieved successfully"
-/// data : {"donations":[{"_id":"6a3c1b0b904b2a5a51805c7c","donorId":"6a130e800b339a45a51addad","appointmentId":"6a3c1b0b904b2a5a51805c7b","requestId":null,"status":"cancelled","quantity":1,"unitsCollected":null,"hemoglobinLevel":null,"weight":null,"scheduledDate":"2026-06-30T12:00:00.000Z","verifiedAt":null,"qrToken":null,"qrExpiresAt":null,"autoCancelledAt":null,"qrScannedAt":null,"verificationStatus":null,"verificationSessionId":null,"verificationStartedAt":null,"verificationVerifiedAt":null,"verificationRejectedAt":null,"verificationRejectedReason":null,"verificationChecklist":{"idVerified":false,"questionnaireCompleted":false,"consentSigned":false,"completedAt":null},"arrivalDeadline":null,"qrUsed":true,"qrUsedAt":"2026-06-24T17:59:59.682Z","appointmentScheduleDeadline":"2026-07-08T17:59:39.770Z","createdAt":"2026-06-24T17:59:39.770Z","updatedAt":"2026-06-24T17:59:59.711Z","pointsEarned":0,"hospitalName":null},{"_id":"6a3aff85cc4d84c574c92bad","donorId":"6a130e800b339a45a51addad","appointmentId":null,"requestId":{"_id":"6a3af9b10444869ae3903166","hospitalId":{"_id":"6a130e820b339a45a51addb4","fullName":"Cairo Care Operations","address":{"city":"Cairo","governorate":"Cairo","district":"Garden City"},"__t":"hospital","hospitalName":"Cairo Care Operations"},"type":"blood","bloodType":["A+","A-","B+","AB-","AB+","B-","O+","O-"],"urgency":"high"},"status":"cancelled","quantity":1,"unitsCollected":null,"hemoglobinLevel":null,"weight":null,"verifiedAt":null,"qrToken":"52b45f02e0f133628b8a5302a98a373eb133941895102fc9ec7a3bc8783f50f0","qrExpiresAt":"2026-06-24T09:49:57.275Z","autoCancelledAt":null,"qrScannedAt":null,"verificationStatus":null,"verificationSessionId":null,"verificationStartedAt":null,"verificationVerifiedAt":null,"verificationRejectedAt":null,"verificationRejectedReason":null,"verificationChecklist":{"idVerified":false,"questionnaireCompleted":false,"consentSigned":false,"completedAt":null},"arrivalDeadline":"2026-06-24T09:49:57.275Z","qrUsed":true,"qrUsedAt":"2026-06-23T22:17:12.090Z","appointmentScheduleDeadline":"2026-07-07T21:49:57.279Z","createdAt":"2026-06-23T21:49:57.283Z","updatedAt":"2026-06-23T22:17:12.150Z","pointsEarned":0,"hospitalName":"Cairo Care Operations"},{"_id":"6a130e83f9830f9b4aeb149f","donorId":"6a130e800b339a45a51addad","status":"pending","requestId":{"_id":"6a130e82f9830f9b4aeb1494","hospitalId":{"_id":"6a130e820b339a45a51addb4","fullName":"Cairo Care Operations","address":{"city":"Cairo","governorate":"Cairo","district":"Garden City"},"__t":"hospital","hospitalName":"Cairo Care Operations"},"bloodType":["O+","B-"],"type":"blood","urgency":"critical"},"appointmentId":null,"createdAt":"2026-05-24T14:43:15.234Z","hemoglobinLevel":null,"notes":"Confirmed availability for urgent O+ request.","qrExpires":null,"qrToken":null,"quantity":1,"unitsCollected":null,"updatedAt":"2026-06-25T22:31:10.654Z","verifiedAt":null,"weight":null,"qrUsed":true,"qrUsedAt":"2026-06-23T21:34:17.760Z","appointmentScheduleDeadline":"2026-07-07T21:34:17.681Z","verificationChecklist":{"consentSigned":false,"idVerified":false,"questionnaireCompleted":false},"pointsEarned":0,"hospitalName":"Cairo Care Operations"}],"pagination":{"total":3,"page":1,"currentPage":1,"limit":10,"totalPages":1,"hasNextPage":false,"hasPrevPage":false}}
-
 class DonationHistoryModel {
   DonationHistoryModel({
-      this.success, 
-      this.message, 
-      this.data,});
+    this.success,
+    this.message,
+    this.data,});
 
   DonationHistoryModel.fromJson(dynamic json) {
     success = json['success'];
@@ -26,16 +22,12 @@ class DonationHistoryModel {
     }
     return map;
   }
-
 }
-
-/// donations : [{"_id":"6a3c1b0b904b2a5a51805c7c","donorId":"6a130e800b339a45a51addad","appointmentId":"6a3c1b0b904b2a5a51805c7b","requestId":null,"status":"cancelled","quantity":1,"unitsCollected":null,"hemoglobinLevel":null,"weight":null,"scheduledDate":"2026-06-30T12:00:00.000Z","verifiedAt":null,"qrToken":null,"qrExpiresAt":null,"autoCancelledAt":null,"qrScannedAt":null,"verificationStatus":null,"verificationSessionId":null,"verificationStartedAt":null,"verificationVerifiedAt":null,"verificationRejectedAt":null,"verificationRejectedReason":null,"verificationChecklist":{"idVerified":false,"questionnaireCompleted":false,"consentSigned":false,"completedAt":null},"arrivalDeadline":null,"qrUsed":true,"qrUsedAt":"2026-06-24T17:59:59.682Z","appointmentScheduleDeadline":"2026-07-08T17:59:39.770Z","createdAt":"2026-06-24T17:59:39.770Z","updatedAt":"2026-06-24T17:59:59.711Z","pointsEarned":0,"hospitalName":null},{"_id":"6a3aff85cc4d84c574c92bad","donorId":"6a130e800b339a45a51addad","appointmentId":null,"requestId":{"_id":"6a3af9b10444869ae3903166","hospitalId":{"_id":"6a130e820b339a45a51addb4","fullName":"Cairo Care Operations","address":{"city":"Cairo","governorate":"Cairo","district":"Garden City"},"__t":"hospital","hospitalName":"Cairo Care Operations"},"type":"blood","bloodType":["A+","A-","B+","AB-","AB+","B-","O+","O-"],"urgency":"high"},"status":"cancelled","quantity":1,"unitsCollected":null,"hemoglobinLevel":null,"weight":null,"verifiedAt":null,"qrToken":"52b45f02e0f133628b8a5302a98a373eb133941895102fc9ec7a3bc8783f50f0","qrExpiresAt":"2026-06-24T09:49:57.275Z","autoCancelledAt":null,"qrScannedAt":null,"verificationStatus":null,"verificationSessionId":null,"verificationStartedAt":null,"verificationVerifiedAt":null,"verificationRejectedAt":null,"verificationRejectedReason":null,"verificationChecklist":{"idVerified":false,"questionnaireCompleted":false,"consentSigned":false,"completedAt":null},"arrivalDeadline":"2026-06-24T09:49:57.275Z","qrUsed":true,"qrUsedAt":"2026-06-23T22:17:12.090Z","appointmentScheduleDeadline":"2026-07-07T21:49:57.279Z","createdAt":"2026-06-23T21:49:57.283Z","updatedAt":"2026-06-23T22:17:12.150Z","pointsEarned":0,"hospitalName":"Cairo Care Operations"},{"_id":"6a130e83f9830f9b4aeb149f","donorId":"6a130e800b339a45a51addad","status":"pending","requestId":{"_id":"6a130e82f9830f9b4aeb1494","hospitalId":{"_id":"6a130e820b339a45a51addb4","fullName":"Cairo Care Operations","address":{"city":"Cairo","governorate":"Cairo","district":"Garden City"},"__t":"hospital","hospitalName":"Cairo Care Operations"},"bloodType":["O+","B-"],"type":"blood","urgency":"critical"},"appointmentId":null,"createdAt":"2026-05-24T14:43:15.234Z","hemoglobinLevel":null,"notes":"Confirmed availability for urgent O+ request.","qrExpires":null,"qrToken":null,"quantity":1,"unitsCollected":null,"updatedAt":"2026-06-25T22:31:10.654Z","verifiedAt":null,"weight":null,"qrUsed":true,"qrUsedAt":"2026-06-23T21:34:17.760Z","appointmentScheduleDeadline":"2026-07-07T21:34:17.681Z","verificationChecklist":{"consentSigned":false,"idVerified":false,"questionnaireCompleted":false},"pointsEarned":0,"hospitalName":"Cairo Care Operations"}]
-/// pagination : {"total":3,"page":1,"currentPage":1,"limit":10,"totalPages":1,"hasNextPage":false,"hasPrevPage":false}
 
 class Data {
   Data({
-      this.donations, 
-      this.pagination,});
+    this.donations,
+    this.pagination,});
 
   Data.fromJson(dynamic json) {
     if (json['donations'] != null) {
@@ -59,26 +51,17 @@ class Data {
     }
     return map;
   }
-
 }
-
-/// total : 3
-/// page : 1
-/// currentPage : 1
-/// limit : 10
-/// totalPages : 1
-/// hasNextPage : false
-/// hasPrevPage : false
 
 class Pagination {
   Pagination({
-      this.total, 
-      this.page, 
-      this.currentPage, 
-      this.limit, 
-      this.totalPages, 
-      this.hasNextPage, 
-      this.hasPrevPage,});
+    this.total,
+    this.page,
+    this.currentPage,
+    this.limit,
+    this.totalPages,
+    this.hasNextPage,
+    this.hasPrevPage,});
 
   Pagination.fromJson(dynamic json) {
     total = json['total'];
@@ -108,78 +91,46 @@ class Pagination {
     map['hasPrevPage'] = hasPrevPage;
     return map;
   }
-
 }
-
-/// _id : "6a3c1b0b904b2a5a51805c7c"
-/// donorId : "6a130e800b339a45a51addad"
-/// appointmentId : "6a3c1b0b904b2a5a51805c7b"
-/// requestId : null
-/// status : "cancelled"
-/// quantity : 1
-/// unitsCollected : null
-/// hemoglobinLevel : null
-/// weight : null
-/// scheduledDate : "2026-06-30T12:00:00.000Z"
-/// verifiedAt : null
-/// qrToken : null
-/// qrExpiresAt : null
-/// autoCancelledAt : null
-/// qrScannedAt : null
-/// verificationStatus : null
-/// verificationSessionId : null
-/// verificationStartedAt : null
-/// verificationVerifiedAt : null
-/// verificationRejectedAt : null
-/// verificationRejectedReason : null
-/// verificationChecklist : {"idVerified":false,"questionnaireCompleted":false,"consentSigned":false,"completedAt":null}
-/// arrivalDeadline : null
-/// qrUsed : true
-/// qrUsedAt : "2026-06-24T17:59:59.682Z"
-/// appointmentScheduleDeadline : "2026-07-08T17:59:39.770Z"
-/// createdAt : "2026-06-24T17:59:39.770Z"
-/// updatedAt : "2026-06-24T17:59:59.711Z"
-/// pointsEarned : 0
-/// hospitalName : null
 
 class Donations {
   Donations({
-      this.id, 
-      this.donorId, 
-      this.appointmentId, 
-      this.requestId, 
-      this.status, 
-      this.quantity, 
-      this.unitsCollected, 
-      this.hemoglobinLevel, 
-      this.weight, 
-      this.scheduledDate, 
-      this.verifiedAt, 
-      this.qrToken, 
-      this.qrExpiresAt, 
-      this.autoCancelledAt, 
-      this.qrScannedAt, 
-      this.verificationStatus, 
-      this.verificationSessionId, 
-      this.verificationStartedAt, 
-      this.verificationVerifiedAt, 
-      this.verificationRejectedAt, 
-      this.verificationRejectedReason, 
-      this.verificationChecklist, 
-      this.arrivalDeadline, 
-      this.qrUsed, 
-      this.qrUsedAt, 
-      this.appointmentScheduleDeadline, 
-      this.createdAt, 
-      this.updatedAt, 
-      this.pointsEarned, 
-      this.hospitalName,});
+    this.id,
+    this.donorId,
+    this.appointmentId,
+    this.requestId,
+    this.status,
+    this.quantity,
+    this.unitsCollected,
+    this.hemoglobinLevel,
+    this.weight,
+    this.scheduledDate,
+    this.verifiedAt,
+    this.qrToken,
+    this.qrExpiresAt,
+    this.autoCancelledAt,
+    this.qrScannedAt,
+    this.verificationStatus,
+    this.verificationSessionId,
+    this.verificationStartedAt,
+    this.verificationVerifiedAt,
+    this.verificationRejectedAt,
+    this.verificationRejectedReason,
+    this.verificationChecklist,
+    this.arrivalDeadline,
+    this.qrUsed,
+    this.qrUsedAt,
+    this.appointmentScheduleDeadline,
+    this.createdAt,
+    this.updatedAt,
+    this.pointsEarned,
+    this.hospitalName,});
 
   Donations.fromJson(dynamic json) {
     id = json['_id'];
     donorId = json['donorId'];
     appointmentId = json['appointmentId'];
-    requestId = json['requestId'];
+    requestId = json['requestId'] != null ? RequestId.fromJson(json['requestId']) : null;
     status = json['status'];
     quantity = json['quantity'];
     unitsCollected = json['unitsCollected'];
@@ -197,9 +148,11 @@ class Donations {
     verificationVerifiedAt = json['verificationVerifiedAt'];
     verificationRejectedAt = json['verificationRejectedAt'];
     verificationRejectedReason = json['verificationRejectedReason'];
-    verificationChecklist = json['verificationChecklist'];
+    verificationChecklist = json['verificationChecklist'] != null
+        ? VerificationChecklist.fromJson(json['verificationChecklist'])
+        : null;
     arrivalDeadline = json['arrivalDeadline'];
-    qrUsed = json['qrUsed'];
+    qrUsed = json['qrUsed'] ?? false;
     qrUsedAt = json['qrUsedAt'];
     appointmentScheduleDeadline = json['appointmentScheduleDeadline'];
     createdAt = json['createdAt'];
@@ -210,7 +163,7 @@ class Donations {
   String? id;
   String? donorId;
   String? appointmentId;
-  dynamic requestId;
+  RequestId? requestId;
   String? status;
   int? quantity;
   dynamic unitsCollected;
@@ -243,7 +196,9 @@ class Donations {
     map['_id'] = id;
     map['donorId'] = donorId;
     map['appointmentId'] = appointmentId;
-    map['requestId'] = requestId;
+    if (requestId != null) {
+      map['requestId'] = requestId?.toJson();
+    }
     map['status'] = status;
     map['quantity'] = quantity;
     map['unitsCollected'] = unitsCollected;
@@ -261,7 +216,9 @@ class Donations {
     map['verificationVerifiedAt'] = verificationVerifiedAt;
     map['verificationRejectedAt'] = verificationRejectedAt;
     map['verificationRejectedReason'] = verificationRejectedReason;
-    map['verificationChecklist'] = verificationChecklist;
+    if (verificationChecklist != null) {
+      map['verificationChecklist'] = verificationChecklist?.toJson();
+    }
     map['arrivalDeadline'] = arrivalDeadline;
     map['qrUsed'] = qrUsed;
     map['qrUsedAt'] = qrUsedAt;
@@ -272,25 +229,120 @@ class Donations {
     map['hospitalName'] = hospitalName;
     return map;
   }
-
 }
 
-/// idVerified : false
-/// questionnaireCompleted : false
-/// consentSigned : false
-/// completedAt : null
+class RequestId {
+  RequestId({
+    this.id,
+    this.hospitalId,
+    this.type,
+    this.bloodType,
+    this.urgency,
+  });
+
+  RequestId.fromJson(dynamic json) {
+    id = json['_id'];
+    hospitalId = json['hospitalId'] != null ? HospitalId.fromJson(json['hospitalId']) : null;
+    type = json['type'];
+    if (json['bloodType'] != null) {
+      bloodType = [];
+      json['bloodType'].forEach((v) {
+        bloodType?.add(v.toString());
+      });
+    }
+    urgency = json['urgency'];
+  }
+
+  String? id;
+  HospitalId? hospitalId;
+  String? type;
+  List<String>? bloodType;
+  String? urgency;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['_id'] = id;
+    if (hospitalId != null) {
+      map['hospitalId'] = hospitalId?.toJson();
+    }
+    map['type'] = type;
+    if (bloodType != null) {
+      map['bloodType'] = bloodType;
+    }
+    map['urgency'] = urgency;
+    return map;
+  }
+}
+
+class HospitalId {
+  HospitalId({
+    this.id,
+    this.fullName,
+    this.address,
+    this.hospitalName,
+  });
+
+  HospitalId.fromJson(dynamic json) {
+    id = json['_id'];
+    fullName = json['fullName'];
+    address = json['address'] != null ? Address.fromJson(json['address']) : null;
+    hospitalName = json['hospitalName'];
+  }
+
+  String? id;
+  String? fullName;
+  Address? address;
+  String? hospitalName;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['_id'] = id;
+    map['fullName'] = fullName;
+    if (address != null) {
+      map['address'] = address?.toJson();
+    }
+    map['hospitalName'] = hospitalName;
+    return map;
+  }
+}
+
+class Address {
+  Address({
+    this.city,
+    this.governorate,
+    this.district,
+  });
+
+  Address.fromJson(dynamic json) {
+    city = json['city'];
+    governorate = json['governorate'];
+    district = json['district'];
+  }
+
+  String? city;
+  String? governorate;
+  String? district;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['city'] = city;
+    map['governorate'] = governorate;
+    map['district'] = district;
+    return map;
+  }
+}
 
 class VerificationChecklist {
   VerificationChecklist({
-      this.idVerified, 
-      this.questionnaireCompleted, 
-      this.consentSigned, 
-      this.completedAt,});
+    this.idVerified,
+    this.questionnaireCompleted,
+    this.consentSigned,
+    this.completedAt,});
 
   VerificationChecklist.fromJson(dynamic json) {
-    idVerified = json['idVerified'];
-    questionnaireCompleted = json['questionnaireCompleted'];
-    consentSigned = json['consentSigned'];
+    idVerified = json['idVerified'] ?? false;
+    questionnaireCompleted = json['questionnaireCompleted'] ?? false;
+    consentSigned = json['consentSigned'] ?? false;
     completedAt = json['completedAt'];
   }
   bool? idVerified;
@@ -306,5 +358,4 @@ class VerificationChecklist {
     map['completedAt'] = completedAt;
     return map;
   }
-
 }

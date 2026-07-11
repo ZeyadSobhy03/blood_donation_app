@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../../../core/resources/colors/color_manger.dart';
-import '../../../../../../../../../l10n/app_localizations.dart';
-import '../cubit/donation_schedule.dart';
+
+import '../../../../../../../../../../../core/cubits/donation_schedule.dart';
+import '../../../../../../../../../../../core/resources/colors/color_manger.dart';
+import '../../../../../../../../../../../l10n/app_localizations.dart';
 import '../widgets/input_with_label.dart';
 import '../widgets/navigation_button.dart';
 import '../widgets/title_step.dart';

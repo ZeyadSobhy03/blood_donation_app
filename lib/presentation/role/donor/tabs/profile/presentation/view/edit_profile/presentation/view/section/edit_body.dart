@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../../../../../core/widgets/custom_drop_down_button_form_field.dart';
 import '../../../../../../../../../../../l10n/app_localizations.dart';
-import '../../../../../../../donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../../../donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 import '../widgets/profile_row.dart';
 
 class EditBody extends StatefulWidget {

@@ -102,15 +102,16 @@ class _DonationHistoryState extends State<DonationHistory> {
                         final donation = donations[index];
                         final String rawStatus =
                             donation.status ?? 'pending';
-                        final String donationType =
-                            donation.requestId?.bloodType ??
-                                appLocalization.blood;
-                        final String hospitalName =
-                        donation.requestId?.hospitalId is Map
-                            ? (donation.requestId!.hospitalId
-                        as Map)['hospitalName'] ??
-                            appLocalization.hospital
-                            : appLocalization.hospital;
+
+                        // FIX: bloodType is a List<String>, join it with comma
+                        final String donationType = donation.requestId?.bloodType != null &&
+                            donation.requestId!.bloodType!.isNotEmpty
+                            ? donation.requestId!.bloodType!.join(', ')
+                            : appLocalization.blood;
+
+                        // FIX: Get hospital name safely
+                        final String hospitalName = _getHospitalName(donation, appLocalization);
+
                         final String date =
                             donation.createdAt?.substring(0, 10) ??
                                 appLocalization.unknown;
@@ -170,6 +171,23 @@ class _DonationHistoryState extends State<DonationHistory> {
         ),
       ),
     );
+  }
+
+  String _getHospitalName(dynamic donation, AppLocalizations appLocalization) {
+    // Try to get from hospitalName first
+    if (donation.hospitalName != null && donation.hospitalName is String) {
+      return donation.hospitalName as String;
+    }
+
+    // Try to get from requestId -> hospitalId -> hospitalName
+    if (donation.requestId != null &&
+        donation.requestId!.hospitalId != null &&
+        donation.requestId!.hospitalId!.hospitalName != null) {
+      return donation.requestId!.hospitalId!.hospitalName!;
+    }
+
+    // Fallback
+    return appLocalization.hospital ?? 'Hospital';
   }
 
   Widget _buildSkeletonDonationTile() {

@@ -1,18 +1,18 @@
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/widgets/hospital_card.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/hospital_card.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/find_hospital/presentation/view_model/nearby_hospitals_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../../../core/cubits/map_cubit.dart';
-import '../../../../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../../../../core/cubits/donation_schedule.dart';
+import '../../../../../../../../../../../core/cubits/map_cubit.dart';
+import '../../../../../../../../../../../l10n/app_localizations.dart';
 
-import '../../../../../find_hospital/data/model/nearby_hospitals.dart';
-import '../cubit/donation_schedule.dart';
+
+import '../../../../../../../find_hospital/data/model/nearby_hospitals.dart';
 import '../widgets/title_step.dart';
 
 class LocationStep extends StatefulWidget {
@@ -142,7 +142,6 @@ class _LocationStepState extends State<LocationStep> {
         }
 
         if (state is NearbyHospitalsErrorState) {
-          log('Error fetching hospitals: ${state.error}');
 
           final isPermissionError = state.error.toLowerCase().contains(
             'permission',

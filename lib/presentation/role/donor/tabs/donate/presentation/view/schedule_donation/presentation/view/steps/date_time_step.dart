@@ -1,5 +1,4 @@
 
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/widgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
@@ -7,12 +6,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../../../../../../core/resources/colors/color_manger.dart';
-import '../../../../../../../../../l10n/app_localizations.dart';
-import '../../../../../../../hospital/tabs/find_donor/widgets/note_card.dart';
-import '../cubit/donation_schedule.dart';
-import '../data/models/time_slots/time_slots_model.dart';
-import '../presentation/view_model/time_slots/time_slots_view_model.dart';
+
+import '../../../../../../../../../../../core/cubits/donation_schedule.dart';
+import '../../../../../../../../../../../core/resources/colors/color_manger.dart';
+import '../../../../../../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../../hospital/tabs/find_donor/widgets/note_card.dart';
+import '../../../data/models/time_slots/time_slots_model.dart';
+import '../../view_model/time_slots/time_slots_view_model.dart';
 import '../widgets/donation_type_picker.dart';
 import '../widgets/input_label.dart';
 import '../widgets/navigation_button.dart';
@@ -127,7 +127,6 @@ class _DateTimeStepState extends State<DateTimeStep> {
                   BlocBuilder<TimeSlotsCubit, TimeSlotsState>(
 
                     builder: (context, timeSlotsState) {
-                      log('TimeSlotsState: $timeSlotsState');
                       final slots = _resolveSlots(timeSlotsState);
                       final slotDetails = _resolveSlotDetails(timeSlotsState);
 

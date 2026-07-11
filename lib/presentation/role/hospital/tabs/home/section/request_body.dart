@@ -7,8 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/resources/fonts/font_manger.dart';
 import '../../../../../../l10n/app_localizations.dart';
-import '../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
-import '../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/input_label.dart';
+import '../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
+import '../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/input_label.dart';
+
 
 class RequestBody extends StatefulWidget {
   const RequestBody({super.key});

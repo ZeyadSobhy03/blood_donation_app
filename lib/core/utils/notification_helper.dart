@@ -44,6 +44,13 @@ class NotificationHelper {
     switch (type) {
       case 'request':
         final t = title?.toLowerCase() ?? '';
+        final m = message?.toLowerCase() ?? '';
+        if (t.contains('emergency blood request') ||
+            t.contains('urgent blood request') ||
+            t.contains('critical blood request') ||
+            m.contains('blood needed near')) {
+          return loc.emergency_request_title;
+        }
         if (t.contains('reopened')) {
           return loc.request_reopened_title;
         } else if (t.contains('cancelled')) {
@@ -114,6 +121,17 @@ class NotificationHelper {
       case 'request':
         if (message == null) return '';
         final msg = message;
+
+        // Handle Emergency: "Critical A+, O-, AB+ blood needed near cairo hospital"
+        if (msg.toLowerCase().contains('blood needed near')) {
+          final RegExp regex = RegExp(r'^(?:Critical|Urgent)\s+(.*?)\s+blood needed near\s+(.*?)$');
+          final match = regex.firstMatch(msg.trim());
+          if (match != null && match.groupCount >= 2) {
+            final bloodType = match.group(1)?.trim() ?? '';
+            final hospitalName = match.group(2)?.trim() ?? '';
+            return loc.emergency_request_body(bloodType, hospitalName);
+          }
+        }
 
         // Handle Reopened: "A donation slot has opened up for adult at Sadat City Emergency Hospital."
         if (msg.contains('donation slot has opened up')) {

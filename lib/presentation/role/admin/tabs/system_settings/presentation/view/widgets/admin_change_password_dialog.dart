@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/routes/route_manger.dart';
 import 'package:blood_donation_app/presentation/role/admin/tabs/system_settings/presentation/view_model/admin_change_password/admin_change_password_view_model.dart';
@@ -12,7 +11,7 @@ import '../../../../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../../../../../core/widgets/custom_text.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../../../../../authentication/donor_authentication/presentation/error_mapper.dart';
-import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 
 class AdminChangePasswordDialog extends StatefulWidget {
   const AdminChangePasswordDialog({
@@ -103,7 +102,6 @@ class _AdminChangePasswordDialogState extends State<AdminChangePasswordDialog> {
       return;
     }
 
-    log('Starting password change process');
     context.read<AdminChangePasswordCubit>().changePassword(
       currentPassword: widget.currentController.text.trim(),
       newPassword: widget.newController.text.trim(),
@@ -129,7 +127,6 @@ class _AdminChangePasswordDialogState extends State<AdminChangePasswordDialog> {
     return BlocListener<AdminChangePasswordCubit, AdminChangePasswordState>(
       listener: (context, state) {
         if (state is ChangePasswordSuccessAndLoggedOutState) {
-          log('Password changed successfully and user logged out');
           _clearControllers();
 
           // Navigate to role selection screen
@@ -155,7 +152,6 @@ class _AdminChangePasswordDialogState extends State<AdminChangePasswordDialog> {
             }
           });
         } else if (state is ChangePasswordErrorState) {
-          log('Password change error: ${state.errorMessage}');
           setState(() {
             _serverError = ErrorMapper.map(state.errorMessage, appLocalization);
           });

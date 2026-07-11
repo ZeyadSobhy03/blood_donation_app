@@ -1,12 +1,14 @@
 import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/widgets/review_row.dart';
+import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/review_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../../../../../../l10n/app_localizations.dart';
-import '../cubit/donation_schedule.dart';
+import '../../../../../../../../../../../core/cubits/donation_schedule.dart';
+import '../../../../../../../../../../../l10n/app_localizations.dart';
+
+
 
 
 class DateAndTimeCard extends StatelessWidget {

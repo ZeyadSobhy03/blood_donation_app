@@ -4,7 +4,7 @@ import 'package:blood_donation_app/core/widgets/custom_note_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../../../../l10n/app_localizations.dart';
 import '../widgets/date_and_time_card.dart';
 import '../widgets/navigation_button.dart';
 import '../widgets/title_step.dart';

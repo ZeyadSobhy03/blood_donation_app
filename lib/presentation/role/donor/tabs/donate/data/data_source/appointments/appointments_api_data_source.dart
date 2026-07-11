@@ -1,5 +1,4 @@
 
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/data_source/appointments/appointments_remote_data_source.dart';
@@ -125,7 +124,6 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
         'donationType': donationType,
         'notes': notes,
       };
-      log(body.toString());
       final response = await dio.patch(
         ApiManger.rescheduleAppointmentEndpoint(appointmentId),
         data: body,

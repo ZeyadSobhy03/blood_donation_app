@@ -10,7 +10,7 @@ import 'package:geolocator/geolocator.dart';
 
 import '../../../../../../core/cubits/map_cubit.dart';
 import '../../../../../../core/extension/text_ex.dart';
-import '../../../../../role/donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../role/donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 import '../../view_model/auth_view_model.dart';
 import 'location_status_chip.dart';
 

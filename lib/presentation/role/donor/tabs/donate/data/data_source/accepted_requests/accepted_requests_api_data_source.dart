@@ -25,7 +25,6 @@ class AcceptedRequestsApiDataSource
         queryParameters: {'page': page, 'limit': limit},
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
-      print('RAW ACCEPTED REQUESTS RESPONSE: ${response.data}'); // add this
 
       return AcceptedRequestsModel.fromJson(response.data);
     } on DioException catch (e) {

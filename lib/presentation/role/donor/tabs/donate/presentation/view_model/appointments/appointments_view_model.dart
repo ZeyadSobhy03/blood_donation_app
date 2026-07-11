@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/appointment/appointment_model.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/model/appointment/book_appointment_model.dart';
@@ -72,7 +71,6 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
     } on UnknownNetworkException {
       emit(AppointmentsErrorState('unknown_error'));
     } catch (e) {
-      log('Unknown error while fetching appointments: $e');
       emit(AppointmentsErrorState('unknown_error'));
     }
   }
@@ -80,7 +78,6 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
   // Load more appointments (pagination)
   Future<void> loadMoreAppointments() async {
     if (!_hasMoreAppointments) {
-      log('No more appointments to load');
       return;
     }
 
@@ -134,7 +131,6 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
     } on UnknownNetworkException {
       emit(AppointmentsPaginationErrorState('unknown_error'));
     } catch (e) {
-      log('Unknown error while loading more appointments: $e');
       emit(AppointmentsPaginationErrorState('unknown_error'));
     }
   }
@@ -162,10 +158,8 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
     } on RequestCancelledException {
       emit(CancelAppointmentErrorState('request_cancelled'));
     } on UnknownNetworkException {
-      log('Unknown network error while cancelling appointment');
       emit(CancelAppointmentErrorState('unknown_error'));
     } catch (e) {
-      log('Unknown error while cancelling appointment: $e');
       emit(CancelAppointmentErrorState('unknown_error'));
     }
   }
@@ -196,7 +190,6 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
     } on NetworkTimeoutException {
       emit(RescheduleAppointmentErrorState('network_timeout'));
     } on ServerException catch (e) {
-      log('${e.serverMessage}');
       emit(
         RescheduleAppointmentErrorState(mapServerErrorToKey(e.serverMessage)),
       );
@@ -209,7 +202,6 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
     } on UnknownNetworkException {
       emit(RescheduleAppointmentErrorState('unknown_error'));
     } catch (e) {
-      log('Unknown error while rescheduling appointment: $e');
       emit(RescheduleAppointmentErrorState('unknown_error'));
     }
   }
@@ -232,14 +224,11 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
       if (result.success == true) {
         emit(BookAppointmentSuccessState(result));
       } else {
-        log('Failed to book appointment: ${result.message}');
         emit(BookAppointmentErrorState('failed_to_book_appointment'));
       }
     } on NetworkTimeoutException {
-      log('Network timeout while booking appointment');
       emit(BookAppointmentErrorState('network_timeout'));
     } on ServerException catch (e) {
-      log('Server error while booking appointment: ${e.serverMessage}');
       emit(BookAppointmentErrorState(mapServerErrorToKey(e.serverMessage)));
     } on UnauthorizedException {
       emit(BookAppointmentErrorState('unauthorized'));
@@ -250,7 +239,6 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
     } on UnknownNetworkException {
       emit(BookAppointmentErrorState('unknown_error'));
     } catch (e) {
-      log('Unknown error while booking appointment: $e');
       emit(BookAppointmentErrorState('unknown_error'));
     }
   }

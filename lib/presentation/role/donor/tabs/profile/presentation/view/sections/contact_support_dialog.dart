@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
 import '../../../../../../hospital/tabs/home/section/request_header.dart';
-import '../../../../donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 import '../../view_model/support_contact/support_contact_view_model.dart';
 
 class ContactSupportDialog extends StatefulWidget {

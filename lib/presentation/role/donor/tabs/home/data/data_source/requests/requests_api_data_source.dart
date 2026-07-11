@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
 import 'package:blood_donation_app/core/utils/dio_error_handler.dart';
@@ -33,16 +32,13 @@ class RequestsApiDataSource implements RequestsRemoteDataSource {
         },
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
-      log('[RequestsApiDataSource] Response data type: ${response.data.runtimeType}');
-      log('[RequestsApiDataSource] Response: ${response.data}');
+
 
       return RequestsModel.fromJson(response.data);
     } on DioException catch (e) {
-      log('[RequestsApiDataSource] DioException: ${e.message} type=${e.type} response=${e.response?.data}');
       handleDioError(e);
       rethrow;
     } catch (e, s) {
-      log('[RequestsApiDataSource] Error parsing response: $e\nStack: $s');
       rethrow;
     }
   }

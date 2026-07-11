@@ -797,7 +797,7 @@ abstract class AppLocalizations {
   /// No description provided for @patientType.
   ///
   /// In en, this message translates to:
-  /// **'PatientType'**
+  /// **'Patient Type'**
   String get patientType;
 
   /// No description provided for @contact.
@@ -1656,12 +1656,6 @@ abstract class AppLocalizations {
   /// **'Reschedule'**
   String get reschedule;
 
-  /// No description provided for @appointmentCancelled.
-  ///
-  /// In en, this message translates to:
-  /// **'This appointment has been cancelled.'**
-  String get appointmentCancelled;
-
   /// No description provided for @rescheduleAppointmentTitle.
   ///
   /// In en, this message translates to:
@@ -2511,8 +2505,8 @@ abstract class AppLocalizations {
   /// No description provided for @thanksHeroDesc.
   ///
   /// In en, this message translates to:
-  /// **'Your {donationsCount} donations have helped save approximately {livesSaved} lives. Every donation makes a difference!'**
-  String thanksHeroDesc(Object donationsCount, Object livesSaved);
+  /// **'{donationsCount, plural, =0{You haven\'t donated yet.} =1{Your 1 donation has helped save approximately {livesSaved, plural, =0{no lives} =1{1 life} other{{livesSaved} lives}}.} other{Your {donationsCount} donations have helped save approximately {livesSaved, plural, =0{no lives} =1{1 life} other{{livesSaved} lives}}.}} Every donation makes a difference!'**
+  String thanksHeroDesc(num donationsCount, num livesSaved);
 
   /// No description provided for @logout.
   ///
@@ -2573,12 +2567,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You have successfully redeemed your reward'**
   String get you_have_successfully_redeemed;
-
-  /// No description provided for @close.
-  ///
-  /// In en, this message translates to:
-  /// **'Close'**
-  String get close;
 
   /// No description provided for @redeem_reward.
   ///
@@ -3785,12 +3773,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Blood Request'**
   String get bloodRequest;
-
-  /// No description provided for @viewDetails.
-  ///
-  /// In en, this message translates to:
-  /// **'View Details'**
-  String get viewDetails;
 
   /// No description provided for @high.
   ///
@@ -5129,12 +5111,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error'**
   String get error;
-
-  /// No description provided for @somethingWentWrong.
-  ///
-  /// In en, this message translates to:
-  /// **'Something went wrong. Please try again.'**
-  String get somethingWentWrong;
 
   /// No description provided for @errorDetails.
   ///
@@ -6981,12 +6957,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter reward name'**
   String get enterRewardName;
-
-  /// No description provided for @category.
-  ///
-  /// In en, this message translates to:
-  /// **'Category'**
-  String get category;
 
   /// No description provided for @enterRewardCategory.
   ///
@@ -8924,12 +8894,6 @@ abstract class AppLocalizations {
   /// **'Broadcast Sent'**
   String get broadcastSent;
 
-  /// No description provided for @requestFulfilled.
-  ///
-  /// In en, this message translates to:
-  /// **'Request marked as fulfilled'**
-  String get requestFulfilled;
-
   /// No description provided for @error_authorization_required.
   ///
   /// In en, this message translates to:
@@ -9224,6 +9188,12 @@ abstract class AppLocalizations {
   /// **'The hospital has already scanned your QR code — please complete the donation process or speak with the hospital staff'**
   String get error_qr_already_scanned;
 
+  /// No description provided for @error_duplicate_qr_token.
+  ///
+  /// In en, this message translates to:
+  /// **'This QR code has already been used. If you believe this is an error, please contact admin  for assistance'**
+  String get error_duplicate_qr_token;
+
   /// No description provided for @expired.
   ///
   /// In en, this message translates to:
@@ -9277,6 +9247,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your account has been banned. Reason: {reason}'**
   String error_account_banned(String reason);
+
+  /// No description provided for @requestFulfilled.
+  ///
+  /// In en, this message translates to:
+  /// **'Request marked as fulfilled'**
+  String get requestFulfilled;
 
   /// No description provided for @activityTierPromoted.
   ///
@@ -9434,6 +9410,12 @@ abstract class AppLocalizations {
   /// **'Closed'**
   String get ticketClosed;
 
+  /// No description provided for @viewDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get viewDetails;
+
   /// No description provided for @ticketDetails.
   ///
   /// In en, this message translates to:
@@ -9445,6 +9427,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Full information for this support ticket'**
   String get ticketDetailsSubtitle;
+
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get category;
 
   /// No description provided for @createdAt.
   ///
@@ -9481,6 +9469,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your Reply'**
   String get yourReply;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
 
   /// No description provided for @replySubmitted.
   ///
@@ -10244,6 +10238,12 @@ abstract class AppLocalizations {
   /// **'Profile not found.'**
   String get profileNotFound;
 
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get somethingWentWrong;
+
   /// No description provided for @accessDenied.
   ///
   /// In en, this message translates to:
@@ -10351,6 +10351,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This donation has already been completed.'**
   String get donationAlreadyCompleted;
+
+  /// No description provided for @appointmentCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'This appointment has been cancelled.'**
+  String get appointmentCancelled;
 
   /// No description provided for @hospitalNotApproved.
   ///
@@ -10791,6 +10797,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No notifications'**
   String get notifications_empty;
+
+  /// No description provided for @chatbot_title.
+  ///
+  /// In en, this message translates to:
+  /// **'LifeLink Assistant'**
+  String get chatbot_title;
+
+  /// No description provided for @chatbot_initial_greeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello! 👋 I\'m LifeLink Assistant. How can I help you today?'**
+  String get chatbot_initial_greeting;
+
+  /// No description provided for @chatbot_status_typing.
+  ///
+  /// In en, this message translates to:
+  /// **'Typing...'**
+  String get chatbot_status_typing;
+
+  /// No description provided for @chatbot_status_idle.
+  ///
+  /// In en, this message translates to:
+  /// **'Always here to help'**
+  String get chatbot_status_idle;
+
+  /// No description provided for @chatbot_message_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Type your message...'**
+  String get chatbot_message_placeholder;
+
+  /// No description provided for @chatbot_error_message.
+  ///
+  /// In en, this message translates to:
+  /// **'⚠️ Sorry, something went wrong. Please try again.'**
+  String get chatbot_error_message;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
 }
 
 class _AppLocalizationsDelegate

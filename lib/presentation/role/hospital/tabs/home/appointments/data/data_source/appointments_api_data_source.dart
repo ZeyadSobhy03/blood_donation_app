@@ -1,5 +1,6 @@
 import 'package:blood_donation_app/core/resources/api_manger/api_constants.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 import '../models/appointment_list_model.dart';
 import '../models/appointment_detail_model.dart';
@@ -99,11 +100,22 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
     required String qrToken,
   }) async {
     try {
+      if (kDebugMode) {
+        // Log QR token being sent for verification
+        // ignore: avoid_print
+        print('DEBUG: verifyQr called with qrToken: $qrToken');
+      }
       final response = await dio.post(
         ApiManger.appointmentVerifyQrEndpoint,
         data: {'qrToken': qrToken},
         options: Options(headers: _authHeaders(token)),
       );
+      if (kDebugMode) {
+        // ignore: avoid_print
+        print('DEBUG: verifyQr response status: ${response.statusCode}');
+        // ignore: avoid_print
+        print('DEBUG: verifyQr response data: ${response.data}');
+      }
       if (!_isSuccess(response.statusCode)) {
         throw Exception(_extractServerError(response));
       }
@@ -227,17 +239,20 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
         return 'RECEIVE_TIMEOUT';
       case DioExceptionType.badResponse:
         final code = e.response?.statusCode;
+        final data = e.response?.data;
+        final serverMessage = _extractMessageFromResponseData(data);
+
+        if (serverMessage != null && serverMessage.isNotEmpty) {
+          return serverMessage;
+        }
+
         if (code == 400) {
-          final data = e.response?.data;
-          if (data is Map && data['message'] != null) {
-            return data['message'].toString();
-          }
           return 'VALIDATION_ERROR';
         }
         if (code == 401) return 'UNAUTHORIZED';
         if (code == 403) return 'ACCESS_DENIED';
         if (code == 404) return 'NOT_FOUND';
-        return 'BAD_RESPONSE';
+        return code != null ? 'BAD_RESPONSE_$code' : 'BAD_RESPONSE';
       case DioExceptionType.cancel:
         return 'REQUEST_CANCELLED';
       case DioExceptionType.connectionError:
@@ -245,5 +260,24 @@ class AppointmentsApiDataSource implements AppointmentsRemoteDataSource {
       default:
         return 'UNKNOWN_ERROR';
     }
+  }
+
+  String? _extractMessageFromResponseData(dynamic data) {
+    if (data is Map) {
+      final message = data['message'];
+      if (message != null) return message.toString();
+
+      final error = data['error'];
+      if (error != null) return error.toString();
+
+      final errors = data['errors'];
+      if (errors != null) return errors.toString();
+    }
+
+    if (data is String && data.trim().isNotEmpty) {
+      return data.trim();
+    }
+
+    return null;
   }
 }

@@ -3,7 +3,7 @@ import 'package:blood_donation_app/core/resources/fonts/font_manger.dart';
 import 'package:blood_donation_app/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../l10n/app_localizations.dart';
+import '../../../../../../../../l10n/app_localizations.dart';
 
 class BotMessage extends StatelessWidget {
   const BotMessage({super.key, required this.text, required this.time});

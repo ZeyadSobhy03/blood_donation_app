@@ -72,7 +72,7 @@ import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/repo
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/data/repositories/appointments/appointments_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/domain/use_case/accepted_requests/accepted_requests_use_case.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/domain/use_case/appointments/appointments_use_case.dart';
-import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/cubit/donation_schedule.dart';
+import 'package:blood_donation_app/core/cubits/donation_schedule.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/data/data_source/time_slots/time_slots_api_data_source.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/data/repositories/time_slots/time_slots_repositories_imp.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/donate/presentation/view/schedule_donation/domain/use_cases/time_slots/time_slots_use_case.dart';

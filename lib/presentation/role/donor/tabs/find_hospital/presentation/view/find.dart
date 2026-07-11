@@ -20,7 +20,7 @@ import '../../../../../../../core/cubits/map_cubit.dart';
 import '../../../../../../../core/resources/models/coordinates.dart';
 import '../../../../../../../core/resources/routes/route_manger.dart';
 
-import '../../../donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 import '../view_model/nearby_hospitals_view_model.dart';
 import '../../data/model/nearby_hospitals.dart';
 
@@ -179,7 +179,9 @@ class _FindHospitalState extends State<FindHospital> {
               final hasMore = cubit.hasMore;
 
               if (state is NearbyHospitalsLoadingState && hospitals.isEmpty) {
-                return const CustomLoadingWidget();
+                return const CustomLoadingWidget(
+                  indicatorColor: ColorManger.brightRed,
+                );
               }
 
               if (state is NearbyHospitalsErrorState && hospitals.isEmpty) {
@@ -294,7 +296,9 @@ class _FindHospitalState extends State<FindHospital> {
                       if (isLoadingMore)
                         Padding(
                           padding: EdgeInsets.symmetric(vertical: 16.h),
-                          child: const Center(child: CircularProgressIndicator()),
+                          child: const Center(child: CircularProgressIndicator(
+                            color: ColorManger.brightRed,
+                          )),
                         ),
 
                       if (!hasMore && hasData)

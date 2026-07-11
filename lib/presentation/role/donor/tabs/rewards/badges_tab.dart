@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/core/resources/colors/color_manger.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_error_widget.dart';
 import 'package:blood_donation_app/core/widgets/states/custom_loading_widget.dart';
 import 'package:blood_donation_app/presentation/role/donor/tabs/rewards/widgets/custom_badge_card.dart';
@@ -48,7 +49,9 @@ class _BadgesTabState extends State<BadgesTab> {
     return BlocBuilder<RewardsCubit, RewardsState>(
       builder: (context, state) {
         if (state is RewardsLoadingState) {
-          return  CustomLoadingWidget();
+          return  CustomLoadingWidget(
+            indicatorColor: ColorManger.brightRed,
+          );
         }
 
         if (state is RewardsErrorState) {

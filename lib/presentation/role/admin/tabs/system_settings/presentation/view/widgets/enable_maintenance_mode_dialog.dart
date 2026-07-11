@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../../../core/resources/colors/color_manger.dart';
 import '../../../../../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../../../../../l10n/app_localizations.dart';
-import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/widgets/custom_text_form_field.dart';
+import '../../../../../../donor/tabs/donate/presentation/view/schedule_donation/presentation/view/widgets/custom_text_form_field.dart';
 import '../../view_model/system_maintenance/system_maintenance_view_model.dart';
 import 'maintenance_warning_card.dart';
 

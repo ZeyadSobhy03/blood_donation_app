@@ -76,7 +76,9 @@ class _RewardsTabState extends State<RewardsTab> {
       buildWhen: (previous, current) => current is! RedeemSuccessState,
       builder: (context, state) {
         if (state is RewardsLoadingState) {
-          return const CustomLoadingWidget();
+          return const CustomLoadingWidget(
+            indicatorColor: ColorManger.brightRed,
+          );
         }
 
         if (state is RewardsErrorState) {
