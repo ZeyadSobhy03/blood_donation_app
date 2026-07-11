@@ -176,6 +176,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final dir = await getApplicationDocumentsDirectory();
 
+
+
   Hive.init(dir.path);
 
   await Hive.openBox('app_settings');
